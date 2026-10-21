@@ -1,0 +1,31 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-09-06T14:09:30.436Z,-6.2008,147.9374,48.957,4.5,mb,15,121,3.275,0.61,us,us7000i7xh,2022-11-15T19:06:17.040Z,"40 km NNE of Finschhafen, Papua New Guinea",earthquake,9.38,10.626,0.181,9,reviewed,us,us
+2022-09-10T23:47:00.233Z,-6.2944,146.5038,116,7.6,mww,272,12,3.158,0.62,us,us6000iitd,2022-11-19T23:02:16.040Z,"70 km E of Kainantu, Papua New Guinea",earthquake,7.8,1.827,0.037,70,reviewed,us,us
+2022-09-11T00:08:55.414Z,-6.1539,146.2595,107.788,4.6,mb,11,208,3.351,0.58,us,us6000iiub,2022-11-19T23:02:16.040Z,"46 km ENE of Kainantu, Papua New Guinea",earthquake,14.71,11.64,0.207,7,reviewed,us,us
+2022-09-11T00:13:01.779Z,-6.3697,146.6036,99.73,4.3,mb,16,86,3.065,0.49,us,us7000i99g,2022-11-19T23:03:32.040Z,"58 km NW of Lae, Papua New Guinea",earthquake,7.34,10.519,0.178,9,reviewed,us,us
+2022-09-11T00:42:38.253Z,-5.8222,146.0226,107.856,5,mb,135,33,3.734,0.47,us,us7000i73p,2022-11-19T23:02:34.040Z,"54 km NNE of Kainantu, Papua New Guinea",earthquake,8.22,5.219,0.054,109,reviewed,us,us
+2022-09-11T01:27:03.198Z,-6.2935,146.4677,105.844,4.5,mb,40,61,3.166,0.76,us,us7000i73u,2022-11-19T23:02:34.040Z,"66 km E of Kainantu, Papua New Guinea",earthquake,9.07,7.234,0.09,36,reviewed,us,us
+2022-09-11T15:15:34.279Z,-5.8994,147.1405,95.509,4.2,mb,24,61,3.483,0.61,us,us7000i9a7,2022-11-19T23:03:35.040Z,"92 km N of Lae, Papua New Guinea",earthquake,10.67,8.689,0.132,16,reviewed,us,us
+2022-09-11T18:12:30.383Z,-6.3112,146.8554,102.756,4.4,mb,15,151,3.088,0.77,us,us7000i9ac,2022-11-19T23:03:36.040Z,"48 km NNW of Lae, Papua New Guinea",earthquake,13.49,8.645,0.179,9,reviewed,us,us
+2022-09-12T15:00:10.470Z,-6.2806,146.3107,93.277,5,mww,67,51,3.216,0.7,us,us7000i7e9,2022-11-19T23:02:47.040Z,"eastern New Guinea region, Papua New Guinea",earthquake,4.83,6.231,0.089,12,reviewed,us,us
+2022-09-13T00:22:02.925Z,-6.1693,146.5582,109.905,4.3,mb,28,141,3.269,0.64,us,us7000i9th,2022-11-19T23:03:40.040Z,"77 km E of Kainantu, Papua New Guinea",earthquake,14.06,8.188,0.137,15,reviewed,us,us
+2022-09-13T01:44:14.878Z,-6.3007,146.7159,99.359,4.4,mb,28,98,3.115,0.46,us,us7000i7im,2022-11-19T23:02:51.040Z,"56 km NNW of Lae, Papua New Guinea",earthquake,4.72,7.977,0.13,17,reviewed,us,us
+2022-09-13T03:16:47.638Z,-6.1671,146.8209,79.225,4.2,mb,12,106,3.234,0.37,us,us7000i9tk,2022-11-19T23:03:40.040Z,"64 km NNW of Lae, Papua New Guinea",earthquake,12.63,7.695,0.186,8,reviewed,us,us
+2022-09-13T23:11:43.441Z,-6.232,146.3159,90.141,4.4,mb,21,153,3.261,0.3,us,us7000i7sn,2022-11-19T23:03:03.040Z,"50 km E of Kainantu, Papua New Guinea",earthquake,14.88,8.869,0.13,17,reviewed,us,us
+2022-09-14T02:51:16.964Z,-6.0274,146.5702,76.488,4.2,mb,20,144,3.406,0.61,us,us7000i9wg,2022-11-19T23:03:46.040Z,"83 km ENE of Kainantu, Papua New Guinea",earthquake,15.28,7.78,0.167,10,reviewed,us,us
+2022-09-14T09:36:00.939Z,-5.21,145.9927,139.998,4.3,mb,25,130,4.325,0.37,us,us7000i9wv,2022-11-19T23:03:47.040Z,"22 km E of Madang, Papua New Guinea",earthquake,11.01,8.037,0.119,20,reviewed,us,us
+2022-09-15T06:45:16.664Z,-5.304,147.0434,209.745,4.1,mb,15,183,4.076,0.28,us,us7000ia53,2022-11-19T23:03:49.040Z,"139 km E of Madang, Papua New Guinea",earthquake,15.63,8.389,0.166,10,reviewed,us,us
+2022-09-16T15:39:47.255Z,-5.9545,145.4861,100.289,4.9,mb,45,128,3.808,0.84,us,us7000i8lp,2022-11-19T23:03:30.040Z,"18 km NE of Goroka, Papua New Guinea",earthquake,11.42,7.222,0.071,62,reviewed,us,us
+2022-09-18T19:07:47.649Z,-6.2732,146.3479,96.301,4.4,mb,36,115,3.214,0.74,us,us7000i94f,2022-11-26T20:57:40.040Z,"53 km E of Kainantu, Papua New Guinea",earthquake,11.79,6.914,0.084,41,reviewed,us,us
+2022-09-19T04:29:05.115Z,-5.442,146.6241,157.853,5.4,mww,105,47,3.973,0.52,us,us7000i979,2022-11-26T20:57:41.040Z,"95 km ESE of Madang, Papua New Guinea",earthquake,8.99,4.624,0.057,30,reviewed,us,us
+2022-09-19T13:32:17.070Z,-6.1763,147.965,61.619,4.4,mb,18,85,3.305,0.66,us,us7000ib4x,2022-11-26T20:58:00.040Z,"eastern New Guinea region, Papua New Guinea",earthquake,9.54,8.387,0.144,15,reviewed,us,us
+2022-09-19T17:29:39.030Z,-5.653,146.2039,93.188,4.5,mb,45,70,3.846,0.71,us,us7000i9bm,2022-11-26T20:57:42.040Z,"66 km SE of Madang, Papua New Guinea",earthquake,5.3,6.336,0.083,43,reviewed,us,us
+2022-09-21T09:30:47.228Z,-5.49,147.0059,191,5.7,mww,129,28,3.892,0.66,us,us7000i9uu,2022-11-26T20:57:49.040Z,"136 km N of Lae, Papua New Guinea",earthquake,8.71,1.953,0.05,39,reviewed,us,us
+2022-09-21T15:49:40.972Z,-6.0736,147.4272,67.187,4.8,mb,44,48,3.32,0.41,us,us7000i9yl,2022-11-26T20:57:49.040Z,"70 km NW of Finschhafen, Papua New Guinea",earthquake,9.33,6.883,0.07,66,reviewed,us,us
+2022-09-22T19:22:07.145Z,-6.3656,147.1313,53.828,4.4,mb,43,56,3.02,1.06,us,us7000ia9x,2022-11-26T20:57:54.040Z,"42 km NNE of Lae, Papua New Guinea",earthquake,9.99,3.584,0.108,25,reviewed,us,us
+2022-09-27T08:46:56.563Z,-6.2116,146.6177,99.711,4,mb,24,97,3.218,0.89,us,us6000iqg4,2022-12-03T22:02:56.040Z,"eastern New Guinea region, Papua New Guinea",earthquake,10.34,8.37,0.195,7,reviewed,us,us
+2022-09-30T22:52:43.612Z,-6.1562,147.5393,52.782,4.3,mb,17,121,3.249,0.7,us,us6000irig,2022-12-03T22:03:16.040Z,"55 km NW of Finschhafen, Papua New Guinea",earthquake,11.89,9.23,0.16,11,reviewed,us,us
+2022-10-04T18:28:01.672Z,-6.6964,147.3821,10,4.2,mb,20,103,2.7,0.54,us,us6000ish3,2022-12-10T22:54:00.040Z,"42 km E of Lae, Papua New Guinea",earthquake,11.21,1.912,0.176,13,reviewed,us,us
+2022-10-04T18:51:25.160Z,-5.4668,147.0035,169.939,4.4,mb,25,71,3.916,1.12,us,us6000ish7,2022-12-10T22:54:00.040Z,"137 km ESE of Madang, Papua New Guinea",earthquake,8.91,8.246,0.144,17,reviewed,us,us
+2022-10-07T11:27:01.365Z,-5.5115,146.4532,10.39,4.3,mb,24,92,3.931,0.41,us,us6000itb3,2022-12-10T22:54:10.040Z,"80 km ESE of Madang, Papua New Guinea",earthquake,8.45,3.946,0.147,13,reviewed,us,us
+2022-10-08T10:45:01.746Z,-6.0089,146.7648,106.572,4,mb,17,96,3.396,0.57,us,us6000itcm,2022-12-17T22:54:02.040Z,"83 km NNW of Lae, Papua New Guinea",earthquake,7.38,10.507,0.183,8,reviewed,us,us

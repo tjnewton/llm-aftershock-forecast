@@ -1,0 +1,3 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2010-11-10T04:05:24.410Z,-45.464,96.394,10,6.5,mwc,267,26.2,,1.12,us,usp000hpc0,2022-05-02T22:24:44.870Z,"southeast Indian Ridge",earthquake,,,,,reviewed,us,us
+2010-11-10T09:33:06.050Z,-45.568,96.143,10,4.7,mb,16,137.7,,0.74,us,usp000hpc7,2014-11-07T01:42:53.659Z,"southeast Indian Ridge",earthquake,,,,6,reviewed,us,us

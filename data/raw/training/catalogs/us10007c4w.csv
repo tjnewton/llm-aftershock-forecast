@@ -1,0 +1,14 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-11-24T18:43:47.710Z,11.9097,-88.8968,10,6.9,mww,,20,1.796,1.02,us,us10007c4w,2022-05-03T19:49:51.611Z,"156 km SSW of Puerto El Triunfo, El Salvador",earthquake,5.6,1.6,,,reviewed,us,us
+2016-11-24T18:53:03.100Z,12.0379,-88.9043,10,5.1,mb,,192,1.669,0.64,us,us10007eb4,2017-02-15T23:21:39.040Z,"143 km SSW of Puerto El Triunfo, El Salvador",earthquake,7.1,1.9,0.119,23,reviewed,us,us
+2016-11-24T18:59:34.090Z,12.1659,-88.9872,10,4.3,md,,187,1.53,1.33,us,us10007nk5,2017-02-15T23:21:39.040Z,"132 km SSW of Puerto El Triunfo, El Salvador",earthquake,7.7,2,,,reviewed,us,snet
+2016-11-24T19:04:10.250Z,12.1186,-89.0667,10,4.7,mb,,192,1.567,1.04,us,us10007eap,2017-02-15T23:21:39.040Z,"140 km SSW of Puerto El Triunfo, El Salvador",earthquake,3.7,2,0.246,5,reviewed,us,us
+2016-11-24T21:05:10.910Z,12.1681,-89.0039,10,4.2,mb,,158,1.525,0.67,us,us10007c5l,2017-02-15T23:21:40.040Z,"132 km SSW of Puerto El Triunfo, El Salvador",earthquake,5,1.9,0.1,28,reviewed,us,us
+2016-11-24T23:22:35.970Z,12.1204,-89.0508,10,4.6,mb,,156,1.566,0.99,us,us10007c68,2017-02-15T23:21:40.040Z,"139 km SSW of Puerto El Triunfo, El Salvador",earthquake,7.5,1.9,0.049,124,reviewed,us,us
+2016-11-25T02:40:17.550Z,12.157,-89.006,10,4.7,mb,,145,1.536,0.9,us,us10007c7a,2017-02-23T00:11:46.040Z,"134 km SSW of Puerto El Triunfo, El Salvador",earthquake,6.5,1.9,0.044,155,reviewed,us,us
+2016-11-27T22:38:31.650Z,12.0055,-88.6538,22.2,4.5,mb,,190,1.71,0.92,us,us10007cu8,2017-02-23T00:11:51.040Z,"141 km S of Puerto El Triunfo, El Salvador",earthquake,6.1,8.1,0.083,43,reviewed,us,us
+2016-12-05T16:56:29.050Z,12.3068,-88.7743,19.67,4.5,mb,,206,1.442,0.91,us,us10007sk7,2017-03-03T07:06:04.040Z,"off the coast of Central America",earthquake,8.6,8.3,0.156,12,reviewed,us,us
+2016-12-07T07:15:35.590Z,11.9219,-88.8885,37.15,4.5,mb,,160,1.785,0.89,us,us10007gk0,2017-03-03T07:06:06.040Z,"155 km SSW of Puerto El Triunfo, El Salvador",earthquake,8,13.1,0.083,42,reviewed,us,us
+2016-12-09T10:06:10.360Z,12.035,-88.7444,35.72,5,mwr,,51,1.709,1.14,us,us20007zg3,2025-12-22T17:19:45.277Z,"139 km S of Puerto El Triunfo, El Salvador",earthquake,6.2,4.3,0.069,20,reviewed,us,us
+2016-12-14T20:05:19.200Z,11.9498,-88.8244,10,4.5,mb,,143,1.771,0.9,us,us10007m28,2017-03-09T02:14:31.040Z,"150 km SSW of Puerto El Triunfo, El Salvador",earthquake,7.5,1.9,0.109,25,reviewed,us,us
+2016-12-19T12:23:04.010Z,12.1876,-89.0819,44.78,4.3,mb,,151,1.497,0.82,us,us200082k3,2017-03-16T02:31:29.040Z,"134 km SSW of Puerto El Triunfo, El Salvador",earthquake,8.6,15.5,0.097,30,reviewed,us,us

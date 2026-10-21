@@ -1,0 +1,27 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-12-20T11:29:56.860Z,-43.6393,-75.4722,21.25,4.6,mb,,193,1.418,0.66,us,us10007rfa,2017-03-16T02:31:30.040Z,"161 km WSW of Quellón, Chile",earthquake,10.2,7.5,0.315,3,reviewed,us,us
+2016-12-25T14:22:27.010Z,-43.4064,-73.9413,38,7.6,mww,,29,0.355,0.79,us,us10007mn3,2024-04-17T11:07:38.805Z,"41 km SW of Quellón, Chile",earthquake,5.4,1.9,,,reviewed,us,us
+2016-12-25T14:32:13.310Z,-43.481,-74.4771,14.93,5.6,mb,,96,0.697,0.52,us,us10007mnb,2022-05-03T18:07:21.250Z,"80 km WSW of Quellón, Chile",earthquake,7.1,3.3,0.067,83,reviewed,us,us
+2016-12-25T15:17:01.430Z,-43.3023,-74.3707,29.99,4.3,mb,,207,0.549,0.63,us,us10007mnx,2017-03-23T22:52:02.040Z,"64 km WSW of Quellón, Chile",earthquake,7.4,7.3,0.188,8,reviewed,us,us
+2016-12-25T15:21:08.460Z,-43.2372,-74.3998,21.96,4,ml,,147,0.551,1.13,us,us10007mnz,2017-03-23T22:52:02.040Z,"65 km WSW of Quellón, Chile",earthquake,6.1,5,0.081,20,reviewed,us,us
+2016-12-25T15:41:48.790Z,-43.3292,-74.4485,14.56,4.4,mb,,227,0.612,0.57,us,us10007mp2,2017-03-23T22:52:02.040Z,"71 km WSW of Quellón, Chile",earthquake,7.4,6.4,0.219,6,reviewed,us,us
+2016-12-25T16:00:02.610Z,-43.3561,-74.2277,16.06,4.1,mb,,224,0.477,0.92,us,us10007mp7,2017-03-23T22:52:02.040Z,"56 km WSW of Quellón, Chile",earthquake,5.1,6.4,0.235,5,reviewed,us,us
+2016-12-25T16:07:56.730Z,-43.2379,-74.452,14.19,4.1,mb,,226,0.589,1.29,us,us10007mp8,2017-03-23T22:52:02.040Z,"69 km W of Quellón, Chile",earthquake,5,2.8,0.301,3,reviewed,us,us
+2016-12-25T17:03:38.520Z,-43.4082,-74.5922,14.28,4.5,mb,,191,0.738,0.81,us,us10007mpk,2017-03-23T22:52:02.040Z,"85 km WSW of Quellón, Chile",earthquake,6,2.9,0.191,8,reviewed,us,us
+2016-12-25T17:58:06.430Z,-43.3024,-74.5045,17.46,4.5,mb,,229,0.642,0.97,us,us10007mpz,2017-03-23T22:52:02.040Z,"74 km WSW of Quellón, Chile",earthquake,7.3,5.3,0.204,7,reviewed,us,us
+2016-12-25T20:48:11.670Z,-43.2794,-74.8351,14.24,4.1,mb,,237,0.871,1.3,us,us10007mqz,2017-03-23T22:52:03.040Z,"100 km W of Quellón, Chile",earthquake,6.5,8.5,0.522,1,reviewed,us,us
+2016-12-25T21:55:55.650Z,-43.4272,-74.5914,7.63,4.1,mwr,,202,0.745,0.74,us,us10007mr6,2017-03-23T22:52:03.040Z,"86 km WSW of Quellón, Chile",earthquake,5.6,6.4,0.075,17,reviewed,us,us
+2016-12-25T22:54:34.100Z,-43.2565,-74.4433,18.02,5.2,mwr,,130,0.587,0.74,us,us10007mrf,2017-03-23T22:52:03.040Z,"68 km WSW of Quellón, Chile",earthquake,4.9,3.7,,,reviewed,us,guc
+2016-12-26T00:12:28.370Z,-43.2804,-74.5585,10.94,4.2,mb,,228,0.674,0.45,us,us10007mrx,2022-08-07T11:32:09.172Z,"78 km WSW of Quellón, Chile",earthquake,3.6,4.9,0.304,3,reviewed,us,us
+2016-12-26T00:43:28.950Z,-43.3363,-74.487,21.45,4.1,mwr,,211,0.64,1.47,us,us10007ms4,2017-03-23T22:52:03.040Z,"74 km WSW of Quellón, Chile",earthquake,4,6.4,0.056,31,reviewed,us,us
+2016-12-26T16:02:30.150Z,-43.1025,-74.4791,15.34,4.3,mb,,154,0.596,0.84,us,us10007mwi,2017-03-23T22:52:04.040Z,"70 km W of Quellón, Chile",earthquake,4.6,5.2,0.266,4,reviewed,us,us
+2016-12-27T00:45:13.030Z,-43.3595,-74.3206,23.34,4.7,mwr,,223,0.538,0.7,us,us10007mym,2017-03-23T22:52:04.040Z,"63 km WSW of Quellón, Chile",earthquake,4.7,7.1,,,reviewed,us,guc
+2016-12-27T14:07:23.400Z,-43.4162,-74.0672,30.42,4.8,mwr,,137,0.421,0.63,us,us10007n0y,2017-03-23T22:52:05.040Z,"49 km SW of Quellón, Chile",earthquake,6.9,5.1,,,reviewed,us,guc
+2016-12-27T18:18:05.100Z,-43.2161,-74.2925,25.85,4.5,mwr,,133,0.47,0.79,us,us10007n24,2017-03-23T22:52:05.040Z,"56 km W of Quellón, Chile",earthquake,5.3,5,0.073,18,reviewed,us,us
+2016-12-28T22:18:41.780Z,-43.35,-74.3477,15.15,4.1,mb,,217,0.552,1.08,us,us10007nf2,2017-03-23T22:52:08.040Z,"64 km WSW of Quellón, Chile",earthquake,4.5,4.4,0.302,3,reviewed,us,us
+2016-12-28T23:51:54.760Z,-43.1386,-74.4594,19.42,4.1,mwr,,180,0.582,0.5,us,us10007nfi,2017-03-23T22:52:08.040Z,"68 km W of Quellón, Chile",earthquake,4.9,5,0.06,27,reviewed,us,us
+2017-01-01T17:47:02.460Z,-43.4535,-74.4927,18.98,4.2,mb,,190,0.693,1.33,us,us10007p3x,2017-03-27T23:53:17.040Z,"80 km WSW of Quellón, Chile",earthquake,7.6,5.9,0.159,11,reviewed,us,us
+2017-01-03T21:19:07.540Z,-43.3527,-74.5017,10.26,5.5,mww,,96,0.656,0.91,us,us10007piy,2022-05-03T18:16:52.674Z,"76 km WSW of Quellón, Chile",earthquake,4.1,1.7,0.071,19,reviewed,us,us
+2017-01-06T23:11:36.260Z,-43.2739,-74.1873,25.35,4.1,mwr,,170,0.414,0.95,us,us10007rs3,2017-03-27T23:53:25.040Z,"49 km WSW of Quellón, Chile",earthquake,6.4,4.5,0.073,18,reviewed,us,us
+2017-01-18T13:31:44.030Z,-43.267,-74.2329,26.25,4.5,mwr,,141,0.443,1.08,us,us10007txm,2017-04-12T02:29:00.040Z,"52 km WSW of Quellón, Chile",earthquake,5.1,5.2,0.055,32,reviewed,us,us
+2017-01-22T01:25:49.320Z,-43.1703,-74.2549,16.26,4.1,mb,,177,0.435,0.59,us,us10007upc,2017-04-19T18:30:54.040Z,"52 km W of Quellón, Chile",earthquake,5.3,4.8,0.301,3,reviewed,us,us

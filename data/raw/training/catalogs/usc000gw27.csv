@@ -1,0 +1,3 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2013-05-08T07:28:36.590Z,19.022,145.404,220,4.2,mb,39,83,,0.57,us,usc000gqte,2014-11-07T01:50:45.627Z,"Maug Islands region, Northern Mariana Islands",earthquake,,7.5,,26,reviewed,us,us
+2013-05-14T00:32:25.890Z,18.728,145.288,602.2,6.8,mww,131,18,,1.14,us,usc000gw27,2022-05-03T16:18:14.890Z,"Pagan region, Northern Mariana Islands",earthquake,,4.2,,,reviewed,us,us

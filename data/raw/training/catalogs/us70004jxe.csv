@@ -1,0 +1,12 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2019-07-14T05:39:23.420Z,-18.2242,120.3584,10,6.6,mww,,32,2.978,0.7,us,us70004jxe,2025-12-22T18:13:30.360Z,"198 km W of Cable Beach, Australia",earthquake,6.5,1.5,0.029,116,reviewed,us,us
+2019-07-14T07:26:36.127Z,-18.0076,120.4803,10,4.9,mb,,42,3.213,0.79,us,us70004jy7,2019-09-28T20:01:20.040Z,"183 km W of Cable Beach, Australia",earthquake,7.9,1.8,0.1,31,reviewed,us,us
+2019-07-14T10:58:00.228Z,-18.407,120.4184,10,4.6,mb,,91,2.813,0.91,us,us70004k0j,2019-09-28T20:01:21.040Z,"196 km WSW of Cable Beach, Australia",earthquake,9.6,1.9,0.146,14,reviewed,us,us
+2019-07-14T15:58:32.648Z,-18.1689,120.3277,10,4.5,mb,,85,3.027,0.95,us,us70004k49,2019-09-28T20:01:23.040Z,"200 km W of Cable Beach, Australia",earthquake,6.8,1.9,0.221,7,reviewed,us,us
+2019-07-14T21:33:50.889Z,-18.0833,120.3321,10,4.7,mb,,98,3.111,0.82,us,us70004k76,2019-09-28T20:01:23.040Z,"199 km W of Cable Beach, Australia",earthquake,8.8,1.9,0.194,8,reviewed,us,us
+2019-07-14T23:01:36.511Z,-18.2782,120.2792,10,5,mww,,28,2.912,0.74,us,us70004k8e,2025-12-22T18:13:28.083Z,"207 km W of Cable Beach, Australia",earthquake,5.7,1.7,0.086,13,reviewed,us,us
+2019-07-17T10:20:10.407Z,-18.4535,120.2826,10,4.6,mb,,84,2.741,1.05,us,us70004m50,2019-10-04T16:37:08.040Z,"211 km WSW of Cable Beach, Australia",earthquake,8.2,1.9,0.206,7,reviewed,us,us
+2019-07-19T09:21:27.935Z,-18.0965,120.2808,10,4.6,mb,,97,3.09,0.84,us,us70004nrm,2019-10-04T16:37:19.040Z,"205 km W of Cable Beach, Australia",earthquake,7,2,0.224,6,reviewed,us,us
+2019-07-20T00:18:02.751Z,-18.0599,120.2139,10,4.6,mb,,86,3.511,1.2,us,us70004pg7,2019-10-04T16:37:24.040Z,"211 km W of Cable Beach, Australia",earthquake,8.7,2,0.244,5,reviewed,us,us
+2019-07-25T19:06:15.505Z,-18.2225,120.3765,10,4,mb_lg,,96,2.983,0.94,us,us60004vi4,2019-10-11T20:12:30.040Z,"196 km W of Cable Beach, Australia",earthquake,7.2,1.8,0.18,8,reviewed,us,us
+2019-08-01T23:03:58.468Z,-18.3516,120.447,10,4.9,mb,,42,2.873,0.68,us,us60004yx2,2019-10-19T21:42:04.040Z,"191 km WSW of Cable Beach, Australia",earthquake,6.6,1.9,0.112,25,reviewed,us,us

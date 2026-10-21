@@ -1,0 +1,249 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2010-12-23T16:01:34.420Z,-19.723,168.469,58.6,5.3,mb,183,28.1,,1.34,us,usp000hrqg,2014-11-07T01:43:13.255Z,"87 km WSW of Isangel, Vanuatu",earthquake,,9.9,,104,reviewed,us,us
+2010-12-23T16:28:14.240Z,-19.908,168.596,39.3,5.6,mb,42,81.8,,1.38,us,usp000hrqj,2022-05-02T22:29:54.515Z,"82 km WSW of Isangel, Vanuatu",earthquake,,12,,20,reviewed,us,us
+2010-12-24T00:05:34.670Z,-19.847,168.531,10,5,mb,80,51.4,,1.39,us,usp000hrrs,2014-11-07T01:43:13.443Z,"85 km WSW of Isangel, Vanuatu",earthquake,,,,40,reviewed,us,us
+2010-12-25T13:16:37.000Z,-19.702,167.947,16,7.3,mwc,409,12,,1.17,us,usp000hrw0,2022-05-02T22:31:14.248Z,"141 km W of Isangel, Vanuatu",earthquake,,,,,reviewed,us,us
+2010-12-25T13:27:45.290Z,-19.467,167.919,10,5.3,mb,13,109.9,,1.17,us,usp000hrw1,2014-11-07T01:43:14.149Z,"143 km W of Isangel, Vanuatu",earthquake,,,,2,reviewed,us,us
+2010-12-25T13:44:04.930Z,-19.132,167.912,10,4.6,mb,15,143.2,,1.28,us,usp000hrw2,2014-11-07T01:43:14.151Z,"150 km WNW of Isangel, Vanuatu",earthquake,,,,3,reviewed,us,us
+2010-12-25T13:49:20.420Z,-19.212,167.999,10,4.5,mb,29,76.4,,1.26,us,usp000hrw3,2014-11-07T01:43:14.153Z,"139 km WNW of Isangel, Vanuatu",earthquake,,,,6,reviewed,us,us
+2010-12-25T13:53:00.590Z,-19.62,168.133,10,4.2,mb,20,113,,1.18,us,usp000hrw4,2014-11-07T01:43:14.156Z,"120 km W of Isangel, Vanuatu",earthquake,,,,1,reviewed,us,us
+2010-12-25T13:59:02.040Z,-19.307,168.002,10,5.5,mb,159,25.4,,1.16,us,usp000hrw5,2022-05-02T22:31:15.521Z,"136 km W of Isangel, Vanuatu",earthquake,,,,89,reviewed,us,us
+2010-12-25T14:01:13.000Z,-19.709,167.985,10,4.2,mb,14,131.2,,0.78,us,usp000hrw6,2014-11-07T01:43:14.180Z,"137 km W of Isangel, Vanuatu",earthquake,,,,2,reviewed,us,us
+2010-12-25T14:14:18.810Z,-19.419,168.039,10,4.5,mb,14,84.4,,1.06,us,usp000hrwb,2014-11-07T01:43:14.205Z,"Vanuatu",earthquake,,,,2,reviewed,us,us
+2010-12-25T14:24:34.560Z,-19.509,168.152,10,4.6,mb,19,78.3,,1.1,us,usp000hrwf,2014-11-07T01:43:14.220Z,"118 km W of Isangel, Vanuatu",earthquake,,,,2,reviewed,us,us
+2010-12-25T14:37:49.330Z,-19.513,167.958,10,4.1,mb,16,97,,1.09,us,usp000hrwg,2014-11-07T01:43:14.222Z,"138 km W of Isangel, Vanuatu",earthquake,,,,2,reviewed,us,us
+2010-12-25T14:44:23.890Z,-19.467,168.103,10,4.7,mb,27,119.8,,0.89,us,usp000hrwj,2014-11-07T01:43:14.226Z,"124 km W of Isangel, Vanuatu",earthquake,,,,1,reviewed,us,us
+2010-12-25T14:44:35.980Z,-19.361,167.954,10,5.4,mb,86,77,,1.28,us,usp000hrwk,2022-05-02T22:36:31.440Z,"Vanuatu region",earthquake,,,,48,reviewed,us,us
+2010-12-25T14:59:50.350Z,-19.676,168.193,10,4.6,mb,16,134.2,,1.03,us,usp000hrwm,2014-11-07T01:43:14.235Z,"115 km W of Isangel, Vanuatu",earthquake,,,,5,reviewed,us,us
+2010-12-25T15:01:39.160Z,-19.904,168.245,10,4.3,mb,15,139.1,,0.74,us,usp000hrwn,2014-11-07T01:43:14.237Z,"115 km WSW of Isangel, Vanuatu",earthquake,,,,2,reviewed,us,us
+2010-12-25T15:04:16.430Z,-19.361,167.973,10,5.1,mb,40,99.5,,1.03,us,usp000hrwp,2014-11-07T01:43:14.239Z,"138 km W of Isangel, Vanuatu",earthquake,,,,13,reviewed,us,us
+2010-12-25T15:24:44.770Z,-19.357,167.968,10,4.8,mb,26,48.1,,1.16,us,usp000hrwr,2014-11-07T01:43:14.245Z,"Vanuatu region",earthquake,,,,4,reviewed,us,us
+2010-12-25T15:26:18.300Z,-19.467,168.023,10,5.3,mb,80,77.7,,0.97,us,usp000hrws,2014-11-07T01:43:14.248Z,"132 km W of Isangel, Vanuatu",earthquake,,,,44,reviewed,us,us
+2010-12-25T15:28:34.310Z,-19.678,167.955,10,5.2,mb,112,52,,0.91,us,usp000hrwt,2014-11-07T01:43:14.254Z,"139 km W of Isangel, Vanuatu",earthquake,,,,22,reviewed,us,us
+2010-12-25T16:22:11.600Z,-19.321,167.928,10,5,mb,75,51.6,,1.02,us,usp000hrwy,2014-11-07T01:43:14.272Z,"144 km W of Isangel, Vanuatu",earthquake,,,,21,reviewed,us,us
+2010-12-25T16:47:35.280Z,-19.636,167.987,10,5.2,mb,54,78.4,,1.12,us,usp000hrx0,2014-11-07T01:43:14.280Z,"136 km W of Isangel, Vanuatu",earthquake,,,,27,reviewed,us,us
+2010-12-25T16:49:04.350Z,-19.49,168.082,10,4.8,mb,25,97.4,,1.29,us,usp000hrx1,2014-11-07T01:43:14.284Z,"126 km W of Isangel, Vanuatu",earthquake,,,,2,reviewed,us,us
+2010-12-25T16:53:57.010Z,-19.291,167.97,10,5.2,mb,63,76.7,,1.28,us,usp000hrx3,2014-11-07T01:43:14.289Z,"140 km WNW of Isangel, Vanuatu",earthquake,,,,35,reviewed,us,us
+2010-12-25T17:02:27.160Z,-19.318,167.942,10,5.1,mb,89,81.4,,1.29,us,usp000hrx4,2014-11-07T01:43:14.294Z,"142 km W of Isangel, Vanuatu",earthquake,,,,48,reviewed,us,us
+2010-12-25T17:05:58.400Z,-19.76,168.151,10,4.3,mb,11,110.1,,1.67,us,usp000hrx5,2014-11-07T01:43:14.301Z,"121 km WSW of Isangel, Vanuatu",earthquake,,,,1,reviewed,us,us
+2010-12-25T17:11:41.900Z,-19.396,167.947,10,5.1,mb,66,97.1,,1.14,us,usp000hrx6,2014-11-07T01:43:14.303Z,"141 km W of Isangel, Vanuatu",earthquake,,,,39,reviewed,us,us
+2010-12-25T17:14:35.370Z,-19.508,167.778,10,4.4,mb,8,152.5,,1.17,us,usp000hrx7,2014-11-07T01:43:14.308Z,"157 km W of Isangel, Vanuatu",earthquake,,,,1,reviewed,us,us
+2010-12-25T17:33:59.200Z,-19.605,167.976,10,4.4,mb,16,78.2,,1.42,us,usp000hrx8,2014-11-07T01:43:14.309Z,"137 km W of Isangel, Vanuatu",earthquake,,,,3,reviewed,us,us
+2010-12-25T17:59:04.160Z,-19.605,168.15,10,4.4,mb,15,110.3,,1.59,us,usp000hrxa,2014-11-07T01:43:14.327Z,"118 km W of Isangel, Vanuatu",earthquake,,,,2,reviewed,us,us
+2010-12-25T18:28:23.700Z,-19.469,168.066,10,5,mb,57,54.9,,1.47,us,usp000hrxc,2014-11-07T01:43:14.330Z,"127 km W of Isangel, Vanuatu",earthquake,,,,22,reviewed,us,us
+2010-12-25T18:38:49.180Z,-19.66,168.224,10,5.4,mb,114,94.1,,0.95,us,usp000hrxe,2014-11-07T01:43:14.337Z,"111 km W of Isangel, Vanuatu",earthquake,,,,34,reviewed,us,us
+2010-12-25T18:40:15.790Z,-19.808,168.272,10,5.2,mb,39,99,,1.07,us,usp000hrxf,2014-11-07T01:43:14.346Z,"109 km WSW of Isangel, Vanuatu",earthquake,,,,12,reviewed,us,us
+2010-12-25T18:52:30.820Z,-19.323,167.975,10,5.3,mb,97,93.8,,1.02,us,usp000hrxh,2014-11-07T01:43:14.354Z,"139 km W of Isangel, Vanuatu",earthquake,,,,50,reviewed,us,us
+2010-12-25T19:03:46.760Z,-19.41,168.043,10,4.4,mb,18,140.5,,1,us,usp000hrxm,2014-11-07T01:43:14.364Z,"130 km W of Isangel, Vanuatu",earthquake,,,,4,reviewed,us,us
+2010-12-25T19:08:36.540Z,-19.621,168.203,10,4.8,mb,22,97.5,,1.09,us,usp000hrxn,2014-11-07T01:43:14.366Z,"113 km W of Isangel, Vanuatu",earthquake,,,,5,reviewed,us,us
+2010-12-25T19:10:40.950Z,-19.828,168.397,10,4.7,mb,17,134,,1.16,us,usp000hrxp,2014-11-07T01:43:14.368Z,"98 km WSW of Isangel, Vanuatu",earthquake,,,,4,reviewed,us,us
+2010-12-25T19:16:43.160Z,-19.446,168.043,10,4.7,mb,30,97.3,,1.31,us,usp000hrxq,2014-11-07T01:43:14.370Z,"130 km W of Isangel, Vanuatu",earthquake,,,,11,reviewed,us,us
+2010-12-25T20:04:03.300Z,-19.327,168.095,10,4.4,mb,21,97.6,,1.42,us,usp000hrxx,2014-11-07T01:43:14.417Z,"126 km W of Isangel, Vanuatu",earthquake,,,,4,reviewed,us,us
+2010-12-25T20:33:53.350Z,-19.493,167.873,10,4.5,mb,23,59.8,,1.47,us,usp000hry4,2014-11-07T01:43:14.452Z,"147 km W of Isangel, Vanuatu",earthquake,,,,2,reviewed,us,us
+2010-12-25T20:41:26.220Z,-19.378,168.14,10,4.6,mb,12,141.7,,1.09,us,usp000hry6,2014-11-07T01:43:14.459Z,"121 km W of Isangel, Vanuatu",earthquake,,,,3,reviewed,us,us
+2010-12-25T21:47:48.900Z,-19.721,168.02,10,4.7,mb,41,37.3,,0.73,us,usp000hrye,2014-11-07T01:43:14.490Z,"133 km W of Isangel, Vanuatu",earthquake,,,,22,reviewed,us,us
+2010-12-25T21:53:06.920Z,-19.954,168.2,10,4.3,mb,20,122.7,,0.79,us,usp000hryf,2014-11-07T01:43:14.493Z,"122 km WSW of Isangel, Vanuatu",earthquake,,,,10,reviewed,us,us
+2010-12-25T22:09:01.930Z,-19.447,168.196,10,4.6,mb,32,97.7,,0.71,us,usp000hryk,2014-11-07T01:43:14.505Z,"114 km W of Isangel, Vanuatu",earthquake,,,,11,reviewed,us,us
+2010-12-25T22:26:02.080Z,-19.833,168.096,10,5.2,mwc,107,79.7,,0.96,us,usp000hryq,2025-12-22T15:56:14.905Z,"128 km WSW of Isangel, Vanuatu",earthquake,,,,,reviewed,us,gcmt
+2010-12-25T22:30:26.140Z,-19.87,168.319,10,4.4,mb,20,174.2,,0.78,us,usp000hryr,2014-11-07T01:43:14.524Z,"107 km WSW of Isangel, Vanuatu",earthquake,,,,9,reviewed,us,us
+2010-12-25T22:33:33.210Z,-19.879,168.385,18.7,4.4,mb,25,89.9,,0.5,us,usp000hryt,2014-11-07T01:43:14.528Z,"101 km WSW of Isangel, Vanuatu",earthquake,,16.5,,11,reviewed,us,us
+2010-12-25T22:41:31.130Z,-19.342,167.933,23.8,5,mb,85,76.8,,0.95,us,usp000hryu,2014-11-07T01:43:14.530Z,"143 km W of Isangel, Vanuatu",earthquake,,14.2,,31,reviewed,us,us
+2010-12-25T23:13:05.390Z,-19.541,168.221,10,4.4,mb,18,81.3,,0.7,us,usp000hryy,2014-11-07T01:43:14.556Z,"111 km W of Isangel, Vanuatu",earthquake,,,,8,reviewed,us,us
+2010-12-25T23:17:14.950Z,-20.002,168.28,3.2,4.5,mb,25,90.5,,0.66,us,usp000hrz1,2014-11-07T01:43:14.568Z,"116 km WSW of Isangel, Vanuatu",earthquake,,20.2,,13,reviewed,us,us
+2010-12-25T23:20:22.480Z,-19.648,168.014,10,5.1,mb,46,78.5,,1.3,us,usp000hrz2,2014-11-07T01:43:14.571Z,"133 km W of Isangel, Vanuatu",earthquake,,,,22,reviewed,us,us
+2010-12-25T23:22:01.520Z,-20.126,168.513,10,4.5,mb,16,149.7,,0.74,us,usp000hrz3,2014-11-07T01:43:14.575Z,"103 km SW of Isangel, Vanuatu",earthquake,,,,8,reviewed,us,us
+2010-12-25T23:36:24.790Z,-19.981,168.315,11.2,4.5,mb,19,104.8,,0.95,us,usp000hrz6,2014-11-07T01:43:14.580Z,"112 km WSW of Isangel, Vanuatu",earthquake,,23.4,,8,reviewed,us,us
+2010-12-25T23:47:03.370Z,-19.4,167.969,10.3,4.2,mb,18,77.9,,0.91,us,usp000hrz7,2014-11-07T01:43:14.582Z,"138 km W of Isangel, Vanuatu",earthquake,,25.4,,8,reviewed,us,us
+2010-12-25T23:56:55.690Z,-19.511,168.498,10,4.9,mb,41,88.4,,1.47,us,usp000hrz8,2014-11-07T01:43:14.584Z,"82 km W of Isangel, Vanuatu",earthquake,,,,20,reviewed,us,us
+2010-12-26T00:12:37.020Z,-19.506,168.101,10,5.1,mb,60,49,,0.95,us,usp000hrzb,2014-11-07T01:43:14.605Z,"123 km W of Isangel, Vanuatu",earthquake,,,,33,reviewed,us,us
+2010-12-26T01:00:21.190Z,-19.937,168.181,10,5.3,mwc,243,24.1,,0.9,us,usp000hrze,2025-12-22T15:56:16.048Z,"123 km WSW of Isangel, Vanuatu",earthquake,,,,,reviewed,us,gcmt
+2010-12-26T01:06:08.540Z,-19.844,168.545,10,4.7,mb,10,249.3,,0.56,us,usp000hrzg,2014-11-07T01:43:14.665Z,"84 km WSW of Isangel, Vanuatu",earthquake,,,,5,reviewed,us,us
+2010-12-26T01:12:02.280Z,-19.445,168.06,10,4.8,mb,47,52.7,,0.9,us,usp000hrzh,2014-11-07T01:43:14.666Z,"128 km W of Isangel, Vanuatu",earthquake,,,,16,reviewed,us,us
+2010-12-26T01:21:23.880Z,-19.84,167.875,10,4.2,mb,17,47.9,,0.97,us,usp000hrzk,2014-11-07T01:43:14.674Z,"135 km NNE of Wé, New Caledonia",earthquake,,,,2,reviewed,us,us
+2010-12-26T01:25:30.300Z,-19.827,168.207,10,4.7,mb,28,97.3,,1.05,us,usp000hrzm,2014-11-07T01:43:14.715Z,"117 km WSW of Isangel, Vanuatu",earthquake,,,,9,reviewed,us,us
+2010-12-26T01:40:53.480Z,-19.866,168.261,10,4.6,mb,20,155.7,,0.85,us,usp000hrzn,2014-11-07T01:43:14.720Z,"112 km WSW of Isangel, Vanuatu",earthquake,,,,6,reviewed,us,us
+2010-12-26T01:50:36.020Z,-19.44,168.145,10,4.6,mb,23,65.6,,1.03,us,usp000hrzp,2014-11-07T01:43:14.792Z,"119 km W of Isangel, Vanuatu",earthquake,,,,7,reviewed,us,us
+2010-12-26T02:00:04.090Z,-19.449,167.989,10,4.6,mb,27,81.8,,1.13,us,usp000hrzr,2014-11-07T01:43:14.804Z,"136 km W of Isangel, Vanuatu",earthquake,,,,9,reviewed,us,us
+2010-12-26T02:13:37.680Z,-19.616,168.284,13,6,mwb,300,25.1,,0.93,us,usp000hrzt,2022-05-02T22:31:20.688Z,"105 km W of Isangel, Vanuatu",earthquake,,,,,reviewed,us,us
+2010-12-26T02:21:08.210Z,-19.647,168.249,10,4.8,mb,41,82.9,,0.72,us,usp000hrzu,2014-11-07T01:43:14.916Z,"108 km W of Isangel, Vanuatu",earthquake,,,,13,reviewed,us,us
+2010-12-26T02:26:47.220Z,-19.734,168.292,10,4.5,mb,20,135.7,,0.93,us,usp000hrzx,2014-11-07T01:43:14.927Z,"105 km WSW of Isangel, Vanuatu",earthquake,,,,6,reviewed,us,us
+2010-12-26T02:28:58.490Z,-19.535,168.063,10,4.4,mb,18,82.1,,0.76,us,usp000hrzy,2014-11-07T01:43:14.930Z,"127 km W of Isangel, Vanuatu",earthquake,,,,6,reviewed,us,us
+2010-12-26T02:30:33.280Z,-19.569,168.126,10,4.5,mb,25,44.6,,1.02,us,usp000hrzz,2014-11-07T01:43:14.932Z,"121 km W of Isangel, Vanuatu",earthquake,,,,9,reviewed,us,us
+2010-12-26T02:43:51.180Z,-19.842,168.33,10,4.7,mb,38,97.6,,0.98,us,usp000hs01,2014-11-07T01:43:14.937Z,"105 km WSW of Isangel, Vanuatu",earthquake,,,,10,reviewed,us,us
+2010-12-26T02:48:31.350Z,-19.674,168.362,10,4.7,mb,35,83.2,,0.97,us,usp000hs03,2014-11-07T01:43:14.943Z,"97 km W of Isangel, Vanuatu",earthquake,,,,11,reviewed,us,us
+2010-12-26T03:15:20.200Z,-19.355,168.042,10,4.5,mb,25,52.7,,1.21,us,usp000hs04,2014-11-07T01:43:14.946Z,"131 km W of Isangel, Vanuatu",earthquake,,,,5,reviewed,us,us
+2010-12-26T03:26:04.420Z,-19.444,168.067,10,4.8,mb,38,52.7,,1.11,us,usp000hs06,2014-11-07T01:43:14.950Z,"127 km W of Isangel, Vanuatu",earthquake,,,,12,reviewed,us,us
+2010-12-26T06:17:57.420Z,-19.742,168.207,10,5.4,mwc,149,35.5,,0.85,us,usp000hs0m,2025-12-22T15:57:09.311Z,"114 km W of Isangel, Vanuatu",earthquake,,,,,reviewed,us,gcmt
+2010-12-26T06:27:37.410Z,-19.452,167.924,10,4.6,mb,13,93.1,,0.7,us,usp000hs0n,2014-11-07T01:43:15.065Z,"142 km W of Isangel, Vanuatu",earthquake,,,,3,reviewed,us,us
+2010-12-26T06:52:47.190Z,-19.745,168.233,10,4.9,mwc,61,79.7,,0.89,us,usp000hs0u,2016-11-10T02:38:10.128Z,"112 km WSW of Isangel, Vanuatu",earthquake,,,,,reviewed,us,gcmt
+2010-12-26T10:00:00.250Z,-19.927,168.13,10,5.2,mb,77,109.6,,0.99,us,usp000hs18,2014-11-07T01:43:15.326Z,"128 km WSW of Isangel, Vanuatu",earthquake,,,,44,reviewed,us,us
+2010-12-26T10:33:12.340Z,-19.486,168.088,10,5.3,mb,90,78,,1.11,us,usp000hs1a,2014-11-07T01:43:15.333Z,"125 km W of Isangel, Vanuatu",earthquake,,,,50,reviewed,us,us
+2010-12-26T11:46:31.300Z,-19.787,168.268,10,4.6,mb,16,111.3,,1.26,us,usp000hs1g,2014-11-07T01:43:15.362Z,"109 km WSW of Isangel, Vanuatu",earthquake,,,,6,reviewed,us,us
+2010-12-26T11:58:14.650Z,-19.49,168.042,10,4.8,mb,23,97.3,,1.2,us,usp000hs1h,2014-11-07T01:43:15.364Z,"130 km W of Isangel, Vanuatu",earthquake,,,,9,reviewed,us,us
+2010-12-26T13:34:04.300Z,-19.842,168.213,10,5,mwc,78,83.1,,1.05,us,usp000hs1r,2025-12-22T15:56:18.439Z,"116 km WSW of Isangel, Vanuatu",earthquake,,,,,reviewed,us,gcmt
+2010-12-26T13:52:43.690Z,-19.795,168.279,10,4.4,mb,8,131.6,,1.23,us,usp000hs1t,2014-11-07T01:43:15.415Z,"108 km WSW of Isangel, Vanuatu",earthquake,,,,1,reviewed,us,us
+2010-12-26T14:14:14.880Z,-19.999,168.14,10,4.6,mb,13,139.1,,1.36,us,usp000hs1v,2014-11-07T01:43:15.426Z,"129 km WSW of Isangel, Vanuatu",earthquake,,,,1,reviewed,us,us
+2010-12-26T14:15:49.270Z,-19.925,168.312,10,4.3,mb,7,201.4,,0.68,us,usp000hs1w,2014-11-07T01:43:15.428Z,"110 km WSW of Isangel, Vanuatu",earthquake,,0,,1,reviewed,us,us
+2010-12-26T15:18:48.520Z,-19.696,168.174,10,4.6,mb,17,100.2,,1.27,us,usp000hs20,2014-11-07T01:43:15.441Z,"117 km W of Isangel, Vanuatu",earthquake,,,,3,reviewed,us,us
+2010-12-26T19:10:42.200Z,-19.686,168.326,10,4.3,mb,23,79.8,,1.23,us,usp000hs2f,2014-11-07T01:43:15.479Z,"101 km W of Isangel, Vanuatu",earthquake,,,,3,reviewed,us,us
+2010-12-26T19:38:21.440Z,-19.636,168.261,10,5.5,mwc,196,32.3,,1.13,us,usp000hs2h,2022-05-02T22:31:21.952Z,"107 km W of Isangel, Vanuatu",earthquake,,,,,reviewed,us,gcmt
+2010-12-26T23:02:26.710Z,-19.488,168.074,10,4.6,mb,38,60.3,,0.97,us,usp000hs2v,2014-11-07T01:43:15.537Z,"126 km W of Isangel, Vanuatu",earthquake,,,,20,reviewed,us,us
+2010-12-26T23:32:11.000Z,-19.8,167.756,9.1,5,mb,18,49.4,,0.38,us,usp000hs2w,2014-11-07T01:43:15.540Z,"133 km NNE of Wé, New Caledonia",earthquake,,27.3,,10,reviewed,us,us
+2010-12-26T23:36:05.870Z,-19.786,168.171,5.1,4.2,mb,19,104.2,,0.88,us,usp000hs2x,2014-11-07T01:43:15.542Z,"119 km WSW of Isangel, Vanuatu",earthquake,,26.6,,6,reviewed,us,us
+2010-12-27T00:49:03.270Z,-19.687,167.856,10,4.3,mb,20,71.6,,0.61,us,usp000hs31,2014-11-07T01:43:15.551Z,"149 km NNE of Wé, New Caledonia",earthquake,,,,9,reviewed,us,us
+2010-12-27T01:51:25.240Z,-19.359,167.802,10,5,mwc,74,76.5,,1.2,us,usp000hs33,2025-12-22T15:56:20.710Z,"156 km W of Isangel, Vanuatu",earthquake,,,,,reviewed,us,gcmt
+2010-12-27T05:44:10.790Z,-19.59,167.94,10,5.2,mb,54,48.8,,0.98,us,usp000hs3e,2014-11-07T01:43:15.617Z,"140 km W of Isangel, Vanuatu",earthquake,,,,15,reviewed,us,us
+2010-12-27T07:07:31.310Z,-19.914,168.5,10,4.3,mb,10,172.7,,1.39,us,usp000hs3j,2014-11-07T01:43:15.648Z,"91 km WSW of Isangel, Vanuatu",earthquake,,,,2,reviewed,us,us
+2010-12-27T09:00:20.440Z,-19.732,168.369,10,5,mb,33,80.1,,0.99,us,usp000hs3w,2014-11-07T01:43:15.696Z,"Vanuatu",earthquake,,,,5,reviewed,us,us
+2010-12-27T16:43:48.440Z,-19.086,167.926,10,5.1,mwc,51,80.9,,1.14,us,usp000hs4m,2025-12-22T15:56:24.210Z,"Vanuatu region",earthquake,,,,,reviewed,us,gcmt
+2010-12-27T19:40:12.650Z,-19.311,167.96,10,5.5,mwc,181,27.1,,0.96,us,usp000hs50,2022-05-02T22:30:44.379Z,"141 km W of Isangel, Vanuatu",earthquake,,,,,reviewed,us,gcmt
+2010-12-27T20:33:15.780Z,-19.864,168.219,10,5.2,mb,46,101.2,,1.25,us,usp000hs53,2014-11-07T01:43:15.851Z,"116 km WSW of Isangel, Vanuatu",earthquake,,,,15,reviewed,us,us
+2010-12-27T20:38:29.670Z,-19.399,168.006,10,4,mb,15,102.7,,1.03,us,usp000hs54,2014-11-07T01:43:15.855Z,"134 km W of Isangel, Vanuatu",earthquake,,,,1,reviewed,us,us
+2010-12-27T21:04:44.210Z,-19.998,168.231,10,4.9,mwc,75,97.2,,0.93,us,usp000hs58,2016-11-10T02:38:22.220Z,"121 km WSW of Isangel, Vanuatu",earthquake,,,,,reviewed,us,gcmt
+2010-12-27T21:36:41.590Z,-20.056,168.214,14.1,5.1,mb,42,83.5,,1.16,us,usp000hs5a,2014-11-07T01:43:15.875Z,"125 km WSW of Isangel, Vanuatu",earthquake,,28,,19,reviewed,us,us
+2010-12-27T22:46:48.290Z,-19.426,168.413,10,4.9,mb,28,77.5,,1.26,us,usp000hs5g,2014-11-07T01:43:15.890Z,"92 km W of Isangel, Vanuatu",earthquake,,,,10,reviewed,us,us
+2010-12-27T23:53:07.870Z,-19.867,168.282,10,4.9,mwc,157,63.3,,1.11,us,usp000hs5h,2016-11-10T02:38:22.857Z,"110 km WSW of Isangel, Vanuatu",earthquake,,,,,reviewed,us,gcmt
+2010-12-28T02:20:29.680Z,-19.378,168.069,10,5.2,mb,56,140.5,,1.13,us,usp000hs5v,2014-11-07T01:43:15.940Z,"128 km W of Isangel, Vanuatu",earthquake,,,,23,reviewed,us,us
+2010-12-28T03:48:09.620Z,-19.385,168.101,10,4.9,mwc,24,118.3,,1,us,usp000hs61,2016-11-10T02:38:24.123Z,"125 km W of Isangel, Vanuatu",earthquake,,,,,reviewed,us,gcmt
+2010-12-28T03:49:51.180Z,-19.33,168.034,10,4.3,mb,22,118.3,,1.09,us,usp000hs62,2014-11-07T01:43:15.964Z,"133 km W of Isangel, Vanuatu",earthquake,,,,4,reviewed,us,us
+2010-12-28T06:54:46.860Z,-19.282,168.017,10,5,mb,21,128.3,,1.08,us,usp000hs6b,2014-11-07T01:43:15.995Z,"135 km WNW of Isangel, Vanuatu",earthquake,,,,4,reviewed,us,us
+2010-12-28T12:09:53.080Z,-19.947,168.043,10,5.2,mb,49,82.4,,1.29,us,usp000hs6q,2014-11-07T01:43:16.076Z,"134 km NE of Wé, New Caledonia",earthquake,,,,23,reviewed,us,us
+2010-12-28T15:00:49.830Z,-19.442,168.044,10,4.4,mb,14,160.6,,0.97,us,usp000hs6v,2014-11-07T01:43:16.091Z,"Vanuatu",earthquake,,,,3,reviewed,us,us
+2010-12-28T18:19:18.140Z,-20.155,168.39,10,4.4,mb,12,146.4,,1.55,us,usp000hs70,2014-11-07T01:43:16.116Z,"115 km SW of Isangel, Vanuatu",earthquake,,,,1,reviewed,us,us
+2010-12-28T20:07:13.930Z,-19.451,168.038,10,4.5,mb,12,160.6,,1,us,usp000hs75,2014-11-07T01:43:16.134Z,"130 km W of Isangel, Vanuatu",earthquake,,,,2,reviewed,us,us
+2010-12-28T20:45:06.180Z,-20.212,168.66,10,4.3,mb,14,151.8,,1.61,us,usp000hs76,2014-11-07T01:43:16.136Z,"98 km SW of Isangel, Vanuatu",earthquake,,,,1,reviewed,us,us
+2010-12-28T21:43:50.150Z,-19.385,168.014,10.4,5.2,mwc,168,28.6,,0.92,us,usp000hs78,2025-12-22T15:57:11.638Z,"134 km W of Isangel, Vanuatu",earthquake,,4.4,,,reviewed,us,gcmt
+2010-12-28T22:02:18.340Z,-19.441,168.052,10,5,mwc,107,116.4,,1.06,us,usp000hs79,2025-12-22T15:56:27.723Z,"129 km W of Isangel, Vanuatu",earthquake,,,,,reviewed,us,gcmt
+2010-12-28T23:13:00.570Z,-19.405,167.978,10,4.8,mb,45,99.5,,1.14,us,usp000hs7c,2014-11-07T01:43:16.179Z,"137 km W of Isangel, Vanuatu",earthquake,,,,20,reviewed,us,us
+2010-12-29T04:20:38.480Z,-19.737,168.182,10,4.5,mb,17,135.1,,1.4,us,usp000hs7u,2014-11-07T01:43:16.230Z,"117 km W of Isangel, Vanuatu",earthquake,,,,4,reviewed,us,us
+2010-12-29T06:54:19.640Z,-19.661,168.14,16,6.4,mwc,372,20.2,,1.27,us,usp000hs82,2022-05-02T19:51:34.064Z,"120 km W of Isangel, Vanuatu",earthquake,,,,,reviewed,us,us
+2010-12-29T07:02:17.340Z,-19.701,168.123,10,5.5,mb,88,52.2,,1.29,us,usp000hs83,2022-05-02T22:36:33.045Z,"122 km W of Isangel, Vanuatu",earthquake,,,,51,reviewed,us,us
+2010-12-29T07:09:24.940Z,-19.529,168.109,10,5.2,mb,38,53.6,,1.32,us,usp000hs84,2014-11-07T01:43:16.320Z,"123 km W of Isangel, Vanuatu",earthquake,,,,7,reviewed,us,us
+2010-12-29T07:43:54.840Z,-19.982,168.438,10,4.4,mb,14,146.8,,1.08,us,usp000hs86,2014-11-07T01:43:16.325Z,"100 km WSW of Isangel, Vanuatu",earthquake,,,,2,reviewed,us,us
+2010-12-29T09:46:19.020Z,-19.497,168.217,10,5,mb,46,78.5,,1.12,us,usp000hs8d,2014-11-07T01:43:16.345Z,"111 km W of Isangel, Vanuatu",earthquake,,,,17,reviewed,us,us
+2010-12-29T09:59:28.410Z,-19.613,168.221,10,4.8,mb,46,79,,0.87,us,usp000hs8e,2014-11-07T01:43:16.349Z,"111 km W of Isangel, Vanuatu",earthquake,,,,10,reviewed,us,us
+2010-12-29T11:10:37.580Z,-19.722,168.163,10,4.9,mwc,62,79.4,,1.05,us,usp000hs8m,2016-11-10T02:38:29.893Z,"119 km W of Isangel, Vanuatu",earthquake,,,,,reviewed,us,gcmt
+2010-12-29T11:39:25.740Z,-19.59,168.136,10,4.8,mb,22,78.6,,0.91,us,usp000hs8n,2014-11-07T01:43:16.370Z,"120 km W of Isangel, Vanuatu",earthquake,,,,2,reviewed,us,us
+2010-12-29T13:37:42.200Z,-19.925,168.334,10,4.6,mb,25,81,,1.05,us,usp000hs8s,2014-11-07T01:43:16.381Z,"108 km WSW of Isangel, Vanuatu",earthquake,,,,3,reviewed,us,us
+2010-12-29T17:58:57.540Z,-19.343,168.211,10,4.1,mb,10,162.2,,1.31,us,usp000hs91,2014-11-07T01:43:16.401Z,"114 km W of Isangel, Vanuatu",earthquake,,,,1,reviewed,us,us
+2010-12-29T18:10:18.900Z,-19.374,167.968,10,4.8,mb,27,77.1,,1.15,us,usp000hs92,2014-11-07T01:43:16.402Z,"139 km W of Isangel, Vanuatu",earthquake,,,,4,reviewed,us,us
+2010-12-29T20:21:22.690Z,-19.801,168.583,10,4.2,mb,12,207.9,,1.43,us,usp000hs9b,2014-11-07T01:43:16.433Z,"78 km WSW of Isangel, Vanuatu",earthquake,,,,1,reviewed,us,us
+2010-12-29T21:10:35.410Z,-19.635,168.247,10,4.9,mwc,101,97.6,,1.18,us,usp000hs9c,2016-11-10T02:38:31.113Z,"109 km W of Isangel, Vanuatu",earthquake,,,,,reviewed,us,gcmt
+2010-12-30T06:31:59.940Z,-19.532,168.072,10,4.3,mb,13,129.9,,1.05,us,usp000hs9m,2014-11-07T01:43:16.477Z,"126 km W of Isangel, Vanuatu",earthquake,,,,3,reviewed,us,us
+2010-12-30T07:29:14.150Z,-19.541,168.239,10,4.3,mb,22,110.6,,1.1,us,usp000hs9s,2014-11-07T01:43:16.513Z,"109 km W of Isangel, Vanuatu",earthquake,,,,7,reviewed,us,us
+2010-12-30T07:54:12.260Z,-19.608,168.339,10,4.2,mb,14,142,,1.42,us,usp000hs9u,2014-11-07T01:43:16.523Z,"99 km W of Isangel, Vanuatu",earthquake,,,,3,reviewed,us,us
+2010-12-30T09:11:50.220Z,-19.171,167.952,10,5,mwc,92,66.7,,1,us,usp000hs9x,2025-12-22T15:56:35.888Z,"145 km WNW of Isangel, Vanuatu",earthquake,,,,,reviewed,us,gcmt
+2010-12-30T11:19:34.280Z,-19.784,168.333,10,4.3,mb,12,199.9,,0.75,us,usp000hsa2,2014-11-07T01:43:16.562Z,"103 km WSW of Isangel, Vanuatu",earthquake,,,,1,reviewed,us,us
+2010-12-30T15:02:43.980Z,-19.375,168.286,10,4.2,mb,11,194.8,,1.43,us,usp000hsac,2014-11-07T01:43:16.649Z,"106 km W of Isangel, Vanuatu",earthquake,,,,1,reviewed,us,us
+2010-12-30T17:28:11.690Z,-19.472,168.055,10,4.5,mb,11,192.3,,1.35,us,usp000hsan,2014-11-07T01:43:16.668Z,"128 km W of Isangel, Vanuatu",earthquake,,,,3,reviewed,us,us
+2010-12-30T17:49:46.870Z,-19.604,168.235,10,4.5,mb,16,141.7,,1.26,us,usp000hsaq,2014-11-07T01:43:16.671Z,"110 km W of Isangel, Vanuatu",earthquake,,,,3,reviewed,us,us
+2010-12-30T18:41:57.300Z,-19.496,167.945,10,4.1,mb,11,190.8,,0.81,us,usp000hsas,2014-11-07T01:43:16.675Z,"140 km W of Isangel, Vanuatu",earthquake,,,,3,reviewed,us,us
+2010-12-30T21:22:30.350Z,-19.984,168.353,20.2,5,mwc,55,81.3,,1.09,us,usp000hsb2,2025-12-22T15:56:41.964Z,"108 km WSW of Isangel, Vanuatu",earthquake,,20.5,,,reviewed,us,gcmt
+2010-12-31T03:28:51.030Z,-19.609,168.186,10,4.7,mb,44,108.3,,0.95,us,usp000hsbh,2014-11-07T01:43:16.818Z,"115 km W of Isangel, Vanuatu",earthquake,,,,15,reviewed,us,us
+2010-12-31T03:35:04.280Z,-19.781,168.475,10,4.4,mb,15,201.9,,1.27,us,usp000hsbj,2014-11-07T01:43:16.822Z,"88 km WSW of Isangel, Vanuatu",earthquake,,,,5,reviewed,us,us
+2010-12-31T04:11:03.180Z,-19.209,167.902,10,5.1,mwc,72,76.1,,1.21,us,usp000hsbp,2025-12-22T15:19:03.145Z,"149 km WNW of Isangel, Vanuatu",earthquake,,,,,reviewed,us,gcmt
+2010-12-31T12:42:45.300Z,-19.622,168.212,10,4.8,mb,21,68.1,,1.34,us,usp000hsc2,2014-11-07T01:43:16.859Z,"112 km W of Isangel, Vanuatu",earthquake,,,,8,reviewed,us,us
+2011-01-01T01:08:27.450Z,-19.539,168.13,10,4.2,mb,9,134,,1.33,us,usp000hscy,2014-11-07T01:43:18.757Z,"120 km W of Isangel, Vanuatu",earthquake,,,,2,reviewed,us,us
+2011-01-01T02:58:35.050Z,-19.489,168.148,10,4.8,mb,27,134,,1.1,us,usp000hsd5,2014-11-07T01:43:19.007Z,"119 km W of Isangel, Vanuatu",earthquake,,,,12,reviewed,us,us
+2011-01-01T04:55:40.950Z,-19.396,168.052,10,4.3,mb,11,160.3,,1.3,us,usp000hsd6,2014-11-07T01:43:19.026Z,"130 km W of Isangel, Vanuatu",earthquake,,,,2,reviewed,us,us
+2011-01-01T12:48:59.740Z,-19.598,168.282,10,4.4,mb,19,118.3,,1.12,us,usp000hsdg,2014-11-07T01:43:19.561Z,"105 km W of Isangel, Vanuatu",earthquake,,,,3,reviewed,us,us
+2011-01-01T23:22:44.000Z,-19.587,168.178,10,4.4,mb,21,97.5,,0.93,us,usp000hse2,2014-11-07T01:43:19.746Z,"115 km W of Isangel, Vanuatu",earthquake,,,,5,reviewed,us,us
+2011-01-01T23:35:26.440Z,-19.267,167.819,28.2,5,mwc,130,70.3,,0.96,us,usp000hse4,2025-12-22T15:56:46.973Z,"156 km WNW of Isangel, Vanuatu",earthquake,,15.9,,,reviewed,us,gcmt
+2011-01-02T02:08:09.110Z,-19.341,168.318,10,4.6,mb,26,110.9,,1.11,us,usp000hsec,2014-11-07T01:43:19.856Z,"103 km WNW of Isangel, Vanuatu",earthquake,,,,12,reviewed,us,us
+2011-01-02T03:49:36.700Z,-20.091,168.369,7.6,4.7,mb,31,173.2,,0.88,us,usp000hseh,2014-11-07T01:43:19.914Z,"113 km WSW of Isangel, Vanuatu",earthquake,,46,,11,reviewed,us,us
+2011-01-02T13:50:49.970Z,-19.753,168.138,10,4,mb,5,250.6,,0.45,us,usp000hsf6,2014-11-07T01:43:20.110Z,"122 km W of Isangel, Vanuatu",earthquake,,0,,1,reviewed,us,us
+2011-01-03T16:05:33.440Z,-19.429,168.047,10,4.1,mb,16,160.5,,0.89,us,usp000hshn,2014-11-07T01:43:20.975Z,"130 km W of Isangel, Vanuatu",earthquake,,,,3,reviewed,us,us
+2011-01-04T08:44:10.990Z,-19.024,167.715,10,4.1,mb,17,109.8,,0.81,us,usp000hsjr,2014-11-07T01:43:21.428Z,"155 km SSW of Port-Vila, Vanuatu",earthquake,,,,3,reviewed,us,us
+2011-01-04T20:11:44.790Z,-19.965,168.647,10,4.5,mb,17,142.4,,1.44,us,usp000hsk6,2014-11-07T01:43:21.789Z,"81 km SW of Isangel, Vanuatu",earthquake,,,,5,reviewed,us,us
+2011-01-05T12:35:08.190Z,-19.466,168.078,10,4,mb,15,161.4,,1.33,us,usp000hsky,2014-11-07T01:43:22.248Z,"126 km W of Isangel, Vanuatu",earthquake,,,,3,reviewed,us,us
+2011-01-05T21:06:12.020Z,-19.484,167.97,10,4.7,mb,21,97.1,,1.13,us,usp000hsmj,2014-11-07T01:43:22.338Z,"137 km W of Isangel, Vanuatu",earthquake,,,,4,reviewed,us,us
+2011-01-05T21:13:17.150Z,-19.604,168.35,10,4.6,mb,17,110.8,,0.96,us,usp000hsmk,2014-11-07T01:43:22.340Z,"98 km W of Isangel, Vanuatu",earthquake,,,,2,reviewed,us,us
+2011-01-06T06:07:37.800Z,-19.438,167.94,10,4.9,mwc,122,76.8,,0.81,us,usp000hsn8,2014-11-07T01:43:22.446Z,"141 km W of Isangel, Vanuatu",earthquake,,,,,reviewed,us,gcmt
+2011-01-06T16:17:52.610Z,-19.497,168.327,4.3,5.2,mb,89,57.3,,1.31,us,usp000hsnv,2014-11-07T01:43:22.510Z,"100 km W of Isangel, Vanuatu",earthquake,,8.3,,55,reviewed,us,us
+2011-01-06T16:22:12.060Z,-19.45,168.399,10,4.8,mb,16,142.3,,1.05,us,usp000hsnx,2014-11-07T01:43:22.532Z,"93 km W of Isangel, Vanuatu",earthquake,,,,6,reviewed,us,us
+2011-01-06T22:12:53.140Z,-19.66,168.632,22.8,4.5,mb,25,61.5,,0.87,us,usp000hsp5,2014-11-07T01:43:22.710Z,"69 km W of Isangel, Vanuatu",earthquake,,20.1,,11,reviewed,us,us
+2011-01-06T23:52:25.100Z,-20.108,168.472,10,4.6,mb,24,171.7,,0.95,us,usp000hsp9,2014-11-07T01:43:22.724Z,"105 km SW of Isangel, Vanuatu",earthquake,,,,10,reviewed,us,us
+2011-01-07T05:55:04.300Z,-19.835,168.318,10,5,mwc,145,77.1,,0.97,us,usp000hspn,2025-12-22T15:56:52.843Z,"106 km WSW of Isangel, Vanuatu",earthquake,,,,,reviewed,us,gcmt
+2011-01-07T18:09:49.080Z,-19.13,168.242,10,4.7,mb,16,142.2,,1.56,us,usp000hsq7,2014-11-07T01:43:23.128Z,"118 km WNW of Isangel, Vanuatu",earthquake,,,,5,reviewed,us,us
+2011-01-07T19:09:05.190Z,-19.873,168.141,10,5.2,mwc,182,34,,1.09,us,usp000hsq8,2025-12-22T15:19:03.988Z,"125 km WSW of Isangel, Vanuatu",earthquake,,,,,reviewed,us,gcmt
+2011-01-08T19:01:19.560Z,-19.739,168.102,10,4.9,mwc,121,35.3,,0.82,us,usp000hss1,2014-11-07T01:43:23.889Z,"125 km W of Isangel, Vanuatu",earthquake,,,,,reviewed,us,gcmt
+2011-01-08T22:19:33.060Z,-19.493,168.246,10,4.2,mb,11,164.2,,0.6,us,usp000hss9,2014-11-07T01:43:23.923Z,"108 km W of Isangel, Vanuatu",earthquake,,,,2,reviewed,us,us
+2011-01-09T10:03:43.990Z,-19.155,168.312,22,6.5,mww,408,20.8,,1.02,us,usp000hst4,2022-07-19T02:08:49.807Z,"110 km WNW of Isangel, Vanuatu",earthquake,,,,,reviewed,us,us
+2011-01-09T10:15:41.840Z,-19.155,168.301,10,4.9,mb,28,82.5,,1.01,us,usp000hst5,2014-11-07T01:43:24.173Z,"111 km WNW of Isangel, Vanuatu",earthquake,,,,10,reviewed,us,us
+2011-01-09T10:19:19.870Z,-19.231,168.322,10,4.8,mb,26,82.3,,1.27,us,usp000hst6,2014-11-07T01:43:24.187Z,"106 km WNW of Isangel, Vanuatu",earthquake,,,,7,reviewed,us,us
+2011-01-09T10:20:07.940Z,-19.251,168.383,10,4.7,mb,22,112.6,,1.44,us,usp000hst7,2014-11-07T01:43:24.240Z,"99 km WNW of Isangel, Vanuatu",earthquake,,,,8,reviewed,us,us
+2011-01-09T10:28:59.930Z,-18.996,167.828,10,4.3,mb,14,108.3,,1.3,us,usp000hst8,2014-11-07T01:43:24.261Z,"148 km SSW of Port-Vila, Vanuatu",earthquake,,,,4,reviewed,us,us
+2011-01-09T10:30:21.320Z,-19.258,168.301,10,4.6,mb,17,139.9,,1.46,us,usp000hst9,2014-11-07T01:43:24.265Z,"107 km WNW of Isangel, Vanuatu",earthquake,,,,5,reviewed,us,us
+2011-01-09T10:33:14.360Z,-19.275,168.336,10,4.9,mb,38,69.4,,1.05,us,usp000hstb,2014-11-07T01:43:24.271Z,"103 km WNW of Isangel, Vanuatu",earthquake,,,,12,reviewed,us,us
+2011-01-09T10:39:48.300Z,-19.295,168.741,10,4.4,mb,13,176.4,,1.09,us,usp000hstc,2014-11-07T01:43:24.276Z,"63 km WNW of Isangel, Vanuatu",earthquake,,,,3,reviewed,us,us
+2011-01-09T10:47:28.020Z,-19.165,168.259,10,4.7,mb,35,49.4,,1.22,us,usp000hstd,2014-11-07T01:43:24.280Z,"115 km WNW of Isangel, Vanuatu",earthquake,,,,13,reviewed,us,us
+2011-01-09T10:53:37.020Z,-19.275,168.447,10,4.7,mb,25,111.3,,1.32,us,usp000hste,2014-11-07T01:43:24.285Z,"92 km WNW of Isangel, Vanuatu",earthquake,,,,7,reviewed,us,us
+2011-01-09T10:58:28.420Z,-19.292,168.372,10,4.6,mb,16,111.1,,1.11,us,usp000hstf,2014-11-07T01:43:24.289Z,"99 km WNW of Isangel, Vanuatu",earthquake,,,,3,reviewed,us,us
+2011-01-09T11:20:24.960Z,-19.417,168.553,10,4.6,mb,17,167.7,,1.21,us,usp000hstg,2014-11-07T01:43:24.292Z,"77 km W of Isangel, Vanuatu",earthquake,,,,3,reviewed,us,us
+2011-01-09T11:29:59.360Z,-19.448,168.706,10,4.1,mb,13,201.2,,0.87,us,usp000hstj,2014-11-07T01:43:24.301Z,"61 km W of Isangel, Vanuatu",earthquake,,,,3,reviewed,us,us
+2011-01-09T11:46:29.150Z,-19.378,167.845,10,4.5,mb,20,96.9,,1.47,us,usp000hstk,2014-11-07T01:43:24.304Z,"151 km W of Isangel, Vanuatu",earthquake,,,,6,reviewed,us,us
+2011-01-09T12:00:16.790Z,-19.219,168.438,10,4.7,mb,28,111.3,,1.3,us,usp000hstm,2014-11-07T01:43:24.318Z,"95 km WNW of Isangel, Vanuatu",earthquake,,,,8,reviewed,us,us
+2011-01-09T13:00:14.210Z,-19.336,168.435,10,5.7,mwc,81,30,,1.03,us,usp000hstp,2022-04-08T21:29:28.096Z,"91 km WNW of Isangel, Vanuatu",earthquake,,,,,reviewed,us,gcmt
+2011-01-09T13:18:44.300Z,-19.36,168.408,10,4.3,mb,12,131.2,,0.91,us,usp000hsts,2014-11-07T01:43:24.364Z,"93 km WNW of Isangel, Vanuatu",earthquake,,,,1,reviewed,us,us
+2011-01-09T14:22:40.690Z,-19.254,168.312,10,4.9,mb,86,26.8,,1.11,us,usp000hstu,2014-11-07T01:43:24.368Z,"106 km WNW of Isangel, Vanuatu",earthquake,,,,32,reviewed,us,us
+2011-01-09T14:54:43.200Z,-19.296,168.407,10,5.5,mwb,136,26.7,,1.13,us,usp000hstv,2025-12-22T15:56:59.980Z,"95 km WNW of Isangel, Vanuatu",earthquake,,,,,reviewed,us,us
+2011-01-09T15:07:48.370Z,-19.423,168.423,10,4.3,mb,15,131.2,,0.9,us,usp000hstw,2014-11-07T01:43:24.411Z,"91 km W of Isangel, Vanuatu",earthquake,,0,,2,reviewed,us,us
+2011-01-09T15:26:56.910Z,-19.352,168.219,10,4.8,mb,21,97.8,,1.14,us,usp000hstz,2014-11-07T01:43:24.494Z,"113 km W of Isangel, Vanuatu",earthquake,,,,2,reviewed,us,us
+2011-01-09T15:42:23.040Z,-19.621,168.715,10,4.3,mb,9,203.2,,1.09,us,usp000hsu0,2014-11-07T01:43:24.751Z,"60 km W of Isangel, Vanuatu",earthquake,,,,1,reviewed,us,us
+2011-01-09T15:55:02.600Z,-19.177,168.178,10,5.2,mwc,91,77.8,,0.97,us,usp000hsu1,2025-12-22T15:57:01.154Z,"122 km WNW of Isangel, Vanuatu",earthquake,,,,,reviewed,us,gcmt
+2011-01-09T16:53:54.750Z,-19.503,168.634,10,4.4,mb,19,111.5,,1.09,us,usp000hsu4,2014-11-07T01:43:24.767Z,"68 km W of Isangel, Vanuatu",earthquake,,,,2,reviewed,us,us
+2011-01-09T16:56:14.210Z,-19.439,168.545,10,4.9,mb,41,58.4,,1.09,us,usp000hsu5,2014-11-07T01:43:24.769Z,"78 km W of Isangel, Vanuatu",earthquake,,,,5,reviewed,us,us
+2011-01-09T16:58:04.960Z,-19.158,168.239,18,5.3,mwc,144,25.9,,0.96,us,usp000hsu6,2025-12-22T15:57:02.400Z,"117 km WNW of Isangel, Vanuatu",earthquake,,3.4,,,reviewed,us,gcmt
+2011-01-09T17:03:55.130Z,-19.317,168.206,10,4.1,mb,12,141.9,,1.28,us,usp000hsu7,2014-11-07T01:43:24.784Z,"115 km WNW of Isangel, Vanuatu",earthquake,,,,1,reviewed,us,us
+2011-01-09T17:05:46.960Z,-19.582,168.452,10,4.1,mb,21,98.1,,1.17,us,usp000hsu8,2014-11-07T01:43:24.785Z,"87 km W of Isangel, Vanuatu",earthquake,,,,3,reviewed,us,us
+2011-01-09T17:21:51.650Z,-19.201,168.155,18,6.1,mww,261,22.8,,1.37,us,usp000hsua,2022-04-08T21:29:53.013Z,"124 km WNW of Isangel, Vanuatu",earthquake,,,,,reviewed,us,us
+2011-01-09T18:21:06.850Z,-19.297,168.009,10,5.5,mwc,122,52.4,,1.09,us,usp000hsuc,2022-04-08T21:29:33.432Z,"136 km WNW of Isangel, Vanuatu",earthquake,,,,,reviewed,us,gcmt
+2011-01-09T19:24:26.200Z,-19.621,168.204,10,5.2,mb,89,97.5,,1.2,us,usp000hsug,2014-11-07T01:43:24.866Z,"113 km W of Isangel, Vanuatu",earthquake,,0,,27,reviewed,us,us
+2011-01-09T23:12:55.610Z,-19.419,168.48,10,4.5,mb,27,111.3,,0.75,us,usp000hsuq,2014-11-07T01:43:24.889Z,"85 km W of Isangel, Vanuatu",earthquake,,,,12,reviewed,us,us
+2011-01-09T23:42:49.380Z,-19.255,168.412,10,4.5,mb,17,168.6,,0.95,us,usp000hsus,2014-11-07T01:43:24.894Z,"96 km WNW of Isangel, Vanuatu",earthquake,,,,7,reviewed,us,us
+2011-01-10T00:39:08.470Z,-19.228,168.389,10,4.5,mb,13,134.9,,1.11,us,usp000hsut,2014-11-07T01:43:24.896Z,"99 km WNW of Isangel, Vanuatu",earthquake,,,,4,reviewed,us,us
+2011-01-10T01:43:09.920Z,-19.367,168.52,10,4.7,mb,25,98.5,,1.14,us,usp000hsux,2014-11-07T01:43:24.905Z,"82 km WNW of Isangel, Vanuatu",earthquake,,,,6,reviewed,us,us
+2011-01-10T19:16:50.670Z,-19.394,168.378,10,4.1,mb,12,142.3,,0.85,us,usp000hsw3,2014-11-07T01:43:25.248Z,"96 km W of Isangel, Vanuatu",earthquake,,,,1,reviewed,us,us
+2011-01-10T20:55:26.970Z,-19.343,168.425,10,4.8,mb,46,111.2,,1.04,us,usp000hsw8,2014-11-07T01:43:25.259Z,"92 km WNW of Isangel, Vanuatu",earthquake,,,,7,reviewed,us,us
+2011-01-10T23:32:46.630Z,-19.716,168.288,10,5,mb,75,68,,0.96,us,usp000hswb,2014-11-07T01:43:25.283Z,"105 km W of Isangel, Vanuatu",earthquake,,,,34,reviewed,us,us
+2011-01-11T07:39:07.220Z,-19.201,168.313,10,4.8,mwc,55,50.3,,1.23,us,usp000hsx2,2014-11-07T01:43:25.389Z,"108 km WNW of Isangel, Vanuatu",earthquake,,,,,reviewed,us,gcmt
+2011-01-12T14:46:03.590Z,-19.406,168.399,14.2,5.1,mb,36,98.2,,1.25,us,usp000hszc,2014-11-07T01:43:25.723Z,"93 km W of Isangel, Vanuatu",earthquake,,38.2,,14,reviewed,us,us
+2011-01-12T18:40:39.370Z,-19.449,168.695,10,4,mb,9,169.8,,1.34,us,usp000hszk,2014-11-07T01:43:25.746Z,"62 km W of Isangel, Vanuatu",earthquake,,,,1,reviewed,us,us
+2011-01-12T23:23:44.350Z,-19.152,167.805,10,5.2,mb,106,97.1,,1.09,us,usp000hszu,2014-11-07T01:43:25.820Z,"161 km WNW of Isangel, Vanuatu",earthquake,,,,55,reviewed,us,us
+2011-01-13T00:24:40.360Z,-19.268,167.842,10,4.8,mb,47,143.1,,1.21,us,usp000hszx,2014-11-07T01:43:25.835Z,"154 km WNW of Isangel, Vanuatu",earthquake,,,,20,reviewed,us,us
+2011-01-13T16:30:32.400Z,-19.782,168.425,10,5.4,mb,103,57.3,,1.5,us,usp000ht16,2014-11-07T01:43:26.125Z,"93 km WSW of Isangel, Vanuatu",earthquake,,,,69,reviewed,us,us
+2011-01-13T16:34:33.340Z,-20.57,168.355,23.1,5.3,mb,43,103.8,,0.99,us,usp000ht18,2014-11-07T01:43:26.138Z,"118 km NNE of Tadine, New Caledonia",earthquake,,4.2,,17,reviewed,us,us
+2011-01-13T16:38:51.540Z,-20.423,168.468,10,5.2,mb,64,51.1,,0.93,us,usp000ht19,2014-11-07T01:43:26.144Z,"129 km SW of Isangel, Vanuatu",earthquake,,,,31,reviewed,us,us
+2011-01-13T17:05:04.520Z,-20.554,168.338,10,4.5,mb,10,107.4,,1.22,us,usp000ht1f,2014-11-07T01:43:26.194Z,"118 km ENE of Wé, New Caledonia",earthquake,,,,1,reviewed,us,us
+2011-01-13T17:09:31.680Z,-20.4,168.44,10,4.9,mb,46,97.2,,0.97,us,usp000ht1h,2014-11-07T01:43:26.198Z,"129 km SW of Isangel, Vanuatu",earthquake,,,,13,reviewed,us,us
+2011-01-13T17:15:37.960Z,-20.059,168.265,10,4.1,mb,9,171.2,,1.24,us,usp000ht1j,2014-11-07T01:43:26.202Z,"120 km WSW of Isangel, Vanuatu",earthquake,,,,1,reviewed,us,us
+2011-01-13T17:20:23.950Z,-20.555,168.327,10,4.9,mb,39,107.3,,0.75,us,usp000ht1k,2014-11-07T01:43:26.203Z,"117 km ENE of Wé, New Caledonia",earthquake,,,,11,reviewed,us,us
+2011-01-13T20:07:24.690Z,-20.444,168.4,10,5.2,mb,62,97.1,,0.82,us,usp000ht24,2014-11-07T01:43:26.274Z,"129 km ENE of Wé, New Caledonia",earthquake,,,,27,reviewed,us,us
+2011-01-13T22:57:47.920Z,-20.491,168.397,10,5,mb,59,97,,0.99,us,usp000ht2e,2014-11-07T01:43:26.303Z,"127 km ENE of Wé, New Caledonia",earthquake,,,,28,reviewed,us,us
+2011-01-13T23:04:40.950Z,-20.602,168.311,10,4.7,mb,38,109.7,,0.72,us,usp000ht2g,2014-11-07T01:43:26.320Z,"113 km NNE of Tadine, New Caledonia",earthquake,,,,3,reviewed,us,us
+2011-01-13T23:33:08.130Z,-20.46,168.309,10,4.3,mb,14,130.1,,0.78,us,usp000ht2k,2014-11-07T01:43:26.327Z,"119 km ENE of Wé, New Caledonia",earthquake,,,,9,reviewed,us,us
+2011-01-14T01:03:17.180Z,-19.554,168.922,10,4.4,mb,12,134,,0.89,us,usp000ht2s,2014-11-07T01:43:26.345Z,"37 km W of Isangel, Vanuatu",earthquake,,,,3,reviewed,us,us
+2011-01-14T01:19:23.020Z,-19.941,168.591,10,4.3,mb,13,134,,0.91,us,usp000ht2t,2014-11-07T01:43:26.346Z,"84 km WSW of Isangel, Vanuatu",earthquake,,,,3,reviewed,us,us
+2011-01-14T02:14:19.090Z,-19.882,168.075,10,4.1,mb,11,162,,0.79,us,usp000ht2v,2014-11-07T01:43:26.351Z,"131 km WSW of Isangel, Vanuatu",earthquake,,,,4,reviewed,us,us
+2011-01-14T09:08:14.630Z,-20.309,168.092,10,4.3,mb,14,109.4,,1.24,us,usp000ht3e,2014-11-07T01:43:26.424Z,"109 km NE of Wé, New Caledonia",earthquake,,,,3,reviewed,us,us
+2011-01-14T09:32:06.560Z,-20.218,168.035,10,4.1,mb,8,134,,1.15,us,usp000ht3f,2014-11-07T01:43:26.426Z,"111 km NE of Wé, New Caledonia",earthquake,,,,2,reviewed,us,us
+2011-01-14T09:33:49.110Z,-20.25,168.232,10,4.1,mb,8,134,,0.86,us,usp000ht3g,2014-11-07T01:43:26.427Z,"124 km NE of Wé, New Caledonia",earthquake,,,,2,reviewed,us,us
+2011-01-14T09:44:43.150Z,-20.241,168.237,10,4.6,mb,22,109.9,,1.23,us,usp000ht3h,2014-11-07T01:43:26.429Z,"126 km NE of Wé, New Caledonia",earthquake,,,,4,reviewed,us,us
+2011-01-14T10:39:50.560Z,-20.45,168.403,10,4.3,mb,9,190.4,,0.96,us,usp000ht3k,2014-11-07T01:43:26.434Z,"129 km ENE of Wé, New Caledonia",earthquake,,,,2,reviewed,us,us
+2011-01-14T10:45:54.350Z,-20.423,168.28,12.5,4.9,mwc,147,50.6,,0.94,us,usp000ht3m,2014-11-07T01:43:26.436Z,"119 km ENE of Wé, New Caledonia",earthquake,,4.6,,,reviewed,us,gcmt
+2011-01-14T12:30:17.060Z,-20.573,168.414,10,4.5,mb,21,134,,0.87,us,usp000ht3r,2014-11-07T01:43:26.452Z,"121 km NNE of Tadine, New Caledonia",earthquake,,,,5,reviewed,us,us
+2011-01-14T12:53:33.370Z,-20.571,168.286,10,4.3,mb,20,109.6,,0.99,us,usp000ht3s,2014-11-07T01:43:26.454Z,"113 km ENE of Wé, New Caledonia",earthquake,,,,4,reviewed,us,us
+2011-01-14T20:44:05.350Z,-20.386,168.411,10,4.9,mwc,57,57.9,,1.25,us,usp000ht42,2014-11-07T01:43:26.486Z,"130 km SW of Isangel, Vanuatu",earthquake,,,,,reviewed,us,gcmt
+2011-01-14T23:37:52.410Z,-20.478,168.188,10,4.3,mb,13,111.6,,0.85,us,usp000ht49,2014-11-07T01:43:26.516Z,"107 km ENE of Wé, New Caledonia",earthquake,,,,3,reviewed,us,us
+2011-01-15T02:44:41.930Z,-19.38,168.066,10,4.2,mb,14,135.9,,1.22,us,usp000ht4q,2014-11-07T01:43:26.568Z,"128 km W of Isangel, Vanuatu",earthquake,,,,4,reviewed,us,us
+2011-01-15T09:12:18.630Z,-20.401,168.345,10,4.3,mb,17,153.5,,1.08,us,usp000ht59,2014-11-07T01:43:26.642Z,"126 km ENE of Wé, New Caledonia",earthquake,,,,4,reviewed,us,us
+2011-01-15T19:20:42.600Z,-20.492,168.301,10,4.6,mb,15,178.6,,0.82,us,usp000ht66,2014-11-07T01:43:26.805Z,"117 km ENE of Wé, New Caledonia",earthquake,,,,3,reviewed,us,us
+2011-01-16T08:43:23.870Z,-20.374,168.46,10,4.7,mb,15,110.3,,1.03,us,usp000ht76,2014-11-07T01:43:26.910Z,"126 km SW of Isangel, Vanuatu",earthquake,,,,3,reviewed,us,us
+2011-01-16T13:39:02.700Z,-20.488,168.279,10,4.1,mb,14,178.2,,0.76,us,usp000ht7p,2014-11-07T01:43:26.985Z,"115 km ENE of Wé, New Caledonia",earthquake,,,,1,reviewed,us,us
+2011-01-16T14:01:09.310Z,-20.515,168.371,10,4,mb,11,180.1,,1.01,us,usp000ht7q,2014-11-07T01:43:26.987Z,"123 km ENE of Wé, New Caledonia",earthquake,,,,1,reviewed,us,us
+2011-01-16T14:53:22.040Z,-20.483,168.326,10,4,mb,14,132.9,,0.96,us,usp000ht7s,2014-11-07T01:43:26.991Z,"120 km ENE of Wé, New Caledonia",earthquake,,,,1,reviewed,us,us
+2011-01-17T07:26:50.010Z,-19.248,168.233,10,4.6,mb,24,98,,1.12,us,usp000ht8s,2014-11-07T01:43:27.102Z,"114 km WNW of Isangel, Vanuatu",earthquake,,,,8,reviewed,us,us
+2011-01-19T01:52:16.590Z,-19.483,167.91,10,4.5,mb,17,141.1,,1.4,us,usp000htbc,2014-11-07T01:43:27.602Z,"144 km W of Isangel, Vanuatu",earthquake,,,,5,reviewed,us,us
+2011-01-20T09:46:21.120Z,-19.206,168.371,35,4.8,mb,21,98.3,,0.94,us,usp000htd8,2014-11-07T01:43:27.952Z,"102 km WNW of Isangel, Vanuatu",earthquake,,,,4,reviewed,us,us
+2011-01-20T21:02:51.220Z,-19.309,168.002,1.5,4.3,mb,19,156.3,,0.62,us,usp000hte4,2014-11-07T01:43:28.076Z,"136 km W of Isangel, Vanuatu",earthquake,,27.3,,6,reviewed,us,us
+2011-01-21T23:24:56.470Z,-19.647,168.59,10,4.4,mb,19,81.5,,0.83,us,usp000htfj,2014-11-07T01:43:28.385Z,"73 km W of Isangel, Vanuatu",earthquake,,,,6,reviewed,us,us

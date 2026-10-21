@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2012-04-17T03:50:15.610Z,-32.625,-71.365,29,6.7,mww,518,26.9,,0.96,us,usp000jj3u,2022-05-03T15:39:31.708Z,"22 km NW of Hacienda La Calera, Chile",earthquake,,,,,reviewed,us,us
+2012-04-17T04:03:18.000Z,-32.553,-71.366,40.1,4.9,mb,38,126.2,,,us,usp000jj3w,2015-03-24T02:03:38.104Z,"16 km SW of La Ligua, Chile",earthquake,,,,10,reviewed,guc,us
+2012-04-19T00:35:25.000Z,-32.447,-71.77,30.5,4.1,ml,13,156.7,,,us,usp000jj75,2014-11-07T01:47:34.141Z,"50 km W of La Ligua, Chile",earthquake,,,,,reviewed,guc,guc
+2012-04-28T20:46:48.490Z,-32.653,-71.829,5.3,4.1,mb,27,148.3,,0.66,us,usp000jjr2,2014-11-07T01:47:37.983Z,"46 km NNW of Valparaíso, Chile",earthquake,,12,,2,reviewed,us,us

@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2017-10-08T22:34:33.490Z,52.3909,176.7691,119,6.5,mww,,11,1.154,0.81,us,us2000b2vq,2023-08-10T13:53:17.709Z,"247 km ESE of Attu Station, Alaska",earthquake,3.5,1.7,0.043,51,reviewed,us,us

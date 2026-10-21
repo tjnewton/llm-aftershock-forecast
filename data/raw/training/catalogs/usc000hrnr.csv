@@ -1,0 +1,7 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2013-06-15T17:34:27.810Z,11.763,-86.926,30,6.5,mww,698,27,,1.22,us,usc000hrnr,2022-08-06T16:18:17.069Z,"44 km W of Masachapa, Nicaragua",earthquake,,,,,reviewed,us,us
+2013-06-15T17:59:03.260Z,11.792,-86.967,35,4.8,mb,368,52,,1.07,us,us2013rlaw,2014-11-07T01:51:04.766Z,"49 km W of Masachapa, Nicaragua",earthquake,,,,340,reviewed,us,us
+2013-06-15T17:59:32.060Z,11.845,-87.111,35,4.9,mb,198,92,,1.48,us,usp000k19c,2014-11-07T01:51:04.791Z,"65 km W of Masachapa, Nicaragua",earthquake,,,,189,reviewed,us,us
+2013-06-15T18:10:42.020Z,11.78,-86.968,40.6,5,mb,423,44,,1.02,us,usc000hrq4,2014-11-07T01:51:04.806Z,"49 km W of Masachapa, Nicaragua",earthquake,,3.3,,393,reviewed,us,us
+2013-06-15T18:50:09.190Z,11.74,-87.046,35,4.5,mb,177,104,,1,us,us2013rla5,2014-11-07T01:51:04.851Z,"58 km W of Masachapa, Nicaragua",earthquake,,,,161,reviewed,us,us
+2013-06-17T15:12:54.120Z,11.841,-87.007,35,5,mb,356,83,,0.93,us,usc000hsp7,2022-07-25T16:43:58.803Z,"54 km W of Masachapa, Nicaragua",earthquake,,,,330,reviewed,us,us

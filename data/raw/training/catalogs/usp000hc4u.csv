@@ -1,0 +1,7 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2010-04-30T23:10:22.040Z,60.493,-177.83,15,4.5,mb,74,38,,1.43,us,usp000hc4t,2018-07-12T19:30:02.156Z,"Bering Sea",earthquake,,4.8,,28,reviewed,us,us
+2010-04-30T23:11:43.100Z,60.473,-177.877,12,6.5,mwc,430,22.6,,1.12,us,usp000hc4u,2022-05-02T22:37:51.093Z,"Bering Sea",earthquake,,,,,reviewed,us,gcmt
+2010-04-30T23:16:28.640Z,60.478,-177.65,14.9,6.3,mwc,302,29.6,,0.78,us,usp000hc4v,2022-05-02T21:53:28.353Z,"Bering Sea",earthquake,,3.7,,,reviewed,us,gcmt
+2010-05-01T12:54:41.990Z,60.751,-177.797,10,4.5,mb,106,78.5,,0.8,us,usp000hc5j,2018-07-06T20:33:55.090Z,"297 km SSE of Beringovskiy, Russia",earthquake,,,,18,reviewed,us,us
+2010-05-02T06:53:46.680Z,60.527,-177.3,15,4,ml,9,221.3,,,us,usp000hc71,2018-07-06T20:34:19.917Z,"Bering Sea",earthquake,,,,,reviewed,aeic,aeic
+2010-05-11T19:48:59.350Z,60.589,-177.769,42.4,4.9,mwc,57,86.5,,1.22,us,usp000hcmz,2016-11-10T02:28:08.567Z,"Bering Sea",earthquake,,8,,,reviewed,us,gcmt

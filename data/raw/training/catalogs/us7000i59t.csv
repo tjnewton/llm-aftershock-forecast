@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-09-05T04:52:19.645Z,29.6786,102.236,12,6.6,mww,141,34,8.454,0.52,us,us7000i59t,2025-09-07T07:21:55.894Z,"44 km SE of Kangding, China",earthquake,8.19,1.746,0.04,59,reviewed,us,us
+2022-09-05T09:39:24.078Z,29.4607,102.4093,10,4.2,mb,23,89,9.375,0.77,us,us7000i7my,2022-11-15T19:06:16.040Z,"74 km SE of Kangding, China",earthquake,7.42,1.902,0.186,8,reviewed,us,us
+2022-09-05T11:26:22.627Z,29.6551,102.2807,10,4.8,mb,42,80,8.424,0.6,us,us7000i5ct,2022-11-15T19:06:08.040Z,"49 km SE of Kangding, China",earthquake,11.48,1.906,0.072,60,reviewed,us,us
+2022-09-06T18:42:21.445Z,29.3949,102.3001,45.579,4.6,mb,104,45,6.648,0.8,us,us7000i5sf,2022-11-15T19:06:11.040Z,"75 km SSE of Kangding, China",earthquake,8.15,5.522,0.055,109,reviewed,us,us
+2022-09-08T07:12:02.364Z,29.7832,102.017,10,4.2,mb,24,70,8.593,0.59,us,us7000i8a5,2022-11-15T19:06:19.040Z,"24 km SSE of Kangding, China",earthquake,6.08,1.928,0.146,15,reviewed,us,us

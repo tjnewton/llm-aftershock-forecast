@@ -1,0 +1,14 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2013-11-25T05:10:07.810Z,-54.3401,-55.334,11.63,5.4,mwc,,47,3.137,1.25,us,usb000l5yn,2025-12-22T16:44:56.695Z,"Falkland Islands region",earthquake,,1.1,,,reviewed,us,gcmt
+2013-11-25T06:25:11.280Z,-54.0439,-55.4014,14.86,4,mb,,79,2.869,0.99,us,usb000l82x,2014-02-11T02:18:58.000Z,"Falkland Islands region",earthquake,,4.4,0.231,,reviewed,us,us
+2013-11-25T06:27:08.970Z,-54.0272,-54.9796,10.01,5.6,mb,,32,3.007,0.75,us,usb000l5zb,2022-05-03T16:38:36.641Z,"South Atlantic Ocean",earthquake,,2.3,0.052,,reviewed,us,us
+2013-11-25T06:27:33.300Z,-53.9451,-55.0033,11.78,7,mww,,31,2.935,1.08,us,usb000l5zn,2022-05-03T17:16:09.123Z,"Falkland Islands region",earthquake,,2.4,,,reviewed,us,us
+2013-11-25T06:37:35.880Z,-54.4356,-54.9168,12.46,4.9,mb,,74,3.354,0.88,us,usb000l83s,2014-02-11T02:18:58.000Z,"South Atlantic Ocean",earthquake,,4,0.169,,reviewed,us,us
+2013-11-25T06:41:50.670Z,-54.23,-55.2804,15.73,5.4,mb,,30,3.063,0.76,us,usb000l61c,2014-02-11T02:18:58.000Z,"Falkland Islands region",earthquake,,2.5,0.087,,reviewed,us,us
+2013-11-25T06:53:28.810Z,-54.1288,-54.8217,10.04,4.1,mb,,115,3.145,1.03,us,usb000l840,2014-02-11T02:18:58.000Z,"South Atlantic Ocean",earthquake,,1.8,0.175,,reviewed,us,us
+2013-11-25T07:21:18.420Z,-53.8708,-53.9107,14.83,6,mwc,,58,3.346,0.76,us,usb000l633,2022-05-03T16:34:29.690Z,"South Atlantic Ocean",earthquake,,3.1,,,reviewed,us,gcmt
+2013-11-25T07:56:08.910Z,-54.2972,-55.2521,10,4.6,mb,,61,3.128,1.34,us,usb000l63z,2014-02-11T02:18:58.000Z,"Falkland Islands region",earthquake,,1.7,0.125,,reviewed,us,us
+2013-11-25T08:37:44.150Z,-54.1556,-54.7321,14.42,4.5,mb,,74,3.2,0.85,us,usb000l64g,2014-02-11T02:18:58.000Z,"South Atlantic Ocean",earthquake,,3.7,0.14,,reviewed,us,us
+2013-11-25T10:37:55.450Z,-53.8829,-54.6066,10,4.6,mb,,60,3.049,1.14,us,usb000l66c,2014-02-11T02:18:58.000Z,"South Atlantic Ocean",earthquake,,1.7,0.165,,reviewed,us,us
+2013-11-25T21:20:01.350Z,-54.1193,-54.2042,10,4.3,mb,,79,3.384,1.3,us,usb000l6eg,2014-02-11T02:18:59.000Z,"South Atlantic Ocean",earthquake,,1.9,0.16,,reviewed,us,us
+2013-11-27T07:05:00.090Z,-54.0405,-54.6504,10.87,4.3,mb,,115,10.654,1.16,us,usb000l76e,2014-02-12T01:08:34.000Z,"South Atlantic Ocean",earthquake,,3.8,0.188,,reviewed,us,us

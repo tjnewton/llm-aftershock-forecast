@@ -1,0 +1,13 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2012-03-19T05:36:09.000Z,-34.792,-71.818,43.6,4,ml,13,152.7,,,us,usp000jgfe,2014-11-07T01:47:16.575Z,"44 km WSW of Santa Cruz, Chile",earthquake,,,,,reviewed,guc,guc
+2012-03-21T02:41:00.000Z,-35.789,-72.029,67,4.6,mb,37,122.5,,,us,usp000jgjh,2014-11-07T01:47:17.426Z,"33 km NE of Cauquenes, Chile",earthquake,,,,11,reviewed,guc,us
+2012-03-25T22:37:06.000Z,-35.2,-72.217,40.7,7.1,mww,553,15.2,,,us,usp000jgsw,2025-09-13T20:01:16.636Z,"23 km NE of Constitución, Chile",earthquake,,,,,reviewed,guc,us
+2012-03-25T23:03:36.000Z,-35.093,-72.683,43.6,4.6,ml,13,122.1,,,us,usp000jgsz,2014-11-07T01:47:19.240Z,"36 km NW of Constitución, Chile",earthquake,,,,,reviewed,guc,guc
+2012-03-26T02:07:41.000Z,-34.994,-72.092,34.7,4.4,mb,28,142.8,,,us,usp000jgt7,2014-11-07T01:47:19.272Z,"47 km NE of Constitución, Chile",earthquake,,,,8,reviewed,guc,us
+2012-03-26T08:12:01.000Z,-35.123,-72.475,13.4,4.1,ml,9,166,,,us,usp000jgtn,2014-11-07T01:47:19.353Z,"24 km NNW of Constitución, Chile",earthquake,,,,,reviewed,guc,guc
+2012-03-28T03:23:39.000Z,-35.541,-72.998,16.4,4.7,mb,23,118.8,,,us,usp000jgwd,2014-11-07T01:47:19.995Z,"Near the coast of Maule, Chile",earthquake,,,,3,reviewed,guc,us
+2012-03-28T20:52:34.000Z,-35.13,-72.456,17.1,4.1,ml,15,158.3,,,us,usp000jgxc,2014-11-07T01:47:20.130Z,"22 km N of Constitución, Chile",earthquake,,,,,reviewed,guc,guc
+2012-03-30T07:12:52.000Z,-35.196,-72.187,38.3,4.5,mb,27,98.4,,,us,usp000jgzh,2014-11-07T01:47:20.478Z,"25 km NE of Constitución, Chile",earthquake,,,,8,reviewed,guc,us
+2012-03-31T21:52:56.000Z,-35.267,-72.089,42.9,4.4,mb,23,151,,,us,usp000jh2c,2014-11-07T01:47:21.085Z,"30 km ENE of Constitución, Chile",earthquake,,,,7,reviewed,guc,us
+2012-04-06T21:04:54.000Z,-35.598,-72.834,13.1,4.1,mb,13,116.4,,,us,usp000jhbh,2014-11-07T01:47:26.769Z,"48 km SW of Constitución, Chile",earthquake,,,,1,reviewed,guc,us
+2012-04-13T06:13:16.000Z,-35.21,-72.02,40.3,4.7,mb,58,145.2,,,us,usp000jhug,2014-11-07T01:47:30.596Z,"38 km ENE of Constitución, Chile",earthquake,,,,30,reviewed,guc,us

@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2013-04-23T23:14:40.630Z,-3.898,152.127,10,6.5,mww,264,16.6,,0.82,us,usb000gen8,2022-05-03T16:16:15.179Z,"33 km N of Rabaul, Papua New Guinea",earthquake,,,,,reviewed,us,us
+2013-04-24T08:04:45.260Z,-3.919,151.862,10,4.6,mb,14,109.6,,1.33,us,usp000k0dz,2014-11-07T01:50:38.227Z,"45 km NW of Rabaul, Papua New Guinea",earthquake,,,,8,reviewed,us,us
+2013-04-24T08:21:47.740Z,-3.868,152.297,10,4.2,mb,14,176.2,,1.08,us,usp000k0e1,2014-11-07T01:50:38.233Z,"39 km NNE of Rabaul, Papua New Guinea",earthquake,,,,7,reviewed,us,us

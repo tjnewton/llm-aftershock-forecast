@@ -1,0 +1,17 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2024-07-16T14:38:49.045Z,-23.636,-66.9164,198.458,4.3,mb,42,52,1.346,0.63,us,us7000mzk0,2024-09-28T22:42:02.040Z,"88 km NW of San Antonio de los Cobres, Argentina",earthquake,9.58,5.769,0.099,30,reviewed,us,us
+2024-07-17T17:21:10.675Z,-22.4599,-68.3158,138.126,4.4,mb,25,64,0.506,0.57,us,us7000mzuw,2024-09-28T22:42:11.040Z,"51 km NNW of San Pedro de Atacama, Chile",earthquake,5.57,5.289,0.17,10,reviewed,us,us
+2024-07-19T01:50:48.571Z,-23.0791,-67.8404,127.291,7.4,mww,119,19,0.336,1.06,us,us7000n05d,2025-09-25T18:56:47.009Z,"41 km ESE of San Pedro de Atacama, Chile",earthquake,7.08,3.027,0.026,144,reviewed,us,us
+2024-07-19T02:15:52.296Z,-23.1775,-67.9065,131.199,5,mb,46,67,0.337,1.05,us,us7000n05k,2024-09-28T22:42:25.040Z,"42 km SE of San Pedro de Atacama, Chile",earthquake,7.62,4.266,0.111,26,reviewed,us,us
+2024-07-19T02:17:39.489Z,-23.2754,-67.8086,147.674,4.6,mb,29,67,0.469,0.84,us,us7000n05q,2024-09-28T22:42:26.040Z,"56 km SE of San Pedro de Atacama, Chile",earthquake,8.23,6.78,0.151,13,reviewed,us,us
+2024-07-19T03:11:25.323Z,-23.3538,-67.865,141.986,4.7,mb,43,70,0.493,0.78,us,us7000n066,2024-09-28T22:42:26.040Z,"59 km SE of San Pedro de Atacama, Chile",earthquake,8.63,4.319,0.059,96,reviewed,us,us
+2024-07-19T03:55:58.458Z,-23.4032,-67.8034,144.811,4.1,mb,20,99,0.567,0.6,us,us7000n06l,2024-09-28T22:42:27.040Z,"68 km SE of San Pedro de Atacama, Chile",earthquake,4.82,7.494,0.235,5,reviewed,us,us
+2024-07-19T05:47:42.812Z,-23.297,-67.8929,143.95,4.4,mb,27,70,0.433,0.57,us,us7000n074,2024-09-28T22:42:29.040Z,"53 km SE of San Pedro de Atacama, Chile",earthquake,8.53,4.044,0.107,25,reviewed,us,us
+2024-07-19T11:44:38.698Z,-23.2484,-67.7911,134.218,4.3,mb,32,71,0.463,0.92,us,us7000n08q,2024-09-28T22:42:33.040Z,"56 km SE of San Pedro de Atacama, Chile",earthquake,6.54,5.708,0.177,9,reviewed,us,us
+2024-07-20T07:02:35.524Z,-23.2194,-67.8016,133.317,4.6,mb,51,43,0.438,0.6,us,us7000n0fu,2024-09-28T22:42:40.040Z,"53 km SE of San Pedro de Atacama, Chile",earthquake,9.29,5.193,0.085,41,reviewed,us,us
+2024-07-21T23:26:56.523Z,-23.3321,-67.8065,141.345,4.2,mb,23,91,0.51,0.44,us,us7000n0qj,2024-09-28T22:42:57.040Z,"61 km SE of San Pedro de Atacama, Chile",earthquake,9.03,6.952,0.198,7,reviewed,us,us
+2024-07-24T00:26:12.193Z,-23.2687,-67.894,142.879,4.1,mb,24,70,0.41,0.61,us,us6000nf1u,2024-10-08T21:49:11.005Z,"50 km SE of San Pedro de Atacama, Chile",earthquake,8.37,2.039,0.233,5,reviewed,us,us
+2024-07-30T13:07:12.167Z,-23.5319,-66.7989,198.935,4.2,mb,41,43,1.394,1,us,us6000ngvy,2024-10-11T19:39:06.040Z,"90 km NNW of San Antonio de los Cobres, Argentina",earthquake,8.7,7.15,0.11,25,reviewed,us,us
+2024-07-31T11:01:54.262Z,-23.4813,-67.7293,163.747,4.4,mb,11,109,0.67,1.14,us,us6000nh35,2024-10-11T19:39:07.040Z,"79 km SE of San Pedro de Atacama, Chile",earthquake,9.37,6.918,0.268,4,reviewed,us,us
+2024-08-04T22:12:21.057Z,-22.3105,-67.3926,179.239,4.1,mb,17,70,0.967,0.49,us,us6000ni3e,2024-10-11T19:39:10.040Z,"106 km NE of San Pedro de Atacama, Chile",earthquake,8.57,9.3,0.213,6,reviewed,us,us
+2024-08-09T23:23:54.847Z,-22.9725,-68.7719,117.017,4.1,mb,21,70,0.547,0.6,us,us6000nj8l,2024-10-24T17:57:53.040Z,"58 km W of San Pedro de Atacama, Chile",earthquake,4.54,3.111,0.261,4,reviewed,us,us

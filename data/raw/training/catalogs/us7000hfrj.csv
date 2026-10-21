@@ -1,0 +1,3 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-06-08T00:55:46.777Z,-9.0472,-71.1783,622.73,6.5,mww,236,31,1.999,0.74,us,us7000hfrj,2022-08-13T21:53:07.040Z,"107 km SSW of Tarauacá, Brazil",earthquake,9.09,2.853,0.049,40,reviewed,us,us
+2022-06-08T01:53:28.974Z,-9.09,-71.2633,605.39,4.9,mb,241,70,1.964,0.74,us,us7000hfsx,2022-08-13T21:51:39.040Z,"Peru-Brazil border region",earthquake,10.9,6.2,0.038,221,reviewed,us,us

@@ -22,6 +22,7 @@ laf = "laf.cli:main"
 
 [dependency-groups]
 dev = [
+    "adaption>=0.15.0",
     "altair>=6.3.0",
     "hypothesis>=6.100",
     "marimo>=0.25.2",

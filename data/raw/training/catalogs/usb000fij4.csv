@@ -1,0 +1,27 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2013-03-10T22:11:03.830Z,-6.722,148.354,10,4.9,mb,74,32.6,,1.23,us,usb000fih7,2022-05-03T16:10:53.280Z,"58 km ESE of Finschhafen, Papua New Guinea",earthquake,,,,40,reviewed,us,us
+2013-03-10T22:51:50.800Z,-6.598,148.174,28,6.5,mww,317,14.2,,1.26,us,usb000fij4,2022-05-03T16:10:54.971Z,"36 km E of Finschhafen, Papua New Guinea",earthquake,,,,,reviewed,us,us
+2013-03-10T23:46:22.830Z,-6.619,148.151,10,4.6,mb,22,133.8,,0.76,us,usb000fikw,2014-11-07T01:50:19.330Z,"34 km ESE of Finschhafen, Papua New Guinea",earthquake,,,,9,reviewed,us,us
+2013-03-11T00:05:41.370Z,-6.783,148.368,10,5,mb,124,14.5,,1.24,us,usb000fil3,2014-11-07T01:50:19.351Z,"62 km ESE of Finschhafen, Papua New Guinea",earthquake,,,,70,reviewed,us,us
+2013-03-11T01:43:24.120Z,-6.662,148.455,14.2,5.5,mwc,79,40.4,,1.22,us,usb000filu,2025-12-22T16:38:00.010Z,"68 km E of Finschhafen, Papua New Guinea",earthquake,,20.4,,,reviewed,us,gcmt
+2013-03-11T01:48:06.070Z,-6.654,148.383,10,4.6,mb,60,33.2,,1.39,us,usb000filw,2014-11-07T01:50:19.382Z,"60 km E of Finschhafen, Papua New Guinea",earthquake,,,,26,reviewed,us,us
+2013-03-11T01:56:08.720Z,-6.626,148.389,10,4.7,mb,32,46,,1.15,us,usb000fily,2014-11-07T01:50:19.386Z,"60 km E of Finschhafen, Papua New Guinea",earthquake,,,,5,reviewed,us,us
+2013-03-11T02:15:47.090Z,-6.673,148.407,27,5.4,mwc,74,32.5,,1.35,us,usb000fim1,2022-05-03T17:18:00.558Z,"63 km ESE of Finschhafen, Papua New Guinea",earthquake,,18.8,,,reviewed,us,gcmt
+2013-03-11T02:20:10.710Z,-6.566,148.394,10,4.7,mb,66,32.6,,1.12,us,usb000fim2,2014-11-07T01:50:19.415Z,"60 km E of Finschhafen, Papua New Guinea",earthquake,,,,33,reviewed,us,us
+2013-03-11T02:30:41.960Z,-6.601,148.491,10,4.7,mb,50,32.5,,0.87,us,usb000fim4,2014-11-07T01:50:19.421Z,"71 km E of Finschhafen, Papua New Guinea",earthquake,,,,19,reviewed,us,us
+2013-03-11T02:47:15.730Z,-6.576,148.191,10,4,mb,24,70.9,,1.27,us,us2013mqcy,2014-11-07T01:50:19.430Z,"38 km E of Finschhafen, Papua New Guinea",earthquake,,,,5,reviewed,us,us
+2013-03-11T08:22:14.760Z,-6.634,148.489,10,4.8,mb,72,36.5,,1.19,us,usb000fipj,2025-12-22T16:38:01.903Z,"71 km E of Finschhafen, Papua New Guinea",earthquake,,,,45,reviewed,us,us
+2013-03-12T09:01:53.030Z,-6.526,148.248,10,4.1,mb,18,89.7,,1.06,us,usp000jzr5,2014-11-07T01:50:19.816Z,"44 km E of Finschhafen, Papua New Guinea",earthquake,,,,5,reviewed,us,us
+2013-03-12T14:20:38.720Z,-6.758,148.207,10,4.1,mb,12,222.6,,0.75,us,us2013mrc3,2014-11-07T01:50:19.838Z,"45 km ESE of Finschhafen, Papua New Guinea",earthquake,,,,4,reviewed,us,us
+2013-03-12T20:05:01.140Z,-6.651,148.389,10,5,mb,95,46.3,,1.01,us,usb000fjuc,2014-11-07T01:50:19.864Z,"60 km E of Finschhafen, Papua New Guinea",earthquake,,,,60,reviewed,us,us
+2013-03-12T20:10:10.710Z,-6.65,148.364,10,5,mb,122,46.2,,1.17,us,usb000fjug,2025-12-22T16:38:04.904Z,"58 km E of Finschhafen, Papua New Guinea",earthquake,,,,65,reviewed,us,us
+2013-03-13T01:01:32.840Z,-6.583,148.37,10,4.8,mb,43,45.3,,1.35,us,usb000fk0q,2014-11-07T01:50:19.939Z,"57 km E of Finschhafen, Papua New Guinea",earthquake,,,,26,reviewed,us,us
+2013-03-13T13:12:45.820Z,-6.622,148.468,10,4.3,mb,20,136.6,,1.05,us,us2013msdh,2014-11-07T01:50:20.160Z,"69 km E of Finschhafen, Papua New Guinea",earthquake,,,,5,reviewed,us,us
+2013-03-13T15:54:09.240Z,-6.604,148.503,10,4.4,mb,26,109.7,,1.09,us,us2013msdm,2014-11-07T01:50:20.181Z,"72 km E of Finschhafen, Papua New Guinea",earthquake,,,,9,reviewed,us,us
+2013-03-13T19:35:48.380Z,-6.61,148.16,10,4.4,mb,15,133.8,,0.81,us,usb000fvc2,2014-11-07T01:50:20.225Z,"35 km E of Finschhafen, Papua New Guinea",earthquake,,,,4,reviewed,us,us
+2013-03-19T20:52:07.670Z,-6.542,148.398,48.2,4.8,mb,40,35.4,,0.93,us,usb000fp6e,2014-11-07T01:50:21.718Z,"61 km E of Finschhafen, Papua New Guinea",earthquake,,8.9,,20,reviewed,us,us
+2013-03-23T05:38:44.520Z,-6.724,148.456,35,4.4,mb,35,77.2,,1.05,us,us2013ncb8,2014-11-07T01:50:22.546Z,"69 km ESE of Finschhafen, Papua New Guinea",earthquake,,,,15,reviewed,us,us
+2013-03-23T06:04:54.850Z,-6.53,148.141,35,4.4,mb,20,80.2,,1.18,us,us2013ncb9,2014-11-07T01:50:22.554Z,"New Britain region, Papua New Guinea",earthquake,,,,8,reviewed,us,us
+2013-03-24T01:35:55.660Z,-6.788,148.401,47.5,5,mb,113,27.8,,0.77,us,usb000frtb,2025-12-22T16:38:17.031Z,"66 km ESE of Finschhafen, Papua New Guinea",earthquake,,4.8,,57,reviewed,us,us
+2013-03-24T07:13:04.180Z,-6.693,148.35,55.7,4.3,mb,16,119.9,,0.6,us,usp000jzwb,2014-11-07T01:50:22.772Z,"57 km ESE of Finschhafen, Papua New Guinea",earthquake,,10.9,,4,reviewed,us,us
+2013-03-25T09:09:15.620Z,-6.694,148.359,21.1,4.2,mb,17,136.4,,1.14,us,usp000jzx5,2014-11-07T01:50:23.140Z,"58 km ESE of Finschhafen, Papua New Guinea",earthquake,,27,,6,reviewed,us,us

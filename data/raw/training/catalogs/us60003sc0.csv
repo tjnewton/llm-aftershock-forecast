@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2019-05-26T07:41:15.073Z,-5.8119,-75.2697,122.57,8,mww,,17,3.18,0.84,us,us60003sc0,2026-08-29T05:49:38.488Z,"78 km NE of Navarro, Peru",earthquake,7,4,0.036,75,reviewed,us,us
+2019-05-29T23:40:23.847Z,-4.7289,-75.2549,150.87,4.8,mb,,67,3.913,0.77,us,us70003sz7,2019-08-24T21:17:35.040Z,"72 km NE of Lagunas, Peru",earthquake,6.2,6.5,0.051,120,reviewed,us,us
+2019-06-15T07:07:52.856Z,-4.0694,-76.8341,108.51,4.4,mb,,96,2.896,0.77,us,us6000448m,2019-09-06T14:25:24.040Z,"79 km SW of Alianza Cristiana, Peru",earthquake,8,10.1,0.143,14,reviewed,us,us
+2019-06-19T23:02:59.760Z,-4.0003,-75.994,107.44,4.9,mww,,39,3.597,0.76,us,us600043dq,2019-09-11T15:19:16.040Z,"75 km SE of Alianza Cristiana, Peru",earthquake,6.7,5.1,0.086,13,reviewed,us,us

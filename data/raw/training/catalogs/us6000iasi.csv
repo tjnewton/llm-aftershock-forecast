@@ -1,0 +1,9 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-08-14T13:44:19.694Z,-32.7361,-179.0088,30,6.6,mww,68,34,5.293,0.61,us,us6000iasi,2022-10-28T02:25:54.040Z,"south of the Kermadec Islands",earthquake,5.55,1.839,0.059,28,reviewed,us,us
+2022-08-14T13:54:14.725Z,-32.8651,-178.9274,35,4.9,mb,14,103,6.276,0.83,us,us7000i21i,2022-10-28T02:27:44.040Z,"south of the Kermadec Islands",earthquake,11.72,1.951,0.229,9,reviewed,us,us
+2022-08-15T03:54:40.965Z,-32.6809,-178.9935,38.179,4.9,mb,45,75,3.53,0.69,us,us6000iax4,2022-10-28T02:26:03.040Z,"south of the Kermadec Islands",earthquake,10.21,5.191,0.098,33,reviewed,us,us
+2022-08-15T19:19:15.442Z,-32.6854,-178.9877,36.481,4.5,mb,19,208,5.347,0.66,us,us7000i22p,2022-10-28T02:27:49.040Z,"south of the Kermadec Islands",earthquake,13.53,8.878,0.163,11,reviewed,us,us
+2022-08-15T20:12:40.405Z,-32.7408,-178.9009,39.97,4.4,mb,21,166,3.569,1.04,us,us7000i22q,2022-10-28T02:27:49.040Z,"south of the Kermadec Islands",earthquake,7.94,7.867,0.155,12,reviewed,us,us
+2022-08-28T16:01:49.394Z,-32.4685,-178.8136,35,4.5,mb,15,131,5.604,0.52,us,us7000i5ey,2024-01-18T16:45:21.269Z,"south of the Kermadec Islands",earthquake,9.04,1.919,0.205,9,reviewed,us,us
+2022-08-29T18:10:52.537Z,-32.6275,-179.1382,53.665,5.7,mww,131,35,6.721,1.19,us,us7000i3gq,2022-11-06T04:37:55.040Z,"south of the Kermadec Islands",earthquake,9.71,4.112,0.061,26,reviewed,us,us
+2022-09-07T02:41:28.806Z,-32.6051,-178.9738,44.355,4.3,mb,11,156,3.453,0.32,us,us7000i818,2022-11-15T19:06:18.040Z,"south of the Kermadec Islands",earthquake,15.5,8.572,0.201,7,reviewed,us,us

@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2018-10-13T11:10:22.400Z,52.8549,153.2429,461,6.7,mww,,17,2.705,0.74,us,us1000hbkz,2022-05-03T19:35:22.584Z,"269 km WNW of Ozernovskiy, Russia",earthquake,6.5,1.9,0.033,89,reviewed,us,us

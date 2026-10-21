@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2023-03-01T05:36:14.834Z,-4.8255,149.5041,600.933,6.6,mww,156,11,2.725,0.76,us,us7000jgfd,2024-10-09T16:08:08.898Z,"106 km NW of Kimbe, Papua New Guinea",earthquake,7.68,1.992,0.059,28,reviewed,us,us
+2023-03-01T05:41:23.320Z,-4.8473,149.7326,608.936,4.9,mb,63,98,5.198,0.59,us,us7000ji82,2024-01-18T19:25:02.736Z,"89 km NNW of Kimbe, Papua New Guinea",earthquake,12.48,7.486,0.132,44,reviewed,us,us
+2023-03-01T06:06:00.625Z,-4.7434,149.5415,588.197,4.3,mb,30,136,9.093,0.78,us,us7000ji7s,2023-05-08T02:00:05.040Z,"111 km NW of Kimbe, Papua New Guinea",earthquake,14.57,9.676,0.111,25,reviewed,us,us
+2023-03-06T21:45:53.034Z,-4.8365,149.7727,604.527,4.2,mb,23,104,2.468,0.7,us,us7000jiwj,2023-05-15T02:50:25.040Z,"88 km NNW of Kimbe, Papua New Guinea",earthquake,9.73,11.069,0.132,16,reviewed,us,us

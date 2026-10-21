@@ -1,0 +1,11 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2010-12-20T18:41:59.200Z,28.412,59.18,12,6.7,mwc,279,24.3,,1.21,us,usp000hr7k,2022-07-19T01:38:06.287Z,"111 km SE of Bam, Iran",earthquake,,,,,reviewed,us,us
+2010-12-20T18:50:23.100Z,28.302,59.195,14.1,4.2,mb,38,68.1,,,us,usp000hr7m,2014-11-07T01:43:10.220Z,"121 km SE of Bam, Iran",earthquake,,,,1,reviewed,thr,us
+2010-12-20T18:56:53.810Z,28.402,58.942,10,4.2,mb,15,65.5,,1.09,us,usp000hr7n,2014-11-07T01:43:10.224Z,"96 km SE of Bam, Iran",earthquake,,,,1,reviewed,us,us
+2010-12-20T22:12:58.800Z,28.282,59.224,15,4.9,mb,90,68.4,,,us,usp000hr7v,2014-11-07T01:43:10.247Z,"124 km SE of Bam, Iran",earthquake,,,,30,reviewed,thr,us
+2010-12-20T23:49:11.400Z,28.433,59.045,34.3,4,mb,40,135.4,,,us,usp000hr7x,2014-11-07T01:43:10.264Z,"100 km SE of Bam, Iran",earthquake,,,,8,reviewed,teh,us
+2010-12-21T01:01:39.000Z,28.27,59.21,12,4.1,mblg,26,68.3,,,us,usp000hr81,2014-11-07T01:43:10.277Z,"124 km SE of Bam, Iran",earthquake,,,,,reviewed,teh,teh
+2010-12-21T12:14:18.380Z,28.161,59.058,10,4.3,mb,36,66.9,,0.94,us,usp000hr90,2014-11-07T01:43:10.426Z,"125 km SSE of Bam, Iran",earthquake,,,,12,reviewed,us,us
+2010-12-25T22:24:16.600Z,28.435,59.058,43.6,4.2,mb,53,88.5,,,us,usp000hryp,2014-11-07T01:43:14.511Z,"101 km SE of Bam, Iran",earthquake,,,,17,reviewed,thr,us
+2010-12-28T19:01:42.600Z,28.399,59.282,12.8,4.1,mblg,26,119.7,,,us,usp000hs71,2014-11-07T01:43:16.117Z,"119 km SE of Bam, Iran",earthquake,,,,,reviewed,teh,teh
+2011-01-02T15:23:45.770Z,28.262,59.308,10,4.1,ml,18,125.3,,1.14,us,usp000hsff,2014-11-07T01:43:20.245Z,"131 km SE of Bam, Iran",earthquake,,,,,reviewed,us,thr

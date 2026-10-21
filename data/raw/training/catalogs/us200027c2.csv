@@ -1,0 +1,3 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2015-04-17T09:19:31.790Z,-15.9701,-178.8458,10,4.7,mb,,106,3.454,0.94,us,us2000278t,2022-05-03T17:19:46.126Z,"198 km ENE of Labasa, Fiji",earthquake,6.1,1.8,0.084,43,reviewed,us,us
+2015-04-17T15:52:51.480Z,-15.8815,-178.6005,10,6.5,mww,,42,3.702,1.07,us,us200027c2,2022-05-03T18:24:03.515Z,"181 km SSW of Alo, Wallis and Futuna",earthquake,4.4,1.8,,,reviewed,us,us

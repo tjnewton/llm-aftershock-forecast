@@ -1,0 +1,10 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2019-08-01T18:28:07.270Z,-34.2364,-72.3102,25,6.8,mww,,35,0.817,0.91,us,us60004yps,2025-12-22T18:17:54.982Z,"96 km SW of San Antonio, Chile",earthquake,5.1,1.8,0.045,48,reviewed,us,us
+2019-08-01T19:36:25.649Z,-34.1875,-72.1908,10,4.9,mb,,76,0.713,0.76,us,us60004yrj,2019-10-19T21:42:04.040Z,"85 km SW of San Antonio, Chile",earthquake,4.8,1.9,0.059,89,reviewed,us,us
+2019-08-01T20:01:28.233Z,-34.2812,-72.3734,15.41,5.6,mww,,80,0.886,0.63,us,us60004ys7,2025-12-22T18:14:20.223Z,"100 km WNW of Santa Cruz, Chile",earthquake,4.9,3.4,0.086,13,reviewed,us,us
+2019-08-02T00:09:15.018Z,-34.1537,-72.2855,23.76,4.2,mwr,,134,0.906,0.72,us,us60004yze,2019-10-19T21:42:04.040Z,"88 km SW of San Antonio, Chile",earthquake,3.7,2.3,0.042,54,reviewed,us,us
+2019-08-02T00:55:16.735Z,-34.1825,-72.1958,13.23,5.4,mww,,49,0.846,0.57,us,us60004z17,2025-12-22T17:55:09.990Z,"84 km SW of San Antonio, Chile",earthquake,3.9,2.8,0.06,27,reviewed,us,us
+2019-08-02T06:41:42.594Z,-34.1896,-72.272,14.31,4.6,mwr,,78,0.908,0.67,us,us60004zae,2019-10-19T21:42:05.040Z,"90 km SW of San Antonio, Chile",earthquake,5.2,5.6,0.04,60,reviewed,us,us
+2019-08-02T06:50:51.354Z,-34.1415,-72.245,18.13,4.6,mwr,,132,0.871,0.51,us,us60004zan,2019-10-19T21:42:05.040Z,"84 km SW of San Antonio, Chile",earthquake,5.3,4.2,0.04,61,reviewed,us,us
+2019-08-02T17:58:51.408Z,-34.3111,-72.3857,26.87,4.1,mwr,,154,1.042,1.08,us,us60004zrd,2019-10-19T21:42:06.040Z,"100 km WNW of Santa Cruz, Chile",earthquake,4.3,5.6,0.044,50,reviewed,us,us
+2019-08-29T14:31:28.754Z,-34.3622,-71.916,30.71,4.2,mb,,161,0.688,0.95,us,us700059nx,2022-08-08T15:49:56.020Z,"59 km WNW of Santa Cruz, Chile",earthquake,3.1,8,0.235,5,reviewed,us,us

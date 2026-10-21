@@ -1,0 +1,14 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2015-03-30T07:56:53.230Z,-15.4296,-173.049,10,6,mww,,36,4.695,0.96,us,us10001ryk,2022-05-03T18:37:35.879Z,"98 km NE of Hihifo, Tonga",earthquake,8.2,1.7,,,reviewed,us,us
+2015-03-30T08:18:01.340Z,-15.392,-172.9409,14.54,6.4,mww,,35,4.659,0.95,us,us10001ryq,2022-07-28T05:18:59.390Z,"110 km NE of Hihifo, Tonga",earthquake,8.5,3,,,reviewed,us,us
+2015-03-30T08:23:13.610Z,-15.4401,-173.0986,10,4.7,mb,,121,1.987,0.95,us,us10001vdn,2015-06-12T01:53:29.040Z,"93 km NE of Hihifo, Tonga",earthquake,7.7,1.9,0.134,17,reviewed,us,us
+2015-03-30T08:26:01.080Z,-15.3272,-173.0396,10,4.8,mb,,86,1.865,1.38,us,us10001vdm,2015-06-12T01:53:29.040Z,"106 km NE of Hihifo, Tonga",earthquake,9.8,1.7,0.118,22,reviewed,us,us
+2015-03-30T08:45:11.450Z,-15.4554,-172.8487,10,4.5,mb,,114,1.854,1.08,us,us10001vdx,2015-06-12T01:53:29.040Z,"115 km ENE of Hihifo, Tonga",earthquake,8.1,1.9,0.15,13,reviewed,us,us
+2015-03-30T08:48:25.340Z,-15.4994,-173.0293,11,6.5,mww,,36,4.629,0.9,us,us10001ryu,2022-07-28T05:19:55.902Z,"96 km ENE of Hihifo, Tonga",earthquake,8.5,1.7,,,reviewed,us,us
+2015-03-30T08:50:42.970Z,-15.4611,-173.0867,10,5.2,mb,,63,1.996,0.9,us,us10001ver,2015-06-12T01:53:29.040Z,"93 km NE of Hihifo, Tonga",earthquake,7.9,1.8,0.093,38,reviewed,us,us
+2015-03-30T13:06:47.100Z,-15.491,-172.7767,10,4.2,mb,,114,1.846,0.46,us,us10001vdy,2015-06-12T01:53:30.040Z,"120 km ENE of Hihifo, Tonga",earthquake,9.4,1.9,0.186,9,reviewed,us,us
+2015-03-30T18:02:10.790Z,-15.4261,-172.8635,9.64,5.8,mww,,40,1.838,1.16,us,us10001s3e,2022-05-03T18:23:47.444Z,"115 km ENE of Hihifo, Tonga",earthquake,10,3.2,,,reviewed,us,us
+2015-04-10T07:58:15.120Z,-15.1865,-173.104,10,4.2,mb,,97,1.806,0.29,us,us2000279b,2015-06-22T23:18:55.040Z,"112 km NE of Hihifo, Tonga",earthquake,5.1,2,0.2,7,reviewed,us,us
+2015-04-11T10:07:23.420Z,-15.6948,-172.8497,10,4.6,mb,,85,4.369,0.73,us,us200025tw,2015-06-22T23:18:56.040Z,"105 km ENE of Hihifo, Tonga",earthquake,10,1.8,0.053,105,reviewed,us,us
+2015-04-20T14:32:20.190Z,-15.3436,-173.0326,10,4.7,mb,,101,1.873,0.49,us,us200029u0,2015-06-26T23:15:58.040Z,"106 km NE of Hihifo, Tonga",earthquake,6.5,1.9,0.183,10,reviewed,us,us
+2015-04-20T15:56:04.180Z,-15.3437,-173.0132,10,4.5,mb,,120,1.861,0.54,us,us200029tv,2015-06-26T23:15:59.040Z,"107 km NE of Hihifo, Tonga",earthquake,7,2,0.181,10,reviewed,us,us

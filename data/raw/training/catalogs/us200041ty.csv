@@ -1,0 +1,24 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2015-11-01T16:50:59.490Z,-8.3918,124.9161,10,4.6,mb,,54,1.498,1.39,us,us20004177,2016-01-30T02:11:01.040Z,"40 km NW of Maubara, Timor Leste",earthquake,4.6,1.9,0.116,22,reviewed,us,us
+2015-11-03T20:54:44.620Z,-8.348,125.0156,24.43,4.9,mb,,34,1.581,1.11,us,us200041rc,2016-11-10T21:58:25.092Z,"35 km NW of Maubara, Timor Leste",earthquake,4.9,4.2,0.068,69,reviewed,us,us
+2015-11-03T21:06:44.290Z,-8.2945,125.1635,10,4.2,mb,,69,1.7,0.86,us,us10003v68,2016-01-30T02:11:05.040Z,"35 km N of Maubara, Timor Leste",earthquake,4.6,1.9,0.175,9,reviewed,us,us
+2015-11-03T21:25:02.010Z,-8.2825,124.9069,10.27,5.7,mww,,37,1.594,0.95,us,us200041rk,2022-08-01T15:37:11.362Z,"49 km NW of Maubara, Timor Leste",earthquake,6.2,3,,,reviewed,us,us
+2015-11-04T03:44:15.190Z,-8.3381,124.8754,20,6.5,mww,,21,1.53,0.83,us,us200041ty,2022-08-01T15:47:12.391Z,"47 km NW of Maubara, Timor Leste",earthquake,5.4,1.8,,,reviewed,us,us
+2015-11-04T03:51:02.630Z,-8.2033,124.859,10,5.3,mb,,87,1.649,0.84,us,us10003v9b,2016-01-30T02:11:06.040Z,"59 km NW of Maubara, Timor Leste",earthquake,7.8,1.8,0.091,40,reviewed,us,us
+2015-11-04T04:34:03.010Z,-8.377,125.0689,10,4.7,mb,,87,2.812,0.87,us,us10003v8i,2016-01-30T02:11:06.040Z,"30 km NNW of Maubara, Timor Leste",earthquake,8.1,1.9,0.126,19,reviewed,us,us
+2015-11-04T08:14:57.780Z,-8.3487,125.0105,10,5.1,mb,,55,1.578,1.38,us,us200041vm,2016-01-30T02:11:06.040Z,"36 km NW of Maubara, Timor Leste",earthquake,6.7,1.8,0.11,27,reviewed,us,us
+2015-11-04T09:27:16.970Z,-8.269,125.1651,10,4.2,mb,,112,1.722,1.04,us,us10003v9f,2016-01-30T02:11:07.040Z,"38 km N of Maubara, Timor Leste",earthquake,6.8,1.8,0.265,8,reviewed,us,us
+2015-11-04T09:40:44.510Z,-8.3162,125.1002,10,4.2,mb,,61,1.649,0.8,us,us10003v9e,2016-01-30T02:11:07.040Z,"34 km NNW of Maubara, Timor Leste",earthquake,4.4,1.9,0.264,8,reviewed,us,us
+2015-11-04T13:23:59.390Z,-8.2451,125.0219,8.98,4.8,mb,,63,1.675,1.17,us,us200041x0,2016-01-30T02:11:07.040Z,"45 km NNW of Maubara, Timor Leste",earthquake,6.5,0.8,0.094,35,reviewed,us,us
+2015-11-04T16:36:57.500Z,-8.3782,125.1243,23.79,4.2,mb,,114,1.609,0.99,us,us200041za,2016-01-30T02:11:07.040Z,"27 km NNW of Maubara, Timor Leste",earthquake,5.6,7.2,0.186,8,reviewed,us,us
+2015-11-04T16:48:30.670Z,-8.1448,124.9689,10,4.3,mb,,127,1.744,1.35,us,us200041ze,2016-01-30T02:11:08.040Z,"57 km NNW of Maubara, Timor Leste",earthquake,8.3,1.9,0.217,6,reviewed,us,us
+2015-11-04T18:47:36.410Z,-8.5651,125.0486,10,4.4,mb,,57,1.412,1.02,us,us20004213,2016-01-30T02:11:08.040Z,"18 km WNW of Maubara, Timor Leste",earthquake,4,1.9,0.117,21,reviewed,us,us
+2015-11-04T23:57:21.440Z,-8.2553,124.9782,10,4.2,mb,,133,1.647,1.03,us,us10003vac,2016-01-30T02:11:08.040Z,"46 km NNW of Maubara, Timor Leste",earthquake,9.4,1.9,0.264,4,reviewed,us,us
+2015-11-05T03:34:30.430Z,-8.252,125.056,17.12,4,mb,,133,2.814,0.76,us,us10003utw,2016-02-05T03:16:30.040Z,"43 km NNW of Maubara, Timor Leste",earthquake,9.7,6,0.196,7,reviewed,us,us
+2015-11-05T11:08:27.110Z,-8.3012,124.9525,35,4.2,mb,,78,1.595,1.26,us,us10003vze,2016-02-05T03:16:30.040Z,"44 km NW of Maubara, Timor Leste",earthquake,5.3,2,0.214,6,reviewed,us,us
+2015-11-05T12:24:58.410Z,-8.2552,124.9233,28.18,4.4,mb,,68,1.625,1.44,us,us10003uvf,2016-02-05T03:16:30.040Z,"50 km NW of Maubara, Timor Leste",earthquake,5.5,6.3,0.155,14,reviewed,us,us
+2015-11-05T16:24:13.870Z,-8.2173,124.7998,20.23,5,mb,,46,1.616,0.87,us,us10003uwi,2022-08-01T16:03:03.429Z,"62 km NW of Maubara, Timor Leste",earthquake,5.4,4.6,0.068,70,reviewed,us,us
+2015-11-06T19:33:13.740Z,-8.1488,125.0972,10,4.4,mb,,77,1.794,0.87,us,us10003vc4,2022-08-01T16:15:18.230Z,"52 km NNW of Maubara, Timor Leste",earthquake,5.5,1.9,0.12,21,reviewed,us,us
+2015-11-15T04:21:18.410Z,-8.4151,125.0739,57.77,4.3,mb,,106,1.551,0.62,us,us10003zb3,2016-02-13T02:08:22.040Z,"26 km NW of Maubara, Timor Leste",earthquake,11.6,5,0.238,5,reviewed,us,us
+2015-11-21T16:44:05.660Z,-8.2343,124.9384,10,4.9,mb,,80,1.65,1.26,us,us1000404k,2016-02-18T04:48:47.040Z,"51 km NW of Maubara, Timor Leste",earthquake,7.4,1.7,0.119,22,reviewed,us,us
+2015-11-27T06:54:58.950Z,-8.3414,125.1383,12.68,4.7,mb,,46,1.647,1.09,us,us100041nc,2016-02-25T22:32:56.040Z,"30 km NNW of Maubara, Timor Leste",earthquake,3.5,4.5,0.106,27,reviewed,us,us

@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2014-08-24T23:21:45.520Z,-14.598,-73.5714,101,6.8,mww,,18,4.107,0.9,us,usb000s5x1,2022-07-26T23:28:03.335Z,"38 km NW of Aniso, Peru",earthquake,4.7,1.8,,,reviewed,us,us
+2014-08-27T02:41:52.930Z,-14.725,-73.6548,78.92,4.4,mb,,91,4.126,0.48,us,usc000s7bl,2014-11-29T00:09:16.000Z,"30 km ENE of Tambo, Peru",earthquake,8.1,5.9,0.105,30,reviewed,us,us
+2014-09-15T03:48:02.620Z,-14.7538,-73.4836,82.41,4.2,mb,,90,4.271,0.88,us,usb000sfwk,2014-12-08T23:31:01.040Z,"18 km NNW of Upahuacho, Peru",earthquake,5.5,7.6,0.215,7,reviewed,us,us

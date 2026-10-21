@@ -1,0 +1,282 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2012-08-29T00:23:37.540Z,10.163,126.422,35,4.2,mb,14,95.1,,0.75,us,usp000jr0n,2014-11-07T01:48:39.219Z,"44 km ENE of Santa Monica, Philippines",earthquake,,,,2,reviewed,us,us
+2012-08-31T12:47:33.380Z,10.811,126.638,28,7.6,mww,682,10.2,,1.02,us,usp000jr83,2022-05-03T15:48:46.699Z,"89 km E of Sulangan, Philippines",earthquake,,,,,reviewed,us,us
+2012-08-31T13:02:10.850Z,11.013,127.14,35,4.8,mb,48,95.7,,1.04,us,usp000jr84,2014-11-07T01:48:40.341Z,"143 km E of Sulangan, Philippines",earthquake,,,,8,reviewed,us,us
+2012-08-31T13:05:15.200Z,10.594,126.82,35,4.8,mb,43,97.1,,0.88,us,usp000jr85,2014-11-07T01:48:40.345Z,"106 km NE of Santa Monica, Philippines",earthquake,,,,7,reviewed,us,us
+2012-08-31T13:06:20.330Z,10.576,126.799,35,4.9,mb,22,115.5,,0.96,us,usp000jr86,2014-11-07T01:48:40.348Z,"103 km NE of Santa Monica, Philippines",earthquake,,,,2,reviewed,us,us
+2012-08-31T13:08:22.580Z,10.581,126.785,35,4.9,mb,33,105.9,,1.17,us,usp000jr87,2014-11-07T01:48:40.350Z,"102 km NE of Santa Monica, Philippines",earthquake,,,,4,reviewed,us,us
+2012-08-31T13:10:41.790Z,9.697,127.019,35,4.7,mb,41,107.1,,1.21,us,usp000jr88,2014-11-07T01:48:40.353Z,"99 km E of Union, Philippines",earthquake,,,,6,reviewed,us,us
+2012-08-31T13:14:59.420Z,10.562,126.926,35,5.3,mb,110,63.6,,1.05,us,usp000jr89,2015-03-24T02:42:04.039Z,"114 km ENE of Santa Monica, Philippines",earthquake,,,,29,reviewed,us,us
+2012-08-31T13:16:14.030Z,10.372,126.777,35,5.2,mb,53,57.4,,1.21,us,usp000jr8a,2014-11-07T01:48:40.365Z,"89 km ENE of Santa Monica, Philippines",earthquake,,,,10,reviewed,us,us
+2012-08-31T13:17:48.550Z,10.498,126.782,35,4.9,mb,65,64,,0.97,us,usp000jr8b,2014-11-07T01:48:40.369Z,"97 km ENE of Santa Monica, Philippines",earthquake,,,,15,reviewed,us,us
+2012-08-31T13:27:31.990Z,10.485,126.887,35,5.4,mb,142,67,,1.41,us,usp000jr8c,2015-03-24T01:32:32.040Z,"106 km ENE of Santa Monica, Philippines",earthquake,,,,79,reviewed,us,us
+2012-08-31T13:30:36.650Z,10.526,126.844,35,4.5,mb,32,104.2,,0.86,us,usp000jr8e,2014-11-07T01:48:40.388Z,"104 km ENE of Santa Monica, Philippines",earthquake,,,,9,reviewed,us,us
+2012-08-31T13:31:37.360Z,10.456,126.916,35,5.2,mb,95,57.7,,0.87,us,usp000jr8f,2014-11-07T01:48:40.390Z,"107 km ENE of Santa Monica, Philippines",earthquake,,,,27,reviewed,us,us
+2012-08-31T13:36:32.100Z,10.414,126.926,35,4.9,mb,107,64,,0.91,us,usp000jr8g,2014-11-07T01:48:40.397Z,"106 km ENE of Santa Monica, Philippines",earthquake,,,,30,reviewed,us,us
+2012-08-31T13:37:31.840Z,10.764,126.819,35,4.7,mb,68,84.8,,1.04,us,usp000jr8h,2014-11-07T01:48:40.405Z,"110 km E of Sulangan, Philippines",earthquake,,,,13,reviewed,us,us
+2012-08-31T13:39:15.700Z,10.432,126.85,35,4.9,mb,84,80.7,,0.88,us,usp000jr8j,2014-11-07T01:48:40.410Z,"99 km ENE of Santa Monica, Philippines",earthquake,,,,21,reviewed,us,us
+2012-08-31T13:40:32.690Z,10.477,126.802,35,4.9,mb,68,80.7,,0.93,us,usp000jr8k,2015-03-24T02:37:56.880Z,"97 km ENE of Santa Monica, Philippines",earthquake,,,,5,reviewed,us,us
+2012-08-31T13:43:55.360Z,10.034,127.216,35,4.5,mb,16,137.7,,1.1,us,usp000jr8n,2014-11-07T01:48:40.423Z,"123 km E of Pilar, Philippines",earthquake,,,,5,reviewed,us,us
+2012-08-31T13:45:15.540Z,10.403,126.788,35,4.5,mb,47,107.7,,0.67,us,usp000jr8p,2014-11-07T01:48:40.425Z,"92 km ENE of Santa Monica, Philippines",earthquake,,,,6,reviewed,us,us
+2012-08-31T13:48:08.330Z,10.381,127.024,35,4.7,mb,49,122.1,,0.95,us,usp000jr8q,2014-11-07T01:48:40.429Z,"115 km ENE of Santa Monica, Philippines",earthquake,,,,8,reviewed,us,us
+2012-08-31T13:51:26.900Z,10.814,126.817,35,4.4,mb,54,107.1,,0.92,us,usp000jr8r,2014-11-07T01:48:40.433Z,"109 km E of Sulangan, Philippines",earthquake,,,,7,reviewed,us,us
+2012-08-31T13:55:09.420Z,10.552,126.811,35,4.4,mb,69,80.8,,1,us,usp000jr8s,2014-11-07T01:48:40.437Z,"103 km NE of Santa Monica, Philippines",earthquake,,,,22,reviewed,us,us
+2012-08-31T14:07:02.090Z,10.754,126.874,35,4,mb,21,157,,0.89,us,usp000jr8v,2014-11-07T01:48:40.446Z,"116 km E of Sulangan, Philippines",earthquake,,,,8,reviewed,us,us
+2012-08-31T14:07:57.180Z,10.579,126.824,35,4.1,mb,21,137.8,,0.94,us,usp000jr8w,2014-11-07T01:48:40.448Z,"105 km NE of Santa Monica, Philippines",earthquake,,,,7,reviewed,us,us
+2012-08-31T14:13:55.340Z,10.896,126.577,35,4.1,mb,23,150.4,,1.08,us,usp000jr8x,2014-11-07T01:48:40.451Z,"82 km E of Sulangan, Philippines",earthquake,,,,8,reviewed,us,us
+2012-08-31T14:16:02.600Z,10.466,126.672,35,4.9,mb,92,64.3,,0.82,us,usp000jr8y,2014-11-07T01:48:40.453Z,"85 km NE of Santa Monica, Philippines",earthquake,,,,39,reviewed,us,us
+2012-08-31T14:18:06.210Z,10.459,126.76,35,4.3,mb,30,129.2,,0.87,us,usp000jr8z,2014-11-07T01:48:40.460Z,"92 km ENE of Santa Monica, Philippines",earthquake,,,,8,reviewed,us,us
+2012-08-31T14:28:01.640Z,10.434,126.694,35,4.6,mb,60,98.3,,1.03,us,usp000jr91,2014-11-07T01:48:40.467Z,"85 km ENE of Santa Monica, Philippines",earthquake,,,,19,reviewed,us,us
+2012-08-31T14:38:43.040Z,10.977,126.807,35,4.5,mb,53,93,,0.73,us,usp000jr93,2014-11-07T01:48:40.474Z,"107 km E of Sulangan, Philippines",earthquake,,,,16,reviewed,us,us
+2012-08-31T14:44:53.200Z,10.73,126.659,35,4.5,mb,73,41,,1.02,us,usp000jr95,2014-11-07T01:48:40.480Z,"93 km ESE of Sulangan, Philippines",earthquake,,,,18,reviewed,us,us
+2012-08-31T14:54:58.020Z,10.406,126.83,35,4.1,mb,45,130.2,,0.98,us,usp000jr99,2014-11-07T01:48:40.489Z,"96 km ENE of Santa Monica, Philippines",earthquake,,,,11,reviewed,us,us
+2012-08-31T14:59:57.220Z,10.379,126.864,35,4.9,mb,116,64.2,,0.93,us,usp000jr9b,2014-11-07T01:48:40.494Z,"98 km ENE of Santa Monica, Philippines",earthquake,,,,45,reviewed,us,us
+2012-08-31T15:15:05.160Z,10.491,126.851,35,4.3,mb,39,85.5,,0.91,us,usp000jr9g,2014-11-07T01:48:40.513Z,"103 km ENE of Santa Monica, Philippines",earthquake,,,,6,reviewed,us,us
+2012-08-31T15:21:52.570Z,10.427,126.869,35,4.5,mb,52,130.1,,0.96,us,usp000jr9j,2014-11-07T01:48:40.520Z,"101 km ENE of Santa Monica, Philippines",earthquake,,,,12,reviewed,us,us
+2012-08-31T15:24:05.990Z,10.37,126.908,35,4.9,mb,81,64.1,,0.88,us,usp000jr9k,2014-11-07T01:48:40.524Z,"102 km ENE of Santa Monica, Philippines",earthquake,,,,24,reviewed,us,us
+2012-08-31T15:51:54.330Z,10.611,126.736,35,4.3,mb,43,83.2,,0.85,us,usp000jr9q,2014-11-07T01:48:40.554Z,"100 km NE of Santa Monica, Philippines",earthquake,,,,9,reviewed,us,us
+2012-08-31T15:59:27.250Z,10.636,126.789,35,4.6,mb,55,89.2,,1.01,us,usp000jr9s,2014-11-07T01:48:40.559Z,"106 km NE of Santa Monica, Philippines",earthquake,,,,9,reviewed,us,us
+2012-08-31T16:00:06.570Z,10.55,126.667,35,4.6,mb,58,64,,1.09,us,usp000jr9t,2014-11-07T01:48:40.563Z,"90 km NE of Santa Monica, Philippines",earthquake,,,,15,reviewed,us,us
+2012-08-31T16:26:44.670Z,10.239,126.928,35,4.6,mb,32,120,,0.83,us,usp000jr9v,2014-11-07T01:48:40.572Z,"99 km ENE of Pilar, Philippines",earthquake,,,,5,reviewed,us,us
+2012-08-31T16:34:35.920Z,10.968,126.932,35,4.4,mb,27,85.6,,0.88,us,usp000jr9z,2014-11-07T01:48:40.580Z,"120 km E of Sulangan, Philippines",earthquake,,,,10,reviewed,us,us
+2012-08-31T16:43:25.530Z,10.344,126.737,35,4.3,mb,49,121,,0.92,us,usp000jra0,2014-11-07T01:48:40.582Z,"84 km ENE of Santa Monica, Philippines",earthquake,,,,15,reviewed,us,us
+2012-08-31T16:46:13.990Z,10.821,127.145,35,4.3,mb,48,109.3,,1.06,us,usp000jra1,2014-11-07T01:48:40.586Z,"144 km E of Sulangan, Philippines",earthquake,,,,10,reviewed,us,us
+2012-08-31T16:55:11.390Z,11.026,126.705,35,5.1,mb,111,62.6,,0.85,us,usp000jra2,2014-11-07T01:48:40.590Z,"96 km E of Sulangan, Philippines",earthquake,,,,43,reviewed,us,us
+2012-08-31T17:47:01.920Z,10.366,126.418,35,4.5,mb,35,102.2,,0.92,us,usp000jra6,2014-11-07T01:48:40.614Z,"56 km NE of Santa Monica, Philippines",earthquake,,,,10,reviewed,us,us
+2012-08-31T17:53:57.750Z,10.854,127.069,35,4.5,mb,40,68.2,,1.07,us,usp000jra8,2014-11-07T01:48:40.622Z,"136 km E of Sulangan, Philippines",earthquake,,,,16,reviewed,us,us
+2012-08-31T18:34:40.180Z,10.788,127.227,35,4.5,mb,34,104.7,,0.71,us,usp000jrad,2014-11-07T01:48:40.667Z,"154 km E of Sulangan, Philippines",earthquake,,,,17,reviewed,us,us
+2012-08-31T19:08:51.480Z,10.304,126.981,35,4.6,mb,58,120.2,,0.73,us,usp000jraj,2014-11-07T01:48:40.742Z,"107 km ENE of Santa Monica, Philippines",earthquake,,,,20,reviewed,us,us
+2012-08-31T19:12:10.990Z,10.653,126.868,35,4.5,mb,29,176.9,,0.85,us,usp000jram,2014-11-07T01:48:40.749Z,"114 km NE of Santa Monica, Philippines",earthquake,,,,9,reviewed,us,us
+2012-08-31T19:17:49.090Z,10.425,126.55,35,4.6,mb,40,76.9,,1.12,us,usp000jran,2014-11-07T01:48:40.752Z,"71 km NE of Santa Monica, Philippines",earthquake,,,,20,reviewed,us,us
+2012-08-31T19:41:03.050Z,10.639,126.785,40.3,4.9,mb,128,49,,0.94,us,usp000jras,2014-11-07T01:48:40.776Z,"106 km NE of Santa Monica, Philippines",earthquake,,5.1,,61,reviewed,us,us
+2012-08-31T20:26:49.870Z,10.727,126.73,35.8,5.2,mb,202,63.4,,0.81,us,usp000jrax,2014-11-07T01:48:40.797Z,"101 km ESE of Sulangan, Philippines",earthquake,,3.9,,105,reviewed,us,us
+2012-08-31T21:14:26.350Z,10.799,127.342,35,4.5,mb,12,140.1,,0.63,us,usp000jraz,2014-11-07T01:48:40.814Z,"166 km E of Sulangan, Philippines",earthquake,,,,6,reviewed,us,us
+2012-08-31T21:22:31.170Z,10.565,126.692,44.5,4.9,mb,114,80.8,,0.81,us,usp000jrb2,2014-11-07T01:48:40.818Z,"93 km NE of Santa Monica, Philippines",earthquake,,4.6,,50,reviewed,us,us
+2012-08-31T21:29:09.610Z,10.013,126.964,35,4.3,mb,10,117.6,,0.41,us,usp000jrb4,2014-11-07T01:48:40.827Z,"96 km E of Pilar, Philippines",earthquake,,,,5,reviewed,us,us
+2012-08-31T22:01:20.250Z,10.977,126.867,35,5.1,mb,170,31.8,,0.93,us,usp000jrb6,2015-03-24T02:40:40.588Z,"113 km E of Sulangan, Philippines",earthquake,,,,67,reviewed,us,us
+2012-08-31T22:07:56.050Z,10.541,126.826,35,4.3,mb,33,89.3,,1.16,us,usp000jrb8,2014-11-07T01:48:40.849Z,"103 km ENE of Santa Monica, Philippines",earthquake,,,,2,reviewed,us,us
+2012-08-31T22:59:50.870Z,10.306,126.981,35,4.4,mb,30,100.5,,0.84,us,usp000jrbf,2014-11-07T01:48:40.859Z,"108 km ENE of Santa Monica, Philippines",earthquake,,,,3,reviewed,us,us
+2012-08-31T23:36:43.470Z,10.567,126.797,35,4.5,mb,44,87.3,,1.03,us,usp000jrbk,2014-11-07T01:48:40.865Z,"102 km NE of Santa Monica, Philippines",earthquake,,,,3,reviewed,us,us
+2012-08-31T23:37:58.350Z,10.388,126.719,40.3,5.6,mwc,280,16.2,,0.92,us,usp000jrbm,2022-05-03T15:50:56.203Z,"84 km ENE of Santa Monica, Philippines",earthquake,,3.9,,,reviewed,us,gcmt
+2012-08-31T23:40:08.480Z,10.35,126.8,38.8,4.8,mb,34,97.3,,0.8,us,usp000jrbn,2014-11-07T01:48:40.896Z,"91 km ENE of Santa Monica, Philippines",earthquake,,14.4,,8,reviewed,us,us
+2012-08-31T23:50:14.370Z,11.457,127.557,37.5,4.2,mb,12,151.7,,0.73,us,usp000jrbp,2014-11-07T01:48:40.899Z,"197 km ENE of Sulangan, Philippines",earthquake,,18.8,,3,reviewed,us,us
+2012-08-31T23:50:48.830Z,10.524,127.718,35,4.2,mb,20,111.6,,0.77,us,usp000jrbq,2014-11-07T01:48:40.901Z,"191 km ENE of Pilar, Philippines",earthquake,,,,4,reviewed,us,us
+2012-09-01T00:25:02.670Z,10.229,126.45,35,5.3,mb,217,31.3,,0.87,us,usp000jrbx,2025-12-22T16:32:27.708Z,"50 km ENE of Santa Monica, Philippines",earthquake,,,,107,reviewed,us,us
+2012-09-01T00:36:05.680Z,11.268,126.671,35,4.6,mb,30,128.9,,0.86,us,usp000jrby,2014-11-07T01:48:42.789Z,"99 km ENE of Sulangan, Philippines",earthquake,,,,3,reviewed,us,us
+2012-09-01T00:50:00.340Z,11.242,126.803,35,4.3,mb,20,136.3,,0.66,us,usp000jrbz,2014-11-07T01:48:42.810Z,"111 km ENE of Sulangan, Philippines",earthquake,,,,8,reviewed,us,us
+2012-09-01T00:52:03.730Z,10.099,126.86,35,4.2,mb,12,244.6,,0.39,us,usp000jrc0,2014-11-07T01:48:42.829Z,"87 km ENE of Pilar, Philippines",earthquake,,,,8,reviewed,us,us
+2012-09-01T01:16:08.780Z,10.449,126.683,35.3,5.4,mwc,217,31.4,,0.82,us,usp000jrc1,2025-12-22T16:32:28.473Z,"85 km NE of Santa Monica, Philippines",earthquake,,,,,reviewed,us,gcmt
+2012-09-01T01:20:38.270Z,10.528,126.812,29.2,5.4,mwc,230,31.3,,0.8,us,usp000jrc2,2025-12-22T16:32:29.275Z,"101 km ENE of Santa Monica, Philippines",earthquake,,6.7,,,reviewed,us,gcmt
+2012-09-01T01:28:47.510Z,10.367,126.733,23.8,4.6,mb,48,91.8,,0.74,us,usp000jrc5,2014-11-07T01:48:43.286Z,"85 km ENE of Santa Monica, Philippines",earthquake,,19.6,,9,reviewed,us,us
+2012-09-01T01:34:02.870Z,10.372,126.821,35,4.3,mb,22,115.2,,0.61,us,usp000jrc6,2014-11-07T01:48:43.308Z,"94 km ENE of Santa Monica, Philippines",earthquake,,,,3,reviewed,us,us
+2012-09-01T01:37:34.850Z,10.444,126.883,26.7,4.7,mb,65,56.3,,0.76,us,usp000jrc7,2014-11-07T01:48:43.318Z,"103 km ENE of Santa Monica, Philippines",earthquake,,16.3,,13,reviewed,us,us
+2012-09-01T02:15:58.640Z,10.538,126.89,33.1,4.2,mb,32,106.5,,0.66,us,usp000jrca,2014-11-07T01:48:43.430Z,"109 km ENE of Santa Monica, Philippines",earthquake,,29.7,,2,reviewed,us,us
+2012-09-01T02:20:06.860Z,10.449,126.766,35,4.5,mb,27,103.4,,0.7,us,usp000jrcb,2014-11-07T01:48:43.443Z,"92 km ENE of Santa Monica, Philippines",earthquake,,,,2,reviewed,us,us
+2012-09-01T02:20:30.040Z,10.567,126.81,29.4,4.5,mb,39,77.4,,0.78,us,usp000jrcc,2014-11-07T01:48:43.458Z,"103 km NE of Santa Monica, Philippines",earthquake,,26.8,,7,reviewed,us,us
+2012-09-01T02:37:01.800Z,10.309,126.829,35,4,mb,12,153.7,,0.56,us,usp000jrce,2014-11-07T01:48:43.485Z,"92 km ENE of Santa Monica, Philippines",earthquake,,,,2,reviewed,us,us
+2012-09-01T03:19:07.580Z,10.686,126.723,35,4.4,mb,39,89.1,,0.82,us,usp000jrcg,2014-11-07T01:48:43.520Z,"101 km ESE of Sulangan, Philippines",earthquake,,,,5,reviewed,us,us
+2012-09-01T03:19:21.640Z,10.535,126.905,35,4.2,mb,30,119.1,,0.91,us,usp000jrch,2014-11-07T01:48:43.627Z,"110 km ENE of Santa Monica, Philippines",earthquake,,,,2,reviewed,us,us
+2012-09-01T03:19:41.080Z,10.711,126.7,35,4.3,mb,30,92.1,,0.68,us,usp000jrcj,2014-11-07T01:48:43.841Z,"98 km ESE of Sulangan, Philippines",earthquake,,,,2,reviewed,us,us
+2012-09-01T03:31:25.740Z,10.449,126.555,35,4,mb,23,112.2,,0.8,us,usp000jrcm,2014-11-07T01:48:43.894Z,"73 km NE of Santa Monica, Philippines",earthquake,,,,1,reviewed,us,us
+2012-09-01T04:17:23.070Z,10.735,126.846,35,4.3,mb,15,121.6,,0.62,us,usp000jrcn,2014-11-07T01:48:43.905Z,"113 km ESE of Sulangan, Philippines",earthquake,,,,1,reviewed,us,us
+2012-09-01T04:33:24.790Z,10.889,127.145,35,4,mb,14,134.6,,0.45,us,usp000jrcp,2014-11-07T01:48:43.914Z,"144 km E of Sulangan, Philippines",earthquake,,,,1,reviewed,us,us
+2012-09-01T04:38:11.480Z,11.251,126.755,35.2,4.6,mb,70,74.9,,0.89,us,usp000jrcq,2014-11-07T01:48:43.922Z,"107 km ENE of Sulangan, Philippines",earthquake,,7,,20,reviewed,us,us
+2012-09-01T05:50:12.210Z,10.616,126.865,20.1,4.6,mb,88,70.8,,0.86,us,usp000jrcz,2014-11-07T01:48:44.238Z,"112 km NE of Santa Monica, Philippines",earthquake,,17.8,,23,reviewed,us,us
+2012-09-01T05:52:11.310Z,10.558,126.795,33.3,4.9,mb,131,58.6,,0.77,us,usp000jrd0,2014-11-07T01:48:44.260Z,"102 km NE of Santa Monica, Philippines",earthquake,,9.1,,57,reviewed,us,us
+2012-09-01T07:31:55.850Z,10.918,127.275,45.5,4.4,mb,22,121.1,,1.03,us,usp000jrd7,2014-11-07T01:48:44.366Z,"158 km E of Sulangan, Philippines",earthquake,,25.6,,5,reviewed,us,us
+2012-09-01T08:08:11.150Z,10.351,126.845,35,5,mb,209,45,,0.93,us,usp000jrd8,2025-12-22T16:32:30.920Z,"95 km ENE of Santa Monica, Philippines",earthquake,,,,95,reviewed,us,us
+2012-09-01T08:13:16.360Z,10.356,126.881,35,5,mb,139,58,,0.95,us,usp000jrd9,2025-12-22T16:32:31.753Z,"99 km ENE of Santa Monica, Philippines",earthquake,,,,61,reviewed,us,us
+2012-09-01T08:18:47.710Z,10.395,126.919,35,4.7,mb,71,117,,0.81,us,usp000jrdb,2014-11-07T01:48:44.457Z,"105 km ENE of Santa Monica, Philippines",earthquake,,,,26,reviewed,us,us
+2012-09-01T08:41:41.780Z,10.214,126.711,47.6,4.6,mb,29,140.9,,0.74,us,usp000jrde,2014-11-07T01:48:44.497Z,"76 km ENE of Santa Monica, Philippines",earthquake,,22.9,,5,reviewed,us,us
+2012-09-01T09:01:03.580Z,10.364,126.966,35,4.6,mb,32,130,,1.05,us,usp000jrdf,2014-11-07T01:48:44.506Z,"108 km ENE of Santa Monica, Philippines",earthquake,,,,1,reviewed,us,us
+2012-09-01T09:39:15.620Z,10.323,126.976,28.7,4.2,mb,44,117.2,,0.69,us,usp000jrdg,2014-11-07T01:48:44.516Z,"108 km ENE of Santa Monica, Philippines",earthquake,,13.7,,9,reviewed,us,us
+2012-09-01T09:52:02.960Z,10.305,126.965,19.5,4.5,mb,70,117.3,,0.8,us,usp000jrdj,2014-11-07T01:48:44.532Z,"Philippine Islands region",earthquake,,12.1,,13,reviewed,us,us
+2012-09-01T10:09:49.170Z,10.364,127.075,35,4.5,mb,62,117.2,,0.8,us,usp000jrdm,2014-11-07T01:48:44.564Z,"119 km ENE of Santa Monica, Philippines",earthquake,,,,13,reviewed,us,us
+2012-09-01T10:18:07.590Z,10.189,126.008,35,4.3,mb,36,130.9,,1.01,us,usp000jrdn,2014-11-07T01:48:44.580Z,"18 km N of Santa Monica, Philippines",earthquake,,,,8,reviewed,us,us
+2012-09-01T10:19:41.070Z,11.079,126.526,35,4.4,mb,32,78.8,,0.99,us,usp000jrdq,2014-11-07T01:48:44.593Z,"78 km ENE of Sulangan, Philippines",earthquake,,,,8,reviewed,us,us
+2012-09-01T11:05:35.340Z,10.829,126.728,35,4.6,mb,76,45.5,,1.02,us,usp000jrdx,2014-11-07T01:48:44.702Z,"99 km E of Sulangan, Philippines",earthquake,,,,24,reviewed,us,us
+2012-09-01T11:24:17.860Z,11.175,126.89,35,4.5,mb,40,131.4,,1.08,us,usp000jrdz,2014-11-07T01:48:44.742Z,"119 km ENE of Sulangan, Philippines",earthquake,,,,8,reviewed,us,us
+2012-09-01T12:19:17.150Z,10.331,126.968,35,4.6,mb,76,60.2,,0.9,us,usp000jre3,2014-11-07T01:48:44.819Z,"107 km ENE of Santa Monica, Philippines",earthquake,,,,21,reviewed,us,us
+2012-09-01T12:27:19.270Z,10.363,126.941,35,4.8,mb,100,50.1,,0.97,us,usp000jre4,2014-11-07T01:48:44.837Z,"105 km ENE of Santa Monica, Philippines",earthquake,,,,28,reviewed,us,us
+2012-09-01T12:37:32.600Z,10.629,126.956,35,4.5,mb,47,91.1,,0.69,us,usp000jre7,2014-11-07T01:48:44.866Z,"120 km ENE of Santa Monica, Philippines",earthquake,,,,10,reviewed,us,us
+2012-09-01T14:54:05.020Z,10.569,126.78,35,4.5,mb,38,130.1,,0.94,us,usp000jrea,2014-11-07T01:48:44.902Z,"101 km NE of Santa Monica, Philippines",earthquake,,,,6,reviewed,us,us
+2012-09-01T14:55:29.600Z,10.63,126.864,35,4.8,mb,61,96.9,,0.89,us,usp000jreb,2014-11-07T01:48:44.909Z,"Philippine Islands region",earthquake,,,,12,reviewed,us,us
+2012-09-01T14:56:06.950Z,10.545,126.761,35,4.4,mb,20,141,,0.59,us,usp000jrec,2014-11-07T01:48:44.921Z,"98 km NE of Santa Monica, Philippines",earthquake,,,,1,reviewed,us,us
+2012-09-01T17:26:40.430Z,10.553,126.85,22.7,4.9,mb,125,22.2,,0.93,us,usp000jrek,2014-11-07T01:48:44.968Z,"106 km ENE of Santa Monica, Philippines",earthquake,,13.7,,66,reviewed,us,us
+2012-09-01T17:53:10.700Z,10.514,126.967,35,4.4,mb,33,127.8,,0.99,us,usp000jrep,2014-11-07T01:48:45.009Z,"115 km ENE of Santa Monica, Philippines",earthquake,,,,12,reviewed,us,us
+2012-09-01T17:57:47.010Z,10.524,126.619,35,4.7,mb,27,117.3,,0.9,us,usp000jreq,2014-11-07T01:48:45.016Z,"84 km NE of Santa Monica, Philippines",earthquake,,,,13,reviewed,us,us
+2012-09-01T18:06:45.370Z,10.746,126.527,35,4.7,mb,73,97,,0.97,us,usp000jres,2014-11-07T01:48:45.189Z,"79 km ESE of Sulangan, Philippines",earthquake,,,,30,reviewed,us,us
+2012-09-01T21:52:29.730Z,10.63,126.663,35,4.2,mb,23,131.8,,0.67,us,usp000jrf6,2014-11-07T01:48:45.321Z,"96 km NE of Santa Monica, Philippines",earthquake,,,,2,reviewed,us,us
+2012-09-01T23:55:34.720Z,10.659,126.852,35,4.3,mb,13,142.1,,0.67,us,usp000jrfd,2014-11-07T01:48:45.345Z,"113 km NE of Santa Monica, Philippines",earthquake,,,,3,reviewed,us,us
+2012-09-01T23:58:05.790Z,10.339,126.894,35,4.4,mb,31,107.7,,0.71,us,usp000jrfe,2014-11-07T01:48:45.348Z,"100 km ENE of Santa Monica, Philippines",earthquake,,,,4,reviewed,us,us
+2012-09-02T00:41:23.970Z,10.757,126.617,35,4.5,mb,21,112.3,,0.54,us,usp000jrfn,2014-11-07T01:48:45.372Z,"88 km ESE of Sulangan, Philippines",earthquake,,,,6,reviewed,us,us
+2012-09-02T00:44:10.780Z,10.934,127.122,35,4.4,mb,18,76.7,,0.56,us,usp000jrfp,2014-11-07T01:48:45.376Z,"141 km E of Sulangan, Philippines",earthquake,,,,8,reviewed,us,us
+2012-09-02T00:52:45.240Z,10.707,126.617,35,4.2,mb,18,120.8,,0.7,us,usp000jrft,2014-11-07T01:48:45.420Z,"Philippine Islands region",earthquake,,,,7,reviewed,us,us
+2012-09-02T01:38:16.310Z,10.723,126.541,35,4,mb,18,130.5,,0.68,us,usp000jrfv,2014-11-07T01:48:45.426Z,"81 km ESE of Sulangan, Philippines",earthquake,,,,2,reviewed,us,us
+2012-09-02T05:20:41.810Z,11.219,126.692,35,4.5,mb,30,93.9,,0.83,us,usp000jrg0,2014-11-07T01:48:45.471Z,"99 km ENE of Sulangan, Philippines",earthquake,,,,8,reviewed,us,us
+2012-09-02T07:32:13.350Z,10.302,126.516,35,4.7,mb,91,31,,0.91,us,usp000jrg7,2014-11-07T01:48:45.523Z,"60 km ENE of Santa Monica, Philippines",earthquake,,,,34,reviewed,us,us
+2012-09-02T08:01:49.060Z,10.79,126.858,30.3,4.5,mb,62,72.6,,0.72,us,usp000jrg9,2014-11-07T01:48:45.542Z,"113 km E of Sulangan, Philippines",earthquake,,11.9,,12,reviewed,us,us
+2012-09-02T08:11:23.750Z,10.787,126.796,14.4,4.6,mb,65,106.6,,0.77,us,usp000jrgb,2014-11-07T01:48:45.558Z,"107 km E of Sulangan, Philippines",earthquake,,18.1,,20,reviewed,us,us
+2012-09-02T08:25:28.770Z,10.51,126.296,35,4.4,mb,37,91.5,,0.9,us,usp000jrgf,2014-11-07T01:48:45.587Z,"61 km NNE of Santa Monica, Philippines",earthquake,,,,10,reviewed,us,us
+2012-09-02T08:29:01.550Z,10.272,126.286,35,4.3,mb,34,93.3,,0.94,us,usp000jrgg,2014-11-07T01:48:45.594Z,"38 km NE of Santa Monica, Philippines",earthquake,,,,6,reviewed,us,us
+2012-09-02T13:14:46.340Z,11.009,127.278,35,4.3,mb,20,182.9,,1.11,us,usp000jrgy,2014-11-07T01:48:45.793Z,"158 km E of Sulangan, Philippines",earthquake,,,,4,reviewed,us,us
+2012-09-02T14:42:15.520Z,11.308,126.652,35,5.4,mb,283,29.8,,0.79,us,usp000jrh4,2025-12-22T16:32:32.587Z,"99 km ENE of Sulangan, Philippines",earthquake,,,,130,reviewed,us,us
+2012-09-02T15:18:29.050Z,10.395,127.123,35,4.7,mb,32,149.4,,0.79,us,usp000jrh8,2014-11-07T01:48:45.865Z,"125 km ENE of Santa Monica, Philippines",earthquake,,,,9,reviewed,us,us
+2012-09-02T16:18:19.600Z,11.26,126.708,39.9,4.6,mb,29,136.2,,0.56,us,usp000jrha,2014-11-07T01:48:45.876Z,"102 km ENE of Sulangan, Philippines",earthquake,,35.9,,8,reviewed,us,us
+2012-09-02T17:53:32.880Z,10.927,126.703,35,4.9,mb,87,69.2,,0.95,us,usp000jrhb,2014-11-07T01:48:45.882Z,"95 km E of Sulangan, Philippines",earthquake,,,,36,reviewed,us,us
+2012-09-02T18:30:13.460Z,10.547,126.907,35,4.9,mb,79,73.8,,0.9,us,usp000jrhc,2014-11-07T01:48:45.895Z,"111 km ENE of Santa Monica, Philippines",earthquake,,,,26,reviewed,us,us
+2012-09-02T18:54:29.400Z,10.518,126.773,35,4.7,mb,52,106.7,,0.98,us,usp000jrhd,2014-11-07T01:48:45.906Z,"97 km NE of Santa Monica, Philippines",earthquake,,,,15,reviewed,us,us
+2012-09-02T19:18:22.640Z,10.546,126.879,35,4,mb,18,154.1,,0.85,us,usp000jrhf,2014-11-07T01:48:45.919Z,"108 km ENE of Santa Monica, Philippines",earthquake,,,,2,reviewed,us,us
+2012-09-02T21:31:29.880Z,10.943,126.764,37.8,4.5,mb,50,115.8,,1.06,us,usp000jrhg,2014-11-07T01:48:45.923Z,"102 km E of Sulangan, Philippines",earthquake,,16.1,,19,reviewed,us,us
+2012-09-02T22:22:05.810Z,10.903,126.728,35,4.4,mb,26,129.6,,0.94,us,usp000jrhk,2014-11-07T01:48:45.967Z,"98 km E of Sulangan, Philippines",earthquake,,,,10,reviewed,us,us
+2012-09-02T22:37:16.390Z,10.971,126.761,35,4.5,mb,52,94.5,,1.08,us,usp000jrhm,2014-11-07T01:48:45.972Z,"102 km E of Sulangan, Philippines",earthquake,,,,17,reviewed,us,us
+2012-09-02T22:55:18.930Z,10.837,126.619,35,4.7,mb,93,74.3,,0.87,us,usp000jrhn,2014-11-07T01:48:45.980Z,"87 km E of Sulangan, Philippines",earthquake,,,,43,reviewed,us,us
+2012-09-02T23:56:09.190Z,10.052,126.305,35,4.3,mb,34,98.8,,1.06,us,usp000jrhr,2014-11-07T01:48:46.001Z,"29 km E of Santa Monica, Philippines",earthquake,,,,5,reviewed,us,us
+2012-09-03T00:35:32.680Z,10.976,127.069,35,4.3,mb,39,96.8,,0.73,us,usp000jrhu,2014-11-07T01:48:46.023Z,"135 km E of Sulangan, Philippines",earthquake,,,,5,reviewed,us,us
+2012-09-03T02:14:43.260Z,10.338,126.393,35,5.1,mb,139,45.8,,0.95,us,usp000jrj2,2025-12-22T16:32:34.366Z,"52 km NE of Santa Monica, Philippines",earthquake,,,,54,reviewed,us,us
+2012-09-03T02:29:05.180Z,11.125,126.781,32.3,4.4,mb,44,113.8,,1.05,us,usp000jrj3,2014-11-07T01:48:46.106Z,"106 km E of Sulangan, Philippines",earthquake,,22.4,,3,reviewed,us,us
+2012-09-03T03:11:31.250Z,10.368,126.417,35,4.9,mb,109,59.4,,1.23,us,usp000jrj6,2025-12-22T16:32:35.148Z,"56 km NE of Santa Monica, Philippines",earthquake,,,,29,reviewed,us,us
+2012-09-03T03:39:37.340Z,10.342,126.393,35,4.4,mb,46,107.4,,1.06,us,usp000jrj7,2014-11-07T01:48:46.148Z,"52 km NE of Santa Monica, Philippines",earthquake,,,,2,reviewed,us,us
+2012-09-03T04:20:25.160Z,11.256,126.566,35,4.7,mb,49,72.5,,0.89,us,usp000jrja,2014-11-07T01:48:46.162Z,"88 km ENE of Sulangan, Philippines",earthquake,,,,15,reviewed,us,us
+2012-09-03T06:19:16.770Z,10.986,126.232,35,4.6,mb,28,100.7,,0.95,us,usp000jrje,2014-11-07T01:48:46.174Z,"44 km E of Sulangan, Philippines",earthquake,,,,11,reviewed,us,us
+2012-09-03T09:21:37.130Z,10.376,126.788,20.8,4.7,mb,76,106.7,,0.68,us,usp000jrju,2014-11-07T01:48:46.328Z,"91 km ENE of Santa Monica, Philippines",earthquake,,8.9,,23,reviewed,us,us
+2012-09-03T10:02:58.080Z,10.078,126.447,29.3,4.6,mb,70,97.7,,0.77,us,usp000jrjw,2014-11-07T01:48:46.393Z,"44 km ENE of Pilar, Philippines",earthquake,,10.6,,19,reviewed,us,us
+2012-09-03T11:26:29.410Z,11.239,126.468,35,4.2,mb,28,133,,0.97,us,usp000jrk4,2014-11-07T01:48:46.418Z,"77 km ENE of Sulangan, Philippines",earthquake,,,,4,reviewed,us,us
+2012-09-03T15:56:57.460Z,10.887,126.69,23.4,4.7,mb,44,81.1,,0.73,us,usp000jrka,2014-11-07T01:48:46.465Z,"94 km E of Sulangan, Philippines",earthquake,,18.9,,8,reviewed,us,us
+2012-09-03T15:57:53.410Z,10.869,126.525,35,4.4,mb,31,130.2,,0.83,us,usp000jrkb,2014-11-07T01:48:46.469Z,"76 km E of Sulangan, Philippines",earthquake,,,,6,reviewed,us,us
+2012-09-03T16:00:59.490Z,10.921,126.594,16.3,4.7,mb,68,97.6,,0.79,us,usp000jrkc,2014-11-07T01:48:46.473Z,"83 km E of Sulangan, Philippines",earthquake,,19.4,,21,reviewed,us,us
+2012-09-03T16:33:22.690Z,11.027,127.038,35,4.3,mb,36,129.5,,0.76,us,usp000jrkf,2014-11-07T01:48:46.488Z,"132 km E of Sulangan, Philippines",earthquake,,,,7,reviewed,us,us
+2012-09-03T17:52:59.470Z,10.533,126.806,32.6,4.7,mb,21,105.9,,0.8,us,usp000jrkm,2014-11-07T01:48:46.518Z,"101 km NE of Santa Monica, Philippines",earthquake,,48.4,,2,reviewed,us,us
+2012-09-03T18:00:53.070Z,10.549,126.263,35,4.6,mb,11,150.1,,0.71,us,usp000jrkn,2014-11-07T01:48:46.521Z,"63 km NNE of Santa Monica, Philippines",earthquake,,,,1,reviewed,us,us
+2012-09-03T18:02:28.870Z,10.639,126.393,35,4.5,mb,12,141,,1,us,usp000jrkp,2014-11-07T01:48:46.523Z,"70 km ESE of Sulangan, Philippines",earthquake,,,,1,reviewed,us,us
+2012-09-03T18:20:58.110Z,10.573,126.546,35,4.4,mb,21,131.9,,0.72,us,usp000jrkq,2014-11-07T01:48:46.524Z,"82 km NE of Santa Monica, Philippines",earthquake,,,,2,reviewed,us,us
+2012-09-03T19:26:17.260Z,10.687,127.005,35,4.5,mb,12,186.9,,0.62,us,usp000jrkv,2014-11-07T01:48:46.583Z,"129 km NE of Santa Monica, Philippines",earthquake,,,,1,reviewed,us,us
+2012-09-03T22:18:39.900Z,10.365,126.522,35,4.7,mb,60,105.6,,1.06,us,usp000jrm5,2014-11-07T01:48:46.629Z,"65 km NE of Santa Monica, Philippines",earthquake,,,,18,reviewed,us,us
+2012-09-04T00:50:53.040Z,10.423,126.888,35,5.3,mwc,273,19.4,,0.9,us,usp000jrme,2025-12-22T16:32:36.621Z,"103 km ENE of Santa Monica, Philippines",earthquake,,,,,reviewed,us,gcmt
+2012-09-04T00:51:44.630Z,10.364,126.817,35,4.9,mb,58,82.7,,0.81,us,usp000jrmf,2014-11-07T01:48:46.721Z,"93 km ENE of Santa Monica, Philippines",earthquake,,,,1,reviewed,us,us
+2012-09-04T00:53:52.210Z,10.49,126.852,27.2,4.8,mb,34,116.8,,1.14,us,usp000jrmg,2014-11-07T01:48:46.726Z,"103 km ENE of Santa Monica, Philippines",earthquake,,25.2,,2,reviewed,us,us
+2012-09-04T02:34:53.130Z,10.269,126.791,35,4.4,mb,41,140.3,,0.95,us,usp000jrmt,2014-11-07T01:48:46.759Z,"86 km ENE of Santa Monica, Philippines",earthquake,,,,14,reviewed,us,us
+2012-09-04T04:55:27.190Z,10.781,127.47,10,4.6,mb,25,130.1,,0.96,us,usp000jrn3,2014-11-07T01:48:46.801Z,"177 km ENE of Santa Monica, Philippines",earthquake,,,,7,reviewed,us,us
+2012-09-04T05:48:15.870Z,10.404,126.804,28.9,4.5,mb,56,106.7,,0.84,us,usp000jrn5,2014-11-07T01:48:46.816Z,"94 km ENE of Santa Monica, Philippines",earthquake,,19.7,,13,reviewed,us,us
+2012-09-04T06:00:55.740Z,10.544,126.84,35,4.1,mb,22,147.1,,0.72,us,usp000jrn6,2014-11-07T01:48:46.821Z,"105 km ENE of Santa Monica, Philippines",earthquake,,,,4,reviewed,us,us
+2012-09-04T06:37:55.930Z,10.451,127.031,35,4.2,mb,44,98.6,,0.9,us,usp000jrna,2014-11-07T01:48:46.832Z,"118 km ENE of Santa Monica, Philippines",earthquake,,,,6,reviewed,us,us
+2012-09-04T06:43:01.000Z,10.666,126.778,32.7,5.3,mwc,327,18.4,,0.74,us,usp000jrnb,2025-12-22T16:33:44.833Z,"108 km NE of Santa Monica, Philippines",earthquake,,5,,,reviewed,us,gcmt
+2012-09-04T06:45:10.280Z,10.666,126.772,29.6,5,mb,87,77.9,,0.76,us,usp000jrnc,2014-11-07T01:48:46.861Z,"107 km NE of Santa Monica, Philippines",earthquake,,8.6,,24,reviewed,us,us
+2012-09-04T06:54:59.710Z,10.634,126.827,32.3,5.3,mb,224,34,,0.83,us,usp000jrnf,2025-12-22T16:32:38.028Z,"109 km NE of Santa Monica, Philippines",earthquake,,6.1,,91,reviewed,us,us
+2012-09-04T06:58:02.400Z,10.535,126.701,36.6,5.2,mwc,314,19.1,,0.77,us,usp000jrng,2025-12-22T16:26:33.703Z,"92 km NE of Santa Monica, Philippines",earthquake,,3.1,,,reviewed,us,gcmt
+2012-09-04T07:05:33.360Z,10.513,126.819,35,4.8,mb,134,41.9,,0.83,us,usp000jrnh,2014-11-07T01:48:46.928Z,"101 km ENE of Santa Monica, Philippines",earthquake,,,,60,reviewed,us,us
+2012-09-04T09:40:00.150Z,10.514,126.966,35,4.6,mb,54,112.8,,0.7,us,usp000jrnq,2014-11-07T01:48:46.951Z,"115 km ENE of Santa Monica, Philippines",earthquake,,,,22,reviewed,us,us
+2012-09-04T09:58:10.970Z,10.46,126.77,35,5.4,mwc,287,17.6,,0.98,us,usp000jrnt,2025-12-22T16:32:38.851Z,"93 km ENE of Santa Monica, Philippines",earthquake,,,,,reviewed,us,gcmt
+2012-09-04T14:43:17.980Z,10.501,126.896,22,5.3,mb,217,28.8,,0.9,us,usp000jrph,2014-11-07T01:48:47.127Z,"107 km ENE of Santa Monica, Philippines",earthquake,,7,,92,reviewed,us,us
+2012-09-04T14:50:29.850Z,10.423,126.948,35,4.6,mb,25,176.1,,0.89,us,usp000jrpj,2014-11-07T01:48:47.147Z,"109 km ENE of Santa Monica, Philippines",earthquake,,,,7,reviewed,us,us
+2012-09-04T15:08:57.160Z,10.837,126.974,35,4.5,mb,39,129.7,,1.11,us,usp000jrpn,2014-11-07T01:48:47.159Z,"Philippine Islands region",earthquake,,,,8,reviewed,us,us
+2012-09-04T15:11:13.350Z,10.611,126.712,35,5.2,mwc,252,18.7,,0.87,us,usp000jrpp,2025-12-22T16:33:10.951Z,"98 km NE of Santa Monica, Philippines",earthquake,,,,,reviewed,us,gcmt
+2012-09-04T17:14:21.870Z,10.563,126.803,35,4.7,mb,23,158.3,,0.87,us,usp000jrpw,2014-11-07T01:48:47.229Z,"103 km NE of Santa Monica, Philippines",earthquake,,,,10,reviewed,us,us
+2012-09-04T19:09:26.320Z,10.876,125.269,35,4.9,mb,128,49.2,,1.2,us,usp000jrq2,2014-11-07T01:48:47.247Z,"27 km ESE of Dulag, Philippines",earthquake,,,,68,reviewed,us,us
+2012-09-04T19:32:34.550Z,11.119,126.445,35,4.9,mb,43,84.8,,1.18,us,usp000jrq3,2014-11-07T01:48:47.257Z,"70 km ENE of Sulangan, Philippines",earthquake,,,,14,reviewed,us,us
+2012-09-04T21:44:23.340Z,10.772,126.975,24.8,4.3,mb,27,98.6,,0.87,us,usp000jrqg,2014-11-07T01:48:47.306Z,"126 km E of Sulangan, Philippines",earthquake,,24.8,,6,reviewed,us,us
+2012-09-04T21:46:26.210Z,10.415,126.068,35,4.2,mb,33,149.9,,1,us,usp000jrqh,2014-11-07T01:48:47.309Z,"43 km N of Santa Monica, Philippines",earthquake,,,,3,reviewed,us,us
+2012-09-04T23:12:39.430Z,10.526,126.761,35,4.5,mb,42,100.9,,0.84,us,usp000jrqp,2014-11-07T01:48:47.326Z,"96 km NE of Santa Monica, Philippines",earthquake,,,,7,reviewed,us,us
+2012-09-04T23:30:19.840Z,11.465,127.178,35,4.1,mb,12,187.5,,0.64,us,usp000jrqr,2014-11-07T01:48:47.331Z,"158 km ENE of Sulangan, Philippines",earthquake,,,,1,reviewed,us,us
+2012-09-05T00:23:38.760Z,10.83,126.695,35,4.2,mb,26,131.6,,0.53,us,usp000jrqy,2014-11-07T01:48:47.344Z,"95 km E of Sulangan, Philippines",earthquake,,,,2,reviewed,us,us
+2012-09-05T00:35:30.450Z,11.596,126.711,35.2,5.3,mwc,138,27.5,,0.87,us,usp000jrr1,2025-12-22T16:32:41.128Z,"121 km NE of Sulangan, Philippines",earthquake,,4.4,,,reviewed,us,gcmt
+2012-09-05T10:58:20.420Z,11.597,126.737,35,4.4,mb,39,106.6,,0.88,us,usp000jrsg,2014-11-07T01:48:47.541Z,"123 km NE of Sulangan, Philippines",earthquake,,,,9,reviewed,us,us
+2012-09-05T14:00:57.170Z,10.143,126.207,35,4.3,mb,12,123,,1.13,us,usp000jrst,2014-11-07T01:48:47.629Z,"22 km NE of Santa Monica, Philippines",earthquake,,,,2,reviewed,us,us
+2012-09-05T17:23:56.860Z,10.838,127.049,35,4.5,mb,12,182.6,,0.79,us,usp000jrt4,2014-11-07T01:48:47.741Z,"134 km E of Sulangan, Philippines",earthquake,,,,2,reviewed,us,us
+2012-09-05T20:09:41.230Z,10.475,126.7,35,4.5,mb,14,157,,0.98,us,usp000jrt8,2014-11-07T01:48:47.749Z,"88 km NE of Santa Monica, Philippines",earthquake,,,,1,reviewed,us,us
+2012-09-06T04:00:37.540Z,10.522,126.903,35,4.8,mb,36,108,,0.93,us,usp000jru8,2014-11-07T01:48:47.905Z,"109 km ENE of Santa Monica, Philippines",earthquake,,,,6,reviewed,us,us
+2012-09-06T09:13:26.230Z,10.448,126.792,27.2,4.6,mb,65,102.4,,0.79,us,usp000jrv0,2014-11-07T01:48:48.030Z,"95 km ENE of Santa Monica, Philippines",earthquake,,14.9,,18,reviewed,us,us
+2012-09-06T09:15:28.300Z,10.459,126.943,20.4,4.4,mb,37,77.7,,0.81,us,usp000jrv1,2014-11-07T01:48:48.042Z,"110 km ENE of Santa Monica, Philippines",earthquake,,29.1,,9,reviewed,us,us
+2012-09-06T19:04:25.790Z,10.946,126.613,16.1,5,mb,115,63,,0.84,us,usp000jrvz,2014-11-07T01:48:48.127Z,"85 km E of Sulangan, Philippines",earthquake,,13.4,,60,reviewed,us,us
+2012-09-06T21:47:35.120Z,10.369,126.642,35,4.6,mb,28,107,,1.06,us,usp000jrw4,2014-11-07T01:48:48.160Z,"76 km ENE of Santa Monica, Philippines",earthquake,,,,4,reviewed,us,us
+2012-09-07T02:32:26.600Z,10.109,126.702,35,4.3,mb,33,105,,0.71,us,usp000jrwq,2014-11-07T01:48:48.273Z,"71 km ENE of Pilar, Philippines",earthquake,,,,7,reviewed,us,us
+2012-09-07T02:44:41.180Z,10.124,126.738,35,4.3,mb,26,106.9,,0.79,us,usp000jrws,2014-11-07T01:48:48.296Z,"75 km ENE of Pilar, Philippines",earthquake,,,,3,reviewed,us,us
+2012-09-07T04:12:17.660Z,10.65,126.705,35,4.3,mb,30,106.8,,0.59,us,usp000jrwy,2014-11-07T01:48:48.354Z,"100 km NE of Santa Monica, Philippines",earthquake,,,,2,reviewed,us,us
+2012-09-07T06:21:13.100Z,10.68,126.647,35,4.9,mb,51,89.2,,0.84,us,usp000jrx9,2014-11-07T01:48:48.429Z,"94 km ESE of Sulangan, Philippines",earthquake,,,,20,reviewed,us,us
+2012-09-07T08:30:23.190Z,10.376,126.511,35,4.6,mb,59,103.5,,0.79,us,usp000jrxe,2014-11-07T01:48:48.468Z,"65 km NE of Santa Monica, Philippines",earthquake,,,,19,reviewed,us,us
+2012-09-07T13:57:01.820Z,10.842,126.855,35,4.7,mb,47,106.5,,1.05,us,usp000jrxs,2014-11-07T01:48:48.528Z,"112 km E of Sulangan, Philippines",earthquake,,,,16,reviewed,us,us
+2012-09-07T17:44:38.990Z,10.55,126.73,37.8,5,mb,68,92.3,,0.87,us,usp000jry2,2014-11-07T01:48:48.585Z,"95 km NE of Santa Monica, Philippines",earthquake,,7.8,,37,reviewed,us,us
+2012-09-07T17:45:32.650Z,10.578,126.886,43.9,4.9,mb,91,90.9,,0.83,us,usp000jry3,2014-11-07T01:48:48.590Z,"111 km ENE of Santa Monica, Philippines",earthquake,,7.1,,50,reviewed,us,us
+2012-09-07T17:49:46.540Z,10.57,126.843,35,4.8,mb,78,82.2,,1.06,us,usp000jry4,2014-11-07T01:48:48.598Z,"107 km NE of Santa Monica, Philippines",earthquake,,,,35,reviewed,us,us
+2012-09-07T21:11:49.590Z,10.804,126.803,27.2,4.9,mb,122,53.4,,0.83,us,usp000jrye,2014-11-07T01:48:48.705Z,"107 km E of Sulangan, Philippines",earthquake,,9.5,,72,reviewed,us,us
+2012-09-07T22:01:23.510Z,10.845,126.841,35,4.3,mb,14,129.8,,0.8,us,usp000jryj,2014-11-07T01:48:48.728Z,"111 km E of Sulangan, Philippines",earthquake,,,,3,reviewed,us,us
+2012-09-08T03:11:11.940Z,10.892,126.563,35,4.2,mb,18,130.1,,0.55,us,usp000jryu,2014-11-07T01:48:48.761Z,"80 km E of Sulangan, Philippines",earthquake,,,,1,reviewed,us,us
+2012-09-08T03:23:46.880Z,10.668,126.365,35,4.1,mb,16,177,,0.69,us,usp000jryw,2014-11-07T01:48:48.767Z,"65 km ESE of Sulangan, Philippines",earthquake,,,,1,reviewed,us,us
+2012-09-08T03:25:19.520Z,10.893,126.718,35,4.2,mb,17,184.1,,0.76,us,usp000jryx,2014-11-07T01:48:48.769Z,"97 km E of Sulangan, Philippines",earthquake,,,,2,reviewed,us,us
+2012-09-08T03:45:16.440Z,10.822,126.531,35,4,mb,16,122.8,,0.6,us,usp000jryz,2014-11-07T01:48:48.773Z,"78 km E of Sulangan, Philippines",earthquake,,,,1,reviewed,us,us
+2012-09-08T07:24:24.550Z,10.677,126.883,35,4.6,mb,47,89.1,,1.09,us,usp000jrzd,2014-11-07T01:48:48.913Z,"117 km NE of Santa Monica, Philippines",earthquake,,,,12,reviewed,us,us
+2012-09-08T07:53:06.020Z,10.701,126.731,49.9,4.8,mb,94,60.9,,0.94,us,usp000jrzh,2014-11-07T01:48:48.947Z,"102 km ESE of Sulangan, Philippines",earthquake,,8.8,,34,reviewed,us,us
+2012-09-08T08:23:40.840Z,10.803,126.52,42.4,4.6,mb,79,81,,0.85,us,usp000jrzj,2014-11-07T01:48:48.954Z,"77 km E of Sulangan, Philippines",earthquake,,6.9,,30,reviewed,us,us
+2012-09-08T12:19:43.220Z,10.725,126.858,35,4.5,mb,60,106,,0.83,us,usp000jrzz,2014-11-07T01:48:49.088Z,"115 km ESE of Sulangan, Philippines",earthquake,,,,10,reviewed,us,us
+2012-09-08T12:44:08.030Z,10.36,126.646,35,4.7,mb,92,67.8,,0.7,us,usp000js02,2014-11-07T01:48:49.105Z,"76 km ENE of Santa Monica, Philippines",earthquake,,,,32,reviewed,us,us
+2012-09-08T18:40:49.860Z,11.228,126.691,43,4.7,mb,59,57.4,,0.9,us,usp000js0d,2014-11-07T01:48:49.161Z,"99 km ENE of Sulangan, Philippines",earthquake,,11.6,,25,reviewed,us,us
+2012-09-08T20:16:43.080Z,11.112,126.513,35,4.5,mb,35,125.1,,0.85,us,usp000js0k,2014-11-07T01:48:49.194Z,"77 km ENE of Sulangan, Philippines",earthquake,,,,15,reviewed,us,us
+2012-09-08T21:35:23.070Z,10.845,126.771,35,4,mb,10,130.6,,0.5,us,usp000js0v,2014-11-07T01:48:49.274Z,"103 km E of Sulangan, Philippines",earthquake,,,,4,reviewed,us,us
+2012-09-08T21:57:32.210Z,10.796,127.338,35,4.2,mb,18,140.9,,0.68,us,usp000js0w,2014-11-07T01:48:49.276Z,"165 km E of Sulangan, Philippines",earthquake,,,,10,reviewed,us,us
+2012-09-08T22:11:28.800Z,9.953,126.685,44.9,4.4,mb,30,121.4,,0.79,us,usp000js0x,2014-11-07T01:48:49.278Z,"64 km E of Pilar, Philippines",earthquake,,24.2,,7,reviewed,us,us
+2012-09-09T01:59:25.050Z,10.468,126.99,35,4.2,mb,10,129.9,,0.4,us,usp000js13,2014-11-07T01:48:49.489Z,"115 km ENE of Santa Monica, Philippines",earthquake,,,,2,reviewed,us,us
+2012-09-09T04:03:22.510Z,10.408,126.371,31.6,4.4,mb,37,98.2,,0.99,us,usp000js16,2014-11-07T01:48:49.513Z,"56 km NE of Santa Monica, Philippines",earthquake,,30.3,,6,reviewed,us,us
+2012-09-09T10:02:05.010Z,10.851,127.045,35,4.6,mb,31,116.1,,0.86,us,usp000js1j,2014-11-07T01:48:49.707Z,"133 km E of Sulangan, Philippines",earthquake,,,,10,reviewed,us,us
+2012-09-09T19:57:37.870Z,10.533,126.891,35,4.3,mb,24,106.5,,0.95,us,usp000js23,2014-11-07T01:48:49.822Z,"109 km ENE of Santa Monica, Philippines",earthquake,,,,1,reviewed,us,us
+2012-09-10T02:47:22.030Z,9.538,126.501,100,4.5,mb,36,97.1,,0.67,us,usp000js2r,2014-11-07T01:48:49.943Z,"44 km NE of Cortes, Philippines",earthquake,,9,,1,reviewed,us,us
+2012-09-10T08:05:46.730Z,10.207,126.561,35,4.4,mb,22,130.4,,0.69,us,usp000js33,2014-11-07T01:48:49.989Z,"60 km ENE of Santa Monica, Philippines",earthquake,,,,6,reviewed,us,us
+2012-09-10T09:27:28.670Z,10.593,126.791,35,4.6,mb,63,92.4,,0.86,us,usp000js36,2014-11-07T01:48:50.000Z,"103 km NE of Santa Monica, Philippines",earthquake,,,,18,reviewed,us,us
+2012-09-10T10:01:27.220Z,10.391,126.915,35,4.2,mb,37,132.8,,1.05,us,usp000js37,2014-11-07T01:48:50.006Z,"104 km ENE of Santa Monica, Philippines",earthquake,,,,8,reviewed,us,us
+2012-09-10T15:12:40.010Z,10.302,126.746,35,4.3,mb,21,136,,0.68,us,usp000js3p,2014-11-07T01:48:50.110Z,"83 km ENE of Santa Monica, Philippines",earthquake,,,,4,reviewed,us,us
+2012-09-10T22:27:55.120Z,10.458,126.604,35,4.6,mb,58,126.9,,0.96,us,usp000js45,2014-11-07T01:48:50.167Z,"78 km NE of Santa Monica, Philippines",earthquake,,,,14,reviewed,us,us
+2012-09-11T05:35:48.970Z,11.23,126.61,33.3,4.6,mb,36,126.4,,0.89,us,usp000js4n,2014-11-07T01:48:50.299Z,"91 km ENE of Sulangan, Philippines",earthquake,,21.3,,12,reviewed,us,us
+2012-09-11T18:10:06.900Z,10.709,126.758,15.8,5.2,mb,212,23.2,,0.81,us,usp000js61,2014-11-07T01:48:50.578Z,"104 km ESE of Sulangan, Philippines",earthquake,,8.4,,128,reviewed,us,us
+2012-09-11T22:03:11.150Z,10.54,126.454,40.2,4.4,mb,29,108.8,,1.22,us,usp000js68,2014-11-07T01:48:50.637Z,"73 km NE of Santa Monica, Philippines",earthquake,,13.5,,3,reviewed,us,us
+2012-09-12T13:36:19.620Z,11.089,126.798,35,4.7,mb,40,108.4,,0.87,us,usp000js7g,2014-11-07T01:48:50.974Z,"107 km E of Sulangan, Philippines",earthquake,,,,8,reviewed,us,us
+2012-09-12T14:23:05.980Z,10.376,126.736,13.4,4.9,mb,56,101.2,,0.69,us,usp000js7j,2014-11-07T01:48:50.986Z,"85 km ENE of Santa Monica, Philippines",earthquake,,16.4,,19,reviewed,us,us
+2012-09-12T15:08:24.300Z,10.567,126.642,28.9,4.5,mb,34,119,,0.98,us,usp000js7m,2014-11-07T01:48:50.992Z,"89 km NE of Santa Monica, Philippines",earthquake,,31.9,,7,reviewed,us,us
+2012-09-13T03:20:30.560Z,10.187,126.457,26.7,4.6,mb,50,107.3,,1.12,us,usp000js8h,2014-11-07T01:48:51.153Z,"49 km ENE of Santa Monica, Philippines",earthquake,,18.4,,12,reviewed,us,us
+2012-09-13T05:41:16.170Z,10.688,126.074,35,4.5,mb,13,144.7,,1.17,us,usp000js8n,2014-11-07T01:48:51.167Z,"38 km SE of Sulangan, Philippines",earthquake,,,,5,reviewed,us,us
+2012-09-13T05:54:48.960Z,10.238,126.938,22.8,5.4,mb,218,20.2,,0.86,us,usp000js8q,2025-12-22T16:32:59.543Z,"100 km ENE of Pilar, Philippines",earthquake,,7,,143,reviewed,us,us
+2012-09-13T09:02:46.060Z,10.553,126.721,47,4.6,mb,40,131.8,,0.78,us,usp000js8z,2014-11-07T01:48:51.227Z,"95 km NE of Santa Monica, Philippines",earthquake,,12,,11,reviewed,us,us
+2012-09-13T17:12:47.810Z,10.502,126.8,35,4.6,mb,8,186.5,,0.4,us,usp000js9a,2014-11-07T01:48:51.264Z,"99 km ENE of Santa Monica, Philippines",earthquake,,,,1,reviewed,us,us
+2012-09-14T08:55:38.640Z,10.083,126.288,35,4.5,mb,35,98.8,,1.09,us,usp000jsag,2014-11-07T01:48:51.576Z,"28 km ENE of Santa Monica, Philippines",earthquake,,,,9,reviewed,us,us
+2012-09-15T06:50:36.570Z,10.801,126.602,38.4,4.5,mb,52,88.9,,0.97,us,usp000jsbv,2014-11-07T01:48:51.768Z,"86 km E of Sulangan, Philippines",earthquake,,21.4,,15,reviewed,us,us
+2012-09-15T20:53:56.900Z,10.782,127.762,35,4.6,mb,17,130.6,,0.86,us,usp000jscp,2014-11-07T01:48:51.911Z,"206 km ENE of Santa Monica, Philippines",earthquake,,,,5,reviewed,us,us
+2012-09-16T21:46:18.870Z,10.624,126.723,42.9,5.3,mb,171,54.1,,0.84,us,usp000jsf8,2014-11-07T01:48:52.282Z,"100 km NE of Santa Monica, Philippines",earthquake,,5.1,,77,reviewed,us,us
+2012-09-16T22:09:10.730Z,10.536,126.789,39,4.7,mb,66,86.7,,0.75,us,usp000jsfb,2014-11-07T01:48:52.303Z,"100 km NE of Santa Monica, Philippines",earthquake,,19.8,,24,reviewed,us,us
+2012-09-17T00:14:30.240Z,10.605,127.127,35,4.1,mb,15,114.8,,0.5,us,usp000jsfe,2014-11-07T01:48:52.317Z,"135 km ENE of Santa Monica, Philippines",earthquake,,,,7,reviewed,us,us
+2012-09-17T06:58:12.400Z,10.365,125.249,35,4.4,mb,39,109.4,,1.27,us,usp000jsft,2014-11-07T01:48:52.360Z,"1 km N of Hinundayan, Philippines",earthquake,,,,16,reviewed,us,us
+2012-09-17T07:16:32.800Z,10.92,126.582,35,4.5,mb,18,177.4,,1.09,us,usp000jsfw,2014-11-07T01:48:52.370Z,"82 km E of Sulangan, Philippines",earthquake,,,,5,reviewed,us,us
+2012-09-17T07:28:49.870Z,10.899,126.484,35,4.2,mb,15,102.6,,1.5,us,usp000jsfx,2014-11-07T01:48:52.372Z,"72 km E of Sulangan, Philippines",earthquake,,,,3,reviewed,us,us
+2012-09-17T10:36:05.940Z,9.908,126.015,35,4.4,mb,27,176.9,,0.97,us,usp000jsg2,2014-11-07T01:48:52.382Z,"4 km NE of Libas, Philippines",earthquake,,,,5,reviewed,us,us
+2012-09-17T18:27:27.060Z,10.665,126.92,29.5,4.4,mb,24,129.9,,0.92,us,usp000jsgb,2014-11-07T01:48:52.418Z,"120 km NE of Santa Monica, Philippines",earthquake,,43.9,,3,reviewed,us,us
+2012-09-17T19:09:15.680Z,10.748,127.054,35,4.1,mb,26,150.6,,1.21,us,usp000jsgc,2014-11-07T01:48:52.420Z,"135 km E of Sulangan, Philippines",earthquake,,,,2,reviewed,us,us
+2012-09-18T01:06:48.350Z,11.307,127.006,35,4.4,mb,29,121.8,,0.58,us,usp000jsgu,2014-11-07T01:48:52.509Z,"135 km ENE of Sulangan, Philippines",earthquake,,,,12,reviewed,us,us
+2012-09-20T12:42:37.800Z,10.369,126.321,35,4.6,mb,78,118.5,,0.9,us,usp000jsmb,2014-11-07T01:48:53.054Z,"49 km NE of Santa Monica, Philippines",earthquake,,,,28,reviewed,us,us
+2012-09-20T16:32:41.350Z,10.657,126.948,21.8,4.9,mb,96,94.9,,0.9,us,usp000jsmg,2014-11-07T01:48:53.075Z,"122 km NE of Santa Monica, Philippines",earthquake,,13,,44,reviewed,us,us
+2012-09-20T19:57:33.990Z,10.841,126.765,43.9,4.5,mb,40,93.1,,1.09,us,usp000jsmq,2014-11-07T01:48:53.105Z,"103 km E of Sulangan, Philippines",earthquake,,14.9,,4,reviewed,us,us
+2012-09-21T02:18:21.050Z,10.583,126.485,35,4.6,mb,15,137.2,,0.53,us,usp000jsn4,2014-11-07T01:48:53.317Z,"79 km NE of Santa Monica, Philippines",earthquake,,,,2,reviewed,us,us
+2012-09-21T03:20:35.710Z,10.654,126.88,35,4.3,mb,23,131.7,,0.77,us,usp000jsn9,2014-11-07T01:48:53.327Z,"115 km NE of Santa Monica, Philippines",earthquake,,,,2,reviewed,us,us
+2012-09-21T03:22:58.650Z,10.669,126.84,29.7,4.5,mb,44,70.4,,0.72,us,usp000jsna,2014-11-07T01:48:53.329Z,"113 km NE of Santa Monica, Philippines",earthquake,,18.7,,2,reviewed,us,us
+2012-09-21T05:02:01.450Z,9.633,126.253,96.1,4.7,mb,66,93.5,,1.03,us,usp000jsng,2014-11-07T01:48:53.363Z,"20 km SE of Union, Philippines",earthquake,,9,,27,reviewed,us,us
+2012-09-21T11:12:19.680Z,9.727,126.68,99.7,4.5,mb,36,127.4,,1.4,us,usp000jsnx,2014-11-07T01:48:53.425Z,"62 km E of Union, Philippines",earthquake,,16.9,,13,reviewed,us,us
+2012-09-21T15:25:10.430Z,9.675,126.342,114,4.7,mb,44,131.2,,1.36,us,usp000jsp5,2014-11-07T01:48:53.491Z,"26 km ESE of Union, Philippines",earthquake,,15.5,,10,reviewed,us,us
+2012-09-21T15:27:03.880Z,9.673,126.37,94.5,4.6,mb,41,103.8,,0.88,us,usp000jsp6,2014-11-07T01:48:53.495Z,"29 km ESE of Union, Philippines",earthquake,,17.1,,6,reviewed,us,us
+2012-09-22T00:14:11.830Z,10.39,126.693,35,4.4,mb,18,107.5,,0.81,us,usp000jspk,2014-11-07T01:48:53.549Z,"82 km ENE of Santa Monica, Philippines",earthquake,,,,3,reviewed,us,us
+2012-09-22T06:28:11.260Z,9.656,126.359,77.3,4.6,mb,97,103.5,,0.85,us,usp000jsq2,2014-11-07T01:48:53.738Z,"29 km ESE of Union, Philippines",earthquake,,7.3,,38,reviewed,us,us
+2012-09-22T11:45:36.350Z,10.39,126.918,25.2,4.7,mb,59,68,,0.81,us,usp000jsqh,2014-11-07T01:48:53.862Z,"104 km ENE of Santa Monica, Philippines",earthquake,,13.9,,16,reviewed,us,us
+2012-09-22T19:09:53.650Z,10.356,126.918,35,4.8,mb,87,109.4,,0.93,us,usp000jsr3,2014-11-07T01:48:53.962Z,"103 km ENE of Santa Monica, Philippines",earthquake,,,,32,reviewed,us,us
+2012-09-22T21:42:51.730Z,10.219,126.877,35,4.3,mb,18,130.2,,0.74,us,usp000jsre,2014-11-07T01:48:54.003Z,"93 km ENE of Pilar, Philippines",earthquake,,,,2,reviewed,us,us
+2012-09-22T21:47:41.240Z,10.375,126.978,41.2,4.3,mb,22,136.3,,0.72,us,usp000jsrf,2014-11-07T01:48:54.005Z,"110 km ENE of Santa Monica, Philippines",earthquake,,18.9,,3,reviewed,us,us
+2012-09-22T21:57:20.050Z,10.273,127.057,35,4.2,mb,17,144.9,,0.66,us,usp000jsrg,2014-11-07T01:48:54.007Z,"114 km ENE of Pilar, Philippines",earthquake,,,,4,reviewed,us,us
+2012-09-23T05:12:52.050Z,10.114,126.362,35,4.5,mb,40,86.1,,0.86,us,usp000jsry,2014-11-07T01:48:54.054Z,"36 km ENE of Santa Monica, Philippines",earthquake,,,,10,reviewed,us,us
+2012-09-23T15:23:51.100Z,10.615,126.7,35,4.6,mb,36,130.2,,0.73,us,usp000jssv,2014-11-07T01:48:54.209Z,"97 km NE of Santa Monica, Philippines",earthquake,,,,6,reviewed,us,us
+2012-09-24T02:46:12.360Z,10.137,126.723,35,4.9,mb,75,88,,0.88,us,usp000jsv1,2014-11-07T01:48:54.402Z,"74 km ENE of Pilar, Philippines",earthquake,,,,31,reviewed,us,us
+2012-09-24T14:29:12.860Z,10.638,126.993,35,4.4,mb,46,129.8,,0.93,us,usp000jsw8,2014-11-07T01:48:54.528Z,"124 km ENE of Santa Monica, Philippines",earthquake,,,,13,reviewed,us,us
+2012-09-24T16:36:30.300Z,10.774,126.875,35,4.3,mb,22,182.4,,0.92,us,usp000jswc,2014-11-07T01:48:54.537Z,"116 km E of Sulangan, Philippines",earthquake,,,,9,reviewed,us,us
+2012-09-25T09:59:19.520Z,9.734,126.617,54,4.6,mb,55,49.9,,0.98,us,usp000jsy5,2014-11-07T01:48:54.756Z,"55 km E of Union, Philippines",earthquake,,10.5,,25,reviewed,us,us
+2012-09-25T10:41:26.730Z,9.742,126.649,49.3,4.9,mb,93,48.9,,0.99,us,usp000jsy8,2014-11-07T01:48:54.764Z,"59 km E of Union, Philippines",earthquake,,7.4,,51,reviewed,us,us
+2012-09-25T12:48:42.950Z,9.717,126.483,43.6,4.4,mb,30,123,,0.99,us,usp000jsyg,2014-11-07T01:48:54.785Z,"41 km E of Union, Philippines",earthquake,,18.5,,4,reviewed,us,us
+2012-09-25T13:20:17.450Z,9.874,127.101,38.9,4.5,mb,18,185.3,,1.12,us,usp000jsyh,2014-11-07T01:48:54.787Z,"109 km E of Union, Philippines",earthquake,,23.4,,1,reviewed,us,us
+2012-09-25T13:37:36.550Z,9.783,126.345,35,4.5,mb,64,60.9,,1.04,us,usp000jsyj,2014-11-07T01:48:54.789Z,"25 km E of Union, Philippines",earthquake,,,,16,reviewed,us,us
+2012-09-25T14:12:55.840Z,9.666,126.384,43.4,4.3,mb,28,103.8,,0.76,us,usp000jsym,2014-11-07T01:48:54.796Z,"31 km ESE of Union, Philippines",earthquake,,10.8,,4,reviewed,us,us
+2012-09-25T14:38:49.620Z,10.434,126.94,35,4,mb,17,176.1,,0.92,us,usp000jsyq,2014-11-07T01:48:54.817Z,"108 km ENE of Santa Monica, Philippines",earthquake,,,,1,reviewed,us,us
+2012-09-26T19:22:58.780Z,9.775,126.669,35,4,mb,23,128.3,,1.13,us,usp000jt0a,2014-11-07T01:48:55.288Z,"61 km E of Union, Philippines",earthquake,,,,1,reviewed,us,us
+2012-09-27T19:21:31.880Z,9.878,126.593,35,4.4,mb,13,167.3,,0.44,us,usp000jt49,2014-11-07T01:48:56.038Z,"54 km E of Pilar, Philippines",earthquake,,,,2,reviewed,us,us
+2012-09-28T00:52:52.370Z,10.409,127.058,35,4.5,mb,22,116.6,,0.8,us,usp000jt4w,2014-11-07T01:48:56.121Z,"119 km ENE of Santa Monica, Philippines",earthquake,,,,7,reviewed,us,us

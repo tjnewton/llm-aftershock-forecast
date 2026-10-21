@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2014-04-11T20:29:12.970Z,11.642,-85.8779,135,6.6,mww,,20,0.761,1.35,us,usc000pgsi,2022-07-26T12:56:30.901Z,"15 km N of Belén, Nicaragua",earthquake,,1.7,,,reviewed,us,us

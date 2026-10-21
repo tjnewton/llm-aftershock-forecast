@@ -1,0 +1,34 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2014-04-18T14:27:24.920Z,17.397,-100.9723,24,7.2,mww,,46,2.25,1.2,us,usb000pq41,2022-08-06T23:17:03.874Z,"9 km ENE of Coyuquilla Norte, Mexico",earthquake,,1.5,,,reviewed,us,us
+2014-04-18T14:50:02.000Z,17.06,-101.51,21,4.3,mb,,,,1.43,us,usb000qkzv,2014-07-04T01:33:39.000Z,"57 km WSW of Papanoa, Mexico",earthquake,,7.8,0.267,4,reviewed,unm,us
+2014-04-18T14:54:01.270Z,17.4497,-100.766,35,4.7,mb,,228,2.101,1.39,us,usb000pq52,2014-07-04T01:33:40.000Z,"23 km NNE of San Luis San Pedro, Mexico",earthquake,,2,0.173,10,reviewed,us,us
+2014-04-18T14:57:48.070Z,17.6042,-101.1674,35,4.1,mb,,234,2.032,1.02,us,usb000ql0c,2014-07-04T01:33:40.000Z,"12 km NE of Petatlán, Mexico",earthquake,,2,0.233,5,reviewed,us,us
+2014-04-18T15:21:44.160Z,17.282,-101.0731,35,4.5,mb,,193,2.356,1.24,us,usb000pq5l,2014-07-04T01:33:40.000Z,"5 km SW of Papanoa, Mexico",earthquake,,2,0.118,21,reviewed,us,us
+2014-04-18T15:54:56.900Z,17.3765,-101.1454,35,4.7,mb,,232,2.259,1.48,us,usb000pq7i,2014-07-04T01:33:41.000Z,"9 km W of Coyuquilla Norte, Mexico",earthquake,,2,0.148,15,reviewed,us,us
+2014-04-18T17:01:03.110Z,16.7257,-101.2595,17.91,4.3,mb,,173,2.705,1.4,us,usb000pq9l,2014-07-04T01:33:42.000Z,"70 km SSW of Papanoa, Mexico",earthquake,,7.2,0.056,95,reviewed,us,us
+2014-04-18T23:49:58.010Z,17.7306,-101.1977,35,4,mb,,223,1.906,0.7,us,usb000pqv3,2014-07-04T01:33:50.000Z,"22 km NNE of Petatlán, Mexico",earthquake,,2,0.093,33,reviewed,us,us
+2014-04-19T06:52:14.000Z,17.23,-101.23,2,4.3,mb,,,,1.88,us,usb000pr0q,2014-07-04T01:33:53.000Z,"22 km WSW of Papanoa, Mexico",earthquake,,5.1,0.053,111,reviewed,unm,us
+2014-04-19T14:58:16.470Z,17.4238,-101.2141,35,5,mb,,99,2.211,1.09,us,usb000praw,2014-07-04T01:34:06.000Z,"13 km SSE of Petatlán, Mexico",earthquake,,1.5,0.052,126,reviewed,us,us
+2014-04-19T15:59:02.790Z,17.2917,-101.2184,35,4.2,mb,,226,2.342,1.28,us,usb000prca,2014-07-04T01:34:08.000Z,"19 km WSW of Papanoa, Mexico",earthquake,,2,0.136,17,reviewed,us,us
+2014-04-19T20:48:49.000Z,17.41,-101.47,9,4.2,mb,,,,1.03,us,usb000ql56,2014-07-04T01:34:20.000Z,"21 km SSW of Los Achotes, Mexico",earthquake,,6.9,0.216,6,reviewed,unm,us
+2014-04-20T12:40:36.570Z,17.6018,-101.2722,35,4.8,mb,,81,2.034,1.19,us,usb000pryu,2022-05-03T16:48:21.933Z,"7 km N of Petatlán, Mexico",earthquake,,1.9,0.033,312,reviewed,us,us
+2014-04-21T14:13:47.950Z,17.2834,-101.326,35,4,mb,,237,2.352,0.98,us,usb000qktf,2014-07-04T01:34:57.000Z,"near the coast of Guerrero, Mexico",earthquake,,2,0.366,6,reviewed,us,us
+2014-05-01T06:26:17.000Z,17.2,-100.952,9.5,4,mb,,,,0.89,us,usc000rbja,2014-07-27T21:51:14.000Z,"9 km SW of San Luis de La Loma, Mexico",earthquake,,4,0.258,4,reviewed,unm,us
+2014-05-03T00:34:22.400Z,17.342,-101.368,3.7,4,md,,,,1.73,us,usc000rbjn,2014-07-27T21:51:17.000Z,"24 km SSW of Petatlán, Mexico",earthquake,,4.4,,20,reviewed,unm,unm
+2014-05-08T17:00:14.810Z,17.2349,-100.7461,17.09,6.4,mww,,55,0.494,1.12,us,usb000qea2,2024-10-05T22:38:11.892Z,"3 km NNE of Nuxco, Mexico",earthquake,,3,,,reviewed,us,us
+2014-05-08T17:16:30.300Z,17.036,-100.895,10,4.5,mb,,,,1.33,us,usb000r6gb,2014-08-06T00:55:27.000Z,"24 km SW of Nuxco, Mexico",earthquake,,5,0.313,3,reviewed,unm,us
+2014-05-08T17:26:02.900Z,17.044,-100.884,10,4,mb,,,,1.38,us,usb000r6gm,2014-08-06T00:55:27.000Z,"22 km SW of Nuxco, Mexico",earthquake,,5.3,0.211,7,reviewed,unm,us
+2014-05-09T16:58:56.300Z,17.542,-101.338,14.3,4.3,mb,,,,1.27,us,usc000rbhj,2014-08-06T00:55:28.000Z,"1 km SSW of Palos Blancos, Mexico",earthquake,,5.8,0.531,2,reviewed,unm,us
+2014-05-10T00:46:25.000Z,17.174,-101.219,5,4.2,md,,,,1.98,us,usc000rbgl,2014-08-06T00:55:29.000Z,"25 km SW of Papanoa, Mexico",earthquake,,6.2,,30,reviewed,unm,unm
+2014-05-10T07:36:01.220Z,17.2192,-100.8122,23,6,mww,,47,0.548,1.3,us,usb000qgt2,2022-08-06T23:42:15.550Z,"6 km W of Nuxco, Mexico",earthquake,,1.8,,,reviewed,us,us
+2014-05-10T07:47:05.800Z,17.031,-100.927,16.1,4.1,md,,,,1.13,us,usc000rbhe,2014-08-06T00:55:29.000Z,"26 km S of San Luis San Pedro, Mexico",earthquake,,4,,18,reviewed,unm,unm
+2014-05-10T08:50:37.100Z,17.028,-100.895,10.2,4.1,md,,,,0.96,us,usc000rbkk,2014-08-06T00:55:29.000Z,"24 km SW of Nuxco, Mexico",earthquake,,6.2,,19,reviewed,unm,unm
+2014-05-10T10:01:26.600Z,17.075,-100.996,5,4,mb,,,,1.38,us,usc000rbji,2014-08-06T00:55:29.000Z,"24 km SSW of San Luis de La Loma, Mexico",earthquake,,6.3,0.183,8,reviewed,unm,us
+2014-05-10T13:55:23.600Z,17,-100.938,15,4.4,mb,,,,1.8,us,usb000qgy9,2014-08-06T00:55:29.000Z,"29 km SSW of San Luis San Pedro, Mexico",earthquake,,4.6,0.069,63,reviewed,unm,us
+2014-05-10T17:26:33.900Z,17.4159,-100.6404,13.52,4.7,mb,,88,0.51,1.43,us,usb000qh47,2022-07-26T14:45:34.473Z,"20 km N of El Súchil, Mexico",earthquake,,4.5,0.037,241,reviewed,us,us
+2014-05-10T22:12:11.300Z,17.187,-100.872,13,4,md,,,,1.23,us,usc000rbig,2014-08-06T00:55:30.000Z,"8 km S of San Luis San Pedro, Mexico",earthquake,,4.4,,28,reviewed,unm,unm
+2014-05-11T05:11:11.200Z,17.483,-101.619,5,4,md,,,,2.16,us,usc000rbjl,2014-08-06T00:55:30.000Z,"19 km SSW of Ixtapa-Zihuatanejo, Mexico",earthquake,,6.8,,18,reviewed,unm,unm
+2014-05-11T17:06:30.200Z,17.361,-101.477,5,4.1,mb,,,,2.79,us,usc000rbgc,2014-08-06T00:55:31.000Z,"26 km SW of Palos Blancos, Mexico",earthquake,,6.7,0.522,1,reviewed,unm,us
+2014-05-12T03:24:07.700Z,16.972,-100.941,17.7,4,md,,,,2.08,us,usc000rbjz,2014-08-06T00:55:33.000Z,"32 km SW of Nuxco, Mexico",earthquake,,6.3,,14,reviewed,unm,unm
+2014-05-14T03:40:42.300Z,17.128,-100.911,16.1,4,md,,,,1.92,us,usc000rbhn,2014-08-09T02:53:41.000Z,"15 km SSW of San Luis San Pedro, Mexico",earthquake,,4,,18,reviewed,unm,unm
+2014-05-16T05:40:17.400Z,16.954,-100.876,8,4,mb,,,,2.02,us,usb000qqfa,2014-08-09T02:53:44.000Z,"31 km SSW of Nuxco, Mexico",earthquake,,5.6,0.103,26,reviewed,unm,us

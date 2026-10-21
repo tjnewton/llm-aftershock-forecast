@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2023-08-28T19:55:30.875Z,-6.7888,116.5211,500,7.1,mww,139,22,2.377,0.72,us,us7000krjx,2024-01-26T13:46:21.200Z,"180 km NNE of Gili Air, Indonesia",earthquake,9.04,1.928,0.037,70,reviewed,us,us
+2023-08-28T20:06:53.008Z,-6.8165,116.6136,514.072,5.5,mb,92,36,2.306,0.66,us,us7000krn7,2023-11-04T21:35:42.040Z,"180 km NNE of Gili Air, Indonesia",earthquake,9.41,6.017,0.067,77,reviewed,us,us
+2023-08-28T20:08:06.461Z,-7.0269,117.2121,481.974,5.7,mb,130,23,1.874,0.72,us,us7000krk4,2023-11-04T21:35:42.040Z,"156 km N of Pototano, Indonesia",earthquake,9.21,5.134,0.043,192,reviewed,us,us
+2023-09-06T13:35:06.127Z,-6.891,116.4744,513.036,4.4,mb,30,55,2.316,0.62,us,us7000ktn3,2023-11-17T19:47:50.040Z,"167 km NNE of Gili Air, Indonesia",earthquake,10.29,7.111,0.118,21,reviewed,us,us
+2023-09-09T00:06:14.503Z,-6.8316,116.5593,512.824,5.6,mww,178,26,2.321,0.54,us,us7000kufx,2023-11-17T19:47:51.040Z,"176 km NNE of Gili Air, Indonesia",earthquake,8.62,3.898,0.098,10,reviewed,us,us

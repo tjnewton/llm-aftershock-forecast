@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2013-04-16T22:55:26.680Z,-3.214,142.542,13,6.6,mww,445,11,,1.06,us,usb000g8my,2022-07-24T23:45:59.353Z,"23 km ESE of Aitape, Papua New Guinea",earthquake,,,,,reviewed,us,us
+2013-04-17T03:38:27.950Z,-3.221,142.794,6.2,4.2,mb,23,65,,1.05,us,usp000k090,2014-11-07T01:50:34.931Z,"50 km E of Aitape, Papua New Guinea",earthquake,,6.3,,13,reviewed,us,us
+2013-05-13T11:24:19.210Z,-3.287,142.615,22.9,4.7,mb,47,48,,0.47,us,us2013qdcp,2014-11-07T01:50:47.989Z,"33 km ESE of Aitape, Papua New Guinea",earthquake,,2.3,,27,reviewed,us,us

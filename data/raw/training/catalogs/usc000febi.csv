@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2013-02-28T14:05:50.250Z,50.954,157.283,41,6.9,mww,531,20.7,,0.94,us,usc000febi,2022-07-24T19:21:37.815Z,"81 km SE of Ozernovskiy, Russia",earthquake,,,,,reviewed,us,us
+2013-03-01T12:53:51.070Z,50.895,157.453,33,6.4,mww,635,34.8,,0.86,us,usc000fewp,2022-05-03T16:09:53.796Z,"94 km SE of Ozernovskiy, Russia",earthquake,,,,,reviewed,us,us
+2013-03-01T13:20:49.930Z,50.958,157.408,29,6.5,mww,480,20.7,,0.87,us,usc000feww,2022-07-24T19:26:38.806Z,"87 km SE of Ozernovskiy, Russia",earthquake,,,,,reviewed,us,us
+2013-03-04T20:56:35.370Z,50.813,157.223,49.2,5.3,mb,464,86.9,,0.74,us,usc000fg2g,2025-12-22T16:37:49.054Z,"Kuril Islands",earthquake,,,,296,reviewed,us,us
+2013-03-09T14:56:28.810Z,50.892,157.218,39,5.8,mww,511,37.9,,0.82,us,usb000fhxq,2022-05-03T16:10:37.401Z,"80 km ENE of Severo-Kuril’sk, Russia",earthquake,,,,,reviewed,us,us

@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2017-02-21T14:09:04.320Z,-19.2814,-63.9047,595.98,6.5,mww,,14,4.242,0.9,us,us20008l41,2022-05-03T18:11:32.933Z,"41 km E of Padilla, Bolivia",earthquake,9.6,3,0.04,59,reviewed,us,us

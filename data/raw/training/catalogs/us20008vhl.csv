@@ -1,0 +1,14 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2017-03-29T04:09:24.190Z,56.9401,162.7861,17,6.6,mww,,14,4.591,0.75,us,us20008vhl,2022-05-03T18:14:22.349Z,"81 km NNE of Ust’-Kamchatsk Staryy, Russia",earthquake,6.8,1.7,0.039,63,reviewed,us,us
+2017-03-29T04:34:59.890Z,56.8237,162.9736,10,5,mb,,62,4.551,1.23,us,us20008vhw,2017-06-16T23:08:01.040Z,"73 km NNE of Ust’-Kamchatsk Staryy, Russia",earthquake,7.8,1.2,0.034,279,reviewed,us,us
+2017-03-29T05:27:45.830Z,56.8372,162.8089,10,5.4,mb,,63,4.511,0.93,us,us20008viu,2017-06-16T23:08:01.040Z,"70 km NNE of Ust’-Kamchatsk Staryy, Russia",earthquake,7.3,1.7,0.023,631,reviewed,us,us
+2017-03-30T02:29:18.090Z,56.9955,163.0027,10,4.4,mb,,138,4.702,0.69,us,us10008d71,2017-06-16T23:08:02.040Z,"91 km NNE of Ust’-Kamchatsk Staryy, Russia",earthquake,11.1,1.9,0.064,71,reviewed,us,us
+2017-03-30T21:24:51.790Z,56.7507,162.7188,10,5.2,mb,,60,4.412,0.62,us,us10008ddm,2022-05-03T18:14:34.860Z,"60 km NNE of Ust’-Kamchatsk Staryy, Russia",earthquake,5,1.6,0.026,469,reviewed,us,us
+2017-03-30T22:03:36.480Z,57.0459,162.8177,10,5,mb,,58,4.689,0.7,us,us10008ddx,2017-06-16T23:08:04.040Z,"93 km NNE of Ust’-Kamchatsk Staryy, Russia",earthquake,7.5,1.8,0.03,362,reviewed,us,us
+2017-03-30T22:59:28.460Z,56.9372,162.9154,10,4.2,mb,,128,4.627,1.14,us,us10008en1,2017-06-16T23:08:04.040Z,"83 km NNE of Ust’-Kamchatsk Staryy, Russia",earthquake,8.9,2,0.113,22,reviewed,us,us
+2017-04-06T15:40:33.600Z,56.8399,162.6723,10,4.9,mb,,81,4.472,0.83,us,us10008f7f,2017-06-23T07:26:33.040Z,"69 km N of Ust’-Kamchatsk Staryy, Russia",earthquake,7.3,1.8,0.035,258,reviewed,us,us
+2017-04-06T21:27:59.500Z,56.8744,162.7508,10,5.1,mb,,57,4.525,0.74,us,us10008fak,2017-06-23T07:26:33.040Z,"73 km NNE of Ust’-Kamchatsk Staryy, Russia",earthquake,7.5,1.8,0.03,363,reviewed,us,us
+2017-04-07T11:23:08.120Z,56.9696,163.0056,10,4.2,mb,,181,4.927,0.91,us,us10008h7a,2017-06-23T07:26:34.040Z,"88 km NNE of Ust’-Kamchatsk Staryy, Russia",earthquake,7.8,2,0.128,17,reviewed,us,us
+2017-04-09T10:50:02.770Z,57.0964,162.7981,10,4.3,mb,,138,4.726,0.61,us,us10008g1f,2017-07-05T18:09:53.040Z,"98 km NNE of Ust’-Kamchatsk Staryy, Russia",earthquake,14.1,1.9,0.065,67,reviewed,us,us
+2017-04-17T23:26:00.570Z,57.1115,162.3202,10,4.2,mb,,144,4.607,0.49,us,us10008ihe,2017-07-11T01:48:35.040Z,"98 km N of Ust’-Kamchatsk Staryy, Russia",earthquake,14.8,2,0.101,27,reviewed,us,us
+2017-04-25T12:49:40.610Z,57.0243,162.7725,36.09,4.4,mb,,61,4.658,0.78,us,us10008kn2,2017-07-21T02:32:06.040Z,"90 km NNE of Ust’-Kamchatsk Staryy, Russia",earthquake,5.9,5.2,0.044,152,reviewed,us,us

@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2011-07-29T07:42:23.400Z,-23.801,179.751,532,6.7,mww,614,14.5,,0.98,us,usp000j5nv,2022-04-08T22:21:46.757Z,"south of the Fiji Islands",earthquake,,,,,reviewed,us,us
+2011-07-29T07:50:56.140Z,-23.755,179.678,539.8,5.2,mb,215,30.4,,0.83,us,usp000j5nw,2014-11-07T01:45:27.795Z,"south of the Fiji Islands",earthquake,,4.3,,108,reviewed,us,us
+2011-07-29T08:19:07.660Z,-23.502,-179.94,523.5,5,mb,293,47.2,,0.82,us,usp000j5nx,2014-11-07T01:45:27.812Z,"south of the Fiji Islands",earthquake,,4.7,,193,reviewed,us,us
+2011-07-29T12:32:21.150Z,-23.907,-179.968,512.1,4.6,mb,66,103.4,,1.04,us,usp000j5p9,2014-11-07T01:45:27.904Z,"south of the Fiji Islands",earthquake,,8,,42,reviewed,us,us
+2011-07-31T10:47:08.640Z,-23.821,179.956,519.2,4.5,mb,177,40.4,,0.77,us,usp000j5sa,2014-11-07T01:45:28.404Z,"south of the Fiji Islands",earthquake,,5.8,,131,reviewed,us,us

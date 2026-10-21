@@ -1,0 +1,18 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2023-07-19T00:22:07.656Z,12.8,-88.0796,70.808,6.5,mww,156,65,0.706,1.08,us,us7000kgpb,2025-07-06T22:15:20.225Z,"43 km S of Intipucá, El Salvador",earthquake,6.75,3.291,0.04,59,reviewed,us,us
+2023-07-19T01:50:28.774Z,12.6915,-88.2732,64.196,4,mb,18,179,0.774,0.2,us,us7000kgr2,2023-09-28T21:33:46.040Z,"60 km SSW of Chirilagua, El Salvador",earthquake,4.06,11.133,0.211,6,reviewed,us,us
+2023-07-19T01:58:46.696Z,12.6312,-88.3287,54.676,4,mb,21,165,0.833,0.6,us,us7000kpxw,2023-09-28T21:34:20.040Z,"68 km SSW of Chirilagua, El Salvador",earthquake,5.14,5.152,0.125,17,reviewed,us,us
+2023-07-19T02:46:57.152Z,12.842,-88.2108,71.486,5,mb,109,50,0.633,0.68,us,us7000kgr8,2023-09-28T21:33:46.040Z,"41 km S of Chirilagua, El Salvador",earthquake,7,4.626,0.023,585,reviewed,us,us
+2023-07-19T09:13:48.920Z,12.7255,-88.3955,51.15,4,mb,17,179,0.742,0.73,us,us7000kgt3,2023-09-28T21:33:48.040Z,"60 km SSW of Jucuarán, El Salvador",earthquake,6.57,14.677,0.196,7,reviewed,us,us
+2023-07-19T09:26:46.196Z,12.6377,-88.2836,56.479,4.4,mb,87,148,0.826,0.65,us,us7000kgt5,2023-09-28T21:33:48.040Z,"66 km SSW of Chirilagua, El Salvador",earthquake,6.64,7.904,0.061,79,reviewed,us,us
+2023-07-19T10:11:36.602Z,12.7776,-88.2249,79.551,4.7,mb,128,171,0.694,0.68,us,us7000kgtg,2023-09-28T21:33:49.040Z,"49 km S of Chirilagua, El Salvador",earthquake,8.81,9.962,0.049,125,reviewed,us,us
+2023-07-19T13:27:00.847Z,12.7597,-88.24,79.225,4.5,mb,94,143,0.71,0.55,us,us7000kgvt,2023-09-28T21:33:51.040Z,"52 km SSW of Chirilagua, El Salvador",earthquake,4.04,8.292,0.057,91,reviewed,us,us
+2023-07-19T14:38:11.210Z,12.6088,-88.2027,65.47,4.3,mb,39,141,0.863,0.69,us,us6000kvx9,2023-09-28T21:33:09.040Z,"off the coast of Central America",earthquake,7.2,9.557,0.097,30,reviewed,us,us
+2023-07-19T16:10:36.862Z,12.6526,-88.2052,64.464,4.2,mb,19,178,0.82,0.43,us,us6000kvxj,2023-09-28T21:33:10.040Z,"62 km SSW of Intipucá, El Salvador",earthquake,5.05,4.399,0.236,5,reviewed,us,us
+2023-07-19T16:36:44.219Z,12.6902,-88.304,64.33,4.4,mb,89,84,0.774,0.5,us,us7000kgx7,2023-09-28T21:33:52.040Z,"61 km SSW of Chirilagua, El Salvador",earthquake,5.23,7.16,0.067,64,reviewed,us,us
+2023-07-19T18:46:04.516Z,12.6863,-88.3193,68.512,4.1,mb,36,84,0.778,0.84,us,us7000kgxl,2023-09-28T21:33:52.040Z,"off the coast of Central America",earthquake,4.26,7.497,0.12,19,reviewed,us,us
+2023-07-19T19:59:38.378Z,12.6448,-88.2945,63.497,4.4,mb,86,84,0.82,0.68,us,us7000kgyf,2023-09-28T21:33:53.040Z,"65 km SSW of Chirilagua, El Salvador",earthquake,6.24,7.591,0.063,76,reviewed,us,us
+2023-07-23T09:47:43.344Z,12.6854,-88.2945,63.854,4.1,mb,35,133,0.779,0.86,us,us7000khs9,2023-09-30T21:36:38.040Z,"61 km SSW of Chirilagua, El Salvador",earthquake,4.47,8.495,0.086,37,reviewed,us,us
+2023-07-23T19:37:26.626Z,12.7817,-88.2548,76.868,4.8,mww,186,108,0.686,0.86,us,us7000khus,2023-09-30T21:36:39.040Z,"50 km SSW of Chirilagua, El Salvador",earthquake,5.83,4.159,0.053,34,reviewed,us,us
+2023-07-24T04:41:37.084Z,12.6985,-88.3356,67.108,4.2,mb,28,171,0.766,0.5,us,us7000khwt,2024-01-18T20:32:56.779Z,"61 km SSW of Chirilagua, El Salvador",earthquake,7.71,7.857,0.065,67,reviewed,us,us
+2023-07-24T06:53:36.908Z,12.6797,-88.1786,58.013,4.1,mb,64,153,0.797,0.69,us,us7000khxg,2023-09-30T21:36:39.040Z,"58 km SSW of Intipucá, El Salvador",earthquake,8.42,9.926,0.072,52,reviewed,us,us

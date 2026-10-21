@@ -1,0 +1,28 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-01-24T17:55:14.147Z,38.4312,39.0609,10,6.7,mww,,49,0.87,0.69,us,us60007ewc,2025-12-22T18:27:02.165Z,"13 km N of Do?anyol, Turkey",earthquake,5,1.8,0.043,51,reviewed,us,us
+2020-01-24T18:08:07.074Z,38.4264,39.1881,10,4.8,mb,,65,0.941,0.84,us,us60007f7j,2020-04-11T18:20:46.040Z,"10 km W of Sivrice, Turkey",earthquake,4.8,1.9,0.078,56,reviewed,us,us
+2020-01-24T18:32:37.265Z,38.4178,39.0847,10,4.4,mb,,77,0.893,0.78,us,us60007exs,2020-04-11T18:20:45.040Z,"13 km NNE of Do?anyol, Turkey",earthquake,4.6,1.9,0.126,18,reviewed,us,us
+2020-01-24T18:43:24.444Z,38.4263,39.0449,10,4.3,mb,,69,0.866,0.89,us,us60007exz,2020-04-11T18:20:45.040Z,"13 km N of Do?anyol, Turkey",earthquake,4.8,1.9,0.075,56,reviewed,us,us
+2020-01-24T19:00:32.593Z,38.5045,39.205,10,4.3,mb,,54,0.898,0.83,us,us60007pju,2020-04-11T18:21:11.040Z,"11 km NW of Sivrice, Turkey",earthquake,3,1.9,0.142,16,reviewed,us,us
+2020-01-24T19:03:08.896Z,38.2696,38.7109,10,4.4,mb,,92,0.872,0.74,us,us60007eym,2020-04-11T18:20:45.040Z,"27 km NNE of Sincik, Turkey",earthquake,2.2,1.9,0.064,74,reviewed,us,us
+2020-01-24T19:49:40.150Z,38.4237,39.1443,10,4.3,mb,,73,0.919,0.93,us,us60007f0c,2020-04-11T18:20:45.040Z,"14 km W of Sivrice, Turkey",earthquake,3,1.9,0.085,39,reviewed,us,us
+2020-01-24T20:42:13.333Z,38.3608,39.0961,10,4.2,mb,,69,0.942,0.99,us,us60007f1p,2020-04-11T18:20:45.040Z,"8 km NE of Do?anyol, Turkey",earthquake,4.5,1.9,0.153,15,reviewed,us,us
+2020-01-24T20:45:06.530Z,38.4257,39.1157,10,4.3,mb,,59,0.903,0.72,us,us60007f1t,2020-04-11T18:20:45.040Z,"14 km NNE of Do?anyol, Turkey",earthquake,4.4,1.9,0.099,29,reviewed,us,us
+2020-01-24T22:01:36.172Z,38.3109,39.1169,10,4.1,mb,,107,0.991,0.79,us,us60007f5q,2020-04-11T18:20:46.040Z,"7 km E of Do?anyol, Turkey",earthquake,4.9,2,0.303,3,reviewed,us,us
+2020-01-25T00:48:52.588Z,38.4605,39.1847,10,4.2,mb,,103,0.916,0.75,us,us60007fb4,2020-04-11T18:20:47.040Z,"11 km W of Sivrice, Turkey",earthquake,3.9,1.9,0.108,24,reviewed,us,us
+2020-01-25T00:57:19.759Z,38.3425,39.1165,10,4,mb,,105,0.966,0.6,us,us60007fbb,2020-04-11T18:20:47.040Z,"8 km ENE of Do?anyol, Turkey",earthquake,3.9,1.9,0.164,10,reviewed,us,us
+2020-01-25T06:07:34.323Z,38.3075,39.1257,3.5,4.4,mb,,107,0.998,0.73,us,us60007fh8,2020-04-11T18:20:48.040Z,"7 km E of Do?anyol, Turkey",earthquake,4.2,6.6,0.134,16,reviewed,us,us
+2020-01-25T08:21:15.087Z,38.2318,38.7294,10,4.2,mb,,110,0.913,0.85,us,us70007j4f,2020-04-11T18:21:11.040Z,"23 km NNE of Sincik, Turkey",earthquake,4.2,1.9,0.199,7,reviewed,us,us
+2020-01-25T08:40:04.736Z,38.3409,39.2769,10,4.5,mb,,105,1.051,0.53,us,us60007fkb,2020-04-11T18:20:48.040Z,"11 km SSW of Sivrice, Turkey",earthquake,4.4,2,0.135,16,reviewed,us,us
+2020-01-25T09:39:35.636Z,38.2892,38.8341,10,4.3,mb,,108,0.892,1,us,us60007fl6,2020-04-11T18:20:48.040Z,"17 km W of Do?anyol, Turkey",earthquake,4.4,0.9,0.238,5,reviewed,us,us
+2020-01-25T10:14:59.234Z,38.2019,38.7768,10,4.5,mb,,37,0.954,0.84,us,us60007flw,2020-04-11T18:20:48.040Z,"23 km NE of Sincik, Turkey",earthquake,3.2,1.8,0.068,63,reviewed,us,us
+2020-01-25T16:30:11.109Z,38.3615,39.1096,10,5.1,mww,,59,0.948,0.82,us,us60007fs4,2025-12-22T18:27:07.572Z,"8 km NE of Do?anyol, Turkey",earthquake,3.2,1.6,0.068,21,reviewed,us,us
+2020-01-25T16:44:02.845Z,38.3483,39.1488,10,4.3,mb,,105,0.978,1.3,us,us60007fsc,2020-04-11T18:20:49.040Z,"10 km ENE of Do?anyol, Turkey",earthquake,5,1.9,0.122,19,reviewed,us,us
+2020-01-25T16:47:00.215Z,38.3906,39.177,10,4.4,mb,,103,0.961,0.93,us,us60007fsh,2020-04-11T18:20:49.040Z,"12 km WSW of Sivrice, Turkey",earthquake,4.4,1.9,0.105,26,reviewed,us,us
+2020-01-26T02:22:49.088Z,38.2467,38.7957,10,4.4,mb,,75,0.918,1.1,us,us60007g50,2020-04-11T18:20:51.040Z,"21 km WSW of Do?anyol, Turkey",earthquake,3.2,1.8,0.083,42,reviewed,us,us
+2020-01-27T16:12:02.215Z,38.3425,39.156,5,4.3,mb,,69,0.986,0.65,us,us60007hb1,2020-04-11T18:20:56.040Z,"11 km ENE of Do?anyol, Turkey",earthquake,4.1,1.9,0.119,20,reviewed,us,us
+2020-01-31T23:32:51.609Z,38.4961,39.3382,10,4.7,mwr,,34,0.984,0.96,us,us60007lub,2020-04-18T22:10:07.040Z,"6 km NNE of Sivrice, Turkey",earthquake,4.9,1.9,0.071,19,reviewed,us,us
+2020-02-01T00:03:51.347Z,38.3727,39.2739,10,4.2,mb,,73,1.027,0.97,us,us60007luu,2020-04-18T22:10:07.040Z,"8 km SSW of Sivrice, Turkey",earthquake,4.5,2,0.214,6,reviewed,us,us
+2020-02-03T22:19:44.163Z,38.4874,39.1359,10,4.3,mb,,98,0.869,1.02,us,us60007nxs,2020-04-18T22:10:21.040Z,"eastern Turkey",earthquake,3.5,1.8,0.083,41,reviewed,us,us
+2020-02-16T16:40:33.303Z,38.2572,38.6898,6.99,4,mb,,109,0.879,0.47,us,us70007rd4,2020-05-02T22:09:59.040Z,"25 km NNE of Sincik, Turkey",earthquake,4.3,6.4,0.259,4,reviewed,us,us
+2020-02-17T11:42:15.895Z,38.3417,39.1144,10,4.3,mb,,59,0.966,0.92,us,us70007rsx,2020-05-02T22:10:07.040Z,"7 km ENE of Do?anyol, Turkey",earthquake,3.9,1.9,0.091,34,reviewed,us,us

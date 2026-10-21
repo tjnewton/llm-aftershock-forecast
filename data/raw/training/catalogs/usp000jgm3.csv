@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2012-03-21T22:15:06.130Z,-6.242,145.955,118,6.6,mww,640,10.1,,0.97,us,usp000jgm3,2024-06-17T19:02:42.285Z,"11 km ENE of Kainantu, Papua New Guinea",earthquake,,,,,reviewed,us,us

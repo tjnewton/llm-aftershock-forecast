@@ -1,0 +1,8 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2012-01-15T13:40:19.540Z,-60.948,-56.113,8,6.6,mww,147,19.6,,1.14,us,usp000jdhq,2022-05-03T15:32:23.439Z,"South Shetland Islands",earthquake,,,,,reviewed,us,us
+2012-01-15T14:21:31.370Z,-60.882,-55.965,10,6,mwc,212,36.8,,1.07,us,usp000jdhs,2022-05-03T16:30:01.607Z,"South Shetland Islands",earthquake,,,,,reviewed,us,gcmt
+2012-01-15T16:44:41.570Z,-60.764,-56.499,10,4.8,mb,7,138.4,,1.27,us,usp000jdhx,2014-11-07T01:46:47.398Z,"South Shetland Islands",earthquake,,,,1,reviewed,us,us
+2012-01-16T03:59:44.590Z,-60.752,-56.095,10,5.6,mwb,127,55.3,,1.17,us,usp000jdjm,2022-05-03T15:26:26.653Z,"South Shetland Islands",earthquake,,,,,reviewed,us,us
+2012-01-16T04:30:57.450Z,-60.723,-56.312,10,4.7,mb,20,86.5,,1.35,us,usp000jdjn,2014-11-07T01:46:47.508Z,"South Shetland Islands",earthquake,,,,2,reviewed,us,us
+2012-01-18T19:45:19.600Z,-60.874,-56.887,10,4.7,mb,26,133.2,,0.9,us,usp000jdnp,2014-11-07T01:46:48.081Z,"South Shetland Islands",earthquake,,,,6,reviewed,us,us
+2012-01-22T19:35:02.840Z,-60.776,-56.526,10,4.2,mb,18,138.4,,0.78,us,usp000jduu,2014-11-07T01:46:49.466Z,"South Shetland Islands",earthquake,,,,2,reviewed,us,us

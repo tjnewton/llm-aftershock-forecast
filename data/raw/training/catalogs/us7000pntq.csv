@@ -1,0 +1,26 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-03-28T13:24:07.672Z,-20.8696,-174.313,10,4.5,mb,21,112,4.494,0.77,us,us6000q4ju,2025-06-06T21:12:21.040Z,"83 km ENE of Kolonga, Tonga",earthquake,13.51,1.906,0.118,21,reviewed,us,us
+2025-03-30T12:18:50.362Z,-20.3036,-174.0718,29,7,mww,287,20,4.091,0.96,us,us7000pntq,2025-06-06T21:12:28.040Z,"61 km SSE of Pangai, Tonga",earthquake,4.83,2.971,0.031,98,reviewed,us,us
+2025-03-30T12:54:46.043Z,-20.3636,-173.7157,10,4.5,mb,43,87,3.792,1,us,us7000pnuq,2025-06-06T21:12:28.040Z,"90 km SE of Pangai, Tonga",earthquake,10.12,1.871,0.099,30,reviewed,us,us
+2025-03-30T13:24:53.083Z,-20.2951,-173.8397,10,4.3,mb,19,107,3.881,0.99,us,us6000q4y7,2025-06-06T21:12:22.040Z,"75 km SE of Pangai, Tonga",earthquake,13.32,1.931,0.122,19,reviewed,us,us
+2025-03-30T14:24:47.304Z,-20.404,-174.154,10,4.9,mb,76,107,4.194,0.49,us,us7000pnvd,2025-06-06T21:12:28.040Z,"68 km SSE of Pangai, Tonga",earthquake,11.66,1.871,0.066,76,reviewed,us,us
+2025-03-30T14:58:43.501Z,-20.0981,-173.9083,10,4.7,mb,21,104,3.888,0.71,us,us7000pnvt,2025-06-06T21:12:28.040Z,"56 km SE of Pangai, Tonga",earthquake,10.05,1.907,0.127,24,reviewed,us,us
+2025-03-30T15:04:54.834Z,-20.3816,-174.0115,17,6.2,mww,73,53,4.06,0.98,us,us7000pnvp,2025-06-06T21:12:28.040Z,"72 km SSE of Pangai, Tonga",earthquake,10.65,1.717,0.062,25,reviewed,us,us
+2025-03-30T15:26:13.319Z,-20.5078,-173.7698,10,5,mb,32,166,3.888,0.97,us,us7000pnvu,2025-06-06T21:12:28.040Z,"98 km SE of Pangai, Tonga",earthquake,14.07,1.918,0.094,36,reviewed,us,us
+2025-03-30T15:33:49.612Z,-20.2249,-174.0813,27.136,5.9,mww,47,84,4.078,0.49,us,us7000pnvv,2025-06-06T21:12:28.040Z,"53 km SSE of Pangai, Tonga",earthquake,11.15,4.954,0.11,8,reviewed,us,us
+2025-03-30T15:42:20.161Z,-19.6629,-174.0824,10,4.4,mb,11,171,3.966,0.47,us,us6000q4y8,2025-06-06T21:12:22.040Z,"27 km ENE of Fangale’ounga, Tonga",earthquake,17.59,1.971,0.162,11,reviewed,us,us
+2025-03-30T16:10:08.960Z,-20.2693,-174.2326,10,4.8,mb,31,105,4.227,0.74,us,us7000pnw6,2025-06-06T21:12:28.040Z,"51 km SSE of Pangai, Tonga",earthquake,11.78,1.9,0.086,42,reviewed,us,us
+2025-03-30T19:20:35.268Z,-20.8785,-173.7632,10,4.3,mb,12,90,4.029,0.69,us,us6000q4ya,2025-06-06T21:12:22.040Z,"132 km SSE of Pangai, Tonga",earthquake,9.45,1.784,0.217,6,reviewed,us,us
+2025-03-30T19:30:25.452Z,-20.4272,-173.7702,24.036,4.6,mb,38,114,3.861,1.1,us,us7000pnx1,2025-06-06T21:12:28.040Z,"91 km SE of Pangai, Tonga",earthquake,13.17,6.07,0.098,31,reviewed,us,us
+2025-03-30T21:51:41.778Z,-20.267,-173.978,10,5.2,mww,60,69,9.631,0.68,us,us7000pnxn,2025-06-06T21:12:28.040Z,"63 km SE of Pangai, Tonga",earthquake,12.4,1.8,0.098,10,reviewed,us,us
+2025-03-31T00:23:58.339Z,-20.568,-173.8131,10,4.7,mb,20,126,3.948,0.45,us,us6000q55s,2025-06-06T21:12:22.040Z,"100 km SE of Pangai, Tonga",earthquake,13.51,1.933,0.115,23,reviewed,us,us
+2025-03-31T01:47:48.751Z,-20.9033,-173.8722,10,4.3,mb,17,130,4.131,0.56,us,us6000q55r,2025-06-06T21:12:22.040Z,"122 km ENE of ‘Ohonua, Tonga",earthquake,16.43,1.91,0.161,11,reviewed,us,us
+2025-03-31T13:20:43.203Z,-20.5955,-173.8123,10,4.9,mb,46,111,3.957,0.94,us,us7000pp0p,2025-06-06T21:12:29.040Z,"103 km SSE of Pangai, Tonga",earthquake,7.14,1.851,0.073,59,reviewed,us,us
+2025-03-31T22:25:56.597Z,-20.5292,-173.5499,10,4.9,mb,24,102,3.704,0.83,us,us6000q56n,2025-06-06T21:12:23.040Z,"115 km SE of Pangai, Tonga",earthquake,4.96,1.896,0.117,23,reviewed,us,us
+2025-04-01T07:37:26.391Z,-20.2807,-173.919,14.02,4.7,mb,31,107,3.947,1.1,us,us6000q5e8,2025-06-06T21:12:23.040Z,"68 km SE of Pangai, Tonga",earthquake,9.72,5.082,0.104,28,reviewed,us,us
+2025-04-02T00:59:30.941Z,-20.4086,-173.7637,10,4.9,mb,33,84,3.849,0.84,us,us7000ppde,2025-06-09T13:38:49.040Z,"90 km SE of Pangai, Tonga",earthquake,10.1,1.875,0.112,25,reviewed,us,us
+2025-04-02T17:20:39.098Z,-20.4301,-173.6418,10,4.3,mb,11,110,3.749,0.82,us,us6000q5fq,2025-06-09T13:38:45.040Z,"100 km SE of Pangai, Tonga",earthquake,10.66,1.957,0.202,7,reviewed,us,us
+2025-04-05T04:19:07.565Z,-20.7198,-173.6762,10,4.5,mb,13,89,3.888,0.85,us,us6000q6hj,2025-06-09T13:38:46.040Z,"122 km SE of Pangai, Tonga",earthquake,9.42,1.944,0.163,11,reviewed,us,us
+2025-04-05T09:19:55.153Z,-20.0684,-173.5042,10,5.1,mb,36,105,3.514,0.86,us,us6000q47z,2025-06-09T13:38:41.040Z,"92 km ESE of Fangale’ounga, Tonga",earthquake,10.94,1.872,0.091,39,reviewed,us,us
+2025-04-11T20:59:57.686Z,-20.3094,-173.9048,10,4.5,mb,14,107,3.943,0.85,us,us7000putu,2025-06-14T18:26:46.040Z,"72 km SE of Pangai, Tonga",earthquake,13.66,1.882,0.18,11,reviewed,us,us
+2025-04-19T04:18:39.349Z,-20.34,-174.1618,35,4.7,mb,26,135,37.088,1.11,us,us7000px9s,2025-06-27T00:35:05.040Z,"61 km SSE of Pangai, Tonga",earthquake,11.39,1.875,0.106,32,reviewed,us,us

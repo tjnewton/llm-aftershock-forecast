@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-03-04T23:27:00.495Z,71.3523,-8.3478,10,4.5,mb,54,47,4.547,0.5,us,us6000pwxk,2025-05-08T19:24:47.040Z,"49 km NNE of Olonkinbyen, Svalbard and Jan Mayen",earthquake,8.25,1.853,0.052,109,reviewed,us,us
+2025-03-10T02:33:14.609Z,71.176,-8.1733,10,6.5,mww,437,15,0.219,0.59,us,us6000pxvx,2025-05-16T17:30:04.040Z,"34 km NE of Olonkinbyen, Svalbard and Jan Mayen",earthquake,6.68,1.724,0.039,62,reviewed,us,us
+2025-03-10T07:38:49.125Z,71.1036,-8.0295,10,4.6,mb,96,48,0.195,0.54,us,us6000pxx1,2025-05-16T17:30:04.040Z,"32 km NE of Olonkinbyen, Svalbard and Jan Mayen",earthquake,5.11,1.719,0.06,82,reviewed,us,us
+2025-03-11T00:08:15.496Z,71.4761,-8.3407,10,4,mb,14,140,4.51,0.54,us,us6000py1y,2025-05-16T17:30:05.040Z,"63 km NNE of Olonkinbyen, Svalbard and Jan Mayen",earthquake,8.6,1.963,0.164,10,reviewed,us,us

@@ -1,0 +1,14 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2023-07-16T06:48:21.158Z,54.3926,-160.762,25,7.2,mww,410,62,0.973,0.69,us,us7000kg30,2025-07-17T17:39:01.364Z,"2023 Sand Point, Alaska Earthquake",earthquake,4.17,1.864,0.025,156,reviewed,us,us
+2023-07-16T06:51:20.149Z,54.6283,-160.8146,35,5.8,mb,28,154,0.748,0.56,us,us7000kg31,2023-09-28T21:33:24.040Z,"81 km SSW of Sand Point, Alaska",earthquake,6.39,1.985,0.174,12,reviewed,us,us
+2023-07-16T07:03:23.044Z,54.3263,-160.8228,42.367,4.5,mb,80,166,1.045,0.61,us,us7000kg37,2023-09-28T21:33:25.040Z,"114 km S of Sand Point, Alaska",earthquake,6.19,8.604,0.171,10,reviewed,us,us
+2023-07-16T07:51:40.239Z,54.2979,-160.7892,40.466,4.5,mb,143,146,1.069,0.38,us,us7000kg3d,2023-09-28T21:33:25.040Z,"117 km S of Sand Point, Alaska",earthquake,5.89,7.49,0.083,43,reviewed,us,us
+2023-07-16T11:22:56.218Z,54.5699,-161.0235,42.312,4.7,mwr,121,124,0.842,0.63,us,us7000kg4a,2023-09-28T21:33:27.040Z,"91 km SSW of Sand Point, Alaska",earthquake,2.8,5.453,0.057,30,reviewed,us,us
+2023-07-16T11:44:06.212Z,54.2885,-160.8137,38.182,4,mb,67,159,1.08,0.56,us,us7000kg4j,2023-09-28T21:33:27.040Z,"118 km S of Sand Point, Alaska",earthquake,6.11,8.44,0.108,23,reviewed,us,us
+2023-07-16T12:05:16.985Z,54.3883,-160.6661,35,4.2,mb,73,131,0.969,0.8,us,us7000kg4r,2023-09-28T21:33:28.040Z,"Alaska Peninsula",earthquake,4.12,1.913,0.102,27,reviewed,us,us
+2023-07-16T13:12:55.585Z,54.6454,-161.065,46.395,4,mb,31,205,0.783,0.84,us,us7000kg59,2023-09-28T21:33:28.040Z,"Alaska Peninsula",earthquake,5.22,3.56,0.212,7,reviewed,us,us
+2023-07-18T11:06:33.314Z,54.6441,-160.8264,42.504,4.6,mb,132,65,0.735,0.52,us,us7000kgjj,2023-09-28T21:33:43.040Z,"Alaska Peninsula",earthquake,5.93,6.702,0.054,102,reviewed,us,us
+2023-07-24T12:04:19.007Z,54.8153,-160.6929,42.377,4.5,mwr,102,130,0.549,0.81,us,us7000khyj,2023-09-30T21:36:39.040Z,"59 km SSW of Sand Point, Alaska",earthquake,4.23,5.459,0.049,40,reviewed,us,us
+2023-07-26T15:29:17.627Z,54.6212,-161.0645,36.96,4.7,mwr,229,112,0.703,0.6,us,us6000kvnt,2023-09-30T21:36:31.040Z,"87 km SSW of Sand Point, Alaska",earthquake,4.27,4.824,0.078,16,reviewed,us,us
+2023-07-28T14:27:16.345Z,54.3634,-161.0034,35,4,mb,49,158,0.933,0.85,us,us6000kw7t,2023-09-30T21:36:32.040Z,"112 km SSW of Sand Point, Alaska",earthquake,2.1,1.905,0.156,13,reviewed,us,us
+2023-08-03T19:33:50.833Z,54.6385,-161.0718,35,5.6,mww,247,38,0.687,0.92,us,us6000kxme,2024-01-18T20:37:35.632Z,"85 km SSW of Sand Point, Alaska",earthquake,4.08,0.993,0.033,86,reviewed,us,us

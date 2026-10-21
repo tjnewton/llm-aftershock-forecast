@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2013-02-09T14:16:07.880Z,1.135,-77.393,145,6.9,mww,562,23.7,,0.91,us,usc000f4ij,2022-07-24T17:45:19.488Z,"2 km NNE of Yacuanquer, Colombia",earthquake,,,,,reviewed,us,us

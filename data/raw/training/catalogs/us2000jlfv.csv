@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2019-02-22T10:17:23.770Z,-2.1862,-77.0505,145,7.5,mww,,15,2.045,1.12,us,us2000jlfv,2025-12-22T18:03:48.343Z,"115 km ESE of Palora, Ecuador",earthquake,6.2,1.8,0.026,144,reviewed,us,us
+2019-02-23T02:40:07.780Z,-2.1529,-77.4034,135.12,4.2,mb,,146,2.595,0.87,us,us1000javt,2019-05-11T17:40:34.040Z,"79 km SE of Palora, Ecuador",earthquake,11.9,10.2,0.187,8,reviewed,us,us
+2019-03-14T09:02:07.762Z,-2.355,-77.0225,113.78,4.5,mb,,71,2.235,1.1,us,us1000jfe1,2019-06-01T21:24:14.040Z,"121 km E of Macas, Ecuador",earthquake,5.2,8.8,0.085,40,reviewed,us,us
+2019-03-20T16:23:22.850Z,-2.7612,-77.3293,32.28,5.1,mb,,45,1.948,0.85,us,us1000jjan,2025-12-22T18:56:36.794Z,"99 km ESE of Sucúa, Ecuador",earthquake,6.2,3.9,0.028,405,reviewed,us,us

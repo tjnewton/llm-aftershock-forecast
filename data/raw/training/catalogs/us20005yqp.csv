@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-05-21T18:48:19.400Z,-21.9643,-178.7631,559.5,4.4,mb,,115,5.157,1.06,us,us20005yhn,2016-08-03T22:33:40.040Z,"Fiji region",earthquake,15.5,11.6,0.114,24,reviewed,us,us
+2016-05-28T05:38:50.550Z,-21.9724,-178.2038,405.69,6.9,mww,,19,5.485,0.94,us,us20005yqp,2024-01-17T21:10:14.187Z,"Fiji region",earthquake,8.9,3.4,,,reviewed,us,us
+2016-06-21T10:47:08.860Z,-22.2084,-178.6461,474.03,4.2,mb,,104,5.417,1.2,us,us200066jr,2016-08-27T02:15:33.040Z,"south of the Fiji Islands",earthquake,10.2,9,0.108,24,reviewed,us,us

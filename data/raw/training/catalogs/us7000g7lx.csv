@@ -1,0 +1,30 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2021-12-26T16:49:52.275Z,-7.5604,128.5354,157.96,4.6,mb,,62,2.77,0.86,us,us7000g9m7,2022-03-05T23:11:03.040Z,"200 km ENE of Lospalos, Timor Leste",earthquake,8.6,9.8,0.223,6,reviewed,us,us
+2021-12-28T10:51:48.250Z,-7.628,127.6428,159.75,4.9,mb,,29,3.639,0.64,us,us6000gfuc,2022-03-05T23:10:47.040Z,"121 km NE of Lospalos, Timor Leste",earthquake,7.8,7,0.058,93,reviewed,us,us
+2021-12-29T18:25:51.962Z,-7.5482,127.5773,165.49,7.3,mww,,19,3.713,1.06,us,us7000g7lx,2025-12-22T22:23:56.239Z,"125 km NNE of Lospalos, Timor Leste",earthquake,6.3,3.3,0.052,36,reviewed,us,us
+2021-12-29T18:47:20.527Z,-7.5846,127.6553,152.11,4.1,mb,,76,3.631,0.68,us,us7000galb,2022-03-05T23:11:10.040Z,"126 km NE of Lospalos, Timor Leste",earthquake,8.5,10.3,0.37,2,reviewed,us,us
+2021-12-29T19:08:54.048Z,-7.8462,127.5136,185.38,4.4,mb,,92,3.727,0.73,us,us7000gald,2022-03-05T23:11:10.040Z,"93 km NE of Lospalos, Timor Leste",earthquake,3.9,10.3,0.19,9,reviewed,us,us
+2021-12-29T19:21:12.619Z,-7.5864,127.617,163.86,4.9,mb,,36,3.669,0.76,us,us7000g7rd,2022-03-05T23:10:54.040Z,"123 km NNE of Lospalos, Timor Leste",earthquake,6.7,4,0.052,125,reviewed,us,us
+2021-12-29T19:53:04.354Z,-7.6526,127.8124,176.67,4.6,mb,,51,3.469,0.64,us,us7000g7ru,2022-03-05T23:10:54.040Z,"131 km NE of Lospalos, Timor Leste",earthquake,7.2,6.3,0.074,60,reviewed,us,us
+2021-12-29T19:56:24.457Z,-7.587,127.7251,171.98,4.1,mb,,52,3.562,0.92,us,us7000gal1,2022-03-05T23:11:09.040Z,"130 km NE of Lospalos, Timor Leste",earthquake,8.2,8.4,0.112,22,reviewed,us,us
+2021-12-29T20:27:06.314Z,-7.4937,127.8389,165.65,4.3,mb,,70,3.463,1.14,us,us7000gal3,2022-03-05T23:11:09.040Z,"146 km NE of Lospalos, Timor Leste",earthquake,7.7,9.6,0.266,4,reviewed,us,us
+2021-12-29T20:32:52.496Z,-7.5547,127.7579,157.68,5,mb,,31,3.534,0.7,us,us7000g7s9,2022-03-05T23:10:54.040Z,"135 km NE of Lospalos, Timor Leste",earthquake,6.3,5,0.049,135,reviewed,us,us
+2021-12-29T21:35:58.827Z,-7.5756,127.937,168.16,4.3,mb,,52,3.355,0.76,us,us7000galg,2022-03-05T23:11:10.040Z,"147 km NE of Lospalos, Timor Leste",earthquake,4,9.2,0.16,11,reviewed,us,us
+2021-12-29T23:00:35.350Z,-7.6053,127.5433,161.5,4.8,mb,,37,3.74,0.74,us,us7000g7u7,2022-03-05T23:10:54.040Z,"117 km NNE of Lospalos, Timor Leste",earthquake,7.5,5.6,0.069,65,reviewed,us,us
+2021-12-30T02:04:32.142Z,-7.7918,127.6191,188.5,4.1,mb,,118,3.844,0.93,us,us7000gaws,2022-03-05T23:11:10.040Z,"105 km NE of Lospalos, Timor Leste",earthquake,8,8.3,0.235,5,reviewed,us,us
+2021-12-30T03:24:24.306Z,-7.855,127.6542,173.83,4.1,mb,,81,3.612,0.86,us,us7000gawx,2022-03-05T23:11:11.040Z,"103 km NE of Lospalos, Timor Leste",earthquake,8.8,8.1,0.214,7,reviewed,us,us
+2021-12-30T03:47:35.914Z,-7.6046,128.4819,167.89,4.4,mb,,93,2.816,0.93,us,us7000gawy,2022-03-05T23:11:11.040Z,"192 km ENE of Lospalos, Timor Leste",earthquake,10.9,5.9,0.17,10,reviewed,us,us
+2021-12-30T07:08:34.771Z,-7.783,127.8826,175.02,4.2,mb,,67,3.39,0.71,us,us7000gax2,2022-03-05T23:11:11.040Z,"127 km NE of Lospalos, Timor Leste",earthquake,8.1,11.9,0.176,9,reviewed,us,us
+2021-12-30T11:03:47.615Z,-7.6319,127.7637,163.06,4.1,mb,,74,3.52,1.05,us,us7000g7y2,2022-03-05T23:10:55.040Z,"129 km NE of Lospalos, Timor Leste",earthquake,6.8,7.4,0.165,10,reviewed,us,us
+2021-12-30T11:56:42.955Z,-7.7016,127.8981,176.61,4.4,mb,,88,3.38,1.35,us,us7000gaxc,2022-03-05T23:11:12.040Z,"134 km NE of Lospalos, Timor Leste",earthquake,5.1,10.5,0.311,3,reviewed,us,us
+2021-12-30T14:27:17.675Z,-7.6509,127.662,172.32,4.5,mb,,57,3.618,1.07,us,us7000g7ze,2022-03-05T23:10:56.040Z,"120 km NE of Lospalos, Timor Leste",earthquake,8.4,7.3,0.091,35,reviewed,us,us
+2022-01-02T13:00:11.320Z,-7.5453,127.0567,10,4.4,mb,,177,3.525,0.6,us,us7000gbe7,2022-03-12T22:19:18.040Z,"108 km N of Lospalos, Timor Leste",earthquake,9.6,2,0.24,6,reviewed,us,us
+2022-01-03T13:51:33.952Z,-7.6138,128.4621,150.17,4.4,mb,,58,2.834,0.43,us,us7000gbl8,2022-03-12T22:19:19.040Z,"190 km ENE of Lospalos, Timor Leste",earthquake,8.1,9.4,0.179,12,reviewed,us,us
+2022-01-04T13:02:53.499Z,-7.0385,127.7416,298.19,4.5,mb,,59,3.649,0.63,us,us7000g8wi,2022-03-12T22:19:06.040Z,"Kepulauan Barat Daya, Indonesia",earthquake,7.9,1.5,0.08,49,reviewed,us,us
+2022-01-13T18:38:28.765Z,-7.3084,127.545,10,4.6,mb,,53,3.78,0.84,us,us7000gbq6,2022-03-19T22:07:59.040Z,"147 km NNE of Lospalos, Timor Leste",earthquake,6.7,1.9,0.097,32,reviewed,us,us
+2022-01-14T19:35:44.526Z,-7.5424,127.667,162.28,4.1,mb,,54,3.625,0.67,us,us7000gdy7,2022-03-19T22:08:02.040Z,"131 km NE of Lospalos, Timor Leste",earthquake,7.8,11.3,0.213,7,reviewed,us,us
+2022-01-16T00:05:58.440Z,-6.9149,127.3657,348.62,4.4,mb,,29,4.041,0.52,us,us7000gcbr,2022-04-01T17:40:12.040Z,"182 km NNE of Lospalos, Timor Leste",earthquake,8.3,3.6,0.089,36,reviewed,us,us
+2022-01-17T17:05:36.135Z,-7.6226,127.6957,164.13,4.1,mb,,57,3.588,0.73,us,us7000gf1h,2022-04-01T17:40:32.040Z,"125 km NE of Lospalos, Timor Leste",earthquake,9.4,10.7,0.165,10,reviewed,us,us
+2022-01-18T00:46:02.840Z,-7.7057,127.8857,180.26,4.5,mb,,122,4.116,0.69,us,us7000gcrl,2022-04-01T17:40:15.040Z,"133 km NE of Lospalos, Timor Leste",earthquake,10,8.3,0.104,27,reviewed,us,us
+2022-01-23T14:05:45.897Z,-7.3142,128.3868,121.74,4.1,mb,,67,2.961,0.79,us,us7000ggn9,2022-04-09T20:18:54.040Z,"203 km NE of Lospalos, Timor Leste",earthquake,9.7,5.4,0.197,7,reviewed,us,us
+2022-01-24T17:55:08.788Z,-7.5319,127.5941,158.17,4.6,mb,,30,3.698,0.81,us,us7000gem5,2022-04-09T20:18:58.040Z,"127 km NNE of Lospalos, Timor Leste",earthquake,5.2,5.3,0.081,45,reviewed,us,us

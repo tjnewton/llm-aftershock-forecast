@@ -1,0 +1,17 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2010-04-13T21:39:58.350Z,33.16,96.712,10,4.9,mwc,158,63.5,,0.86,us,usp000hbbf,2016-11-10T02:27:04.940Z,"229 km N of Qamdo, China",earthquake,,,,,reviewed,us,gcmt
+2010-04-13T23:49:38.330Z,33.165,96.548,17,6.9,mwc,410,14.9,,1.25,us,usp000hbbt,2022-07-16T10:40:59.551Z,"233 km NNW of Qamdo, China",earthquake,,,,,reviewed,us,us
+2010-04-14T00:01:17.560Z,32.925,96.86,22.8,5.4,mb,133,41.9,,0.91,us,usp000hbbu,2022-05-02T21:52:04.429Z,"201 km N of Qamdo, China",earthquake,,10.5,,69,reviewed,us,us
+2010-04-14T00:05:32.140Z,32.892,96.814,10,4.9,mb,51,69.1,,0.8,us,usp000hbbv,2014-11-07T01:41:16.053Z,"198 km N of Qamdo, China",earthquake,,,,8,reviewed,us,us
+2010-04-14T00:12:24.100Z,33.126,96.546,10,5.2,mb,150,67.8,,1.02,us,usp000hbbw,2022-05-02T21:52:03.138Z,"229 km NNW of Qamdo, China",earthquake,,,,79,reviewed,us,us
+2010-04-14T00:59:46.200Z,32.955,97.099,10,4.5,mb,45,66,,0.93,us,usp000hbbz,2014-11-07T01:41:16.084Z,"202 km N of Qamdo, China",earthquake,,,,9,reviewed,us,us
+2010-04-14T01:04:24.520Z,33.321,96.618,10,4.1,mb,25,78,,0.88,us,usp000hbc0,2014-11-07T01:41:16.089Z,"248 km NNW of Qamdo, China",earthquake,,,,7,reviewed,us,us
+2010-04-14T01:25:15.580Z,33.195,96.449,7.6,6.1,mwc,251,41.4,,0.87,us,usp000hbc2,2022-05-02T21:52:05.787Z,"239 km NNW of Qamdo, China",earthquake,,12.2,,,reviewed,us,gcmt
+2010-04-14T01:41:49.420Z,33.206,96.71,10,4.1,mb,19,87.5,,0.88,us,usp000hbc3,2014-11-07T01:41:16.126Z,"234 km N of Qamdo, China",earthquake,,,,3,reviewed,us,us
+2010-04-14T03:15:46.180Z,33.071,96.617,10,5,mb,94,79.9,,0.67,us,usp000hbc6,2022-05-02T21:52:08.383Z,"221 km NNW of Qamdo, China",earthquake,,,,46,reviewed,us,us
+2010-04-14T12:19:32.980Z,32.961,97.09,10,4.2,mb,25,69.3,,1.14,us,usp000hbcn,2014-11-07T01:41:16.233Z,"203 km N of Qamdo, China",earthquake,,,,5,reviewed,us,us
+2010-04-15T04:00:07.900Z,33.017,96.946,10,4.6,mb,37,69.1,,1.41,us,usp000hbdq,2014-11-07T01:41:16.354Z,"210 km N of Qamdo, China",earthquake,,,,15,reviewed,us,us
+2010-04-15T18:30:19.260Z,33.061,96.647,10,4.9,mb,41,74,,0.77,us,usp000hbf2,2014-11-07T01:41:16.506Z,"219 km NNW of Qamdo, China",earthquake,,,,13,reviewed,us,us
+2010-04-16T23:04:17.060Z,33.265,96.52,35,4.4,mb,34,68.3,,0.81,us,usp000hbh0,2014-11-07T01:41:16.862Z,"244 km NNW of Qamdo, China",earthquake,,,,9,reviewed,us,us
+2010-04-28T16:48:38.910Z,33.197,96.503,28.7,4.9,mwc,108,62.9,,0.8,us,usp000hc15,2016-11-10T02:27:34.944Z,"237 km NNW of Qamdo, China",earthquake,,9.8,,,reviewed,us,gcmt
+2010-04-28T16:53:58.270Z,33.213,96.437,47.9,4.7,mb,34,68.3,,1,us,usp000hc17,2014-11-07T01:41:20.893Z,"241 km NNW of Qamdo, China",earthquake,,10.6,,6,reviewed,us,us

@@ -76,6 +76,15 @@ def main(argv: list[str] | None = None) -> None:
     ev.add_argument("--parts", nargs="*", default=["v0", "v3", "java", "recovery", "decomp"])
     ev.add_argument("--recovery-n", type=int, default=800, help="sequences per fit time")
     sub.add_parser("smoke", help="SPENDS MONEY (<= $1): one tiny call per Claude model")
+    ad = sub.add_parser(
+        "adaption", help="E1 on Adaption: upload | recommend | launch (credits) | status"
+    )
+    ad.add_argument("action", choices=("upload", "recommend", "launch", "status"))
+    ad.add_argument("--file", type=Path, default=Path("data/processed/training/e1_train.jsonl"))
+    tr = sub.add_parser("training-set", help="E1 training set (ComCat requests; prereg sec. 11)")
+    tr.add_argument("--start", default="2010-01-01")
+    tr.add_argument("--end", default="2025-07-01", help="exclusive end (origin < end)")
+    tr.add_argument("--workers", type=int, default=8)
     fg = sub.add_parser("figures", help="figures/*.png and the explorer table (no API calls)")
     fg.add_argument("--snapshot", required=True)
     pr = sub.add_parser("probe", help="SPENDS MONEY (~$0.3): recall probe (prereg sec. 8)")
@@ -246,6 +255,51 @@ def main(argv: list[str] | None = None) -> None:
             print("decomposition (mean |log ratio| of M>=5 quantiles; median over cells):")
             print(d.groupby("sequence_id")[cols].median().round(3))
         print(f"wrote {out}")
+    elif a.cmd == "adaption":
+        import json
+
+        from laf import adapt
+
+        c = adapt.client()
+        rec = lambda n: json.loads((adapt.RUN / n).read_text(encoding="utf-8"))  # noqa: E731
+        if a.action == "upload":
+            print("dataset", adapt.upload(c, a.file))
+        elif a.action == "recommend":
+            print(
+                json.dumps(
+                    adapt.recommend(c, rec("dataset.json")["dataset_id"]), indent=1, default=str
+                )
+            )
+        elif a.action == "launch":
+            hp = (
+                rec("recommendation.json").get("hyperparams")
+                if (adapt.RUN / "recommendation.json").exists()
+                else None
+            )
+            print("run", adapt.launch(c, rec("dataset.json")["dataset_id"], hyperparams=hp))
+        else:
+            print(json.dumps(adapt.status(c, rec("run.json")["run_id"]), indent=1, default=str))
+    elif a.cmd == "training-set":
+        import json
+
+        from laf import training as T
+
+        start = a.start
+        while True:  # prereg section 11: move the start back in whole years until >= 1,000 rows
+            ev = T.fetch(a.data_dir, start, a.end)
+            if len(ev) * 6 >= T.MIN_ROWS:
+                break
+            start = f"{int(start[:4]) - 1}{start[4:]}"
+        items, rows, cats = T.build(a.data_dir, ev)
+        data = T.dataset(a.data_dir, items, rows, cats, workers=a.workers)
+        out = a.data_dir / "processed" / "training"
+        out.mkdir(parents=True, exist_ok=True)
+        (out / "e1_train.jsonl").write_text(
+            "".join(json.dumps(r) + "\n" for r in data), encoding="utf-8", newline="\n"
+        )
+        print(
+            f"{len(ev)} sequences from {start} to {a.end}; {len(data)} rows -> {out}/e1_train.jsonl"
+        )
     elif a.cmd == "figures":
         import numpy as np
         import pandas as pd

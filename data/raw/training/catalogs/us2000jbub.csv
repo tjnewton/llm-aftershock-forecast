@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2019-02-01T16:14:12.329Z,14.6802,-92.4527,66,6.7,mww,,43,0.289,1.36,us,us2000jbub,2025-12-22T18:55:26.669Z,"5 km SW of Puerto Madero, Mexico",earthquake,5.7,1.8,0.065,23,reviewed,us,us
+2019-02-01T16:59:27.940Z,14.6921,-92.5066,77.94,4.4,mb,,179,0.317,1.1,us,us1000jafi,2019-04-18T19:09:11.040Z,"9 km WSW of Puerto Madero, Mexico",earthquake,6.4,5.5,0.219,6,reviewed,us,us
+2019-02-02T09:14:30.990Z,14.7811,-92.4038,79.84,4.2,mb,,155,0.183,0.85,us,us2000jcbs,2019-04-18T19:09:12.040Z,"5 km N of El Encanto, Mexico",earthquake,7.3,6.9,0.058,84,reviewed,us,us
+2019-02-22T15:57:16.700Z,14.4708,-92.0958,72.76,4,mb,,169,0.392,1.08,us,us1000jag5,2019-05-11T17:40:25.040Z,"11 km ESE of Ocós, Guatemala",earthquake,7.3,7.2,0.196,7,reviewed,us,us

@@ -1,0 +1,31 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2011-06-24T03:09:39.470Z,52.05,-171.836,52,7.3,mww,791,15.3,,1.05,us,usp000j3mq,2022-07-19T18:34:40.771Z,"Fox Islands, Aleutian Islands, Alaska",earthquake,,,,,reviewed,us,us
+2011-06-24T04:20:50.440Z,51.693,-171.697,43.7,4.7,mb,231,88.8,,,us,usp000j3mv,2018-07-06T23:32:38.588Z,"181 km ESE of Atka, Alaska",earthquake,,,,113,reviewed,aeic,us
+2011-06-24T05:46:33.840Z,51.719,-171.659,3.4,4.2,mb,127,131.3,,,us,usp000j3n5,2018-07-06T23:32:41.101Z,"182 km ESE of Atka, Alaska",earthquake,,,,39,reviewed,aeic,us
+2011-06-24T06:03:16.890Z,51.768,-171.674,17.1,4.4,mb,126,137.2,,,us,usp000j3n6,2018-07-06T23:32:41.436Z,"Fox Islands, Aleutian Islands, Alaska",earthquake,,,,47,reviewed,aeic,us
+2011-06-24T07:07:26.970Z,51.707,-171.645,9.2,4,mb,25,217.2,,,us,usp000j3ne,2018-07-06T23:32:42.447Z,"183 km ESE of Atka, Alaska",earthquake,,,,2,reviewed,aeic,us
+2011-06-24T09:06:22.460Z,51.616,-171.381,17.7,4.1,mb,126,126.8,,,us,usp000j3nr,2018-07-06T23:32:45.800Z,"204 km ESE of Atka, Alaska",earthquake,,,,32,reviewed,aeic,us
+2011-06-24T09:41:37.390Z,52.201,-171.658,66.5,4.7,mb,197,138.3,,1.02,us,usp000j3nu,2018-07-06T23:32:46.467Z,"173 km E of Atka, Alaska",earthquake,,3.2,,109,reviewed,us,us
+2011-06-24T11:42:44.890Z,52.006,-171.862,53.7,4.6,mb,241,124.4,,0.99,us,usp000j3ny,2018-07-06T23:32:47.536Z,"161 km E of Atka, Alaska",earthquake,,2.9,,123,reviewed,us,us
+2011-06-24T19:18:20.480Z,51.928,-171.643,55.1,4.6,mb,129,137,,0.97,us,usp000j3pt,2018-07-06T23:32:55.306Z,"Fox Islands, Aleutian Islands, Alaska",earthquake,,3.3,,49,reviewed,us,us
+2011-06-25T08:09:38.610Z,51.78,-171.55,43.6,4.3,mb,145,89,,,us,usp000j3r6,2018-07-06T23:33:23.025Z,"187 km ESE of Atka, Alaska",earthquake,,,,64,reviewed,aeic,us
+2011-06-27T23:27:33.500Z,52.003,-171.762,29,5.8,mww,559,41.2,,1.08,us,usp000j3uw,2022-04-08T21:52:42.662Z,"168 km E of Atka, Alaska",earthquake,,,,,reviewed,us,us
+2011-06-27T23:29:57.490Z,51.833,-171.628,50,4.2,ml,11,217.4,,,us,usp000j3ux,2018-07-06T23:34:28.116Z,"181 km ESE of Atka, Alaska",earthquake,,,,,reviewed,aeic,aeic
+2011-06-28T00:03:39.840Z,51.781,-171.525,50.5,4.1,ml,41,131.2,,,us,usp000j3v3,2018-07-06T23:34:31.350Z,"189 km ESE of Atka, Alaska",earthquake,,,,,reviewed,aeic,aeic
+2011-06-28T01:18:01.420Z,51.931,-171.574,55.6,4.1,mb,51,183.7,,,us,usp000j3v9,2018-07-06T23:34:30.744Z,"182 km E of Atka, Alaska",earthquake,,,,22,reviewed,aeic,us
+2011-06-28T01:33:45.900Z,51.727,-171.556,43.8,4.3,mb,37,187.8,,,us,usp000j3va,2018-07-06T23:34:31.656Z,"189 km ESE of Atka, Alaska",earthquake,,,,8,reviewed,aeic,us
+2011-06-28T06:48:32.510Z,52.087,-171.702,30,5.8,mww,202,76.4,,1.17,us,usp000j3vq,2022-04-08T21:52:48.240Z,"171 km E of Atka, Alaska",earthquake,,,,,reviewed,us,us
+2011-06-28T06:52:52.220Z,51.889,-171.61,42,4.5,mb,31,141.4,,,us,usp000j3vr,2018-07-06T23:34:49.640Z,"180 km ESE of Atka, Alaska",earthquake,,,,2,reviewed,aeic,us
+2011-06-28T06:54:03.230Z,52.009,-171.671,61.6,5.4,mwc,384,76.3,,0.89,us,usp000j3vs,2025-12-22T16:03:29.706Z,"174 km E of Atka, Alaska",earthquake,,2.8,,,reviewed,us,gcmt
+2011-06-28T07:32:24.750Z,51.716,-171.639,25.9,5.4,mwc,462,41.2,,,us,usp000j3vv,2025-12-22T16:03:31.342Z,"184 km ESE of Atka, Alaska",earthquake,,,,,reviewed,aeic,gcmt
+2011-06-28T07:53:26.860Z,52.126,-171.68,19.5,4.1,mb,46,121.8,,,us,usp000j3vx,2018-07-06T23:34:50.230Z,"172 km E of Atka, Alaska",earthquake,,,,17,reviewed,aeic,us
+2011-06-28T09:50:30.000Z,51.565,-171.309,10.6,4.8,mb,255,86.3,,,us,usp000j3w0,2018-07-06T23:34:37.905Z,"211 km ESE of Atka, Alaska",earthquake,,,,178,reviewed,aeic,us
+2011-06-28T16:13:32.180Z,51.723,-171.762,43.8,5.2,mwc,491,58.9,,,us,usp000j3wh,2025-12-22T16:03:33.365Z,"Fox Islands, Aleutian Islands, Alaska",earthquake,,,,,reviewed,aeic,gcmt
+2011-06-28T16:43:59.990Z,51.847,-171.826,48.9,4.4,mb,143,127.1,,0.96,us,usp000j3wj,2018-07-06T23:34:42.338Z,"167 km ESE of Atka, Alaska",earthquake,,3.6,,61,reviewed,us,us
+2011-07-08T10:36:45.370Z,51.48,-171.334,34,4.1,mb,29,139.1,,,us,usp000j4cw,2018-07-06T23:38:22.540Z,"213 km ESE of Atka, Alaska",earthquake,,,,2,reviewed,aeic,us
+2011-07-08T18:20:06.510Z,52.173,-171.722,51.3,4.4,mb,221,117.3,,0.92,us,usp000j4d7,2018-07-06T23:38:28.166Z,"169 km E of Atka, Alaska",earthquake,,3.3,,130,reviewed,us,us
+2011-07-09T01:47:12.620Z,51.735,-171.59,25.5,4,mb,31,184.9,,,us,usp000j4dz,2018-07-06T23:38:37.153Z,"186 km ESE of Atka, Alaska",earthquake,,,,7,reviewed,aeic,us
+2011-07-13T19:35:42.280Z,51.965,-170.314,27.4,4.1,ml,26,217.3,,,us,usp000j4tw,2018-07-06T23:39:56.298Z,"146 km SW of Nikolski, Alaska",earthquake,,,,,reviewed,aeic,aeic
+2011-07-14T21:47:47.120Z,52.187,-171.697,51.6,4.5,mb,133,127,,0.97,us,usp000j4x4,2018-07-06T23:40:16.495Z,"171 km E of Atka, Alaska",earthquake,,3.8,,68,reviewed,us,us
+2011-07-18T02:23:47.500Z,51.764,-172.291,40.9,4.4,mb,148,127.4,,,us,usp000j53d,2018-07-06T23:41:38.760Z,"139 km ESE of Atka, Alaska",earthquake,,,,73,reviewed,aeic,us
+2011-07-19T11:54:53.730Z,52.233,-171.683,52.3,4.8,mb,272,124.8,,0.84,us,usp000j55d,2018-07-06T23:42:09.689Z,"172 km E of Atka, Alaska",earthquake,,2.7,,176,reviewed,us,us

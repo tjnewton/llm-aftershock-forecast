@@ -1,0 +1,13 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2023-03-21T07:25:40.183Z,36.4287,70.9198,138.988,4.2,mb,32,78,2.428,0.44,us,us7000jlld,2023-05-26T21:54:10.040Z,"48 km S of Jurm, Afghanistan",earthquake,7.77,9.191,0.186,8,reviewed,us,us
+2023-03-21T16:47:23.626Z,36.523,70.943,192,6.5,mww,164,12,2.512,0.94,us,us7000jln7,2023-10-22T17:50:55.996Z,"40 km SSE of Jurm, Afghanistan",earthquake,6.23,1.842,0.057,30,reviewed,us,us
+2023-03-23T07:18:18.139Z,36.3466,71.2181,83.664,4.4,mb,31,72,2.53,0.55,us,us7000jm4q,2023-05-26T21:54:14.040Z,"46 km SW of Ashkāsham, Afghanistan",earthquake,2.8,8.076,0.144,14,reviewed,us,us
+2023-03-26T13:14:32.905Z,36.4008,71.1798,120.22,4.4,mb,40,76,2.547,0.66,us,us7000jmuz,2024-01-18T19:37:20.090Z,"44 km SW of Ashk?sham, Afghanistan",earthquake,4.37,7.629,0.114,22,reviewed,us,us
+2023-03-29T07:32:50.302Z,36.5285,70.8946,205.288,4.1,mb,18,107,2.493,0.59,us,us6000k0i5,2023-06-03T22:06:04.040Z,"Hindu Kush region, Afghanistan",earthquake,8.76,15.901,0.371,2,reviewed,us,us
+2023-03-29T08:09:20.347Z,36.6498,71.1131,215.123,4.1,mb,33,101,2.61,0.36,us,us6000k0id,2023-06-03T22:06:05.040Z,"34 km SE of Jurm, Afghanistan",earthquake,4.89,7.274,0.214,6,reviewed,us,us
+2023-04-09T07:14:18.152Z,36.5602,70.8734,178.234,4.1,mb,48,84,2.507,0.52,us,us6000k2z2,2024-01-18T19:45:05.183Z,"33 km S of Jurm, Afghanistan",earthquake,7.23,8.99,0.089,35,reviewed,us,us
+2023-04-10T02:53:01.911Z,36.6746,71.074,210.354,4.1,mb,24,110,2.571,0.48,us,us6000k37j,2023-06-17T21:36:42.040Z,"30 km SE of Jurm, Afghanistan",earthquake,5.36,10.288,0.165,10,reviewed,us,us
+2023-04-11T03:37:15.356Z,36.5582,70.9436,204.637,4.5,mb,72,72,2.54,0.63,us,us6000k3ez,2023-06-17T21:36:45.040Z,"Hindu Kush region, Afghanistan",earthquake,3.99,6.226,0.053,102,reviewed,us,us
+2023-04-12T03:37:36.670Z,36.5066,70.6973,195.302,4.1,mb,21,88,2.381,0.31,us,us6000k3py,2023-06-17T21:36:47.040Z,"41 km SSW of Jurm, Afghanistan",earthquake,9.07,13.394,0.214,6,reviewed,us,us
+2023-04-12T06:54:33.671Z,36.7068,71.081,223.174,4.3,mb,47,69,2.549,0.82,us,us6000k3rd,2023-06-17T21:36:48.040Z,"Afghanistan-Tajikistan-Pakistan region",earthquake,5.52,6.636,0.116,21,reviewed,us,us
+2023-04-14T14:50:32.277Z,36.6448,70.993,228.341,4,mb,44,70,2.554,0.42,us,us6000k4hf,2023-06-17T21:36:54.040Z,"28 km SSE of Jurm, Afghanistan",earthquake,6.82,3.54,0.122,18,reviewed,us,us

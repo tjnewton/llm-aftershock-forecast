@@ -1,0 +1,7 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-03-13T21:09:22.258Z,-0.6294,98.6259,28,6.7,mww,,43,2.188,0.92,us,us6000h48e,2022-05-27T14:55:19.040Z,"166 km W of Pariaman, Indonesia",earthquake,5.2,1.8,0.062,25,reviewed,us,us
+2022-03-13T21:24:11.939Z,-0.8236,98.3589,19.77,4.6,mb,,67,2.253,0.66,us,us6000h5hf,2022-05-27T14:55:34.040Z,"197 km W of Pariaman, Indonesia",earthquake,5.7,4.6,0.126,19,reviewed,us,us
+2022-03-13T21:34:02.761Z,-0.7876,98.5153,10,4.1,mb,,206,2.28,0.65,us,us6000h5gy,2022-05-27T14:55:33.040Z,"179 km W of Pariaman, Indonesia",earthquake,8.8,1.9,0.174,9,reviewed,us,us
+2022-03-13T21:38:43.829Z,-0.6087,98.5291,29.19,5.6,mww,,35,2.125,0.64,us,us6000h49u,2022-05-27T14:55:22.040Z,"177 km W of Pariaman, Indonesia",earthquake,4,3,0.093,11,reviewed,us,us
+2022-03-14T14:12:10.077Z,-0.5434,98.5566,25.09,5.3,mww,,46,2.08,0.64,us,us6000h4ff,2022-05-27T14:55:24.040Z,"174 km W of Pariaman, Indonesia",earthquake,5.6,2.9,0.069,20,reviewed,us,us
+2022-03-15T12:12:32.092Z,-0.5284,98.5948,43.75,5.2,mww,,47,2.086,0.54,us,us6000h4p4,2022-05-27T14:55:26.040Z,"170 km W of Pariaman, Indonesia",earthquake,4.7,6.3,0.075,17,reviewed,us,us

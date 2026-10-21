@@ -1,0 +1,9 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2010-05-26T08:53:08.030Z,25.773,129.944,10,6.5,mwc,548,9.9,,0.89,us,usp000hd6j,2022-07-16T14:15:39.154Z,"216 km ESE of Katsuren-haebaru, Japan",earthquake,,,,,reviewed,us,us
+2010-05-26T09:50:53.160Z,25.785,129.992,10,4.6,mb,24,121.5,,0.88,us,usp000hd6k,2014-11-07T01:41:33.114Z,"220 km ESE of Katsuren-haebaru, Japan",earthquake,,,,2,reviewed,us,us
+2010-05-26T11:51:23.840Z,25.715,130.097,10,5,mb,134,109.9,,0.82,us,usp000hd6s,2022-07-16T14:17:11.630Z,"232 km ESE of Katsuren-haebaru, Japan",earthquake,,,,80,reviewed,us,us
+2010-05-26T16:19:08.420Z,25.768,130.128,10.7,4.4,mb,28,137.7,,1.14,us,usp000hd6z,2014-11-07T01:41:33.179Z,"233 km ESE of Nago, Japan",earthquake,,28.1,,9,reviewed,us,us
+2010-05-27T02:48:09.820Z,25.699,129.89,10,4.5,mwr,43,121.5,,1.21,us,usp000hd7g,2014-11-07T01:41:33.234Z,"213 km ESE of Katsuren-haebaru, Japan",earthquake,,,,,reviewed,us,nied
+2010-06-05T07:55:06.570Z,25.754,129.947,6.4,4.6,mwr,59,88,,1.01,us,usp000hdm5,2014-11-07T01:41:38.830Z,"217 km ESE of Katsuren-haebaru, Japan",earthquake,,15.1,,,reviewed,us,nied
+2010-06-12T03:14:50.710Z,25.827,130.176,10,4.3,mb,26,139.1,,0.85,us,usp000hdvd,2014-11-07T01:41:40.224Z,"235 km ESE of Nago, Japan",earthquake,,,,7,reviewed,us,us
+2010-06-14T15:28:57.170Z,25.756,129.962,10,4.1,mb,14,162.4,,0.86,us,usp000hdz9,2014-11-07T01:41:40.983Z,"218 km ESE of Katsuren-haebaru, Japan",earthquake,,,,2,reviewed,us,us

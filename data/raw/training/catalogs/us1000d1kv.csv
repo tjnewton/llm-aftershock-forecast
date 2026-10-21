@@ -1,0 +1,12 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2018-03-08T17:39:51.100Z,-4.3762,153.1996,22.86,6.8,mww,,16,1.049,1.05,us,us1000d1kv,2022-08-08T01:06:29.718Z,"103 km E of Kokopo, Papua New Guinea",earthquake,6.5,3,0.046,45,reviewed,us,us
+2018-03-08T17:52:53.230Z,-4.5145,153.2359,10,4.6,mb,,247,1.116,0.76,us,us1000d59v,2018-06-08T05:12:15.040Z,"109 km E of Kokopo, Papua New Guinea",earthquake,4.4,2,0.172,10,reviewed,us,us
+2018-03-08T21:56:14.840Z,-4.2366,153.3728,51.3,4.5,mb,,105,1.206,0.84,us,us1000d1sq,2018-06-08T05:12:16.040Z,"123 km E of Kokopo, Papua New Guinea",earthquake,7.3,9.7,0.121,20,reviewed,us,us
+2018-03-08T22:27:26.700Z,-4.3235,152.956,73.82,4.8,mb,,182,0.801,0.78,us,us1000d1tq,2018-06-08T05:12:16.040Z,"76 km E of Kokopo, Papua New Guinea",earthquake,9.4,5,0.109,26,reviewed,us,us
+2018-03-08T23:01:48.370Z,-4.1435,153.504,30.88,4.3,mb,,237,1.337,0.54,us,us1000d5a6,2018-06-08T05:12:16.040Z,"138 km E of Kokopo, Papua New Guinea",earthquake,22.9,26,0.161,11,reviewed,us,us
+2018-03-09T11:06:08.230Z,-4.2814,153.3875,30,5.8,mww,,13,1.223,0.91,us,us1000d23h,2022-05-03T19:44:59.914Z,"124 km E of Kokopo, Papua New Guinea",earthquake,6,1.8,0.062,25,reviewed,us,us
+2018-03-10T13:27:31.080Z,-4.1839,153.1868,43.24,4.7,mb,,103,1.02,1,us,us1000d2re,2018-06-08T05:12:18.040Z,"103 km E of Kokopo, Papua New Guinea",earthquake,5.8,7.5,0.099,31,reviewed,us,us
+2018-03-11T13:39:11.530Z,-4.2301,153.2095,33.46,4.3,mb,,125,1.043,0.52,us,us1000d6hj,2018-06-08T05:12:20.040Z,"105 km E of Kokopo, Papua New Guinea",earthquake,10.6,6.9,0.126,18,reviewed,us,us
+2018-03-11T14:07:00.880Z,-4.2825,153.3491,46.83,4.4,mb,,226,1.185,0.68,us,us1000d6hn,2018-06-08T05:12:20.040Z,"120 km E of Kokopo, Papua New Guinea",earthquake,13.7,8.1,0.149,13,reviewed,us,us
+2018-03-12T00:00:35.650Z,-3.9915,153.3596,26.89,4.5,mb,,117,1.209,0.56,us,us1000d73w,2018-06-11T21:53:41.040Z,"127 km ENE of Kokopo, Papua New Guinea",earthquake,9.4,5.1,0.113,23,reviewed,us,us
+2018-03-25T08:25:17.950Z,-4.3281,153.4572,26.21,4.4,mb,,105,6.491,0.5,us,us1000db0x,2018-06-19T01:35:52.040Z,"131 km E of Kokopo, Papua New Guinea",earthquake,7.7,7.6,0.149,13,reviewed,us,us

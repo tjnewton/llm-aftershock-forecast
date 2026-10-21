@@ -1,0 +1,276 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2023-05-19T02:57:03.172Z,-23.2063,170.7423,18.053,7.7,mww,278,15,3.096,0.89,us,us6000kd0n,2025-08-15T23:01:19.104Z,"southeast of the Loyalty Islands",earthquake,7.07,2.58,0.035,79,reviewed,us,us
+2023-05-19T03:03:47.964Z,-23.2314,171.0091,34.315,5.5,mb,31,111,4.372,0.9,us,us7000k3pv,2023-07-24T01:16:07.040Z,"southeast of the Loyalty Islands",earthquake,11.37,2.84,0.135,19,reviewed,us,us
+2023-05-19T03:06:24.491Z,-23.207,170.7182,33.261,5.9,mb,62,85,3.074,1.06,us,us6000kd1f,2023-07-24T01:16:07.040Z,"southeast of the Loyalty Islands",earthquake,8.1,4.334,0.077,61,reviewed,us,us
+2023-05-19T03:10:45.468Z,-23.1845,170.5515,33.846,5.5,mb,26,106,2.919,0.94,us,us6000kd2a,2023-07-24T01:16:07.040Z,"southeast of the Loyalty Islands",earthquake,8.78,2.516,0.163,13,reviewed,us,us
+2023-05-19T03:13:01.262Z,-23.1768,170.6575,10,5.4,mb,24,108,3.014,0.73,us,us7000k3py,2023-07-24T01:16:06.040Z,"southeast of the Loyalty Islands",earthquake,7.61,1.781,0.156,14,reviewed,us,us
+2023-05-19T03:27:56.949Z,-23.2812,170.584,32.94,5.3,mb,39,76,2.968,1.02,us,us6000kd1k,2023-07-24T01:16:06.040Z,"southeast of the Loyalty Islands",earthquake,8.69,4.227,0.175,11,reviewed,us,us
+2023-05-19T03:32:10.665Z,-23.3643,171.3516,10,4.6,mb,27,118,3.675,0.9,us,us7000k3r9,2023-07-24T01:16:06.040Z,"southeast of the Loyalty Islands",earthquake,10.19,1.82,0.244,5,reviewed,us,us
+2023-05-19T03:40:19.340Z,-23.122,170.752,10,4.9,mb,25,130,3.09,0.84,us,us7000k3q3,2023-07-24T01:16:06.040Z,"southeast of the Loyalty Islands",earthquake,8.25,1.909,0.169,11,reviewed,us,us
+2023-05-19T03:43:45.899Z,-23.1855,170.9808,10,5,mb,25,116,3.308,0.75,us,us7000k3q0,2024-01-18T19:57:33.058Z,"southeast of the Loyalty Islands",earthquake,6.54,1.862,0.157,14,reviewed,us,us
+2023-05-19T03:47:01.283Z,-22.4019,170.9096,39.795,4.3,mb,19,172,3.209,0.92,us,us7000k3pz,2023-07-24T01:16:06.040Z,"southeast of the Loyalty Islands",earthquake,12.86,6.001,0.217,6,reviewed,us,us
+2023-05-19T03:50:05.717Z,-23.4208,171.2488,10,4.9,mb,24,92,3.594,0.51,us,us7000k3rc,2023-07-24T01:16:06.040Z,"southeast of the Loyalty Islands",earthquake,9.43,1.879,0.177,10,reviewed,us,us
+2023-05-19T04:02:30.663Z,-23.3074,171.0752,36.697,5.3,mb,62,53,3.415,0.79,us,us6000kd1n,2023-07-24T01:16:05.040Z,"southeast of the Loyalty Islands",earthquake,8.25,5.427,0.081,51,reviewed,us,us
+2023-05-19T04:09:24.536Z,-23.2428,171.0634,39.41,5.2,mb,27,99,3.393,0.96,us,us6000kd1p,2023-07-24T01:16:05.040Z,"southeast of the Loyalty Islands",earthquake,11.87,6.66,0.148,16,reviewed,us,us
+2023-05-19T04:09:37.299Z,-23.2499,170.66,10,5.2,mb,30,112,3.03,0.96,us,us7000k3u7,2023-07-24T01:16:05.040Z,"southeast of the Loyalty Islands",earthquake,10.91,1.892,0.136,18,reviewed,us,us
+2023-05-19T04:22:39.849Z,-23.2021,170.6489,36.009,5.3,mb,50,99,3.01,1.03,us,us6000kd1r,2023-07-24T01:16:05.040Z,"southeast of the Loyalty Islands",earthquake,8.57,3.675,0.094,42,reviewed,us,us
+2023-05-19T04:28:57.622Z,-23.0715,170.5487,10,4.8,mb,14,113,2.898,0.76,us,us7000k3qs,2023-07-24T01:16:05.040Z,"southeast of the Loyalty Islands",earthquake,8.77,1.907,0.227,6,reviewed,us,us
+2023-05-19T04:33:08.520Z,-23.22,170.5591,35.908,5.1,mb,37,111,2.933,0.84,us,us6000kd23,2024-01-18T19:57:34.796Z,"southeast of the Loyalty Islands",earthquake,8.82,6.151,0.116,25,reviewed,us,us
+2023-05-19T04:48:30.393Z,-23.279,170.7016,10,4.4,mb,20,113,3.073,0.68,us,us7000k3qt,2023-07-24T01:16:04.040Z,"southeast of the Loyalty Islands",earthquake,6.47,1.888,0.204,7,reviewed,us,us
+2023-05-19T04:50:14.308Z,-23.1185,170.7314,34.148,5.1,mb,45,76,3.071,0.91,us,us6000kd1x,2023-07-24T01:16:04.040Z,"southeast of the Loyalty Islands",earthquake,10.73,1.69,0.057,102,reviewed,us,us
+2023-05-19T04:54:04.186Z,-23.2514,170.4355,29.133,5.6,mb,59,61,2.828,0.97,us,us6000kd1z,2024-01-18T19:57:36.510Z,"southeast of the Loyalty Islands",earthquake,8.52,4.392,0.043,187,reviewed,us,us
+2023-05-19T04:55:58.180Z,-23.1218,170.7009,10,4.9,mb,20,112,3.044,0.68,us,us7000k3q6,2023-07-24T01:16:04.040Z,"southeast of the Loyalty Islands",earthquake,6.79,1.873,0.187,9,reviewed,us,us
+2023-05-19T04:59:55.019Z,-22.8949,170.8294,10,4.2,mb,12,132,3.135,0.8,us,us7000k3un,2023-07-24T01:16:03.040Z,"southeast of the Loyalty Islands",earthquake,13.54,1.92,0.215,6,reviewed,us,us
+2023-05-19T05:00:31.649Z,-23.167,170.5019,10,4.9,mb,27,159,2.871,0.43,us,us6000kdb0,2024-01-18T19:57:38.217Z,"southeast of the Loyalty Islands",earthquake,13.18,1.911,0.12,22,reviewed,us,us
+2023-05-19T05:03:34.770Z,-23.4657,171.0466,10,4.8,mb,28,92,3.423,0.98,us,us7000k3rl,2023-07-24T01:16:03.040Z,"southeast of the Loyalty Islands",earthquake,8.98,1.885,0.131,18,reviewed,us,us
+2023-05-19T05:06:04.510Z,-23.2657,170.5753,10,5.2,mb,76,120,2.957,0.66,us,us6000kd21,2023-07-24T01:16:03.040Z,"southeast of the Loyalty Islands",earthquake,6.52,1.883,0.071,65,reviewed,us,us
+2023-05-19T05:08:34.230Z,-23.3936,170.9818,10,4.6,mb,16,150,3.349,0.45,us,us7000k3q7,2023-07-24T01:16:03.040Z,"southeast of the Loyalty Islands",earthquake,11.46,1.841,0.165,11,reviewed,us,us
+2023-05-19T05:10:14.861Z,-22.2017,170.5074,10,4.3,mb,14,126,2.862,1.12,us,us7000k3q8,2023-07-24T01:16:03.040Z,"281 km ESE of Tadine, New Caledonia",earthquake,10.42,1.879,0.168,10,reviewed,us,us
+2023-05-19T05:10:53.638Z,-23.0367,170.0795,10,4.5,mb,14,99,2.466,0.6,us,us7000k3u3,2023-07-24T01:16:03.040Z,"268 km E of Vao, New Caledonia",earthquake,8.14,1.911,0.192,8,reviewed,us,us
+2023-05-19T05:11:28.262Z,-22.7594,170.5315,10,4.8,mb,26,88,2.853,0.57,us,us7000k3uj,2023-07-24T01:16:02.040Z,"southeast of the Loyalty Islands",earthquake,9.6,1.896,0.13,18,reviewed,us,us
+2023-05-19T05:16:58.865Z,-23.1984,171.0142,10,4,mb,15,109,3.341,0.83,us,us7000k3ri,2023-07-24T01:16:02.040Z,"southeast of the Loyalty Islands",earthquake,9.21,1.919,0.212,6,reviewed,us,us
+2023-05-19T05:22:37.116Z,-23.3749,171.2033,10,4.9,mb,29,119,3.544,0.61,us,us7000k3r6,2023-07-24T01:16:02.040Z,"southeast of the Loyalty Islands",earthquake,5.46,1.894,0.112,25,reviewed,us,us
+2023-05-19T05:23:07.267Z,-23.3141,171.2902,10,4.8,mb,24,91,3.611,0.5,us,us6000kdb3,2023-07-24T01:16:02.040Z,"southeast of the Loyalty Islands",earthquake,5.79,1.876,0.125,20,reviewed,us,us
+2023-05-19T05:25:47.106Z,-23.2365,171.2742,10,5.2,mb,87,91,3.583,0.44,us,us6000kd29,2023-07-24T01:16:02.040Z,"southeast of the Loyalty Islands",earthquake,9.71,1.869,0.066,75,reviewed,us,us
+2023-05-19T05:28:26.230Z,-23.2105,170.6418,10,4.9,mb,38,86,3.006,0.74,us,us6000kdbe,2023-07-24T01:16:02.040Z,"southeast of the Loyalty Islands",earthquake,10.06,1.89,0.103,30,reviewed,us,us
+2023-05-19T05:36:48.103Z,-23.0571,170.7424,10,5.2,mb,72,84,3.073,0.65,us,us6000kd28,2023-07-24T01:16:02.040Z,"southeast of the Loyalty Islands",earthquake,4.46,1.871,0.073,61,reviewed,us,us
+2023-05-19T05:52:28.162Z,-23.192,170.9162,10,4.9,mb,31,114,3.251,0.54,us,us6000kdbf,2023-07-24T01:16:01.040Z,"southeast of the Loyalty Islands",earthquake,8.91,1.885,0.12,22,reviewed,us,us
+2023-05-19T05:54:13.855Z,-23.2594,170.9953,10,4.7,mb,40,88,3.334,0.62,us,us6000kd2f,2023-07-24T01:16:01.040Z,"southeast of the Loyalty Islands",earthquake,9.75,1.892,0.097,32,reviewed,us,us
+2023-05-19T06:01:50.496Z,-22.9321,170.6628,10,4.5,mb,19,117,2.985,0.83,us,us6000kdbj,2024-01-18T19:57:39.939Z,"southeast of the Loyalty Islands",earthquake,12.37,1.928,0.14,15,reviewed,us,us
+2023-05-19T06:05:43.164Z,-23.1788,170.5661,10,4.7,mb,24,90,2.931,0.87,us,us6000kdbw,2023-07-24T01:16:01.040Z,"southeast of the Loyalty Islands",earthquake,7.9,1.791,0.13,18,reviewed,us,us
+2023-05-19T06:08:21.068Z,-23.2418,171.0501,10,4.9,mb,68,88,3.381,0.95,us,us6000kd2j,2023-07-24T01:16:01.040Z,"southeast of the Loyalty Islands",earthquake,8.04,1.739,0.075,56,reviewed,us,us
+2023-05-19T06:15:18.698Z,-22.8376,170.6557,10,4.4,mb,13,82,2.971,0.36,us,us7000k3qc,2023-07-24T01:16:01.040Z,"southeast of the Loyalty Islands",earthquake,8.47,1.83,0.203,7,reviewed,us,us
+2023-05-19T06:20:24.741Z,-22.4783,170.6837,10,4.4,mb,15,127,2.996,1.02,us,us7000k3qe,2023-07-24T01:16:00.040Z,"southeast of the Loyalty Islands",earthquake,13.65,1.969,0.162,11,reviewed,us,us
+2023-05-19T06:22:26.577Z,-23.6503,171.3212,10,4.5,mb,12,168,3.713,0.59,us,us7000k3re,2023-07-24T01:16:00.040Z,"southeast of the Loyalty Islands",earthquake,11.27,1.966,0.191,8,reviewed,us,us
+2023-05-19T06:22:59.647Z,-23.457,170.7312,10,4.6,mb,17,157,3.14,0.27,us,us7000k3qh,2023-07-24T01:16:00.040Z,"southeast of the Loyalty Islands",earthquake,7.62,1.894,0.182,9,reviewed,us,us
+2023-05-19T06:25:46.997Z,-23.1474,170.6608,10,4.6,mb,19,158,3.012,0.66,us,us7000k3qd,2023-07-24T01:16:00.040Z,"southeast of the Loyalty Islands",earthquake,11.66,1.949,0.157,12,reviewed,us,us
+2023-05-19T06:26:47.780Z,-22.5974,170.5664,10,4.3,mb,12,183,2.883,0.39,us,us7000k3qb,2023-07-24T01:16:00.040Z,"southeast of the Loyalty Islands",earthquake,9.85,1.939,0.2,7,reviewed,us,us
+2023-05-19T06:33:21.927Z,-23.0502,170.78,10,4.4,mb,26,83,3.106,0.92,us,us7000k3qi,2023-07-24T01:16:00.040Z,"southeast of the Loyalty Islands",earthquake,10.09,1.903,0.123,19,reviewed,us,us
+2023-05-19T06:34:10.100Z,-23.0798,170.4925,10,5,mb,96,77,2.848,0.55,us,us6000kd2q,2023-07-24T01:16:00.040Z,"southeast of the Loyalty Islands",earthquake,7.93,1.86,0.061,85,reviewed,us,us
+2023-05-19T06:38:36.640Z,-23.1975,170.5762,10,4.5,mb,18,127,2.944,0.94,us,us7000k3qj,2023-07-24T01:16:00.040Z,"southeast of the Loyalty Islands",earthquake,8.1,1.892,0.156,12,reviewed,us,us
+2023-05-19T06:52:19.161Z,-23.1863,170.6153,10,4.1,mb,12,94,2.977,0.92,us,us7000k3ql,2023-07-24T01:15:59.040Z,"southeast of the Loyalty Islands",earthquake,9.46,1.942,0.198,8,reviewed,us,us
+2023-05-19T06:56:02.958Z,-23.1966,170.7288,10,4.4,mb,16,92,3.082,0.8,us,us7000k3qk,2023-07-24T01:15:59.040Z,"southeast of the Loyalty Islands",earthquake,8.71,1.848,0.17,10,reviewed,us,us
+2023-05-19T06:56:36.497Z,-23.1312,170.8369,10,4.7,mb,27,143,3.169,0.49,us,us7000k3vm,2023-07-24T01:15:59.040Z,"southeast of the Loyalty Islands",earthquake,8.59,1.746,0.12,21,reviewed,us,us
+2023-05-19T06:59:04.308Z,-23.2624,170.7122,10,4.8,mb,25,121,3.079,0.7,us,us7000k3rw,2023-07-24T01:15:59.040Z,"southeast of the Loyalty Islands",earthquake,9.49,1.897,0.135,17,reviewed,us,us
+2023-05-19T07:02:07.284Z,-23.2025,170.9954,10,5,mb,92,111,3.324,0.51,us,us6000kd2u,2023-07-24T01:15:59.040Z,"southeast of the Loyalty Islands",earthquake,4.73,1.881,0.063,81,reviewed,us,us
+2023-05-19T07:06:23.349Z,-23.1973,170.7488,10,4.8,mb,23,127,3.1,0.51,us,us7000k3qr,2023-07-24T01:15:59.040Z,"southeast of the Loyalty Islands",earthquake,7.6,1.9,0.148,14,reviewed,us,us
+2023-05-19T07:13:39.228Z,-23.1656,170.787,10,5.4,mb,131,83,3.129,0.6,us,us6000kd2w,2023-07-24T01:15:59.040Z,"southeast of the Loyalty Islands",earthquake,8.01,1.858,0.054,119,reviewed,us,us
+2023-05-19T07:18:58.441Z,-23.3175,171.1683,10,4.6,mb,17,163,3.501,0.75,us,us7000k3ry,2023-07-24T01:15:58.040Z,"southeast of the Loyalty Islands",earthquake,6.69,1.94,0.183,9,reviewed,us,us
+2023-05-19T07:23:47.603Z,-23.3855,171.2457,10,4.8,mb,23,151,3.584,0.79,us,us6000kd30,2023-07-24T01:15:58.040Z,"southeast of the Loyalty Islands",earthquake,6.86,1.884,0.128,19,reviewed,us,us
+2023-05-19T07:52:20.123Z,-23.2712,171.1156,10,4.6,mb,16,121,3.445,0.54,us,us7000k3qu,2023-07-24T01:15:58.040Z,"southeast of the Loyalty Islands",earthquake,10.3,1.765,0.183,9,reviewed,us,us
+2023-05-19T07:54:42.012Z,-22.9253,170.8954,10,4.4,mb,19,114,3.198,0.69,us,us7000k3qv,2023-07-24T01:15:58.040Z,"southeast of the Loyalty Islands",earthquake,10.03,1.911,0.162,11,reviewed,us,us
+2023-05-19T08:00:06.662Z,-23.0743,170.7353,10,4.6,mb,19,126,3.068,0.63,us,us7000k3s5,2023-07-24T01:15:58.040Z,"southeast of the Loyalty Islands",earthquake,6.48,1.864,0.172,11,reviewed,us,us
+2023-05-19T08:05:32.727Z,-23.2356,170.7992,10,4.2,mb,15,132,3.152,0.36,us,us7000k3vl,2023-07-24T01:15:58.040Z,"southeast of the Loyalty Islands",earthquake,11.54,1.918,0.199,8,reviewed,us,us
+2023-05-19T08:10:40.807Z,-23.0974,170.7174,10,4.8,mb,36,116,3.055,0.48,us,us6000kd49,2023-07-24T01:15:57.040Z,"southeast of the Loyalty Islands",earthquake,10.47,1.479,0.1,31,reviewed,us,us
+2023-05-19T08:12:57.108Z,-23.2262,170.6874,10,4.6,mb,18,127,3.05,1.03,us,us7000k3r0,2023-07-24T01:15:57.040Z,"southeast of the Loyalty Islands",earthquake,5.18,1.898,0.158,12,reviewed,us,us
+2023-05-19T08:14:27.237Z,-22.9717,170.7908,10,4.4,mb,12,126,3.107,0.4,us,us7000k3r3,2023-07-24T01:15:57.040Z,"southeast of the Loyalty Islands",earthquake,8.7,1.942,0.204,7,reviewed,us,us
+2023-05-19T08:18:57.761Z,-23.3337,170.2809,10,4,mb,11,244,2.709,0.43,us,us7000k3r4,2023-07-24T01:15:57.040Z,"294 km ESE of Vao, New Caledonia",earthquake,7.39,2,0.196,7,reviewed,us,us
+2023-05-19T08:19:47.055Z,-23.1428,171.0252,10,4.8,mb,20,132,3.342,0.65,us,us7000k3r1,2023-07-24T01:15:57.040Z,"southeast of the Loyalty Islands",earthquake,5.8,1.917,0.16,12,reviewed,us,us
+2023-05-19T08:27:20.391Z,-22.8902,170.7149,10,5.3,mb,144,86,3.03,0.51,us,us6000kd3j,2023-07-24T01:15:57.040Z,"southeast of the Loyalty Islands",earthquake,8.6,1.852,0.051,129,reviewed,us,us
+2023-05-19T08:42:12.774Z,-23.1095,170.7541,10,4.8,mb,26,126,3.091,0.62,us,us6000kd3q,2023-07-24T01:15:56.040Z,"southeast of the Loyalty Islands",earthquake,7.56,1.886,0.134,17,reviewed,us,us
+2023-05-19T08:49:26.033Z,-23.0294,170.5865,10,4.4,mb,11,168,2.927,0.61,us,us7000k3u2,2023-07-24T01:15:56.040Z,"southeast of the Loyalty Islands",earthquake,15.01,1.966,0.203,8,reviewed,us,us
+2023-05-19T08:58:53.188Z,-23.2333,170.7466,10,4.3,mb,14,162,3.105,0.46,us,us7000k3ra,2023-07-24T01:15:56.040Z,"southeast of the Loyalty Islands",earthquake,9.42,1.966,0.168,10,reviewed,us,us
+2023-05-19T09:10:20.681Z,-23.107,170.763,10,4.6,mb,22,174,3.098,0.39,us,us7000k3rb,2024-01-18T19:57:43.358Z,"southeast of the Loyalty Islands",earthquake,14.21,1.934,0.136,16,reviewed,us,us
+2023-05-19T09:13:46.208Z,-22.8719,171.1172,10,4.6,mb,18,95,3.398,1.04,us,us7000k3rx,2023-07-24T01:15:56.040Z,"southeast of the Loyalty Islands",earthquake,9.36,1.912,0.182,9,reviewed,us,us
+2023-05-19T09:27:06.917Z,-22.9168,171.0451,10,4.7,mb,16,121,3.335,0.46,us,us7000k3se,2023-07-24T01:15:55.040Z,"southeast of the Loyalty Islands",earthquake,8.59,1.883,0.184,9,reviewed,us,us
+2023-05-19T09:41:11.976Z,-23.0873,170.5853,9.724,4.9,mb,66,38,2.934,0.46,us,us6000kd3y,2023-07-24T01:15:55.040Z,"southeast of the Loyalty Islands",earthquake,7.72,4.638,0.073,59,reviewed,us,us
+2023-05-19T09:55:05.394Z,-23.1025,170.457,12.463,4.8,mb,44,106,2.819,0.52,us,us6000kd41,2023-07-24T01:15:55.040Z,"southeast of the Loyalty Islands",earthquake,4.48,4.714,0.094,36,reviewed,us,us
+2023-05-19T10:04:19.565Z,-23.2267,170.7076,18.187,5,mb,46,118,3.068,0.77,us,us6000kd43,2024-01-18T19:57:45.122Z,"southeast of the Loyalty Islands",earthquake,8.74,4.573,0.082,50,reviewed,us,us
+2023-05-19T10:11:06.253Z,-23.4768,171.4234,10,4.1,mb,12,197,3.763,0.16,us,us7000k3si,2023-07-24T01:15:55.040Z,"southeast of the Loyalty Islands",earthquake,11.23,1.967,0.214,6,reviewed,us,us
+2023-05-19T10:13:09.955Z,-22.4561,170.738,10,4.6,mb,19,92,3.047,0.47,us,us7000k3s4,2023-07-24T01:15:55.040Z,"southeast of the Loyalty Islands",earthquake,11.98,1.918,0.172,10,reviewed,us,us
+2023-05-19T10:15:44.872Z,-23.2024,170.8501,25.408,4.9,mb,82,109,3.193,0.5,us,us6000kd46,2023-07-24T01:15:55.040Z,"southeast of the Loyalty Islands",earthquake,3.4,5.147,0.066,74,reviewed,us,us
+2023-05-19T10:22:05.542Z,-23.1533,170.8652,8.469,4.9,mb,75,110,3.198,0.51,us,us6000kd4a,2023-07-24T01:15:54.040Z,"southeast of the Loyalty Islands",earthquake,8.3,3.696,0.063,79,reviewed,us,us
+2023-05-19T10:44:08.734Z,-23.1549,170.7589,8.869,5.1,mb,63,116,3.102,0.39,us,us6000kd4f,2023-07-24T01:15:54.040Z,"southeast of the Loyalty Islands",earthquake,8.79,4.928,0.066,75,reviewed,us,us
+2023-05-19T10:46:30.344Z,-23.3195,171.517,12.948,5.2,mb,103,76,3.817,0.39,us,us6000kd4i,2023-07-24T01:15:54.040Z,"southeast of the Loyalty Islands",earthquake,8.7,4.392,0.045,165,reviewed,us,us
+2023-05-19T10:50:29.124Z,-23.162,170.7558,10,4.7,mb,31,39,3.1,0.77,us,us7000k3rp,2023-07-24T01:15:54.040Z,"southeast of the Loyalty Islands",earthquake,8.47,1.901,0.133,17,reviewed,us,us
+2023-05-19T10:54:26.661Z,-23.1911,170.9078,10,4.3,mb,13,132,3.243,0.47,us,us7000k3uk,2024-01-18T19:57:46.934Z,"southeast of the Loyalty Islands",earthquake,10.87,1.936,0.202,7,reviewed,us,us
+2023-05-19T11:02:22.030Z,-22.9921,170.6539,36.112,4.9,mb,42,89,2.984,0.33,us,us6000kd4n,2023-07-24T01:15:53.040Z,"southeast of the Loyalty Islands",earthquake,9.9,6.822,0.071,62,reviewed,us,us
+2023-05-19T11:19:14.685Z,-23.0735,170.5321,10,4.3,mb,26,156,2.883,0.45,us,us7000k3rs,2023-07-24T01:15:53.040Z,"southeast of the Loyalty Islands",earthquake,10,1.926,0.129,17,reviewed,us,us
+2023-05-19T11:23:40.782Z,-23.2863,170.8272,10,4.9,mb,46,87,3.187,0.7,us,us6000kd4u,2023-07-24T01:15:53.040Z,"southeast of the Loyalty Islands",earthquake,7.04,1.86,0.064,76,reviewed,us,us
+2023-05-19T11:37:01.998Z,-23.365,171.5059,10,4.7,mb,38,127,3.815,0.41,us,us6000kd51,2023-07-24T01:15:53.040Z,"southeast of the Loyalty Islands",earthquake,10.58,1.876,0.091,37,reviewed,us,us
+2023-05-19T11:40:12.002Z,-23.1007,170.5959,10,4.3,mb,21,128,2.945,0.26,us,us7000k3sd,2023-07-24T01:15:53.040Z,"southeast of the Loyalty Islands",earthquake,10.44,1.909,0.147,13,reviewed,us,us
+2023-05-19T12:21:33.580Z,-23.3513,171.4632,31.193,4.3,mb,23,127,3.774,0.36,us,us7000k3sx,2023-07-24T01:15:52.040Z,"southeast of the Loyalty Islands",earthquake,10.36,6.372,0.137,15,reviewed,us,us
+2023-05-19T12:40:58.727Z,-22.9712,171.1016,10,4.4,mb,19,150,3.392,0.54,us,us7000k3s0,2024-01-18T19:57:48.661Z,"southeast of the Loyalty Islands",earthquake,7.2,1.94,0.155,12,reviewed,us,us
+2023-05-19T12:49:35.429Z,-23.2073,170.701,10,4.3,mb,18,132,3.058,0.37,us,us7000k3s2,2024-01-18T19:57:50.349Z,"southeast of the Loyalty Islands",earthquake,6.65,1.922,0.169,10,reviewed,us,us
+2023-05-19T13:35:25.006Z,-22.7944,170.3734,10,4.1,mb,19,122,2.709,0.43,us,us7000k3s7,2023-07-24T01:15:51.040Z,"291 km ESE of Tadine, New Caledonia",earthquake,7.88,1.764,0.151,12,reviewed,us,us
+2023-05-19T14:11:44.359Z,-23.0061,170.3857,10,4.4,mb,18,150,2.74,0.52,us,us7000k3sa,2023-07-24T01:15:51.040Z,"298 km E of Vao, New Caledonia",earthquake,6.9,1.915,0.161,11,reviewed,us,us
+2023-05-19T14:26:12.671Z,-23.0143,170.6025,25.584,4.7,mb,27,125,2.939,0.38,us,us6000kd6l,2024-01-18T19:57:51.967Z,"southeast of the Loyalty Islands",earthquake,11.14,6.531,0.124,20,reviewed,us,us
+2023-05-19T14:50:56.767Z,-23.2686,170.7453,23.673,4.8,mb,46,94,3.11,0.41,us,us6000kd6n,2023-07-24T01:15:50.040Z,"southeast of the Loyalty Islands",earthquake,8.12,5.394,0.086,42,reviewed,us,us
+2023-05-19T15:16:56.071Z,-23.4164,171.2419,10,4.3,mb,13,163,3.587,1.15,us,us7000k3sf,2023-07-24T01:15:50.040Z,"southeast of the Loyalty Islands",earthquake,10.65,1.889,0.265,7,reviewed,us,us
+2023-05-19T15:35:40.606Z,-22.4494,171.3552,10,4.1,mb,18,246,3.617,1.14,us,us7000k3uz,2023-07-24T01:15:49.040Z,"southeast of the Loyalty Islands",earthquake,12.63,1.981,0.14,14,reviewed,us,us
+2023-05-19T15:45:04.241Z,-23.8754,171.8194,10,4.6,mb,26,127,4.214,0.9,us,us7000k3sm,2023-07-24T01:15:49.040Z,"southeast of the Loyalty Islands",earthquake,12.09,1.938,0.129,21,reviewed,us,us
+2023-05-19T15:52:36.007Z,-23.3323,171.3951,10,4.5,mb,19,132,3.709,0.59,us,us7000k3sl,2024-01-18T19:57:55.530Z,"southeast of the Loyalty Islands",earthquake,8.43,1.924,0.172,13,reviewed,us,us
+2023-05-19T16:22:16.422Z,-22.7981,170.5312,10,4.3,mb,16,115,2.854,0.65,us,us7000k3tc,2023-07-24T01:15:49.040Z,"southeast of the Loyalty Islands",earthquake,10.59,1.901,0.148,13,reviewed,us,us
+2023-05-19T16:26:52.415Z,-23.3613,171.0983,10,4.6,mb,14,188,3.447,0.63,us,us7000k3v9,2023-07-24T01:15:49.040Z,"southeast of the Loyalty Islands",earthquake,12.37,1.927,0.181,11,reviewed,us,us
+2023-05-19T16:47:33.115Z,-23.0989,170.6543,10,4.7,mb,36,126,2.998,0.57,us,us7000k3sp,2023-07-24T01:15:49.040Z,"southeast of the Loyalty Islands",earthquake,6.97,1.679,0.108,26,reviewed,us,us
+2023-05-19T16:48:33.297Z,-22.8691,170.9732,10,4.6,mb,15,129,3.266,0.55,us,us7000k3te,2024-01-18T19:57:57.314Z,"southeast of the Loyalty Islands",earthquake,8.06,1.964,0.182,12,reviewed,us,us
+2023-05-19T16:51:37.653Z,-22.8394,170.5976,10,4.4,mb,14,90,2.918,1.25,us,us7000k3sq,2023-07-24T01:15:48.040Z,"southeast of the Loyalty Islands",earthquake,9.78,1.89,0.191,8,reviewed,us,us
+2023-05-19T16:57:31.875Z,-23.0779,170.6322,10,4.7,mb,11,226,2.975,0.29,us,us7000k3sr,2023-07-24T01:15:48.040Z,"southeast of the Loyalty Islands",earthquake,11.01,1.987,0.194,9,reviewed,us,us
+2023-05-19T17:14:52.264Z,-23.1226,170.9454,10,5,mb,88,106,3.267,0.84,us,us6000kd90,2023-07-24T01:15:48.040Z,"southeast of the Loyalty Islands",earthquake,9.78,1.788,0.062,87,reviewed,us,us
+2023-05-19T17:16:13.529Z,-23.2354,170.8886,10,4.4,mb,19,126,3.233,0.9,us,us7000k3u1,2023-07-24T01:15:48.040Z,"southeast of the Loyalty Islands",earthquake,11.29,1.675,0.203,9,reviewed,us,us
+2023-05-19T17:18:39.586Z,-23.1118,170.6813,10,4.3,mb,13,181,3.025,0.65,us,us7000k3st,2023-07-24T01:15:48.040Z,"southeast of the Loyalty Islands",earthquake,15.19,1.952,0.178,9,reviewed,us,us
+2023-05-19T17:41:14.390Z,-23.1276,171.2337,10,4.5,mb,15,132,3.53,0.68,us,us7000k3sv,2023-07-24T01:15:47.040Z,"southeast of the Loyalty Islands",earthquake,8.93,1.91,0.27,4,reviewed,us,us
+2023-05-19T18:15:46.755Z,-23.1783,170.9388,10,4.9,mb,46,118,3.269,0.79,us,us7000k3t1,2024-01-18T19:57:59.098Z,"southeast of the Loyalty Islands",earthquake,10.83,1.835,0.106,28,reviewed,us,us
+2023-05-19T18:17:48.047Z,-22.8997,170.5608,10,4.6,mb,27,122,2.889,0.78,us,us7000k3t0,2023-07-24T01:15:46.040Z,"southeast of the Loyalty Islands",earthquake,11.25,1.899,0.136,17,reviewed,us,us
+2023-05-19T18:43:00.090Z,-23.0563,171.0084,10,4.6,mb,13,228,3.315,0.58,us,us7000k3tq,2023-07-24T01:15:46.040Z,"southeast of the Loyalty Islands",earthquake,8.38,2.005,0.194,9,reviewed,us,us
+2023-05-19T18:57:38.063Z,-23.2867,171.1039,10,4.2,mb,15,134,3.437,0.63,us,us7000k3tp,2023-07-24T01:15:46.040Z,"southeast of the Loyalty Islands",earthquake,9.88,1.916,0.236,6,reviewed,us,us
+2023-05-19T20:20:05.158Z,-23.3621,171.1276,10,4.8,mb,51,120,3.473,0.8,us,us6000kda3,2023-07-24T01:15:45.040Z,"southeast of the Loyalty Islands",earthquake,8.74,1.239,0.096,39,reviewed,us,us
+2023-05-19T20:29:48.280Z,-23.2869,170.6068,10,4.3,mb,14,168,2.989,0.56,us,us7000k3t9,2023-07-24T01:15:45.040Z,"southeast of the Loyalty Islands",earthquake,13.1,1.926,0.237,5,reviewed,us,us
+2023-05-19T20:37:34.877Z,-23.2009,170.9387,10,4.2,mb,15,186,3.273,0.6,us,us7000k3t8,2023-07-24T01:15:44.040Z,"southeast of the Loyalty Islands",earthquake,5.3,1.938,0.215,7,reviewed,us,us
+2023-05-19T20:39:54.129Z,-23.1965,170.8594,10,4.4,mb,14,157,3.2,0.71,us,us7000k3tn,2023-07-24T01:15:44.040Z,"southeast of the Loyalty Islands",earthquake,11.91,1.863,0.269,5,reviewed,us,us
+2023-05-19T20:48:18.183Z,-23.0795,170.4868,10,4.9,mb,62,126,2.843,0.82,us,us6000kdab,2023-07-24T01:15:44.040Z,"southeast of the Loyalty Islands",earthquake,9.26,1.487,0.089,44,reviewed,us,us
+2023-05-19T21:10:21.625Z,-23.05,170.9852,10,4.2,mb,16,94,3.293,0.49,us,us7000k3vb,2023-07-24T01:15:44.040Z,"southeast of the Loyalty Islands",earthquake,9.07,1.938,0.167,10,reviewed,us,us
+2023-05-19T21:21:26.340Z,-23.1883,170.8378,10,4.1,mb,12,130,3.179,0.17,us,us7000k3vc,2023-07-24T01:15:44.040Z,"southeast of the Loyalty Islands",earthquake,9.72,1.933,0.301,3,reviewed,us,us
+2023-05-19T21:25:23.351Z,-23.3257,170.6939,10,4.6,mb,12,57,3.076,0.35,us,us7000k3va,2023-07-24T01:15:43.040Z,"southeast of the Loyalty Islands",earthquake,7.1,1.894,0.386,2,reviewed,us,us
+2023-05-19T21:29:52.250Z,-23.2376,170.772,35.139,4.7,mb,27,88,3.128,0.5,us,us7000k3td,2023-07-24T01:15:43.040Z,"southeast of the Loyalty Islands",earthquake,6.11,7.22,0.152,13,reviewed,us,us
+2023-05-19T21:52:35.603Z,-23.19,170.7699,10,4.3,mb,14,70,3.118,0.42,us,us7000k3th,2023-07-24T01:15:43.040Z,"southeast of the Loyalty Islands",earthquake,5.38,1.891,0.267,4,reviewed,us,us
+2023-05-19T22:03:59.474Z,-23.1036,170.7264,10,5.1,mb,106,100,3.064,0.67,us,us6000kdav,2023-07-24T01:15:43.040Z,"southeast of the Loyalty Islands",earthquake,8.17,1.801,0.062,84,reviewed,us,us
+2023-05-19T22:15:25.161Z,-23.3058,170.6085,10,4.6,mb,22,201,2.995,0.52,us,us7000k3ub,2023-07-24T01:15:43.040Z,"southeast of the Loyalty Islands",earthquake,12.3,1.944,0.142,15,reviewed,us,us
+2023-05-19T22:48:37.168Z,-23.3595,170.8906,10,4.3,mb,12,181,3.26,0.73,us,us7000k3ts,2024-01-18T19:58:07.637Z,"southeast of the Loyalty Islands",earthquake,6.66,1.936,0.217,6,reviewed,us,us
+2023-05-20T00:54:01.556Z,-23.1122,170.5839,10,4.9,mb,23,93,2.936,0.3,us,us7000k3xm,2024-01-18T19:58:11.103Z,"southeast of the Loyalty Islands",earthquake,10.77,1.907,0.155,13,reviewed,us,us
+2023-05-20T01:01:18.631Z,-23.1865,170.5708,10,4.9,mb,26,125,2.937,0.91,us,us7000k3xl,2024-01-18T19:58:12.854Z,"southeast of the Loyalty Islands",earthquake,7.42,1.893,0.155,14,reviewed,us,us
+2023-05-20T01:50:59.158Z,-23.0421,170.5603,27.309,7.1,mww,235,15,2.904,0.72,us,us6000kdce,2023-07-24T01:15:40.040Z,"southeast of the Loyalty Islands",earthquake,5.52,3.276,0.053,34,reviewed,us,us
+2023-05-20T02:03:52.766Z,-23.1347,170.4528,10,5.2,mb,24,172,2.821,0.48,us,us7000k3yp,2023-07-24T01:15:40.040Z,"southeast of the Loyalty Islands",earthquake,5.06,1.846,0.166,12,reviewed,us,us
+2023-05-20T02:06:32.899Z,-23.0658,170.4899,10,5.2,mb,34,130,2.843,0.81,us,us6000kddc,2023-07-24T01:15:40.040Z,"southeast of the Loyalty Islands",earthquake,9.87,1.229,0.174,12,reviewed,us,us
+2023-05-20T02:09:54.333Z,-22.956,170.5524,10,6.5,mww,82,33,2.887,0.82,us,us6000kdcu,2024-01-18T19:58:16.076Z,"southeast of the Loyalty Islands",earthquake,8.15,1.636,0.028,119,reviewed,us,us
+2023-05-20T02:17:44.460Z,-23.1421,170.697,10,5.4,mb,66,85,3.044,0.92,us,us6000kdd8,2024-01-18T19:58:17.764Z,"southeast of the Loyalty Islands",earthquake,9.56,1.731,0.093,40,reviewed,us,us
+2023-05-20T02:20:19.902Z,-23.064,170.5134,21.557,5.2,mb,54,120,2.865,1.17,us,us6000kdd2,2023-07-24T01:15:39.040Z,"southeast of the Loyalty Islands",earthquake,4.06,4.336,0.07,68,reviewed,us,us
+2023-05-20T02:28:44.886Z,-23.0955,170.2964,10,5,mb,34,93,2.672,0.72,us,us7000k3ys,2023-07-24T01:15:39.040Z,"291 km E of Vao, New Caledonia",earthquake,9.18,1.868,0.127,21,reviewed,us,us
+2023-05-20T02:56:23.033Z,-22.6791,170.8267,10,5.3,mb,58,97,3.123,0.91,us,us6000kddi,2023-07-24T01:15:39.040Z,"southeast of the Loyalty Islands",earthquake,10.1,1.849,0.084,48,reviewed,us,us
+2023-05-20T03:01:28.886Z,-23.1246,170.1686,10,4.5,mb,20,66,2.562,1.01,us,us7000k3yh,2023-07-24T01:15:39.040Z,"278 km E of Vao, New Caledonia",earthquake,7.01,1.873,0.191,9,reviewed,us,us
+2023-05-20T03:13:30.079Z,-23.1081,170.8022,10,4.7,mb,19,126,3.134,0.64,us,us7000k3xt,2023-07-24T01:15:39.040Z,"southeast of the Loyalty Islands",earthquake,11.21,1.909,0.184,9,reviewed,us,us
+2023-05-20T03:25:42.338Z,-23.0527,170.5006,10,4.7,mb,26,132,2.851,0.91,us,us7000k3xy,2023-07-24T01:15:38.040Z,"southeast of the Loyalty Islands",earthquake,8.04,1.873,0.152,13,reviewed,us,us
+2023-05-20T03:46:54.017Z,-23.0876,170.7,30.764,5.1,mb,46,97,3.038,0.99,us,us6000kddt,2024-01-18T19:58:19.595Z,"southeast of the Loyalty Islands",earthquake,9.94,4.945,0.078,53,reviewed,us,us
+2023-05-20T03:47:52.814Z,-23.2403,170.779,33.698,4.6,mb,19,132,3.135,0.95,us,us7000k40k,2023-07-24T01:15:38.040Z,"southeast of the Loyalty Islands",earthquake,11.44,5.939,0.222,6,reviewed,us,us
+2023-05-20T04:31:24.537Z,-22.9878,170.3852,10,5.1,mb,31,145,2.737,0.61,us,us6000kde0,2023-07-24T01:15:38.040Z,"298 km E of Vao, New Caledonia",earthquake,10.69,1.243,0.127,21,reviewed,us,us
+2023-05-20T04:34:13.871Z,-22.9946,170.4018,10,5.2,mb,50,49,2.753,0.78,us,us6000kddz,2023-07-24T01:15:38.040Z,"southeast of the Loyalty Islands",earthquake,9.49,1.082,0.078,54,reviewed,us,us
+2023-05-20T04:41:23.515Z,-22.9286,170.1667,34.343,4.9,mb,24,153,2.53,0.95,us,us6000kde1,2023-07-24T01:15:36.040Z,"southeast of the Loyalty Islands",earthquake,8.96,5.19,0.122,21,reviewed,us,us
+2023-05-20T04:56:00.427Z,-23.0663,170.581,10,4.5,mb,24,132,2.927,0.34,us,us6000kde4,2023-07-24T01:15:36.040Z,"southeast of the Loyalty Islands",earthquake,7.3,1.87,0.156,12,reviewed,us,us
+2023-05-20T05:15:03.169Z,-23.1357,170.976,10,4.5,mb,24,137,3.296,0.31,us,us6000kded,2024-01-18T19:58:21.329Z,"southeast of the Loyalty Islands",earthquake,7.49,1.857,0.128,18,reviewed,us,us
+2023-05-20T05:52:35.015Z,-23.175,170.561,10,4.4,mb,15,168,2.926,0.34,us,us7000k3yg,2023-07-24T01:15:35.040Z,"southeast of the Loyalty Islands",earthquake,9.96,1.853,0.179,10,reviewed,us,us
+2023-05-20T06:03:18.078Z,-22.9276,171.0832,10,4.4,mb,15,127,3.371,0.85,us,us7000k3yi,2023-07-24T01:15:35.040Z,"southeast of the Loyalty Islands",earthquake,12.43,1.925,0.22,7,reviewed,us,us
+2023-05-20T06:08:47.668Z,-22.8679,170.2022,10,4.3,mb,12,104,2.557,0.82,us,us7000k3yy,2023-07-24T01:15:35.040Z,"278 km E of Vao, New Caledonia",earthquake,8.92,1.9,0.202,7,reviewed,us,us
+2023-05-20T06:29:56.749Z,-23.187,170.8572,10,4.2,mb,17,163,3.196,0.61,us,us7000k3yj,2023-07-24T01:15:35.040Z,"southeast of the Loyalty Islands",earthquake,6,1.94,0.16,11,reviewed,us,us
+2023-05-20T06:51:55.221Z,-22.8294,170.5074,10,4.2,mb,12,168,2.834,0.96,us,us7000k3yk,2023-07-24T01:15:35.040Z,"southeast of the Loyalty Islands",earthquake,15.27,1.953,0.199,8,reviewed,us,us
+2023-05-20T06:58:11.283Z,-22.9326,170.9704,10,4.3,mb,17,121,3.268,0.54,us,us7000k3yl,2023-07-24T01:15:35.040Z,"southeast of the Loyalty Islands",earthquake,5.4,1.906,0.169,10,reviewed,us,us
+2023-05-20T07:11:17.615Z,-22.5211,171.236,10,4.2,mb,13,125,3.504,0.48,us,us7000k3yn,2024-01-18T19:58:23.006Z,"southeast of the Loyalty Islands",earthquake,7.89,1.876,0.199,7,reviewed,us,us
+2023-05-20T07:55:38.066Z,-23.1785,170.0789,10,4.7,mb,35,110,2.492,0.61,us,us6000kdez,2023-07-24T01:15:34.040Z,"270 km ESE of Vao, New Caledonia",earthquake,8.58,1.882,0.106,27,reviewed,us,us
+2023-05-20T08:28:54.390Z,-23.0735,170.4536,10,4.2,mb,11,168,2.812,0.22,us,us7000k3zf,2023-07-24T01:15:34.040Z,"southeast of the Loyalty Islands",earthquake,12.26,1.954,0.215,6,reviewed,us,us
+2023-05-20T08:36:34.274Z,-22.8723,170.7755,10,4.2,mb,10,188,3.084,0.17,us,us7000k3yu,2023-07-24T01:15:34.040Z,"southeast of the Loyalty Islands",earthquake,14.93,1.968,0.236,6,reviewed,us,us
+2023-05-20T09:07:21.115Z,-23.0994,170.5373,10,4.2,mb,15,132,2.892,0.55,us,us7000k3zi,2023-07-24T01:15:33.040Z,"southeast of the Loyalty Islands",earthquake,14.81,1.94,0.265,8,reviewed,us,us
+2023-05-20T09:30:42.340Z,-22.8249,170.671,10,4.4,mb,24,132,2.985,0.55,us,us7000k3z0,2023-07-24T01:15:33.040Z,"southeast of the Loyalty Islands",earthquake,9.92,1.873,0.135,19,reviewed,us,us
+2023-05-20T09:40:15.791Z,-23.0444,170.5317,10,4,mb,16,119,2.879,0.52,us,us7000k3z1,2023-07-24T01:15:33.040Z,"southeast of the Loyalty Islands",earthquake,10.34,1.937,0.196,11,reviewed,us,us
+2023-05-20T09:41:55.091Z,-23.3363,171.6534,10,4.8,mb,56,107,3.943,0.6,us,us6000kdfp,2023-07-24T01:15:33.040Z,"southeast of the Loyalty Islands",earthquake,5.76,1.888,0.077,82,reviewed,us,us
+2023-05-20T09:47:16.905Z,-23.1244,170.5942,10,4.7,mb,33,133,2.947,0.44,us,us7000k3z2,2023-07-24T01:15:33.040Z,"southeast of the Loyalty Islands",earthquake,10.89,1.866,0.115,24,reviewed,us,us
+2023-05-20T10:16:10.280Z,-23.2487,171.0953,10,4.2,mb,21,132,3.423,0.62,us,us7000k3z3,2023-07-24T01:15:32.040Z,"southeast of the Loyalty Islands",earthquake,11.75,1.932,0.159,14,reviewed,us,us
+2023-05-20T10:28:28.533Z,-23.3973,171.5344,10,4.4,mb,23,131,3.847,0.33,us,us7000k3z4,2023-07-24T01:15:32.040Z,"southeast of the Loyalty Islands",earthquake,6.47,1.856,0.143,16,reviewed,us,us
+2023-05-20T11:02:31.076Z,-22.9527,170.4765,10,4.7,mb,23,132,2.817,0.44,us,us7000k3z5,2023-07-24T01:15:32.040Z,"southeast of the Loyalty Islands",earthquake,5.96,1.845,0.165,14,reviewed,us,us
+2023-05-20T11:11:20.817Z,-22.7312,170.3632,10,4.2,mb,16,173,6.055,0.43,us,us7000k40h,2023-07-24T01:15:32.040Z,"287 km ESE of Tadine, New Caledonia",earthquake,14.27,1.929,0.187,15,reviewed,us,us
+2023-05-20T11:24:58.629Z,-23.2582,170.4882,10,4.2,mb,10,187,2.877,0.44,us,us7000k3z6,2023-07-24T01:15:32.040Z,"southeast of the Loyalty Islands",earthquake,8.26,1.971,0.199,8,reviewed,us,us
+2023-05-20T11:36:07.797Z,-22.9939,170.6036,10,5.3,mww,90,99,2.938,0.56,us,us6000kdfz,2023-07-24T01:15:32.040Z,"southeast of the Loyalty Islands",earthquake,9.46,1.839,0.066,22,reviewed,us,us
+2023-05-20T12:25:59.339Z,-23.0116,170.563,10,4.4,mb,24,132,2.903,0.55,us,us7000k3zb,2024-01-18T19:58:26.217Z,"southeast of the Loyalty Islands",earthquake,11.33,1.922,0.148,17,reviewed,us,us
+2023-05-20T12:36:41.218Z,-23.0153,170.658,10,4.7,mb,24,106,2.99,0.56,us,us7000k3zc,2023-07-24T01:15:31.040Z,"southeast of the Loyalty Islands",earthquake,9.84,1.894,0.129,21,reviewed,us,us
+2023-05-20T12:41:11.980Z,-22.3981,170.4494,10,4.3,mb,14,206,2.785,0.54,us,us7000k3zs,2024-01-18T19:58:27.797Z,"281 km ESE of Tadine, New Caledonia",earthquake,11.59,1.973,0.178,10,reviewed,us,us
+2023-05-20T12:52:09.546Z,-22.9852,170.5523,10,4.4,mb,31,98,2.89,0.59,us,us7000k3zd,2023-07-24T01:15:31.040Z,"southeast of the Loyalty Islands",earthquake,10.37,1.848,0.127,28,reviewed,us,us
+2023-05-20T13:27:14.210Z,-23.0282,170.7914,10,5.1,mb,43,124,3.114,0.89,us,us6000kdg5,2023-07-24T01:15:31.040Z,"southeast of the Loyalty Islands",earthquake,5.08,1.851,0.052,120,reviewed,us,us
+2023-05-20T13:29:22.888Z,-23.0243,170.7398,10,5.2,mb,48,122,3.066,0.73,us,us6000kdgb,2023-07-24T01:15:30.040Z,"southeast of the Loyalty Islands",earthquake,7.03,1.805,0.074,60,reviewed,us,us
+2023-05-20T13:50:20.712Z,-23.1892,170.6526,10,4.8,mb,23,85,3.011,0.53,us,us6000kdgf,2023-07-24T01:15:30.040Z,"southeast of the Loyalty Islands",earthquake,6.86,1.913,0.144,15,reviewed,us,us
+2023-05-20T14:05:18.734Z,-23.111,170.4024,10,4.4,mb,17,190,2.771,0.92,us,us7000k3zj,2023-07-24T01:15:30.040Z,"southeast of the Loyalty Islands",earthquake,8.11,1.955,0.179,11,reviewed,us,us
+2023-05-20T14:14:09.685Z,-22.9865,170.4589,10,4.5,mb,13,187,2.805,0.89,us,us7000k3zw,2024-01-18T19:58:31.076Z,"southeast of the Loyalty Islands",earthquake,9.86,1.965,0.243,8,reviewed,us,us
+2023-05-20T14:17:00.436Z,-23.0634,170.5029,10,4.5,mb,13,152,2.855,0.54,us,us7000k3zk,2023-07-24T01:15:30.040Z,"southeast of the Loyalty Islands",earthquake,10.15,1.829,0.242,6,reviewed,us,us
+2023-05-20T14:19:41.234Z,-22.3454,170.3664,10,4.3,mb,12,249,2.714,0.55,us,us7000k3zy,2023-07-24T01:15:30.040Z,"southeast of the Loyalty Islands",earthquake,10.99,2,0.188,8,reviewed,us,us
+2023-05-20T15:30:56.688Z,-23.1227,170.6005,10,4.2,mb,14,187,2.953,0.75,us,us7000k3zl,2023-07-24T01:15:29.040Z,"southeast of the Loyalty Islands",earthquake,11.8,1.961,0.176,9,reviewed,us,us
+2023-05-20T15:52:50.842Z,-22.8229,170.7924,10,4.1,mb,11,161,3.096,0.61,us,us7000k3zm,2023-07-24T01:15:29.040Z,"southeast of the Loyalty Islands",earthquake,14.87,1.998,0.185,8,reviewed,us,us
+2023-05-20T16:10:56.894Z,-22.8827,171.2162,10,4.6,mb,15,97,3.49,0.8,us,us7000k3zp,2023-07-24T01:15:29.040Z,"southeast of the Loyalty Islands",earthquake,8.92,1.892,0.222,8,reviewed,us,us
+2023-05-20T16:13:59.085Z,-23.347,171.2114,24.156,4.8,mb,36,122,3.546,0.54,us,us6000kdgr,2023-07-24T01:15:29.040Z,"southeast of the Loyalty Islands",earthquake,10.47,3.997,0.088,45,reviewed,us,us
+2023-05-20T16:50:44.880Z,-23.2518,170.908,10,4.5,mb,18,99,3.254,0.7,us,us7000k40u,2023-07-24T01:15:28.040Z,"southeast of the Loyalty Islands",earthquake,9.35,1.888,0.18,12,reviewed,us,us
+2023-05-20T17:15:44.044Z,-23.3946,171.097,10,4.2,mb,13,214,3.452,0.35,us,us7000k401,2023-07-24T01:15:28.040Z,"southeast of the Loyalty Islands",earthquake,11.95,1.95,0.303,3,reviewed,us,us
+2023-05-20T17:32:57.910Z,-22.8898,170.1123,10,4.4,mb,15,94,2.476,0.65,us,us7000k406,2023-07-24T01:15:28.040Z,"269 km E of Vao, New Caledonia",earthquake,7.06,1.957,0.219,8,reviewed,us,us
+2023-05-20T17:56:35.073Z,-23.2589,171.0329,10,4.5,mb,23,106,3.368,0.67,us,us7000k407,2023-07-24T01:15:28.040Z,"southeast of the Loyalty Islands",earthquake,6.71,1.844,0.222,8,reviewed,us,us
+2023-05-20T18:07:40.973Z,-22.7121,170.838,10,5,mb,60,105,3.134,0.54,us,us6000kdh8,2023-07-24T01:15:27.040Z,"southeast of the Loyalty Islands",earthquake,9.59,1.834,0.08,53,reviewed,us,us
+2023-05-20T18:21:28.052Z,-22.7213,170.7362,10,4.4,mb,15,185,3.04,0.29,us,us7000k3zu,2023-07-24T01:15:27.040Z,"southeast of the Loyalty Islands",earthquake,10.67,1.44,0.218,7,reviewed,us,us
+2023-05-20T19:59:26.086Z,-23.3747,171.0558,33.969,4.6,mb,25,91,3.411,0.77,us,us7000k400,2023-07-24T01:15:26.040Z,"southeast of the Loyalty Islands",earthquake,10.11,4.877,0.158,13,reviewed,us,us
+2023-05-20T22:08:45.706Z,-23.4641,171.5298,13.5,5.1,mb,44,107,3.856,0.75,us,us6000kdi1,2023-07-24T01:15:26.040Z,"southeast of the Loyalty Islands",earthquake,9.17,3.979,0.062,85,reviewed,us,us
+2023-05-21T02:25:56.200Z,-23.2851,170.9927,10,4.6,mb,16,132,3.337,0.82,us,us7000k47t,2023-07-29T22:00:40.040Z,"southeast of the Loyalty Islands",earthquake,12.5,1.896,0.194,8,reviewed,us,us
+2023-05-21T02:27:06.671Z,-22.5587,170.6976,42.731,4.7,mb,23,186,3.005,1.22,us,us7000k47p,2023-07-29T22:00:40.040Z,"southeast of the Loyalty Islands",earthquake,10.72,6.409,0.166,11,reviewed,us,us
+2023-05-21T02:58:15.918Z,-23.1103,170.6064,10,4.5,mb,16,75,2.956,0.3,us,us7000k47d,2023-07-29T22:00:40.040Z,"southeast of the Loyalty Islands",earthquake,7.44,1.862,0.271,6,reviewed,us,us
+2023-05-21T04:06:23.709Z,-23.2901,171.5051,10,4.5,mb,18,122,3.801,1.05,us,us7000k47j,2023-07-29T22:00:40.040Z,"southeast of the Loyalty Islands",earthquake,5.67,1.915,0.172,10,reviewed,us,us
+2023-05-21T04:07:26.594Z,-23.4573,171.6531,28.93,4.9,mb,23,126,3.965,1.2,us,us7000k47g,2023-07-29T22:00:40.040Z,"southeast of the Loyalty Islands",earthquake,9.81,3.887,0.162,12,reviewed,us,us
+2023-05-21T05:42:41.831Z,-22.9907,170.7159,10,4.2,mb,11,188,3.04,0.76,us,us7000k47l,2023-07-29T22:00:40.040Z,"southeast of the Loyalty Islands",earthquake,9.96,1.958,0.216,8,reviewed,us,us
+2023-05-21T07:36:50.917Z,-23.1718,170.9512,10,4.3,mb,24,132,3.279,0.85,us,us7000k47r,2023-07-29T22:00:40.040Z,"southeast of the Loyalty Islands",earthquake,10.93,1.905,0.122,25,reviewed,us,us
+2023-05-21T07:45:17.316Z,-22.7418,170.7757,10,4.3,mb,35,98,3.078,0.58,us,us7000k38c,2023-07-29T22:00:31.040Z,"southeast of the Loyalty Islands",earthquake,10.07,1.915,0.113,30,reviewed,us,us
+2023-05-21T09:47:32.790Z,-23.0578,170.4579,10,4.1,mb,20,131,2.813,0.53,us,us7000k480,2023-07-29T22:00:40.040Z,"southeast of the Loyalty Islands",earthquake,8.33,1.884,0.145,13,reviewed,us,us
+2023-05-21T10:48:51.287Z,-23.1866,171.6715,10,4.3,mb,22,131,3.937,0.59,us,us7000k482,2024-01-18T19:58:48.430Z,"southeast of the Loyalty Islands",earthquake,11.17,1.897,0.138,15,reviewed,us,us
+2023-05-21T12:31:03.296Z,-23.0621,170.8421,11.968,4.6,mb,24,126,3.164,0.42,us,us7000k486,2023-07-29T22:00:41.040Z,"southeast of the Loyalty Islands",earthquake,5.19,5.041,0.146,14,reviewed,us,us
+2023-05-21T17:11:19.046Z,-23.0379,170.478,10,4.5,mb,11,186,2.829,0.61,us,us7000k48q,2023-07-29T22:00:41.040Z,"southeast of the Loyalty Islands",earthquake,12.13,1.823,0.243,5,reviewed,us,us
+2023-05-21T17:43:15.188Z,-22.7476,171.0925,10,4.3,mb,12,169,3.37,0.92,us,us7000k48s,2023-07-29T22:00:41.040Z,"southeast of the Loyalty Islands",earthquake,7.82,1.958,0.201,7,reviewed,us,us
+2023-05-21T18:30:24.952Z,-23.0377,170.1837,21.613,4.3,mb,11,187,2.561,0.37,us,us7000k48f,2023-07-29T22:00:41.040Z,"278 km E of Vao, New Caledonia",earthquake,14.99,8.219,0.267,4,reviewed,us,us
+2023-05-22T00:59:41.771Z,-22.898,170.7756,10,4.3,mb,19,125,3.086,0.91,us,us7000k49n,2023-07-29T22:00:42.040Z,"southeast of the Loyalty Islands",earthquake,11.09,1.884,0.201,7,reviewed,us,us
+2023-05-22T01:58:06.473Z,-22.8301,170.9384,10,4.2,mb,15,109,3.231,0.67,us,us7000k49m,2023-07-29T22:00:42.040Z,"southeast of the Loyalty Islands",earthquake,12.35,1.738,0.263,4,reviewed,us,us
+2023-05-22T03:40:56.276Z,-22.949,170.2723,10,4.3,mb,18,113,2.629,0.55,us,us7000k49j,2023-07-29T22:00:41.040Z,"286 km E of Vao, New Caledonia",earthquake,7.61,1.891,0.202,7,reviewed,us,us
+2023-05-22T04:04:05.771Z,-23.2742,170.6807,10,4.5,mb,13,188,3.053,0.48,us,us7000k49k,2023-07-29T22:00:41.040Z,"southeast of the Loyalty Islands",earthquake,11.09,1.97,0.205,7,reviewed,us,us
+2023-05-22T06:52:44.830Z,-23.7799,171.7145,16.611,5.4,mww,64,75,4.095,0.45,us,us6000kdty,2023-07-29T22:00:27.040Z,"southeast of the Loyalty Islands",earthquake,7.35,3.577,0.098,10,reviewed,us,us
+2023-05-22T19:27:45.414Z,-22.5768,171.118,10,4.5,mb,22,132,3.393,0.78,us,us7000k4ak,2023-07-29T22:00:42.040Z,"southeast of the Loyalty Islands",earthquake,6.69,1.795,0.242,5,reviewed,us,us
+2023-05-22T21:45:56.090Z,-22.9658,170.4881,10,5,mb,62,119,2.829,0.58,us,us7000k32s,2023-07-29T22:00:29.040Z,"southeast of the Loyalty Islands",earthquake,10.06,1.81,0.092,38,reviewed,us,us
+2023-05-22T22:09:25.193Z,-22.8913,170.5605,10,4.4,mb,15,172,2.888,0.66,us,us7000k4av,2023-07-29T22:00:42.040Z,"southeast of the Loyalty Islands",earthquake,11.22,1.927,0.269,4,reviewed,us,us
+2023-05-22T22:54:13.259Z,-22.6736,169.8453,10,5,mww,92,101,2.217,0.52,us,us7000k33g,2023-07-29T22:00:29.040Z,"238 km ESE of Tadine, New Caledonia",earthquake,6.68,1.669,0.086,13,reviewed,us,us
+2023-05-22T22:59:57.166Z,-23.3465,170.5289,10,4.9,mb,45,125,2.933,0.62,us,us7000k346,2023-07-29T22:00:29.040Z,"southeast of the Loyalty Islands",earthquake,6.54,1.805,0.106,28,reviewed,us,us
+2023-05-23T00:52:43.121Z,-22.9429,170.9962,10,4.9,mb,56,86,3.292,0.75,us,us7000k34p,2024-01-18T19:59:26.456Z,"southeast of the Loyalty Islands",earthquake,8.56,1.882,0.076,54,reviewed,us,us
+2023-05-23T02:19:53.889Z,-22.6588,170.3901,10,4.3,mb,17,87,2.72,0.54,us,us7000k4z3,2023-07-29T22:00:45.040Z,"286 km ESE of Tadine, New Caledonia",earthquake,9.33,1.897,0.154,12,reviewed,us,us
+2023-05-23T03:13:04.123Z,-23.1008,170.3508,10,4.5,mb,20,172,2.723,0.56,us,us7000k4z5,2023-07-29T22:00:45.040Z,"296 km E of Vao, New Caledonia",earthquake,14.45,1.908,0.172,10,reviewed,us,us
+2023-05-23T05:36:11.356Z,-23.3511,171.6031,10,4.5,mb,20,75,3.9,0.51,us,us7000k4z9,2023-07-29T22:00:45.040Z,"southeast of the Loyalty Islands",earthquake,5.2,1.913,0.163,11,reviewed,us,us
+2023-05-23T06:22:12.806Z,-23.2419,170.634,23.981,5.1,mww,63,58,3.005,0.76,us,us7000k36l,2023-07-29T22:00:30.040Z,"southeast of the Loyalty Islands",earthquake,7.2,4.665,0.093,11,reviewed,us,us
+2023-05-23T06:29:49.160Z,-22.8355,170.6486,10,4.3,mb,13,119,2.965,0.35,us,us7000k4za,2023-07-29T22:00:45.040Z,"southeast of the Loyalty Islands",earthquake,6.04,1.94,0.217,6,reviewed,us,us
+2023-05-23T06:41:58.609Z,-22.9954,170.3067,10,6.1,mww,90,47,2.667,0.51,us,us7000k36n,2023-07-29T22:00:30.040Z,"290 km E of Vao, New Caledonia",earthquake,7.28,1.85,0.036,73,reviewed,us,us
+2023-05-23T06:50:06.190Z,-22.8109,170.2711,10,4.3,mb,23,118,2.616,0.64,us,us7000k4zd,2023-07-29T22:00:45.040Z,"283 km ESE of Tadine, New Caledonia",earthquake,6.23,1.868,0.142,14,reviewed,us,us
+2023-05-23T06:56:11.564Z,-23.0209,170.2154,10,4.3,mb,17,110,2.587,0.52,us,us7000k4ze,2023-07-29T22:00:45.040Z,"southeast of the Loyalty Islands",earthquake,8.74,1.904,0.168,10,reviewed,us,us
+2023-05-23T07:16:07.206Z,-22.9763,170.3299,10,4.3,mb,20,104,2.685,0.59,us,us7000k4zf,2023-07-29T22:00:45.040Z,"292 km E of Vao, New Caledonia",earthquake,8.8,1.867,0.238,6,reviewed,us,us
+2023-05-23T09:26:38.106Z,-22.7825,170.7932,10,5,mb,47,74,3.095,0.49,us,us7000k38e,2023-07-29T22:00:31.040Z,"southeast of the Loyalty Islands",earthquake,11.76,1.907,0.088,42,reviewed,us,us
+2023-05-23T10:20:33.561Z,-23.0726,170.5184,22.832,4.6,mb,28,86,2.87,0.46,us,us7000k386,2023-07-29T22:00:31.040Z,"southeast of the Loyalty Islands",earthquake,7.79,7.199,0.117,22,reviewed,us,us
+2023-05-23T11:49:54.754Z,-23.1861,170.8247,13.162,4.9,mb,41,109,3.167,0.54,us,us7000k38m,2023-07-29T22:00:31.040Z,"southeast of the Loyalty Islands",earthquake,8.2,4.184,0.108,30,reviewed,us,us
+2023-05-23T13:06:42.138Z,-22.8319,170.3219,10,4.8,mb,46,117,2.664,0.62,us,us7000k38w,2023-07-29T22:00:31.040Z,"289 km ESE of Tadine, New Caledonia",earthquake,8.69,1.815,0.114,24,reviewed,us,us
+2023-05-23T13:41:24.920Z,-23.2448,170.1737,10,4.4,mb,13,98,2.592,0.96,us,us7000k4zr,2023-07-29T22:00:45.040Z,"281 km ESE of Vao, New Caledonia",earthquake,12.14,1.79,0.241,5,reviewed,us,us
+2023-05-23T17:13:12.567Z,-22.9482,170.8542,10,4.5,mb,17,182,3.163,0.91,us,us7000k50e,2023-07-29T22:00:46.040Z,"southeast of the Loyalty Islands",earthquake,9.09,1.902,0.205,10,reviewed,us,us
+2023-05-23T17:48:02.152Z,-23.1868,171.0165,10,4.6,mb,15,163,3.341,0.63,us,us7000k503,2023-07-29T22:00:46.040Z,"southeast of the Loyalty Islands",earthquake,9.69,1.796,0.315,4,reviewed,us,us
+2023-05-23T18:53:52.064Z,-23.1444,170.5937,10,4.5,mb,30,126,2.95,0.5,us,us7000k507,2023-07-29T22:00:46.040Z,"southeast of the Loyalty Islands",earthquake,9.69,1.837,0.15,15,reviewed,us,us
+2023-05-24T11:34:05.638Z,-22.996,170.2532,10,4.3,mb,13,245,2.618,0.53,us,us7000k57j,2023-07-29T22:00:47.040Z,"285 km E of Vao, New Caledonia",earthquake,7.78,1.984,0.189,8,reviewed,us,us
+2023-05-24T22:09:18.975Z,-23.0419,170.5728,10,4.4,mb,18,120,2.916,1,us,us7000k57v,2023-07-29T22:00:47.040Z,"southeast of the Loyalty Islands",earthquake,10.04,1.85,0.19,8,reviewed,us,us
+2023-05-24T22:23:22.384Z,-23.3852,171.0566,10,4.9,mb,59,95,3.414,0.45,us,us7000k3lu,2023-07-29T22:00:35.040Z,"southeast of the Loyalty Islands",earthquake,7.63,1.462,0.09,39,reviewed,us,us
+2023-05-25T00:15:00.949Z,-22.8176,170.3086,10,4.4,mb,11,162,2.651,0.92,us,us7000k5ad,2023-07-29T22:00:47.040Z,"287 km ESE of Tadine, New Caledonia",earthquake,11.6,1.934,0.24,5,reviewed,us,us
+2023-05-25T10:39:37.398Z,-23.2483,170.774,10,5.5,mww,90,77,3.132,0.78,us,us7000k3ps,2023-07-29T22:00:37.040Z,"southeast of the Loyalty Islands",earthquake,6.26,1.761,0.058,29,reviewed,us,us
+2023-05-25T12:02:09.226Z,-22.4319,170.8806,48.258,4,mb,10,265,3.18,0.78,us,us7000k5b6,2023-07-29T22:00:48.040Z,"southeast of the Loyalty Islands",earthquake,7.64,13.666,0.212,8,reviewed,us,us
+2023-05-25T12:59:14.360Z,-22.6873,171.1337,10,4.7,mb,28,108,3.407,0.94,us,us7000k3x3,2023-07-29T22:00:37.040Z,"southeast of the Loyalty Islands",earthquake,9.04,1.855,0.147,14,reviewed,us,us
+2023-05-25T21:26:08.768Z,-23.8899,171.8416,10,4.5,mb,23,84,4.237,0.45,us,us7000k5bi,2023-07-29T22:00:48.040Z,"southeast of the Loyalty Islands",earthquake,8.02,1.771,0.18,9,reviewed,us,us
+2023-05-26T11:42:15.143Z,-23.1274,170.7024,10,4.7,mb,32,132,3.046,0.33,us,us7000k46r,2023-07-29T22:00:40.040Z,"southeast of the Loyalty Islands",earthquake,9.97,1.913,0.117,23,reviewed,us,us
+2023-05-26T15:58:04.556Z,-23.4153,171.4259,10,4.3,mb,13,94,3.752,1.19,us,us7000k5id,2023-07-29T22:00:49.040Z,"southeast of the Loyalty Islands",earthquake,12.26,1.95,0.201,9,reviewed,us,us
+2023-05-27T02:34:53.745Z,-23.2824,170.6377,10,4.8,mb,35,108,3.016,0.89,us,us7000k4e1,2023-07-29T22:00:43.040Z,"southeast of the Loyalty Islands",earthquake,7.99,1.847,0.124,21,reviewed,us,us
+2023-05-29T00:54:16.092Z,-22.6514,170.9329,10,4.5,mb,23,132,3.221,0.86,us,us7000k6f5,2024-01-18T20:01:22.831Z,"southeast of the Loyalty Islands",earthquake,10.45,1.759,0.157,12,reviewed,us,us
+2023-05-29T04:58:34.133Z,-23.4089,171.0158,10,4.4,mb,16,129,3.383,0.46,us,us7000k6f8,2024-01-18T20:01:26.092Z,"southeast of the Loyalty Islands",earthquake,8.59,1.871,0.241,5,reviewed,us,us
+2023-05-29T11:01:38.799Z,-23.4235,171.5351,25.508,4.3,mb,16,128,3.852,0.51,us,us7000k6fd,2023-08-05T22:07:57.040Z,"southeast of the Loyalty Islands",earthquake,9.61,6.794,0.178,9,reviewed,us,us
+2023-05-29T15:08:42.644Z,-24.0071,171.7327,10,4.5,mb,17,118,4.177,0.68,us,us7000k6fi,2023-08-05T22:07:57.040Z,"southeast of the Loyalty Islands",earthquake,5.02,1.941,0.171,10,reviewed,us,us
+2023-05-30T18:53:49.756Z,-23.3799,170.9593,10,4.3,mb,14,113,3.326,0.61,us,us7000k6mr,2024-01-18T20:02:07.001Z,"southeast of the Loyalty Islands",earthquake,7.87,1.924,0.238,6,reviewed,us,us
+2023-05-31T01:58:05.345Z,-23.255,170.8066,10,4.6,mb,39,113,3.163,0.45,us,us7000k550,2023-08-05T22:07:41.040Z,"southeast of the Loyalty Islands",earthquake,8.91,1.815,0.117,22,reviewed,us,us
+2023-05-31T10:37:00.179Z,-23.464,171.7801,10,4.7,mb,38,122,4.081,0.43,us,us7000k58b,2023-08-05T22:07:42.040Z,"southeast of the Loyalty Islands",earthquake,5,1.918,0.102,30,reviewed,us,us
+2023-06-01T20:43:37.427Z,-23.3001,171.3695,17.826,4.5,mb,28,124,3.68,0.67,us,us7000k73b,2023-08-05T22:08:00.040Z,"southeast of the Loyalty Islands",earthquake,9.96,4.385,0.151,16,reviewed,us,us
+2023-06-02T04:31:31.862Z,-23.7819,171.8772,10,5.1,mww,50,103,4.239,0.98,us,us7000k5nz,2024-01-18T20:04:08.091Z,"southeast of the Loyalty Islands",earthquake,9.41,1.512,0.08,15,reviewed,us,us
+2023-06-02T11:46:33.285Z,-23.4547,171.3006,28.382,4.9,mb,38,114,3.648,0.42,us,us7000k5qy,2023-08-05T22:07:47.040Z,"southeast of the Loyalty Islands",earthquake,8.61,5.499,0.081,48,reviewed,us,us
+2023-06-02T15:53:54.328Z,-23.2995,171.6886,10,4.9,mb,36,73,3.969,0.68,us,us7000k5u3,2024-01-18T20:11:43.394Z,"southeast of the Loyalty Islands",earthquake,10.58,1.857,0.064,78,reviewed,us,us
+2023-06-05T00:37:43.958Z,-22.6785,170.9745,10,4.1,mb,13,188,3.26,0.9,us,us7000k7zn,2023-08-12T17:15:17.040Z,"southeast of the Loyalty Islands",earthquake,9.17,1.911,0.214,6,reviewed,us,us
+2023-06-05T05:19:22.598Z,-23.0091,170.2339,10,4.6,mb,28,119,2.602,0.48,us,us7000k7zq,2023-08-12T17:15:17.040Z,"283 km E of Vao, New Caledonia",earthquake,6.75,1.826,0.126,19,reviewed,us,us
+2023-06-06T13:52:43.754Z,-23.3252,170.9308,10,4.4,mb,12,204,3.288,0.88,us,us7000k870,2023-08-12T17:15:19.040Z,"southeast of the Loyalty Islands",earthquake,7.17,1.978,0.219,6,reviewed,us,us
+2023-06-06T21:43:48.579Z,-23.0942,170.0901,10,4.9,mb,45,116,2.485,0.71,us,usd000jtzp,2023-08-12T17:15:27.040Z,"270 km E of Vao, New Caledonia",earthquake,8.51,1.839,0.094,36,reviewed,us,us
+2023-06-06T21:48:02.492Z,-23.0558,170.2262,10,5.1,mww,99,105,2.602,0.58,us,us7000k6qq,2023-08-12T17:15:05.040Z,"283 km E of Vao, New Caledonia",earthquake,7.67,1.814,0.08,15,reviewed,us,us
+2023-06-06T21:53:53.387Z,-23.1251,170.1138,10,4.6,mb,30,84,2.512,0.53,us,us7000k879,2023-08-12T17:15:19.040Z,"273 km E of Vao, New Caledonia",earthquake,7.66,1.858,0.129,18,reviewed,us,us
+2023-06-06T23:38:10.066Z,-23.053,170.4734,17.452,5.2,mww,115,105,2.827,0.47,us,us7000k6rg,2023-08-12T17:15:06.040Z,"southeast of the Loyalty Islands",earthquake,9.89,1.642,0.078,16,reviewed,us,us
+2023-06-06T23:50:36.285Z,-23.0705,170.4394,10,4,mb,12,186,2.798,1,us,us7000k87e,2023-08-12T17:15:19.040Z,"southeast of the Loyalty Islands",earthquake,6.79,1.959,0.259,4,reviewed,us,us
+2023-06-07T20:02:32.394Z,-22.8824,170.4931,10,4.7,mb,56,70,2.825,0.91,us,us7000k6zn,2023-08-12T17:15:08.040Z,"southeast of the Loyalty Islands",earthquake,10.15,1.804,0.071,60,reviewed,us,us
+2023-06-08T09:19:27.447Z,-22.3497,170.28,11,5.7,mww,119,57,2.634,1.02,us,us7000k73m,2023-08-12T17:15:09.040Z,"263 km ESE of Tadine, New Caledonia",earthquake,7.04,1.816,0.063,24,reviewed,us,us
+2023-06-08T10:18:22.785Z,-22.3688,170.3715,10,4.6,mb,31,108,2.716,0.88,us,us7000k8fu,2023-08-12T17:15:21.040Z,"272 km ESE of Tadine, New Caledonia",earthquake,5.89,1.816,0.136,16,reviewed,us,us
+2023-06-08T18:15:37.994Z,-23.1634,171.0769,10,4.4,mb,24,126,3.392,0.74,us,us7000k8g5,2023-08-12T17:15:22.040Z,"southeast of the Loyalty Islands",earthquake,11.34,1.761,0.144,14,reviewed,us,us
+2023-06-08T19:13:05.282Z,-23.4539,170.9949,10,4.6,mb,29,116,3.374,0.83,us,us7000k781,2023-08-12T17:15:10.040Z,"southeast of the Loyalty Islands",earthquake,6.3,1.819,0.151,13,reviewed,us,us
+2023-06-09T21:04:10.337Z,-23.2568,170.6096,10,4.7,mb,41,52,2.985,0.42,us,us7000k7iw,2024-01-18T20:15:25.888Z,"southeast of the Loyalty Islands",earthquake,8.27,1.842,0.104,28,reviewed,us,us
+2023-06-10T00:27:48.466Z,-23.2804,171.6299,10,4.5,mb,12,213,3.913,0.19,us,us7000k8xg,2023-08-12T17:15:26.040Z,"southeast of the Loyalty Islands",earthquake,11.04,1.903,0.221,6,reviewed,us,us
+2023-06-10T09:38:24.225Z,-23.4912,170.8867,10,4.1,mb,14,126,3.287,0.68,us,us7000k8xk,2023-08-12T17:15:26.040Z,"southeast of the Loyalty Islands",earthquake,13.86,1.926,0.158,11,reviewed,us,us
+2023-06-11T00:57:14.762Z,-23.2764,170.864,10,4.5,mb,16,176,3.219,0.74,us,us7000k8z2,2023-08-21T04:19:08.040Z,"southeast of the Loyalty Islands",earthquake,6.76,1.912,0.181,9,reviewed,us,us
+2023-06-15T05:46:57.626Z,-23.1157,170.3896,10,4.8,mb,40,104,2.76,0.46,us,us7000k8lp,2023-08-21T04:18:58.040Z,"southeast of the Loyalty Islands",earthquake,4.13,1.874,0.109,31,reviewed,us,us
+2023-06-15T22:27:23.994Z,-22.0541,169.7722,10,4.5,mb,20,117,2.224,0.38,us,us7000kaca,2023-08-21T04:19:39.040Z,"203 km ESE of Tadine, New Caledonia",earthquake,5.05,1.845,0.18,9,reviewed,us,us

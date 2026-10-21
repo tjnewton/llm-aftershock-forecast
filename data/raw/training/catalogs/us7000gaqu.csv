@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-01-11T01:07:48.064Z,35.2267,31.9435,21,6.6,mww,,21,1.168,0.71,us,us7000gaqu,2022-06-08T04:06:23.087Z,"48 km WNW of Pólis, Cyprus",earthquake,4.8,1.7,0.045,47,reviewed,us,us
+2022-01-28T03:57:47.440Z,35.0789,31.9346,40.56,4.9,mb,,59,1.152,0.94,us,us7000gfrj,2022-04-09T20:19:13.040Z,"45 km W of Pólis, Cyprus",earthquake,3.8,6.5,0.048,138,reviewed,us,us
+2022-02-02T21:03:48.327Z,35.0634,31.8203,26.39,5.3,mww,,24,1.244,0.68,us,us7000ghf9,2024-01-17T22:26:28.292Z,"55 km WNW of P?geia, Cyprus",earthquake,4.8,3.7,0.049,40,reviewed,us,us

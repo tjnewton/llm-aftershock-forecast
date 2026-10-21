@@ -1,0 +1,72 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-07-22T06:12:44.810Z,55.0715,-158.596,28,7.8,mww,,60,0.621,0.97,us,us7000asvb,2025-12-22T18:38:32.040Z,"2020 Perryville, Alaska Earthquake",earthquake,5.4,1.9,0.019,261,reviewed,us,us
+2020-07-22T06:16:18.627Z,54.969,-159.0413,16.53,6.1,mb,,145,0.345,0.73,us,us7000asx4,2025-12-22T18:38:34.404Z,"101 km ESE of Sand Point, Alaska",earthquake,3.6,2.5,0.101,37,reviewed,us,us
+2020-07-22T06:20:07.865Z,54.7461,-158.875,24.6,5.6,mb,,167,0.422,1.29,us,us7000aswr,2025-12-22T18:38:33.245Z,"122 km ESE of Sand Point, Alaska",earthquake,5.4,1.7,0.14,18,reviewed,us,us
+2020-07-22T06:22:15.902Z,54.8759,-158.3143,25.9,4.5,ml,,,,0.52,ak,ak0209dhc5cm,2020-07-31T22:12:24.810Z,"126 km SSE of Perryville, Alaska",earthquake,,5.1,,,reviewed,ak,ak
+2020-07-22T06:26:09.497Z,54.6858,-158.8674,33.12,4,ml,,205,0.443,0.59,us,us7000asxd,2020-10-03T17:32:40.040Z,"127 km SE of Sand Point, Alaska",earthquake,7.2,9.2,0.091,16,reviewed,us,us
+2020-07-22T06:30:02.519Z,54.8808,-158.9014,28.36,4.2,mb,,156,0.401,0.73,us,us7000asvp,2020-10-03T17:32:40.040Z,"113 km ESE of Sand Point, Alaska",earthquake,6.9,6.1,0.199,7,reviewed,us,us
+2020-07-22T06:30:03.555Z,55.8476,-159.4431,4.7,4,ml,,,,1.14,ak,ak0209dhdu3d,2020-08-04T04:26:14.657Z,"6 km SSE of Ivanof Bay, Alaska",earthquake,,6,,,reviewed,ak,ak
+2020-07-22T06:30:11.997Z,55.1718,-158.3633,15,4,ml,,,,0.52,ak,ak0209dhdurz,2020-07-31T22:12:26.237Z,"95 km SSE of Perryville, Alaska",earthquake,,1.7,,,reviewed,ak,ak
+2020-07-22T06:33:50.692Z,55.0424,-158.6763,10,4.1,ml,,,,0.69,ak,ak0209dhekx8,2020-10-03T17:32:40.040Z,"101 km SSE of Perryville, Alaska",earthquake,,0,,,reviewed,ak,ak
+2020-07-22T06:39:15.462Z,54.894,-159.3848,41.31,4,mb,,143,0.134,1.02,us,us7000asw1,2020-10-03T17:32:40.040Z,"86 km SE of Sand Point, Alaska",earthquake,6.5,9.3,0.299,4,reviewed,us,us
+2020-07-22T06:53:53.611Z,55.105,-158.3232,29,4.2,ml,,,,0.66,ak,ak0209dhivdi,2020-10-03T17:32:40.040Z,"103 km SSE of Perryville, Alaska",earthquake,,1.4,,,reviewed,ak,ak
+2020-07-22T06:58:57.220Z,54.2041,-161.133,10,4.2,mb,,86,1.037,1.23,us,us7000aswj,2020-10-03T17:32:40.040Z,"122 km SE of King Cove, Alaska",earthquake,4.9,1.9,0.116,26,reviewed,us,us
+2020-07-22T07:17:32.259Z,55.1417,-158.3751,11.7,4,ml,,,,0.85,ak,ak0209dhwjsr,2020-10-03T17:32:40.040Z,"98 km SSE of Perryville, Alaska",earthquake,,1.3,,,reviewed,ak,ak
+2020-07-22T07:42:14.235Z,54.851,-160.2666,52.32,4.1,mb,,81,0.392,1.04,us,us7000asxh,2020-10-03T17:32:40.040Z,"56 km SSE of Sand Point, Alaska",earthquake,2.5,7.1,0.12,19,reviewed,us,us
+2020-07-22T08:04:38.348Z,55.1692,-159.3191,44.13,4,mb,,101,0.373,1.17,us,us7000asxy,2020-10-03T17:32:40.040Z,"Alaska Peninsula",earthquake,1.9,7.5,0.122,18,reviewed,us,us
+2020-07-22T08:13:30.171Z,55.2036,-159.3181,45.22,5.7,mwr,,32,0.404,1.18,us,us7000asy0,2025-12-22T18:38:30.865Z,"76 km ESE of Sand Point, Alaska",earthquake,4.7,4.8,0.05,39,reviewed,us,us
+2020-07-22T10:08:38.832Z,55.0659,-158.6912,34.8,4.7,ml,,,,0.68,ak,ak0209djmxho,2020-10-03T17:32:41.040Z,"98 km SSE of Perryville, Alaska",earthquake,,0.6,,,reviewed,ak,ak
+2020-07-22T10:08:38.835Z,55.0681,-158.6935,37.3,4.7,ml,,,,1.58,ak,ak0209djna3l,2020-07-31T22:11:14.503Z,"98 km SSE of Perryville, Alaska",earthquake,,0.5,,,reviewed,ak,ak
+2020-07-22T10:18:22.476Z,54.8136,-158.2757,17.6,4.5,ml,,,,0.65,ak,ak0209djp1hp,2020-10-03T17:32:41.040Z,"134 km SSE of Perryville, Alaska",earthquake,,0.7,,,reviewed,ak,ak
+2020-07-22T11:01:52.917Z,54.9458,-158.3608,32.7,4.3,ml,,,,1.24,ak,ak0209dk6w7x,2020-10-03T17:32:30.040Z,"118 km SSE of Perryville, Alaska",earthquake,,1.2,,,reviewed,ak,ak
+2020-07-22T11:02:12.746Z,54.8436,-160.6789,42.63,4.9,mwr,,75,0.52,0.97,us,us7000at0f,2020-10-03T17:32:41.040Z,"56 km SSW of Sand Point, Alaska",earthquake,5.4,4.9,0.051,37,reviewed,us,us
+2020-07-22T12:33:37.599Z,54.8468,-158.3859,21,4.4,ml,,,,0.55,ak,ak0209dkz5j3,2020-10-03T17:32:41.040Z,"127 km SSE of Perryville, Alaska",earthquake,,1.9,,,reviewed,ak,ak
+2020-07-22T13:22:23.955Z,54.6752,-160.2341,22.28,4.2,mb,,153,0.405,0.93,us,us7000at2t,2020-10-03T17:32:42.040Z,"75 km SSE of Sand Point, Alaska",earthquake,4.7,6.7,0.074,52,reviewed,us,us
+2020-07-22T13:33:38.478Z,54.9331,-158.3389,13.2,4.5,ml,,,,0.65,ak,ak0209dlkl0m,2020-10-03T17:32:42.040Z,"120 km SSE of Perryville, Alaska",earthquake,,1.8,,,reviewed,ak,ak
+2020-07-22T15:31:08.703Z,55.1505,-159.1406,37.89,4.1,mwr,,90,0.411,0.84,us,us7000at5j,2020-10-03T17:32:42.040Z,"84 km S of Perryville, Alaska",earthquake,4.6,6.2,0.071,19,reviewed,us,us
+2020-07-22T19:37:20.724Z,55.0937,-158.7657,29.34,4,mb,,137,0.543,1.05,us,us6000b25l,2020-10-03T17:32:15.040Z,"94 km SSE of Perryville, Alaska",earthquake,7.8,6.5,0.125,17,reviewed,us,us
+2020-07-22T21:39:58.521Z,55.2459,-159.344,35.64,5.5,mww,,49,0.439,0.76,us,us6000b29h,2025-12-22T17:58:10.640Z,"73 km S of Ivanof Bay, Alaska",earthquake,4.6,4.5,0.044,50,reviewed,us,us
+2020-07-23T00:35:11.144Z,55.1132,-159.2194,37.88,4,mwr,,110,0.354,0.74,us,us6000b2cy,2020-10-03T17:32:16.040Z,"85 km ESE of Sand Point, Alaska",earthquake,5.3,5.2,0.046,45,reviewed,us,us
+2020-07-23T08:40:31.297Z,54.8485,-160.2751,41.78,4,mb,,165,0.397,0.58,us,us6000b2iy,2020-10-03T17:32:17.040Z,"56 km SSE of Sand Point, Alaska",earthquake,5.6,6.4,0.087,35,reviewed,us,us
+2020-07-23T10:40:52.767Z,54.6838,-159.7627,34.88,4.3,mb,,61,0.178,0.91,us,us6000b2kx,2020-10-03T17:32:17.040Z,"86 km SSE of Sand Point, Alaska",earthquake,7.5,5,0.061,77,reviewed,us,us
+2020-07-23T11:08:38.431Z,55.2125,-159.619,44.89,5,mww,,70,0.382,1.15,us,us6000b2le,2025-12-22T18:38:38.860Z,"57 km ESE of Sand Point, Alaska",earthquake,6.1,4,0.04,61,reviewed,us,us
+2020-07-23T14:58:10.447Z,54.8522,-158.4865,18.45,4.1,mb,,157,0.638,0.69,us,us6000b2p2,2020-10-03T17:32:17.040Z,"125 km SSE of Perryville, Alaska",earthquake,5.4,5.8,0.197,7,reviewed,us,us
+2020-07-23T18:50:29.736Z,55.1507,-159.6504,45.61,4,mb,,102,0.322,0.78,us,us6000b2vx,2020-10-03T17:32:18.040Z,"57 km ESE of Sand Point, Alaska",earthquake,6.1,6.9,0.259,5,reviewed,us,us
+2020-07-23T19:56:50.222Z,54.854,-160.6578,41.04,4.7,mwr,,78,0.507,1.32,us,us6000b2xh,2020-10-03T17:32:18.040Z,"54 km S of Sand Point, Alaska",earthquake,4.7,4.5,0.047,44,reviewed,us,us
+2020-07-24T03:07:08.676Z,54.818,-160.6718,43.16,5,mww,,43,0.544,0.9,us,us6000b355,2025-12-22T18:38:41.136Z,"58 km S of Sand Point, Alaska",earthquake,4.8,3.2,0.044,50,reviewed,us,us
+2020-07-24T03:12:58.491Z,55.1906,-159.606,44.17,4.5,mb,,83,0.36,1.09,us,us6000b35f,2020-10-03T17:32:19.040Z,"59 km ESE of Sand Point, Alaska",earthquake,3.6,5.6,0.102,28,reviewed,us,us
+2020-07-24T07:17:31.695Z,55.1938,-159.2225,42.03,4.5,mwr,,110,0.42,0.7,us,us6000b389,2020-10-03T17:32:19.040Z,"80 km S of Perryville, Alaska",earthquake,4.6,6,0.066,22,reviewed,us,us
+2020-07-24T11:41:36.691Z,54.628,-160.7395,35,4.4,mb,,151,0.697,1.26,us,us6000b3bn,2020-10-03T17:32:19.040Z,"80 km S of Sand Point, Alaska",earthquake,3.8,2,0.047,132,reviewed,us,us
+2020-07-24T13:24:39.244Z,54.8552,-160.7155,45.17,5,mww,,78,0.513,0.83,us,us6000b3e9,2025-12-22T18:38:45.862Z,"55 km SSW of Sand Point, Alaska",earthquake,4.8,3.9,0.033,89,reviewed,us,us
+2020-07-26T08:29:22.057Z,54.9008,-160.2463,38.1,4.7,mb,,80,0.386,0.81,us,us6000b4b1,2020-10-03T17:32:24.040Z,"51 km SSE of Sand Point, Alaska",earthquake,3.9,5.1,0.037,220,reviewed,us,us
+2020-07-26T10:00:27.224Z,55.0514,-158.7229,32.6,4.5,ml,,,,1.72,ak,ak0209k5qkvs,2020-10-03T17:32:24.040Z,"99 km SSE of Perryville, Alaska",earthquake,,0.6,,,reviewed,ak,ak
+2020-07-26T10:02:07.054Z,55.008,-158.3566,34.94,4,mb,,195,0.733,0.52,us,us6000b6t3,2020-10-03T17:32:33.040Z,"112 km SSE of Perryville, Alaska",earthquake,7,8.2,0.259,4,reviewed,us,us
+2020-07-26T21:35:53.460Z,54.7652,-160.0883,36.09,4.9,mww,,78,0.296,0.77,us,us6000b4hr,2020-10-03T17:32:25.040Z,"68 km SSE of Sand Point, Alaska",earthquake,4.7,4,0.047,44,reviewed,us,us
+2020-07-27T03:19:31.199Z,54.8934,-160.2224,47.04,4,mwr,,87,0.371,0.69,us,us6000b4k5,2020-10-03T17:32:26.040Z,"52 km SSE of Sand Point, Alaska",earthquake,2.9,5.9,0.086,13,reviewed,us,us
+2020-07-27T19:34:37.979Z,54.9365,-160.3108,37.48,5.5,mww,,42,0.424,1.27,us,us6000b4yh,2025-12-22T18:38:57.891Z,"46 km SSE of Sand Point, Alaska",earthquake,4.5,1.9,0.034,84,reviewed,us,us
+2020-07-28T08:03:43.215Z,54.7905,-161.2041,35.15,6.1,mww,,37,0.523,1.29,us,us6000b56k,2025-12-22T18:39:00.507Z,"75 km SW of Sand Point, Alaska",earthquake,2.6,3.2,0.024,163,reviewed,us,us
+2020-07-28T09:14:36.758Z,54.8593,-160.3262,42.17,4.3,mb,,158,0.427,0.86,us,us6000b57l,2020-10-03T17:32:28.040Z,"54 km SSE of Sand Point, Alaska",earthquake,5.6,6.9,0.094,32,reviewed,us,us
+2020-07-28T12:42:51.754Z,54.9042,-160.3077,41.88,5,mww,,77,0.421,0.87,us,us6000b5ad,2025-12-22T18:39:01.728Z,"49 km SSE of Sand Point, Alaska",earthquake,5.1,3.9,0.043,51,reviewed,us,us
+2020-07-28T12:54:34.237Z,54.8272,-160.2747,40.18,4,mb,,159,0.396,0.44,us,us6000b5ah,2020-10-03T17:32:28.040Z,"58 km SSE of Sand Point, Alaska",earthquake,5.8,8,0.133,15,reviewed,us,us
+2020-07-29T01:03:23.214Z,54.7333,-161.095,45.32,4,mwr,,174,0.608,0.88,us,us6000b5s3,2020-10-10T17:10:59.040Z,"77 km SSW of Sand Point, Alaska",earthquake,4.1,5.1,0.048,42,reviewed,us,us
+2020-07-29T08:47:40.202Z,54.8822,-160.2654,40.89,4.2,mb,,81,0.394,0.88,us,us6000b5yx,2020-10-10T17:11:00.040Z,"52 km SSE of Sand Point, Alaska",earthquake,3.9,5.9,0.103,26,reviewed,us,us
+2020-07-29T09:12:16.363Z,54.9443,-160.3298,39,5.6,mww,,74,0.414,1.1,us,us6000b5zl,2025-12-22T18:39:05.226Z,"44 km SSE of Sand Point, Alaska",earthquake,4.4,1.8,0.031,101,reviewed,us,us
+2020-07-29T13:09:10.144Z,54.6632,-161.0479,38.25,4.8,mww,,78,0.677,0.72,us,us6000b62p,2020-10-10T17:11:00.040Z,"82 km SSW of Sand Point, Alaska",earthquake,4.3,4.1,0.043,53,reviewed,us,us
+2020-07-30T16:08:18.839Z,54.8358,-158.1711,33.9,5,ml,,,,1.93,ak,ak0209qvi9kl,2020-10-10T17:11:03.040Z,"134 km SSE of Perryville, Alaska",earthquake,,0.6,,,reviewed,ak,ak
+2020-07-31T21:19:47.960Z,54.3318,-161.0036,25.03,4.2,mwr,,202,0.958,0.82,us,us6000b7ny,2020-10-10T17:11:06.040Z,"116 km SSW of Sand Point, Alaska",earthquake,4.6,7.5,0.052,35,reviewed,us,us
+2020-08-01T02:39:40.706Z,54.9157,-159.8426,43.82,4.1,mb,,77,0.169,0.88,us,us6000b7sc,2020-10-10T17:11:06.040Z,"62 km SE of Sand Point, Alaska",earthquake,5.8,2,0.097,29,reviewed,us,us
+2020-08-01T07:00:12.736Z,54.7692,-160.388,38.56,4.7,mwr,,152,0.466,1.25,us,us6000b7ve,2020-10-10T17:11:07.040Z,"63 km S of Sand Point, Alaska",earthquake,5.4,5.4,0.051,37,reviewed,us,us
+2020-08-02T14:39:24.265Z,54.5719,-160.9308,30.99,4.8,mb,,78,0.79,0.89,us,us6000b8cs,2020-10-10T17:11:10.040Z,"89 km SSW of Sand Point, Alaska",earthquake,3.3,4.1,0.046,149,reviewed,us,us
+2020-08-04T12:47:18.769Z,54.7206,-161.1384,35,5.2,mww,,65,0.599,0.99,us,us6000b95f,2025-12-22T18:39:37.143Z,"79 km SSW of Sand Point, Alaska",earthquake,5.1,1.9,0.035,77,reviewed,us,us
+2020-08-05T16:17:40.635Z,54.5622,-161.0906,6.6,5.1,mww,,47,0.738,0.65,us,us6000b9r9,2025-12-22T18:39:44.181Z,"94 km SSW of Sand Point, Alaska",earthquake,3.3,2.8,0.045,47,reviewed,us,us
+2020-08-05T20:37:06.032Z,54.8501,-160.2779,41.45,4,mb,,154,0.398,0.79,us,us6000b9uy,2020-10-21T22:03:53.040Z,"55 km SSE of Sand Point, Alaska",earthquake,4.7,6.7,0.108,27,reviewed,us,us
+2020-08-08T12:52:57.860Z,54.7713,-158.1884,27.5,5.4,mww,,,,1.44,ak,ak020a5p89cv,2025-12-22T18:40:04.465Z,"140 km SSE of Perryville, Alaska",earthquake,,1,,,reviewed,ak,ak
+2020-08-08T14:42:54.082Z,54.7143,-161.1058,38.61,5.5,mww,,106,0.617,1.16,us,us6000bb4r,2025-12-22T18:40:05.673Z,"79 km SSW of Sand Point, Alaska",earthquake,3.6,3.6,0.033,87,reviewed,us,us
+2020-08-09T01:51:42.090Z,54.7083,-161.1204,44.11,4.2,mwr,,78,0.615,0.9,us,us6000bbaf,2020-10-21T22:04:00.040Z,"80 km SSW of Sand Point, Alaska",earthquake,4.4,5.1,0.038,67,reviewed,us,us
+2020-08-09T14:57:54.166Z,55.0487,-157.9354,22.1,5.1,mww,,,,0.64,ak,ak020a7dzfzp,2025-12-30T18:13:45.622Z,"122 km SE of Perryville, Alaska",earthquake,,2.4,,,reviewed,ak,ak
+2020-08-10T06:49:42.331Z,54.8723,-160.2895,39.58,4.2,mb,,161,0.406,0.7,us,us6000bbr2,2020-10-21T22:04:03.040Z,"53 km SSE of Sand Point, Alaska",earthquake,5.7,8.3,0.167,10,reviewed,us,us
+2020-08-10T12:54:39.002Z,55.0813,-157.9407,35.4,4.2,ml,,,,1.43,ak,ak020a90b95g,2020-10-21T22:04:04.040Z,"119 km SE of Perryville, Alaska",earthquake,,0.6,,,reviewed,ak,ak
+2020-08-14T23:29:08.521Z,54.8495,-157.4303,11.9,4.1,ml,,,,0.65,ak,ak020afsuzlp,2020-10-24T20:08:52.040Z,"160 km SE of Perryville, Alaska",earthquake,,1.5,,,reviewed,ak,ak
+2020-08-15T07:34:09.404Z,54.9255,-160.3923,33.29,4.2,mb,,153,0.427,0.89,us,us6000bf3r,2020-10-24T20:08:53.040Z,"46 km S of Sand Point, Alaska",earthquake,3.4,6.7,0.146,13,reviewed,us,us
+2020-08-18T18:28:33.740Z,55.02,-157.9389,14.3,5.1,mww,,,,0.61,ak,ak020amc11hi,2025-12-22T18:40:41.498Z,"125 km SE of Perryville, Alaska",earthquake,,1.6,,,reviewed,ak,ak
+2020-08-19T04:06:17.067Z,54.9268,-160.3215,47.33,4,mb,,78,0.432,0.66,us,us6000bgyg,2020-10-31T19:06:07.040Z,"46 km SSE of Sand Point, Alaska",earthquake,5.3,6,0.129,16,reviewed,us,us

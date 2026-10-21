@@ -1,0 +1,8 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2023-05-25T03:05:32.956Z,8.9223,-77.0904,13,6.5,mww,113,87,2.12,0.62,us,us7000k3n3,2023-07-29T22:00:35.040Z,"45 km NE of Puerto Obaldía, Panama",earthquake,6.62,1.815,0.044,49,reviewed,us,us
+2023-05-25T03:14:56.885Z,8.8411,-77.0924,10,5,mb,50,76,2.16,0.71,us,us7000k3n8,2023-07-29T22:00:36.040Z,"40 km ENE of Puerto Obaldía, Panama",earthquake,5.13,1.678,0.085,44,reviewed,us,us
+2023-05-25T06:48:30.578Z,8.9051,-77.1082,10,4.6,mb,33,77,2.143,0.41,us,us7000k3p5,2023-07-29T22:00:36.040Z,"43 km NE of Puerto Obaldía, Panama",earthquake,7.08,1.96,0.181,9,reviewed,us,us
+2023-05-25T07:35:13.141Z,8.9039,-77.1261,10,4.5,mb,29,73,2.159,0.7,us,us7000k3pa,2023-07-29T22:00:36.040Z,"41 km NE of Puerto Obaldía, Panama",earthquake,5.23,1.977,0.191,9,reviewed,us,us
+2023-05-25T08:47:19.531Z,8.7742,-77.1783,10,4.5,mb,67,70,2.266,0.6,us,us7000k3pe,2023-07-29T22:00:36.040Z,"Panama-Colombia border region",earthquake,6.95,1.888,0.073,55,reviewed,us,us
+2023-05-25T09:02:00.822Z,8.8748,-77.1716,10,4.5,mb,45,47,2.213,0.86,us,us7000k3ph,2023-07-29T22:00:36.040Z,"35 km NE of Puerto Obaldía, Panama",earthquake,5.08,1.86,0.068,63,reviewed,us,us
+2023-05-28T02:56:34.249Z,9.0279,-77.1686,10,4.3,mb,21,79,2.144,0.64,us,us7000k4jq,2023-08-05T22:07:36.040Z,"48 km NE of Puerto Obaldía, Panama",earthquake,6.3,1.779,0.237,5,reviewed,us,us

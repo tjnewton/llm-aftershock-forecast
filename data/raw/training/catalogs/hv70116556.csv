@@ -1,0 +1,21 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2018-05-01T12:39:11.860Z,19.2705,-155.0968333,5.9,4.22,ml,29,209,0.03409,0.11,hv,hv70102511,2018-07-27T20:20:33.040Z,"21 km S of Fern Forest, Hawaii",earthquake,0.53,1.17,0.223,43,reviewed,hv,hv
+2018-05-03T20:30:56.470Z,19.3388333,-155.0706667,6.47,5.06,mb,63,176,0.05361,0.11,hv,hv70112126,2021-10-10T22:23:00.438Z,"15 km SSE of Fern Forest, Hawaii",earthquake,0.37,0.31,,22,reviewed,hv,hv
+2018-05-04T21:32:44.060Z,19.3303333,-155.0175,6.48,5.73,ml,66,202,0.09,0.12,hv,hv70116411,2022-05-03T19:11:25.984Z,"18 km SW of Leilani Estates, Hawaii",earthquake,0.46,0.3,0.146,30,reviewed,hv,hv
+2018-05-04T21:38:23.880Z,19.3378333,-155.0215,1.32,4.35,ml,51,205,0.08179,0.14,hv,hv70116416,2018-07-27T20:20:30.040Z,"18 km SW of Leilani Estates, Hawaii",earthquake,0.68,0.66,0.148,46,reviewed,hv,hv
+2018-05-04T22:32:54.650Z,19.3181667,-154.9996667,5.81,6.9,mw,63,210,0.11,0.11,hv,hv70116556,2023-11-27T02:35:11.076Z,"18 km SSW of Leilani Estates, Hawaii",earthquake,0.52,0.31,,10,reviewed,hv,hv
+2018-05-04T22:37:18.600Z,19.2728333,-155.2446667,7.91,4.61,ml,43,158,0.02068,0.1,hv,hv70116566,2022-08-08T03:05:08.153Z,"18 km S of Volcano, Hawaii",earthquake,0.39,0.48,0.161,36,reviewed,hv,hv
+2018-05-04T22:39:31.510Z,19.388,-155.2545,-0.05,3.99,ml,29,58,0.003899,0.1,hv,hv70116571,2018-07-27T20:20:30.040Z,"6 km SSW of Volcano, Hawaii",earthquake,0.14,0.16,0.134,16,reviewed,hv,hv
+2018-05-04T22:42:42.500Z,19.3103333,-155.2173333,7.74,4.64,ml,46,88,0.02976,0.11,hv,hv70116581,2018-07-27T20:20:30.040Z,"14 km S of Volcano, Hawaii",earthquake,0.29,0.43,0.124,32,reviewed,hv,hv
+2018-05-04T22:48:19.500Z,19.4128333,-155.3158333,2.64,4.66,ml,63,31,0.01617,0.12,hv,hv70116601,2018-12-06T02:02:25.868Z,"9 km WSW of Volcano, Hawaii",earthquake,0.2,0.28,0.245,27,reviewed,hv,hv
+2018-05-05T00:37:10.680Z,19.215,-155.3168333,9.29,4.93,ml,62,167,0.07944,0.16,hv,hv70117041,2018-12-06T02:18:59.650Z,"17 km E of P?hala, Hawaii",earthquake,0.34,0.36,0.191,36,reviewed,hv,hv
+2018-05-05T01:20:27.840Z,19.3163333,-154.7796667,10.55,4.75,ml,60,280,0.1908,0.13,hv,hv70117211,2018-12-06T01:14:18.385Z,"22 km SE of Leilani Estates, Hawaii",earthquake,0.63,0.33,0.147,40,reviewed,hv,hv
+2018-05-05T03:30:15.740Z,19.0588333,-155.0411667,7.82,4.4,ml,63,245,0.2406,0.12,hv,hv70117676,2018-12-06T02:28:09.026Z,"46 km SSE of Fern Forest, Hawaii",earthquake,0.46,0.53,0.176,45,reviewed,hv,hv
+2018-05-05T06:11:08.990Z,19.3205,-154.9758333,2.35,4.06,ml,11,261,0.1157,0.08,hv,hv70118241,2018-07-27T20:20:30.040Z,"17 km SSW of Leilani Estates, Hawaii",earthquake,2.2,3.4,0.131,40,reviewed,hv,hv
+2018-05-06T13:26:07.980Z,19.1001667,-155.2055,9.35,4.25,ml,62,217,0.181,0.12,hv,hv70123771,2018-12-06T00:56:39.540Z,"30 km ESE of P?hala, Hawaii",earthquake,0.91,0.45,0.164,44,reviewed,hv,hv
+2018-05-10T23:52:16.840Z,19.3623,-154.9523,-0.02,4,ml,,202,0.086,1.19,us,us1000e2hn,2022-08-08T04:22:30.370Z,"12 km SSW of Leilani Estates, Hawaii",earthquake,2.7,7.8,0.131,61,reviewed,hv,hv
+2018-05-12T07:25:01.240Z,19.367,-155.0071667,5.88,4.23,ml,67,179,0.06631,0.13,hv,hv70148657,2018-08-08T15:21:07.040Z,"14 km SW of Leilani Estates, Hawaii",earthquake,0.44,0.34,0.166,46,reviewed,hv,hv
+2018-05-13T09:53:30.870Z,19.367,-154.8675,11.86,4.44,ml,71,228,0.1005,0.12,hv,hv70152547,2018-12-06T01:03:10.686Z,"12 km SSE of Leilani Estates, Hawaii",earthquake,0.46,0.23,0.208,45,reviewed,hv,hv
+2018-05-16T18:30:45.910Z,19.4136667,-155.28,0.45,4.43,ml,16,55,0.001843,0.06,hv,hv70163032,2021-03-10T00:15:46.519Z,"5 km WSW of Volcano, Hawaii",earthquake,0.24,0.21,0.201,23,reviewed,hv,hv
+2018-05-25T22:43:40.680Z,19.4126667,-155.2811667,0.44,4.11,ml,49,25,0.005687,0.11,hv,hv70191882,2018-08-21T21:23:52.040Z,"5 km SW of Volcano, Hawaii",earthquake,0.13,0.12,0.213,17,reviewed,hv,hv
+2018-05-29T03:39:36.560Z,19.354,-155.2453333,0.93,4.12,ml,38,62,0.01997,0.1,hv,hv70202927,2018-08-28T16:28:10.040Z,"9 km S of Volcano, Hawaii",earthquake,0.17,0.27,0.164,48,reviewed,hv,hv
