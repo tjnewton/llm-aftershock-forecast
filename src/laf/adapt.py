@@ -73,13 +73,11 @@ def recommend(c, dataset_id: str, model: str = MODEL) -> dict:
 def launch(c, dataset_id: str, model: str = MODEL, hyperparams: dict | None = None) -> str:
     """Spends Adaption credits: supervised (instruction) LoRA fine-tuning; the checkpoint used
     is the one AutoScientist reports as best."""
-    kw = {
+    kw: dict[str, object] = {
         "dataset_id": dataset_id,
         "model": model,
         "training_method": "instruction",
-        "data_format": "instruction",
-        "column_mapping": {"prompt": "prompt", "completion": "completion"},
-    }
+    }  # raw upload already canonicalized the prompt and completion columns
     if hyperparams:
         kw["hyperparams"] = {k: v for k, v in hyperparams.items() if v is not None}
     run = c.autoscientist.create(**kw)
