@@ -87,6 +87,8 @@ def main(argv: list[str] | None = None) -> None:
     tr.add_argument("--workers", type=int, default=8)
     fg = sub.add_parser("figures", help="figures/*.png and the explorer table (no API calls)")
     fg.add_argument("--snapshot", required=True)
+    e1 = sub.add_parser("e1", help="E1 adapted-model table (no API calls)")
+    e1.add_argument("--snapshot", required=True)
     lt = sub.add_parser("literature", help="E2 literature exposure table (no network)")
     lt.add_argument("--snapshot", required=True)
     pr = sub.add_parser("probe", help="SPENDS MONEY (~$0.3): recall probe (prereg sec. 8)")
@@ -304,6 +306,19 @@ def main(argv: list[str] | None = None) -> None:
         print(
             f"{len(ev)} sequences from {start} to {a.end}; {len(data)} rows -> {out}/e1_train.jsonl"
         )
+    elif a.cmd == "e1":
+        from laf import extensions as X
+
+        runs = sorted(
+            p.parent
+            for p in Path("runs").glob("*/results.jsonl")
+            if (p.parent / "requests.jsonl").exists()
+        )
+        tab, inv = X.e1_table(a.data_dir / "processed" / a.snapshot, runs)
+        Path("results").mkdir(exist_ok=True)
+        tab.to_csv("results/e1.csv", index=False, lineterminator="\n")
+        print(tab.round(3).to_string(index=False))
+        print(inv.round(3).to_string())
     elif a.cmd == "literature":
         import pandas as pd
 
