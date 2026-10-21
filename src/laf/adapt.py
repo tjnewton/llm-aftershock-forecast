@@ -81,7 +81,7 @@ def launch(c, dataset_id: str, model: str = MODEL, hyperparams: dict | None = No
         "column_mapping": {"prompt": "prompt", "completion": "completion"},
     }
     if hyperparams:
-        kw["hyperparams"] = hyperparams
+        kw["hyperparams"] = {k: v for k, v in hyperparams.items() if v is not None}
     run = c.autoscientist.create(**kw)
     _record(
         "run.json",

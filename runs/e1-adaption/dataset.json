@@ -1,0 +1,7 @@
+{
+ "dataset_id": "8955e9d8-f8c0-41c3-babe-f822f7832161",
+ "file": "data/processed/training/e1_train.jsonl",
+ "file_sha256": "b72a83a6db55895c5f60b269bd2f5ed3e5ee2084e773162533e635e3920b0948",
+ "row_count": 3090,
+ "status": "succeeded"
+}
