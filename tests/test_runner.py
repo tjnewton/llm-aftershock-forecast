@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 import pytest
@@ -41,3 +42,12 @@ def test_spend_guard_refuses_before_writing_or_submitting(monkeypatch, tmp_path)
     with pytest.raises(SystemExit, match="spend guard"):
         runner.submit(None, "x", [], "S", estimate=5.0)
     assert not (tmp_path / "x").exists()
+
+
+def test_spend_ignores_local_models(tmp_path):
+    run = tmp_path / "core-gpt-oss-20b"
+    run.mkdir()
+    local = {"model": "openai/gpt-oss-20b", "usage": {"input_tokens": 9, "output_tokens": 9}}
+    claude = {"model": "claude-haiku-5-5", "usage": {"input_tokens": 1e6, "output_tokens": 0}}
+    (run / "results.jsonl").write_text(json.dumps(local) + "\n" + json.dumps(claude) + "\n")
+    assert runner.spent_usd(tmp_path) == 0.05

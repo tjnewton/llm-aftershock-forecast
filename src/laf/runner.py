@@ -12,7 +12,7 @@ from pathlib import Path
 
 from laf.items import Item
 from laf.prompts import PROMPT_DIR, render, schema
-from laf.providers import API_BASE_URL, anthropic_params, cost_usd
+from laf.providers import API_BASE_URL, PRICES, anthropic_params, cost_usd
 
 RUNS = Path("runs")
 MAX_TOKENS_BATCH = 32_000
@@ -123,11 +123,15 @@ def spent_usd(runs: Path = RUNS) -> float:
             total += json.loads(path.read_text(encoding="utf-8")).get("estimate_usd", 0.0)
     for path in runs.glob("*/calls.jsonl"):
         total += sum(
-            cost_usd(r["model_requested"], r["usage"]) for r in _jsonl(path) if r.get("usage")
+            cost_usd(r["model_requested"], r["usage"])
+            for r in _jsonl(path)
+            if r.get("usage") and r.get("model_requested") in PRICES
         )
     for path in runs.glob("*/results.jsonl"):
         total += sum(
-            cost_usd(r["model"], r["usage"], batch=True) for r in _jsonl(path) if r.get("usage")
+            cost_usd(r["model"], r["usage"], batch=True)
+            for r in _jsonl(path)
+            if r.get("usage") and r.get("model") in PRICES  # local models are free
         )
     return total
 
