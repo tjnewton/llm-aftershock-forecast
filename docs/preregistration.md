@@ -194,7 +194,7 @@ message; (7) make the repository public and push commit and tag; (8) the partici
 tag, commit SHA and file SHA-256 in the hackathon Slack. Batch results are not retrieved until
 the scoring code (`laf.forecast`, `laf.scoring`) is committed and tagged `scoring-v1`, unless it
 was already frozen at `prereg-v1`. Record after freezing:
-- Commit: [SHA]  - File SHA-256: [HASH]  - Tag: prereg-v1  - Pushed (UTC): [TIME]
+- Commit: 1c15325b25204dca48066eff1a22fb9d4f332f83  - File SHA-256: 1d8d3722d5a963a24efbd4f03f00437e9e13a8bcf74daed086eb17a0e75281b1  - Tag: prereg-v1  - Pushed (UTC): 2026-10-21T14:08:44Z
 
 ## 13. Deviations
 Any change after the tag is logged in `docs/deviations.md` with UTC time, reason and expected
