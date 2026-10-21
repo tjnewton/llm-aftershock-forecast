@@ -76,6 +76,8 @@ def main(argv: list[str] | None = None) -> None:
     ev.add_argument("--parts", nargs="*", default=["v0", "v3", "java", "recovery", "decomp"])
     ev.add_argument("--recovery-n", type=int, default=800, help="sequences per fit time")
     sub.add_parser("smoke", help="SPENDS MONEY (<= $1): one tiny call per Claude model")
+    fg = sub.add_parser("figures", help="figures/*.png and the explorer table (no API calls)")
+    fg.add_argument("--snapshot", required=True)
     pr = sub.add_parser("probe", help="SPENDS MONEY (~$0.3): recall probe (prereg sec. 8)")
     pr.add_argument("--snapshot", required=True)
     lv = sub.add_parser("live", help="SPENDS MONEY (~$1.5): live Panama forecasts (prereg sec. 10)")
@@ -244,6 +246,51 @@ def main(argv: list[str] | None = None) -> None:
             print("decomposition (mean |log ratio| of M>=5 quantiles; median over cells):")
             print(d.groupby("sequence_id")[cols].median().round(3))
         print(f"wrote {out}")
+    elif a.cmd == "figures":
+        import numpy as np
+        import pandas as pd
+
+        from laf import analysis as A
+        from laf import figures as F
+
+        proc = a.data_dir / "processed" / a.snapshot
+        tables, items = A.load_tables(proc), A.load_items(proc)
+        cell_df = A.cells(tables)
+        cell_df = cell_df[cell_df["role"] != "dev"].reset_index(drop=True)
+        runs = sorted(
+            p.parent
+            for p in Path("runs").glob("*/results.jsonl")
+            if (p.parent / "requests.jsonl").exists()
+        )
+        df = A.score_all(cell_df, A.baselines(tables, items, cell_df), A.llm_samples(runs, items))
+        tab = F.explorer_table(df)
+        public = Path("notebooks/public")
+        public.mkdir(parents=True, exist_ok=True)
+        tab.to_csv(public / "explorer.csv", index=False, lineterminator="\n")
+        ans = A.answer_scores(df)
+        oaf = ans["primary"] & ans["oaf_cell"] & ans["role"].eq("test-post")
+        h1 = pd.concat(
+            [
+                A.ci_table(
+                    A.dqs(ans, f"{m}|direct|I1|high", "official", oaf),
+                    np.random.default_rng(20261021),
+                ).assign(model=m)
+                for m in F.MODELS
+            ]
+        )
+        out = Path("figures")
+        out.mkdir(exist_ok=True)
+        F.fig_h1(h1, out / "h1_vs_official.png")
+        F.fig_coverage(df, out / "coverage.png")
+        for seq, win in (("Flores Sea", "1 Week"), ("Colombia", "1 Week")):
+            F.fig_fan(
+                tab,
+                seq,
+                win,
+                ["official", "etas", "claude-sonnet-5-5|direct|I1|high"],
+                out / f"fan_{seq.split()[0].lower()}_{win.split()[1].lower()}.png",
+            )
+        print(f"{len(tab)} explorer rows -> {public / 'explorer.csv'}; figures -> {out}/")
     elif a.cmd == "probe":
         import pandas as pd
 
