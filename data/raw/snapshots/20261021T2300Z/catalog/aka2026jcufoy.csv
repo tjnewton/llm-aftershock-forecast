@@ -1,0 +1,13 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-04-20T09:54:45.426Z,51.0983,179.3102,35,4.7,mb,55,203,0.281,0.99,us,us6000srix,2026-10-07T18:32:28.104Z,"294 km WSW of Adak, Alaska",earthquake,3.06,1.936,0.075,54,reviewed,us,us
+2026-05-08T20:03:25.201Z,51.0093,179.3467,35,4.7,mb,134,176,0.371,0.92,us,us6000swbu,2026-07-18T18:23:17.040Z,"295 km WSW of Adak, Alaska",earthquake,4.77,1.903,0.034,260,reviewed,us,us
+2026-05-09T04:42:21.975Z,50.981,179.214,16.3,6.1,ml,43,230,0.4,0.7,ak,aka2026jcufoy,2026-10-17T04:52:36.186Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,5.5,3.0809,0.1,32,reviewed,ak,ak
+2026-05-09T04:42:23.908Z,51.0585,179.3102,37.438,5.8,mww,122,126,0.32,1.1,us,us6000swf4,2026-07-18T18:23:18.040Z,"296 km WSW of Adak, Alaska",earthquake,5.25,5.58,0.039,63,reviewed,us,us
+2026-05-09T04:51:28.619Z,51.011,179.341,15,3.1,ml,9,269,0.4,0.9,ak,aka2026jcunkt,2026-05-14T22:16:12.049Z,"295 km WSW of Adak, Alaska",earthquake,10.7,3.7164,0.1,3,reviewed,ak,ak
+2026-05-09T07:12:48.783Z,51.1325,179.34,35,3.9,mb,61,178,0.247,0.77,us,us6000swi5,2026-07-18T18:23:19.040Z,"291 km WSW of Adak, Alaska",earthquake,3.41,1.845,0.066,61,reviewed,us,us
+2026-05-10T07:28:09.813Z,51.0333,179.3601,24.641,4.3,mb,54,214,0.348,0.58,us,us6000swn9,2026-07-18T18:23:20.040Z,"293 km WSW of Adak, Alaska",earthquake,5.06,6.229,0.055,93,reviewed,us,us
+2026-05-11T12:00:50.806Z,51.0663,179.1802,22.691,3.5,mb,29,227,0.322,0.62,us,us6000sxac,2026-07-18T18:23:24.040Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,5.78,9.814,0.157,10,reviewed,us,us
+2026-05-13T03:37:20.617Z,50.9798,179.3048,28.948,3.9,mb,43,241,0.399,0.8,us,us6000sxcd,2026-07-18T18:23:25.040Z,"299 km WSW of Adak, Alaska",earthquake,5.34,7.463,0.097,28,reviewed,us,us
+2026-05-25T05:28:17.420Z,51.133,179.2737,35,3.8,mb,63,188,0.246,0.44,us,us6000t00k,2026-08-05T15:58:54.040Z,"295 km WSW of Adak, Alaska",earthquake,5.38,1.944,0.096,28,reviewed,us,us
+2026-05-31T18:22:57.863Z,51.089,179.2425,35,3.1,ml,17,261,0.292,0.98,us,us7000sqqa,2026-08-11T13:34:09.040Z,"299 km WSW of Adak, Alaska",earthquake,4.52,1.998,0.091,16,reviewed,us,us
+2026-07-15T11:02:45.498Z,50.9822,179.1612,21.283,3.8,mb,68,208,0.406,0.66,us,us7000t27j,2026-09-29T22:05:36.040Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,4.32,6.606,0.113,20,reviewed,us,us

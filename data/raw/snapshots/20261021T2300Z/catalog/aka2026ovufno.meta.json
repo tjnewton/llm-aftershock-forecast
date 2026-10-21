@@ -1,0 +1,11 @@
+{
+ "event_id": "aka2026ovufno",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2026-06-28T20%3A49%3A24&endtime=2026-10-21T23%3A00%3A00&latitude=63.6110&longitude=-150.6730&maxradiuskm=19.6&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 4,
+ "catalog_start_ms": 1782679764979,
+ "catalog_end_ms": 1792623600000,
+ "center_lat": 63.611,
+ "center_lon": -150.673,
+ "radius_km": 19.57669915513648,
+ "min_mag": 3.0
+}

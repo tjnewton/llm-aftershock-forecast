@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-08-08T04:50:34.985Z,62.269,-152.314,10,5.6,ml,228,18,0.5,1.1,ak,aka2026powmkf,2026-10-17T05:00:41.422Z,"57 km WNW of Skwentna, Alaska",earthquake,1.5,0,0.2,154,reviewed,ak,ak
+2026-08-08T04:56:35.171Z,62.239,-152.234,0.4,3.2,ml,30,63,0.4,1,ak,aka2026powrpu,2026-09-02T23:13:17.040Z,"51 km WNW of Skwentna, Alaska",earthquake,3,2.0997,0.2,13,reviewed,ak,ak
+2026-08-08T07:01:49.394Z,62.252,-152.339,5,3.3,ml,134,19,0.5,0.8,ak,aka2026ppawfh,2026-09-01T15:27:44.040Z,"57 km WNW of Skwentna, Alaska",earthquake,1.8,0,0.1,99,reviewed,ak,ak
+2026-08-09T09:53:46.752Z,62.286,-152.295,5,3.1,ml,122,18,0.5,0.8,ak,aka2026prcpvq,2026-09-01T15:39:20.040Z,"57 km NW of Skwentna, Alaska",earthquake,2,0,0.1,90,reviewed,ak,ak

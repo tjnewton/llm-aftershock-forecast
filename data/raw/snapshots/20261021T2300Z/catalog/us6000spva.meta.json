@@ -1,0 +1,11 @@
+{
+ "event_id": "us6000spva",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2026-03-15T03%3A04%3A20&endtime=2026-07-13T03%3A04%3A20&latitude=18.9854&longitude=145.4573&maxradiuskm=25.8&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 7,
+ "catalog_start_ms": 1773543860670,
+ "catalog_end_ms": 1783911860670,
+ "center_lat": 18.9854,
+ "center_lon": 145.4573,
+ "radius_km": 25.750631941816728,
+ "min_mag": 3.0
+}

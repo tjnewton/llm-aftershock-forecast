@@ -1,0 +1,11 @@
+{
+ "event_id": "us7000ti1p",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2026-08-18T14%3A19%3A52&endtime=2026-10-21T23%3A00%3A00&latitude=52.9564&longitude=-171.5033&maxradiuskm=65.8&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 9,
+ "catalog_start_ms": 1787062792472,
+ "catalog_end_ms": 1792623600000,
+ "center_lat": 52.9564,
+ "center_lon": -171.5033,
+ "radius_km": 65.84716234198173,
+ "min_mag": 3.0
+}

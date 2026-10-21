@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-07-16T11:37:21.034Z,60.569,-141.508,8.5,5.2,ml,195,46,0.2,0.9,ak,aka2026nyxoap,2026-10-15T11:48:05.045Z,"122 km SE of McCarthy, Alaska",earthquake,1.9,1.2539,0.2,121,reviewed,ak,ak

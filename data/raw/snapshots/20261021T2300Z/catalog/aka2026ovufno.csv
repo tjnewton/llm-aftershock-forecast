@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-07-15T19:31:38.048Z,63.628,-150.704,3.3,3.5,ml,73,30,0.7,1,ak,aka2026nxrisg,2026-09-29T22:05:30.040Z,"51 km E of Denali National Park, Alaska",earthquake,2.5,2.2515,0.2,54,reviewed,ak,ak
+2026-07-28T20:49:24.979Z,63.611,-150.673,5,5,ml,208,23,0.5,1,ak,aka2026ovufno,2026-10-20T20:59:29.776Z,"52 km E of Denali National Park, Alaska",earthquake,1.8,0,0.2,145,reviewed,ak,ak
+2026-07-28T20:52:22.178Z,63.561,-150.633,0.7,3.5,ml,25,48,0.6,0.5,ak,aka2026ovuicj,2026-10-13T22:42:25.040Z,"54 km E of Denali National Park, Alaska",earthquake,2.9,2.3097,0.1,14,reviewed,ak,ak
+2026-08-27T18:37:51.437Z,63.649,-150.721,5,3,ml,132,22,0.1,1.4,ak,aka2026qzamnb,2026-09-08T15:29:06.040Z,"51 km ENE of Denali National Park, Alaska",earthquake,1.8,0,0.1,96,reviewed,ak,ak

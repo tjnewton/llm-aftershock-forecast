@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-02-27T05:17:52.119Z,51.5045,-174.8703,34.108,5,mb,88,181,0.813,0.87,us,us7000s0nl,2026-10-16T05:28:00.398Z,"89 km SSW of Atka, Alaska",earthquake,5.17,6.185,0.034,272,reviewed,us,us

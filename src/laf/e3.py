@@ -18,6 +18,8 @@ POST = ("2026-07-01", "2026-10-01")  # [start, end)
 PRE = ("2026-01-01", "2026-06-01")
 N_PRE = 60
 MIN_MAG = 5.0  # smaller mainshocks almost never have M>=5 (or M>=4) aftershocks to score
+# ComCat truncates this event's document (superseded products) at ~1.2 MB on every request
+UNRETRIEVABLE = {"nn00914068"}
 CONTEXT = ("2025-01-01", "2026-10-15")  # events that can claim a candidate as fore/aftershock
 DAY_MS = 86_400_000
 RAW = "raw/e3"
@@ -63,7 +65,7 @@ def select(data_dir: Path, registered: set[str]) -> pd.DataFrame:
     ).drop_duplicates("id")
     keep = []
     for role, df in (("test-post", post), ("test-pre", pre)):
-        df = df[(df["mag"] >= MIN_MAG) & ~df["id"].isin(registered)]
+        df = df[(df["mag"] >= MIN_MAG) & ~df["id"].isin(registered | UNRETRIEVABLE)]
         df = df[~claimed(df, context)].sort_values("time_ms")
         if role == "test-pre":
             df = df.tail(N_PRE)

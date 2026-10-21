@@ -11,6 +11,6 @@ Each entry: UTC time, change, reason, expected effect on the registered analyses
 - 2026-10-21T23:00Z. API budget raised by Tyler to about $200 total; runner spend guard 140 ->
   195 USD and spend accounting now includes nested run folders. Effect: none on scoring.
 - 2026-10-21T23:00Z. E3 extended exploratory set (docs/adr/0012-e3-extended-set.md): 40
-  further sequences with an official forecast, own config and snapshot, scored with the frozen
+  further sequences (39 after one unretrievable event) with an official forecast, own config and snapshot, scored with the frozen
   code. Reason: the registered official-forecast comparison rests on two sequences. Effect: none
   on registered analyses; E3 results are reported as exploratory.

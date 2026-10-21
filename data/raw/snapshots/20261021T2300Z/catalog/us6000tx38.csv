@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-08-29T11:47:56.753Z,21.6817,142.8625,334.771,4.2,mb,39,135,5.425,0.32,us,us7000tctm,2026-09-12T09:45:51.040Z,"Mariana Islands region",earthquake,12.58,9.609,0.088,36,reviewed,us,us
+2026-09-23T13:01:51.754Z,21.6538,143.0012,306.98,5,mb,150,26,5.469,0.58,us,us6000tx38,2026-10-21T13:12:04.773Z,"Mariana Islands region",earthquake,9.76,5.553,0.025,535,reviewed,us,us
+2026-10-11T05:13:37.312Z,21.6333,142.9183,304.643,4.2,mb,44,104,5.479,0.62,us,us6000u1in,2026-10-21T09:28:22.040Z,"Mariana Islands region",earthquake,11.68,8.921,0.069,59,reviewed,us,us
+2026-10-16T03:57:21.128Z,21.5448,142.9876,343.106,4.3,mb,38,71,6.817,1.08,us,us6000u2my,2026-10-16T04:38:20.040Z,"Mariana Islands region",earthquake,13.08,8.136,0.107,25,reviewed,us,us

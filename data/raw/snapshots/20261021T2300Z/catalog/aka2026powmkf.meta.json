@@ -1,0 +1,11 @@
+{
+ "event_id": "aka2026powmkf",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2026-07-09T04%3A50%3A34&endtime=2026-10-21T23%3A00%3A00&latitude=62.2690&longitude=-152.3140&maxradiuskm=19.0&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 4,
+ "catalog_start_ms": 1783572634985,
+ "catalog_end_ms": 1792623600000,
+ "center_lat": 62.269,
+ "center_lon": -152.314,
+ "radius_km": 18.98773485643713,
+ "min_mag": 3.0
+}

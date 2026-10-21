@@ -1,0 +1,11 @@
+{
+ "event_id": "us7000rptl",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-12-16T08%3A52%3A43&endtime=2026-04-15T08%3A52%3A43&latitude=51.5917&longitude=176.7527&maxradiuskm=41.4&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 18,
+ "catalog_start_ms": 1765875163219,
+ "catalog_end_ms": 1776243163219,
+ "center_lat": 51.5917,
+ "center_lon": 176.7527,
+ "radius_km": 41.42346321110442,
+ "min_mag": 3.0
+}

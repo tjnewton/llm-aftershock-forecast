@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-07-23T10:21:43.909Z,35.902,-100.976,5.6885,5,ml,14,71,0.4,0.3,tx,tx2026ojlaky,2026-10-15T10:31:46.593Z,"38 km SSE of Spearman, Texas",earthquake,1.2286400847808,1.3921747366366,0.2,12,reviewed,tx,tx

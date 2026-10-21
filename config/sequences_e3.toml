@@ -189,12 +189,6 @@ role = "test-pre"
 catalog_min_mag = 3.0
 
 [[sequence]]
-id = "nn00914068"
-name = "20 km ESE of Silver Springs, Nevada 2026-04-14"
-role = "test-pre"
-catalog_min_mag = 3.0
-
-[[sequence]]
 id = "us6000spva"
 name = "Pagan region, Northern Mariana Islands 2026-04-14"
 role = "test-pre"

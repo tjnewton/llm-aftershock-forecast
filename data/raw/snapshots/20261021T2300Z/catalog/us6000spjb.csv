@@ -1,0 +1,9 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-04-10T12:50:11.425Z,54.2212,-162.5517,26.672,4.9,mww,121,148,0.763,0.73,us,us6000snxe,2026-09-29T20:28:34.306Z,"89 km SE of False Pass, Alaska",earthquake,4.53,3.904,0.068,21,reviewed,us,us
+2026-04-12T20:14:10.329Z,54.2236,-162.3765,35,5.1,mww,107,123,0.75,0.88,us,us6000spjb,2026-10-18T20:24:15.038Z,"93 km S of King Cove, Alaska",earthquake,4,1.772,0.05,39,reviewed,us,us
+2026-04-12T20:19:16.263Z,54.2162,-162.3663,10.528,3.1,ml,32,216,0.757,0.42,us,us6000sxru,2026-10-02T23:22:38.175Z,"94 km S of King Cove, Alaska",earthquake,3.25,8.491,0.077,22,reviewed,us,us
+2026-04-12T21:09:06.818Z,54.2256,-162.3768,10,3.7,mb,56,211,0.748,0.69,us,us6000spjm,2026-10-02T23:19:55.630Z,"93 km S of King Cove, Alaska",earthquake,2.94,1.93,0.226,5,reviewed,us,us
+2026-04-13T13:28:08.182Z,54.1919,-162.3755,35,3.3,mb,26,215,0.782,0.82,us,us6000spmi,2026-10-06T15:16:45.530Z,"96 km S of King Cove, Alaska",earthquake,3.31,1.96,0.279,3,reviewed,us,us
+2026-05-09T13:34:33.434Z,54.2652,-162.5713,35,3.1,ml,48,187,0.722,1.08,us,us7000ssbk,2026-07-18T18:23:33.040Z,"85 km SE of False Pass, Alaska",earthquake,3.72,2.004,0.069,28,reviewed,us,us
+2026-05-14T02:53:43.836Z,54.3012,-162.3287,47.675,4.7,mb,118,152,0.672,0.77,us,us6000sxkn,2026-07-25T22:12:47.040Z,"84 km S of King Cove, Alaska",earthquake,4.93,6.826,0.058,90,reviewed,us,us
+2026-05-14T02:55:33.599Z,54.3592,-162.4086,46.472,3.5,ml,16,206,0.615,0.8,us,us6000sxs4,2026-07-25T22:12:48.040Z,"78 km S of King Cove, Alaska",earthquake,4.79,22.1,0.148,6,reviewed,us,us

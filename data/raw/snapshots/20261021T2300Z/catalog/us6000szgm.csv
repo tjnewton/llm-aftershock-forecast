@@ -1,0 +1,15 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-04-29T06:08:38.827Z,52.3136,-171.3465,10,3.6,ml,16,198,0.991,0.97,us,us7000sia7,2026-07-11T20:01:26.040Z,"182 km WSW of Nikolski, Alaska",earthquake,8.47,2.006,0.085,18,reviewed,us,us
+2026-05-18T21:37:20.010Z,52.4866,-171.7704,10,4.9,mww,92,88,1.135,0.56,us,us6000sym0,2026-07-25T22:12:52.040Z,"168 km E of Atka, Alaska",earthquake,5.63,1.766,0.073,18,reviewed,us,us
+2026-05-18T23:27:41.730Z,52.55,-171.7042,10,3.2,ml,24,180,1.075,0.33,us,us6000symw,2026-07-25T22:12:52.040Z,"174 km ENE of Atka, Alaska",earthquake,6.95,1.774,0.081,20,reviewed,us,us
+2026-05-22T12:16:14.327Z,52.5259,-171.7222,14.844,5.6,mww,122,79,1.093,0.91,us,us6000szgm,2026-10-16T12:26:21.942Z,"172 km ENE of Atka, Alaska",earthquake,5.53,3.234,0.041,58,reviewed,us,us
+2026-05-22T12:36:50.698Z,52.2064,-171.587,46.01,3.5,mb,35,177,1.17,1.35,us,us7000snt9,2026-08-05T15:58:48.040Z,"178 km E of Atka, Alaska",earthquake,9.1,14.223,0.116,18,reviewed,us,us
+2026-05-22T12:46:12.128Z,52.384,-171.7645,10,4.4,mb,106,168,1.172,0.49,us,us6000szgr,2026-08-05T15:58:49.040Z,"167 km E of Atka, Alaska",earthquake,6.87,1.457,0.039,187,reviewed,us,us
+2026-05-22T19:57:17.061Z,52.4495,-171.6842,9.956,3,ml,24,188,1.454,0.78,us,us7000snu0,2026-08-05T15:58:49.040Z,"173 km E of Atka, Alaska",earthquake,7.8,7.087,0.148,6,reviewed,us,us
+2026-05-22T20:10:53.795Z,52.4492,-171.7267,20.861,4.4,mb,86,104,1.124,0.87,us,us6000szkp,2026-08-05T15:58:49.040Z,"171 km E of Atka, Alaska",earthquake,5.51,5.022,0.058,86,reviewed,us,us
+2026-05-22T20:15:13.750Z,52.3891,-171.7256,7.668,3.9,mb,64,172,1.149,0.58,us,us6000szl8,2026-08-05T15:58:49.040Z,"170 km E of Atka, Alaska",earthquake,6.83,5.484,0.112,21,reviewed,us,us
+2026-05-23T19:17:16.675Z,52.3528,-171.6342,12.134,3.5,mb,41,193,1.116,0.93,us,us7000snwx,2026-08-05T15:58:52.040Z,"176 km E of Atka, Alaska",earthquake,4.76,7.507,0.156,10,reviewed,us,us
+2026-05-24T16:37:54.659Z,52.4314,-171.6026,10,3.9,mb,48,170,1.062,0.91,us,us6000szxy,2026-08-05T15:58:53.040Z,"179 km E of Atka, Alaska",earthquake,5.41,1.887,0.105,24,reviewed,us,us
+2026-05-31T12:42:37.193Z,52.6853,-171.2726,106.542,3.5,mb,26,178,1.495,0.69,us,us7000sqwv,2026-09-09T18:18:56.867Z,"165 km W of Nikolski, Alaska",earthquake,11.12,22.604,0.165,9,reviewed,us,us
+2026-06-04T15:37:08.742Z,52.2587,-171.716,12.66,3.4,ml,26,201,1.207,0.51,us,us7000sqrc,2026-08-15T17:27:01.040Z,"169 km E of Atka, Alaska",earthquake,21.05,10.085,0.071,26,reviewed,us,us
+2026-06-30T04:13:18.407Z,52.2764,-171.668,10,3.1,ml,9,198,1.173,1.12,us,us6000t99f,2026-09-15T23:41:19.040Z,"173 km E of Atka, Alaska",earthquake,6.58,1.971,0.085,18,reviewed,us,us

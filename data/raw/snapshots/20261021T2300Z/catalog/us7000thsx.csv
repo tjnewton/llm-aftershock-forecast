@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-09-16T08:37:00.242Z,14.3652,146.9965,10,5,mww,74,46,1.45,1.12,us,us7000thsx,2026-10-21T13:49:41.040Z,"162 km ESE of San Jose Village, Northern Mariana Islands",earthquake,3.9,1.785,0.11,8,reviewed,us,us

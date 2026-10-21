@@ -1,0 +1,11 @@
+{
+ "event_id": "us7000tesi",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2026-08-08T01%3A30%3A24&endtime=2026-10-21T23%3A00%3A00&latitude=43.8960&longitude=-128.3264&maxradiuskm=29.8&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 3,
+ "catalog_start_ms": 1786152624206,
+ "catalog_end_ms": 1792623600000,
+ "center_lat": 43.896,
+ "center_lon": -128.3264,
+ "radius_km": 29.767450796172255,
+ "min_mag": 3.0
+}

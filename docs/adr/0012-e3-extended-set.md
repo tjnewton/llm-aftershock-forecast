@@ -18,10 +18,12 @@ Candidates are ComCat events with an OAF product (`producttype=oaf`), magnitude 
 - Dropped: the 11 registered sequences, and any candidate inside the Wells & Coppersmith circle
   of a larger event within 365 days (ADR 0006 rule). Larger events are those with an OAF
   product or M >= 6.0 with origin 2025-01-01 to 2026-10-14.
+- nn00914068 (2026-04-14, M5.7, Nevada) is dropped before any outcome is read: ComCat
+  truncates its event document (with superseded products) at about 1.2 MB on every request.
 - The magnitude floor is set from the candidate list's magnitudes only: smaller mainshocks
   almost never produce M >= 5 (or M >= 4) aftershocks, so their cells carry no information.
 
-`laf e3-select` writes config/sequences_e3.toml (18 e3-post, 22 e3-pre; fewer than 60 pre-cutoff
+`laf e3-select` writes config/sequences_e3.toml (18 e3-post, 21 e3-pre; fewer than 60 pre-cutoff
 candidates qualify) from raw event lists stored under data/raw/e3/ with manifest lines. The set
 is fetched into its own snapshot with the registered pipeline and scored with the frozen
 `laf.analysis` functions; runs live under runs/e3/, outside the registered analysis. Every E3

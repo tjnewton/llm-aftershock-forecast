@@ -1,0 +1,9 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-01-18T09:51:32.560Z,13.8285,145.0686,119.487,4.4,mb,33,121,1.563,0.67,us,us7000rqep,2026-04-18T14:47:09.040Z,"37 km NNE of Yigo Village, Guam",earthquake,13.91,8.002,0.08,45,reviewed,us,us
+2026-02-09T11:47:15.650Z,13.8994,144.8845,131.91,4.4,mb,51,98,1.591,0.55,us,us7000s00j,2026-05-01T14:35:54.040Z,"40 km N of Yigo Village, Guam",earthquake,11.15,7.508,0.083,42,reviewed,us,us
+2026-02-12T10:30:15.628Z,13.9123,144.7183,142.914,5.4,mww,100,39,0.353,0.99,us,us6000s8gh,2026-10-15T10:40:20.377Z,"45 km NNW of Yigo Village, Guam",earthquake,8.79,4.712,0.08,15,reviewed,us,us
+2026-02-13T01:20:28.758Z,13.9084,144.6133,193.674,4.1,mb,18,78,1.743,0.42,us,us7000s0r1,2026-05-06T17:53:48.040Z,"49 km NNW of Asan-Maina Village, Guam",earthquake,8.33,8.008,0.157,11,reviewed,us,us
+2026-03-21T11:23:49.055Z,13.7806,144.8394,144.76,4.1,mb,16,183,0.192,0.49,us,us7000s947,2026-06-04T18:38:10.040Z,"27 km N of Yigo Village, Guam",earthquake,13.25,5.669,0.174,9,reviewed,us,us
+2026-04-13T03:11:10.695Z,13.8347,144.7351,151.783,4.2,mb,20,124,0.276,0.35,us,us6000ss35,2026-06-24T16:34:42.040Z,"36 km NNW of Dededo Village, Guam",earthquake,18.19,3.755,0.136,15,reviewed,us,us
+2026-04-23T23:22:32.250Z,13.9535,144.9254,150.879,5,mww,100,35,0.366,0.88,us,us6000ssgf,2026-10-15T23:32:38.073Z,"46 km N of Yigo Village, Guam",earthquake,10.46,4.626,0.093,11,reviewed,us,us
+2026-05-02T02:25:12.870Z,13.8186,144.8387,142.747,4.4,mb,23,112,0.23,0.93,us,us6000swx5,2026-07-15T15:25:45.040Z,"31 km N of Yigo Village, Guam",earthquake,14.27,5.278,0.123,19,reviewed,us,us
