@@ -6,8 +6,10 @@ visualization, writing (T. Newton).
 ## Introduction
 
 After a large earthquake, people ask chatbots how many more shocks to expect and how big they
-might be. The US Geological Survey answers the same question with calibrated operational
-aftershock forecasts (OAF), issued and revised for every major sequence. We asked whether
+might be. The US Geological Survey answers the same question with operational aftershock
+forecasts (OAF), issued for US earthquakes since 2018 and for some large earthquakes abroad and
+revised as each sequence unfolds; a prospective evaluation in Puerto Rico found its ETAS-based
+forecast performed well. We asked whether
 general-purpose language models, given exactly the information USGS had at each issue time,
 forecast aftershock counts as well as the official product, and scored both with proper scoring
 rules on sequences that began after the models' training cutoff.
@@ -67,12 +69,14 @@ https://github.com/tjnewton/llm-aftershock-forecast (tags `prereg-v1`, `scoring-
 
 1. Reasenberg, P. A. & Jones, L. M. (1989). Earthquake hazard after a mainshock in California.
    *Science* 243, 1173-1176. https://doi.org/10.1126/science.243.4895.1173
-2. Page, M. T. et al. (2016). Three ingredients for improved global aftershock forecasts.
-   *BSSA* 106, 2290-2301. https://doi.org/10.1785/0120160073
-3. Gneiting, T. & Raftery, A. E. (2007). Strictly proper scoring rules, prediction, and
-   estimation. *JASA* 102, 359-378. https://doi.org/10.1198/016214506000001437
-4. Bracher, J. et al. (2021). Evaluating epidemic forecasts in an interval format. *PLoS Comput.
-   Biol.* 17, e1008618. https://doi.org/10.1371/journal.pcbi.1008618
+2. Hardebeck, J. L. et al. (2024). Aftershock forecasting. *Annu. Rev. Earth Planet. Sci.* 52,
+   61-84. https://doi.org/10.1146/annurev-earth-040522-102129
+3. van der Elst, N. J. et al. (2022). Prospective and retrospective evaluation of the U.S.
+   Geological Survey public aftershock forecast for the 2019-2021 Southwest Puerto Rico
+   earthquake and aftershocks. *Seismol. Res. Lett.* 93, 620-640.
+   https://doi.org/10.1785/0220210222
+4. Bosse, N. I. et al. (2023). Scoring epidemiological forecasts on transformed scales. *PLoS
+   Comput. Biol.* 19, e1011393. https://doi.org/10.1371/journal.pcbi.1011393
 5. Karger, E. et al. (2025). ForecastBench: a dynamic benchmark of AI forecasting capabilities.
    ICLR 2025. https://arxiv.org/abs/2409.19839
 6. Zhu, W. (2026). Earthquake aftershock forecasting using conditional generative models
