@@ -1,0 +1,3 @@
+# Byte-exact checkouts on every platform: hashed data, prompts and the preregistration must
+# never have their line endings rewritten.
+* -text

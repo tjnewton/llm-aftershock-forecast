@@ -1,0 +1,31 @@
+repos:
+  - repo: local
+    hooks:
+      - id: ruff-format
+        name: ruff format
+        entry: uv run ruff format
+        language: system
+        types: [python]
+      - id: ruff-check
+        name: ruff check
+        entry: uv run ruff check --fix
+        language: system
+        types: [python]
+      - id: pyright
+        name: pyright
+        entry: uv run pyright
+        language: system
+        types: [python]
+        pass_filenames: false
+      - id: pytest
+        name: pytest
+        entry: uv run pytest -q -m "not network"
+        language: system
+        pass_filenames: false
+        always_run: true
+      - id: no-secrets
+        name: block .env and API keys
+        entry: bash -c '! git diff --cached --name-only | grep -E "(^|/)\.env($|\.)" | grep -v ".env.example" && ! git diff --cached -U0 | grep -E "sk-ant-[A-Za-z0-9_-]{10,}"'
+        language: system
+        pass_filenames: false
+        always_run: true

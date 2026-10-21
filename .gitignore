@@ -1,0 +1,29 @@
+# Python / tooling
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.hypothesis/
+.mypy_cache/
+dist/
+build/
+*.egg-info/
+
+# Secrets: never commit
+.env
+.env.*
+!.env.example
+
+# Claude Code local overrides
+.claude/settings.local.json
+
+# Data: raw snapshots, manifest and processed tables ARE committed (small, public domain).
+# Interim artefacts, partial downloads and top-level run console logs are not.
+data/interim/
+*.part
+cache/
+/runs/*.log
+
+# OS
+.DS_Store

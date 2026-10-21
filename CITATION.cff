@@ -1,0 +1,24 @@
+# DRAFT. Add ORCID and DOI after the Zenodo release.
+cff-version: 1.2.0
+message: "If you use this benchmark, please cite it as below."
+title: "LLM aftershock-forecast benchmark: calibration of large language model forecasts against USGS operational aftershock forecasts"
+type: software
+authors:
+  - family-names: Newton
+    given-names: Tyler
+version: 0.1.0
+license: MIT
+repository-code: "https://github.com/tjnewton/llm-aftershock-forecast"
+keywords:
+  - aftershock forecasting
+  - large language models
+  - calibration
+  - benchmark
+  - seismology
+  - contamination
+references:
+  - type: data
+    title: "ANSS Comprehensive Earthquake Catalog (ComCat)"
+    authors:
+      - name: "U.S. Geological Survey, Earthquake Hazards Program"
+    url: "https://earthquake.usgs.gov/data/comcat/"
