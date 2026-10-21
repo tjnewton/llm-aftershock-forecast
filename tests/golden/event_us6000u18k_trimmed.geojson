@@ -1,0 +1,923 @@
+{
+ "geometry": {
+  "coordinates": [
+   -80.769,
+   7.5868,
+   12.647
+  ],
+  "type": "Point"
+ },
+ "id": "us6000u18k",
+ "properties": {
+  "alert": "orange",
+  "cdi": 7.9,
+  "code": "6000u18k",
+  "dmin": 1.82,
+  "felt": 1969,
+  "gap": 45,
+  "ids": ",pt26282000,us6000u18k,usauto6000u18k,",
+  "mag": 7.7,
+  "magType": "mww",
+  "mmi": 7.936,
+  "net": "us",
+  "nst": 108,
+  "place": "12 km WSW of Pitaloza Arriba, Panama",
+  "products": {
+   "event-sequence": [
+    {
+     "code": "us6000u18k",
+     "contents": [],
+     "id": "urn:usgs-product:us:event-sequence:us6000u18k:1792340072061",
+     "indexTime": 1792340077957,
+     "indexid": 28711322,
+     "preferredWeight": 8,
+     "properties": {
+      "circle-latitude": "7.5938",
+      "circle-longitude": "-80.8149",
+      "circle-radiuskm": "381.6",
+      "endtime": "2027-10-19T02:38:21.935Z",
+      "eventsource": "us",
+      "eventsourcecode": "6000u18k",
+      "eventtime": "2026-10-09T17:56:06.036Z",
+      "generated-by": "USGS Aftershock Forecasting System 1.05.1848",
+      "maximum-latitude": "11.0279253",
+      "maximum-longitude": "-77.3503535",
+      "minimum-latitude": "4.1596747",
+      "minimum-longitude": "-84.2794465",
+      "region-type": "circle",
+      "review-status": "reviewed",
+      "sequence-type": "sequence",
+      "starttime": "2026-09-09T17:56:06.036Z",
+      "title": "M 7.7 - 12 km WSW of Pitaloza Arriba, Panama Sequence"
+     },
+     "source": "us",
+     "status": "UPDATE",
+     "type": "event-sequence",
+     "updateTime": 1792340072061
+    },
+    {
+     "code": "us6000u18k",
+     "contents": [],
+     "id": "urn:usgs-product:us:event-sequence:us6000u18k:1792252672776",
+     "indexTime": 1792252675101,
+     "indexid": 28707805,
+     "preferredWeight": 8,
+     "properties": {
+      "circle-latitude": "7.594",
+      "circle-longitude": "-80.8258",
+      "circle-radiuskm": "381.6",
+      "endtime": "2027-10-18T02:23:00.508Z",
+      "eventsource": "us",
+      "eventsourcecode": "6000u18k",
+      "eventtime": "2026-10-09T17:56:06.036Z",
+      "generated-by": "USGS Aftershock Forecasting System 1.05.1848",
+      "maximum-latitude": "11.0281253",
+      "maximum-longitude": "-77.3612519",
+      "minimum-latitude": "4.1598747",
+      "minimum-longitude": "-84.2903481",
+      "region-type": "circle",
+      "review-status": "reviewed",
+      "sequence-type": "sequence",
+      "starttime": "2026-09-09T17:56:06.036Z",
+      "title": "M 7.7 - 12 km WSW of Pitaloza Arriba, Panama Sequence"
+     },
+     "source": "us",
+     "status": "UPDATE",
+     "type": "event-sequence",
+     "updateTime": 1792252672776
+    },
+    {
+     "code": "us6000u18k",
+     "contents": [],
+     "id": "urn:usgs-product:us:event-sequence:us6000u18k:1792166769942",
+     "indexTime": 1792166772728,
+     "indexid": 28705263,
+     "preferredWeight": 8,
+     "properties": {
+      "circle-latitude": "7.5938",
+      "circle-longitude": "-80.8244",
+      "circle-radiuskm": "381.6",
+      "endtime": "2027-10-17T02:19:36.013Z",
+      "eventsource": "us",
+      "eventsourcecode": "6000u18k",
+      "eventtime": "2026-10-09T17:56:06.036Z",
+      "generated-by": "USGS Aftershock Forecasting System 1.05.1848",
+      "maximum-latitude": "11.0279253",
+      "maximum-longitude": "-77.3598535",
+      "minimum-latitude": "4.1596747",
+      "minimum-longitude": "-84.2889465",
+      "region-type": "circle",
+      "review-status": "reviewed",
+      "sequence-type": "sequence",
+      "starttime": "2026-09-09T17:56:06.036Z",
+      "title": "M 7.7 - 12 km WSW of Pitaloza Arriba, Panama Sequence"
+     },
+     "source": "us",
+     "status": "UPDATE",
+     "type": "event-sequence",
+     "updateTime": 1792166769942
+    },
+    {
+     "code": "us6000u18k",
+     "contents": [],
+     "id": "urn:usgs-product:us:event-sequence:us6000u18k:1792078620548",
+     "indexTime": 1792078623386,
+     "indexid": 28702143,
+     "preferredWeight": 8,
+     "properties": {
+      "circle-latitude": "7.5919",
+      "circle-longitude": "-80.8177",
+      "circle-radiuskm": "381.6",
+      "endtime": "2027-10-16T02:02:47.948Z",
+      "eventsource": "us",
+      "eventsourcecode": "6000u18k",
+      "eventtime": "2026-10-09T17:56:06.036Z",
+      "generated-by": "USGS Aftershock Forecasting System 1.05.1848",
+      "maximum-latitude": "11.0260253",
+      "maximum-longitude": "-77.3531689",
+      "minimum-latitude": "4.1577747",
+      "minimum-longitude": "-84.2822311",
+      "region-type": "circle",
+      "review-status": "reviewed",
+      "sequence-type": "sequence",
+      "starttime": "2026-09-09T17:56:06.036Z",
+      "title": "M 7.7 - 12 km WSW of Pitaloza Arriba, Panama Sequence"
+     },
+     "source": "us",
+     "status": "UPDATE",
+     "type": "event-sequence",
+     "updateTime": 1792078620548
+    },
+    {
+     "code": "us6000u18k",
+     "contents": [],
+     "id": "urn:usgs-product:us:event-sequence:us6000u18k:1791993049356",
+     "indexTime": 1791993052134,
+     "indexid": 28699041,
+     "preferredWeight": 8,
+     "properties": {
+      "circle-latitude": "7.5933",
+      "circle-longitude": "-80.8277",
+      "circle-radiuskm": "381.6",
+      "endtime": "2027-10-15T02:14:39.211Z",
+      "eventsource": "us",
+      "eventsourcecode": "6000u18k",
+      "eventtime": "2026-10-09T17:56:06.036Z",
+      "generated-by": "USGS Aftershock Forecasting System 1.05.1848",
+      "maximum-latitude": "11.0274253",
+      "maximum-longitude": "-77.3631576",
+      "minimum-latitude": "4.1591747",
+      "minimum-longitude": "-84.2922424",
+      "region-type": "circle",
+      "review-status": "reviewed",
+      "sequence-type": "sequence",
+      "starttime": "2026-09-09T17:56:06.036Z",
+      "title": "M 7.7 - 12 km WSW of Pitaloza Arriba, Panama Sequence"
+     },
+     "source": "us",
+     "status": "UPDATE",
+     "type": "event-sequence",
+     "updateTime": 1791993049356
+    },
+    {
+     "code": "us6000u18k",
+     "contents": [],
+     "id": "urn:usgs-product:us:event-sequence:us6000u18k:1791907263631",
+     "indexTime": 1791907268475,
+     "indexid": 28694269,
+     "preferredWeight": 8,
+     "properties": {
+      "circle-latitude": "7.5908",
+      "circle-longitude": "-80.8179",
+      "circle-radiuskm": "381.6",
+      "endtime": "2027-10-14T02:24:12.089Z",
+      "eventsource": "us",
+      "eventsourcecode": "6000u18k",
+      "eventtime": "2026-10-09T17:56:06.036Z",
+      "generated-by": "USGS Aftershock Forecasting System 1.05.1848",
+      "maximum-latitude": "11.0249253",
+      "maximum-longitude": "-77.3533777",
+      "minimum-latitude": "4.1566747",
+      "minimum-longitude": "-84.2824223",
+      "region-type": "circle",
+      "review-status": "reviewed",
+      "sequence-type": "sequence",
+      "starttime": "2026-09-09T17:56:06.036Z",
+      "title": "M 7.7 - 12 km WSW of Pitaloza Arriba, Panama Sequence"
+     },
+     "source": "us",
+     "status": "UPDATE",
+     "type": "event-sequence",
+     "updateTime": 1791907263631
+    },
+    {
+     "code": "us6000u18k",
+     "contents": [],
+     "id": "urn:usgs-product:us:event-sequence:us6000u18k:1791821024421",
+     "indexTime": 1791821029507,
+     "indexid": 28690924,
+     "preferredWeight": 8,
+     "properties": {
+      "circle-latitude": "7.5687",
+      "circle-longitude": "-80.7496",
+      "circle-radiuskm": "381.6",
+      "endtime": "2027-10-13T02:22:12.791Z",
+      "eventsource": "us",
+      "eventsourcecode": "6000u18k",
+      "eventtime": "2026-10-09T17:56:06.036Z",
+      "generated-by": "USGS Aftershock Forecasting System 1.05.1848",
+      "maximum-latitude": "11.0028253",
+      "maximum-longitude": "-77.2852558",
+      "minimum-latitude": "4.1345747",
+      "minimum-longitude": "-84.2139442",
+      "region-type": "circle",
+      "review-status": "reviewed",
+      "sequence-type": "sequence",
+      "starttime": "2026-09-09T17:56:06.036Z",
+      "title": "M 7.7 - 12 km WSW of Pitaloza Arriba, Panama Sequence"
+     },
+     "source": "us",
+     "status": "UPDATE",
+     "type": "event-sequence",
+     "updateTime": 1791821024421
+    },
+    {
+     "code": "us6000u18k",
+     "contents": [],
+     "id": "urn:usgs-product:us:event-sequence:us6000u18k:1791733873725",
+     "indexTime": 1791733875970,
+     "indexid": 28688365,
+     "preferredWeight": 8,
+     "properties": {
+      "circle-latitude": "7.5575",
+      "circle-longitude": "-80.713",
+      "circle-radiuskm": "381.6",
+      "endtime": "2027-10-12T02:16:42.807Z",
+      "eventsource": "us",
+      "eventsourcecode": "6000u18k",
+      "eventtime": "2026-10-09T17:56:06.036Z",
+      "generated-by": "USGS Aftershock Forecasting System 1.05.1848",
+      "maximum-latitude": "10.9916253",
+      "maximum-longitude": "-77.2487458",
+      "minimum-latitude": "4.1233747",
+      "minimum-longitude": "-84.1772542",
+      "region-type": "circle",
+      "review-status": "reviewed",
+      "sequence-type": "sequence",
+      "starttime": "2026-09-09T17:56:06.036Z",
+      "title": "M 7.7 - 12 km WSW of Pitaloza Arriba, Panama Sequence"
+     },
+     "source": "us",
+     "status": "UPDATE",
+     "type": "event-sequence",
+     "updateTime": 1791733873725
+    },
+    {
+     "code": "us6000u18k",
+     "contents": [],
+     "id": "urn:usgs-product:us:event-sequence:us6000u18k:1791647732110",
+     "indexTime": 1791647734658,
+     "indexid": 28686130,
+     "preferredWeight": 8,
+     "properties": {
+      "circle-latitude": "7.5473",
+      "circle-longitude": "-80.7071",
+      "circle-radiuskm": "381.6",
+      "endtime": "2027-10-11T02:18:21.548Z",
+      "eventsource": "us",
+      "eventsourcecode": "6000u18k",
+      "eventtime": "2026-10-09T17:56:06.036Z",
+      "generated-by": "USGS Aftershock Forecasting System 1.05.1848",
+      "maximum-latitude": "10.9814253",
+      "maximum-longitude": "-77.2429277",
+      "minimum-latitude": "4.1131747",
+      "minimum-longitude": "-84.1712723",
+      "region-type": "circle",
+      "review-status": "reviewed",
+      "sequence-type": "sequence",
+      "starttime": "2026-09-09T17:56:06.036Z",
+      "title": "M 7.7 - 12 km WSW of Pitaloza Arriba, Panama Sequence"
+     },
+     "source": "us",
+     "status": "UPDATE",
+     "type": "event-sequence",
+     "updateTime": 1791647732110
+    },
+    {
+     "code": "us6000u18k",
+     "contents": [],
+     "id": "urn:usgs-product:us:event-sequence:us6000u18k:1791647573151",
+     "indexTime": 1791647575569,
+     "indexid": 28686128,
+     "preferredWeight": 8,
+     "properties": {
+      "circle-latitude": "7.5735",
+      "circle-longitude": "-80.8225",
+      "circle-radiuskm": "381.6",
+      "endtime": "2027-10-10T11:17:45.962Z",
+      "eventsource": "us",
+      "eventsourcecode": "6000u18k",
+      "eventtime": "2026-10-09T17:56:06.036Z",
+      "generated-by": "USGS Aftershock Forecasting System 1.05.1848",
+      "maximum-latitude": "11.0076253",
+      "maximum-longitude": "-77.3581171",
+      "minimum-latitude": "4.1393747",
+      "minimum-longitude": "-84.2868829",
+      "region-type": "circle",
+      "review-status": "reviewed",
+      "sequence-type": "sequence",
+      "starttime": "2026-09-09T17:56:06.036Z",
+      "title": "M 7.7 - 12 km WSW of Pitaloza Arriba, Panama Sequence"
+     },
+     "source": "us",
+     "status": "UPDATE",
+     "type": "event-sequence",
+     "updateTime": 1791647573151
+    },
+    {
+     "code": "us6000u18k",
+     "contents": [],
+     "id": "urn:usgs-product:us:event-sequence:us6000u18k:1791593712701",
+     "indexTime": 1791593714504,
+     "indexid": 28684677,
+     "preferredWeight": 8,
+     "properties": {
+      "circle-latitude": "7.5735",
+      "circle-longitude": "-80.8225",
+      "circle-radiuskm": "381.6",
+      "endtime": "2027-10-10T11:17:45.962Z",
+      "eventsource": "us",
+      "eventsourcecode": "6000u18k",
+      "eventtime": "2026-10-09T17:56:06.036Z",
+      "generated-by": "USGS Aftershock Forecasting System 1.05.1848",
+      "maximum-latitude": "11.0076253",
+      "maximum-longitude": "-77.3581171",
+      "minimum-latitude": "4.1393747",
+      "minimum-longitude": "-84.2868829",
+      "region-type": "circle",
+      "review-status": "reviewed",
+      "sequence-type": "sequence",
+      "starttime": "2026-09-09T17:56:06.036Z",
+      "title": "M 7.7 - 12 km WSW of Pitaloza Arriba, Panama Sequence"
+     },
+     "source": "us",
+     "status": "UPDATE",
+     "type": "event-sequence",
+     "updateTime": 1791593712701
+    }
+   ],
+   "oaf": [
+    {
+     "code": "us6000u18k",
+     "contents": {
+      "contents.xml": {
+       "contentType": "application/xml",
+       "lastModified": 1792340072000,
+       "length": 266,
+       "sha256": "AfPeni7w+XOcRioL4oCJySOmC9FlAk+TiyMSAiG1Kf0=",
+       "url": "https://earthquake.usgs.gov/product/oaf/us6000u18k/us/1792340072047/contents.xml"
+      },
+      "forecast.json": {
+       "contentType": "application/json",
+       "lastModified": 1792340072000,
+       "length": 30397,
+       "sha256": "zEeyikijCIQr65SRq7RTiZrTuAdiSw5brzpQw/ZEP+k=",
+       "url": "https://earthquake.usgs.gov/product/oaf/us6000u18k/us/1792340072047/forecast.json"
+      }
+     },
+     "id": "urn:usgs-product:us:oaf:us6000u18k:1792340072047",
+     "indexTime": 1792340081792,
+     "indexid": 28711323,
+     "preferredWeight": 8,
+     "properties": {
+      "eventsource": "us",
+      "eventsourcecode": "6000u18k",
+      "review-status": "reviewed"
+     },
+     "source": "us",
+     "status": "UPDATE",
+     "type": "oaf",
+     "updateTime": 1792340072047
+    },
+    {
+     "code": "us6000u18k",
+     "contents": {
+      "contents.xml": {
+       "contentType": "application/xml",
+       "lastModified": 1792252672000,
+       "length": 266,
+       "sha256": "AfPeni7w+XOcRioL4oCJySOmC9FlAk+TiyMSAiG1Kf0=",
+       "url": "https://earthquake.usgs.gov/product/oaf/us6000u18k/us/1792252672761/contents.xml"
+      },
+      "forecast.json": {
+       "contentType": "application/json",
+       "lastModified": 1792252672000,
+       "length": 30600,
+       "sha256": "NnHC6M2JwJgJwpOhu2PVc0qqiNQcySFCRXHco8VyE2c=",
+       "url": "https://earthquake.usgs.gov/product/oaf/us6000u18k/us/1792252672761/forecast.json"
+      }
+     },
+     "id": "urn:usgs-product:us:oaf:us6000u18k:1792252672761",
+     "indexTime": 1792252677754,
+     "indexid": 28707806,
+     "preferredWeight": 8,
+     "properties": {
+      "eventsource": "us",
+      "eventsourcecode": "6000u18k",
+      "review-status": "reviewed"
+     },
+     "source": "us",
+     "status": "UPDATE",
+     "type": "oaf",
+     "updateTime": 1792252672761
+    },
+    {
+     "code": "us6000u18k",
+     "contents": {
+      "contents.xml": {
+       "contentType": "application/xml",
+       "lastModified": 1792166769000,
+       "length": 266,
+       "sha256": "AfPeni7w+XOcRioL4oCJySOmC9FlAk+TiyMSAiG1Kf0=",
+       "url": "https://earthquake.usgs.gov/product/oaf/us6000u18k/us/1792166769933/contents.xml"
+      },
+      "forecast.json": {
+       "contentType": "application/json",
+       "lastModified": 1792166769000,
+       "length": 30809,
+       "sha256": "sReeRCaALij68hnwZdHWFtocmBVyUzKMzi1mgyTWeIE=",
+       "url": "https://earthquake.usgs.gov/product/oaf/us6000u18k/us/1792166769933/forecast.json"
+      }
+     },
+     "id": "urn:usgs-product:us:oaf:us6000u18k:1792166769933",
+     "indexTime": 1792166774910,
+     "indexid": 28705264,
+     "preferredWeight": 8,
+     "properties": {
+      "eventsource": "us",
+      "eventsourcecode": "6000u18k",
+      "review-status": "reviewed"
+     },
+     "source": "us",
+     "status": "UPDATE",
+     "type": "oaf",
+     "updateTime": 1792166769933
+    },
+    {
+     "code": "us6000u18k",
+     "contents": {
+      "contents.xml": {
+       "contentType": "application/xml",
+       "lastModified": 1792078620000,
+       "length": 266,
+       "sha256": "AfPeni7w+XOcRioL4oCJySOmC9FlAk+TiyMSAiG1Kf0=",
+       "url": "https://earthquake.usgs.gov/product/oaf/us6000u18k/us/1792078620533/contents.xml"
+      },
+      "forecast.json": {
+       "contentType": "application/json",
+       "lastModified": 1792078620000,
+       "length": 31058,
+       "sha256": "kpYdb92eXC+M1UmUk6+KL81COMVMSxv3UObZlM0zatk=",
+       "url": "https://earthquake.usgs.gov/product/oaf/us6000u18k/us/1792078620533/forecast.json"
+      }
+     },
+     "id": "urn:usgs-product:us:oaf:us6000u18k:1792078620533",
+     "indexTime": 1792078625107,
+     "indexid": 28702144,
+     "preferredWeight": 8,
+     "properties": {
+      "eventsource": "us",
+      "eventsourcecode": "6000u18k",
+      "review-status": "reviewed"
+     },
+     "source": "us",
+     "status": "UPDATE",
+     "type": "oaf",
+     "updateTime": 1792078620533
+    },
+    {
+     "code": "us6000u18k",
+     "contents": {
+      "contents.xml": {
+       "contentType": "application/xml",
+       "lastModified": 1791993049000,
+       "length": 266,
+       "sha256": "AfPeni7w+XOcRioL4oCJySOmC9FlAk+TiyMSAiG1Kf0=",
+       "url": "https://earthquake.usgs.gov/product/oaf/us6000u18k/us/1791993049353/contents.xml"
+      },
+      "forecast.json": {
+       "contentType": "application/json",
+       "lastModified": 1791993049000,
+       "length": 31436,
+       "sha256": "7YG/3UqSr+45gomchVN1yZaWvRBGNxjeNSUEh6lLRQA=",
+       "url": "https://earthquake.usgs.gov/product/oaf/us6000u18k/us/1791993049353/forecast.json"
+      }
+     },
+     "id": "urn:usgs-product:us:oaf:us6000u18k:1791993049353",
+     "indexTime": 1791993054583,
+     "indexid": 28699042,
+     "preferredWeight": 8,
+     "properties": {
+      "eventsource": "us",
+      "eventsourcecode": "6000u18k",
+      "review-status": "reviewed"
+     },
+     "source": "us",
+     "status": "UPDATE",
+     "type": "oaf",
+     "updateTime": 1791993049353
+    },
+    {
+     "code": "us6000u18k",
+     "contents": {
+      "contents.xml": {
+       "contentType": "application/xml",
+       "lastModified": 1791907263000,
+       "length": 266,
+       "sha256": "AfPeni7w+XOcRioL4oCJySOmC9FlAk+TiyMSAiG1Kf0=",
+       "url": "https://earthquake.usgs.gov/product/oaf/us6000u18k/us/1791907263622/contents.xml"
+      },
+      "forecast.json": {
+       "contentType": "application/json",
+       "lastModified": 1791907263000,
+       "length": 31708,
+       "sha256": "jv93T+aHk44FBm9x4BzGVykgaMMZmw6dUIk5v/VjsWM=",
+       "url": "https://earthquake.usgs.gov/product/oaf/us6000u18k/us/1791907263622/forecast.json"
+      }
+     },
+     "id": "urn:usgs-product:us:oaf:us6000u18k:1791907263622",
+     "indexTime": 1791907271210,
+     "indexid": 28694270,
+     "preferredWeight": 8,
+     "properties": {
+      "eventsource": "us",
+      "eventsourcecode": "6000u18k",
+      "review-status": "reviewed"
+     },
+     "source": "us",
+     "status": "UPDATE",
+     "type": "oaf",
+     "updateTime": 1791907263622
+    },
+    {
+     "code": "us6000u18k",
+     "contents": {
+      "contents.xml": {
+       "contentType": "application/xml",
+       "lastModified": 1791821024000,
+       "length": 266,
+       "sha256": "AfPeni7w+XOcRioL4oCJySOmC9FlAk+TiyMSAiG1Kf0=",
+       "url": "https://earthquake.usgs.gov/product/oaf/us6000u18k/us/1791821024407/contents.xml"
+      },
+      "forecast.json": {
+       "contentType": "application/json",
+       "lastModified": 1791821024000,
+       "length": 31894,
+       "sha256": "ly8URv/9QImq+cx08uyl8LUQy7JduoAx/XDIM2Olyn8=",
+       "url": "https://earthquake.usgs.gov/product/oaf/us6000u18k/us/1791821024407/forecast.json"
+      }
+     },
+     "id": "urn:usgs-product:us:oaf:us6000u18k:1791821024407",
+     "indexTime": 1791821031652,
+     "indexid": 28690925,
+     "preferredWeight": 8,
+     "properties": {
+      "eventsource": "us",
+      "eventsourcecode": "6000u18k",
+      "review-status": "reviewed"
+     },
+     "source": "us",
+     "status": "UPDATE",
+     "type": "oaf",
+     "updateTime": 1791821024407
+    },
+    {
+     "code": "us6000u18k",
+     "contents": {
+      "contents.xml": {
+       "contentType": "application/xml",
+       "lastModified": 1791733873000,
+       "length": 266,
+       "sha256": "AfPeni7w+XOcRioL4oCJySOmC9FlAk+TiyMSAiG1Kf0=",
+       "url": "https://earthquake.usgs.gov/product/oaf/us6000u18k/us/1791733873721/contents.xml"
+      },
+      "forecast.json": {
+       "contentType": "application/json",
+       "lastModified": 1791733873000,
+       "length": 32395,
+       "sha256": "NoPqiAsxdMUVfqDxbp2ZlgQAquTGw/fmrHRaizZF1b4=",
+       "url": "https://earthquake.usgs.gov/product/oaf/us6000u18k/us/1791733873721/forecast.json"
+      }
+     },
+     "id": "urn:usgs-product:us:oaf:us6000u18k:1791733873721",
+     "indexTime": 1791733879986,
+     "indexid": 28688366,
+     "preferredWeight": 8,
+     "properties": {
+      "eventsource": "us",
+      "eventsourcecode": "6000u18k",
+      "review-status": "reviewed"
+     },
+     "source": "us",
+     "status": "UPDATE",
+     "type": "oaf",
+     "updateTime": 1791733873721
+    },
+    {
+     "code": "us6000u18k",
+     "contents": {
+      "contents.xml": {
+       "contentType": "application/xml",
+       "lastModified": 1791647732000,
+       "length": 266,
+       "sha256": "AfPeni7w+XOcRioL4oCJySOmC9FlAk+TiyMSAiG1Kf0=",
+       "url": "https://earthquake.usgs.gov/product/oaf/us6000u18k/us/1791647732106/contents.xml"
+      },
+      "forecast.json": {
+       "contentType": "application/json",
+       "lastModified": 1791647732000,
+       "length": 33764,
+       "sha256": "zIp4hVWSPnyZp4+PyCGRUKvgACGUA7MgicTUCuqavDM=",
+       "url": "https://earthquake.usgs.gov/product/oaf/us6000u18k/us/1791647732106/forecast.json"
+      }
+     },
+     "id": "urn:usgs-product:us:oaf:us6000u18k:1791647732106",
+     "indexTime": 1791647736811,
+     "indexid": 28686131,
+     "preferredWeight": 8,
+     "properties": {
+      "eventsource": "us",
+      "eventsourcecode": "6000u18k",
+      "review-status": "reviewed"
+     },
+     "source": "us",
+     "status": "UPDATE",
+     "type": "oaf",
+     "updateTime": 1791647732106
+    },
+    {
+     "code": "us6000u18k",
+     "contents": {
+      "contents.xml": {
+       "contentType": "application/xml",
+       "lastModified": 1791647573000,
+       "length": 266,
+       "sha256": "AfPeni7w+XOcRioL4oCJySOmC9FlAk+TiyMSAiG1Kf0=",
+       "url": "https://earthquake.usgs.gov/product/oaf/us6000u18k/us/1791647573143/contents.xml"
+      },
+      "forecast.json": {
+       "contentType": "application/json",
+       "lastModified": 1791647573000,
+       "length": 34658,
+       "sha256": "aN9uBu3XmI8uN2nn6J4BeMM/1/DARysHL7q7p66mcbI=",
+       "url": "https://earthquake.usgs.gov/product/oaf/us6000u18k/us/1791647573143/forecast.json"
+      }
+     },
+     "id": "urn:usgs-product:us:oaf:us6000u18k:1791647573143",
+     "indexTime": 1791647578308,
+     "indexid": 28686129,
+     "preferredWeight": 8,
+     "properties": {
+      "eventsource": "us",
+      "eventsourcecode": "6000u18k",
+      "review-status": "reviewed"
+     },
+     "source": "us",
+     "status": "UPDATE",
+     "type": "oaf",
+     "updateTime": 1791647573143
+    },
+    {
+     "code": "us6000u18k",
+     "contents": {
+      "contents.xml": {
+       "contentType": "application/xml",
+       "lastModified": 1791593712000,
+       "length": 266,
+       "sha256": "AfPeni7w+XOcRioL4oCJySOmC9FlAk+TiyMSAiG1Kf0=",
+       "url": "https://earthquake.usgs.gov/product/oaf/us6000u18k/us/1791593712688/contents.xml"
+      },
+      "forecast.json": {
+       "contentType": "application/json",
+       "lastModified": 1791593712000,
+       "length": 34658,
+       "sha256": "aN9uBu3XmI8uN2nn6J4BeMM/1/DARysHL7q7p66mcbI=",
+       "url": "https://earthquake.usgs.gov/product/oaf/us6000u18k/us/1791593712688/forecast.json"
+      }
+     },
+     "id": "urn:usgs-product:us:oaf:us6000u18k:1791593712688",
+     "indexTime": 1791593717178,
+     "indexid": 28684678,
+     "preferredWeight": 8,
+     "properties": {
+      "eventsource": "us",
+      "eventsourcecode": "6000u18k",
+      "review-status": "reviewed"
+     },
+     "source": "us",
+     "status": "UPDATE",
+     "type": "oaf",
+     "updateTime": 1791593712688
+    }
+   ],
+   "origin": [
+    {
+     "code": "us6000u18k",
+     "contents": {
+      "contents.xml": {
+       "contentType": "application/xml",
+       "lastModified": 1791570486000,
+       "length": 195,
+       "sha256": "ABhLiaqdYWmIak24eD/csBAWouBShhatD9bUzLNEZFk=",
+       "url": "https://earthquake.usgs.gov/product/origin/us6000u18k/us/1791570479040/contents.xml"
+      },
+      "quakeml.xml": {
+       "contentType": "application/xml",
+       "lastModified": 1791570479000,
+       "length": 3821,
+       "sha256": "PJw8XNK90e7Jl14Rqo7a9qXHlIJ5PX+0S/ZgGtg6s+w=",
+       "url": "https://earthquake.usgs.gov/product/origin/us6000u18k/us/1791570479040/quakeml.xml"
+      }
+     },
+     "id": "urn:usgs-product:us:origin:us6000u18k:1791570479040",
+     "indexTime": 1791570490049,
+     "indexid": 28683516,
+     "preferredWeight": 158,
+     "properties": {
+      "azimuthal-gap": "45",
+      "depth": "12.647",
+      "depth-type": "from location",
+      "error-ellipse-azimuth": "229",
+      "error-ellipse-intermediate": "9268",
+      "error-ellipse-major": "10529",
+      "error-ellipse-minor": "5899",
+      "error-ellipse-plunge": "7",
+      "error-ellipse-rotation": "89",
+      "evaluation-status": "preliminary",
+      "event-type": "earthquake",
+      "eventParametersPublicID": "quakeml:us.anss.org/eventparameters/6000u18k/1791570483",
+      "eventsource": "us",
+      "eventsourcecode": "6000u18k",
+      "eventtime": "2026-10-09T17:56:06.036Z",
+      "eventtime-error": "1.70",
+      "horizontal-error": "6.48",
+      "latitude": "7.5868",
+      "latitude-error": "0.0580",
+      "longitude": "-80.7690",
+      "longitude-error": "0.0596",
+      "magnitude": "7.7",
+      "magnitude-error": "0.025",
+      "magnitude-num-stations-used": "154",
+      "magnitude-source": "us",
+      "magnitude-type": "mww",
+      "minimum-distance": "1.820",
+      "num-phases-used": "108",
+      "num-stations-used": "108",
+      "origin-source": "us",
+      "pdl-client-version": "Version 3.5.4 2026-01-22",
+      "quakeml-magnitude-publicid": "quakeml:us.anss.org/magnitude/6000u18k/mww",
+      "quakeml-origin-publicid": "quakeml:us.anss.org/origin/6000u18k",
+      "quakeml-publicid": "quakeml:us.anss.org/event/6000u18k",
+      "review-status": "reviewed",
+      "standard-error": "0.84",
+      "title": "12 km WSW of Pitaloza Arriba, Panama",
+      "vertical-error": "3.947"
+     },
+     "source": "us",
+     "status": "UPDATE",
+     "type": "origin",
+     "updateTime": 1791570479040
+    },
+    {
+     "code": "pt26282000",
+     "contents": {
+      "contents.xml": {
+       "contentType": "text/plain",
+       "lastModified": 1791568942000,
+       "length": 272,
+       "sha256": "PzlTQj8FWkBJx8Aaw8QrZKtT8VeAHdXJtYpy43yn7+I=",
+       "url": "https://earthquake.usgs.gov/product/origin/pt26282000/pt/1791568942622/contents.xml"
+      },
+      "eqxml.xml": {
+       "contentType": "text/plain",
+       "lastModified": 1791568942000,
+       "length": 891,
+       "sha256": "XcAl+yJuhHV5PCyhWocADCHLXDD3UcyEsI+iG5kpB+w=",
+       "url": "https://earthquake.usgs.gov/product/origin/pt26282000/pt/1791568942622/eqxml.xml"
+      }
+     },
+     "id": "urn:usgs-product:pt:origin:pt26282000:1791568942622",
+     "indexTime": 1791568961861,
+     "indexid": 28683421,
+     "preferredWeight": 6,
+     "properties": {
+      "azimuthal-gap": "136.7999890560008755199299584056033",
+      "cube-location-method": "u",
+      "cube-magnitude-type": "I",
+      "depth": "33",
+      "event-type": "earthquake",
+      "eventsource": "pt",
+      "eventsourcecode": "26282000",
+      "eventtime": "2026-10-09T17:56:08.000Z",
+      "latitude": "7.54",
+      "location-method-algorithm": "u",
+      "location-method-class": "CUBE_Code",
+      "longitude": "-80.75",
+      "magnitude": "8",
+      "magnitude-num-stations-used": "13",
+      "magnitude-type": "Mi",
+      "num-stations-used": "13",
+      "pdl-client-version": "Version 3.5.4 2026-01-22",
+      "review-status": "REVIEWED",
+      "title": "14 km SW of Pitaloza Arriba, Panama",
+      "version": "B"
+     },
+     "source": "pt",
+     "status": "UPDATE",
+     "type": "origin",
+     "updateTime": 1791568942622
+    },
+    {
+     "code": "us6000u18k",
+     "contents": {
+      "contents.xml": {
+       "contentType": "application/xml",
+       "lastModified": 1791569478000,
+       "length": 195,
+       "sha256": "ABhLiaqdYWmIak24eD/csBAWouBShhatD9bUzLNEZFk=",
+       "url": "https://earthquake.usgs.gov/product/origin/us6000u18k/us/1791569472040/contents.xml"
+      },
+      "quakeml.xml": {
+       "contentType": "application/xml",
+       "lastModified": 1791569472000,
+       "length": 3761,
+       "sha256": "cqlzbOCOjy/n1QXxA10Y+t9KB8PC+6WHhVSMvh/g4AM=",
+       "url": "https://earthquake.usgs.gov/product/origin/us6000u18k/us/1791569472040/quakeml.xml"
+      }
+     },
+     "id": "urn:usgs-product:us:origin:us6000u18k:1791569472040",
+     "indexTime": 1791569481207,
+     "indexid": 28683474,
+     "preferredWeight": 158,
+     "properties": {
+      "azimuthal-gap": "124",
+      "depth": "10",
+      "depth-type": "operator assigned",
+      "error-ellipse-azimuth": "235",
+      "error-ellipse-intermediate": "9356",
+      "error-ellipse-major": "10321",
+      "error-ellipse-minor": "2854",
+      "error-ellipse-plunge": "1",
+      "error-ellipse-rotation": "89",
+      "evaluation-status": "preliminary",
+      "event-type": "earthquake",
+      "eventParametersPublicID": "quakeml:us.anss.org/eventparameters/6000u18k/1791569475",
+      "eventsource": "us",
+      "eventsourcecode": "6000u18k",
+      "eventtime": "2026-10-09T17:56:05.655Z",
+      "eventtime-error": "1.68",
+      "horizontal-error": "6.46",
+      "latitude": "7.5993",
+      "latitude-error": "0.0572",
+      "longitude": "-80.7572",
+      "longitude-error": "0.0598",
+      "magnitude": "7.6",
+      "magnitude-error": "0.029",
+      "magnitude-num-stations-used": "111",
+      "magnitude-source": "us",
+      "magnitude-type": "mww",
+      "minimum-distance": "1.804",
+      "num-phases-used": "80",
+      "num-stations-used": "80",
+      "origin-source": "us",
+      "pdl-client-version": "Version 3.5.4 2026-01-22",
+      "quakeml-magnitude-publicid": "quakeml:us.anss.org/magnitude/6000u18k/mww",
+      "quakeml-origin-publicid": "quakeml:us.anss.org/origin/6000u18k",
+      "quakeml-publicid": "quakeml:us.anss.org/event/6000u18k",
+      "review-status": "reviewed",
+      "standard-error": "0.83",
+      "title": "10 km WSW of Pitaloza Arriba, Panama",
+      "vertical-error": "1.882"
+     },
+     "source": "us",
+     "status": "UPDATE",
+     "type": "origin",
+     "updateTime": 1791569472040
+    }
+   ]
+  },
+  "rms": 0.84,
+  "sig": 1790,
+  "sources": ",pt,us,usauto,",
+  "status": "reviewed",
+  "time": 1791568566036,
+  "title": "M 7.7 - 12 km WSW of Pitaloza Arriba, Panama",
+  "tsunami": 0,
+  "type": "earthquake",
+  "types": ",dyfi,event-sequence,finite-fault,general-text,ground-failure,internal-moment-tensor,losspager,moment-tensor,oaf,origin,phase-data,shakemap,",
+  "tz": null,
+  "updated": 1792419743992,
+  "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u18k"
+ },
+ "type": "Feature"
+}

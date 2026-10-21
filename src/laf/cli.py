@@ -1,0 +1,390 @@
+"""Command line: ``laf fetch | tables | verify``."""
+
+import argparse
+import sys
+from datetime import UTC, datetime
+from pathlib import Path
+
+from laf.registry import load_sequences
+
+SNAPSHOT_FORMAT = "%Y%m%dT%H%MZ"
+
+
+def snapshot_ms(snapshot: str) -> int:
+    """The snapshot id is the catalog end time, so resuming a snapshot repeats its queries."""
+    return int(datetime.strptime(snapshot, SNAPSHOT_FORMAT).replace(tzinfo=UTC).timestamp() * 1000)
+
+
+def main(argv: list[str] | None = None) -> None:
+    p = argparse.ArgumentParser(prog="laf")
+    p.add_argument("--data-dir", type=Path, default=Path("data"))
+    p.add_argument("--config", type=Path, default=Path("config/sequences.toml"))
+    sub = p.add_subparsers(dest="cmd", required=True)
+    f = sub.add_parser("fetch", help="download a new raw snapshot (idempotent per snapshot)")
+    f.add_argument("--snapshot", help="resume an existing snapshot id, e.g. 20261019T1900Z")
+    f.add_argument("--only", nargs="*", help="sequence ids (default: all in config)")
+    ao = sub.add_parser("asof", help="fetch ComCat product histories for as-of catalogs")
+    ao.add_argument("--snapshot", required=True)
+    ao.add_argument("--only", nargs="*", help="sequence ids (default: all in config)")
+    ao.add_argument("--workers", type=int, default=3)
+    ao.add_argument("--deleted", action="store_true", help="also sweep deleted events")
+    ao.add_argument("--min-mag", type=float, default=-9.0, help="current magnitude floor")
+    ao.add_argument("--max-days", type=float, default=90.0, help="days after the mainshock")
+    t = sub.add_parser("tables", help="build data/processed/<snapshot>/*.parquet")
+    t.add_argument("--snapshot", required=True)
+    sub.add_parser("verify", help="check manifest hashes and re-validate every OAF file")
+    it = sub.add_parser("items", help="write data/processed/<snapshot>/items.jsonl")
+    it.add_argument("--snapshot", required=True)
+    sub.add_parser("prompts-hash", help="write prompts/HASHES.json (SHA-256 per template)")
+    sub.add_parser("spend", help="total recorded API spend from runs/*/calls.jsonl")
+    bs = sub.add_parser("batch-status", help="status (and results once ended) of a batch id")
+    bs.add_argument("batch_id")
+    et = sub.add_parser("etas", help="legacy-ETAS refit forecasts (ADR 0010); --validate for V2")
+    et.add_argument("--snapshot", required=True)
+    et.add_argument("--only", nargs="*", help="issue ids (default: all)")
+    et.add_argument("--validate", action="store_true", help="re-simulate official versions")
+    et.add_argument("--seed-offset", type=int, default=0, help="add to every per-issue seed")
+    et.add_argument("--out", help="output parquet name (default by mode)")
+    et.add_argument(
+        "--catalog",
+        choices=("asof", "hindsight"),
+        default="asof",
+        help="ComCat as it stood at each issue / version time (default; docs/adr/0011), or today's",
+    )
+    et.add_argument(
+        "--settings",
+        choices=("default", "analyst"),
+        default="default",
+        help="code defaults (registered), or analyst settings inferred from the official products "
+        "(config/analyst_settings.toml; a labelled sensitivity variant, ADR 0010 section 4.1)",
+    )
+    ev = sub.add_parser("etas-validate", help="ETAS validation suite (docs/adr/0010 section 4)")
+    ev.add_argument("--snapshot", required=True)
+    ev.add_argument("--only", nargs="*", help="sequence ids for v0/v3 (default: all ETAS)")
+    ev.add_argument("--parts", nargs="*", default=["v0", "v3", "java", "recovery", "decomp"])
+    ev.add_argument("--recovery-n", type=int, default=800, help="sequences per fit time")
+    sub.add_parser("smoke", help="SPENDS MONEY (<= $1): one tiny call per Claude model")
+    pl = sub.add_parser("pilot", help="SPENDS MONEY (<= $3): dev items only, plus count_tokens")
+    pl.add_argument("--snapshot", required=True)
+    pl.add_argument("--count-only", action="store_true", help="only count_tokens (free)")
+    pl.add_argument("--summary", action="store_true", help="summarize a finished pilot (free)")
+    a = p.parse_args(argv)
+
+    seqs = load_sequences(a.config)
+    if a.cmd == "fetch":
+        from laf.usgs import fetch_sequence
+
+        snap = a.snapshot or datetime.now(UTC).strftime(SNAPSHOT_FORMAT)
+        now_ms = snapshot_ms(snap)
+        for s in seqs:
+            if a.only and s.id not in a.only:
+                continue
+            stored = fetch_sequence(a.data_dir, snap, s.id, s.catalog_min_mag, now_ms=now_ms)
+            print(f"{snap} {s.id:<12} {s.name:<30} +{len(stored)} files")
+    elif a.cmd == "asof":
+        from laf.asof import fetch_histories
+
+        for s in seqs:
+            if a.only and s.id not in a.only:
+                continue
+            n = fetch_histories(
+                a.data_dir,
+                a.snapshot,
+                [s.id],
+                workers=a.workers,
+                deleted=a.deleted,
+                min_mag=a.min_mag,
+                max_days=a.max_days,
+            )
+            print(f"{a.snapshot} {s.id:<12} {s.name:<30} +{n} files", flush=True)
+    elif a.cmd == "tables":
+        from laf.tables import build_tables, write_tables
+
+        tables = build_tables(a.data_dir, a.snapshot, seqs)
+        out = a.data_dir / "processed" / a.snapshot
+        write_tables(tables, out)
+        for name, df in tables.items():
+            print(f"{name:<20} {len(df):>8} rows")
+        bad = tables["oaf_versions"].query("not valid") if len(tables["oaf_versions"]) else []
+        if len(bad):
+            print(f"WARNING: {len(bad)} invalid OAF versions (see oaf_versions.error)")
+    elif a.cmd == "verify":
+        from laf.oaf import parse_forecast_lenient
+        from laf.usgs import load_manifest, read_raw, verify_manifest
+
+        problems = verify_manifest(a.data_dir)  # integrity: missing files, hash mismatches
+        entries = load_manifest(a.data_dir)
+        repaired, invalid = 0, []  # USGS data defects: recorded, excluded from scoring
+        for e in entries:
+            if e["path"].startswith("raw/oaf/"):
+                try:
+                    repaired += parse_forecast_lenient(read_raw(a.data_dir, e["path"]))[1]
+                except ValueError as err:
+                    first = str(err).splitlines()[1:2] or [str(err)]
+                    invalid.append(f"{e['path']}: {first[0].strip()[:120]}")
+        for line in problems:
+            print(f"INTEGRITY {line}")
+        for line in invalid:
+            print(f"invalid USGS forecast (excluded) {line}")
+        print(
+            f"{len(entries)} files, {len(problems)} integrity problems, "
+            f"{repaired} repaired JSON, {len(invalid)} invalid forecasts"
+        )
+        sys.exit(1 if problems else 0)
+    elif a.cmd == "etas-validate":
+        import pandas as pd
+        from scipy import stats
+
+        from laf import etas_validate as ev
+        from laf.asof import check_observations
+        from laf.generic_rj import REFERENCE_REL
+        from laf.oaf import parse_forecast
+
+        proc = a.data_dir / "processed" / a.snapshot
+        out = Path("runs") / "etas_validation" / a.snapshot
+        out.mkdir(parents=True, exist_ok=True)
+        ref = a.data_dir / REFERENCE_REL
+        if "v0" in a.parts:
+            ov = pd.read_parquet(proc / "oaf_versions.parquet")
+            if a.only:
+                ov = ov[ov["sequence_id"].isin(a.only)]
+            r = check_observations(
+                a.data_dir,
+                ov,
+                pd.read_parquet(proc / "catalog.parquet"),
+                pd.read_parquet(proc / "sequences.parquet"),
+            )
+            r.to_parquet(out / "v0_observations.parquet", index=False)
+            c = r[r["checkable"]]
+            print(
+                f"V0 exact: as-of {(c['asof'] == c['official']).mean():.4f}, hindsight "
+                f"{(c['hindsight'] == c['official']).mean():.4f} of {len(c)} checkable counts"
+            )
+            print(
+                c.assign(ok=c["asof"] == c["official"])
+                .groupby("sequence_id")["ok"]
+                .agg(["mean", "size"])
+            )
+        if "v3" in a.parts:
+            versions, bins = ev.run(a.data_dir, a.snapshot, only=a.only)
+            versions.to_parquet(out / "v3_versions.parquet", index=False)
+            bins.to_parquet(out / "v3_bins.parquet", index=False)
+            golden = Path("tests/golden/oaf_us6000u18k_1791593712688.json").read_bytes()
+            cmp = ev.compare(bins, parse_forecast(golden).fractileProbabilities)
+            cmp.to_parquet(out / "v3_compare.parquet", index=False)
+            q = cmp.groupby("sequence_id")[["d_official", "d_null"]].quantile(0.9)
+            print("V3 discrepancy, 90th percentile over cells (official vs Monte Carlo null):")
+            print(q.round(3))
+        if "java" in a.parts:
+            fits, cells = ev.java_differential(Path("runs/java_differential/out"), ref)
+            fits.to_csv(out / "java_fits.csv", index=False)
+            cells.to_parquet(out / "java_cells.parquet", index=False)
+            same_min = int((fits["min_mag_port"].round(6) == fits["min_mag_java"].round(6)).sum())
+            print(
+                f"Java: MAP equal {int(fits['map_equal'].sum())}/{len(fits)}; "
+                f"minMag equal {same_min}/{len(fits)}"
+            )
+            print(cells.groupby("mag")[["d_port_java", "d_java_java"]].median().round(3))
+        if "recovery" in a.parts:
+            rec = ev.recovery(ref, a.recovery_n)
+            rec.to_parquet(out / "recovery.parquet", index=False)
+            for t_end, g in rec.groupby("t_end"):
+                cols = ["rank_ams", "rank_a", "rank_p", "rank_c", "pit_week_m5"]
+                ks = {k: round(float(stats.kstest(g[k], "uniform").pvalue), 3) for k in cols}
+                c90 = {k: round(float(g[k].between(0.05, 0.95).mean()), 3) for k in cols}
+                print(f"recovery t_end={t_end:g} n={len(g)}: KS p {ks}; 90% coverage {c90}")
+        if "decomp" in a.parts:
+            its = pd.read_parquet(proc / "issue_times.parquet")
+            etas_issues = its.loc[its["oaf_ams"].notna(), "issue_id"]  # official ETAS products only
+            hind = pd.read_parquet(proc / "etas_forecasts_hindsight.parquet")
+            asof = pd.read_parquet(proc / "etas_forecasts.parquet")
+            d = ev.decomposition(
+                asof[asof["issue_id"].isin(etas_issues)],
+                hind,
+                its,
+                pd.read_parquet(proc / "forecast_fractiles.parquet"),
+            )
+            cols = ["d_off_asof", "d_asof_hind", "d_off_hind"]
+            if (proc / "etas_forecasts_analyst.parquet").exists():  # sensitivity variant
+                an = pd.read_parquet(proc / "etas_forecasts_analyst.parquet")
+                da = ev.decomposition(
+                    an[an["issue_id"].isin(etas_issues)],
+                    asof,
+                    its,
+                    pd.read_parquet(proc / "forecast_fractiles.parquet"),
+                )
+                da = da.rename(
+                    columns={"d_off_asof": "d_off_analyst", "d_asof_hind": "d_analyst_default"}
+                )
+                d = d.merge(
+                    da[["issue_id", "window", "d_off_analyst", "d_analyst_default"]],
+                    on=["issue_id", "window"],
+                )
+                cols += ["d_off_analyst", "d_analyst_default"]
+            d.to_parquet(out / "decomposition.parquet", index=False)
+            print("decomposition (mean |log ratio| of M>=5 quantiles; median over cells):")
+            print(d.groupby("sequence_id")[cols].median().round(3))
+        print(f"wrote {out}")
+    elif a.cmd == "smoke":
+        from laf.pilot import smoke
+
+        print(f"smoke spend ${smoke(Path('runs/smoke')):.4f}")
+    elif a.cmd == "pilot":
+        from laf.pilot import count_inputs, load_items, pilot
+
+        items = load_items(a.data_dir, a.snapshot)
+        if a.summary:
+            import json
+
+            from laf.pilot import summarize
+
+            print(json.dumps(summarize(Path("runs/pilot"), items), indent=1))
+            return
+        if not a.count_only:
+            print(f"pilot spend ${pilot(Path('runs/pilot'), items):.3f}")
+        count_inputs(Path("runs/pilot"), items)
+    elif a.cmd == "items":
+        from laf.pilot import load_items
+
+        out = a.data_dir / "processed" / a.snapshot / "items.jsonl"
+        items = load_items(a.data_dir, a.snapshot)
+        out.write_text(
+            "".join(i.model_dump_json() + "\n" for i in items), encoding="utf-8", newline="\n"
+        )
+        print(f"{len(items)} items -> {out}")
+    elif a.cmd == "prompts-hash":
+        import json
+
+        from laf.prompts import PROMPT_DIR, template_hashes
+
+        (PROMPT_DIR / "HASHES.json").write_text(
+            json.dumps(template_hashes(), indent=1) + "\n", encoding="utf-8", newline="\n"
+        )
+        print(f"wrote {PROMPT_DIR / 'HASHES.json'}")
+    elif a.cmd == "spend":
+        import json
+
+        from laf.providers import cost_usd
+
+        total = 0.0
+        for path in sorted(Path("runs").glob("*/calls.jsonl")):
+            recs = [
+                json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line
+            ]
+            usd = sum(cost_usd(r["model_requested"], r["usage"]) for r in recs if r.get("usage"))
+            total += usd
+            print(f"{path}: {len(recs)} calls, ${usd:.4f}")
+        print(f"total ${total:.4f}")
+    elif a.cmd == "batch-status":
+        from laf.providers import client
+
+        c = client()
+        b = c.messages.batches.retrieve(a.batch_id)
+        print(b.processing_status, b.request_counts, b.created_at, b.ended_at)
+        if b.processing_status == "ended":
+            for r in c.messages.batches.results(a.batch_id):
+                m = r.result.message if r.result.type == "succeeded" else None
+                text = m and next((x.text for x in m.content if x.type == "text"), None)
+                print(r.custom_id, r.result.type, m and m.model, m and m.stop_reason, text)
+    elif a.cmd == "etas":
+        import time
+
+        import pandas as pd
+
+        from laf.etas import (
+            V2_PASS,
+            analyst_kwargs,
+            forecast_item,
+            issue_seed,
+            resimulate_published,
+            v2_decision,
+            v2_evaluate,
+        )
+        from laf.etas import load_analyst_settings as _load_rules
+        from laf.generic_rj import REFERENCE_REL
+        from laf.pilot import load_items
+
+        if a.validate and a.settings != "default":
+            raise SystemExit("--settings analyst applies to refit forecasts, not to --validate")
+        proc = a.data_dir / "processed" / a.snapshot
+        rules = _load_rules(Path("config/analyst_settings.toml")) if a.settings == "analyst" else []
+        # window start of each issue's matched official version, in days after the mainshock
+        ov = pd.read_parquet(proc / "oaf_versions.parquet")
+        ov = ov[ov["valid"] & ~ov["duplicate"].astype(bool)]
+        origins = pd.read_parquet(proc / "sequences.parquet").set_index("sequence_id")["origin_ms"]
+        version_days = {
+            (r["sequence_id"], r["creation_ms"]): (r["time_start_ms"] - origins[r["sequence_id"]])
+            / 86_400_000
+            for r in ov.to_dict("records")
+        }
+        items = load_items(a.data_dir, a.snapshot)
+        its = {
+            r["issue_id"]: r
+            for r in pd.read_parquet(proc / "issue_times.parquet").to_dict("records")
+        }
+        cats = pd.read_parquet(proc / "catalog.parquet")
+        hists: dict[str, pd.DataFrame] = {}
+        ref = a.data_dir / REFERENCE_REL
+        rows = []
+        for item in items:
+            if a.only and item.item_id not in a.only:
+                continue
+            row = its[item.item_id]
+            ams = row.get("oaf_ams")
+            if a.validate and (ams is None or ams != ams):  # V2 only for ETAS products
+                continue
+            cat = cats[cats["sequence_id"] == item.sequence_id]
+            n_fallback = 0
+            if a.catalog == "asof":
+                from laf.asof import as_of_or_hindsight, load_versions
+
+                if item.sequence_id not in hists:
+                    hists[item.sequence_id] = load_versions(a.data_dir, cat["id"])
+                seen = row["creation_ms"] if a.validate else item.issue_ms
+                after = cat[cat["id"] != item.sequence_id]  # the mainshock enters separately
+                cat, fallback = as_of_or_hindsight(hists[item.sequence_id], after, int(seen))
+                n_fallback = int(fallback.sum())
+            t0 = time.perf_counter()
+            seed = issue_seed(item.item_id) + a.seed_offset
+            if a.validate:
+                out, kw = resimulate_published(item, row, cat, ref, seed), {}
+            else:
+                vd = version_days.get((item.sequence_id, row.get("creation_ms")))
+                kw = analyst_kwargs(rules, item.sequence_id, vd)
+                out = forecast_item(item, row, cat, ref, seed, **kw)
+            dt = time.perf_counter() - t0
+            label = "analyst" if kw else "default"
+            rows += [
+                {**r, "runtime_s": dt, "n_hindsight_events": n_fallback, "settings": label}
+                for r in out
+            ]
+            print(
+                f"{item.item_id:<22} {dt:6.1f} s  M>=5 median by window {[r['q500'] for r in out]}",
+                flush=True,
+            )
+        suffix = ("" if a.catalog == "asof" else "_hindsight") + (
+            "_analyst" if a.settings == "analyst" else ""
+        )
+        name = a.out or (
+            f"etas_validation{suffix}.parquet" if a.validate else f"etas_forecasts{suffix}.parquet"
+        )
+        df = pd.DataFrame(rows)
+        if a.validate:
+            df = v2_evaluate(
+                df,
+                pd.read_parquet(proc / "issue_times.parquet"),
+                pd.read_parquet(proc / "forecast_fractiles.parquet"),
+                pd.read_parquet(proc / "sequences.parquet"),
+            )
+        df.to_parquet(proc / name, index=False)
+        print(f"wrote {proc / name}")
+        if a.validate:
+            cols = ["issue_id", "window", "min_mag", "q500", "off_q500", "ratio"]
+            print(df[~df["ok"]][cols].round(2).to_string(index=False))
+            rate, by_seq, eligible = v2_decision(df)
+            print(f"V2 pass rate {rate:.3f} ({int(df['ok'].sum())}/{len(df)}), threshold {V2_PASS}")
+            print("by sequence", {k: round(x, 3) for k, x in by_seq.items()})
+            print("hindsight-effect sequences", eligible)
+            if a.seed_offset or a.only:
+                print("robustness run: the registered decision is the full run with seed offset 0")
+            sys.exit(0 if rate >= V2_PASS else 1)

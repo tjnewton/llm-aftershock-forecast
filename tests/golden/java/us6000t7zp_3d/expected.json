@@ -1,0 +1,17 @@
+{
+ "origin_used_ms": 1782338704000,
+ "forecast_start_days": 3.2467875694444444,
+ "map": [
+  -3.1026,
+  -2.655,
+  0.9213333333333333,
+  0.007196856730011514
+ ],
+ "grid": [
+  51,
+  31,
+  31,
+  21
+ ],
+ "source": "opensha-oaf 08a274bde278 command line (runs/java_differential)"
+}
