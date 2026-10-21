@@ -146,6 +146,13 @@ def test_run_writes_the_batch_layout_and_retries_only_failed_requests(server, tm
     )
 
 
+def test_extension_runs_stay_outside_the_frozen_analysis_glob(server, tmp_path):
+    item = next(i for i in ITEMS if i.role == "dev")
+    llamacpp.run("http://x", "gpt-oss-20b-e1", "dev", [item], "20261021T1027Z", runs=tmp_path)
+    assert (tmp_path / "extensions" / "dev-gpt-oss-20b-e1" / "results.jsonl").exists()
+    assert list(tmp_path.glob("*/results.jsonl")) == []  # the analysis notebook's glob
+
+
 def test_local_runs_load_and_score_with_the_frozen_analysis(server, tmp_path):
     item = next(i for i in ITEMS if i.item_id == "us6000tkt2@3d")
     server["fail"] = {2}

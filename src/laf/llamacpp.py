@@ -6,7 +6,8 @@ One model per server, started with the registered settings (checked through /pro
     --chat-template-file config/llamacpp/<model>.jinja
 Then: uv run python -m laf.llamacpp --snapshot S --model gpt-oss-20b --block core
 E1 (prereg section 11): the same server for gpt-oss-20b plus `--lora gpt-oss-20b-e1-lora-f16.gguf
---alias laf/gpt-oss-20b-e1`, then --model gpt-oss-20b-e1 with --block dev (format check) and e1.
+--alias laf/gpt-oss-20b-e1`, then --model gpt-oss-20b-e1 with --block dev (format check) and e1;
+outputs go to runs/extensions/.
 
 Each block x model writes runs/<block>-<model>/ in the batch layout that the frozen scoring code
 reads (`laf.analysis.llm_samples`): requests.jsonl (the design, written first) and results.jsonl
@@ -314,7 +315,9 @@ def run(
     jobs = expand(items, block, model)
     if not jobs:
         raise SystemExit(f"block {block} has no items")
-    out = runs / f"{block}-{model}"
+    # extension models (E1) sit one level down, outside the frozen analysis's runs/*/ glob and
+    # so outside the registered forecasters' invalid-sample penalty pool
+    out = runs / ("extensions" if "lora" in MODELS[model] else "") / f"{block}-{model}"
     ledger = [{"custom_id": j["custom_id"], **j["meta"]} for j in jobs]
     if (out / "requests.jsonl").exists() and _jsonl(out / "requests.jsonl") != ledger:
         raise SystemExit(f"{out}/requests.jsonl holds a different design")
