@@ -249,3 +249,141 @@ def score_all(
     ]
     meta = cell_df.drop(columns=[c for c in ("y4", "y5", "y6") if c not in cell_df])
     return df.merge(meta, on=["issue_id", "window"], how="left")
+
+
+# --- Aggregation for the preregistered tables (prereg sections 2, 5, 6) ---
+
+NON_OVERLAP = {"1 Day": None, "1 Week": ("first", "7d", "14d", "28d"), "1 Month": ("first",)}
+
+
+def answer_scores(df: pd.DataFrame, metric: str = "log_qs") -> pd.DataFrame:
+    """Estimand: a single chatbot answer, so the mean over samples (and paraphrases) per
+    forecaster x cell; baselines have one sample."""
+    keys = [
+        "forecaster",
+        "model",
+        "arm",
+        "info",
+        "effort",
+        "issue_id",
+        "window",
+        "sequence_id",
+        "name",
+        "role",
+        "primary",
+        "settled_2d",
+        "oaf_cell",
+        "elapsed_days",
+    ]
+    return df.groupby(keys)[metric].mean().reset_index()
+
+
+def non_overlapping(cell_df: pd.DataFrame) -> pd.Series:
+    target = cell_df["issue_id"].str.split("@").str[1]
+    keep = pd.Series(False, index=cell_df.index)
+    for win, targets in NON_OVERLAP.items():
+        sel = cell_df["window"] == win
+        if targets is None:
+            keep |= sel
+        else:
+            keep |= sel & target.apply(lambda t, ts=targets: any(x in t.split("+") for x in ts))
+    return keep
+
+
+def dqs(
+    scores: pd.DataFrame,
+    x: str,
+    ref: str,
+    cell_mask: pd.Series | None = None,
+    metric: str = "log_qs",
+) -> pd.DataFrame:
+    """Per cell dQS = score(x) - score(ref), on cells where both exist (and the mask)."""
+    s = scores if cell_mask is None else scores[cell_mask.reindex(scores.index, fill_value=False)]
+    a = s[s["forecaster"] == x].set_index(["issue_id", "window"])
+    b = s[s["forecaster"] == ref].set_index(["issue_id", "window"])[metric]
+    out = a.join(b.rename("ref"), how="inner")
+    out["d"] = out[metric] - out["ref"]
+    return out.reset_index()
+
+
+def ci_table(d: pd.DataFrame, rng, b: int = 10_000) -> pd.DataFrame:
+    """Per-sequence mean dQS with moving-block bootstrap CIs, then the pooled two-stage CI."""
+    from laf.scoring import pooled_ci, sequence_ci
+
+    rows, pooled = [], []
+    for name, g in d.groupby("name"):
+        issues = [
+            x["d"].to_numpy()
+            for _, x in g.sort_values("elapsed_days").groupby("issue_id", sort=False)
+        ]
+        est, lo, hi = sequence_ci(issues, rng, b)
+        rows.append({"sequence": name, "cells": len(g), "dQS": est, "lo": lo, "hi": hi})
+        pooled.append(issues)
+    if pooled:
+        est, lo, hi = pooled_ci(pooled, rng, b)
+        rows.append({"sequence": "pooled", "cells": len(d), "dQS": est, "lo": lo, "hi": hi})
+    return pd.DataFrame(rows)
+
+
+def supported(table: pd.DataFrame, direction: int) -> bool:
+    """Prereg section 2: sign agreement in every sequence and the pooled CI excludes 0.
+    direction = +1 when the hypothesis predicts dQS > 0, -1 when it predicts dQS < 0."""
+    seqs = table[table["sequence"] != "pooled"]
+    pooled = table[table["sequence"] == "pooled"]
+    if seqs.empty or pooled.empty:
+        return False
+    agree = bool((direction * seqs["dQS"] > 0).all())
+    p = pooled.iloc[0]
+    excl = p["lo"] > 0 if direction > 0 else p["hi"] < 0
+    return agree and bool(excl)
+
+
+def coverage_table(df: pd.DataFrame, mask: pd.Series) -> pd.DataFrame:
+    """Empirical coverage of central intervals per forecaster (valid samples only)."""
+    s = df[mask & df["status"].eq("ok")]
+    return s.groupby("forecaster")[[f"cov{lv}" for lv in (50, 80, 90, 95)]].mean()
+
+
+def pit_ks(df: pd.DataFrame, mask: pd.Series, column: str = "pit_rank") -> pd.Series:
+    """Kolmogorov-Smirnov distance of randomized PIT values from uniform, per forecaster."""
+    from scipy import stats
+
+    s = df[mask & df["status"].eq("ok")].dropna(subset=[column])
+    return s.groupby("forecaster")[column].apply(lambda v: stats.kstest(v, "uniform").statistic)
+
+
+def invalid_table(df: pd.DataFrame) -> pd.DataFrame:
+    """Status shares by model, arm and information (co-primary outcome)."""
+    s = df[df["arm"] != "baseline"].drop_duplicates(
+        ["forecaster", "paraphrase", "sample", "issue_id"]
+    )
+    return pd.crosstab(
+        [s["model"], s["arm"], s["info"], s["effort"]], s["status"], normalize="index"
+    )
+
+
+def recount(
+    cell_df: pd.DataFrame, tables: dict[str, pd.DataFrame], items: dict[str, Item], factor: float
+) -> pd.DataFrame:
+    """Outcomes recounted in the scoring circle scaled by `factor` (radius sensitivity)."""
+    from laf.catalog import count_in_window
+    from laf.oaf import Circle
+
+    cat = tables["catalog"]
+    out = cell_df.copy()
+    for col, m in (("y4", 4.0), ("y5", 5.0), ("y6", 6.0)):
+        out[col] = [
+            count_in_window(
+                cat[cat["sequence_id"] == r["sequence_id"]],
+                Circle(
+                    items[r["issue_id"]].region.lat,
+                    items[r["issue_id"]].region.lon,
+                    items[r["issue_id"]].region.radius_km * factor,
+                ),
+                int(r["time_start_ms"]),
+                int(r["time_end_ms"]),
+                m,
+            )
+            for r in out.to_dict("records")
+        ]
+    return out
