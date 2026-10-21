@@ -32,11 +32,12 @@ On the 33 settled cells of the post-cutoff sequences that have an official forec
 and Flores Sea), Sonnet and Opus could not be distinguished from USGS at this scale: the pooled
 score difference to the official forecast is −0.015 (95% block-bootstrap interval −0.081 to 0.017)
 for Sonnet and −0.022 (−0.074 to 0.032) for Opus, with signs that differ between the two
-sequences, while Haiku is worse than the official forecast (+0.057, 0.004 to 0.095; Figure 1).
+sequences, while Haiku is worse than the official forecast (+0.111, 0.004 to 0.244, or +0.048
+counting only its valid answers; Figure 1).
 Across all 132 primary cells the official forecast's central intervals are wide (50% intervals
 cover 76% of outcomes, 90% intervals 92%); Sonnet's are closest to nominal at the 50% level (70%
 and 92%), and Opus and Haiku are slightly narrow at 90% (87% and 85%). Asking for model
-parameters instead of quantiles made every model worse (pooled differences +0.06 to +0.08), and
+parameters instead of quantiles made every model worse (pooled differences +0.03 to +0.08), and
 showing the catalog helped Sonnet (−0.042, −0.124 to −0.020) but not consistently the others.
 Outputs were almost always usable: at most 2.7% of samples per model and arm were invalid
 (non-monotone quantiles), with no refusals and no truncations. A fixed literature search
