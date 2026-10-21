@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "knows_event": {
+      "type": "boolean"
+    },
+    "largest_aftershock_magnitude": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "n_m5_aftershocks_30d": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "knows_event",
+    "largest_aftershock_magnitude",
+    "n_m5_aftershocks_30d"
+  ],
+  "additionalProperties": false
+}

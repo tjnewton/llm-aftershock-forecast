@@ -1,0 +1,1 @@
+No list of earthquakes is provided for this forecast. Base it on the mainshock alone.

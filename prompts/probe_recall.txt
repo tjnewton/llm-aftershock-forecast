@@ -1,0 +1,9 @@
+This is a memory question, not a forecast. Answer from what you already know; you have no tools
+or internet access.
+
+A magnitude ${mag} earthquake occurred on ${origin_date} (UTC), ${place}.
+Do you have specific knowledge of this earthquake and its aftershock sequence? If you do, give
+(1) the magnitude of the largest aftershock within ${radius_km} km of the epicentre during the
+first 30 days, and (2) the number of aftershocks of magnitude 5.0 or larger within that distance
+during the first 30 days. If you do not know, set knows_event to false and leave both fields
+null. Do not guess.

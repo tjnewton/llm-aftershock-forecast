@@ -1,0 +1,6 @@
+## What to report
+Report three forecasts, one per window (day, week and month). Each forecast has:
+1. nine quantiles (2.5%, 5%, 10%, 25%, 50%, 75%, 90%, 95%, 97.5%) of the count of M>=5.0
+   earthquakes, as whole numbers that never decrease from one quantile to the next;
+2. the same nine quantiles for the count of M>=4.0 earthquakes;
+3. the probability, between 0 and 1, that at least one M>=6.0 earthquake occurs.

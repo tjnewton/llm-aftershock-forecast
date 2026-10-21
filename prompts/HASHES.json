@@ -1,0 +1,15 @@
+{
+ "catalog_none.txt": "4184210204ff2dc5b234f6e0d177e12cd83fd62f7a8bfd17f79f6dd1ca2e911b",
+ "catalog_section.txt": "461a15f18c7808911c2f58f0fd5d6f89c7c3b644aec5f3590f78f3f99b798164",
+ "probe_recall.txt": "0aaf8c7f60cb8f08e729be1110dbb6d5329c28249f6dfa0451d4c53e40fc70e4",
+ "schema_direct.json": "60ab911acec5af8723367b18cc7de74b74d9fb162d25d97522a1853e37e7ba65",
+ "schema_params.json": "d2901694fdcc4c50d94c1ba3ce6d6865f988e3c17dd0db5cf1b1da2858a4d540",
+ "schema_probe.json": "ed28e1ee5c9fdcdd42d63e2a3e16373140897b0f8f2c1d980504cf8edcc19426",
+ "system_p1.txt": "97b3f5b306c60f3092734b27fdb55144206f7625555505ee3d2cdc9fd9b617aa",
+ "system_p2.txt": "547fa778f32be6173c3cefb46649f653fa946a98c0feb2f7b02c2d3cf34b4d29",
+ "task_direct_p1.txt": "04fd1d27bbaa88ab444880a7396867f3377295c4b72c843a20d3f3b8dd4d0c9b",
+ "task_direct_p2.txt": "af42f856869230130153dd9149689148eb2012bba6a676a69b65a8a44999e53b",
+ "task_params_p1.txt": "b9873c30c2f7740f44cbc16c7e4fc726c78351bfaaccc42f82fd36ac679b1073",
+ "task_params_p2.txt": "a64f895cfe3f33077233b9dcbb8929db254b94c26f10643610212dcefff2a255",
+ "user_context.txt": "34578bc1b11979fc6117aa3e6aa7d8449cadff82b62362d5580e8f7b648efc40"
+}
