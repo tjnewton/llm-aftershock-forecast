@@ -37,7 +37,9 @@ and 92%), and Opus and Haiku are slightly narrow at 90% (87% and 85%). Asking fo
 parameters instead of quantiles made every model worse (pooled differences +0.06 to +0.08), and
 showing the catalog helped Sonnet (−0.042, −0.124 to −0.020) but not consistently the others.
 Outputs were almost always usable: at most 2.7% of samples per model and arm were invalid
-(non-monotone quantiles), with no refusals and no truncations. Live forecasts for the ongoing
+(non-monotone quantiles), with no refusals and no truncations. A fixed literature search
+(Valency) found 23 papers about four of the eleven mainshocks, none available before any issue
+time; only Kamchatka had papers dated before the Claude cutoff (12 of 18). Live forecasts for the ongoing
 Panama sequence were hashed and published 46 minutes before their windows opened and will be
 scored once the catalog settles. These are pilot-scale results: the headline rests on two
 sequences, and per-sequence estimates, not significance tests, carry the claims.
