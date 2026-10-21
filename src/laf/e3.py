@@ -82,7 +82,7 @@ def write_config(sel: pd.DataFrame, path: Path) -> None:
             "",
             "[[sequence]]",
             f"id = {json.dumps(r['id'])}",
-            f"name = {json.dumps(str(r['place']))}",
+            f"name = {json.dumps(str(r['place']) + ' ' + r['time'].strftime('%Y-%m-%d'))}",
             f"role = {json.dumps(r['role'])}",
             "catalog_min_mag = 3.0",
         ]

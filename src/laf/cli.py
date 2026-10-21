@@ -43,7 +43,9 @@ def main(argv: list[str] | None = None) -> None:
     bs.add_argument("batch_id")
     rn = sub.add_parser("run", help="SPENDS MONEY: submit one design block as a Message Batch")
     rn.add_argument("--snapshot", required=True)
-    rn.add_argument("--block", required=True, choices=("core", "i0", "sonnet-low"))
+    rn.add_argument(
+        "--block", required=True, choices=("core", "i0", "sonnet-low", "e3", "e3pre", "e3i0")
+    )
     rn.add_argument("--model", required=True)
     rn.add_argument("--name", help="run name under runs/ (default <block>-<model>)")
     rn.add_argument("--dry-run", action="store_true", help="count requests and estimate cost")
@@ -81,13 +83,21 @@ def main(argv: list[str] | None = None) -> None:
     )
     ad.add_argument("action", choices=("upload", "recommend", "launch", "status", "download"))
     ad.add_argument("--file", type=Path, default=Path("data/processed/training/e1_train.jsonl"))
+    ad.add_argument("--run", default="e1", help="records in runs/<run>-adaption/ (E1: e1)")
     tr = sub.add_parser("training-set", help="E1 training set (ComCat requests; prereg sec. 11)")
     tr.add_argument("--start", default="2010-01-01")
     tr.add_argument("--end", default="2025-07-01", help="exclusive end (origin < end)")
     tr.add_argument("--workers", type=int, default=8)
+    tr.add_argument("--min-mag", type=float, default=6.5, help="mainshock floor (E1: 6.5)")
+    tr.add_argument("--out", default="e1_train.jsonl", help="file in data/processed/training/")
     fg = sub.add_parser("figures", help="figures/*.png and the explorer table (no API calls)")
     fg.add_argument("--snapshot", required=True)
     sub.add_parser("e3-select", help="E3 candidate list -> config/sequences_e3.toml (ComCat)")
+    cb = sub.add_parser("combined", help="exploratory Claude + official average (no API calls)")
+    cb.add_argument("--snapshot", required=True)
+    cb.add_argument("--runs", type=Path, default=Path("runs"), help="runs/ or runs/e3")
+    e3s = sub.add_parser("e3", help="E3 exploratory tables -> results/e3_*.csv (no API calls)")
+    e3s.add_argument("--snapshot", required=True)
     e1 = sub.add_parser("e1", help="E1 adapted-model table (no API calls)")
     e1.add_argument("--snapshot", required=True)
     lt = sub.add_parser("literature", help="E2 literature exposure table (no network)")
@@ -266,6 +276,7 @@ def main(argv: list[str] | None = None) -> None:
         from laf import adapt
 
         c = adapt.client()
+        adapt.RUN = Path(f"runs/{a.run}-adaption")
         rec = lambda n: json.loads((adapt.RUN / n).read_text(encoding="utf-8"))  # noqa: E731
         if a.action == "upload":
             print("dataset", adapt.upload(c, a.file))
@@ -283,7 +294,8 @@ def main(argv: list[str] | None = None) -> None:
             )
             print("run", adapt.launch(c, rec("dataset.json")["dataset_id"], hyperparams=hp))
         elif a.action == "download":
-            print(adapt.fetch_checkpoint(c, rec("run.json")["run_id"]))
+            out = Path(f"data/interim/{a.run}-adaption/best.tar.zst")
+            print(adapt.fetch_checkpoint(c, rec("run.json")["run_id"], out))
         else:
             print(json.dumps(adapt.status(c, rec("run.json")["run_id"]), indent=1, default=str))
     elif a.cmd == "training-set":
@@ -293,7 +305,7 @@ def main(argv: list[str] | None = None) -> None:
 
         start = a.start
         while True:  # prereg section 11: move the start back in whole years until >= 1,000 rows
-            ev = T.fetch(a.data_dir, start, a.end)
+            ev = T.fetch(a.data_dir, start, a.end, a.min_mag)
             if len(ev) * 6 >= T.MIN_ROWS:
                 break
             start = f"{int(start[:4]) - 1}{start[4:]}"
@@ -301,12 +313,10 @@ def main(argv: list[str] | None = None) -> None:
         data = T.dataset(a.data_dir, items, rows, cats, workers=a.workers)
         out = a.data_dir / "processed" / "training"
         out.mkdir(parents=True, exist_ok=True)
-        (out / "e1_train.jsonl").write_text(
+        (out / a.out).write_text(
             "".join(json.dumps(r) + "\n" for r in data), encoding="utf-8", newline="\n"
         )
-        print(
-            f"{len(ev)} sequences from {start} to {a.end}; {len(data)} rows -> {out}/e1_train.jsonl"
-        )
+        print(f"{len(ev)} sequences from {start} to {a.end}; {len(data)} rows -> {out}/{a.out}")
     elif a.cmd == "e3-select":
         from laf import e3
 
@@ -314,6 +324,23 @@ def main(argv: list[str] | None = None) -> None:
         e3.write_config(sel, Path("config/sequences_e3.toml"))
         print(sel.groupby("role").size().to_string())
         print(sel[["id", "mag", "role", "place"]].to_string(index=False))
+    elif a.cmd == "combined":
+        from laf import extensions as X
+
+        runs = sorted(p.parent for p in a.runs.glob("*/results.jsonl"))
+        models = [f"{m}|direct|I1|high" for m in X.CLAUDE]
+        tab = X.combined_table(a.data_dir / "processed" / a.snapshot, runs, models)
+        Path("results").mkdir(exist_ok=True)
+        tab.to_csv(f"results/combined_{a.snapshot}.csv", index=False, lineterminator="\n")
+        print(tab[tab["sequence"] == "pooled"].round(3).to_string(index=False))
+    elif a.cmd == "e3":
+        from laf import extensions as X
+
+        Path("results").mkdir(exist_ok=True)
+        for name, tab in X.e3_tables(a.data_dir / "processed" / a.snapshot).items():
+            tab.to_csv(f"results/{name}.csv", index=False, lineterminator="\n")
+            pooled = tab[tab["sequence"] == "pooled"] if "sequence" in tab else tab
+            print(f"== {name}\n{pooled.round(3).to_string(index=False)}")
     elif a.cmd == "e1":
         from laf import extensions as X
 

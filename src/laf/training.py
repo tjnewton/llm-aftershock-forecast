@@ -38,12 +38,12 @@ def _iso(ms: int) -> str:
     return datetime.fromtimestamp(ms / 1000, UTC).strftime("%Y-%m-%dT%H:%M:%S")
 
 
-def event_list_url(start: str, end: str) -> str:
+def event_list_url(start: str, end: str, min_mag: float = MIN_MAG) -> str:
     q = {
         "format": "csv",
         "starttime": start,
         "endtime": end,
-        "minmagnitude": f"{MIN_MAG}",
+        "minmagnitude": f"{min_mag}",
         "eventtype": "earthquake",
         "orderby": "time-asc",
     }
@@ -86,11 +86,12 @@ def exclude_fore_aftershocks(ev: pd.DataFrame) -> pd.DataFrame:
     return ev[keep].reset_index(drop=True)
 
 
-def fetch(data_dir: Path, start: str, end: str) -> pd.DataFrame:
+def fetch(data_dir: Path, start: str, end: str, min_mag: float = MIN_MAG) -> pd.DataFrame:
     """Store the event list and one catalog per kept event (raw files are never refetched)."""
-    rel = f"{RAW}/events_m{MIN_MAG}_{start}_{end}.csv"
+    rel = f"{RAW}/events_m{min_mag}_{start}_{end}.csv"
     if not (data_dir / rel).exists():
-        store(data_dir, rel, download(event_list_url(start, end)), event_list_url(start, end))
+        url = event_list_url(start, end, min_mag)
+        store(data_dir, rel, download(url), url)
     ev = exclude_fore_aftershocks(read_events(read_raw(data_dir, rel)))
     for r in ev.to_dict("records"):
         crel = f"{RAW}/catalogs/{r['id']}.csv"

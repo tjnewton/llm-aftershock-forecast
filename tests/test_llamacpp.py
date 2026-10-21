@@ -65,7 +65,10 @@ def server(monkeypatch):
     return state
 
 
-@pytest.mark.parametrize(("block", "n"), [("core", 294), ("i0", 132), ("dev", 72), ("e1", 147)])
+@pytest.mark.parametrize(
+    ("block", "n"),
+    [("core", 294), ("i0", 132), ("dev", 72), ("e1", 147), ("e3", 66), ("e3all", 114)],
+)
 @pytest.mark.parametrize("model", sorted(llamacpp.MODELS))
 def test_blocks_match_the_design_table(block, n, model):
     jobs = llamacpp.expand(ITEMS, block, model)

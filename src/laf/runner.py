@@ -43,7 +43,33 @@ BLOCKS: dict[str, dict] = {
         "k": 5,
         "effort": "low",
     },
+    # E3 extended exploratory set (ADR 0012), run on the E3 snapshot into runs/e3/
+    "e3": {
+        "roles": ("test-post",),
+        "arms": ("direct",),
+        "infos": ("I1",),
+        "paras": ("p1",),
+        "k": 5,
+        "effort": "high",
+    },
+    "e3pre": {
+        "roles": ("test-pre",),
+        "arms": ("direct",),
+        "infos": ("I1",),
+        "paras": ("p1",),
+        "k": 3,
+        "effort": "high",
+    },
+    "e3i0": {
+        "roles": ("test-post",),
+        "arms": ("direct",),
+        "infos": ("I0",),
+        "paras": ("p1",),
+        "k": 3,
+        "effort": "high",
+    },
 }
+CHARS_PER_TOKEN = 1.25  # below the pilot prompts' minimum (1.28; median 1.36): overestimates
 
 
 def _jsonl(path: Path) -> list[dict]:
@@ -108,7 +134,9 @@ def estimate_usd(reqs: list[dict], pilot: Path = RUNS / "pilot") -> float:
         m = r["meta"]
         n_in = tokens.get((m["item_id"], m["arm"], m["info"]))
         if n_in is None:  # params x I0 was not counted; the direct prompt is the same size
-            n_in = tokens[(m["item_id"], "direct", m["info"])]
+            n_in = tokens.get((m["item_id"], "direct", m["info"]))
+        if n_in is None:  # items the pilot never counted (E3): from the request's length
+            n_in = len(json.dumps(r["params"], ensure_ascii=False)) / CHARS_PER_TOKEN
         usage = {"input_tokens": n_in, "output_tokens": mean_out[m["model"]]}
         total += cost_usd(m["model"], usage, batch=True)
     return total

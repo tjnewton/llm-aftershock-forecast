@@ -70,6 +70,9 @@ LOCAL_BLOCKS = {
     "i0": {**BLOCKS["i0"], "k": 3},
     "dev": {**BLOCKS["core"], "roles": ("dev",), "paras": ("p1",), "k": 3},
     "e1": {**BLOCKS["core"], "arms": ("direct",), "paras": ("p1",), "k": 3},
+    # E3 extended exploratory set (ADR 0012), on the E3 snapshot; outputs under runs/e3/
+    "e3": {**BLOCKS["e3"], "k": 3},
+    "e3all": {**BLOCKS["e3"], "roles": ("test-post", "test-pre"), "k": 3},
 }
 STOP = {"stop": "end_turn", "length": "max_tokens"}  # finish_reason in the Claude vocabulary
 
@@ -317,7 +320,12 @@ def run(
         raise SystemExit(f"block {block} has no items")
     # extension models (E1) sit one level down, outside the frozen analysis's runs/*/ glob and
     # so outside the registered forecasters' invalid-sample penalty pool
-    out = runs / ("extensions" if "lora" in MODELS[model] else "") / f"{block}-{model}"
+    out = (
+        runs
+        / ("e3" if block.startswith("e3") else "")
+        / ("extensions" if "lora" in MODELS[model] else "")
+        / f"{block}-{model}"
+    )
     ledger = [{"custom_id": j["custom_id"], **j["meta"]} for j in jobs]
     if (out / "requests.jsonl").exists() and _jsonl(out / "requests.jsonl") != ledger:
         raise SystemExit(f"{out}/requests.jsonl holds a different design")
