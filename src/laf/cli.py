@@ -87,6 +87,8 @@ def main(argv: list[str] | None = None) -> None:
     tr.add_argument("--workers", type=int, default=8)
     fg = sub.add_parser("figures", help="figures/*.png and the explorer table (no API calls)")
     fg.add_argument("--snapshot", required=True)
+    lt = sub.add_parser("literature", help="E2 literature exposure table (no network)")
+    lt.add_argument("--snapshot", required=True)
     pr = sub.add_parser("probe", help="SPENDS MONEY (~$0.3): recall probe (prereg sec. 8)")
     pr.add_argument("--snapshot", required=True)
     lv = sub.add_parser("live", help="SPENDS MONEY (~$1.5): live Panama forecasts (prereg sec. 10)")
@@ -300,6 +302,17 @@ def main(argv: list[str] | None = None) -> None:
         print(
             f"{len(ev)} sequences from {start} to {a.end}; {len(data)} rows -> {out}/e1_train.jsonl"
         )
+    elif a.cmd == "literature":
+        import pandas as pd
+
+        from laf import literature as L
+
+        pap = L.papers(a.data_dir, Path("config/literature_screen.csv"))
+        issues = pd.read_parquet(a.data_dir / "processed" / a.snapshot / "issue_times.parquet")
+        tab = L.exposure(pap, issues, {s.id: s.name for s in seqs})
+        Path("results").mkdir(exist_ok=True)
+        tab.to_csv("results/e2_literature.csv", index=False, lineterminator="\n")
+        print(tab.to_string(index=False))
     elif a.cmd == "figures":
         import numpy as np
         import pandas as pd
