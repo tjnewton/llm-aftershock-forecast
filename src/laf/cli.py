@@ -76,6 +76,11 @@ def main(argv: list[str] | None = None) -> None:
     ev.add_argument("--parts", nargs="*", default=["v0", "v3", "java", "recovery", "decomp"])
     ev.add_argument("--recovery-n", type=int, default=800, help="sequences per fit time")
     sub.add_parser("smoke", help="SPENDS MONEY (<= $1): one tiny call per Claude model")
+    lv = sub.add_parser("live", help="SPENDS MONEY (~$1.5): live Panama forecasts (prereg sec. 10)")
+    lv.add_argument("--snapshot", required=True, help="snapshot holding the Panama refetch")
+    lv.add_argument("--sequence", default="us6000u18k")
+    lv.add_argument("--name", default="live-panama-1")
+    lv.add_argument("--dry-run", action="store_true", help="build and show the items only")
     pl = sub.add_parser("pilot", help="SPENDS MONEY (<= $3): dev items only, plus count_tokens")
     pl.add_argument("--snapshot", required=True)
     pl.add_argument("--count-only", action="store_true", help="only count_tokens (free)")
@@ -237,6 +242,28 @@ def main(argv: list[str] | None = None) -> None:
             print("decomposition (mean |log ratio| of M>=5 quantiles; median over cells):")
             print(d.groupby("sequence_id")[cols].median().round(3))
         print(f"wrote {out}")
+    elif a.cmd == "live":
+        import time
+
+        from laf.items import utc
+        from laf.live import HOUR_MS, live_items, next_full_hour, run_live
+
+        now_ms = int(time.time() * 1000)
+        strict_ms = next_full_hour(now_ms + 50 * 60_000)  # opens after the hash is pushed
+        seq = next(s for s in seqs if s.id == a.sequence)
+        items, update_ms = live_items(a.data_dir, a.snapshot, seq, now_ms, strict_ms)
+        print(f"newest official version {update_ms}; strict windows open {utc(strict_ms)} UTC")
+        for i in items:
+            ws = ", ".join(f"{w.key} {utc(w.start_ms)}-{utc(w.end_ms)}" for w in i.windows)
+            print(f"{i.item_id}: issue {utc(i.issue_ms)}, {len(i.catalog)} rows; {ws}")
+        if not a.dry_run:
+            from laf.providers import client
+
+            sha, spent = run_live(client(), items, Path("runs") / a.name)
+            done_ms = int(time.time() * 1000)
+            print(f"outputs SHA-256 {sha}; spend ${spent:.3f}; hashed {utc(done_ms)} UTC")
+            if done_ms >= strict_ms - HOUR_MS // 6:
+                print("WARNING: less than 10 min before the strict windows open")
     elif a.cmd == "smoke":
         from laf.pilot import smoke
 
