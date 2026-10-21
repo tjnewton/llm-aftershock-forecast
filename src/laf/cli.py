@@ -37,8 +37,20 @@ def main(argv: list[str] | None = None) -> None:
     it.add_argument("--snapshot", required=True)
     sub.add_parser("prompts-hash", help="write prompts/HASHES.json (SHA-256 per template)")
     sub.add_parser("spend", help="total recorded API spend from runs/*/calls.jsonl")
-    bs = sub.add_parser("batch-status", help="status (and results once ended) of a batch id")
+    bs = sub.add_parser(
+        "batch-status", help="processing status and counts of a batch id (no results)"
+    )
     bs.add_argument("batch_id")
+    rn = sub.add_parser("run", help="SPENDS MONEY: submit one design block as a Message Batch")
+    rn.add_argument("--snapshot", required=True)
+    rn.add_argument("--block", required=True, choices=("core", "i0", "sonnet-low"))
+    rn.add_argument("--model", required=True)
+    rn.add_argument("--name", help="run name under runs/ (default <block>-<model>)")
+    rn.add_argument("--dry-run", action="store_true", help="count requests and estimate cost")
+    st = sub.add_parser("status", help="batch status and counts of a run (no results)")
+    st.add_argument("name")
+    co = sub.add_parser("collect", help="write runs/<name>/results.jsonl (needs tag scoring-v1)")
+    co.add_argument("name")
     et = sub.add_parser("etas", help="legacy-ETAS refit forecasts (ADR 0010); --validate for V2")
     et.add_argument("--snapshot", required=True)
     et.add_argument("--only", nargs="*", help="issue ids (default: all)")
@@ -278,14 +290,26 @@ def main(argv: list[str] | None = None) -> None:
     elif a.cmd == "batch-status":
         from laf.providers import client
 
-        c = client()
-        b = c.messages.batches.retrieve(a.batch_id)
+        b = client().messages.batches.retrieve(a.batch_id)  # results: `laf collect` only
         print(b.processing_status, b.request_counts, b.created_at, b.ended_at)
-        if b.processing_status == "ended":
-            for r in c.messages.batches.results(a.batch_id):
-                m = r.result.message if r.result.type == "succeeded" else None
-                text = m and next((x.text for x in m.content if x.type == "text"), None)
-                print(r.custom_id, r.result.type, m and m.model, m and m.stop_reason, text)
+    elif a.cmd in ("run", "status", "collect"):
+        from laf import runner
+        from laf.providers import client
+
+        if a.cmd == "status":
+            print(runner.status(client(), a.name))
+        elif a.cmd == "collect":
+            print(f"{runner.collect(client(), a.name)} results -> runs/{a.name}/results.jsonl")
+        else:
+            from laf.pilot import load_items
+
+            reqs = runner.expand(load_items(a.data_dir, a.snapshot), a.block, a.model)
+            est = runner.estimate_usd(reqs)
+            name = a.name or f"{a.block}-{a.model}"
+            print(f"{name}: {len(reqs)} requests, estimate ${est:.2f} (batch), "
+                  f"spent so far ${runner.spent_usd():.2f}")  # fmt: skip
+            if not a.dry_run:
+                print("batch", runner.submit(client(), name, reqs, a.snapshot, estimate=est))
     elif a.cmd == "etas":
         import time
 
