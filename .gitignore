@@ -25,5 +25,8 @@ data/interim/
 cache/
 /runs/*.log
 
+# marimo session cache
+__marimo__/
+
 # OS
 .DS_Store

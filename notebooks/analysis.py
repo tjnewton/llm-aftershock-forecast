@@ -164,31 +164,14 @@ def _(A, B, MODELS, SEED, answers, df, mo, np, pd):
 
 
 @app.cell
-def _(A, MODELS, df, mo, pd):
-    _oaf = df["primary"] & df["oaf_cell"] & df["role"].eq("test-post")
-    _rows = []
-    _cov = A.coverage_table(df, _oaf)
-    _ks = A.pit_ks(df, _oaf)
-    if "official" in _cov.index:
-        for _m in MODELS:
-            _f = f"{_m}|direct|I1|high"
-            if _f in _cov.index:
-                _rows.append(
-                    {
-                        "model": _m,
-                        **{
-                            f"cov{lv}_err_minus_official": abs(_cov.loc[_f, f"cov{lv}"] - lv / 100)
-                            - abs(_cov.loc["official", f"cov{lv}"] - lv / 100)
-                            for lv in (50, 90)
-                        },
-                        "pit_ks_minus_official": _ks.get(_f, float("nan")) - _ks.get("official"),
-                        "pit_ks_minus_rj_mle": _ks.get(_f, float("nan")) - _ks.get("rj_mle"),
-                    }
-                )
+def _(A, MODELS, df, mo):
+    _mask = df["primary"] & df["oaf_cell"] & df["role"].eq("test-post")
+    _h3 = A.h3_table(df, MODELS, _mask)
     mo.vstack(
         [
-            mo.md("## 6. H3: coverage error and PIT distance minus the official's (OAF cells)"),
-            pd.DataFrame(_rows).round(3),
+            mo.md("""## 6. H3: coverage error and PIT KS distance minus the official's and RJ-MLE's,
+per OAF sequence; supported if the LLM's coverage error is larger in every OAF sequence"""),
+            _h3.round(3),
         ]
     )
     return

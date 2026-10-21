@@ -243,8 +243,9 @@ def score_all(
         rows.append(r)
     df = pd.DataFrame(rows)
     worst = df[df["status"] == "ok"].groupby(["issue_id", "window"])["log_qs"].max()
-    bad = df["status"] != "ok"
-    df["log_qs_valid_only"] = df["log_qs"].where(~bad)
+    df["log_qs_valid_only"] = df["log_qs"].where(df["status"] == "ok")
+    # invalid samples get the worst score; transport errors are excluded and counted
+    bad = ~df["status"].isin(["ok", "transport_error"])
     df.loc[bad, "log_qs"] = [
         worst[(i, w)] for i, w in zip(df.loc[bad, "issue_id"], df.loc[bad, "window"], strict=True)
     ]
@@ -411,4 +412,43 @@ def ensemble_scores(df: pd.DataFrame) -> pd.DataFrame:
                 "role": first["role"],
             }
         )
+    return pd.DataFrame(rows)
+
+
+def h3_table(df: pd.DataFrame, models, mask: pd.Series) -> pd.DataFrame:
+    """H3 per OAF sequence and pooled: |coverage - nominal| of the central 50% and 90% intervals
+    and the randomized-PIT KS distance, each minus the official's (and minus RJ-MLE's)."""
+    from scipy import stats
+
+    s = df[mask & df["status"].eq("ok")]
+    rows = []
+    groups = [(n, g) for n, g in s.groupby("name")] + [("pooled", s)]
+    for name, g in groups:
+
+        def err(f, lv, g=g):
+            v = g.loc[g["forecaster"] == f, f"cov{lv}"]
+            return abs(v.mean() - lv / 100) if len(v) else np.nan
+
+        def ks(f, g=g):
+            v = g.loc[g["forecaster"] == f, "pit_rank"].dropna()
+            return stats.kstest(v, "uniform").statistic if len(v) else np.nan
+
+        for m in models:
+            f = f"{m}|direct|I1|high"
+            rows.append(
+                {
+                    "sequence": name,
+                    "model": m,
+                    **{
+                        f"cov{lv}_err_minus_official": err(f, lv) - err("official", lv)
+                        for lv in (50, 90)
+                    },
+                    **{
+                        f"cov{lv}_err_minus_rj_mle": err(f, lv) - err("rj_mle", lv)
+                        for lv in (50, 90)
+                    },
+                    "pit_ks_minus_official": ks(f) - ks("official"),
+                    "pit_ks_minus_rj_mle": ks(f) - ks("rj_mle"),
+                }
+            )
     return pd.DataFrame(rows)
