@@ -96,7 +96,9 @@ def baselines(
         t1, t2 = _t(item, win)
         mm = item.mainshock.mag
         out[("generic_rj", iid, win)] = generic_rj(s, mm, t1, t2)
-        ev = cats[(cats["issue_id"] == iid) & (cats["t_days"] > 0)]
+        ev = cats[
+            (cats["issue_id"] == iid) & (cats["t_days"] > 0) & (cats["id"] != c["sequence_id"])
+        ]
         n5 = int((ev["mag"] >= 5.0 - 1e-6).sum())
         out[("naive", iid, win)] = naive_forecast(n5, item.elapsed_days, t1, t2)
         if iid not in fits:
@@ -242,7 +244,9 @@ def score_all(
             r |= _score(s["forecast"], by_cell[key], rng)
         rows.append(r)
     df = pd.DataFrame(rows)
-    worst = df[df["status"] == "ok"].groupby(["issue_id", "window"])["log_qs"].max()
+    # worst valid sample or baseline; the analyst and hindsight refits are not baselines
+    pool = df["status"].eq("ok") & ~df["forecaster"].isin(["etas_analyst", "etas_hindsight"])
+    worst = df[pool].groupby(["issue_id", "window"])["log_qs"].max()
     df["log_qs_valid_only"] = df["log_qs"].where(df["status"] == "ok")
     # invalid samples get the worst score; transport errors are excluded and counted
     bad = ~df["status"].isin(["ok", "transport_error"])
@@ -305,7 +309,7 @@ def dqs(
     b = s[s["forecaster"] == ref].set_index(["issue_id", "window"])[metric]
     out = a.join(b.rename("ref"), how="inner")
     out["d"] = out[metric] - out["ref"]
-    return out.reset_index()
+    return out.dropna(subset=["d"]).reset_index()  # e.g. all samples transport errors
 
 
 def ci_table(d: pd.DataFrame, rng, b: int = 10_000) -> pd.DataFrame:

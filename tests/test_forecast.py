@@ -56,3 +56,10 @@ def test_naive_never_counts_the_mainshock_and_scales_by_b():
     lam5 = k * math.log(10.05 / 3.05)
     assert cell.m5[4] == float(stats.poisson.ppf(0.5, lam5))
     assert cell.p_m6 is not None and math.isclose(cell.p_m6, 1 - math.exp(-lam5 / 10))
+
+
+def test_asymmetric_split_normal_reproduces_the_elicited_percentiles():
+    nodes, weights = f.split_normal_nodes(-2.5, -2.0, -1.0)
+    assert weights[nodes < -2.0].sum() == 0.5
+    for a, tau in ((-2.5, 0.05), (-2.0, 0.5), (-1.0, 0.95)):
+        assert abs(weights[nodes < a].sum() - tau) < 5e-3  # quadrature resolution

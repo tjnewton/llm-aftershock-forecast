@@ -78,7 +78,7 @@ def _(A, df, mo):
 
 @app.cell
 def _(A, df, mo, pd):
-    _oaf = df["primary"] & df["oaf_cell"]
+    _oaf = df["primary"] & df["oaf_cell"] & df["role"].eq("test-post")  # prereg sec. 2
     _allp = df["primary"]
     _cov = pd.concat(
         {"OAF cells": A.coverage_table(df, _oaf), "all primary cells": A.coverage_table(df, _allp)},
@@ -184,7 +184,12 @@ def _(B, SEED, A, answers, mo, np):
         A.dqs(answers, "etas_hindsight", "etas", _prim), np.random.default_rng(SEED), B
     )
     _code = A.ci_table(
-        A.dqs(answers, "etas", "official", _prim & answers["oaf_cell"]),
+        A.dqs(
+            answers,
+            "etas",
+            "official",
+            _prim & answers["oaf_cell"] & answers["role"].eq("test-post"),
+        ),
         np.random.default_rng(SEED),
         B,
     )
@@ -198,6 +203,12 @@ def _(B, SEED, A, answers, mo, np):
             _cat.round(4),
             mo.md("## 6. Code-and-analyst effect: dQS(as-of refit, official), OAF cells"),
             _code.round(4),
+            mo.md("Same, on every primary cell with an official forecast (all roles)"),
+            A.ci_table(
+                A.dqs(answers, "etas", "official", _prim & answers["oaf_cell"]),
+                np.random.default_rng(SEED),
+                B,
+            ).round(4),
             mo.md("## 6. Sensitivity variant: dQS(analyst-settings refit, official)"),
             _analyst.round(4),
         ]
@@ -253,6 +264,7 @@ def _(A, MODELS, answers, answers_valid, base, cell_df, df, hyp, items, mo, pd, 
         )
         if not _t.empty:
             _rows.append(_t[_t["sequence"] == "pooled"].assign(variant=f"radius x{_factor}"))
+    _p1s = A.answer_scores(df[(df["paraphrase"] == "p1") | (df["arm"] == "baseline")])
     _sl, _ = hyp(
         [
             (
@@ -261,8 +273,9 @@ def _(A, MODELS, answers, answers_valid, base, cell_df, df, hyp, items, mo, pd, 
                 "claude-sonnet-5-5|direct|I1|high",
             )
         ],
-        answers["primary"] & answers["role"].eq("test-post"),
+        _p1s["primary"] & _p1s["role"].eq("test-post"),
         -1,
+        _p1s,
     )
     mo.vstack(
         [
@@ -274,7 +287,7 @@ def _(A, MODELS, answers, answers_valid, base, cell_df, df, hyp, items, mo, pd, 
                 if _rows
                 else pd.DataFrame()
             ),
-            mo.md("Sonnet effort low vs high (direct, I1, test-post cells)"),
+            mo.md("Sonnet effort low vs high (direct, I1, p1, test-post cells)"),
             _sl.round(4) if not _sl.empty else pd.DataFrame(),
             mo.md(
                 f"Ensembles are reported beside single answers: {len(df)} rows scored; "
@@ -339,6 +352,67 @@ median; knows_event on post-cutoff (test-post) events is the hallucination indic
     else:
         _out = mo.md("## 8. Recall probe: no probe run collected")
     _out  # noqa: B018 (marimo displays the last expression)
+    return
+
+
+@app.cell
+def _(A, B, MODELS, SEED, answers, df, mo, np, pd):
+    _bins = {"< 1 d": (0, 1), "1-7 d": (1, 7), "> 7 d": (7, 1e9)}
+    _p1 = A.answer_scores(df[(df["paraphrase"] == "p1") | (df["arm"] == "baseline")])
+    _specs = {
+        "H1 dQS(direct, official), OAF cells": (answers, True, "{m}|direct|I1|high", "official"),
+        "H2 dQS(params, direct), test-post": (
+            answers,
+            False,
+            "{m}|params|I1|high",
+            "{m}|direct|I1|high",
+        ),
+        "H4 dQS(I1, I0), direct p1, test-post": (
+            _p1,
+            False,
+            "{m}|direct|I1|high",
+            "{m}|direct|I0|high",
+        ),
+    }
+    _rows = []
+    for _label, (_sc, _oaf_only, _x, _r) in _specs.items():
+        for _bin, (_lo, _hi) in _bins.items():
+            _m = (
+                _sc["primary"]
+                & _sc["role"].eq("test-post")
+                & _sc["elapsed_days"].ge(_lo)
+                & _sc["elapsed_days"].lt(_hi)
+            )
+            if _oaf_only:
+                _m &= _sc["oaf_cell"]
+            for _model in MODELS:
+                _d = A.dqs(_sc, _x.format(m=_model), _r.format(m=_model), _m)
+                if _d.empty:
+                    continue
+                _t = A.ci_table(_d, np.random.default_rng(SEED), B)
+                _rows.append(
+                    _t[_t["sequence"] == "pooled"].assign(table=_label, elapsed=_bin, model=_model)
+                )
+    _s = df[df["primary"]].assign(
+        elapsed=pd.cut(df["elapsed_days"], [0, 1, 7, 1e9], right=False, labels=list(_bins))
+    )
+    _by = (
+        _s[_s["status"].eq("ok")]
+        .groupby(["forecaster", "elapsed"], observed=True)[["log_qs", "cov50", "cov90", "brier_m6"]]
+        .mean()
+    )
+    mo.vstack(
+        [
+            mo.md("## 6. Elapsed-time strata: pooled dQS of H1, H2, H4 by elapsed-time bin"),
+            (
+                pd.concat(_rows)[["table", "elapsed", "model", "cells", "dQS", "lo", "hi"]].round(4)
+                if _rows
+                else pd.DataFrame()
+            ),
+            mo.md("Primary log-QS, coverage and Brier (valid samples) by elapsed-time bin"),
+            _by.round(3),
+        ]
+    )
     return
 
 

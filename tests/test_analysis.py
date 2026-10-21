@@ -52,7 +52,8 @@ def test_samples_are_scored_and_invalid_ones_get_the_worst_score_in_the_cell(tmp
     df = A.score_all(c, A.baselines(tables, items, c), A.llm_samples([run], items))
     assert set(df["window"]) == {"1 Day", "1 Week", "1 Month"}
     for _, g in df.groupby("window"):
-        worst = g.loc[g["status"] == "ok", "log_qs"].max()
+        pool = g["status"].eq("ok") & ~g["forecaster"].isin(["etas_analyst", "etas_hindsight"])
+        worst = g.loc[pool, "log_qs"].max()
         assert (g.loc[g["status"] == "refusal", "log_qs"] == worst).all()
         assert g.loc[g["status"] == "transport_error", "log_qs_valid_only"].isna().all()
         assert {"official", "etas", "rj_mle", "generic_rj", "naive"} <= set(g["forecaster"])

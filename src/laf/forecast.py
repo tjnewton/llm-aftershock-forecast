@@ -61,7 +61,7 @@ def split_normal_nodes(a05: float, a50: float, a95: float) -> tuple[np.ndarray, 
     if sl + su <= 0:
         return np.array([a50]), np.array([1.0])
     nodes = np.concatenate([a50 - sl * math.sqrt(2) * GH_X, a50 + su * math.sqrt(2) * GH_X])
-    weights = np.concatenate([GH_W * sl / (sl + su), GH_W * su / (sl + su)])
+    weights = np.concatenate([GH_W / 2, GH_W / 2])  # half the mass each side: a50 is the median
     return nodes, weights
 
 
