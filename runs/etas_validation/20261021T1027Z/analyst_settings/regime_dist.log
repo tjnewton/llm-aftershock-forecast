@@ -1,0 +1,24 @@
+== us6000t7zp 32 versions
+                    median  mean
+regime       tdm                
+SZ-GENERIC   True     0.30  0.94
+             False    0.64  1.24
+SZ-OUTERTR   True     0.75  1.07
+SZ-ONSHORE   False    0.76  1.20
+ANSR-ABSLDEC True     0.77  1.40
+SZ-ONSHORE   True     0.77  1.10
+SZ-OUTERTR   False    0.84  1.22
+SZ-INLBACK   False    0.97  1.59
+per-version best: {('SZ-GENERIC', True): 22, ('ANSR-ABSLSHC', True): 6, ('ANSR-ABSLSHC', False): 2, ('SZ-ONSHORE', False): 1, ('SZ-ONSHORE', True): 1}
+== us6000tjl2 21 versions
+                      median  mean
+regime         tdm                
+SZ-INLBACK     True     0.44  1.05
+GLOBAL-AVERAGE True     0.48  0.97
+SZ-ONSHORE     True     0.85  1.42
+SCR-GENERIC    True     1.17  1.31
+ANSR-ABSLSHC   True     1.24  1.59
+               False    1.28  2.00
+SZ-OUTERTR     True     1.62  1.84
+SCR-GENERIC    False    1.66  1.89
+per-version best: {('ANSR-ABSLSHC', False): 4, ('GLOBAL-AVERAGE', True): 4, ('SZ-ONSHORE', True): 3, ('SZ-INLBACK', False): 2, ('SZ-ONSHORE', False): 2, ('ANSR-ABSLOCB', True): 1}

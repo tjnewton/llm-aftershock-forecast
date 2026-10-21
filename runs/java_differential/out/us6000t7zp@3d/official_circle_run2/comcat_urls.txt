@@ -1,0 +1,2 @@
+https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000t7zp&format=geojson
+https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-06-24T22%3A05%3A04.053&endtime=2026-06-28T04%3A00%3A26.446&latitude=10.5686&longitude=-67.5276&maxradiuskm=249.9&mindepth=0.000&maxdepth=1000.000&limit=20000&orderby=time-asc

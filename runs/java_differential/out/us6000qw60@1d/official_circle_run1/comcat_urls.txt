@@ -1,0 +1,2 @@
+https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000qw60&format=geojson
+https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2025-07-29T23%3A24%3A52.483&endtime=2025-07-31T00%3A00%3A30.370&latitude=51.2758&longitude=159.1098&maxradiuskm=1076.8&mindepth=0.000&maxdepth=1000.000&limit=20000&orderby=time-asc

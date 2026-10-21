@@ -1,0 +1,22 @@
+us6000tjl2 days 0.0-72.0: 21 versions; versions with an exact config: 3
+regime          grid  tdm     mc_prior
+GLOBAL-AVERAGE  g31   0.9998  5.35        1
+                      1       5.35        1
+SZ-ONSHORE      g31   1       4.65        1
+                              NaN         1
+                      1e-3    4.65        1
+                              NaN         1
+                      1e-4    4.65        1
+                              NaN         1
+                g41   0.9998  5.35        1
+3-of-4 matches per config (top):
+regime          grid  tdm     mc_prior
+GLOBAL-AVERAGE  g31   1e-3    4.45        2
+                      0.9998  4.45        2
+ANSR-SHALCON    g21   0.9998  4.15        2
+SZ-ONSHORE      cli   0.9998  3.95        2
+ANSR-SHALCON    g21   0.9998  5.35        2
+SZ-ONSHORE      g41   0.9998  NaN         2
+ANSR-SHALCON    g31   0.9998  4.65        2
+                cli   0.9998  4.65        2
+uv run python $A/exact_search2.py us6000tjl2 0 72   8531.26s user 4418.40s system 784% cpu 27:31.26 total

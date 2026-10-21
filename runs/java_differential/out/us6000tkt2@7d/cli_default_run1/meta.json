@@ -1,0 +1,31 @@
+{
+ "issue_id": "us6000tkt2@7d",
+ "variant": "cli_default",
+ "tag": "run1",
+ "forecast_start_ms": 1787424265615,
+ "origin_ms": 1786744701561,
+ "origin_used_ms": 1786744701561,
+ "cmd": [
+  "<java>/jdk/jdk-21.0.12.1+1/Contents/Home/bin/java",
+  "-Dapple.awt.UIElement=true",
+  "-Duser.home=<java>/out/us6000tkt2@7d/cli_default_run1",
+  "-jar",
+  "<java>/opensha-oaf/build/libs/AftershockGUI_ETAS-current-2026_10_20.jar",
+  "-eventID",
+  "us6000tkt2",
+  "-forecastStartTime",
+  "7.865324699074074",
+  "-Mc",
+  "5.01",
+  "-b",
+  "1.08",
+  "-debug",
+  "-verbose"
+ ],
+ "forecast_start_days": 7.865324699074074,
+ "mc_official": 4.95,
+ "mc_arg": "5.01",
+ "b": 1.08,
+ "returncode": 0,
+ "runtime_s": 99.1
+}

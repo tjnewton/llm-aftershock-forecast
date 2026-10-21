@@ -1,0 +1,8 @@
+us6000u18k GUI defaults, as-of: 12/12
+us6000tkt2 GUI defaults, as-of: 1/30
+us6000tjl2 GUI defaults, as-of: 1/21
+us6000t7zp GUI defaults, as-of: 0/36
+us6000u18k GUI defaults, hindsight: 2/12
+us6000qw60 six grids, as-of: {21: 0, 31: 0, 41: 0, (51, 31, 31, 21): 0, (41, 41, 41, 21): 7, (41, 41, 41, 31): 1} of 61; max 7
+us6000u18k 136 regime x grid x timeDepMc combinations; others with an exact version: {}
+uv run python $R/v1_exact.py  1586.56s user 538.67s system 782% cpu 4:31.53 total

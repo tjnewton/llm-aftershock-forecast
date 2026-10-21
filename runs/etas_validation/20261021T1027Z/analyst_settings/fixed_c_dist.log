@@ -1,0 +1,6 @@
+  1.14d [('SZ-ONSHORE', False, 0.34, (-3.03, -2.33, 0.86)), ('SZ-ONSHORE', True, 0.35, (-3.03, -2.33, 0.86)), ('SZ-OUTERTR', True, 0.66, (-3.13, -2.36, 0.93))]
+  2.14d [('SZ-INLBACK', True, 0.23, (-3.33, -2.55, 0.89)), ('SZ-INLBACK', False, 0.29, (-3.33, -2.55, 0.91)), ('GLOBAL-AVERAGE', False, 0.3, (-3.3, -2.51, 0.9))]
+  3.14d [('SZ-ONSHORE', False, 0.15, (-3.26, -2.36, 0.86)), ('SZ-ONSHORE', True, 0.15, (-3.26, -2.36, 0.86)), ('SZ-GENERIC', False, 0.72, (-3.16, -2.34, 0.88))]
+  4.14d [('SZ-ONSHORE', False, 0.27, (-3.21, -2.36, 0.84)), ('SZ-ONSHORE', True, 0.39, (-3.21, -2.41, 0.84)), ('GLOBAL-AVERAGE', False, 0.72, (-3.3, -2.51, 0.88))]
+  7.75d [('GLOBAL-AVERAGE', False, 0.11, (-3.36, -2.51, 0.9)), ('GLOBAL-AVERAGE', True, 0.16, (-3.36, -2.57, 0.9)), ('SZ-INLBACK', False, 0.28, (-3.33, -2.55, 0.91))]
+  8.14d [('GLOBAL-AVERAGE', False, 0.09, (-3.36, -2.51, 0.9)), ('GLOBAL-AVERAGE', True, 0.22, (-3.36, -2.57, 0.9)), ('SZ-INLBACK', False, 0.31, (-3.33, -2.55, 0.91))]

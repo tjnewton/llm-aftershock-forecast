@@ -1,0 +1,31 @@
+{
+ "issue_id": "us6000u18k@1d",
+ "variant": "cli_default",
+ "tag": "run1",
+ "forecast_start_ms": 1791733799061,
+ "origin_ms": 1791568566036,
+ "origin_used_ms": 1791568566036,
+ "cmd": [
+  "<java>/jdk/jdk-21.0.12.1+1/Contents/Home/bin/java",
+  "-Dapple.awt.UIElement=true",
+  "-Duser.home=<java>/out/us6000u18k@1d/cli_default_run1",
+  "-jar",
+  "<java>/opensha-oaf/build/libs/AftershockGUI_ETAS-current-2026_10_20.jar",
+  "-eventID",
+  "us6000u18k",
+  "-forecastStartTime",
+  "1.9124192708333334",
+  "-Mc",
+  "4.91",
+  "-b",
+  "1.00",
+  "-debug",
+  "-verbose"
+ ],
+ "forecast_start_days": 1.9124192708333334,
+ "mc_official": 4.85,
+ "mc_arg": "4.91",
+ "b": 1.0,
+ "returncode": 0,
+ "runtime_s": 55.3
+}
