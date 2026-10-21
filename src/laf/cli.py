@@ -76,6 +76,8 @@ def main(argv: list[str] | None = None) -> None:
     ev.add_argument("--parts", nargs="*", default=["v0", "v3", "java", "recovery", "decomp"])
     ev.add_argument("--recovery-n", type=int, default=800, help="sequences per fit time")
     sub.add_parser("smoke", help="SPENDS MONEY (<= $1): one tiny call per Claude model")
+    pr = sub.add_parser("probe", help="SPENDS MONEY (~$0.3): recall probe (prereg sec. 8)")
+    pr.add_argument("--snapshot", required=True)
     lv = sub.add_parser("live", help="SPENDS MONEY (~$1.5): live Panama forecasts (prereg sec. 10)")
     lv.add_argument("--snapshot", required=True, help="snapshot holding the Panama refetch")
     lv.add_argument("--sequence", default="us6000u18k")
@@ -242,6 +244,14 @@ def main(argv: list[str] | None = None) -> None:
             print("decomposition (mean |log ratio| of M>=5 quantiles; median over cells):")
             print(d.groupby("sequence_id")[cols].median().round(3))
         print(f"wrote {out}")
+    elif a.cmd == "probe":
+        import pandas as pd
+
+        from laf.probe import run_probe
+        from laf.providers import client
+
+        seq_df = pd.read_parquet(a.data_dir / "processed" / a.snapshot / "sequences.parquet")
+        print(f"{run_probe(client(), seq_df, Path('runs') / 'probe')} answers -> runs/probe/")
     elif a.cmd == "live":
         import time
 

@@ -305,10 +305,40 @@ def _(df, mo):
 
 
 @app.cell
-def _(mo):
-    mo.md("""## 8. Recall probe
-The probe block is scored by `laf.analysis` once its run exists; no probe run is collected in
-this snapshot.""")
+def _(mo, tables):
+    import json as _json
+    from pathlib import Path as _Path
+
+    from laf.forecast import generic_rj as _generic_rj
+    from laf.probe import score_probe as _score_probe
+
+    _calls = _Path("runs/probe/calls.jsonl")
+    if _calls.exists():
+        _seqs = tables["sequences"]
+        _med = {
+            s["sequence_id"]: int(_generic_rj(s, s["mag"], 0.0, 30.0).m5[4])
+            for s in _seqs.to_dict("records")
+        }
+        _recs = [_json.loads(x) for x in _calls.read_text(encoding="utf-8").splitlines() if x]
+        _p = _score_probe(_recs, _seqs, tables["catalog"], _med)
+        _cols = [
+            "valid",
+            "knows_event",
+            "largest_correct",
+            "count_correct",
+            "bath_correct",
+            "generic_count_correct",
+        ]
+        _out = mo.vstack(
+            [
+                mo.md("""## 8. Recall probe: accuracy vs Bath's law and the generic-RJ
+median; knows_event on post-cutoff (test-post) events is the hallucination indicator"""),
+                _p.groupby(["model", "role"])[_cols].mean().round(3),
+            ]
+        )
+    else:
+        _out = mo.md("## 8. Recall probe: no probe run collected")
+    _out  # noqa: B018 (marimo displays the last expression)
     return
 
 
