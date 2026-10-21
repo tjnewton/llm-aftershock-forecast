@@ -79,7 +79,7 @@ def main(argv: list[str] | None = None) -> None:
     ad = sub.add_parser(
         "adaption", help="E1 on Adaption: upload | recommend | launch (credits) | status"
     )
-    ad.add_argument("action", choices=("upload", "recommend", "launch", "status"))
+    ad.add_argument("action", choices=("upload", "recommend", "launch", "status", "download"))
     ad.add_argument("--file", type=Path, default=Path("data/processed/training/e1_train.jsonl"))
     tr = sub.add_parser("training-set", help="E1 training set (ComCat requests; prereg sec. 11)")
     tr.add_argument("--start", default="2010-01-01")
@@ -279,6 +279,8 @@ def main(argv: list[str] | None = None) -> None:
                 else None
             )
             print("run", adapt.launch(c, rec("dataset.json")["dataset_id"], hyperparams=hp))
+        elif a.action == "download":
+            print(adapt.fetch_checkpoint(c, rec("run.json")["run_id"]))
         else:
             print(json.dumps(adapt.status(c, rec("run.json")["run_id"]), indent=1, default=str))
     elif a.cmd == "training-set":

@@ -5,6 +5,8 @@ One model per server, started with the registered settings (checked through /pro
     --cache-ram 0 --host 127.0.0.1 --port 9931 --no-webui --jinja
     --chat-template-file config/llamacpp/<model>.jinja
 Then: uv run python -m laf.llamacpp --snapshot S --model gpt-oss-20b --block core
+E1 (prereg section 11): the same server for gpt-oss-20b plus `--lora gpt-oss-20b-e1-lora-f16.gguf
+--alias laf/gpt-oss-20b-e1`, then --model gpt-oss-20b-e1 with --block dev (format check) and e1.
 
 Each block x model writes runs/<block>-<model>/ in the batch layout that the frozen scoring code
 reads (`laf.analysis.llm_samples`): requests.jsonl (the design, written first) and results.jsonl
@@ -53,11 +55,20 @@ MODELS: dict[str, dict] = {
         "rendered": (),  # the template shows no date
     },
 }
+# E1: the base GGUF plus the AutoScientist LoRA (runs/e1-adaption/checkpoint.json), converted by
+# llama.cpp's convert_lora_to_gguf.py; registered settings otherwise identical to the base model
+MODELS["gpt-oss-20b-e1"] = {
+    **MODELS["gpt-oss-20b"],
+    "id": "laf/gpt-oss-20b-e1",
+    "template": "gpt-oss-20b",
+    "lora": "gpt-oss-20b-e1-lora-f16.gguf",
+}
 # local: p1 only, k = 3 seeds (PLAN 4.1); dev is the format check, never scored
 LOCAL_BLOCKS = {
     "core": {**BLOCKS["core"], "paras": ("p1",), "k": 3},
     "i0": {**BLOCKS["i0"], "k": 3},
     "dev": {**BLOCKS["core"], "roles": ("dev",), "paras": ("p1",), "k": 3},
+    "e1": {**BLOCKS["core"], "arms": ("direct",), "paras": ("p1",), "k": 3},
 }
 STOP = {"stop": "end_turn", "length": "max_tokens"}  # finish_reason in the Claude vocabulary
 
@@ -191,11 +202,15 @@ def machine() -> dict:
     }
 
 
+def template_path(model: str) -> Path:
+    return TEMPLATES / f"{MODELS[model].get('template', model)}.jinja"
+
+
 def server(base_url: str, model: str) -> dict:
     """The running server's settings; refuses unless they are the registered ones."""
     with urllib.request.urlopen(base_url + "/props", timeout=30) as r:
         p = json.load(r)
-    template = (TEMPLATES / f"{model}.jinja").read_text(encoding="utf-8")
+    template = template_path(model).read_text(encoding="utf-8")
     info = {
         "build": p["build_info"],
         "model_alias": p["model_alias"],
@@ -214,6 +229,12 @@ def server(base_url: str, model: str) -> dict:
     bad = {k: (info[k], v) for k, v in want.items() if info[k] != v}
     if bad:
         raise SystemExit(f"llama-server settings differ from the registered ones: {bad}")
+    if "lora" in MODELS[model]:
+        with urllib.request.urlopen(base_url + "/lora-adapters", timeout=30) as r:
+            lora = [(Path(x["path"]).name, x["scale"]) for x in json.load(r)]
+        if lora != [(MODELS[model]["lora"], 1.0)]:
+            raise SystemExit(f"LoRA adapters differ from the registered one: {lora}")
+        info["lora"] = lora[0][0]
     info["gguf_path"] = p["model_path"]
     return info
 

@@ -93,6 +93,34 @@ def status(c, run_id: str) -> dict:
     return run.model_dump() if hasattr(run, "model_dump") else dict(run)
 
 
+CHECKPOINT = Path("data/interim/e1-adaption/best.tar.zst")
+
+
+def fetch_checkpoint(c, run_id: str, out: Path = CHECKPOINT) -> str:
+    """Download the best checkpoint; the first download records its SHA-256 in checkpoint.json,
+    later ones (another machine) must match it."""
+    import hashlib
+
+    got = hashlib.sha256(download(c, run_id, out).read_bytes()).hexdigest()
+    ck = RUN / "checkpoint.json"
+    if ck.exists():
+        want = json.loads(ck.read_text(encoding="utf-8"))["sha256"]
+        if got != want:
+            raise SystemExit(f"{out}: SHA-256 {got} differs from {ck} ({want})")
+    else:
+        _record(
+            "checkpoint.json",
+            {
+                "run_id": run_id,
+                "file": out.name,
+                "sha256": got,
+                "bytes": out.stat().st_size,
+                "format": "tar + zstd: PEFT LoRA adapter_model.safetensors, tokenizer, template",
+            },
+        )
+    return f"{out} sha256 {got}"
+
+
 def download(c, experiment_id: str, out: Path) -> Path:
     """The best checkpoint (format as served by Adaption) to `out`; weights are not committed."""
     resp = c.autoscientist.download(experiment_id)

@@ -65,7 +65,7 @@ def server(monkeypatch):
     return state
 
 
-@pytest.mark.parametrize(("block", "n"), [("core", 294), ("i0", 132), ("dev", 72)])
+@pytest.mark.parametrize(("block", "n"), [("core", 294), ("i0", 132), ("dev", 72), ("e1", 147)])
 @pytest.mark.parametrize("model", sorted(llamacpp.MODELS))
 def test_blocks_match_the_design_table(block, n, model):
     jobs = llamacpp.expand(ITEMS, block, model)
@@ -95,7 +95,7 @@ def test_requests_use_only_the_registered_settings(model):
 
 def test_templates_never_read_the_wall_clock():
     for model in llamacpp.MODELS:
-        text = (llamacpp.TEMPLATES / f"{model}.jinja").read_text(encoding="utf-8")
+        text = llamacpp.template_path(model).read_text(encoding="utf-8")
         assert "strftime_now" not in text
     assert "current_date" in (llamacpp.TEMPLATES / f"{GPT}.jinja").read_text(encoding="utf-8")
 
