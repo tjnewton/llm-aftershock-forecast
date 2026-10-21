@@ -115,8 +115,12 @@ def estimate_usd(reqs: list[dict], pilot: Path = RUNS / "pilot") -> float:
 
 
 def spent_usd(runs: Path = RUNS) -> float:
-    """Recorded spend: synchronous calls plus collected batch results (half price)."""
+    """Recorded spend: synchronous calls, collected batch results (half price) and the
+    estimates of submitted batches not yet collected."""
     total = 0.0
+    for path in runs.glob("*/batch.json"):
+        if not (path.parent / "results.jsonl").exists():
+            total += json.loads(path.read_text(encoding="utf-8")).get("estimate_usd", 0.0)
     for path in runs.glob("*/calls.jsonl"):
         total += sum(
             cost_usd(r["model_requested"], r["usage"]) for r in _jsonl(path) if r.get("usage")
