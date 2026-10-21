@@ -16,6 +16,8 @@ def _():
         "Haiku 5.5 direct, catalog": "#2a78d6",
         "Sonnet 5.5 direct, catalog": "#eb6834",
         "Opus 5.5 direct, catalog": "#1baf7a",
+        "gpt-oss-20b direct, catalog": "#eda100",
+        "Olmo-3.1-32B-Instruct direct, catalog": "#e87ba4",
     }
     return COLOR, alt, mo, pd
 
@@ -71,7 +73,7 @@ def _(COLOR, alt, chosen, mo, view):
         _out = mo.md("No cells for this selection.")
     else:
         _domain = list(chosen.value)
-        _range = [COLOR.get(x, "#e87ba4") for x in _domain]
+        _range = [COLOR.get(x, "#008300") for x in _domain]
         _color = alt.Color("label:N", scale=alt.Scale(domain=_domain, range=_range), legend=None)
         _x = alt.X(
             "elapsed_days:Q",

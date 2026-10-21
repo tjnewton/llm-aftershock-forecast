@@ -10,6 +10,7 @@ docs/research/models-and-tooling.md. Smoke-test results are appended below once 
 | `claude-haiku-5-5` | same | Jun 2026 | `high` (default `medium`) | 16,000 | 0.10 / 0.50 / 0.01, prompts <= 100K tokens (batch 0.05 / 0.25) | primary |
 | `openai/gpt-oss-20b` (GGUF `ggml-org/gpt-oss-20b-GGUF`, MXFP4, 12.1 GB) | llama.cpp `llama-server` v0.7.0, Windows RTX 5090 (or M3 Max) | Jun 2024 (model card, arXiv 2508.10925 sec. 2.4; template says `Knowledge cutoff: 2024-06`) | reasoning effort via template: `medium` (default) | 16,000 | local | secondary |
 | `allenai/Olmo-3.1-32B-Instruct` (GGUF Q4_K_M 19.5 GB) | llama.cpp `llama-server`, RTX 5090 | Dec 2024 (model card "Date cutoff: Dec. 2024"); training data open | not a reasoning model | 16,000 | local | secondary |
+| `laf/gpt-oss-20b-e1` (E1: `gpt-oss-20b-MXFP4.gguf` plus LoRA `gpt-oss-20b-e1-lora-f16.gguf`, converted by llama.cpp `convert_lora_to_gguf.py` from the AutoScientist checkpoint in `runs/e1-adaption/checkpoint.json`) | as gpt-oss-20b, plus `--lora`; runs in `runs/extensions/` | as gpt-oss-20b; training sequences end 2025-06-30 | as gpt-oss-20b | 16,000 | local | extension (prereg sec. 11), descriptive |
 
 Contamination classes (ADR 0006): every candidate sequence (2025-07 to 2026-10) is after the
 local models' cutoffs. For Claude, origin on or after 2026-07-01 is post-cutoff, June 2026 is

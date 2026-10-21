@@ -32,15 +32,20 @@ On the 33 settled cells of the post-cutoff sequences that have an official forec
 and Flores Sea), Sonnet and Opus could not be distinguished from USGS at this scale: the pooled
 score difference to the official forecast is −0.015 (95% block-bootstrap interval −0.081 to 0.017)
 for Sonnet and −0.022 (−0.074 to 0.032) for Opus, with signs that differ between the two
-sequences, while Haiku is worse than the official forecast (+0.111, 0.004 to 0.244, or +0.048
+sequences, while Haiku is worse than the official forecast (+0.124, 0.004 to 0.278, or +0.048
 counting only its valid answers; Figure 1).
 Across all 132 primary cells the official forecast's central intervals are wide (50% intervals
 cover 76% of outcomes, 90% intervals 92%); Sonnet's are closest to nominal at the 50% level (70%
 and 92%), and Opus and Haiku are slightly narrow at 90% (87% and 85%). Asking for model
-parameters instead of quantiles made every model worse (pooled differences +0.03 to +0.08), and
+parameters instead of quantiles made every model worse (pooled differences +0.02 to +0.08), and
 showing the catalog helped Sonnet (−0.042, −0.124 to −0.020) but not consistently the others.
-Outputs were almost always usable: at most 2.7% of samples per model and arm were invalid
-(non-monotone quantiles), with no refusals and no truncations. A fixed literature search
+Claude's outputs were almost always usable: at most 2.7% of samples per model and arm were
+invalid (non-monotone quantiles), with no refusals and no truncations. Two open-weight models
+run locally were far behind the official forecast even counting only valid answers (+0.24 for
+gpt-oss-20b, +0.17 for Olmo 3.1 32B), and 12% and 54% of their quantile answers were invalid.
+Fine-tuning gpt-oss-20b on legacy-ETAS forecasts for 515 earlier sequences (Adaption
+AutoScientist, LoRA) made every answer valid, but the adapted model still trailed the ETAS refit
+it imitated (+0.20, 0.03 to 0.40) and the official forecast (+0.14, −0.03 to 0.42). A fixed literature search
 (Valency) found 23 papers about four of the eleven mainshocks, none available before any issue
 time; only Kamchatka had papers dated before the Claude cutoff (12 of 18). Live forecasts for the ongoing
 Panama sequence were hashed and published 46 minutes before their windows opened and will be
@@ -56,8 +61,8 @@ the USGS official forecast on settled post-cutoff cells; positive values favour 
 ## Future work
 
 The benchmark grows prospectively with every new forecast-bearing sequence, which will turn the
-pilot into a test with real power; we will add open-weight and tool-using models and test
-whether adapted models trained on historical sequences approach the official forecast.
+pilot into a test with real power; we will add tool-using models and test adaptation that learns
+from observed aftershock counts rather than from ETAS forecasts.
 
 ## Open-source materials
 
