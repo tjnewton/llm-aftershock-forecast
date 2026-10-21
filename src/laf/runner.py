@@ -16,7 +16,7 @@ from laf.providers import API_BASE_URL, PRICES, anthropic_params, cost_usd
 
 RUNS = Path("runs")
 MAX_TOKENS_BATCH = 32_000
-SPEND_CAP_USD = 140.0  # harness guard below the $150 workspace limit (PLAN section 9)
+SPEND_CAP_USD = 195.0  # harness guard below the ~$200 limit Tyler set on 2026-10-21 (was 140)
 SCORED_ROLES = ("test-post", "test-pre", "ambiguous")
 BLOCKS: dict[str, dict] = {
     "core": {
@@ -116,18 +116,18 @@ def estimate_usd(reqs: list[dict], pilot: Path = RUNS / "pilot") -> float:
 
 def spent_usd(runs: Path = RUNS) -> float:
     """Recorded spend: synchronous calls, collected batch results (half price) and the
-    estimates of submitted batches not yet collected."""
+    estimates of submitted batches not yet collected, in every run folder (nested ones too)."""
     total = 0.0
-    for path in runs.glob("*/batch.json"):
+    for path in runs.glob("**/batch.json"):
         if not (path.parent / "results.jsonl").exists():
             total += json.loads(path.read_text(encoding="utf-8")).get("estimate_usd", 0.0)
-    for path in runs.glob("*/calls.jsonl"):
+    for path in runs.glob("**/calls.jsonl"):
         total += sum(
             cost_usd(r["model_requested"], r["usage"])
             for r in _jsonl(path)
             if r.get("usage") and r.get("model_requested") in PRICES
         )
-    for path in runs.glob("*/results.jsonl"):
+    for path in runs.glob("**/results.jsonl"):
         total += sum(
             cost_usd(r["model"], r["usage"], batch=True)
             for r in _jsonl(path)

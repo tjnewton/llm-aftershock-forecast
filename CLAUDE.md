@@ -16,7 +16,7 @@ Oct 21-22, 2026). Plan: docs/PLAN.md. Rules that bind the analysis: docs/preregi
 ## Guardrails
 - No git commits or pushes before 2026-10-21; never post to Slack or any chat.
 - Commits use the email 54011699+tjnewton@users.noreply.github.com, never another address.
-- No API spend without explicit approval; $150 cap; use only `ANTHROPIC_API_KEY` from env/.env.
+- No API spend without explicit approval; ~$200 total cap (guard $195); use only `ANTHROPIC_API_KEY` from env/.env.
   Never read or print `.env`.
 - Scored Claude calls: no `temperature`/`top_p`/`top_k`, no tools, no prefill, no `fallbacks`,
   explicit `output_config.effort` and JSON schema. Log `response.model` and `usage`.

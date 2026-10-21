@@ -38,7 +38,7 @@ def test_collect_refuses_before_scoring_is_frozen(monkeypatch):
 
 def test_spend_guard_refuses_before_writing_or_submitting(monkeypatch, tmp_path):
     monkeypatch.setattr(runner, "RUNS", tmp_path)
-    monkeypatch.setattr(runner, "spent_usd", lambda: 139.0)
+    monkeypatch.setattr(runner, "spent_usd", lambda: 194.0)
     with pytest.raises(SystemExit, match="spend guard"):
         runner.submit(None, "x", [], "S", estimate=5.0)
     assert not (tmp_path / "x").exists()
@@ -51,3 +51,14 @@ def test_spend_ignores_local_models(tmp_path):
     claude = {"model": "claude-haiku-5-5", "usage": {"input_tokens": 1e6, "output_tokens": 0}}
     (run / "results.jsonl").write_text(json.dumps(local) + "\n" + json.dumps(claude) + "\n")
     assert runner.spent_usd(tmp_path) == 0.05
+
+
+def test_spend_counts_nested_run_folders(tmp_path):
+    run = tmp_path / "e3" / "e3-claude-haiku-5-5"
+    run.mkdir(parents=True)
+    claude = {"model": "claude-haiku-5-5", "usage": {"input_tokens": 1e6, "output_tokens": 0}}
+    (run / "results.jsonl").write_text(json.dumps(claude) + "\n")
+    pending = tmp_path / "e3" / "e3-claude-opus-5-5"
+    pending.mkdir()
+    (pending / "batch.json").write_text(json.dumps({"estimate_usd": 2.0}))
+    assert runner.spent_usd(tmp_path) == 2.05
