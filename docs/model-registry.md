@@ -23,7 +23,69 @@ ambiguous, earlier is pre-cutoff.
 - Local: system message always present (Olmo's template otherwise injects its own date-cutoff
   text; gpt-oss's template otherwise injects today's date, which we replace with the issue
   date); `response_format` json_schema; seeds 0/1/2; temperature from the model card;
-  `cache_prompt: false`.
+  `cache_prompt: false`. Exact values in the next section.
+
+## Local serving (exact settings, `laf.llamacpp`)
+- Engine: llama.cpp `llama-server` build b11739 (commit 0ce8cd114, reports `0.7.0-dev`), release
+  zip `llama-b11739-bin-win-cuda-13.4-x64.zip` plus the cudart 13.4 DLLs, on Windows 11 with an
+  RTX 5090 (driver 610.88, CUDA 13.3). The build's CUDA archs include 1200 (sm_120) and it runs
+  on this driver; all layers are offloaded to the GPU.
+- Weights (SHA-256 of the GGUF file): `gpt-oss-20b-MXFP4.gguf`
+  27cd6c432c7672cb812a92f611cf3ba7bbc35928262bb1e1253ff4ee6ae35901;
+  `allenai_Olmo-3.1-32B-Instruct-Q4_K_M.gguf`
+  437635de32ed770b1ac5d175f5245bbddcba6860ca70b16dea5fd8ca11c6bb3c.
+- Server, one model at a time: `llama-server -m <gguf> --alias <model id> -c 49152 -ngl all
+  -fit off -np 1 --no-cache-prompt --cache-ram 0 --host 127.0.0.1 --port 9931 --no-webui --jinja
+  --chat-template-file config/llamacpp/<model>.jinja`. `--reasoning-format` stays `auto`, so
+  gpt-oss reasoning arrives in `reasoning_content` (logged as `reasoning`). The longest scored
+  prompt is 23,945 gpt-oss tokens (23,898 Olmo), so 49,152 holds it plus `max_tokens`.
+- Request (`/v1/chat/completions`): messages `[system, user]` from `laf.prompts.render`;
+  `response_format = {"type": "json_schema", "json_schema": {"name": <arm>, "schema":
+  prompts/schema_<arm>.json}}`; `max_tokens` 16,000; `seed` = sample index (0, 1, 2);
+  `cache_prompt: false`; `chat_template_kwargs = {"current_date": <UTC date of the issue
+  time>}`; `model` = the model id below.
+- Sampling, set on every request:
+
+  | Model | temperature | top_p | top_k | min_p | Source |
+  |---|---|---|---|---|---|
+  | `openai/gpt-oss-20b` | 1.0 | 1.0 | 0 (off) | 0 (off) | openai/gpt-oss README, "Recommended Sampling Parameters" (the HF card and generation_config.json give none) |
+  | `allenai/Olmo-3.1-32B-Instruct` | 0.6 | 0.95 | 50 | 0 (off) | generation_config.json (temperature, top_p; also the GGUF's `general.sampling.*`); the card's inference example (top_k); the card text gives no temperature |
+
+  `min_p` 0 and gpt-oss `top_k` 0 switch off llama.cpp's own defaults (min_p 0.05, top_k 40),
+  which no model card asks for. Every other sampler is at the b11739 default, all neutral:
+  repeat_penalty 1.0, presence and frequency penalty 0, DRY multiplier 0, XTC probability 0,
+  typical_p 1.0, top_n_sigma -1, dynatemp_range 0, mirostat 0. Sampler order: penalties, dry,
+  top_n_sigma, top_k, typ_p, top_p, min_p, xtc, temperature.
+- gpt-oss reasoning effort: template default `medium` (not overridden).
+- Chat templates (`config/llamacpp/`, each one the template embedded in the GGUF plus one
+  provenance comment and one patch):
+  - `gpt-oss-20b.jinja` (SHA-256 ea5d51949163e3c1023bef7d319622b8396fbe2026cf1d23dc471ced8e1c4aba;
+    embedded original b2215de6da8ba369957eece8c5aa18f4af94f6c4d311d85e691373a421d80e89): the
+    line `"Current date: " + strftime_now("%Y-%m-%d")` becomes `"Current date: " +
+    current_date`, emitted only when the `current_date` kwarg is passed, so no prompt can carry
+    the wall-clock date. A missing kwarg cannot raise: llama-server test-renders the template
+    without kwargs at startup and rejects one that raises.
+  - `olmo-3.1-32b-instruct.jinja` (SHA-256
+    bb8b90214eebde6d40cb2b492c32103931a9756c1dc2553aa60b9824dbc25100; embedded original
+    49a944c9814e130bd3cc80a2420c55ff22e24a4e4ba97009aa60000909b5eac3, identical to the repo's
+    chat_template.jinja): prefixed with `{%- if tools is not defined -%}{%- set tools = none
+    -%}{%- endif -%}`. llama-server otherwise refuses the template (`tools | tojson` on an
+    undefined value); transformers always passes `tools=None`, so the rendering is unchanged.
+    The template contains no date, so `current_date` has no effect on Olmo.
+- Checks before each run: `/props` must show the alias, the GGUF file name, `n_ctx` 49,152,
+  one slot and the template SHA-256 above; `/apply-template` on the first request must contain
+  the system message, the issue date (gpt-oss) and never today's date.
+- Records: `runs/local-<model>/calls.jsonl` (UTF-8, LF, append-only; a rerun skips samples
+  with a response) with the Claude record fields plus block, info, paraphrase, seed,
+  reasoning, timings and machine; `runs/local-<model>/manifest.jsonl` per invocation (git SHA,
+  prompt and item hashes, GGUF SHA-256, server settings, OS/GPU/driver; no host names).
+- Smoke test (dev item us6000rtdt@28d, direct, I1, p1, seed 0): gpt-oss reasoning present,
+  valid JSON (`ok`), 6,518 output tokens at 251 tok/s (prompt 4,641 tok/s); Olmo no reasoning,
+  valid JSON (`ok`, `notes_too_long`), 747 tokens at 65 tok/s (prompt 2,786 tok/s). Dev check
+  through the client (that item, both arms, seeds 0-2): gpt-oss 6/6 `ok`; Olmo 4 `ok`,
+  1 `non_monotone`, 1 `out_of_range`. Seed 0 gave byte-identical text after a server restart
+  for both models. Constrained decoding keeps gpt-oss reasoning intact, so the unconstrained
+  fallback (prereg section 3) is not used.
 - Retired/not used: Qwen3.8-27B (cutoff undocumented, released 2026-08-14); gpt-oss-120b
   (about 63 GB; does not fit 48 GB unified memory or the 32 GB GPU without offload; stretch only).
 
