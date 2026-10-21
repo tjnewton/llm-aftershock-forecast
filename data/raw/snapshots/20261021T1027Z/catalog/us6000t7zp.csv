@@ -1,0 +1,29 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-06-04T23:41:15.280Z,9.6411,-70.0077,10,4.8,mb,50,109,0.974,0.77,us,us7000sqrk,2026-08-15T17:27:01.040Z,"28 km SW of El Tocuyo, Venezuela",earthquake,4.1,1.818,0.064,75,reviewed,us,us
+2026-06-14T00:39:48.528Z,9.2573,-69.677,27.145,4.3,mb,41,76,1.015,0.67,us,us7000ssrw,2026-08-31T21:44:38.040Z,"24 km W of Ospino, Venezuela",earthquake,7.69,5.679,0.113,22,reviewed,us,us
+2026-06-18T01:23:29.204Z,9.2935,-69.93,10,4.7,mb,137,41,0.798,0.6,us,us7000su81,2026-09-04T15:40:55.040Z,"34 km NW of Guanare, Venezuela",earthquake,6.65,1.878,0.052,112,reviewed,us,us
+2026-06-24T22:04:31.806Z,10.3713,-68.5564,10,7.2,mww,120,21,1.027,0.59,us,us6000t7zc,2026-09-04T15:40:50.040Z,"20 km E of San Felipe, Venezuela",earthquake,5.92,1.713,0.058,29,reviewed,us,us
+2026-06-24T22:05:04.053Z,10.5955,-67.2205,10,7.5,mww,64,39,0.422,0.63,us,us6000t7zp,2026-10-19T21:47:40.136Z,"20 km W of Catia La Mar, Venezuela",earthquake,6.43,1.886,0.036,75,reviewed,us,us
+2026-06-24T22:23:57.864Z,10.9006,-67.1675,10,4.5,mb,31,134,2.639,0.84,us,us6000t80d,2026-09-04T15:40:50.040Z,"35 km NNW of Catia La Mar, Venezuela",earthquake,6.82,1.8,0.135,16,reviewed,us,us
+2026-06-24T22:54:00.283Z,10.8819,-67.0282,10,5,mb,25,68,2.502,0.79,us,us6000t9w3,2026-09-04T15:40:55.040Z,"30 km N of Catia La Mar, Venezuela",earthquake,7.64,1.93,0.17,11,reviewed,us,us
+2026-06-25T05:48:25.842Z,10.7063,-66.7831,10,4.4,mb,38,166,0.237,0.58,us,us6000t81p,2026-09-15T23:40:26.040Z,"12 km NE of Caraballeda, Venezuela",earthquake,7.04,1.938,0.096,31,reviewed,us,us
+2026-06-25T07:48:51.850Z,10.6014,-67.4507,10,4.4,mb,16,101,0.621,0.81,us,us6000t828,2026-09-15T23:40:26.040Z,"38 km NNE of El Limón, Venezuela",earthquake,8.4,1.948,0.17,10,reviewed,us,us
+2026-06-25T10:29:38.276Z,10.5458,-68.2604,10,4.3,mb,36,73,2.856,0.99,us,us6000t9wy,2026-09-15T23:40:28.040Z,"9 km NW of Morón, Venezuela",earthquake,6.84,1.649,0.109,24,reviewed,us,us
+2026-06-26T04:19:30.572Z,10.4864,-68.4278,10,4.4,mb,49,69,2.688,1.28,us,us6000t8d1,2026-09-15T23:40:36.040Z,"24 km W of Morón, Venezuela",earthquake,7.38,1.901,0.082,43,reviewed,us,us
+2026-06-26T22:16:10.504Z,10.6035,-67.5997,10,4.7,mww,77,38,0.637,0.82,us,us6000t8k6,2026-09-15T23:40:44.040Z,"33 km N of El Limón, Venezuela",earthquake,5.77,1.898,0.103,9,reviewed,us,us
+2026-06-27T14:23:39.723Z,10.6024,-67.0541,10,4.3,mb,52,64,3.92,0.79,us,us6000taer,2026-09-15T23:40:52.040Z,"2 km W of Catia La Mar, Venezuela",earthquake,8.21,1.884,0.101,29,reviewed,us,us
+2026-06-27T19:20:37.253Z,10.6767,-67.6133,10,4.8,mww,72,41,3.018,0.8,us,us6000t8q8,2026-09-15T23:40:54.040Z,"41 km N of El Limón, Venezuela",earthquake,7.01,1.876,0.11,8,reviewed,us,us
+2026-06-28T08:46:09.312Z,10.6091,-68.3699,10,4.5,mb,41,175,2.814,0.74,us,us6000t8su,2026-09-15T23:41:00.040Z,"11 km SW of Boca de Aroa, Venezuela",earthquake,13.22,1.953,0.06,80,reviewed,us,us
+2026-06-28T09:33:59.554Z,10.4907,-68.4852,10,4.3,mb,59,69,2.645,0.99,us,us6000t8sx,2026-09-15T23:41:00.040Z,"23 km ESE of Yumare, Venezuela",earthquake,6.7,1.911,0.092,33,reviewed,us,us
+2026-06-29T11:01:02.693Z,10.7743,-66.7938,10,4.6,mb,108,58,2.251,0.53,us,us6000t8yf,2026-09-15T23:41:11.040Z,"19 km NNE of Caraballeda, Venezuela",earthquake,6.36,1.881,0.042,169,reviewed,us,us
+2026-06-29T17:58:20.064Z,10.5085,-68.5038,13.24,4.3,mb,35,74,1.043,0.74,us,us6000tanb,2026-09-15T23:41:14.040Z,"20 km ESE of Yumare, Venezuela",earthquake,6.29,5.373,0.132,16,reviewed,us,us
+2026-07-08T23:56:00.177Z,10.5193,-68.558,10,4.5,mb,25,86,2.613,1.16,us,us7000t0qk,2026-09-19T21:50:37.040Z,"15 km SE of Yumare, Venezuela",earthquake,7.36,1.898,0.164,11,reviewed,us,us
+2026-07-10T06:30:17.976Z,10.4593,-68.6291,10,4.4,mb,39,85,2.514,0.76,us,us7000t10a,2026-09-29T22:05:32.040Z,"15 km SSE of Yumare, Venezuela",earthquake,7.49,1.907,0.144,14,reviewed,us,us
+2026-07-19T08:54:20.534Z,10.606,-65.1223,10,4.3,mb,25,72,5.696,1.06,us,us7000t2el,2026-10-08T15:36:11.040Z,"61 km N of Puerto Píritu, Venezuela",earthquake,10.32,1.913,0.126,18,reviewed,us,us
+2026-08-02T03:16:44.955Z,10.589,-68.6809,10,4.5,mb,37,86,0.799,0.52,us,us6000thk4,2026-10-17T22:26:31.040Z,"1 km SW of Yumare, Venezuela",earthquake,4.5,1.904,0.113,23,reviewed,us,us
+2026-08-18T07:07:16.382Z,10.6791,-67.0068,17.389,3.8,mb,32,76,0.284,0.54,us,us6000tlva,2026-08-23T16:58:59.784Z,"8 km NNE of Catia La Mar, Venezuela",earthquake,4.27,7.151,0.361,2,reviewed,us,us
+2026-08-23T05:47:50.880Z,10.6621,-65.2296,10,4,mb,18,137,1.566,0.49,us,us6000tmx3,2026-08-30T08:23:30.074Z,"62 km NNE of Boca de Uchire, Venezuela",earthquake,7.98,1.954,0.13,16,reviewed,us,us
+2026-08-27T22:48:03.797Z,10.3559,-67.277,10,4.3,mb,23,122,0.328,0.52,us,us7000tdy4,2026-10-02T23:36:44.040Z,"15 km NNE of La Victoria, Venezuela",earthquake,3.05,1.939,0.238,5,reviewed,us,us
+2026-08-28T00:38:21.038Z,10.2493,-67.2874,10,4.4,mb,25,112,0.279,0.63,us,us7000tci3,2026-09-15T00:23:38.634Z,"5 km ENE of La Victoria, Venezuela",earthquake,5.75,1.923,0.126,18,reviewed,us,us
+2026-09-08T06:49:49.162Z,10.8301,-69.1186,10,4.8,mww,65,32,0.864,0.84,us,us7000tfs1,2026-10-14T17:24:33.040Z,"49 km NNW of Aroa, Venezuela",earthquake,4.38,1.809,0.059,28,reviewed,us,us
+2026-09-16T01:37:17.469Z,10.6763,-69.2761,10,4.5,mb,54,45,0.713,0.93,us,us7000thrm,2026-10-02T00:58:29.040Z,"44 km NNW of Duaca, Venezuela",earthquake,4.11,1.869,0.111,24,reviewed,us,us

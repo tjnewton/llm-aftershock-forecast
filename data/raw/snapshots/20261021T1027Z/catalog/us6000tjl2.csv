@@ -1,0 +1,89 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-07-15T20:13:38.776Z,6.702,-73.1432,152.447,4.3,mb,109,40,3.298,0.64,us,us7000t0ss,2026-09-29T22:05:30.040Z,"4 km NE of Villanueva, Colombia",earthquake,9.28,8.017,0.055,97,reviewed,us,us
+2026-07-18T08:40:27.331Z,3.3349,-79.3295,10,4.4,mb,78,140,2.085,0.74,us,us7000t1kk,2026-10-08T15:34:11.040Z,"133 km NW of Mosquera, Colombia",earthquake,7.77,1.911,0.065,68,reviewed,us,us
+2026-07-20T01:44:15.108Z,6.7762,-73.0623,153.068,4.6,mb,55,45,0.878,0.8,us,us7000t1vc,2026-10-08T15:35:01.040Z,"6 km NE of Jordán, Colombia",earthquake,7.62,6.502,0.032,291,reviewed,us,us
+2026-07-23T15:10:11.808Z,6.9212,-73.1419,146.197,4.3,mb,20,115,1.024,1.02,us,us6000tgnw,2026-10-13T22:44:37.040Z,"12 km SW of Piedecuesta, Colombia",earthquake,8.45,4.658,0.265,4,reviewed,us,us
+2026-07-23T17:50:28.859Z,6.6869,-73.0936,153.262,4.5,mb,95,38,0.789,0.89,us,us7000t2u4,2026-10-13T22:42:21.040Z,"5 km S of Jordán, Colombia",earthquake,8.03,5.41,0.038,202,reviewed,us,us
+2026-07-25T06:29:17.669Z,3.8995,-78.6426,10,4.4,mb,40,130,2.597,1.16,us,us7000t3a3,2026-10-13T22:45:06.040Z,"147 km WSW of Santa Genoveva de Docordó, Colombia",earthquake,7.45,1.924,0.117,21,reviewed,us,us
+2026-07-26T02:13:46.363Z,4.8056,-72.7048,10,4.6,mb,71,58,1.144,0.84,us,us7000t3eb,2026-10-13T22:42:42.040Z,"19 km WNW of Ubalá, Colombia",earthquake,4.23,1.849,0.074,54,reviewed,us,us
+2026-08-02T17:12:35.137Z,7.6498,-77.1911,34.424,4.4,mb,35,95,1.45,0.44,us,us6000thmv,2026-10-17T22:26:33.040Z,"24 km NNW of Riosucio, Colombia",earthquake,5.87,7.13,0.139,15,reviewed,us,us
+2026-08-06T01:30:32.334Z,6.9273,-73.1556,150.312,4.3,mb,19,123,1.031,0.82,us,us6000tjy9,2026-08-31T21:54:45.040Z,"13 km WSW of Piedecuesta, Colombia",earthquake,7.3,10.924,0.168,10,reviewed,us,us
+2026-08-07T04:58:26.084Z,6.8029,-73.0645,154.078,4.2,mb,28,97,0.905,0.86,us,us6000tivx,2026-09-02T22:03:21.040Z,"8 km NNE of Jordán, Colombia",earthquake,7.55,8.823,0.186,8,reviewed,us,us
+2026-08-10T12:34:28.828Z,4.8601,-76.2558,116.13,7.4,mww,151,33,1.507,0.91,us,us6000tjl2,2026-10-20T02:32:22.929Z,"4 km SSW of San José del Palmar, Colombia",earthquake,6.54,4.483,0.026,147,reviewed,us,us
+2026-08-10T13:18:09.581Z,4.877,-76.3246,91.129,5,mb,119,49,1.527,0.76,us,us6000tjm4,2026-08-28T21:41:43.748Z,"10 km WSW of San José del Palmar, Colombia",earthquake,6.91,3.164,0.044,165,reviewed,us,us
+2026-08-10T15:01:31.472Z,4.9924,-76.3671,97.87,4.3,mb,29,102,1.454,1.07,us,us6000tjms,2026-08-23T20:28:36.040Z,"18 km NW of San José del Palmar, Colombia",earthquake,7.82,9.985,0.148,13,reviewed,us,us
+2026-08-11T15:43:41.168Z,4.9121,-76.33,101.646,4.1,mb,35,113,1.5,0.61,us,us6000tjzx,2026-09-03T18:11:58.040Z,"10 km W of San José del Palmar, Colombia",earthquake,7.24,8.9,0.112,23,reviewed,us,us
+2026-08-11T22:29:34.063Z,6.2416,-73.7019,116.733,4.5,mb,26,61,0.706,0.84,us,us6000tkql,2026-08-20T22:21:59.040Z,"12 km ENE of Landázuri, Colombia",earthquake,6.43,7.293,0.191,8,reviewed,us,us
+2026-08-13T14:42:32.286Z,4.8948,-76.2213,103.362,4.3,mb,36,100,1.46,0.96,us,us6000tkha,2026-08-28T18:47:22.600Z,"1 km E of San José del Palmar, Colombia",earthquake,7.45,10.051,0.148,13,reviewed,us,us
+2026-08-14T03:21:46.170Z,4.9268,-76.414,96.66,4.3,mb,32,101,1.534,0.62,us,us6000tkl4,2026-09-07T23:08:54.040Z,"20 km W of San José del Palmar, Colombia",earthquake,6.49,11.48,0.125,18,reviewed,us,us
+2026-08-16T00:18:15.830Z,6.8539,-73.0352,148.143,4.2,mb,34,107,0.956,0.95,us,us6000tl4c,2026-09-05T22:19:19.040Z,"12 km NNW of Cepitá, Colombia",earthquake,7.26,8.592,0.121,19,reviewed,us,us
+2026-08-19T10:07:16.276Z,5.8735,-77.5719,10,4.3,mb,56,127,2.056,0.67,us,us6000tluk,2026-09-09T17:12:47.040Z,"37 km WNW of Nuquí, Colombia",earthquake,1.95,1.903,0.088,37,reviewed,us,us
+2026-08-24T02:41:00.522Z,4.4825,-76.8266,78.299,4.4,mb,19,94,2.133,0.86,us,us6000tn1x,2026-09-14T02:47:43.040Z,"27 km SW of Sipí, Colombia",earthquake,3.11,11.686,0.19,8,reviewed,us,us
+2026-08-24T18:55:28.009Z,4.3503,-76.7599,73.956,4.4,mb,48,102,2.201,0.62,us,us6000tn7y,2026-08-31T14:25:00.040Z,"35 km SSW of Sipí, Colombia",earthquake,4.86,9.619,0.075,51,reviewed,us,us
+2026-08-26T16:45:14.482Z,6.7547,-73.004,158.98,4.9,mww,145,30,0.86,0.71,us,us7000tbzn,2026-09-13T14:35:47.444Z,"3 km W of Cepitá, Colombia",earthquake,6.76,5.48,0.078,16,reviewed,us,us
+2026-08-27T15:25:29.013Z,4.5126,-76.7491,61.381,4.7,mb,59,104,2.063,1.12,us,us7000tc9s,2026-09-05T20:20:08.040Z,"19 km SW of Sipí, Colombia",earthquake,6.92,7.476,0.053,108,reviewed,us,us
+2026-08-27T16:21:22.850Z,4.5588,-76.6859,63.685,4.5,mb,50,103,1.989,1.12,us,us7000tca5,2026-09-06T15:39:38.040Z,"11 km SSW of Sipí, Colombia",earthquake,7.52,6.954,0.084,42,reviewed,us,us
+2026-08-29T10:50:23.751Z,4.5132,-76.7395,60.635,4.5,mb,42,99,2.057,0.79,us,us7000tcth,2026-09-12T09:23:30.281Z,"18 km SW of Sipí, Colombia",earthquake,8.08,5.61,0.064,71,reviewed,us,us
+2026-08-30T04:37:56.698Z,2.4078,-76.1637,10,4.5,mb,46,61,2.336,1.31,us,us7000tcwh,2026-09-18T03:22:02.023Z,"19 km SSW of Inzá, Colombia",earthquake,6.76,1.892,0.094,33,reviewed,us,us
+2026-09-01T17:05:06.078Z,7.718,-74.4786,83.04,4.2,mb,45,69,2.282,0.76,us,us7000tfwa,2026-09-09T14:55:58.040Z,"33 km ESE of San Carlos, Colombia",earthquake,5.41,6.989,0.108,24,reviewed,us,us
+2026-09-03T05:17:15.307Z,4.3985,-76.7157,71.437,4.5,mb,50,97,2.137,0.86,us,us7000tdu1,2026-09-13T06:15:17.325Z,"29 km SSW of Sipí, Colombia",earthquake,7.6,7.882,0.066,67,reviewed,us,us
+2026-09-03T16:58:47.267Z,6.8319,-73.0592,151.609,4.5,mb,51,87,0.934,0.83,us,us7000te20,2026-09-12T16:24:37.040Z,"11 km NNE of Jordán, Colombia",earthquake,8.4,8.575,0.053,103,reviewed,us,us
+2026-09-06T22:15:38.927Z,4.568,-76.7599,67.922,4.4,mb,26,101,2.025,0.95,us,us7000tes0,2026-09-30T01:41:34.261Z,"15 km SW of Sipí, Colombia",earthquake,7.62,8.96,0.139,15,reviewed,us,us
+2026-09-08T02:01:34.651Z,4.5576,-76.7752,71.326,4.4,mb,39,101,2.043,0.94,us,us7000tfql,2026-10-01T02:28:08.630Z,"17 km SW of Sipí, Colombia",earthquake,7,8.277,0.103,27,reviewed,us,us
+2026-09-11T09:45:31.807Z,3.2591,-78.9412,10,4.5,mb,79,118,1.442,0.3,us,us7000tgki,2026-10-08T08:01:29.040Z,"99 km NNW of Mosquera, Colombia",earthquake,6.7,1.872,0.074,53,reviewed,us,us
+2026-09-11T16:42:31.376Z,4.4626,-76.8003,68.328,4.7,mb,49,90,2.133,1.3,us,us7000tgpu,2026-09-18T21:25:24.094Z,"27 km SW of Sipí, Colombia",earthquake,5.32,7.327,0.063,76,reviewed,us,us
+2026-09-12T11:16:12.322Z,4.4328,-76.7471,77.125,4.7,mb,50,96,2.126,0.87,us,us7000tgyx,2026-10-21T07:00:52.040Z,"26 km SSW of Sipí, Colombia",earthquake,6.93,7.541,0.037,217,reviewed,us,us
+2026-09-13T07:10:28.766Z,4.6073,-76.8281,76.445,4.3,mb,22,104,2.037,1.27,us,us7000th4s,2026-10-07T07:58:15.040Z,"21 km WSW of Sipí, Colombia",earthquake,3.41,10.695,0.137,15,reviewed,us,us
+2026-09-13T17:55:25.301Z,6.8723,-73.0435,151.933,4.3,mb,55,83,0.974,0.79,us,us7000th7k,2026-09-24T16:49:39.019Z,"12 km S of Piedecuesta, Colombia",earthquake,7,9.891,0.082,42,reviewed,us,us
+2026-09-14T14:57:10.300Z,4.5173,-76.6989,65.22,4.5,mb,66,54,2.03,0.84,us,us7000thdw,2026-09-27T16:39:39.639Z,"16 km SSW of Sipí, Colombia",earthquake,6.89,6.46,0.073,55,reviewed,us,us
+2026-09-14T20:02:04.673Z,4.5034,-76.7177,63.624,4.9,mww,78,98,2.052,0.77,us,us7000thge,2026-09-24T19:51:15.647Z,"18 km SSW of Sipí, Colombia",earthquake,7.09,5.188,0.083,14,reviewed,us,us
+2026-09-14T20:04:50.939Z,4.5069,-76.6921,71.459,4.4,mb,32,100,2.035,0.65,us,us7000tica,2026-09-24T15:17:28.040Z,"17 km SSW of Sipí, Colombia",earthquake,7.62,9.532,0.134,16,reviewed,us,us
+2026-09-14T20:08:04.768Z,4.4634,-76.8214,52.692,4.6,mb,76,91,2.145,0.74,us,us7000thgj,2026-09-25T12:50:40.591Z,"28 km SW of Sipí, Colombia",earthquake,6.97,7.31,0.049,127,reviewed,us,us
+2026-09-14T21:13:16.363Z,4.5305,-76.8274,52.707,4.9,mww,72,87,2.096,0.68,us,us7000thh2,2026-10-14T23:08:04.040Z,"24 km SW of Sipí, Colombia",earthquake,6.98,6.94,0.11,8,reviewed,us,us
+2026-09-14T22:39:03.955Z,4.4807,-76.7835,69.4,4.5,mb,49,100,2.109,0.66,us,us7000thht,2026-10-07T23:28:32.040Z,"24 km SW of Sipí, Colombia",earthquake,4.71,7.702,0.048,129,reviewed,us,us
+2026-09-16T06:18:04.823Z,4.4322,-76.8119,63.356,4.6,mb,71,89,2.164,1.36,us,us7000thse,2026-10-08T07:13:28.040Z,"30 km SW of Sipí, Colombia",earthquake,6.26,8.094,0.046,140,reviewed,us,us
+2026-09-16T07:02:12.284Z,6.0548,-77.7752,10,4.8,mb,83,105,2.238,0.76,us,us7000thsp,2026-10-08T09:22:36.040Z,"45 km WSW of Bahía Solano, Colombia",earthquake,6.04,1.829,0.031,327,reviewed,us,us
+2026-09-16T20:12:52.358Z,4.5473,-76.8441,65.803,4.9,mww,153,67,2.093,0.5,us,us7000thxc,2026-10-17T14:04:36.040Z,"25 km WSW of Sipí, Colombia",earthquake,6,5.275,0.11,8,reviewed,us,us
+2026-09-16T20:14:30.623Z,4.4937,-76.8127,62.251,4.5,mb,55,100,2.116,0.78,us,us6000twwu,2026-10-09T18:12:51.040Z,"25 km SW of Sipí, Colombia",earthquake,7.36,7.857,0.077,50,reviewed,us,us
+2026-09-16T20:55:01.454Z,4.4631,-76.8196,56.619,4.7,mb,106,91,2.144,0.97,us,us7000thxm,2026-10-09T19:15:40.040Z,"28 km SW of Sipí, Colombia",earthquake,5.79,7.478,0.047,140,reviewed,us,us
+2026-09-17T01:12:49.694Z,4.5186,-76.788,63.112,4.4,mb,54,101,2.081,0.84,us,us7000thyk,2026-10-07T01:58:23.040Z,"21 km SW of Sipí, Colombia",earthquake,6.92,8.448,0.087,38,reviewed,us,us
+2026-09-17T21:10:25.511Z,4.4797,-76.7816,57.974,4.7,mb,78,90,2.108,0.95,us,us7000ti5y,2026-10-19T18:28:41.040Z,"24 km SW of Sipí, Colombia",earthquake,6.14,6.059,0.041,176,reviewed,us,us
+2026-09-18T06:17:03.958Z,4.3576,-76.827,71.756,4.7,mb,55,100,2.233,1.32,us,us7000ti7x,2026-10-14T13:47:21.247Z,"38 km SSW of Sipí, Colombia",earthquake,7.24,7.381,0.045,149,reviewed,us,us
+2026-09-18T08:45:21.605Z,7.0509,-77.7982,10,4.4,mb,18,133,2.286,0.94,us,us7000ti8q,2026-09-30T11:48:48.040Z,"7 km SW of Juradó, Colombia",earthquake,7.85,1.873,0.155,12,reviewed,us,us
+2026-09-18T18:41:23.319Z,4.3989,-76.6893,83.3,4.5,mb,54,96,2.122,0.41,us,us7000tie4,2026-09-26T15:46:39.040Z,"28 km S of Sipí, Colombia",earthquake,7.45,7.646,0.074,53,reviewed,us,us
+2026-09-18T19:19:17.348Z,4.4476,-76.7537,62.712,4.4,mb,33,98,2.118,0.65,us,us6000txf0,2026-10-14T18:47:04.040Z,"25 km SSW of Sipí, Colombia",earthquake,6.06,8.792,0.127,19,reviewed,us,us
+2026-09-19T05:01:49.345Z,4.484,-76.7735,76.051,4.3,mb,55,90,2.1,1.05,us,us7000tihg,2026-10-12T15:59:36.040Z,"23 km SW of Sipí, Colombia",earthquake,7.45,8.747,0.1,28,reviewed,us,us
+2026-09-19T13:44:35.733Z,4.5107,-76.8715,57.931,4.8,mb,180,92,2.138,0.91,us,us7000tijs,2026-10-14T20:38:51.958Z,"29 km WSW of Sipí, Colombia",earthquake,13.57,16.408,0.037,219,reviewed,us,us
+2026-09-19T22:28:51.599Z,4.442,-76.8788,73.699,4.4,mb,22,92,2.196,0.75,us,us7000tim0,2026-10-09T01:00:04.040Z,"34 km SW of Sipí, Colombia",earthquake,6.75,6.903,0.179,9,reviewed,us,us
+2026-09-19T23:20:15.326Z,4.4429,-76.6617,78.959,4.3,mb,22,94,2.071,1.21,us,us7000timg,2026-10-06T04:31:20.040Z,"23 km S of Sipí, Colombia",earthquake,5.96,8.689,0.201,7,reviewed,us,us
+2026-09-21T16:23:20.229Z,3.8443,-75.6871,10,4.3,mb,37,96,1.686,1.07,us,us7000tiz7,2026-09-26T16:58:07.286Z,"20 km SSW of Roncesvalles, Colombia",earthquake,5.94,1.927,0.133,16,reviewed,us,us
+2026-09-21T18:48:44.872Z,3.9032,-75.4687,10,4.5,mb,46,103,1.478,0.75,us,us7000tizt,2026-09-26T16:53:44.078Z,"1 km SE of San Antonio, Colombia",earthquake,5.8,1.893,0.094,33,reviewed,us,us
+2026-09-21T22:58:21.971Z,4.0089,-75.5843,10,4.2,mb,17,147,1.508,0.71,us,us7000tj1f,2026-09-26T04:09:30.040Z,"2 km E of Roncesvalles, Colombia",earthquake,5.26,1.993,0.236,5,reviewed,us,us
+2026-09-21T23:15:33.276Z,3.8317,-75.6631,9.99,4.3,mb,17,82,1.674,1.02,us,us7000tj1k,2026-10-14T21:39:48.040Z,"20 km SSW of Roncesvalles, Colombia",earthquake,6.32,5.286,0.142,14,reviewed,us,us
+2026-09-22T10:38:41.844Z,3.8284,-75.7584,10,4.1,mb,23,98,1.753,0.6,us,us7000tj4x,2026-10-15T12:39:36.040Z,"26 km SW of Roncesvalles, Colombia",earthquake,4.95,1.951,0.262,4,reviewed,us,us
+2026-09-22T22:12:26.626Z,3.9539,-75.8291,10,4.6,mb,28,115,1.745,0.71,us,us6000twzi,2026-09-28T21:56:09.040Z,"25 km WSW of Roncesvalles, Colombia",earthquake,6.56,1.947,0.172,10,reviewed,us,us
+2026-09-23T04:36:36.621Z,3.7317,-75.7776,10,4.2,mb,31,79,1.825,0.58,us,us6000tx0s,2026-10-04T03:55:10.040Z,"26 km NNW of Rioblanco, Colombia",earthquake,5.99,1.947,0.128,17,reviewed,us,us
+2026-09-23T04:46:40.514Z,3.8154,-75.7193,10,4.2,mb,42,80,1.729,0.88,us,us6000tx0t,2026-10-04T05:11:32.040Z,"25 km SSW of Roncesvalles, Colombia",earthquake,5.77,1.903,0.098,29,reviewed,us,us
+2026-09-23T07:59:37.164Z,3.7769,-75.6159,48.289,4,mb,37,106,1.671,1.11,us,us6000tx1m,2026-10-15T06:45:06.040Z,"15 km WNW of Chaparral, Colombia",earthquake,5.81,7.586,0.172,9,reviewed,us,us
+2026-09-23T09:04:13.053Z,3.9316,-75.7193,10,4.3,mb,64,90,1.663,0.45,us,us6000tx28,2026-10-15T12:44:45.040Z,"15 km SW of Roncesvalles, Colombia",earthquake,5.62,1.864,0.094,32,reviewed,us,us
+2026-09-23T20:09:43.743Z,3.8018,-75.5426,62.562,4.6,mb,69,60,1.599,0.87,us,us6000tx60,2026-10-16T16:13:33.803Z,"10 km NW of Chaparral, Colombia",earthquake,17.52,18.259,0.056,97,reviewed,us,us
+2026-09-24T07:39:08.396Z,4.474,-76.7393,73.074,4.1,mb,37,100,2.088,0.76,us,us6000tx9s,2026-10-21T06:32:06.040Z,"22 km SSW of Sipí, Colombia",earthquake,5.49,8.506,0.109,23,reviewed,us,us
+2026-09-24T16:46:31.643Z,3.7112,-75.7489,10,4.6,mb,43,77,1.815,1.25,us,us6000txdb,2026-10-04T19:26:49.040Z,"23 km NNW of Rioblanco, Colombia",earthquake,7.56,1.605,0.071,59,reviewed,us,us
+2026-09-24T17:14:34.608Z,3.896,-75.8681,10,4.1,mb,24,100,1.808,0.67,us,us6000txdx,2026-10-06T16:23:47.040Z,"25 km NE of La Cumbre, Colombia",earthquake,4.91,1.902,0.135,15,reviewed,us,us
+2026-09-25T00:57:07.701Z,4.4951,-76.907,55.883,4.6,mb,39,78,2.173,0.84,us,us6000txhs,2026-10-12T00:08:58.040Z,"34 km WSW of Sipí, Colombia",earthquake,6.34,7.467,0.122,20,reviewed,us,us
+2026-09-25T03:57:06.181Z,3.7756,-75.6859,10,4.2,mb,22,79,1.726,1.06,us,us6000txif,2026-10-19T17:53:36.040Z,"23 km WNW of Chaparral, Colombia",earthquake,3.34,1.944,0.153,12,reviewed,us,us
+2026-09-25T07:19:39.980Z,3.8068,-75.7577,10,4.4,mb,31,110,1.765,0.97,us,us6000txjb,2026-10-19T18:07:37.040Z,"28 km SW of Roncesvalles, Colombia",earthquake,6.99,1.929,0.075,52,reviewed,us,us
+2026-09-26T06:38:17.991Z,3.8646,-75.7607,10,4.2,mwr,64,79,1.734,0.73,us,us6000txrj,2026-10-19T22:06:50.040Z,"23 km SW of Roncesvalles, Colombia",earthquake,4.88,1.894,0.083,14,reviewed,us,us
+2026-09-27T21:57:52.848Z,4.516,-76.7957,71.347,4.6,mb,47,89,2.088,0.79,us,us6000ty0u,2026-10-21T00:36:43.040Z,"22 km SW of Sipí, Colombia",earthquake,7.24,7.922,0.092,35,reviewed,us,us
+2026-09-28T08:39:55.313Z,3.7929,-75.7141,10,4.3,mb,77,90,1.738,0.71,us,us6000ty3z,2026-09-29T08:27:16.040Z,"26 km WNW of Chaparral, Colombia",earthquake,7.65,1.92,0.067,63,reviewed,us,us
+2026-09-28T14:42:30.993Z,6.7914,-72.9801,150.603,4.3,mb,106,64,0.899,0.78,us,us6000ty5f,2026-10-08T18:50:03.040Z,"4 km N of Cepitá, Colombia",earthquake,8.09,7.787,0.062,73,reviewed,us,us
+2026-09-29T21:50:29.908Z,3.8893,-75.634,10,4.4,mb,28,80,1.617,0.86,us,us6000tyfk,2026-10-08T01:31:16.040Z,"13 km SSW of Roncesvalles, Colombia",earthquake,5.62,1.928,0.169,10,reviewed,us,us
+2026-09-30T01:38:45.776Z,4.6264,-76.9659,66.722,4.2,mb,17,104,2.112,0.41,us,us6000tygt,2026-10-14T00:08:08.040Z,"35 km W of Sipí, Colombia",earthquake,8.19,12.756,0.215,6,reviewed,us,us
+2026-10-05T13:09:03.705Z,6.8122,-73.0733,156.158,4.1,mb,34,95,0.914,0.79,us,us6000u29l,2026-10-18T14:35:34.824Z,"9 km NNE of Jordán, Colombia",earthquake,7.42,7.113,0.134,15,reviewed,us,us
+2026-10-06T19:13:35.917Z,3.9021,-75.6003,10,4.1,mb,19,135,1.582,0.78,us,us6000u0k5,2026-10-15T16:15:11.040Z,"12 km S of Roncesvalles, Colombia",earthquake,7.48,1.999,0.522,1,reviewed,us,us
+2026-10-07T01:29:45.785Z,3.8692,-75.74,10,4.4,mb,19,104,1.715,1.28,us,us6000u0n5,2026-10-07T02:41:40.040Z,"21 km SW of Roncesvalles, Colombia",earthquake,4.89,1.928,0.204,7,reviewed,us,us
+2026-10-10T05:45:59.396Z,5.267,-75.6127,115.143,4.5,mb,55,109,0.922,0.6,us,us6000u1cx,2026-10-10T07:04:25.040Z,"6 km WSW of Filadelfia, Colombia",earthquake,7.2,7.049,0.079,47,reviewed,us,us
+2026-10-13T18:36:38.928Z,1.6816,-76.3106,10,4.4,mb,25,129,1.76,1.24,us,us6000u24a,2026-10-13T23:52:16.513Z,"20 km WSW of Palestina, Colombia",earthquake,5.75,1.941,0.134,16,reviewed,us,us
+2026-10-13T21:24:21.135Z,6.7888,-73.0065,162.209,4.8,mb,63,38,0.894,0.62,us,us6000u25i,2026-10-14T12:13:38.223Z,"5 km NW of Cepitá, Colombia",earthquake,7.76,5.498,0.03,347,reviewed,us,us
+2026-10-16T13:02:41.211Z,6.853,-77.3681,25.867,4.5,mb,12,72,1.942,1.13,us,us6000u2pw,2026-10-16T18:41:10.040Z,"51 km ESE of Juradó, Colombia",earthquake,4.95,7.55,0.271,4,reviewed,us,us
+2026-10-17T07:25:13.879Z,3.6157,-76.3781,154.394,4.4,mb,49,98,2.387,0.73,us,us6000u2yx,2026-10-17T07:41:57.040Z,"10 km SW of El Cerrito, Colombia",earthquake,7.63,8.136,0.067,64,reviewed,us,us

@@ -1,0 +1,296 @@
+From 7ecfce225f906d565190d4aef914cc8714a73ce1 Mon Sep 17 00:00:00 2001
+From: nvanderelst-local <nvanderelst-local@10.8.34.199>
+Date: Wed, 2 Apr 2025 13:48:16 -0700
+Subject: [PATCH] corrections to quantiles and bar graph numbers for forecast
+ mags lower than simulation mag
+
+---
+ .../oaf/etas/AftershockStatsGUI_ETAS.java     |   4 +-
+ .../oaf/etas/ETAS_AftershockModel.java        | 167 ++++++++----------
+ .../org/opensha/oaf/etas/ETAS_StatsCalc.java  |   2 +-
+ .../opensha/oaf/etas/GraphicalForecast.java   |   2 -
+ .../oaf/etas/resources/worldcities1000.txt    |   1 +
+ 5 files changed, 76 insertions(+), 100 deletions(-)
+
+diff --git a/src/main/java/org/opensha/oaf/etas/AftershockStatsGUI_ETAS.java b/src/main/java/org/opensha/oaf/etas/AftershockStatsGUI_ETAS.java
+index 89dc2d8a..f8b78cd4 100644
+--- a/src/main/java/org/opensha/oaf/etas/AftershockStatsGUI_ETAS.java
++++ b/src/main/java/org/opensha/oaf/etas/AftershockStatsGUI_ETAS.java
+@@ -975,7 +975,7 @@ private void createAndShowGUI() {
+ 		mapGridSpacingParam.getEditor().getComponent().setPreferredSize(new Dimension(outputWidth, 50));
+ 		mapPlotParams.addParameter(mapGridSpacingParam);
+ 		
+-		mapScaleParam  = new DoubleParameter("Scale", 1d, 10d, Double.valueOf(5));
++		mapScaleParam  = new DoubleParameter("Scale", 1d, 100d, Double.valueOf(5));
+ 		mapScaleParam.setInfo("Map scale in fault lengths");
+ 		mapScaleParam.addParameterChangeListener(this);
+ 		mapScaleParam.getEditor().getComponent().setPreferredSize(new Dimension(outputWidth, 50));
+@@ -1210,7 +1210,7 @@ void forecastFromFile() throws IOException {
+ 		mapLevelParam = new DoubleParameter("Level", 1d, 100d, Double.valueOf(10) );
+ 		mapPOEParam = new DoubleParameter("POE (%)", 0, 99.9, Double.valueOf(10));
+ 		mapGridSpacingParam = new DoubleParameter("\u0394 (km)", 1, 1000, Double.valueOf(10d));
+-		mapScaleParam  = new DoubleParameter("Scale", 1d, 10d, Double.valueOf(5));
++		mapScaleParam  = new DoubleParameter("Scale", 1d, 100d, Double.valueOf(5));
+ 		workingDir = new File(System.getProperty("user.home"));
+ 		accessor = new ETAS_ComcatAccessor();
+ 		quickForecastButton = new ButtonParameter("Forecast using default settings", "Quick Forecast");
+diff --git a/src/main/java/org/opensha/oaf/etas/ETAS_AftershockModel.java b/src/main/java/org/opensha/oaf/etas/ETAS_AftershockModel.java
+index 20d82cdc..94a616c5 100644
+--- a/src/main/java/org/opensha/oaf/etas/ETAS_AftershockModel.java
++++ b/src/main/java/org/opensha/oaf/etas/ETAS_AftershockModel.java
+@@ -294,9 +294,10 @@ public double getModalNumEvents(double magMin, double tMinDays, double tMaxDays)
+ 
+ 	public double getFractileNumEvents(double magMin, double tMinDays, double tMaxDays, double fractile) {
+ 		num_DistributionFunc = computeNum_DistributionFunc( tMinDays,  tMaxDays,  magMin);
+-		if (num_DistributionFunc.size() > 0)
+-			return num_DistributionFunc.getDiscreteFractile(fractile);
+-		else
++		if (num_DistributionFunc.size() > 0) {
++//			return num_DistributionFunc.getDiscreteFractile(fractile);
++			return scaledNumDistributionFunc(fractile, magMin);
++		} else
+ 			return 0;
+ 	}
+ 
+@@ -322,7 +323,7 @@ public void generateStochasticCatalog(double dataMinDays, double dataMaxDays, do
+ 		
+ 		double minMag;
+ 		if (dynamicMinMag) {
+-			minMag = maxASmag - 1.0;
++			minMag = maxASmag - 2.7;
+ 
+ 
+ 			// calibrate minimum magnitude choice by running 100 sims. If any come back with zero events, reduce minMag
+@@ -331,7 +332,7 @@ public void generateStochasticCatalog(double dataMinDays, double dataMaxDays, do
+ //				boolean iszero = true;
+ 				int numNotZero = 0;
+ 				
+-				while (numNotZero < 95 & minMag > -3.0){
++				while (numNotZero < 100 & minMag > -3.0){
+ 					minMag--;
+ 					simulatedCatalog = new ETAScatalog(ams_vec, a_vec, p_vec, c_vec, epiLikelihood, alpha, b, refMag, 
+ 							mainShock, aftershockList, dataMinDays, dataMaxDays, forecastMinDays, forecastMaxDays, magComplete, minMag, maxMag, maxGenerations, nCalibrationSims, validate); //maxMag = 9.5, maxGeneratons = 100;
+@@ -726,107 +727,74 @@ public EvenlyDiscretizedFunc[] getCumNumMFD_FractileWithAleatoryVariability(doub
+ 		return mfdArray;
+ 	}
+ 
+-// I thought I could make this one faster... still trying 
++
++	public double[] getCumNumFractileWithAleatory(double[] fractileArray, double mag, double tMinDays, double tMaxDays) {
++		// can I compute this just once?
++		computeNum_DistributionFunc(tMinDays, tMaxDays, mag);
+ 		
+-//	public EvenlyDiscretizedFunc[] getCumNumMFD_FractileWithAleatoryVariability(double[] fractileArray, double minMag, double maxMag, int numMag, double tMinDays, double tMaxDays) {
+-//		EvenlyDiscretizedFunc[] mfdArray = new EvenlyDiscretizedFunc[fractileArray.length];
+-//
+-//		for(int i=0;i<fractileArray.length;i++) {
+-//			mfdArray[i] = new EvenlyDiscretizedFunc(minMag, maxMag, numMag);
+-//			mfdArray[i].setName(fractileArray[i]+" Fractile for Num Events, including aleatory variability");
+-//			mfdArray[i].setInfo("Cumulative distribution (greater than or equal to each magnitude)");
+-//		}
+-//
+-//		// get the super catalog for this time range and minimum magnitude
+-//		List<List<float[]>> catalogList = new ArrayList<List<float[]>>();
+-//		List<float[]> eqCat;
+-//		float[] eqTemp;
+-//		for(int i=0;i<simulatedCatalog.nSims;i++) {
+-//			eqCat = simulatedCatalog.getETAScatalog(i);
+-//			for(int j = 0; j < eqCat.size(); j++) {
+-//				eqTemp = eqCat.get(j);
+-//				if (eqTemp[0] < tMinDays || eqTemp[0] > tMaxDays || eqTemp[1] < minMag)
+-//					eqCat.remove(j);
+-//			}
+-//			catalogList.add(eqCat);
+-//		}
+-//
+-//		// now work on this catalog, removing elements as we go
+-//		
+-//		double mag, val;
+-//		int[] eqCount = new int[simulatedCatalog.nSims];
+-//		for(int i=0;i<numMag;i++) {
+-//			List<List<float[]>> catalogList2 = new ArrayList<List<float[]>>();
+-//			
+-//			mag = mfdArray[0].getX(i);	// any MFD will do, as they all have the same x-axis values
++		double[] fractValArray = new double[fractileArray.length];
++
++//		double probOne = 1 - num_DistributionFunc.getY(0); // (1 - probability of zero events)
++//		double lambda = -Math.log(1-probOne);
++//		if(lambda <= 0) lambda = 0;
+ //		
+-//			for(int j = 0; j < catalogList.size(); j++) {
+-//				eqCat = catalogList.get(j);
++		for(int i = 0; i < fractileArray.length; i++){
++			fractValArray[i] = scaledNumDistributionFunc(fractileArray[i], mag);
++			
++			// MOVED THE FOLLOWING CODE INTO METHOD SCALEDNUMDISTRIBUTIONFUNCTION
++			//
++			//
++			//			double fractValComplete = num_DistributionFunc.getDiscreteFractile(fractileArray[i]);			
++//			// the preceding gives the number of magComplete used in the simulation. We want the number of mag. Scale:
++//			if(mag < simulatedCatalog.minMagLimit) {
+ //				
+-//				for(int k = 0; k < eqCat.size(); k++) {
+-//					eqTemp = eqCat.get(k);
++//				// fractValComplete is an integer (the number of earthquakes for which f% of the simulations have fewer)
++//				// this can be zero, which is no good for scaling the rate to magnitudes lower than mag (or magComplete)
++//				// It is therefore necessary to produce some kind of fractional count. We do this by computing the
++//				// Poisson rate that gives the observed probability of zero events in the simulations. 
++//
++////				if(D) System.out.println("mag=" + mag + " duration=" + (tMaxDays-tMinDays) + " fractValComplete=" + fractValComplete);
+ //				
+-//					if (eqTemp[1] < mag) 
+-//						eqCat.remove(k);
++//				if(fractValComplete <= 1){
++////					if(D) System.out.println("using Poisson approximation for fractile");
++//					fractValComplete = poissQuantile(lambda, fractileArray[i]);
++////					if(D) System.out.println("new fractValComplete=" + fractValComplete + " probOne=" + probOne + " lambda=" + lambda);
+ //				}
+ //				
+-//				eqCount[j] = eqCat.size(); 
+-//				catalogList2.add(eqCat);
+-//			}
+-//			
+-//			Arrays.sort(eqCount);
+-//			
+-//			for(int j=0;j<fractileArray.length;j++) {
+-//				int index = (int) Math.round(simulatedCatalog.nSims * fractileArray[j]);
+-//				val = eqCount[index];
+-//				mfdArray[j].set(i,val);
+-//			}
+-//			
+-//			catalogList = catalogList2;
+-//			
+-//		}
+-//
+-//		return mfdArray;
+-//	}
+-
+-	public double[] getCumNumFractileWithAleatory(double[] fractileArray, double mag, double tMinDays, double tMaxDays) {
+-		// can I compute this just once?
+-		computeNum_DistributionFunc(tMinDays, tMaxDays, mag);
++//				fractValArray[i] = Math.pow(10, -b*(mag - simulatedCatalog.minMagLimit)) * fractValComplete;	
++//			} else
++//			fractValArray[i] = fractValComplete;
++		}
++		return fractValArray;
++	}
++	
++	public double scaledNumDistributionFunc(double fractile, double mag){
+ 		
++		double fractValComplete = num_DistributionFunc.getDiscreteFractile(fractile);
++		double fractValScaled;
+ 		
+-		double[] fractValArray = new double[fractileArray.length];
+-
+ 		double probOne = 1 - num_DistributionFunc.getY(0); // (1 - probability of zero events)
+ 		double lambda = -Math.log(1-probOne);
+ 		if(lambda <= 0) lambda = 0;
+-		
+-		for(int i = 0; i < fractileArray.length; i++){
+-			double fractValComplete = num_DistributionFunc.getDiscreteFractile(fractileArray[i]);
+-			
+-		
+-			
+-			// the preceding gives the number of magComplete used in the simulation. We want the number of mag. Scale:
+-			if(mag < simulatedCatalog.minMagLimit) {
+-				
+-				// fractValComplete is an integer (the number of earthquakes for which f% of the simulations have fewer)
+-				// this can be zero, which is no good for scaling the rate to magnitudes lower than mag (or magComplete)
+-				// It is therefore necessary to produce some kind of fractional count. We do this by computing the
+-				// Poisson rate that gives the observed probability of zero events in the simulations. 
+ 
+-//				if(D) System.out.println("mag=" + mag + " duration=" + (tMaxDays-tMinDays) + " fractValComplete=" + fractValComplete);
+-				
+-				if(fractValComplete <= 1){
+-//					if(D) System.out.println("using Poisson approximation for fractile");
+-					fractValComplete = poissQuantile(lambda, fractileArray[i]);
+-//					if(D) System.out.println("new fractValComplete=" + fractValComplete + " probOne=" + probOne + " lambda=" + lambda);
+-				}
+-				
+-				fractValArray[i] = Math.pow(10, -b*(mag - simulatedCatalog.minMagLimit)) * fractValComplete;	
+-			} else
+-				fractValArray[i] = fractValComplete;
+-		}
++		// the preceding gives the number of magComplete used in the simulation. We want the number of mag. Scale:
++		if(mag < simulatedCatalog.minMagLimit) {
++			// fractValComplete is an integer (the number of earthquakes for which f% of the simulations have fewer)
++			// this can be zero, which is no good for scaling the rate to magnitudes lower than mag (or magComplete)
++			// It is therefore necessary to produce some kind of fractional count. We do this by computing the
++			// Poisson rate that gives the observed probability of zero events in the simulations. 
++
++			if(fractValComplete <= 1){
++				//			if(D) System.out.println("using Poisson approximation for fractile");
++				fractValComplete = poissQuantile(lambda, fractile);
++				//			if(D) System.out.println("new fractValComplete=" + fractValComplete + " probOne=" + probOne + " lambda=" + lambda);
++			}
+ 
+-		return fractValArray;
++			fractValScaled = Math.pow(10, -b*(mag - simulatedCatalog.minMagLimit)) * fractValComplete;	
++		} else
++			fractValScaled = fractValComplete;
++	
++		return fractValScaled;
+ 	}
+ 	
+ 	public double getMedianPoissInterp(double mag, double tMinDays, double tMaxDays) {
+@@ -1321,11 +1289,20 @@ public double[] getCumulativeProbabilityValue(double tmin, double tmax, double m
+ 		double[] yValues = num_DistributionFunc.getYVals();
+ 		double[] zValues = new double[nObserved.length];
+ 		
++		
++		double numScaled;
+ 		for (int k = 0; k < nObserved.length; k++) { 
+-			double ySum = 0;
++			// scale the number observed if the minMag is less than the simMinMag
++			if(minMag < simulatedCatalog.minMagLimit) {
++				
++				numScaled = Math.pow(10, b*(minMag - simulatedCatalog.minMagLimit)) * nObserved[k];	
++			} else
++				numScaled = nObserved[k];	
+ 			
++			// find the fraction of the number distribution below each scaled N
++			double ySum = 0;
+ 			for (int i = 0; i < xValues.length; i++) {
+-				if (nObserved[k] >= xValues[i])
++				if (numScaled >= xValues[i])
+ 					ySum += yValues[i];
+ 				else 
+ 					break;
+diff --git a/src/main/java/org/opensha/oaf/etas/ETAS_StatsCalc.java b/src/main/java/org/opensha/oaf/etas/ETAS_StatsCalc.java
+index 0ec2f341..f1957053 100644
+--- a/src/main/java/org/opensha/oaf/etas/ETAS_StatsCalc.java
++++ b/src/main/java/org/opensha/oaf/etas/ETAS_StatsCalc.java
+@@ -213,7 +213,7 @@ public static ETASEqkRupture fitMainshockLineSource(ObsEqkRupture mainshock, Obs
+         		// weight by distance. Aftershocks get a weight of one if they are within 2 * the vdE and Shaw radius,
+         		// which assigns a 1km radius to a reference M4.6 earthquake with a 3Mpa stress drop. 
+         		// Source scaling follows the assumption that M0 = stressdrop*L^3. Aftershocks outside this diameter are 
+-        		// downweighted following a cosine taper to double the diameter. Weights are zero beyond.
++        		// downweighted following a cosine taper out to four times the radius. Weights are zero beyond.
+         		//  
+         		if (r[i] < 2*r0)
+         			w[i] = 1d;
+diff --git a/src/main/java/org/opensha/oaf/etas/GraphicalForecast.java b/src/main/java/org/opensha/oaf/etas/GraphicalForecast.java
+index 12bdd530..5a5618be 100644
+--- a/src/main/java/org/opensha/oaf/etas/GraphicalForecast.java
++++ b/src/main/java/org/opensha/oaf/etas/GraphicalForecast.java
+@@ -788,8 +788,6 @@ public void writeSummaryJson(File outputFile, ETAS_AftershockModel aftershockMod
+ 				barNumberString.append(String.format("%d,", barNumbers[k]));
+ 			}
+ 		barNumberString.append(String.format("%d", barNumbers[barNumbers.length-1]));
+-				
+-		
+ 		
+ 		//report number of observed earthquakes
+ 		int num3s = 0;
+diff --git a/src/main/resources/org/opensha/oaf/etas/resources/worldcities1000.txt b/src/main/resources/org/opensha/oaf/etas/resources/worldcities1000.txt
+index d60dd256..270948cd 100644
+--- a/src/main/resources/org/opensha/oaf/etas/resources/worldcities1000.txt
++++ b/src/main/resources/org/opensha/oaf/etas/resources/worldcities1000.txt
+@@ -30165,6 +30165,7 @@ Natulongan,3165,7.531667,125.023611
+ Naval,12217,11.5612,124.3952
+ Navatat,2493,15.8536,120.3804
+ Navotas,3220,14.4167,121.2268
++Naypyidaw,924608,19.745,96.135
+ Nena,2276,11.765833,125.417778
+ Nenita,2551,12.491667,124.804444
+ New Agutaya,2464,10.561389,119.307778

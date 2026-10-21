@@ -1,0 +1,589 @@
+From dc94c153b7c9503e1a38690765403882c2512e82 Mon Sep 17 00:00:00 2001
+From: nvanderelst-local <nvanderelst-local@10.8.34.199>
+Date: Mon, 27 Jan 2025 12:48:11 -0800
+Subject: [PATCH] improved command line
+
+---
+ .../oaf/etas/AftershockStatsGUI_ETAS.java     | 261 ++++++++----------
+ .../oaf/etas/ETAS_AftershockModel.java        |  55 ++++
+ .../opensha/oaf/etas/GraphicalForecast.java   |  63 +++--
+ 3 files changed, 214 insertions(+), 165 deletions(-)
+
+diff --git a/src/main/java/org/opensha/oaf/etas/AftershockStatsGUI_ETAS.java b/src/main/java/org/opensha/oaf/etas/AftershockStatsGUI_ETAS.java
+index d1c5a75a..adc5da2a 100644
+--- a/src/main/java/org/opensha/oaf/etas/AftershockStatsGUI_ETAS.java
++++ b/src/main/java/org/opensha/oaf/etas/AftershockStatsGUI_ETAS.java
+@@ -137,13 +137,11 @@ public AftershockStatsGUI_ETAS(String... args) {
+ 		if (D) System.out.println("verbose = " + verbose + ", debug = " + D + 
+ 				", publishUSGS = " + publishUSGS);		
+ 		
+-//		if (!(publishGeneric || publishBHA || publishMexico) ) {
+-//				String message = "This version of the AftershockForecasting software is for information only; the forecast summary document will not be generated.";
+-//				System.out.println(message);
+-//		}
++		// if an eventID and forecastStartTime have been specified in the command line, try forecasting from file/command line
+ 		
+ 		if (eventID != null && forecastStartTime != null) {
+ 			try {
++				commandLine = true;
+ 				forecastFromFile();
+ 			} catch (IOException e) {
+ 				// TODO Auto-generated catch block
+@@ -2543,7 +2541,7 @@ private ArbitrarilyDiscretizedFunc getModelFit(ETAS_AftershockModel model, doubl
+ 		if (tMax > tMin+1e-9) tMax += -1e-9;	//this is related to preventing log of zero
+ 		
+ 		if(D) System.out.println("Plotting fit for "+ tMin +" - "+ tMax + " days");
+-		int numPts = 100;
++		int numPts = 20;
+ 		return model.getExpectedNumEventsWithLogTime(magMin, tMin, tMax, numPts);
+ 	}
+ 
+@@ -2557,7 +2555,7 @@ private ArbitrarilyDiscretizedFunc getFractileCumNumWithLogTimePlot(ETAS_Aftersh
+ 		
+ 		Preconditions.checkState(tMax >= tMin);
+ 		
+-		int numPts = 100;
++		int numPts = 20;
+ 		return model.getFractileCumNumEventsWithLogTime(magMin, tMin, tMax, numPts, fractile);
+ 	}
+ 	
+@@ -3844,11 +3842,19 @@ public void run() {
+ 						File outFile = new File(workingDir + "/Forecasts/" + eventID + "/" + eventID + "_t" 
+ 							+ String.format("%2.1f", dataEndTimeParam.getValue()) +  ".json");
+ 						publishJsonOnly(outFile);
+-						
+ 					}
+ 					
+ 				}, true);
+ 
++				CalcStep endStep = new CalcStep("Ending", "Shutting Down...", new Runnable() {
++					@Override
++					public void run() {
++						System.exit(0);
++					}
++					
++				}, true);
++
++				
+ 				CalcRunnable run;
+ 				if(!commandLine)
+ //					if (prForecastMode) 
+@@ -3915,7 +3921,8 @@ public void run() {
+ 								computeBayesStep,
+ 								genericForecastStep,
+ 								bayesianForecastStep,
+-								writeForecastToFileStep);
++								writeForecastToFileStep,
++								endStep);
+ 					else
+ 						run = new CalcRunnable(progress,
+ 								fetchCatalogStep,
+@@ -3925,7 +3932,8 @@ public void run() {
+ 								computeBayesStep,
+ 								genericForecastStep,
+ 								bayesianForecastStep,
+-								writeForecastToFileStep);
++								writeForecastToFileStep,
++								endStep);
+ 				}
+ 				
+ 				new Thread(run).start();
+@@ -6008,7 +6016,7 @@ private void publishJsonOnly(File outFile) {
+ 		else 
+ 			model = genericModel;
+ 
+-		GraphicalForecast graphForecast = new GraphicalForecast(outFile, model, eventDate, startDate);
++		GraphicalForecast graphForecast = new GraphicalForecast(outFile, model, eventDate, startDate, region);
+ 		int advisoryDurationIndex;
+ 		switch (forecastDuration.toUpperCase()) {
+ 			case "YEAR":
+@@ -7048,7 +7056,7 @@ private void printTip(int step){
+ 		
+ 		SimpleDateFormat formatter=new SimpleDateFormat("d MMM yyyy");
+ 		formatter.setTimeZone(utc); //utc=TimeZone.getTimeZone("UTC"));
+-		double elapsedDays = (double) (System.currentTimeMillis() - expirationDate.getTimeInMillis())/ETAS_StatsCalc.MILLISEC_PER_DAY;
++//		double elapsedDays = (double) (System.currentTimeMillis() - expirationDate.getTimeInMillis())/ETAS_StatsCalc.MILLISEC_PER_DAY;
+ 		
+ //		String welcomeMessage = "This a Beta version of the Aftershock Forecaster software. Get the latest version from www.caltech.edu/~nvandere/AftershockForecaster.\n"
+ //				+ "The Beta version will expire " + formatter.format(expirationDate.getTime()) + String.format(" (%d days remaining).", (int) -elapsedDays);
+@@ -7076,149 +7084,104 @@ private void printTip(int step){
+ 		if (tipsOn) System.out.println(tipText.get(step));
+ 	}
+ 	
+-	//no longer used. Publish the forecast through the GraphicalForecast object
+-	private void writeForecast() {
+-		// save the forecast to file
+-		// this was used for the puerto rico retrospective paper, and isnt used for production
+-		double[] predictionMagnitudes = new double[]{3,4,5,6,7,8,9};
+-		double[] predictionIntervals = new double[]{1,7,31,365}; //day,week,month,year
+-
+-		double[][][]	number = new double[predictionMagnitudes.length][predictionIntervals.length][3];
+-		double[][]	probability = new double[predictionMagnitudes.length][predictionIntervals.length];
+-		double[][] observedNumber = new double[predictionMagnitudes.length][predictionIntervals.length];
+-		double[][] observedFractileBayesian = new double[predictionMagnitudes.length][predictionIntervals.length];
+-		double[][] observedFractileGeneric = new double[predictionMagnitudes.length][predictionIntervals.length];
+-		double tMinDays = forecastStartTimeParam.getValue();
+-		double[] calcFractiles = new double[]{0.5,0.025,0.975};
+-		double[] fractiles = new double[3];
+-		double tMaxDays;
+-		
+-		StringBuffer outputString = new StringBuffer();
+-		
+-		for (int i = 0; i < predictionMagnitudes.length; i++){
+-			for (int j = 0; j < predictionIntervals.length; j++){
+-				tMaxDays = tMinDays + predictionIntervals[j];
+-				
+-				fractiles = bayesianModel.getCumNumFractileWithAleatory(calcFractiles, predictionMagnitudes[i], tMinDays, tMaxDays);
+-				number[i][j][0] = fractiles[0];
+-				number[i][j][1] = fractiles[1];
+-				number[i][j][2] = fractiles[2];
+-				probability[i][j] = bayesianModel.getProbabilityWithAleatory(predictionMagnitudes[i], tMinDays, tMaxDays);
+-				
+-				
+-				if (validate && predictionMagnitudes[i] >= mcParam.getValue()) {
+-					observedNumber[i][j] = observedAftershocks.getRupsAboveMag(predictionMagnitudes[i]).getRupsAfter(mainshock.getOriginTime())
+-							.getRupsBefore(mainshock.getOriginTime() + (long)(tMaxDays*ETAS_StatsCalc.MILLISEC_PER_DAY)).size();
+-					observedFractileBayesian[i][j] = bayesianModel.getCumulativeQuantileValue(tMinDays, tMaxDays, predictionMagnitudes[i], (int) observedNumber[i][j]);
+-
+-//					bayesianModel.computeNum_DistributionFunc(tMinDays, tMaxDays, predictionMagnitudes[i]);
+-//					if(D) System.out.println(bayesianModel.num_DistributionFunc + " " + bayesianModel.num_DistributionFunc.getNormalizedCumDist() + " " +observedNumber[i][j]);
+-//					double fracLessThanOrEqual = bayesianModel.num_DistributionFunc.getNormalizedCumDist().getY(observedNumber[i][j]);
+-//					double fracEqual = bayesianModel.num_DistributionFunc.getY(observedNumber[i][j]);
++	// writeForecast is no longer used. Publish the forecast through the GraphicalForecast object
++	
++//	private void writeForecast() {
++//		// save the forecast to file
++//		// this was used for the puerto rico retrospective paper, and isnt used for production
++//		double[] predictionMagnitudes = new double[]{3,4,5,6,7,8,9};
++//		double[] predictionIntervals = new double[]{1,7,31,365}; //day,week,month,year
+ //
+-//					observedFractile[i][j] = fracLessThanOrEqual - Math.random()*fracEqual;
+-
+-					outputString.append(String.format("%3.1f \t%3.0f \t%.0f \t(%.0f - %.0f) \t[%.0f] \t%5.4f \t[%5.4f]\n", predictionMagnitudes[i], predictionIntervals[j], number[i][j][0], number[i][j][1], number[i][j][2], observedNumber[i][j], probability[i][j], observedFractileBayesian[i][j]));
+-				} else {
+-					outputString.append(String.format("%3.1f \t%3.0f \t%.0f \t(%.0f - %.0f) \t[-] \t%5.4f \t[-]\n", predictionMagnitudes[i], predictionIntervals[j], number[i][j][0], number[i][j][1], number[i][j][2], probability[i][j]));
+-				}
+-			}
+-		}
+-
+-		for (int i = 0; i < predictionMagnitudes.length; i++){
+-			for (int j = 0; j < predictionIntervals.length; j++){
+-				tMaxDays = tMinDays + predictionIntervals[j];
+-
+-				fractiles = genericModel.getCumNumFractileWithAleatory(calcFractiles, predictionMagnitudes[i], tMinDays, tMaxDays);
+-				number[i][j][0] = fractiles[0];
+-				number[i][j][1] = fractiles[1];
+-				number[i][j][2] = fractiles[2];
+-				probability[i][j] = genericModel.getProbabilityWithAleatory(predictionMagnitudes[i], tMinDays, tMaxDays);
+-
+-				if (validate && predictionMagnitudes[i] >= mcParam.getValue()) {
+-					observedFractileGeneric[i][j] = genericModel.getCumulativeQuantileValue(tMinDays, tMaxDays, predictionMagnitudes[i], (int) observedNumber[i][j]);
+-//					genericModel.computeNum_DistributionFunc(tMinDays, tMaxDays, predictionMagnitudes[i]);
+-//					double fracLessThanOrEqual = genericModel.num_DistributionFunc.getNormalizedCumDist().getInterpolatedY(observedNumber[i][j]);
+-//					double fracEqual = genericModel.num_DistributionFunc.getInterpolatedY(observedNumber[i][j]);
++//		double[][][]	number = new double[predictionMagnitudes.length][predictionIntervals.length][3];
++//		double[][]	probability = new double[predictionMagnitudes.length][predictionIntervals.length];
++//		double[][] observedNumber = new double[predictionMagnitudes.length][predictionIntervals.length];
++//		double[][] observedFractileBayesian = new double[predictionMagnitudes.length][predictionIntervals.length];
++//		double[][] observedFractileGeneric = new double[predictionMagnitudes.length][predictionIntervals.length];
++//		double tMinDays = forecastStartTimeParam.getValue();
++//		double[] calcFractiles = new double[]{0.5,0.025,0.975};
++//		double[] fractiles = new double[3];
++//		double tMaxDays;
++//		
++//		StringBuffer outputString = new StringBuffer();
++//		
++//		for (int i = 0; i < predictionMagnitudes.length; i++){
++//			for (int j = 0; j < predictionIntervals.length; j++){
++//				tMaxDays = tMinDays + predictionIntervals[j];
++//				
++//				fractiles = bayesianModel.getCumNumFractileWithAleatory(calcFractiles, predictionMagnitudes[i], tMinDays, tMaxDays);
++//				number[i][j][0] = fractiles[0];
++//				number[i][j][1] = fractiles[1];
++//				number[i][j][2] = fractiles[2];
++//				probability[i][j] = bayesianModel.getProbabilityWithAleatory(predictionMagnitudes[i], tMinDays, tMaxDays);
++//				
++//				
++//				if (validate && predictionMagnitudes[i] >= mcParam.getValue()) {
++//					observedNumber[i][j] = observedAftershocks.getRupsAboveMag(predictionMagnitudes[i]).getRupsAfter(mainshock.getOriginTime())
++//							.getRupsBefore(mainshock.getOriginTime() + (long)(tMaxDays*ETAS_StatsCalc.MILLISEC_PER_DAY)).size();
++//					observedFractileBayesian[i][j] = bayesianModel.getCumulativeQuantileValue(tMinDays, tMaxDays, predictionMagnitudes[i], (int) observedNumber[i][j]);
+ //
+-//					observedFractile[i][j] = fracLessThanOrEqual - Math.random()*fracEqual;
+-
+-					outputString.append(String.format("%3.1f \t%3.0f \t%.0f \t(%.0f - %.0f) \t[%.0f] \t%5.4f \t[%5.4f]\n", predictionMagnitudes[i], predictionIntervals[j], number[i][j][0], number[i][j][1], number[i][j][2], observedNumber[i][j], probability[i][j], observedFractileGeneric[i][j]));
+-				} else {
+-					outputString.append(String.format("%3.1f \t%3.0f \t%.0f \t(%.0f - %.0f) \t[-] \t%5.4f \t[-]\n", predictionMagnitudes[i], predictionIntervals[j], number[i][j][0], number[i][j][1], number[i][j][2], probability[i][j]));
+-				}
+-			}
+-		}
+-		
+-//		String headerString = "";
+-		
+-		StringBuffer optionString = new StringBuffer();
+-		if (validate)
+-			optionString.append("_validate");
+-		if (rjMode)
+-			optionString.append("_rj");
+-		
+-		
+-//		File outFile = new File(workingDir + "/PRForecasts/" + eventID + "_t" + String.format("%2.1f", dataEndTimeParam.getValue()) + optionString + ".forecast");
+-//		FileWriter fw = null;
+-//		try {
+-//			fw = new FileWriter(outFile);
+-//			//write the header
+-//			headerString = "# Header: eventID: " + mainshock.getEventId() + " dataEndTime: " + dataEndTimeParam.getValue() 
+-//				+ " Mc: " + mcParam.getValue() + " b:" + bParam.getValue() + "\n";  
+-//			fw.write(headerString);
+-//			
+-//			String columnHeaderString = "#Mag \tDur \tNum \t(95% range) \tObs \tProb \tFractile\n"; 
+-//			fw.write(columnHeaderString);
+-//			
+-//			//write all the earthquakes
+-//			fw.write(outputString.toString());
+-//			System.out.println(outFile);
+-//			
+-//		} catch (IOException e) {
+-//			e.printStackTrace();
+-//		} finally {
+-//			if (fw != null) {
+-//				try {
+-//					fw.close();
+-//				} catch (IOException e) {
+-//					e.printStackTrace();
++//					outputString.append(String.format("%3.1f \t%3.0f \t%.0f \t(%.0f - %.0f) \t[%.0f] \t%5.4f \t[%5.4f]\n", predictionMagnitudes[i], predictionIntervals[j], number[i][j][0], number[i][j][1], number[i][j][2], observedNumber[i][j], probability[i][j], observedFractileBayesian[i][j]));
++//				} else {
++//					outputString.append(String.format("%3.1f \t%3.0f \t%.0f \t(%.0f - %.0f) \t[-] \t%5.4f \t[-]\n", predictionMagnitudes[i], predictionIntervals[j], number[i][j][0], number[i][j][1], number[i][j][2], probability[i][j]));
+ //				}
+ //			}
+ //		}
+ //
+-//		System.out.println(headerString.toString());
+-//		System.out.println(outputString.toString());
+-
+-		
+-		
+-		GregorianCalendar mainshockTime = mainshock.getOriginTimeCal();
+-		GregorianCalendar forecastStart = mainshock.getOriginTimeCal();
+-		forecastStart.setTimeInMillis((long)(mainshock.getOriginTime() + forecastStartTimeParam.getValue()*ETAS_StatsCalc.MILLISEC_PER_DAY ));
+-	
+-		GraphicalForecast newGraph = new GraphicalForecast(null, bayesianModel,  mainshockTime, forecastStart, 4, region);
+-		newGraph.constructForecast();
+-		
+-		if (rjMode) {
+-			File outFileJson = new File(workingDir + "/PRForecasts/" + eventID + "_t" + String.format("%2.1f", dataEndTimeParam.getValue()) + optionString + "_bayesian.json");
+-//			newGraph.writeSummaryJsonNexp( outFileJson,  bayesianModel,  mainshockTime, forecastStart, observedNumber, observedFractileBayesian);
+-			newGraph.writeSummaryJson( outFileJson,  bayesianModel,  mainshockTime, forecastStart);
+-		} else {
+-			File outFileJson = new File(workingDir + "/PRForecasts/" + eventID + "_t" + String.format("%2.1f", dataEndTimeParam.getValue()) + optionString + "_bayesian.json");
+-//			newGraph.writeSummaryJsonNexp( outFileJson,  bayesianModel,  mainshockTime, forecastStart, observedNumber, observedFractileBayesian);
+-			newGraph.writeSummaryJson( outFileJson,  bayesianModel,  mainshockTime, forecastStart);
+-			
+-
+-			newGraph = new GraphicalForecast(null, genericModel,  mainshockTime, forecastStart, 4, region);
+-			newGraph.constructForecast();
+-			outFileJson = new File(workingDir + "/PRForecasts/" + eventID + "_t" + String.format("%2.1f", dataEndTimeParam.getValue()) + optionString + "_generic.json");
+-//			newGraph.writeSummaryJsonNexp( outFileJson,  genericModel,  mainshockTime, forecastStart, observedNumber, observedFractileGeneric);
+-			newGraph.writeSummaryJson( outFileJson,  genericModel,  mainshockTime, forecastStart);
+-		}		
+-		
+-		System.exit(0);
+-	}
+-	
++//		for (int i = 0; i < predictionMagnitudes.length; i++){
++//			for (int j = 0; j < predictionIntervals.length; j++){
++//				tMaxDays = tMinDays + predictionIntervals[j];
++//
++//				fractiles = genericModel.getCumNumFractileWithAleatory(calcFractiles, predictionMagnitudes[i], tMinDays, tMaxDays);
++//				number[i][j][0] = fractiles[0];
++//				number[i][j][1] = fractiles[1];
++//				number[i][j][2] = fractiles[2];
++//				probability[i][j] = genericModel.getProbabilityWithAleatory(predictionMagnitudes[i], tMinDays, tMaxDays);
++//
++//				if (validate && predictionMagnitudes[i] >= mcParam.getValue()) {
++//					observedFractileGeneric[i][j] = genericModel.getCumulativeQuantileValue(tMinDays, tMaxDays, predictionMagnitudes[i], (int) observedNumber[i][j]);
++//
++//					outputString.append(String.format("%3.1f \t%3.0f \t%.0f \t(%.0f - %.0f) \t[%.0f] \t%5.4f \t[%5.4f]\n", predictionMagnitudes[i], predictionIntervals[j], number[i][j][0], number[i][j][1], number[i][j][2], observedNumber[i][j], probability[i][j], observedFractileGeneric[i][j]));
++//				} else {
++//					outputString.append(String.format("%3.1f \t%3.0f \t%.0f \t(%.0f - %.0f) \t[-] \t%5.4f \t[-]\n", predictionMagnitudes[i], predictionIntervals[j], number[i][j][0], number[i][j][1], number[i][j][2], probability[i][j]));
++//				}
++//			}
++//		}
++//		
++////		String headerString = "";
++//		
++//		StringBuffer optionString = new StringBuffer();
++//		if (validate)
++//			optionString.append("_validate");
++//		if (rjMode)
++//			optionString.append("_rj");	
++//		
++//		GregorianCalendar mainshockTime = mainshock.getOriginTimeCal();
++//		GregorianCalendar forecastStart = mainshock.getOriginTimeCal();
++//		forecastStart.setTimeInMillis((long)(mainshock.getOriginTime() + forecastStartTimeParam.getValue()*ETAS_StatsCalc.MILLISEC_PER_DAY ));
++//	
++//		GraphicalForecast newGraph = new GraphicalForecast(null, bayesianModel,  mainshockTime, forecastStart, 4, region);
++//		newGraph.constructForecast();
++//		
++//		if (rjMode) {
++//			File outFileJson = new File(workingDir + "/PRForecasts/" + eventID + "_t" + String.format("%2.1f", dataEndTimeParam.getValue()) + optionString + "_bayesian.json");
++////			newGraph.writeSummaryJsonNexp( outFileJson,  bayesianModel,  mainshockTime, forecastStart, observedNumber, observedFractileBayesian);
++//			newGraph.writeSummaryJson( outFileJson,  bayesianModel,  mainshockTime, forecastStart);
++//		} else {
++//			File outFileJson = new File(workingDir + "/PRForecasts/" + eventID + "_t" + String.format("%2.1f", dataEndTimeParam.getValue()) + optionString + "_bayesian.json");
++////			newGraph.writeSummaryJsonNexp( outFileJson,  bayesianModel,  mainshockTime, forecastStart, observedNumber, observedFractileBayesian);
++//			newGraph.writeSummaryJson( outFileJson,  bayesianModel,  mainshockTime, forecastStart);
++//			
++//
++//			newGraph = new GraphicalForecast(null, genericModel,  mainshockTime, forecastStart, 4, region);
++//			newGraph.constructForecast();
++//			outFileJson = new File(workingDir + "/PRForecasts/" + eventID + "_t" + String.format("%2.1f", dataEndTimeParam.getValue()) + optionString + "_generic.json");
++////			newGraph.writeSummaryJsonNexp( outFileJson,  genericModel,  mainshockTime, forecastStart, observedNumber, observedFractileGeneric);
++//			newGraph.writeSummaryJson( outFileJson,  genericModel,  mainshockTime, forecastStart);
++//		}		
++//		
++//		System.exit(0);
++//	}
++//	
+ 	
+ 	private void checkArguments(String... args){
+ 		//set defaults
+@@ -7253,7 +7216,7 @@ private void checkArguments(String... args){
+ 			if (argument.contains("-eventID")) {
+ 				i++;
+ 				eventID = args[i];
+-				commandLine = true;
++//				commandLine = true;
+ 			}
+ 			if (argument.contains("-forecastStartTime")) {
+ 				i++;
+diff --git a/src/main/java/org/opensha/oaf/etas/ETAS_AftershockModel.java b/src/main/java/org/opensha/oaf/etas/ETAS_AftershockModel.java
+index f75bff3c..315f3697 100644
+--- a/src/main/java/org/opensha/oaf/etas/ETAS_AftershockModel.java
++++ b/src/main/java/org/opensha/oaf/etas/ETAS_AftershockModel.java
+@@ -863,7 +863,31 @@ public void setParams(int discreteMedian, double prob){
+ //		return magnitudePDF;
+ //	}
+ 
++//	public double[] getProbabilityWithAleatory(int[] number, double mag, double tMinDays, double tMaxDays) {
++//		computeNum_DistributionFunc(tMinDays, tMaxDays, mag);
++//
++//
++//		double[] prob = new double[number.length];
++//
++//		for (int k = 0; k < number.length; k++) {
++//			prob[k] = 1 - num_DistributionFunc.getClosestYtoX(number[k]);
++//
++//			if(D) System.out.println("Prob value = " + 100.0*prob[k]);
++//			// the above probability is the fraction of simulations with events above max(magComplete, mag),
++//			// so if mag<magComplete, we need to scale up the probability. We do this with a Poisson rate assumption.
++//
++//			if(mag < simulatedCatalog.minMagLimit){
++//				prob[k] = 1 - Math.pow(1-prob[k], Math.pow(10, -b*(mag-simulatedCatalog.minMagLimit)));
++//			}
++//
++//		}
++//		
++//		return prob;
++//	}
++
++
+ 	public double getProbabilityWithAleatory(double mag, double tMinDays, double tMaxDays) {
++		
+ 		computeNum_DistributionFunc(tMinDays, tMaxDays, mag);
+ 
+ 		double probOne = 1 - num_DistributionFunc.getY(0);
+@@ -879,6 +903,8 @@ public double getProbabilityWithAleatory(double mag, double tMinDays, double tMa
+ 		
+ 		
+ 		return probOne;
++				
++		
+ 	}
+ 
+ 	/**
+@@ -1212,6 +1238,34 @@ public EvenlyDiscrXYZ_DataSet get2D_PDF_for_logc_and_p() {
+ 		}
+ 	}
+ 
++	
++	public double[] getCumulativeProbabilityValue(double tmin, double tmax, double minMag, int[] nObserved) {
++		
++		this.computeNum_DistributionFunc(tmin, tmax, minMag);
++
++		
++		double[] xValues = num_DistributionFunc.getXVals();
++		double[] yValues = num_DistributionFunc.getYVals();
++		double[] zValues = new double[nObserved.length];
++		
++		for (int k = 0; k < nObserved.length; k++) { 
++			double ySum = 0;
++			
++			for (int i = 0; i < xValues.length; i++) {
++				if (nObserved[k] >= xValues[i])
++					ySum += yValues[i];
++				else 
++					break;
++			}
++			
++			zValues[k] = ySum/num_DistributionFunc.getSumOfAllY_Values();
++			
++		}
++		return zValues;
++	}
++
++
++
+ 	/*
+ 	 * This one returns the value of the cdf at the specified x-value, with a randomized correction for the discreteness of
+ 	 * the distribution. The fractile value for count n is defined q = P(N <= n) - rand(1)*P(N == n); 
+@@ -1220,6 +1274,7 @@ public double getCumulativeQuantileValue(double tmin, double tmax, double minMag
+ 		
+ 		this.computeNum_DistributionFunc(tmin, tmax, minMag);
+ 		
++		
+ 		double[] xValues = num_DistributionFunc.getXVals();
+ 		double[] yValues = num_DistributionFunc.getYVals();
+ 		
+diff --git a/src/main/java/org/opensha/oaf/etas/GraphicalForecast.java b/src/main/java/org/opensha/oaf/etas/GraphicalForecast.java
+index 43d9edba..12bdd530 100644
+--- a/src/main/java/org/opensha/oaf/etas/GraphicalForecast.java
++++ b/src/main/java/org/opensha/oaf/etas/GraphicalForecast.java
+@@ -18,6 +18,7 @@
+ import javax.swing.JTable;
+ 
+ import org.apache.commons.io.FileUtils;
++import org.opensha.commons.data.function.ArbDiscrEmpiricalDistFunc;
+ import org.opensha.commons.param.Parameter;
+ import org.opensha.oaf.util.SphRegion;
+ import org.opensha.sha.earthquake.observedEarthquake.ObsEqkRupture;
+@@ -78,6 +79,8 @@ public class GraphicalForecast{
+ 	private double[] predictionIntervals = new double[]{DAY,WEEK,MONTH,YEAR}; //day,week,month,year
+ 	private int preferredForecastInterval = 1; //week
+ 	double fracIncrement = 0.0025;
++	int[] barGraphUppers = new int[]{};
++	double[] barGraphValues = new double[] {};
+ 	
+ //	private String[] predictionIntervalStrings = new String[]{"day","week","month","year"}; //day,week,month,year
+ 	private double[][][] number;  //dimensions: [predMag][predInterval][range: exp, lower, upper];
+@@ -770,7 +773,8 @@ public void writeSummaryJson(File outputFile, ETAS_AftershockModel aftershockMod
+ 		//set up fractiles
+ 		int nfrac = (int)(1.0/fracIncrement) - 1;
+ 		double[] fractiles = ETAS_StatsCalc.linspace(fracIncrement, 1-fracIncrement, nfrac);
+-		
++		int[] barNumbers = {0,1,2,5,10,20,50,100,200,500}; //this is now hard coded, should be taken from a config file
++				
+ 		//build a string for the json
+ 		StringBuilder fractileProbabilityString = new StringBuilder();
+ 		for(int k = 0; k < fractiles.length - 1; k++) {
+@@ -778,6 +782,14 @@ public void writeSummaryJson(File outputFile, ETAS_AftershockModel aftershockMod
+ 		}
+ 		fractileProbabilityString.append(String.format("%5.4f", fractiles[fractiles.length-1]));
+ 		
++		//build a string for the json
++		StringBuilder barNumberString = new StringBuilder();
++			for(int k = 0; k < barNumbers.length - 1; k++) {
++				barNumberString.append(String.format("%d,", barNumbers[k]));
++			}
++		barNumberString.append(String.format("%d", barNumbers[barNumbers.length-1]));
++				
++		
+ 		
+ 		//report number of observed earthquakes
+ 		int num3s = 0;
+@@ -829,23 +841,23 @@ public void writeSummaryJson(File outputFile, ETAS_AftershockModel aftershockMod
+ 				+ ",\n\t\t\"magMain\":" + String.format("%2.1f", aftershockModel.getMainShockMag()) 
+ 				+ ",\n\t\t\"p\":" + String.format("%3.2f", aftershockModel.getMaxLikelihood_p()) 
+ 				+ ",\n\t\t\"c\":" + String.format("%5.4f", aftershockModel.getMaxLikelihood_c())
+-				+ ",\n\t\t\"Mc\":" + String.format("%2.1f", aftershockModel.magComplete)
++				+ ",\n\t\t\"Mc\":" + String.format("%2.2f", aftershockModel.magComplete)
+ 				);
+ 		if(region != null) {
+ 			jsonString.append(""
+ 				+ ",\n\t\t\"regionType\":\"circle\""
+-				+ ",\n\t\t\"regionCenterLat\":" + String.format("%2.1f", region.getCircleCenterLat())
+-				+ ",\n\t\t\"regionCenterLon\":" + String.format("%2.1f", region.getCircleCenterLon())
++				+ ",\n\t\t\"regionCenterLat\":" + String.format("%2.4f", region.getCircleCenterLat())
++				+ ",\n\t\t\"regionCenterLon\":" + String.format("%2.4f", region.getCircleCenterLon())
+ 				+ ",\n\t\t\"regionRadius\":" + String.format("%2.1f", region.getCircleRadiusKm())
+ 				);
+ 		}
+ 	
+-		
+-		
++		//TODO: append bar graph probabilities directly
+ 		
+ 		jsonString.append(""
+ 				+ "\n\t\t}\n\t},"
+ 				+ "\n\"fractileProbabilities\":[" + fractileProbabilityString + "],"
++				+ "\n\"barLabels\":[" + barNumberString + "],"
+ 				+ "\n\"forecast\":["
+ 				);
+ 		
+@@ -865,23 +877,34 @@ public void writeSummaryJson(File outputFile, ETAS_AftershockModel aftershockMod
+ 			
+ 			for (int i = 0; i < predictionMagnitudes.length; i++) {
+ 				double mag = predictionMagnitudes[i];
+-				
++
++				// compute number values for the specified probabilty fractiles. 
+ 				StringBuilder fractileString = new StringBuilder();
+-//				double[] fractiles = {0.0125,0.025,0.0375,0.05,0.0625,0.075,0.0875,0.1,0.1125,0.125,0.1375,0.15,0.1625,0.175,0.1875,0.2,0.2125,0.225,0.2375,0.25,0.2625,0.275,0.2875,0.3,0.3125,0.325,0.3375,0.35,0.3625,0.375,0.3875,0.4,0.4125,0.425,0.4375,0.45,0.4625,0.475,0.4875,0.5,0.5125,0.525,0.5375,0.55,0.5625,0.575,0.5875,0.6,0.6125,0.625,0.6375,0.65,0.6625,0.675,0.6875,0.7,0.7125,0.725,0.7375,0.75,0.7625,0.775,0.7875,0.8,0.8125,0.825,0.8375,0.85,0.8625,0.875,0.8875,0.9,0.9125,0.925,0.9375,0.95,0.9625,0.975,0.9875};
+-				
+-//				int nfrac = (int)(1.0/fracIncrement) - 1;
+-//				double[] fractiles = ETAS_StatsCalc.linspace(fracIncrement, 1-fracIncrement, nfrac);
+-				
+ 				double[] fractileValues = aftershockModel.getCumNumFractileWithAleatory(fractiles, mag,
+ 						aftershockModel.getForecastMinDays(), aftershockModel.getForecastMinDays() + predictionIntervals[j]);
+-				
+ 				for(int k = 0; k < fractileValues.length - 1; k++) {
+ 					fractileString.append(String.format("%d,", Math.round(fractileValues[k])));
+ 				}
+ 				fractileString.append(String.format("%d", Math.round(fractileValues[fractileValues.length-1])));
+-//				fractileString = String.format("%5.4f,", fractileValues);
+-						
+-						
++				
++				
++//				getProbabilityWithAleatory(int num, double mag, double tMinDays, double tMaxDays) {
++//						
++				// compute probabililty values for the specified number ranges
++				StringBuilder barProbabilityString = new StringBuilder();
++				double[] barProbabilityValue = aftershockModel.getCumulativeProbabilityValue(
++						aftershockModel.getForecastMinDays(), aftershockModel.getForecastMinDays() + predictionIntervals[j],
++						mag, barNumbers);
++				double barCumSum = 0;
++				
++				for(int k = 0; k < barProbabilityValue.length; k++) {
++					if (k < barProbabilityValue.length - 1)	
++						barProbabilityString.append(String.format("%d,", Math.round(100*(barProbabilityValue[k] - barCumSum))));
++					else
++						barProbabilityString.append(String.format("%d", Math.round(100*(1.0 - barCumSum))));
++					barCumSum = barProbabilityValue[k];
++				}
++				
+ 				if (2.99 < mag && mag < 7.01) { //added M4s NvdE 7/3/2020
+ 					jsonString.append(""
+ 							+ "\n\t\t{\"magnitude\":" + String.format("%2.1f", mag)
+@@ -890,6 +913,7 @@ public void writeSummaryJson(File outputFile, ETAS_AftershockModel aftershockMod
+ 							+ ",\n\t\t\"probability\":" + String.format("%5.4f",probability[i][j])
+ 							+ ",\n\t\t\"median\":" + String.format("%d", Math.round(number[i][j][0]))
+ 							+ ",\n\t\t\"fractileValues\":[" + fractileString + "]"
++							+ ",\n\t\t\"barPercentages\":[" + barProbabilityString + "]"
+ 							+ "\n\t\t}");
+ 					if (mag < 7) jsonString.append(",");
+ 				}
+@@ -903,6 +927,13 @@ public void writeSummaryJson(File outputFile, ETAS_AftershockModel aftershockMod
+ 					);
+ 			if (j < predictionIntervals.length - 1) jsonString.append(",");
+ 		}
++		
++		
++		
++		//TODO: add next forecast time
++		
++		
++		
+ 		jsonString.append("\n\t]\n}");
+ 		if(D) System.out.println(jsonString);
+ 			
