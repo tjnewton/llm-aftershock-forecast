@@ -27,8 +27,8 @@ posted publicly) before any scored call, and the scoring code was frozen (`scori
 any result was read.
 
 On the 33 settled cells of the post-cutoff sequences that have an official forecast (Colombia
-and Flores Sea), Sonnet and Opus forecast the M≥5 counts as well as USGS: the pooled score
-difference to the official forecast is −0.015 (95% block-bootstrap interval −0.081 to 0.017)
+and Flores Sea), Sonnet and Opus could not be distinguished from USGS at this scale: the pooled
+score difference to the official forecast is −0.015 (95% block-bootstrap interval −0.081 to 0.017)
 for Sonnet and −0.022 (−0.074 to 0.032) for Opus, with signs that differ between the two
 sequences, while Haiku is worse than the official forecast (+0.057, 0.004 to 0.095; Figure 1).
 Across all 132 primary cells the official forecast's central intervals are wide (50% intervals
