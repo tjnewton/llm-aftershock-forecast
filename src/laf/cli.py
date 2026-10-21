@@ -259,7 +259,7 @@ def main(argv: list[str] | None = None) -> None:
         from laf.live import HOUR_MS, live_items, next_full_hour, run_live
 
         now_ms = int(time.time() * 1000)
-        strict_ms = next_full_hour(now_ms + 50 * 60_000)  # opens after the hash is pushed
+        strict_ms = next_full_hour(now_ms + 30 * 60_000)  # next full hour after the hash
         seq = next(s for s in seqs if s.id == a.sequence)
         items, update_ms = live_items(a.data_dir, a.snapshot, seq, now_ms, strict_ms)
         print(f"newest official version {update_ms}; strict windows open {utc(strict_ms)} UTC")
