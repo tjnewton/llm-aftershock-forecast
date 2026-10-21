@@ -23,6 +23,7 @@ laf = "laf.cli:main"
 [dependency-groups]
 dev = [
     "hypothesis>=6.100",
+    "marimo>=0.25.2",
     "pandas-stubs>=3.0.5.260914",
     "pre-commit>=3.7",
     "pyright>=1.1.380",

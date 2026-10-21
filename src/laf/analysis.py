@@ -181,6 +181,7 @@ def llm_samples(run_dirs: list[Path], items: dict[str, Item]) -> list[dict]:
 def _score(fc: CellForecast, c: dict, rng) -> dict:
     y5, y4 = int(c["y5"]), int(c["y4"])
     row = {
+        "m5": list(fc.m5),
         "log_qs": quantile_score(fc.m5, y5),
         "nat_qs": quantile_score(fc.m5, y5, log=False),
         "log_qs_m4": quantile_score(fc.m4, y4) if fc.m4 else np.nan,
@@ -387,3 +388,27 @@ def recount(
             for r in out.to_dict("records")
         ]
     return out
+
+
+def ensemble_scores(df: pd.DataFrame) -> pd.DataFrame:
+    """Quantile-averaged ensemble of the valid samples per forecaster x cell, scored like a
+    single forecast (reported beside single answers)."""
+    llm = df[(df["arm"] != "baseline") & df["status"].eq("ok")]
+    rows = []
+    for (f, iid, win), g in llm.groupby(["forecaster", "issue_id", "window"]):
+        qs = np.mean(np.vstack(g["m5"].to_list()), axis=0).tolist()
+        first = g.iloc[0]
+        rows.append(
+            {
+                "forecaster": f,
+                "issue_id": iid,
+                "window": win,
+                "n_samples": len(g),
+                "log_qs": quantile_score(qs, int(first["y5"])),
+                "name": first["name"],
+                "primary": first["primary"],
+                "oaf_cell": first["oaf_cell"],
+                "role": first["role"],
+            }
+        )
+    return pd.DataFrame(rows)
