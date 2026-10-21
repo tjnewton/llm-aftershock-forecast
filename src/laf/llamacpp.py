@@ -4,10 +4,12 @@ One model per server, started with the registered settings (checked through /pro
   llama-server -m <gguf> --alias <model id> -c 49152 -ngl all -fit off -np 1 --no-cache-prompt
     --cache-ram 0 --host 127.0.0.1 --port 9931 --no-webui --jinja
     --chat-template-file config/llamacpp/<model>.jinja
-Then: uv run python -m laf.llamacpp --snapshot S --model gpt-oss-20b --block dev
+Then: uv run python -m laf.llamacpp --snapshot S --model gpt-oss-20b --block core
 
-Records go to runs/local-<model>/calls.jsonl (append-only; a rerun skips samples that already
-have a response) and one line per invocation to runs/local-<model>/manifest.jsonl.
+Each block x model writes runs/<block>-<model>/ in the batch layout that the frozen scoring code
+reads (`laf.analysis.llm_samples`): requests.jsonl (the design, written first) and results.jsonl
+(one row per request, rebuilt at the end of every invocation). Attempts and progress go to the
+append-only local_log.jsonl; a rerun retries only requests without a response.
 """
 
 import argparse
@@ -39,14 +41,16 @@ MODELS: dict[str, dict] = {
         "gguf": "gpt-oss-20b-MXFP4.gguf",
         # openai/gpt-oss README, "Recommended Sampling Parameters"; no top-k or min-p
         "sampling": {"temperature": 1.0, "top_p": 1.0, "top_k": 0, "min_p": 0.0},
-        "dated_template": True,
+        "effort": "medium",  # the template's reasoning_effort default, checked when rendered
+        "rendered": ("Current date: {date}", "Reasoning: medium"),
     },
     "olmo-3.1-32b-instruct": {
         "id": "allenai/Olmo-3.1-32B-Instruct",
         "gguf": "allenai_Olmo-3.1-32B-Instruct-Q4_K_M.gguf",
         # generation_config.json (temperature, top_p) and the card's example (top_k)
         "sampling": {"temperature": 0.6, "top_p": 0.95, "top_k": 50, "min_p": 0.0},
-        "dated_template": False,
+        "effort": "none",  # not a reasoning model
+        "rendered": (),  # the template shows no date
     },
 }
 # local: p1 only, k = 3 seeds (PLAN 4.1); dev is the format check, never scored
@@ -80,6 +84,10 @@ def body(
     }
 
 
+def _canonical_sha256(d: dict) -> str:
+    return hashlib.sha256(json.dumps(d, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+
+
 def expand(items: list[Item], block: str, model: str) -> list[dict]:
     spec = LOCAL_BLOCKS[block]
     jobs = []
@@ -93,14 +101,17 @@ def expand(items: list[Item], block: str, model: str) -> list[dict]:
                     for s in range(spec["k"]):
                         b = body(model, system, user, arm, item.issue_ms, seed=s)
                         meta = {
-                            "kind": "local",
-                            "block": block,
                             "item_id": item.item_id,
                             "arm": arm,
                             "info": info,
                             "paraphrase": para,
                             "sample": s,
+                            "block": block,
+                            "model": MODELS[model]["id"],
+                            "effort": MODELS[model]["effort"],
                             "seed": s,
+                            "temperature": b["temperature"],
+                            "params_sha256": _canonical_sha256(b),
                         }
                         jobs.append({"custom_id": request_id(b, s), "meta": meta, "body": b})
     return jobs
@@ -118,10 +129,9 @@ def _post(url: str, payload: dict, timeout: float = 1800) -> dict:
 
 
 def call(base_url: str, b: dict, build: str, *, attempts: int = 4) -> dict:
-    """One chat completion; retries only 429/5xx/connection errors. Same fields as
-    `providers.call_anthropic`, plus the reasoning text and the server timings."""
-    started, t0, error = _now(), time.monotonic(), None
-    for i in range(attempts):
+    """One chat completion; retries only 429/5xx/connection errors."""
+    started, t0, error, n = _now(), time.monotonic(), None, 0
+    for n in range(1, attempts + 1):
         try:
             r = _post(base_url + "/v1/chat/completions", b)
             choice = r["choices"][0]
@@ -129,36 +139,31 @@ def call(base_url: str, b: dict, build: str, *, attempts: int = 4) -> dict:
             return {
                 "started_utc": started,
                 "latency_s": round(time.monotonic() - t0, 3),
-                "attempts": i + 1,
+                "attempts": n,
                 "id": r.get("id"),
-                "model_requested": b["model"],
                 "model_reported": r.get("model"),
                 "stop_reason": STOP.get(choice["finish_reason"], choice["finish_reason"]),
-                "stop_details": {"finish_reason": choice["finish_reason"]},
                 "usage": r.get("usage"),
                 "text": msg.get("content"),
                 "reasoning": msg.get("reasoning_content"),
                 "timings": r.get("timings"),
                 "error": None,
-                "sdk_version": f"llama.cpp {build}",
-                "base_url": base_url,
+                "server_build": build,
             }
         except urllib.error.HTTPError as e:
             error = f"HTTPError {e.code}: {e.read()[:500].decode('utf-8', 'replace')}"
             if e.code != 429 and e.code < 500:  # request errors are not retried
                 break
-            time.sleep(2 ** (i + 1))
+            time.sleep(2**n)
         except (urllib.error.URLError, ConnectionError, TimeoutError) as e:
             error = f"{type(e).__name__}: {e}"
-            time.sleep(2 ** (i + 1))
+            time.sleep(2**n)
     return {
         "started_utc": started,
         "latency_s": round(time.monotonic() - t0, 3),
-        "attempts": attempts,
-        "model_requested": b["model"],
+        "attempts": n,
         "error": error,
-        "sdk_version": f"llama.cpp {build}",
-        "base_url": base_url,
+        "server_build": build,
     }
 
 
@@ -213,13 +218,15 @@ def server(base_url: str, model: str) -> dict:
     return info
 
 
-def check_date(base_url: str, model: str, job: dict) -> None:
-    """The rendered prompt shows the issue date (dated templates) and never today's date."""
+def check_prompt(base_url: str, model: str, job: dict) -> None:
+    """The rendered prompt holds the system message and the registered template lines (issue
+    date, reasoning effort), and never today's date."""
     prompt = _post(base_url + "/apply-template", job["body"], timeout=300)["prompt"]
     date = job["body"]["chat_template_kwargs"]["current_date"]
     today = datetime.now(UTC).strftime("%Y-%m-%d")
-    if MODELS[model]["dated_template"] and f"Current date: {date}" not in prompt:
-        raise SystemExit(f"issue date {date} missing from the rendered prompt")
+    for line in MODELS[model]["rendered"]:
+        if line.format(date=date) not in prompt:
+            raise SystemExit(f"{line.format(date=date)!r} missing from the rendered prompt")
     if today != date and today in prompt:
         raise SystemExit(f"today's date {today} appears in the rendered prompt")
     if job["body"]["messages"][0]["content"] not in prompt:
@@ -231,9 +238,53 @@ def _append(path: Path, row: dict) -> None:
         f.write(json.dumps(row, sort_keys=True, ensure_ascii=False) + "\n")
 
 
+def _write(path: Path, rows: list[dict]) -> None:
+    text = "".join(json.dumps(r, sort_keys=True, ensure_ascii=False) + "\n" for r in rows)
+    path.write_text(text, encoding="utf-8", newline="\n")
+
+
 def _file_sha256(path: Path) -> str:
     with path.open("rb") as f:  # streamed: the GGUFs are 12-20 GB
         return hashlib.file_digest(f, "sha256").hexdigest()
+
+
+def finalize(out: Path) -> Counter[str]:
+    """results.jsonl: per request the last attempt without an error, else the last error."""
+    best: dict[str, dict] = {}
+    for r in _jsonl(out / "local_log.jsonl"):
+        if r["event"] == "call":
+            prev = best.get(r["custom_id"])
+            if r["error"] is None or prev is None or prev["error"] is not None:
+                best[r["custom_id"]] = r
+    rows = []
+    for req in _jsonl(out / "requests.jsonl"):
+        a = best[req["custom_id"]]
+        row = {
+            "custom_id": req["custom_id"],
+            "result": "errored" if a["error"] else "succeeded",
+            "model": req["model"],
+            "seed": req["seed"],
+            "latency_s": a["latency_s"],
+            "server_build": a["server_build"],
+            "machine": a["machine"],
+        }
+        if a["error"]:
+            row["error"] = a["error"]
+        else:
+            u = a["usage"] or {}
+            row |= {
+                "id": a["id"],
+                "model_reported": a["model_reported"],
+                "stop_reason": a["stop_reason"],
+                "text": a["text"],
+                "usage": {
+                    "input_tokens": u.get("prompt_tokens"),
+                    "output_tokens": u.get("completion_tokens"),
+                },
+            }
+        rows.append(row)
+    _write(out / "results.jsonl", rows)
+    return Counter(r["result"] for r in rows)
 
 
 def run(
@@ -242,24 +293,28 @@ def run(
     jobs = expand(items, block, model)
     if not jobs:
         raise SystemExit(f"block {block} has no items")
+    out = runs / f"{block}-{model}"
+    ledger = [{"custom_id": j["custom_id"], **j["meta"]} for j in jobs]
+    if (out / "requests.jsonl").exists() and _jsonl(out / "requests.jsonl") != ledger:
+        raise SystemExit(f"{out}/requests.jsonl holds a different design")
     info = server(base_url, model)
-    check_date(base_url, model, jobs[0])
-    out = runs / f"local-{model}"
+    check_prompt(base_url, model, jobs[0])
     out.mkdir(parents=True, exist_ok=True)
-    calls = out / "calls.jsonl"
-    done = {r["custom_id"] for r in _jsonl(calls) if not r["error"]} if calls.exists() else set()
+    _write(out / "requests.jsonl", ledger)
+    log = out / "local_log.jsonl"
+    rows = _jsonl(log) if log.exists() else []
+    done = {r["custom_id"] for r in rows if r["event"] == "call" and r["error"] is None}
     todo = [j for j in jobs if j["custom_id"] not in done]
-    gguf = Path(info.pop("gguf_path"))
-    mach = machine()
+    gguf, mach, sha = Path(info.pop("gguf_path")), machine(), _git("rev-parse", "HEAD")
     _append(
-        out / "manifest.jsonl",
+        log,
         {
-            "started_utc": _now(),
-            "block": block,
+            "event": "start",
+            "utc": _now(),
             "n_jobs": len(jobs),
             "n_todo": len(todo),
             "snapshot": snapshot,
-            "git_sha": _git("rev-parse", "HEAD"),
+            "git_sha": sha,
             "git_dirty": bool(_git("status", "--porcelain", "--untracked-files=no")),
             "prompt_hashes_sha256": _sha256(PROMPT_DIR / "HASHES.json"),
             "items_sha256": _sha256(Path("data/processed") / snapshot / "items.jsonl"),
@@ -268,16 +323,18 @@ def run(
             "machine": mach,
         },
     )
-    tag = f"{mach['os']} | {mach['gpu']} | llama.cpp {info['build']}"
+    tag = f"{mach['os']} | {mach['gpu']} | llama.cpp {info['build']} | git {sha[:7]}"
     counts: Counter[str] = Counter()
     for n, job in enumerate(todo, 1):
         rec = call(base_url, job["body"], info["build"])
-        _append(calls, {"custom_id": job["custom_id"], **job["meta"], "machine": tag, **rec})
+        _append(log, {"event": "call", "custom_id": job["custom_id"], "machine": tag, **rec})
         counts["error" if rec["error"] else "response"] += 1
-        if block == "dev" and not rec["error"]:  # scored outputs stay unread before scoring-v1
+        if block == "dev" and not rec["error"]:  # scored outputs stay unread
             counts[validate(job["meta"]["arm"], rec["text"], rec["stop_reason"])[0]] += 1
         print(f"{n}/{len(todo)} {dict(counts)}", flush=True)
-    return counts
+    results = finalize(out)
+    _append(log, {"event": "end", "utc": _now(), "results": dict(results)})
+    return counts + Counter({f"results_{k}": v for k, v in results.items()})
 
 
 def main(argv: list[str] | None = None) -> None:
@@ -289,7 +346,7 @@ def main(argv: list[str] | None = None) -> None:
     ap.add_argument("--data-dir", type=Path, default=Path("data"))
     a = ap.parse_args(argv)
     counts = run(a.base_url, a.model, a.block, load_items(a.data_dir, a.snapshot), a.snapshot)
-    print(f"local-{a.model} {a.block}: {dict(counts)}")
+    print(f"{a.block}-{a.model}: {dict(counts)}")
 
 
 if __name__ == "__main__":

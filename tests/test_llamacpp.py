@@ -6,25 +6,63 @@ from pathlib import Path
 
 import pytest
 
+from laf import analysis as A
 from laf import llamacpp
 from laf.items import Item
 from laf.prompts import schema
+from laf.schemas import QKEYS
 
-ITEMS = [
-    Item.model_validate_json(line)
-    for line in Path("data/processed/20261021T1027Z/items.jsonl").read_text("utf-8").splitlines()
-]
-CLAUDE_FIELDS = {
-    "started_utc", "latency_s", "attempts", "id", "model_requested", "model_reported",
-    "stop_reason", "stop_details", "usage", "text", "error", "sdk_version", "base_url",
-}  # fmt: skip
-REPLY = {
-    "id": "chatcmpl-1",
-    "model": "openai/gpt-oss-20b",
-    "choices": [{"finish_reason": "stop", "message": {"content": "{}", "reasoning_content": "r"}}],
-    "usage": {"prompt_tokens": 10, "completion_tokens": 5, "total_tokens": 15},
-    "timings": {"predicted_per_second": 250.0},
-}
+P = Path("data/processed/20261021T1027Z")
+ITEMS = [Item.model_validate_json(x) for x in (P / "items.jsonl").read_text("utf-8").splitlines()]
+GPT = "gpt-oss-20b"
+
+
+def _reply(text: str, finish: str = "stop") -> dict:
+    return {
+        "id": "chatcmpl-1",
+        "model": "openai/gpt-oss-20b",
+        "choices": [
+            {"finish_reason": finish, "message": {"content": text, "reasoning_content": "r"}}
+        ],
+        "usage": {"prompt_tokens": 10, "completion_tokens": 5, "total_tokens": 15},
+        "timings": {"predicted_per_second": 250.0},
+    }
+
+
+def _direct_text() -> str:
+    w = {
+        "m5_count_quantiles": dict(zip(QKEYS, (0, 0, 0, 1, 1, 2, 3, 4, 5), strict=True)),
+        "m4_count_quantiles": dict(zip(QKEYS, (1, 2, 3, 4, 6, 9, 12, 15, 18), strict=True)),
+        "p_m6_at_least_one": 0.05,
+    }
+    return json.dumps(
+        {"day": w, "week": w, "month": w, "notes": "Fake données."}, ensure_ascii=False
+    )
+
+
+PARAMS_TEXT = json.dumps(
+    {"b": 1.0, "p": 1.1, "c_days": 0.05, "a_p05": -2.6, "a_p50": -2.1, "a_p95": -1.6, "notes": "F."}
+)
+
+
+@pytest.fixture
+def server(monkeypatch):
+    """Fake llama-server: records the seeds it was sent; fails the seeds listed in `fail`."""
+    state: dict = {"seeds": [], "fail": set()}
+    monkeypatch.setattr(llamacpp, "server", lambda url, model: {"build": "b1", "gguf_path": "x"})
+    monkeypatch.setattr(llamacpp, "check_prompt", lambda url, model, job: None)
+    monkeypatch.setattr(llamacpp, "machine", lambda: {"os": "OS", "gpu": "GPU"})
+    monkeypatch.setattr(llamacpp.time, "sleep", lambda s: None)
+
+    def post(url, payload, timeout=0):
+        state["seeds"].append(payload["seed"])
+        if payload["seed"] in state["fail"]:
+            raise urllib.error.HTTPError(url, 400, "x", None, io.BytesIO(b"bad"))  # type: ignore[arg-type]
+        arm = payload["response_format"]["json_schema"]["name"]
+        return _reply(_direct_text() if arm == "direct" else PARAMS_TEXT)
+
+    monkeypatch.setattr(llamacpp, "_post", post)
+    return state
 
 
 @pytest.mark.parametrize(("block", "n"), [("core", 294), ("i0", 132), ("dev", 72)])
@@ -36,6 +74,7 @@ def test_blocks_match_the_design_table(block, n, model):
     assert {j["body"]["seed"] for j in jobs} == {0, 1, 2}
     assert {j["meta"]["paraphrase"] for j in jobs} == {"p1"}
     assert all(j["meta"]["seed"] == j["meta"]["sample"] for j in jobs)
+    assert {j["meta"]["effort"] for j in jobs} == {llamacpp.MODELS[model]["effort"]}
 
 
 @pytest.mark.parametrize("model", sorted(llamacpp.MODELS))
@@ -55,56 +94,75 @@ def test_requests_use_only_the_registered_settings(model):
 
 
 def test_templates_never_read_the_wall_clock():
-    for model, spec in llamacpp.MODELS.items():
+    for model in llamacpp.MODELS:
         text = (llamacpp.TEMPLATES / f"{model}.jinja").read_text(encoding="utf-8")
         assert "strftime_now" not in text
-        assert ("current_date" in text) == spec["dated_template"]
-
-
-def test_call_record_has_the_claude_fields(monkeypatch):
-    monkeypatch.setattr(llamacpp, "_post", lambda url, payload, timeout=0: REPLY)
-    rec = llamacpp.call("http://x", {"model": "openai/gpt-oss-20b"}, "b1")
-    assert set(rec) >= CLAUDE_FIELDS
-    assert rec["stop_reason"] == "end_turn" and rec["reasoning"] == "r" and rec["error"] is None
+    assert "current_date" in (llamacpp.TEMPLATES / f"{GPT}.jinja").read_text(encoding="utf-8")
 
 
 def test_only_transport_errors_are_retried(monkeypatch):
     monkeypatch.setattr(llamacpp.time, "sleep", lambda s: None)
-    replies = []
+    codes = []
 
     def post(url, payload, timeout=0):
-        code = replies.pop(0)
+        code = codes.pop(0)
         if code:
             raise urllib.error.HTTPError(url, code, "x", None, io.BytesIO(b"err"))  # type: ignore[arg-type]
-        return REPLY
+        return _reply("{}", finish="length")
 
     monkeypatch.setattr(llamacpp, "_post", post)
-    replies[:] = [503, 0]
-    assert llamacpp.call("http://x", {"model": "m"}, "b1")["attempts"] == 2
-    replies[:] = [400, 0]
-    rec = llamacpp.call("http://x", {"model": "m"}, "b1")
-    assert rec["error"].startswith("HTTPError 400") and replies == [0]
+    codes[:] = [503, 0]
+    rec = llamacpp.call("http://x", {}, "b1")
+    assert rec["attempts"] == 2 and rec["stop_reason"] == "max_tokens" and rec["error"] is None
+    codes[:] = [400, 0]
+    rec = llamacpp.call("http://x", {}, "b1")
+    assert rec["error"].startswith("HTTPError 400") and rec["attempts"] == 1 and codes == [0]
 
 
-def test_run_appends_utf8_lf_records_and_skips_answered_samples(monkeypatch, tmp_path):
+def test_run_writes_the_batch_layout_and_retries_only_failed_requests(server, tmp_path):
     item = next(i for i in ITEMS if i.role == "dev")
-    calls = []
-    info = {"build": "b1", "gguf_path": "missing.gguf"}
-    monkeypatch.setattr(llamacpp, "server", lambda url, model: dict(info))
-    monkeypatch.setattr(llamacpp, "check_date", lambda url, model, job: None)
-    monkeypatch.setattr(llamacpp, "machine", lambda: {"os": "OS", "gpu": "GPU"})
+    server["fail"] = {1}
+    llamacpp.run("http://x", GPT, "dev", [item], "20261021T1027Z", runs=tmp_path)
+    out = tmp_path / f"dev-{GPT}"
+    assert sorted(p.name for p in out.iterdir()) == [
+        "local_log.jsonl",
+        "requests.jsonl",
+        "results.jsonl",
+    ]
+    first = [json.loads(x) for x in (out / "results.jsonl").read_text("utf-8").splitlines()]
+    assert [r["result"] for r in first].count("errored") == 2  # seed 1 of both arms
+    server["fail"], server["seeds"] = set(), []
+    llamacpp.run("http://x", GPT, "dev", [item], "20261021T1027Z", runs=tmp_path)
+    assert server["seeds"] == [1, 1]  # only the two failed requests are sent again
+    for name in ("requests.jsonl", "results.jsonl", "local_log.jsonl"):
+        assert b"\r" not in (out / name).read_bytes()
+    reqs = [json.loads(x) for x in (out / "requests.jsonl").read_text("utf-8").splitlines()]
+    res = [json.loads(x) for x in (out / "results.jsonl").read_text("utf-8").splitlines()]
+    assert [r["custom_id"] for r in res] == [r["custom_id"] for r in reqs]  # one row each
+    assert {r["result"] for r in res} == {"succeeded"} and "données" in res[0]["text"]
+    assert res[0]["usage"] == {"input_tokens": 10, "output_tokens": 5}
+    assert {"model", "effort", "item_id", "arm", "info", "paraphrase", "sample", "block"} <= set(
+        reqs[0]
+    )
 
-    def post(url, payload, timeout=0):
-        calls.append(payload["seed"])
-        reply = json.loads(json.dumps(REPLY))
-        reply["choices"][0]["message"]["content"] = '{"notes": "données"}'
-        return reply
 
-    monkeypatch.setattr(llamacpp, "_post", post)
-    llamacpp.run("http://x", "gpt-oss-20b", "dev", [item], "20261021T1027Z", runs=tmp_path)
-    llamacpp.run("http://x", "gpt-oss-20b", "dev", [item], "20261021T1027Z", runs=tmp_path)
-    raw = (tmp_path / "local-gpt-oss-20b" / "calls.jsonl").read_bytes()
-    assert calls == [0, 1, 2, 0, 1, 2] and b"\r" not in raw  # 2 arms x 3 seeds, once
-    rows = [json.loads(x) for x in raw.decode("utf-8").splitlines()]
-    assert len(rows) == 6 and "données" in rows[0]["text"] and rows[0]["machine"].startswith("OS")
-    assert len((tmp_path / "local-gpt-oss-20b" / "manifest.jsonl").read_text("utf-8").split()) > 1
+def test_local_runs_load_and_score_with_the_frozen_analysis(server, tmp_path):
+    item = next(i for i in ITEMS if i.item_id == "us6000tkt2@3d")
+    server["fail"] = {2}
+    llamacpp.run("http://x", GPT, "core", [item], "20261021T1027Z", runs=tmp_path)
+    tables, items = A.load_tables(P), A.load_items(P)
+    c = A.cells(tables)
+    c = c[c["issue_id"] == item.item_id]
+    samples = A.llm_samples([tmp_path / f"core-{GPT}"], items)
+    df = A.score_all(c, A.baselines(tables, items, c), samples)
+    llm = df[df["model"] == "openai/gpt-oss-20b"]
+    assert len(llm) == 2 * 3 * 3  # arms x seeds x windows
+    assert set(llm["forecaster"]) == {
+        "openai/gpt-oss-20b|direct|I1|medium",
+        "openai/gpt-oss-20b|params|I1|medium",
+    }
+    assert set(llm.loc[llm["sample"] != 2, "status"]) == {"ok"}
+    errored = llm[llm["sample"] == 2]
+    assert set(errored["status"]) == {"transport_error"}
+    assert errored["log_qs_valid_only"].isna().all()
+    assert llm.loc[llm["status"] == "ok", "log_qs"].notna().all()

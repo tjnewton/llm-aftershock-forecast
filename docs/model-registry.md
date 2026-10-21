@@ -56,7 +56,8 @@ ambiguous, earlier is pre-cutoff.
   repeat_penalty 1.0, presence and frequency penalty 0, DRY multiplier 0, XTC probability 0,
   typical_p 1.0, top_n_sigma -1, dynatemp_range 0, mirostat 0. Sampler order: penalties, dry,
   top_n_sigma, top_k, typ_p, top_p, min_p, xtc, temperature.
-- gpt-oss reasoning effort: template default `medium` (not overridden).
+- gpt-oss reasoning effort: template default `medium` (not overridden), recorded as effort
+  `medium`; Olmo is recorded as effort `none`. The forecaster key is model|arm|info|effort.
 - Chat templates (`config/llamacpp/`, each one the template embedded in the GGUF plus one
   provenance comment and one patch):
   - `gpt-oss-20b.jinja` (SHA-256 ea5d51949163e3c1023bef7d319622b8396fbe2026cf1d23dc471ced8e1c4aba;
@@ -74,11 +75,19 @@ ambiguous, earlier is pre-cutoff.
     The template contains no date, so `current_date` has no effect on Olmo.
 - Checks before each run: `/props` must show the alias, the GGUF file name, `n_ctx` 49,152,
   one slot and the template SHA-256 above; `/apply-template` on the first request must contain
-  the system message, the issue date (gpt-oss) and never today's date.
-- Records: `runs/local-<model>/calls.jsonl` (UTF-8, LF, append-only; a rerun skips samples
-  with a response) with the Claude record fields plus block, info, paraphrase, seed,
-  reasoning, timings and machine; `runs/local-<model>/manifest.jsonl` per invocation (git SHA,
-  prompt and item hashes, GGUF SHA-256, server settings, OS/GPU/driver; no host names).
+  the system message, for gpt-oss `Current date: <issue date>` and `Reasoning: medium`, and
+  never today's date.
+- Records (`runs/<block>-<model>/`, UTF-8, LF), in the Message Batches layout that the frozen
+  `laf.analysis.llm_samples` reads, so local outputs are scored by the `scoring-v1` code
+  unchanged: `requests.jsonl` (written first; custom_id, item_id, arm, info, paraphrase, sample,
+  block, model, effort, seed, temperature, params_sha256) and `results.jsonl` (one row per
+  custom_id: result `succeeded`/`errored`, model, stop_reason `end_turn`/`max_tokens`, text,
+  usage {input_tokens, output_tokens}, latency_s, seed, server_build, machine). Attempts,
+  reasoning text, timings and a start line per invocation (git SHA, prompt and item hashes, GGUF
+  SHA-256, server settings, OS/GPU/driver; no host names) go to the append-only
+  `local_log.jsonl`, which is not committed. A rerun retries only requests without a response;
+  results.jsonl keeps the last response, else the last error. The spend ledger skips the local
+  model ids (not in the price table).
 - Smoke test (dev item us6000rtdt@28d, direct, I1, p1, seed 0): gpt-oss reasoning present,
   valid JSON (`ok`), 6,518 output tokens at 251 tok/s (prompt 4,641 tok/s); Olmo no reasoning,
   valid JSON (`ok`, `notes_too_long`), 747 tokens at 65 tok/s (prompt 2,786 tok/s). Dev check

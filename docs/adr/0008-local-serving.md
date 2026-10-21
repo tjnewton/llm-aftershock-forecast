@@ -29,6 +29,10 @@ Status: proposed.
   line instead of raising); Olmo's gets `tools` defaulting to `none`, which llama-server needs to
   accept it and which renders as transformers does. Olmo's template has no date line.
 - Each run checks the server's `/props` (alias, GGUF, context, one slot, template SHA-256) and
-  renders the first request through `/apply-template` (issue date present, today's date absent).
+  renders the first request through `/apply-template` (issue date and `Reasoning: medium`
+  present for gpt-oss, today's date absent).
+- Local runs write `runs/<block>-<model>/requests.jsonl` and `results.jsonl` in the Message
+  Batches layout, so the frozen `scoring-v1` code loads and scores them unchanged (effort
+  `medium` for gpt-oss, `none` for Olmo); attempts go to an uncommitted `local_log.jsonl`.
 - Mac and Windows outputs differ even with equal seeds; the machine is logged per run.
   Exact values, hashes and smoke results: docs/model-registry.md, "Local serving".
