@@ -1,0 +1,13 @@
+{
+ "base_url": "https://api.anthropic.com",
+ "batch_id": "msgbatch_01UDgsz2oVFKkhzybPyiGnwt",
+ "created_at": "2026-10-22 00:00:52.034725+00:00",
+ "estimate_usd": 5.32,
+ "git_dirty": false,
+ "git_sha": "0713ed800c2664dd3ae690c10f04811c545fbffb",
+ "items_sha256": "5f8d51eecafc4faaf7e8ce31527e9850f7344fd15838aac9827c201ebc2c5598",
+ "n_requests": 495,
+ "prompt_hashes_sha256": "d6143c0edf829915f4dc90ea4b4bf0fae5cf69bf592e77f3883428a612b4d7e6",
+ "snapshot": "20261021T2300Z",
+ "spent_before_usd": 44.1
+}
