@@ -17,3 +17,6 @@ T06 done 2026-10-22T14:25Z d1190de 777 of 777 succeeded; adapter gpt-oss-20b-e1r
 T07 running 2026-10-22T14:19Z
 T07 done 2026-10-22T14:57Z 61d5619 777 of 777 succeeded; adapter gpt-oss-20b-e1ar2-lora-f16.gguf sha256 90e868fed977697936f4da3e02ca28fee75522b9b403a2d2b4fdeba59e6d01d6
 T08 running 2026-10-22T15:45Z
+T08 failed 2026-10-22T22:34Z 5dc8e1b e3all finalize: json.decoder.JSONDecodeError: Unterminated string starting at: line 1 column 512 (char 511); runner._jsonl splits local_log.jsonl with str.splitlines(), which breaks on 4 U+2028 chars in model text written unescaped (ensure_ascii=False); needs a code fix, then rerun e3all to finalize (no new requests). All 630 e3all responses are in the committed local_log.jsonl (631 lines, all valid when split on 
+); dev 72 of 72 and e1 147 of 147 complete; adapter gpt-oss-20b-e1b-lora-f16.gguf sha256 36c390c55be682bc5ad4729e9724abab2274df9b092a3330c4e3a4d9b26ff6d2
+worker stopped 2026-10-22T22:34Z
