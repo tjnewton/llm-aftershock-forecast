@@ -1,5 +1,8 @@
 # Event checklist (OSI Hackathon, Oct 21-22, 2026)
 
+> Historical: the event-day runbook as written on Oct 20-21. The work it lists is done;
+> boxes were not ticked. Outcomes: README.md, docs/writeup.md, docs/deviations.md.
+
 Hour-by-hour runbook: docs/PLAN.md section 8. Times are ET.
 Slack and social posts are made by the participant only.
 

@@ -1,6 +1,8 @@
-# Data card: LLM aftershock-forecast benchmark (snapshot 20261021T1027Z)
+# Data card: LLM aftershock-forecast benchmark
 
-This card describes the hackathon scoring snapshot, taken on 2026-10-21 (docs/event-checklist.md).
+This card describes the registered scoring snapshot `20261021T1027Z`, taken on 2026-10-21 and
+frozen with the preregistration, and, at the end, the data added after the freeze for the
+exploratory extensions (docs/deviations.md).
 
 ## Sources and licence
 | Source | Access | Licence |
@@ -10,8 +12,9 @@ This card describes the hackathon scoring snapshot, taken on 2026-10-21 (docs/ev
 
 Derived tables and prompts: CC BY 4.0 (data/LICENSE.md). Every raw file has a manifest line in
 `data/manifest.jsonl` (URL, UTC retrieval time, bytes, SHA-256 of stored and of decoded bytes,
-gzip flag, licence). `uv run laf verify` re-hashes all 5,090 files
-(snapshot, OAF versions, event histories and reference files) and re-validates every OAF file.
+gzip flag, licence). `uv run laf verify` re-hashes every raw file (9,433 on 2026-10-22: the
+snapshots, OAF versions, event histories, reference files, training catalogs and literature
+queries) and re-validates every OAF file.
 
 ## Collection
 - `uv run laf fetch` (snapshot 20261021T1027Z; resumed with `--snapshot`
@@ -150,3 +153,19 @@ Results: ADR 0010 sections 4-5.
 - Region circles differ between versions of one sequence; each issue is scored in its own circle.
 - Sequences without OAF have no official baseline and use an approximate W&C circle.
 - USGS legacy-ETAS `probability` is 1 - (share of simulated catalogs at the smallest count), which falls slightly below 1 when every catalog has an M>=6; values are scored as published (6 of 111 scored M>=6 values are >= 0.99).
+
+## Data added after the freeze (exploratory)
+Fetched with the same code and stored the same way (raw files with manifest lines); none of it
+changes the registered snapshot or its scores.
+
+| Data | Location | Contents |
+|---|---|---|
+| E3 snapshot `20261021T2300Z` | `config/sequences_e3.toml`, `data/raw/snapshots/20261021T2300Z/`, `data/processed/20261021T2300Z/` | 39 sequences with an official forecast, M >= 5 (18 after the Claude cutoff, 21 before; docs/adr/0012-e3-extended-set.md); 630 cells, 536 settled; the as-of catalog rebuild reproduces 97.6% of 4,563 checkable official observation counts |
+| E3 candidate lists | `data/raw/e3/` | ComCat event lists with OAF products and the M >= 6 context list used for the fore/aftershock rule |
+| Live Panama refetch | `data/raw/snapshots/20261022T0001Z/` | Panama event, catalog and OAF versions for live round 2 |
+| E1 training set | `data/raw/training/`, `data/processed/training/e1_train.jsonl` | 515 ComCat M >= 6.5 sequences, 2010-01-01 to 2025-06-30, 3,090 prompt/completion rows; completions are legacy-ETAS refits; SHA-256 b72a83a6db55895c5f60b269bd2f5ed3e5ee2084e773162533e635e3920b0948 |
+| E1a training set | same, `e1a_train.jsonl` | 1,505 M >= 6.0 sequences, 9,030 rows; SHA-256 3ee98483493babcb9f70fc09827aa2a156de16c4fb3bad7c7b53975512543cce |
+| Outcome catalogs | `data/raw/training/outcomes/` | the E1 sequences' catalogs to day 60, for the E1b preference pairs (`laf outcome-training`; the 90 MB pairs file is rebuilt, not committed) |
+| Literature queries (E2) | `data/raw/literature/`, `data/raw/literature/e3/`, `config/literature_screen.csv` | exact Valency search responses (bibliographic metadata) and the screening decisions |
+
+No training sequence is a benchmark sequence: every training origin is before 2025-07-01.

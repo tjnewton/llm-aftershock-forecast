@@ -99,6 +99,27 @@ ambiguous, earlier is pre-cutoff.
 - Retired/not used: Qwen3.8-27B (cutoff undocumented, released 2026-08-14); gpt-oss-120b
   (about 63 GB; does not fit 48 GB unified memory or the 32 GB GPU without offload; stretch only).
 
+## Adapted models (Adaption AutoScientist, exploratory except E1)
+All are LoRA adapters on `openai/gpt-oss-20b` (trained on the bf16 weights), served on the same
+MXFP4 GGUF with `--lora` and otherwise the registered gpt-oss settings (`laf.llamacpp` MODELS
+`gpt-oss-20b-<run>`, model id `laf/gpt-oss-20b-<run>`). Runs and records: `runs/<run>-adaption/`;
+outputs: `runs/extensions/` (registered snapshot) and `runs/e3/extensions/` (E3). Checkpoints
+and converted adapters are not committed (`laf adaption download --run <run>` re-fetches a
+checkpoint and checks its SHA-256).
+
+| Run | Training data | Iterations | Best win rate | Checkpoint (tar + zstd) SHA-256 | Converted adapter SHA-256 |
+|---|---|---|---|---|---|
+| e1 (prereg E1) | E1, 3,090 rows | 3 | 0.471 | d06688de19b9c40d319d6f0511ca36b2486a029e9793311b883030799c7ba1ae | not recorded (the reported value had 65 characters) |
+| e1a | E1a, 9,030 rows | 1 | 0.505 | 50a9b4c264eb6604aa6e2975b0a25415930484460da851583f2cca69a35b2e7f | not reported |
+| e1r1 | E1 | 1 | 0.473 | 7e1b29c647ed60c75e0dc730980031311031398a589faea13fc6c2f8e58f5620 | 33c916fdd70c5c34c5f92ed9ef08d8778645c18797527c0033ff3604bff3689a |
+| e1r2 | E1 (re-upload) | 1 | 0.506 | 2b9d845c6d53cadfb0618ca4a27f79faca8e40a43f78f4dd863342d9bb8ca380 | pending |
+| e1ar2 | E1a | 1 | 0.531 | a010c6efb2701daf5d4eb8ba3e36e1348f23b71671d3b1b6452f8651270cc5e8 | pending |
+| e1b | E1b preference pairs, 15,450 rows | 1 (alignment) | pending | pending | pending |
+
+e1r1, e1r2 and e1ar2 use E1's best hyperparameters (LoRA r 32, alpha 64, q/k/v/o projections,
+3 epochs, learning rate 1e-4, cosine schedule). The win rate is AutoScientist's own metric; the
+benchmark scores are in `results/e1*.csv` and `results/replicates.csv`.
+
 ## Expected cost
 See docs/PLAN.md section 9 (about $100 at batch prices under stated assumptions; $150 cap).
 

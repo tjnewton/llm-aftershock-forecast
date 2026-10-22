@@ -1,7 +1,8 @@
 # Execution plan: LLM aftershock-forecast benchmark
 
-For the OSI Hackathon (2026-10-21/22). Status: DRAFT v1;
-design decisions in section 13.
+For the OSI Hackathon (2026-10-21/22). Status: historical. This is the plan as written before
+the event; budget figures (for example the $140 guard) were later raised. What was done:
+README.md, docs/writeup.md and docs/deviations.md. Design decisions in section 13.
 Facts and sources: docs/research-brief.md. Data: docs/data-card.md. Decisions: docs/adr/.
 Statistical commitments: docs/preregistration.md (wins on any conflict).
 

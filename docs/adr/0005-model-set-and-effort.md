@@ -19,3 +19,7 @@ Status: decided by the participant.
   its cutoff is undocumented and it was released 2026-08-14, so every candidate sequence except
   Panama could be in its training data.
 - Spend cap: $150 total through Oct 22, using a new project key supplied by the participant.
+
+Update (2026-10-21/22, after the freeze; docs/deviations.md): the spend cap was raised to about
+$200 (guard $195). Adapted gpt-oss-20b models (E1 registered as descriptive; E1a, replicates and
+E1b exploratory) are listed in docs/model-registry.md, "Adapted models".

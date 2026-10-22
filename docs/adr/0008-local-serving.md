@@ -36,3 +36,9 @@ Status: proposed.
   `medium` for gpt-oss, `none` for Olmo); attempts go to an uncommitted `local_log.jsonl`.
 - Mac and Windows outputs differ even with equal seeds; the machine is logged per run.
   Exact values, hashes and smoke results: docs/model-registry.md, "Local serving".
+
+Update (2026-10-21/22): adapted models are served on the same registered gpt-oss settings plus
+`--lora <adapter>.gguf` and their own alias; `laf.llamacpp` refuses unless `/lora-adapters`
+shows exactly the registered adapter at scale 1. Their runs, and every E3 run, are written one
+level down (`runs/extensions/`, `runs/e3/`), outside the frozen analysis's `runs/*/` glob and so
+outside the registered forecasters' invalid-answer penalty pool.

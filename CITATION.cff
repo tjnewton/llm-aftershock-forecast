@@ -1,4 +1,3 @@
-# DRAFT. Add ORCID and DOI after the Zenodo release.
 cff-version: 1.2.0
 message: "If you use this benchmark, please cite it as below."
 title: "LLM aftershock-forecast benchmark: calibration of large language model forecasts against USGS operational aftershock forecasts"
@@ -6,7 +5,14 @@ type: software
 authors:
   - family-names: Newton
     given-names: Tyler
-version: 0.1.0
+version: 1.0.0
+date-released: "2026-10-22"
+abstract: >-
+  A preregistered benchmark that gives language models the information the USGS operational
+  aftershock forecast had at each issue time and scores their aftershock-count forecasts with
+  proper scoring rules against what happened and against the official forecast, on sequences
+  after the models' training cutoffs. Includes frozen scoring code, all model outputs, an
+  extended exploratory set, adapted open models and live forecasts hashed before their windows.
 license: MIT
 repository-code: "https://github.com/tjnewton/llm-aftershock-forecast"
 keywords:

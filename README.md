@@ -16,9 +16,17 @@ model's training cutoff. Entry for the Open Scientific Intelligence Hackathon, O
   (branch `gh-pages`, source [notebooks/explorer.py](notebooks/explorer.py)).
 - Exploratory extensions after the freeze (39 more sequences, adapted open models, a combined
   forecast, a second live round): [docs/deviations.md](docs/deviations.md), tables in
-  [results/](results/).
+  [results/](results/) (guide: [results/README.md](results/README.md)).
 - Live Panama forecasts, hashed before their windows opened: tags `live-panama-1`,
   `live-panama-2`.
+
+## Reproduce the results (no API calls, no network)
+```bash
+uv sync && uv run laf verify                                       # every raw file re-hashed
+uv run marimo export html notebooks/analysis.py -o results/analysis.html   # registered analysis
+uv run laf figures --snapshot 20261021T1027Z                       # figures/ and explorer data
+uv run laf e3 --snapshot 20261021T2300Z                            # exploratory E3 tables
+```
 
 ## Quick start
 ```bash
@@ -47,6 +55,8 @@ Calls that spend money (`laf smoke`, `laf pilot`, `laf run`, `laf live`, `laf pr
 | `data/processed/<snapshot>/` | parquet tables, `items.jsonl`, ETAS refit forecasts |
 | `runs/` | batch requests and results per model and block, local-model runs, live rounds, ETAS validation, Adaption records (`runs/e3/`, `runs/extensions/`: exploratory) |
 | `prompts/` | templates, JSON schemas, rationale, hashes |
+| `results/`, `figures/`, `notebooks/` | score tables ([guide](results/README.md)), figures, the frozen analysis notebook and the explorer |
+| `ops/` | the task queue and status log the two machines used during the overnight runs |
 | `docs/` | [plan](docs/PLAN.md), [preregistration](docs/preregistration.md), [research brief](docs/research-brief.md), [data card](docs/data-card.md), [model registry](docs/model-registry.md), [ADRs](docs/adr/), [event checklist](docs/event-checklist.md), [open questions](docs/open-questions.md) |
 
 ## Licence and data

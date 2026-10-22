@@ -21,3 +21,10 @@ Status: proposed.
 - Two USGS products had invalid JSON (trailing commas). They are repaired by removing only
   trailing commas, and the repair is flagged (`oaf_versions.repaired_json`). Seven Kamchatka
   versions have non-monotone fractiles; they are rejected, not repaired.
+
+Update (2026-10-22): the exploratory E3 snapshot (`20261021T2300Z`), the live refetch
+(`20261022T0001Z`), the E1/E1a training sets, outcome catalogs and literature queries are
+committed the same way (raw files with manifest lines; about 100 MB of raw data in total). Not
+committed: model weights, Adaption checkpoints and converted adapters (SHA-256 in
+`runs/*-adaption/checkpoint.json` and docs/model-registry.md), and the 90 MB E1b preference-pair
+file, which `laf outcome-training` rebuilds (its SHA-256 is in `runs/e1b-adaption/dataset.json`).

@@ -5,16 +5,21 @@ Oct 21-22, 2026). Plan: docs/PLAN.md. Rules that bind the analysis: docs/preregi
 
 ## Commands
 - `uv run pytest` / `uv run ruff format src tests` / `uv run ruff check src tests` / `uv run pyright`
-- `uv run laf fetch [--snapshot ID] [--only ID...]`, `laf tables --snapshot ID`, `laf verify`,
-  `laf items --snapshot ID`, `laf prompts-hash`, `laf spend`
-- Spends money, ask first every time: `laf smoke`, `laf pilot`, any future `laf run`.
+- Data: `uv run laf fetch|asof|tables|items --snapshot ID` (`--config config/sequences_e3.toml`
+  for E3), `laf verify`, `laf prompts-hash`, `laf spend`
+- Scoring (no API): `laf figures`, `laf e1 --model M`, `laf e3`, `laf combined`, `laf replicates`,
+  `laf literature`, `laf live-score`; local models: `python -m laf.llamacpp` (docstring)
+- Spends money, ask first every time: `laf smoke`, `laf pilot`, `laf run`, `laf live`, `laf probe`.
+  Adaption launches (`laf adaption launch`) also need a yes.
 
 ## Layout
 `src/laf/` package; `config/sequences.toml` roles; `data/raw` immutable + `data/manifest.jsonl`;
-`data/processed/<snapshot>/`; `prompts/` templates and schemas; `docs/adr/` decisions.
+`data/processed/<snapshot>/`; `prompts/` templates and schemas; `docs/adr/` decisions;
+`results/` score tables; exploratory runs in `runs/e3/` and `runs/extensions/`, outside the frozen
+analysis's `runs/*/` glob; changes after `prereg-v1` go in `docs/deviations.md`.
 
 ## Guardrails
-- No git commits or pushes before 2026-10-21; never post to Slack or any chat.
+- Never post to Slack or any chat.
 - Commits use the email 54011699+tjnewton@users.noreply.github.com, never another address.
 - No API spend without explicit approval; ~$200 total cap (guard $195); use only `ANTHROPIC_API_KEY` from env/.env.
   Never read or print `.env`.

@@ -1,5 +1,8 @@
 # Research brief: verified fact base
 
+> Historical: the pre-event fact base (Oct 19-20). Later facts are in the ADRs, the model
+> registry and docs/deviations.md.
+
 Every claim has a source and access time (UTC). Longer ledgers with every query: 
 docs/research/event.md, data-availability.md, models-and-tooling.md,
 novelty-and-literature.md, plus this session's own checks.
