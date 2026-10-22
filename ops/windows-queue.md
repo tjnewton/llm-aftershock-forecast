@@ -1,5 +1,12 @@
 # Windows task queue (written by the Mac only)
 
+## FREEZE (2026-10-22 22:15Z): main is frozen until hackathon judging ends
+The entry was submitted at tag `v1.0-submission`. Do not push to `main` again, not even status
+lines. Stop now: stop the current run and llama-server, run no further tasks (T08 is cancelled),
+and stop the loop. If outputs from a run you already finished are worth keeping, commit them and
+push to the branch `post-submission` (`git push origin HEAD:post-submission`), never to `main`.
+Tyler will lift the freeze in this file after judging.
+
 The Windows session runs tasks marked `status: ready`, in file order, one at a time, and records
 progress only in ops/windows-status.md. A task marked `status: hold` waits for a later edit. The
 line `## END` below the last task means the queue is closed.
