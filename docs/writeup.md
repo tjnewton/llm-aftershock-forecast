@@ -1,7 +1,8 @@
 # Do LLMs forecast aftershocks like the USGS? A contamination-aware benchmark
 
-Tyler Newton (solo). CRediT: conceptualization, data curation, software, formal analysis,
-visualization, writing (T. Newton).
+Tyler Newton (sole author). CRediT: conceptualization, methodology, software, data curation,
+investigation, validation, formal analysis, visualization, writing – original draft, writing –
+review & editing.
 
 ## Introduction
 
