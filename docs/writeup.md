@@ -5,20 +5,20 @@ visualization, writing (T. Newton).
 
 ## Introduction
 
-After a large earthquake, people ask chatbots how many more shocks to expect. The US Geological
-Survey (USGS) answers the same question with operational aftershock forecasts [2, 3]. We asked
+After a large earthquake, people ask chatbots how many more aftershocks to expect. The US Geological
+Survey (USGS) answers the same question with operational aftershock forecasts [2, 3]. I asked
 whether general-purpose language models, given exactly what USGS knew at each forecast time,
 forecast as well, on earthquakes that began after the models' training cutoff, so the answers
 cannot have been memorized [5].
 
 ## Results
 
-We built forecast questions from the ComCat catalog and the archived official forecasts of eleven
+I built forecast questions from the ComCat catalog and the archived official forecasts of eleven
 M≥7 sequences (July 2025 to October 2026): 61 forecast times, each asking for the number of M≥5
 aftershocks in the next day, week and month. Each prompt held only the catalog as it stood at
 that time, rebuilt from ComCat's revision histories (it reproduces 95.1% of the official
 forecasts' own counts). Claude Haiku, Sonnet and Opus 5.5 answered 3,710 requests with nine
-quantiles or with Reasenberg-Jones parameters [1], with and without the catalog. We scored them
+quantiles or with Reasenberg-Jones parameters [1], with and without the catalog. I scored them
 with the log-scale quantile score [4] beside the official forecast, a refit of the USGS ETAS
 model and simpler baselines. Hypotheses and analysis were frozen and their SHA-256 posted
 publicly before any scored call (tag `prereg-v1`).
@@ -42,7 +42,7 @@ Sea earthquake, by USGS and Opus 5.5 (bands: 50% and 90% ranges; dots: observed)
 score difference from the USGS forecast on the 33 preregistered windows, with 95% moving-block
 bootstrap intervals; left of zero favours the forecaster.*
 
-After the freeze we scored 39 more sequences with an official forecast (M≥5, 18 after the Claude
+After the freeze I scored 39 more sequences with an official forecast (M≥5, 18 after the Claude
 cutoff; exploratory, frozen code). Opus again matched USGS (+0.002, −0.002 to 0.007),
 and Sonnet without the catalog was clearly worse for M≥4 counts (+0.13). Claude did no better before its cutoff than after, and the open
 models, trained before both sets, kept the same gap on both: no sign of memorization. A fixed
@@ -53,7 +53,7 @@ opened; in the first closed window (provisional) Opus scored 0.015 against USGS'
 ## Future work
 
 The benchmark grows with every new forecast-bearing sequence, which will give it the power to
-separate the top tier; next we will add tool-using models.
+separate the top tier; next I will add tool-using models.
 
 ## Open-source materials
 

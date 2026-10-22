@@ -19,10 +19,10 @@ ambiguous, earlier is pre-cutoff.
 ## Settings shared by every scored call
 - Claude: no `thinking`, no `temperature`/`top_p`/`top_k`, no tools, no assistant prefill, no
   `fallbacks`; `output_config = {"effort": "high", "format": {"type": "json_schema", "schema":
-  ...}}`; SDK retries off (`max_retries=0`), our retries logged; `response.model`, `usage`,
+  ...}}`; SDK retries off (`max_retries=0`), the harness's retries logged; `response.model`, `usage`,
   `stop_reason`, `stop_details` logged.
 - Local: system message always present (Olmo's template otherwise injects its own date-cutoff
-  text; gpt-oss's template otherwise injects today's date, which we replace with the issue
+  text; gpt-oss's template otherwise injects today's date, which is replaced with the issue
   date); `response_format` json_schema; seeds 0/1/2; temperature from the model card;
   `cache_prompt: false`. Exact values in the next section.
 

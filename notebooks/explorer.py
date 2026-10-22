@@ -51,13 +51,13 @@ def _(SETS, contextlib, mo, pd):
 
 After a large earthquake, smaller **aftershocks** follow for weeks, and people need to know how
 many to expect. The US Geological Survey (USGS) publishes official aftershock forecasts for
-that. We gave large language models exactly the information USGS had when it issued each
+that. I gave large language models exactly the information USGS had when it issued each
 forecast (the main earthquake and the list of quakes recorded so far) and asked them the same
-question: how many aftershocks of magnitude 5 or larger in the next day, week and month? We
+question: how many aftershocks of magnitude 5 or larger in the next day, week and month? I
 then compared both with what actually happened, on earthquakes that occurred after the models
 were trained, so they could not have memorized the answers.
 
-**What we found**
+**What I found**
 
 - **Claude Opus 5.5 sits in the top tier with the official USGS forecast** and its statistical
   model (ETAS), on the preregistered test and again on 18 more recent sequences. Sonnet 5.5 tied

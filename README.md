@@ -17,9 +17,9 @@ after the M7.8 Flores Sea earthquake: shaded bands are the 50% and 90% ranges, d
 happened. (b) Average score difference from the USGS forecast on the preregistered test, with
 95% intervals; left of zero is better than USGS.*
 
-## What we found
+## What I found
 - **Claude Opus 5.5 sits in the top tier with the USGS forecast** and its statistical model
-  (ETAS): we found no difference, on the two preregistered sequences or on 18 more recent ones
+  (ETAS): I found no difference, on the two preregistered sequences or on 18 more recent ones
   (exploratory). Sonnet 5.5 tied on the first and was very slightly worse on the second. Two
   sequences cannot separate the top tier (even a naive baseline ties USGS there), which is why
   the benchmark grows with every new USGS forecast.
@@ -49,7 +49,7 @@ happened. (b) Average score difference from the USGS forecast on the preregister
   regenerates offline (below). Total API cost: $64.
 
 ## Why it matters
-After a large earthquake, people ask chatbots how many more shocks to expect. To our knowledge
+After a large earthquake, people ask chatbots how many more aftershocks to expect. To my knowledge
 this is the first test of language-model aftershock forecasts against an operational product
 ([novelty search](docs/research/novelty-and-literature.md)). The design (information-matched
 prompts, as-of data, post-cutoff tests, hashed live forecasts) carries over to other operational
