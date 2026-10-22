@@ -249,8 +249,11 @@ def fig_overview(panels: list[tuple[str, pd.DataFrame]], path: Path) -> None:
             ticks = [-0.1, 0, 0.1, 1] + ([3] if span > 2 else [])
             ax.set_xlim(-0.15, span * 1.3)
         else:
-            step = 0.01 if span < 0.05 else 0.05
-            ticks = list(np.arange(-np.ceil(span / step), np.ceil(span / step) + 1) * step)
+            lo = float(t.loc[t.index.intersection(rows), "lo"].min())
+            hi = float(t.loc[t.index.intersection(rows), "hi"].max())
+            step = 0.01 if span < 0.05 else 0.05 if span < 0.15 else 0.1
+            n0, n1 = int(np.floor(min(lo, 0) / step)), int(np.ceil(max(hi, 0) / step))
+            ticks = [round(i * step, 2) for i in range(n0, n1 + 1)]
         ax.set_xticks(ticks, [f"{x:g}" for x in ticks])
         ax.set_xlabel("dQS vs official  (> 0: official better)", fontsize=8, color=MUTED)
         ax.set_title(title, loc="left", fontsize=9, color=INK)

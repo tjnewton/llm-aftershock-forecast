@@ -63,11 +63,11 @@ at scale we scored 39 more sequences that have an official forecast (M≥5, most
 Marianas and the US West Coast; 18 after the Claude cutoff, 21 before), with the frozen code:
 536 settled cells. Most windows saw no M≥5 aftershock, so differences are small. On the
 post-cutoff cells Opus again matched USGS (+0.002, −0.002 to 0.007; for M≥4 counts −0.000,
-−0.032 to 0.016), Sonnet and Haiku were slightly worse (+0.006 and +0.011), and Sonnet without
+−0.032 to 0.016), Sonnet and Haiku were slightly worse (+0.006 and +0.012), and Sonnet without
 the catalog was clearly worse for M≥4 counts (+0.13, 0.07 to 0.20). Claude did no better on
-the pre-cutoff sequences than the ETAS refit's own shift between the two sets, and Olmo, whose
-cutoff predates both, kept the same gap before and after (+0.17 and +0.17): no sign of
-contamination. Averaging Claude's quantiles with the official ones did not reliably improve
+the pre-cutoff sequences than the ETAS refit's own shift between the two sets, and the two open
+models, whose cutoffs predate both sets, kept similar gaps after and before (gpt-oss +0.08 and
++0.07, Olmo +0.21 and +0.23): no sign of contamination. Averaging Claude's quantiles with the official ones did not reliably improve
 on USGS (Opus, registered cells: −0.013, −0.030 to 0.004). Re-adapting gpt-oss-20b on three
 times the data (1,505 sequences from M6.0) matched USGS on the extended set (+0.000, −0.006 to
 0.005) but not on the two large registered sequences (+0.23, −0.05 to 0.69). A second live Panama round was

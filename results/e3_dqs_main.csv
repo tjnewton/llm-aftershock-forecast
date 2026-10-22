@@ -1,42 +1,42 @@
 sequence,cells,dQS,lo,hi,forecaster,role,scoring
-"103 km SE of Atka, Alaska 2026-07-26",15,0.19314414104128272,0.12362873960667663,0.3278684826792232,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
-"105 km SSE of False Pass, Alaska 2026-07-14",6,0.2711797725314927,0.2711797725314927,0.2711797725314927,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
-"120 km ESE of Yigo Village, Guam 2026-09-20",7,0.007916167142786784,0.005830755687840465,0.014174193972358327,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
+"103 km SE of Atka, Alaska 2026-07-26",15,0.2167645445910203,0.14669835135432097,0.35208162841050955,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
+"105 km SSE of False Pass, Alaska 2026-07-14",6,0.27246337842141855,0.27246337842141855,0.27246337842141855,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
+"120 km ESE of Yigo Village, Guam 2026-09-20",7,0.061177954082989705,0.04508834697337268,0.07324515941520247,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
 "122 km SE of McCarthy, Alaska 2026-07-16",18,0.1550574115472632,0.11851603477707652,0.20702259432231662,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
-"149 km WSW of Adak, Alaska 2026-09-11",9,0.04120868112365514,0.015648652003394038,0.06653440680158217,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
-"162 km ESE of San Jose Village, Northern Mariana Islands 2026-09-16",7,0.07623725064502034,0.006418029449629129,0.12860166654156377,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
-"163 km SW of Merizo Village, Guam 2026-09-10",9,0.06443057977437842,0.03278068911369429,0.1009140985477845,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
-"177 km W of Nikolski, Alaska 2026-09-17",7,0.05786987183053839,0.05750015062838433,0.08158030831762166,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
-"38 km SSE of Spearman, Texas 2026-07-23",18,0.19987610411515186,0.127281100118915,0.26259452967710767,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
-"52 km E of Denali National Park, Alaska 2026-07-28",18,0.15588908551974184,0.09723559743200329,0.2513361733889688,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
-"57 km WNW of Skwentna, Alaska 2026-08-08",17,0.31992203701374056,0.24675040611546176,0.4128703327247593,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
-"67 km SSW of Nikolski, Alaska 2026-09-03",4,0.025721940734820866,0.025721940734820866,0.025721940734820866,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
-"80 km SSW of San Jose Village, Northern Mariana Islands 2026-09-16",8,0.06296040404146552,0.03861827998391936,0.0704567702273231,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
-"92 km SSW of Nikolski, Alaska 2026-09-03",10,0.18196806503018767,0.09190153848269525,0.2929730828338434,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
-"93 km SE of False Pass, Alaska 2026-07-14",18,0.3105101760957538,0.24276280563230163,0.3744709056678865,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
-"93 km SSE of Adak, Alaska 2026-07-24",18,0.17413670580122353,0.14615570949913115,0.24377476081959473,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
+"149 km WSW of Adak, Alaska 2026-09-11",9,0.04503526360091073,0.018215863783245686,0.07136848583676089,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
+"162 km ESE of San Jose Village, Northern Mariana Islands 2026-09-16",7,0.09862603981508138,0.04824427923856694,0.13641236024746722,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
+"163 km SW of Merizo Village, Guam 2026-09-10",9,0.08682864457989438,0.04753745060097139,0.11446680626243959,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
+"177 km W of Nikolski, Alaska 2026-09-17",7,0.0744599992133842,0.05750015062838433,0.11061303123760181,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
+"38 km SSE of Spearman, Texas 2026-07-23",18,0.20979524231792537,0.14596627591493372,0.27136056727035285,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
+"52 km E of Denali National Park, Alaska 2026-07-28",18,0.2061494874597253,0.10972462624087692,0.33594583013787616,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
+"57 km WNW of Skwentna, Alaska 2026-08-08",17,0.3669683549415775,0.25011987157651705,0.5030280395520137,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
+"67 km SSW of Nikolski, Alaska 2026-09-03",4,0.03395684311288828,0.03395684311288828,0.03395684311288828,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
+"80 km SSW of San Jose Village, Northern Mariana Islands 2026-09-16",8,0.06497967054026818,0.0405436888188081,0.07302398200717475,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
+"92 km SSW of Nikolski, Alaska 2026-09-03",10,0.33968896688169614,0.11391823380740318,0.71036476437715,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
+"93 km SE of False Pass, Alaska 2026-07-14",18,0.4586766776805833,0.348416391202625,0.5456528681009766,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
+"93 km SSE of Adak, Alaska 2026-07-24",18,0.21874252219063053,0.14863859762423517,0.3666322594470399,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
 Mariana Islands region 2026-09-23,4,0.05399114925816009,0.0021393431498763766,0.08535895410111549,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
-off the coast of Oregon 2026-09-07,10,0.09255567318259819,0.046250218887737934,0.13757234087609707,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
-pooled,203,0.16450273608526322,0.119344394351621,0.2214477804904017,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
-"103 km SE of Atka, Alaska 2026-07-26",15,0.029956577590370244,-0.00017534248993567706,0.0745201489196791,claude-haiku-5-5|direct|I1|high,test-post,penalty
+off the coast of Oregon 2026-09-07,10,0.12346376666757475,0.0538889286581094,0.21614189056993932,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
+pooled,203,0.20653238625437154,0.14599095869615616,0.2796022985481948,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-post,penalty
+"103 km SE of Atka, Alaska 2026-07-26",15,0.041437014928445995,-0.00017534248993567706,0.1074852429132917,claude-haiku-5-5|direct|I1|high,test-post,penalty
 "105 km SSE of False Pass, Alaska 2026-07-14",6,-0.013380964039820323,-0.013380964039820323,-0.013380964039820323,claude-haiku-5-5|direct|I1|high,test-post,penalty
 "120 km ESE of Yigo Village, Guam 2026-09-20",7,-0.0039608410317711175,-0.007316553572577203,0.0005134423559703304,claude-haiku-5-5|direct|I1|high,test-post,penalty
 "122 km SE of McCarthy, Alaska 2026-07-16",18,0.01071339280311278,0.0002995080409826927,0.02755189724677849,claude-haiku-5-5|direct|I1|high,test-post,penalty
-"149 km WSW of Adak, Alaska 2026-09-11",9,0.007929552931792809,0.00025672117798516514,0.014812309750995905,claude-haiku-5-5|direct|I1|high,test-post,penalty
+"149 km WSW of Adak, Alaska 2026-09-11",9,0.008735232770989263,0.00025672117798516514,0.016262533461549523,claude-haiku-5-5|direct|I1|high,test-post,penalty
 "162 km ESE of San Jose Village, Northern Mariana Islands 2026-09-16",7,0.002750584049841053,0.0,0.004813522087221843,claude-haiku-5-5|direct|I1|high,test-post,penalty
 "163 km SW of Merizo Village, Guam 2026-09-10",9,0.0022249168758714296,0.00017114745199011013,0.00410753884776264,claude-haiku-5-5|direct|I1|high,test-post,penalty
-"177 km W of Nikolski, Alaska 2026-09-17",7,0.016790804846746436,0.0012836058899258244,0.028421204064361896,claude-haiku-5-5|direct|I1|high,test-post,penalty
-"38 km SSE of Spearman, Texas 2026-07-23",18,0.01603497907485444,0.0002995080409826927,0.03219831873870146,claude-haiku-5-5|direct|I1|high,test-post,penalty
+"177 km W of Nikolski, Alaska 2026-09-17",7,0.021185259644822235,0.0012836058899258244,0.03611149996099455,claude-haiku-5-5|direct|I1|high,test-post,penalty
+"38 km SSE of Spearman, Texas 2026-07-23",18,0.017418699806288452,0.0002995080409826927,0.03496576020156948,claude-haiku-5-5|direct|I1|high,test-post,penalty
 "52 km E of Denali National Park, Alaska 2026-07-28",18,0.0024638799012361157,8.557372599505506e-05,0.005312841569449978,claude-haiku-5-5|direct|I1|high,test-post,penalty
 "57 km WNW of Skwentna, Alaska 2026-08-08",17,0.006150203759435111,0.0004813522087221847,0.012626178104919832,claude-haiku-5-5|direct|I1|high,test-post,penalty
 "67 km SSW of Nikolski, Alaska 2026-09-03",4,0.0,0.0,0.0,claude-haiku-5-5|direct|I1|high,test-post,penalty
-"80 km SSW of San Jose Village, Northern Mariana Islands 2026-09-16",8,0.008101820725393422,-0.0007701635339554955,0.016203641450786843,claude-haiku-5-5|direct|I1|high,test-post,penalty
-"92 km SSW of Nikolski, Alaska 2026-09-03",10,0.052443473713888564,0.005885000122731483,0.11547339733111828,claude-haiku-5-5|direct|I1|high,test-post,penalty
-"93 km SE of False Pass, Alaska 2026-07-14",18,0.015360120255727154,0.0013942083262979278,0.03699095117554328,claude-haiku-5-5|direct|I1|high,test-post,penalty
+"80 km SSW of San Jose Village, Northern Mariana Islands 2026-09-16",8,0.008214449922090134,-0.0007701635339554955,0.016428899844180268,claude-haiku-5-5|direct|I1|high,test-post,penalty
+"92 km SSW of Nikolski, Alaska 2026-09-03",10,0.05898090479328292,0.01895986228152019,0.11547339733111828,claude-haiku-5-5|direct|I1|high,test-post,penalty
+"93 km SE of False Pass, Alaska 2026-07-14",18,0.019131830776146826,0.0013942083262979278,0.0483060827368023,claude-haiku-5-5|direct|I1|high,test-post,penalty
 "93 km SSE of Adak, Alaska 2026-07-24",18,0.0018398351088936822,0.0004706554929728028,0.0029950804098269244,claude-haiku-5-5|direct|I1|high,test-post,penalty
 Mariana Islands region 2026-09-23,4,-0.0038508176697774777,-0.006161308271643964,0.0,claude-haiku-5-5|direct|I1|high,test-post,penalty
 off the coast of Oregon 2026-09-07,10,0.005359180062971601,0.0001540327067910991,0.01110344189292095,claude-haiku-5-5|direct|I1|high,test-post,penalty
-pooled,203,0.010526738760252194,0.0028595351779590575,0.01842081016362199,claude-haiku-5-5|direct|I1|high,test-post,penalty
+pooled,203,0.012345911021884308,0.0033933589007250292,0.022857738300605782,claude-haiku-5-5|direct|I1|high,test-post,penalty
 "103 km SE of Atka, Alaska 2026-07-26",15,0.0016469595772175595,-0.0013349501255228587,0.004115426923987648,claude-opus-5-5|direct|I1|high,test-post,penalty
 "105 km SSE of False Pass, Alaska 2026-07-14",6,0.06652224788274945,0.06652224788274945,0.06652224788274945,claude-opus-5-5|direct|I1|high,test-post,penalty
 "120 km ESE of Yigo Village, Guam 2026-09-20",7,-0.003850817669777475,-0.006738930922110581,0.0,claude-opus-5-5|direct|I1|high,test-post,penalty
@@ -94,6 +94,25 @@ pooled,203,0.01334014040562435,0.005974859107362344,0.01882236136048151,claude-s
 Mariana Islands region 2026-09-23,4,0.0025030314853553602,0.0020024251882842883,0.003594096491792312,claude-sonnet-5-5|direct|I1|high,test-post,penalty
 off the coast of Oregon 2026-09-07,10,0.004929046617315171,0.0020794415416798377,0.0076246189861594055,claude-sonnet-5-5|direct|I1|high,test-post,penalty
 pooled,203,0.005631529192574875,0.002102866079717377,0.007825806928180084,claude-sonnet-5-5|direct|I1|high,test-post,penalty
+"103 km SE of Atka, Alaska 2026-07-26",15,0.07559607077230286,0.046194851858488144,0.14109955281496328,openai/gpt-oss-20b|direct|I1|medium,test-post,penalty
+"105 km SSE of False Pass, Alaska 2026-07-14",6,-0.013689898609634779,-0.013689898609634779,-0.013689898609634779,openai/gpt-oss-20b|direct|I1|medium,test-post,penalty
+"120 km ESE of Yigo Village, Guam 2026-09-20",7,0.04047729231903401,0.024041713691599808,0.05280397628960967,openai/gpt-oss-20b|direct|I1|medium,test-post,penalty
+"122 km SE of McCarthy, Alaska 2026-07-16",18,0.040726883617670184,0.011837704904950695,0.0799577311295615,openai/gpt-oss-20b|direct|I1|medium,test-post,penalty
+"149 km WSW of Adak, Alaska 2026-09-11",9,0.021027544989329655,0.007892728601257155,0.03590236047263494,openai/gpt-oss-20b|direct|I1|medium,test-post,penalty
+"162 km ESE of San Jose Village, Northern Mariana Islands 2026-09-16",7,0.03139140263089561,0.021038268446354147,0.03915625326930171,openai/gpt-oss-20b|direct|I1|medium,test-post,penalty
+"163 km SW of Merizo Village, Guam 2026-09-10",9,0.06988128300568204,0.025115245441596993,0.13024061922940025,openai/gpt-oss-20b|direct|I1|medium,test-post,penalty
+"177 km W of Nikolski, Alaska 2026-09-17",7,0.05333859556220068,0.014750487860713028,0.12557842287977852,openai/gpt-oss-20b|direct|I1|medium,test-post,penalty
+"38 km SSE of Spearman, Texas 2026-07-23",18,0.07971108415413795,0.03332398642718358,0.11483821821586584,openai/gpt-oss-20b|direct|I1|medium,test-post,penalty
+"52 km E of Denali National Park, Alaska 2026-07-28",18,0.11029305672205082,0.03820870430695589,0.19951535823330893,openai/gpt-oss-20b|direct|I1|medium,test-post,penalty
+"57 km WNW of Skwentna, Alaska 2026-08-08",17,0.12203861900678603,0.05005383156675136,0.22467864844474958,openai/gpt-oss-20b|direct|I1|medium,test-post,penalty
+"67 km SSW of Nikolski, Alaska 2026-09-03",4,0.017971004918859605,0.017971004918859605,0.017971004918859605,openai/gpt-oss-20b|direct|I1|medium,test-post,penalty
+"80 km SSW of San Jose Village, Northern Mariana Islands 2026-09-16",8,0.016584091829251274,0.009814759502271543,0.023353424156231,openai/gpt-oss-20b|direct|I1|medium,test-post,penalty
+"92 km SSW of Nikolski, Alaska 2026-09-03",10,0.1665804848788203,0.08081279501241637,0.36680445542991286,openai/gpt-oss-20b|direct|I1|medium,test-post,penalty
+"93 km SE of False Pass, Alaska 2026-07-14",18,0.20917271406718707,0.09511573436019659,0.3204430341540011,openai/gpt-oss-20b|direct|I1|medium,test-post,penalty
+"93 km SSE of Adak, Alaska 2026-07-24",18,0.09839298163829328,0.014597397943439585,0.22222664780373969,openai/gpt-oss-20b|direct|I1|medium,test-post,penalty
+Mariana Islands region 2026-09-23,4,-0.0009627044174443712,-0.005391144737688469,0.0038508176697774755,openai/gpt-oss-20b|direct|I1|medium,test-post,penalty
+off the coast of Oregon 2026-09-07,10,0.03201298069044985,0.009917737587646216,0.07411823468758409,openai/gpt-oss-20b|direct|I1|medium,test-post,penalty
+pooled,203,0.082251577509865,0.05286949785482745,0.12240973978167788,openai/gpt-oss-20b|direct|I1|medium,test-post,penalty
 "103 km SE of Atka, Alaska 2026-07-26",15,-0.003938064362856276,-0.008389571081682883,0.0005134423559703304,etas,test-post,penalty
 "105 km SSE of False Pass, Alaska 2026-07-14",6,0.07022289329026465,0.07022289329026465,0.07022289329026465,etas,test-post,penalty
 "120 km ESE of Yigo Village, Guam 2026-09-20",7,-0.003850817669777475,-0.006738930922110581,0.0,etas,test-post,penalty
@@ -170,28 +189,28 @@ pooled,203,0.0003371112265983146,-0.006824403225952845,0.004344097957619843,gene
 Mariana Islands region 2026-09-23,4,-0.0038508176697774777,-0.006161308271643964,0.0,naive,test-post,penalty
 off the coast of Oregon 2026-09-07,10,0.0,0.0,0.0,naive,test-post,penalty
 pooled,203,0.003822499522930172,-0.004334885589178673,0.022373122251023794,naive,test-post,penalty
-"13 km S of Honaunau-Napoopoo, Hawaii 2026-05-23",18,0.42210174174859727,0.40988159686422243,0.4323394833429306,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
-"167 km SW of Nikolski, Alaska 2026-05-23",18,0.22106242584137278,0.1081780280384973,0.2942590613137683,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
-"172 km ENE of Atka, Alaska 2026-05-22",15,0.16022759385960347,0.036322801213342304,0.26962363239161424,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
-"181 km SSW of Merizo Village, Guam 2026-01-06",18,0.10196100406822471,0.09531430832642024,0.10946995203666776,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
-"209 km WSW of Adak, Alaska 2026-04-18",18,0.19597421858993,0.11346887033883177,0.24920533433915404,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
-"223 km ESE of Attu Station, Alaska 2026-03-04",18,0.14064214112328807,0.010938882340666568,0.21299934504432838,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
-"280 km ESE of Attu Station, Alaska 2026-01-15",18,0.2364872186605554,0.15608994469976975,0.3691416948052588,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
-"295 km ESE of Attu Station, Alaska 2026-01-23",18,0.2338216955118373,0.15440681885135962,0.31085360285780916,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
-"39 km E of Adak, Alaska 2026-01-24",18,-0.021139365716953355,-0.1461070932365231,0.037450369711188904,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
-"45 km NNW of Yigo Village, Guam 2026-02-12",18,0.09216644603360452,0.07632375957764442,0.13992131345464942,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
-"46 km N of Yigo Village, Guam 2026-04-23",6,0.09994323942073562,0.09994323942073562,0.09994323942073562,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
-"74 km NE of Adak, Alaska 2026-02-10",18,0.13754854577207787,0.09269219296737087,0.2051915965759803,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
-"88 km SE of Akutan, Alaska 2026-04-25",18,0.12001548560062975,0.09868578831845956,0.13359908646478513,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
+"13 km S of Honaunau-Napoopoo, Hawaii 2026-05-23",18,0.4748215897003745,0.4286166301282909,0.5271787648603665,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
+"167 km SW of Nikolski, Alaska 2026-05-23",18,0.23378884170369585,0.11256437856536208,0.31561078826486644,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
+"172 km ENE of Atka, Alaska 2026-05-22",15,0.2411130841173844,0.11760389831587144,0.39545684081471966,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
+"181 km SSW of Merizo Village, Guam 2026-01-06",18,0.2569008003537969,0.102331757906053,0.5601996816396606,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
+"209 km WSW of Adak, Alaska 2026-04-18",18,0.20151744071004474,0.11618923184681214,0.2570009255647694,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
+"223 km ESE of Attu Station, Alaska 2026-03-04",18,0.28521678845937926,0.016431257231252386,0.43668703321761326,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
+"280 km ESE of Attu Station, Alaska 2026-01-15",18,0.29690116362448726,0.18320503750785277,0.37035803870745515,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
+"295 km ESE of Attu Station, Alaska 2026-01-23",18,0.2339643183884957,0.15440681885135962,0.31128147148778446,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
+"39 km E of Adak, Alaska 2026-01-24",18,0.10508449790076438,-0.13610134834318696,0.22108509861812065,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
+"45 km NNW of Yigo Village, Guam 2026-02-12",18,0.16067601039588317,0.11041730915812328,0.2058377464523761,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
+"46 km N of Yigo Village, Guam 2026-04-23",6,0.10122684531066144,0.10122684531066144,0.10122684531066144,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
+"74 km NE of Adak, Alaska 2026-02-10",18,0.14054261957769593,0.09860902914027785,0.2052629080143095,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
+"88 km SE of Akutan, Alaska 2026-04-25",18,0.13180342650855306,0.11783842610012149,0.14974017727080874,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
 "89 km SSW of Atka, Alaska 2026-02-27",6,0.06329964937372674,0.06329964937372674,0.06329964937372674,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
-"93 km S of King Cove, Alaska 2026-04-12",18,0.1691952488931778,0.11126662673480198,0.2286469034910443,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
-"96 km SW of Nikolski, Alaska 2026-02-23",18,0.19043112096827558,0.12904804471083897,0.26407923560678676,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
-"Pagan region, Northern Mariana Islands 2026-03-03",15,0.10829275012965357,0.08726985767331813,0.12597920258420775,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
-"Pagan region, Northern Mariana Islands 2026-04-02",18,0.1502784819573616,0.10093784743371284,0.18987270366014827,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
-"Pagan region, Northern Mariana Islands 2026-04-14",18,0.21765314686277432,0.12516494408652484,0.25677058530573776,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
-"Rat Islands, Aleutian Islands, Alaska 2026-05-09",3,0.014870526100495494,0.014870526100495494,0.014870526100495494,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
-off the coast of Oregon 2026-01-16,18,0.27255672441835455,0.15245972121160176,0.4140668198469498,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
-pooled,333,0.17088734869940858,0.11952618526769869,0.21185799270019268,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
+"93 km S of King Cove, Alaska 2026-04-12",18,0.2426692109416775,0.12287878288915441,0.3382943565028016,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
+"96 km SW of Nikolski, Alaska 2026-02-23",18,0.20689433583056419,0.14030552457509507,0.28483776369334746,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
+"Pagan region, Northern Mariana Islands 2026-03-03",15,0.12223554210515483,0.10784881428320282,0.13725583202230093,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
+"Pagan region, Northern Mariana Islands 2026-04-02",18,0.16567847171183941,0.10502867251240294,0.21625009595565586,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
+"Pagan region, Northern Mariana Islands 2026-04-14",18,0.26144552643725194,0.2212618125898143,0.2827666246031869,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
+"Rat Islands, Aleutian Islands, Alaska 2026-05-09",3,0.49752417812360167,0.49752417812360167,0.49752417812360167,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
+off the coast of Oregon 2026-01-16,18,0.49491829559860445,0.3111613880554454,0.7588024330813882,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
+pooled,333,0.234236579510484,0.17306050418745247,0.28971860059256094,allenai/Olmo-3.1-32B-Instruct|direct|I1|none,test-pre,penalty
 "13 km S of Honaunau-Napoopoo, Hawaii 2026-05-23",18,0.0008193844711677165,0.0002488929645340161,0.002923768971497714,claude-opus-5-5|direct|I1|high,test-pre,penalty
 "167 km SW of Nikolski, Alaska 2026-05-23",18,0.0026331614896686183,0.000641802944962913,0.004981077226020387,claude-opus-5-5|direct|I1|high,test-pre,penalty
 "172 km ENE of Atka, Alaska 2026-05-22",15,0.006040357563047426,0.0,0.01269427232357337,claude-opus-5-5|direct|I1|high,test-pre,penalty
@@ -236,6 +255,28 @@ pooled,333,-0.007670043510934698,-0.026350233353608758,0.000548176135458626,clau
 "Rat Islands, Aleutian Islands, Alaska 2026-05-09",3,0.014870526100495494,0.014870526100495494,0.014870526100495494,claude-sonnet-5-5|direct|I1|high,test-pre,penalty
 off the coast of Oregon 2026-01-16,18,0.017900913466467498,0.005461383830315233,0.029157745572057286,claude-sonnet-5-5|direct|I1|high,test-pre,penalty
 pooled,333,-0.004109508102208586,-0.030516000689430993,0.010094850123844434,claude-sonnet-5-5|direct|I1|high,test-pre,penalty
+"13 km S of Honaunau-Napoopoo, Hawaii 2026-05-23",18,0.20988733460124365,0.06690235070475606,0.32106030320598145,openai/gpt-oss-20b|direct|I1|medium,test-pre,penalty
+"167 km SW of Nikolski, Alaska 2026-05-23",18,0.048074416236796834,0.014637834423697775,0.079013703569137,openai/gpt-oss-20b|direct|I1|medium,test-pre,penalty
+"172 km ENE of Atka, Alaska 2026-05-22",15,0.07790323437003588,0.04754779654065348,0.13525101926929342,openai/gpt-oss-20b|direct|I1|medium,test-pre,penalty
+"181 km SSW of Merizo Village, Guam 2026-01-06",18,0.1093508268329021,0.03557194091057574,0.27395023752507497,openai/gpt-oss-20b|direct|I1|medium,test-pre,penalty
+"209 km WSW of Adak, Alaska 2026-04-18",18,0.037891537762930264,0.028065000739434534,0.04992872937463158,openai/gpt-oss-20b|direct|I1|medium,test-pre,penalty
+"223 km ESE of Attu Station, Alaska 2026-03-04",18,-0.03311219659291493,-0.19295821128530333,0.16965156586213417,openai/gpt-oss-20b|direct|I1|medium,test-pre,penalty
+"280 km ESE of Attu Station, Alaska 2026-01-15",18,0.045640005910229264,0.01740465515480104,0.060282272332001084,openai/gpt-oss-20b|direct|I1|medium,test-pre,penalty
+"295 km ESE of Attu Station, Alaska 2026-01-23",18,0.04124843327531876,0.015311906465968163,0.07794275788472263,openai/gpt-oss-20b|direct|I1|medium,test-pre,penalty
+"39 km E of Adak, Alaska 2026-01-24",18,-0.03575435369666888,-0.2609888292988698,0.08595115719441554,openai/gpt-oss-20b|direct|I1|medium,test-pre,penalty
+"45 km NNW of Yigo Village, Guam 2026-02-12",18,0.06336395925572232,0.04401241869141517,0.06685981641692092,openai/gpt-oss-20b|direct|I1|medium,test-pre,penalty
+"46 km N of Yigo Village, Guam 2026-04-23",6,0.03008431248557322,0.03008431248557322,0.03008431248557322,openai/gpt-oss-20b|direct|I1|medium,test-pre,penalty
+"74 km NE of Adak, Alaska 2026-02-10",18,0.061257822403454995,0.027782102374059297,0.1160830417407421,openai/gpt-oss-20b|direct|I1|medium,test-pre,penalty
+"88 km SE of Akutan, Alaska 2026-04-25",18,0.043141462271828426,0.03116293717003291,0.07516825973761442,openai/gpt-oss-20b|direct|I1|medium,test-pre,penalty
+"89 km SSW of Atka, Alaska 2026-02-27",6,0.016154131990421313,0.016154131990421313,0.016154131990421313,openai/gpt-oss-20b|direct|I1|medium,test-pre,penalty
+"93 km S of King Cove, Alaska 2026-04-12",18,0.07375400725955304,0.03182041754112886,0.14774351325388996,openai/gpt-oss-20b|direct|I1|medium,test-pre,penalty
+"96 km SW of Nikolski, Alaska 2026-02-23",18,0.06045348162528067,0.018549123972580406,0.16121838957479384,openai/gpt-oss-20b|direct|I1|medium,test-pre,penalty
+"Pagan region, Northern Mariana Islands 2026-03-03",15,0.04314341426210663,0.02923571688631909,0.07493742206342716,openai/gpt-oss-20b|direct|I1|medium,test-pre,penalty
+"Pagan region, Northern Mariana Islands 2026-04-02",18,0.06748200896673792,0.03496252316511988,0.09871941649583171,openai/gpt-oss-20b|direct|I1|medium,test-pre,penalty
+"Pagan region, Northern Mariana Islands 2026-04-14",18,0.08902623897035104,0.07827825288665316,0.13256114907031982,openai/gpt-oss-20b|direct|I1|medium,test-pre,penalty
+"Rat Islands, Aleutian Islands, Alaska 2026-05-09",3,0.182245811802059,0.182245811802059,0.182245811802059,openai/gpt-oss-20b|direct|I1|medium,test-pre,penalty
+off the coast of Oregon 2026-01-16,18,0.2995007680860014,0.11855425812474572,0.5842002606343873,openai/gpt-oss-20b|direct|I1|medium,test-pre,penalty
+pooled,333,0.07177649065700324,0.029531263662324055,0.11886548520868835,openai/gpt-oss-20b|direct|I1|medium,test-pre,penalty
 "13 km S of Honaunau-Napoopoo, Hawaii 2026-05-23",18,-0.003923523247343144,-0.007847046494686288,0.0,etas,test-pre,penalty
 "167 km SW of Nikolski, Alaska 2026-05-23",18,-0.0009808808118357852,-0.0023896302536468455,0.001069671574938188,etas,test-pre,penalty
 "172 km ENE of Atka, Alaska 2026-05-22",15,-0.0017341226767126738,-0.003724966531410513,0.0005134423559703304,etas,test-pre,penalty
@@ -419,6 +460,25 @@ pooled,203,0.01334014040562435,0.005974859107362344,0.01882236136048151,claude-s
 Mariana Islands region 2026-09-23,4,0.0025030314853553602,0.0020024251882842883,0.003594096491792312,claude-sonnet-5-5|direct|I1|high,test-post,valid-only
 off the coast of Oregon 2026-09-07,10,0.004929046617315171,0.0020794415416798377,0.0076246189861594055,claude-sonnet-5-5|direct|I1|high,test-post,valid-only
 pooled,203,0.005631529192574875,0.002102866079717377,0.007825806928180084,claude-sonnet-5-5|direct|I1|high,test-post,valid-only
+"103 km SE of Atka, Alaska 2026-07-26",15,0.07559607077230286,0.046194851858488144,0.14109955281496328,openai/gpt-oss-20b|direct|I1|medium,test-post,valid-only
+"105 km SSE of False Pass, Alaska 2026-07-14",6,-0.013689898609634779,-0.013689898609634779,-0.013689898609634779,openai/gpt-oss-20b|direct|I1|medium,test-post,valid-only
+"120 km ESE of Yigo Village, Guam 2026-09-20",7,0.04047729231903401,0.024041713691599808,0.05280397628960967,openai/gpt-oss-20b|direct|I1|medium,test-post,valid-only
+"122 km SE of McCarthy, Alaska 2026-07-16",18,0.040726883617670184,0.011837704904950695,0.0799577311295615,openai/gpt-oss-20b|direct|I1|medium,test-post,valid-only
+"149 km WSW of Adak, Alaska 2026-09-11",9,0.02021888397518643,0.006275406572970703,0.03590236047263494,openai/gpt-oss-20b|direct|I1|medium,test-post,valid-only
+"162 km ESE of San Jose Village, Northern Mariana Islands 2026-09-16",7,0.03139140263089561,0.021038268446354147,0.03915625326930171,openai/gpt-oss-20b|direct|I1|medium,test-post,valid-only
+"163 km SW of Merizo Village, Guam 2026-09-10",9,0.06988128300568204,0.025115245441596993,0.13024061922940025,openai/gpt-oss-20b|direct|I1|medium,test-post,valid-only
+"177 km W of Nikolski, Alaska 2026-09-17",7,0.05333859556220068,0.014750487860713028,0.12557842287977852,openai/gpt-oss-20b|direct|I1|medium,test-post,valid-only
+"38 km SSE of Spearman, Texas 2026-07-23",18,0.07367101283968207,0.03332398642718358,0.1099039577067344,openai/gpt-oss-20b|direct|I1|medium,test-post,valid-only
+"52 km E of Denali National Park, Alaska 2026-07-28",18,0.11029305672205082,0.03820870430695589,0.19951535823330893,openai/gpt-oss-20b|direct|I1|medium,test-post,valid-only
+"57 km WNW of Skwentna, Alaska 2026-08-08",17,0.12203861900678603,0.05005383156675136,0.22467864844474958,openai/gpt-oss-20b|direct|I1|medium,test-post,valid-only
+"67 km SSW of Nikolski, Alaska 2026-09-03",4,0.017971004918859605,0.017971004918859605,0.017971004918859605,openai/gpt-oss-20b|direct|I1|medium,test-post,valid-only
+"80 km SSW of San Jose Village, Northern Mariana Islands 2026-09-16",8,0.016584091829251274,0.009814759502271543,0.023353424156231,openai/gpt-oss-20b|direct|I1|medium,test-post,valid-only
+"92 km SSW of Nikolski, Alaska 2026-09-03",10,0.1665804848788203,0.08081279501241637,0.36680445542991286,openai/gpt-oss-20b|direct|I1|medium,test-post,valid-only
+"93 km SE of False Pass, Alaska 2026-07-14",18,0.20917271406718707,0.09511573436019659,0.3204430341540011,openai/gpt-oss-20b|direct|I1|medium,test-post,valid-only
+"93 km SSE of Adak, Alaska 2026-07-24",18,0.09839298163829328,0.014597397943439585,0.22222664780373969,openai/gpt-oss-20b|direct|I1|medium,test-post,valid-only
+Mariana Islands region 2026-09-23,4,-0.0009627044174443712,-0.005391144737688469,0.0038508176697774755,openai/gpt-oss-20b|direct|I1|medium,test-post,valid-only
+off the coast of Oregon 2026-09-07,10,0.03201298069044985,0.009917737587646216,0.07411823468758409,openai/gpt-oss-20b|direct|I1|medium,test-post,valid-only
+pooled,203,0.08168015271780839,0.05225702290755649,0.12224907738718013,openai/gpt-oss-20b|direct|I1|medium,test-post,valid-only
 "103 km SE of Atka, Alaska 2026-07-26",15,-0.003938064362856276,-0.008389571081682883,0.0005134423559703304,etas,test-post,valid-only
 "105 km SSE of False Pass, Alaska 2026-07-14",6,0.07022289329026465,0.07022289329026465,0.07022289329026465,etas,test-post,valid-only
 "120 km ESE of Yigo Village, Guam 2026-09-20",7,-0.003850817669777475,-0.006738930922110581,0.0,etas,test-post,valid-only
@@ -560,6 +620,28 @@ pooled,333,-0.007670043510934698,-0.026350233353608758,0.000548176135458626,clau
 "Rat Islands, Aleutian Islands, Alaska 2026-05-09",3,0.014870526100495494,0.014870526100495494,0.014870526100495494,claude-sonnet-5-5|direct|I1|high,test-pre,valid-only
 off the coast of Oregon 2026-01-16,18,0.017900913466467498,0.005461383830315233,0.029157745572057286,claude-sonnet-5-5|direct|I1|high,test-pre,valid-only
 pooled,333,-0.004109508102208586,-0.030516000689430993,0.010094850123844434,claude-sonnet-5-5|direct|I1|high,test-pre,valid-only
+"13 km S of Honaunau-Napoopoo, Hawaii 2026-05-23",18,0.20988733460124365,0.06690235070475606,0.32106030320598145,openai/gpt-oss-20b|direct|I1|medium,test-pre,valid-only
+"167 km SW of Nikolski, Alaska 2026-05-23",18,0.048074416236796834,0.014637834423697775,0.079013703569137,openai/gpt-oss-20b|direct|I1|medium,test-pre,valid-only
+"172 km ENE of Atka, Alaska 2026-05-22",15,0.07790323437003588,0.04754779654065348,0.13525101926929342,openai/gpt-oss-20b|direct|I1|medium,test-pre,valid-only
+"181 km SSW of Merizo Village, Guam 2026-01-06",18,0.10401523206960556,0.030201439508638423,0.2632790479984819,openai/gpt-oss-20b|direct|I1|medium,test-pre,valid-only
+"209 km WSW of Adak, Alaska 2026-04-18",18,0.037891537762930264,0.028065000739434534,0.04992872937463158,openai/gpt-oss-20b|direct|I1|medium,test-pre,valid-only
+"223 km ESE of Attu Station, Alaska 2026-03-04",18,-0.03311219659291493,-0.19295821128530333,0.16965156586213417,openai/gpt-oss-20b|direct|I1|medium,test-pre,valid-only
+"280 km ESE of Attu Station, Alaska 2026-01-15",18,0.045640005910229264,0.01740465515480104,0.060282272332001084,openai/gpt-oss-20b|direct|I1|medium,test-pre,valid-only
+"295 km ESE of Attu Station, Alaska 2026-01-23",18,0.04124843327531876,0.015311906465968163,0.07794275788472263,openai/gpt-oss-20b|direct|I1|medium,test-pre,valid-only
+"39 km E of Adak, Alaska 2026-01-24",18,-0.03575435369666888,-0.2609888292988698,0.08595115719441554,openai/gpt-oss-20b|direct|I1|medium,test-pre,valid-only
+"45 km NNW of Yigo Village, Guam 2026-02-12",18,0.06336395925572232,0.04401241869141517,0.06685981641692092,openai/gpt-oss-20b|direct|I1|medium,test-pre,valid-only
+"46 km N of Yigo Village, Guam 2026-04-23",6,0.03008431248557322,0.03008431248557322,0.03008431248557322,openai/gpt-oss-20b|direct|I1|medium,test-pre,valid-only
+"74 km NE of Adak, Alaska 2026-02-10",18,0.061257822403454995,0.027782102374059297,0.1160830417407421,openai/gpt-oss-20b|direct|I1|medium,test-pre,valid-only
+"88 km SE of Akutan, Alaska 2026-04-25",18,0.043141462271828426,0.03116293717003291,0.07516825973761442,openai/gpt-oss-20b|direct|I1|medium,test-pre,valid-only
+"89 km SSW of Atka, Alaska 2026-02-27",6,0.016154131990421313,0.016154131990421313,0.016154131990421313,openai/gpt-oss-20b|direct|I1|medium,test-pre,valid-only
+"93 km S of King Cove, Alaska 2026-04-12",18,0.07375400725955304,0.03182041754112886,0.14774351325388996,openai/gpt-oss-20b|direct|I1|medium,test-pre,valid-only
+"96 km SW of Nikolski, Alaska 2026-02-23",18,0.04995117775033856,0.016441951193777497,0.1402137818249096,openai/gpt-oss-20b|direct|I1|medium,test-pre,valid-only
+"Pagan region, Northern Mariana Islands 2026-03-03",15,0.04314341426210663,0.02923571688631909,0.07493742206342716,openai/gpt-oss-20b|direct|I1|medium,test-pre,valid-only
+"Pagan region, Northern Mariana Islands 2026-04-02",18,0.06748200896673792,0.03496252316511988,0.09871941649583171,openai/gpt-oss-20b|direct|I1|medium,test-pre,valid-only
+"Pagan region, Northern Mariana Islands 2026-04-14",18,0.08902623897035104,0.07827825288665316,0.13256114907031982,openai/gpt-oss-20b|direct|I1|medium,test-pre,valid-only
+"Rat Islands, Aleutian Islands, Alaska 2026-05-09",3,0.182245811802059,0.182245811802059,0.182245811802059,openai/gpt-oss-20b|direct|I1|medium,test-pre,valid-only
+off the coast of Oregon 2026-01-16,18,0.2995007680860014,0.11855425812474572,0.5842002606343873,openai/gpt-oss-20b|direct|I1|medium,test-pre,valid-only
+pooled,333,0.07092038802790927,0.028380998117479166,0.117656786926977,openai/gpt-oss-20b|direct|I1|medium,test-pre,valid-only
 "13 km S of Honaunau-Napoopoo, Hawaii 2026-05-23",18,-0.003923523247343144,-0.007847046494686288,0.0,etas,test-pre,valid-only
 "167 km SW of Nikolski, Alaska 2026-05-23",18,-0.0009808808118357852,-0.0023896302536468455,0.001069671574938188,etas,test-pre,valid-only
 "172 km ENE of Atka, Alaska 2026-05-22",15,-0.0017341226767126738,-0.003724966531410513,0.0005134423559703304,etas,test-pre,valid-only
@@ -743,6 +825,25 @@ pooled,203,0.13309961882772856,0.06680205257233278,0.1960219878768183,claude-son
 Mariana Islands region 2026-09-23,4,0.011403655602731565,0.0014910279249000541,0.026641095842524918,claude-sonnet-5-5|direct|I1|high,test-post,m4 valid-only
 off the coast of Oregon 2026-09-07,10,0.043696736429242655,0.018986915007941547,0.0675345842352689,claude-sonnet-5-5|direct|I1|high,test-post,m4 valid-only
 pooled,203,0.035658015345097764,-0.0048930474832595055,0.05651985191405637,claude-sonnet-5-5|direct|I1|high,test-post,m4 valid-only
+"103 km SE of Atka, Alaska 2026-07-26",15,0.25104586774509763,0.10141025526466217,0.5539526533055447,openai/gpt-oss-20b|direct|I1|medium,test-post,m4 valid-only
+"105 km SSE of False Pass, Alaska 2026-07-14",6,0.006671516459070991,0.006671516459070991,0.006671516459070991,openai/gpt-oss-20b|direct|I1|medium,test-post,m4 valid-only
+"120 km ESE of Yigo Village, Guam 2026-09-20",7,0.263706118241005,0.1139447383277255,0.37602715317596463,openai/gpt-oss-20b|direct|I1|medium,test-post,m4 valid-only
+"122 km SE of McCarthy, Alaska 2026-07-16",18,0.2360793977264153,0.05837940614411505,0.552537444811703,openai/gpt-oss-20b|direct|I1|medium,test-post,m4 valid-only
+"149 km WSW of Adak, Alaska 2026-09-11",9,0.18964644777485506,0.04844100419983068,0.36258931429155916,openai/gpt-oss-20b|direct|I1|medium,test-post,m4 valid-only
+"162 km ESE of San Jose Village, Northern Mariana Islands 2026-09-16",7,0.20218948493182096,0.09659761410495743,0.2813833880519686,openai/gpt-oss-20b|direct|I1|medium,test-post,m4 valid-only
+"163 km SW of Merizo Village, Guam 2026-09-10",9,0.33436014232808864,0.053770379076156616,0.64760294901973,openai/gpt-oss-20b|direct|I1|medium,test-post,m4 valid-only
+"177 km W of Nikolski, Alaska 2026-09-17",7,0.12082990484111149,-0.0876810744177311,0.41922050544163747,openai/gpt-oss-20b|direct|I1|medium,test-post,m4 valid-only
+"38 km SSE of Spearman, Texas 2026-07-23",18,0.38916035626920786,0.16486205961702197,0.5636387563917225,openai/gpt-oss-20b|direct|I1|medium,test-post,m4 valid-only
+"52 km E of Denali National Park, Alaska 2026-07-28",18,0.433663589895373,0.17917148227712965,0.6878679764108502,openai/gpt-oss-20b|direct|I1|medium,test-post,m4 valid-only
+"57 km WNW of Skwentna, Alaska 2026-08-08",17,0.36087219018618155,0.1833710503871755,0.5802092959187729,openai/gpt-oss-20b|direct|I1|medium,test-post,m4 valid-only
+"67 km SSW of Nikolski, Alaska 2026-09-03",4,0.07739962505746342,0.07739962505746342,0.07739962505746342,openai/gpt-oss-20b|direct|I1|medium,test-post,m4 valid-only
+"80 km SSW of San Jose Village, Northern Mariana Islands 2026-09-16",8,0.09506434722304724,0.034684099105792635,0.15544459534030186,openai/gpt-oss-20b|direct|I1|medium,test-post,m4 valid-only
+"92 km SSW of Nikolski, Alaska 2026-09-03",10,0.26012078165793173,0.1334414457306073,0.3965699710884351,openai/gpt-oss-20b|direct|I1|medium,test-post,m4 valid-only
+"93 km SE of False Pass, Alaska 2026-07-14",18,0.492455209802274,0.289884536835427,0.7770652240759249,openai/gpt-oss-20b|direct|I1|medium,test-post,m4 valid-only
+"93 km SSE of Adak, Alaska 2026-07-24",18,0.22549457772144377,0.13509440023319896,0.3495613159832257,openai/gpt-oss-20b|direct|I1|medium,test-post,m4 valid-only
+Mariana Islands region 2026-09-23,4,0.029056328238387195,0.009453645065948252,0.03514575110228161,openai/gpt-oss-20b|direct|I1|medium,test-post,m4 valid-only
+off the coast of Oregon 2026-09-07,10,0.11633095164964272,0.06743460797412362,0.20035971948813266,openai/gpt-oss-20b|direct|I1|medium,test-post,m4 valid-only
+pooled,203,0.27437386455481977,0.20332320869183593,0.3717438576726317,openai/gpt-oss-20b|direct|I1|medium,test-post,m4 valid-only
 "103 km SE of Atka, Alaska 2026-07-26",15,0.016236568094428257,-0.002006922283250547,0.037627273810585914,rj_mle,test-post,m4 valid-only
 "105 km SSE of False Pass, Alaska 2026-07-14",6,0.007168890760940543,0.007168890760940543,0.007168890760940543,rj_mle,test-post,m4 valid-only
 "120 km ESE of Yigo Village, Guam 2026-09-20",7,0.00489086674387554,0.0047978359669180095,0.008559016801782195,rj_mle,test-post,m4 valid-only
@@ -865,6 +966,28 @@ pooled,333,-0.014068531327663808,-0.054995783189352235,0.009942966035221781,clau
 "Rat Islands, Aleutian Islands, Alaska 2026-05-09",3,0.0948920370406977,0.0948920370406977,0.0948920370406977,claude-sonnet-5-5|direct|I1|high,test-pre,m4 valid-only
 off the coast of Oregon 2026-01-16,18,0.11222407246060723,0.00965424633445428,0.22344344811480432,claude-sonnet-5-5|direct|I1|high,test-pre,m4 valid-only
 pooled,333,0.026719928251399728,-0.03348111738481468,0.057658300653813534,claude-sonnet-5-5|direct|I1|high,test-pre,m4 valid-only
+"13 km S of Honaunau-Napoopoo, Hawaii 2026-05-23",18,0.8588209678460151,0.4861326649926759,1.1714243035674246,openai/gpt-oss-20b|direct|I1|medium,test-pre,m4 valid-only
+"167 km SW of Nikolski, Alaska 2026-05-23",18,0.2628095845573044,0.12988629019892928,0.38296816159841884,openai/gpt-oss-20b|direct|I1|medium,test-pre,m4 valid-only
+"172 km ENE of Atka, Alaska 2026-05-22",15,0.240873855213723,0.19430410613702057,0.3736324346430188,openai/gpt-oss-20b|direct|I1|medium,test-pre,m4 valid-only
+"181 km SSW of Merizo Village, Guam 2026-01-06",18,0.2607884008442829,0.036399611460619506,0.6228785494454007,openai/gpt-oss-20b|direct|I1|medium,test-pre,m4 valid-only
+"209 km WSW of Adak, Alaska 2026-04-18",18,0.17146681907973652,0.1285425310322141,0.21783416056784966,openai/gpt-oss-20b|direct|I1|medium,test-pre,m4 valid-only
+"223 km ESE of Attu Station, Alaska 2026-03-04",18,-0.11446174587974405,-0.3607647845591682,0.09257563734889487,openai/gpt-oss-20b|direct|I1|medium,test-pre,m4 valid-only
+"280 km ESE of Attu Station, Alaska 2026-01-15",18,0.16335392289885695,0.11288894373371379,0.19357619426541317,openai/gpt-oss-20b|direct|I1|medium,test-pre,m4 valid-only
+"295 km ESE of Attu Station, Alaska 2026-01-23",18,0.21246793486220925,0.07645928535709871,0.4028238332472645,openai/gpt-oss-20b|direct|I1|medium,test-pre,m4 valid-only
+"39 km E of Adak, Alaska 2026-01-24",18,0.19233580738975953,-0.08886569564559933,0.3512258061541311,openai/gpt-oss-20b|direct|I1|medium,test-pre,m4 valid-only
+"45 km NNW of Yigo Village, Guam 2026-02-12",18,0.15906403095780908,0.030417393369794345,0.2820912120479983,openai/gpt-oss-20b|direct|I1|medium,test-pre,m4 valid-only
+"46 km N of Yigo Village, Guam 2026-04-23",6,0.16310326634649996,0.16310326634649996,0.16310326634649996,openai/gpt-oss-20b|direct|I1|medium,test-pre,m4 valid-only
+"74 km NE of Adak, Alaska 2026-02-10",18,0.20414747618685075,0.1039814105964428,0.35115542648147974,openai/gpt-oss-20b|direct|I1|medium,test-pre,m4 valid-only
+"88 km SE of Akutan, Alaska 2026-04-25",18,0.2100740759537943,0.1240388151179827,0.33594382306782955,openai/gpt-oss-20b|direct|I1|medium,test-pre,m4 valid-only
+"89 km SSW of Atka, Alaska 2026-02-27",6,0.11905141483205396,0.11905141483205396,0.11905141483205396,openai/gpt-oss-20b|direct|I1|medium,test-pre,m4 valid-only
+"93 km S of King Cove, Alaska 2026-04-12",18,0.3416771323661545,0.28692438448571955,0.4101903141880061,openai/gpt-oss-20b|direct|I1|medium,test-pre,m4 valid-only
+"96 km SW of Nikolski, Alaska 2026-02-23",18,0.0901739725045459,-0.010434913926258125,0.22194173988258908,openai/gpt-oss-20b|direct|I1|medium,test-pre,m4 valid-only
+"Pagan region, Northern Mariana Islands 2026-03-03",15,0.22526537786296805,0.15465457511084424,0.2944260215569193,openai/gpt-oss-20b|direct|I1|medium,test-pre,m4 valid-only
+"Pagan region, Northern Mariana Islands 2026-04-02",18,0.2747181653982297,0.18264678829372072,0.3918309127608859,openai/gpt-oss-20b|direct|I1|medium,test-pre,m4 valid-only
+"Pagan region, Northern Mariana Islands 2026-04-14",18,0.24275917285057128,0.13445255685865742,0.3673444021266908,openai/gpt-oss-20b|direct|I1|medium,test-pre,m4 valid-only
+"Rat Islands, Aleutian Islands, Alaska 2026-05-09",3,0.3704228083631511,0.3704228083631511,0.3704228083631511,openai/gpt-oss-20b|direct|I1|medium,test-pre,m4 valid-only
+off the coast of Oregon 2026-01-16,18,0.7107387377430238,0.3202175488568788,1.3193396042625596,openai/gpt-oss-20b|direct|I1|medium,test-pre,m4 valid-only
+pooled,333,0.2586579735987397,0.16700814563973324,0.3782660164988372,openai/gpt-oss-20b|direct|I1|medium,test-pre,m4 valid-only
 "13 km S of Honaunau-Napoopoo, Hawaii 2026-05-23",18,0.029425335036500435,0.017434600382433888,0.051252117021194886,rj_mle,test-pre,m4 valid-only
 "167 km SW of Nikolski, Alaska 2026-05-23",18,0.022895921289384915,0.01436681439504129,0.038262579854818464,rj_mle,test-pre,m4 valid-only
 "172 km ENE of Atka, Alaska 2026-05-22",15,0.012938531627613005,0.0029347937293053945,0.020842328506798354,rj_mle,test-pre,m4 valid-only
