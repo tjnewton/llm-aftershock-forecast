@@ -68,7 +68,9 @@ the catalog was clearly worse for M≥4 counts (+0.13, 0.07 to 0.20). Claude did
 the pre-cutoff sequences than the ETAS refit's own shift between the two sets, and Olmo, whose
 cutoff predates both, kept the same gap before and after (+0.17 and +0.17): no sign of
 contamination. Averaging Claude's quantiles with the official ones did not reliably improve
-on USGS (Opus, registered cells: −0.013, −0.030 to 0.004). A second live Panama round was
+on USGS (Opus, registered cells: −0.013, −0.030 to 0.004). Re-adapting gpt-oss-20b on three
+times the data (1,505 sequences from M6.0) matched USGS on the extended set (+0.000, −0.006 to
+0.005) but not on the two large registered sequences (+0.23, −0.05 to 0.69). A second live Panama round was
 hashed before its windows opened (tag `live-panama-2`).
 
 ![Figure 2](../figures/overview.png)
