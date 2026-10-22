@@ -156,7 +156,7 @@ def _(dataset, mo, summary):
 Average score difference from the official USGS forecast on {_which}; negative is better than
 USGS, and the interval shows the uncertainty (block bootstrap)."""),
             mo.ui.table(
-                _tab.rename(columns={"forecaster": "Forecaster"}),
+                _tab.rename(columns={"forecaster": "Forecaster"}).reset_index(drop=True),
                 selection=None,
                 show_column_summaries=False,
                 show_data_types=False,
