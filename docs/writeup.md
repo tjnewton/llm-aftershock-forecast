@@ -61,7 +61,7 @@ tell the top forecasters apart; next I will add tool-using models.
 Code, data, prompts, preregistration and every model output (tags `prereg-v1`, `scoring-v1`,
 `live-panama-1`, `live-panama-2`): https://github.com/tjnewton/llm-aftershock-forecast.
 Interactive explorer (marimo): https://tjnewton.github.io/llm-aftershock-forecast/.
-Video: [VIDEO LINK].
+Video: https://youtu.be/qpPUB_VTlBY.
 
 ## References
 

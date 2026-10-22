@@ -5,7 +5,8 @@ Geological Survey (USGS) knew when it issued each official aftershock forecast, 
 scored against what happened, on earthquakes after the models' training cutoff. Entry for the
 Open Scientific Intelligence Hackathon, Oct 21-22, 2026.
 
-**[Write-up](docs/writeup.md)** ·
+**[Video](https://youtu.be/qpPUB_VTlBY)** ·
+**[Write-up](docs/writeup.md)** ([PDF](docs/writeup.pdf)) ·
 **[Interactive explorer](https://tjnewton.github.io/llm-aftershock-forecast/)** (runs Python in
 your browser; about 15 s to load) ·
 **[Full analysis](https://tjnewton.github.io/llm-aftershock-forecast/analysis.html)**
