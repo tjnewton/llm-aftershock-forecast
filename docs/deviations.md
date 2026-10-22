@@ -14,3 +14,10 @@ Each entry: UTC time, change, reason, expected effect on the registered analyses
   further sequences (39 after one unretrievable event) with an official forecast, own config and snapshot, scored with the frozen
   code. Reason: the registered official-forecast comparison rests on two sequences. Effect: none
   on registered analyses; E3 results are reported as exploratory.
+- 2026-10-22T00:05Z. Live round 2 for Panama (runs/live-panama-2, tag live-panama-2): the same
+  procedure as live-panama-1 on a refetch (snapshot 20261022T0001Z); no newer official version
+  existed, so the matched item repeats round 1's, and the strict item's windows open
+  2026-10-22T01:00Z. Outputs SHA-256
+  84b02c81f7870231aa321fc49cb0e06d1b7013de017cbb5b202bd8336e8b1079, hashed 00:05:19Z. No new
+  M>=6 sequence with an OAF product appeared after 2026-10-14. Effect: none on registered
+  analyses; prospective record only.
