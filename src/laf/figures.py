@@ -1,8 +1,8 @@
 """Figures for the write-up and video, and the compact table behind the results explorer.
 
 Presentation only: every number comes from laf.analysis (frozen at scoring-v1).
-Colours: the validated reference palette (dataviz skill), categorical slots 1-3 for the three
-Claude models, ink grey for the official forecast.
+Colors: the validated reference palette (dataviz skill), categorical slots 1-3 for the three
+Claude models, ink gray for the official forecast.
 """
 
 from pathlib import Path

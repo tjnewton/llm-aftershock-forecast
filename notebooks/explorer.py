@@ -97,7 +97,7 @@ line, with bands no wider than needed. Hover over a dot for the numbers."""
 that follow it, and the two together.
 - **Magnitude (M)**: earthquake size on a logarithmic scale; each step up is about 30 times more
 energy, and roughly 10 times rarer. **M>=5** means magnitude 5 or larger, strong enough to damage
-buildings near the epicentre.
+buildings near the epicenter.
 - **Issue time / window**: when a forecast is made, and the period it covers (the next day, week
 or month).
 - **USGS official**: the published US Geological Survey operational aftershock forecast.

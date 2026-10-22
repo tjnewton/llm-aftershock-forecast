@@ -29,7 +29,7 @@ sequence were hashed before their windows opened.
 
 On the 33 settled windows of the two post-cutoff sequences with an official forecast (Colombia
 and Flores Sea), Opus and Sonnet could not be distinguished from USGS (Opus: score difference
-−0.022, 95% interval −0.074 to 0.032; negative favours the model), while Haiku was worse
+−0.022, 95% interval −0.074 to 0.032; negative favors the model), while Haiku was worse
 (+0.124; Figure 1b). With only two earthquakes the test cannot tell these top forecasters apart:
 the ETAS refit and even a naive rule of thumb (the aftershock count so far, extended with the
 usual decay) also tie USGS. It does separate weaker forecasters: two open models run locally,
@@ -44,7 +44,7 @@ than stated, and USGS and Opus both under-predicted the early Flores Sea aftersh
 *Figure 1. (a) Forecasts of the number of M≥5 aftershocks in the next week after the M7.8 Flores
 Sea earthquake, by USGS and Opus 5.5 (bands: 50% and 90% ranges; dots: observed). (b) Mean
 score difference from USGS on the 33 preregistered windows (95% block-bootstrap intervals; left
-of zero favours the forecaster).*
+of zero favors the forecaster).*
 
 After the freeze I scored 39 more sequences with an official forecast (M≥5; exploratory, frozen
 code). On the 18 after the Claude cutoff, Opus again matched USGS (+0.002, −0.002 to 0.007).

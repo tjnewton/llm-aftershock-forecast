@@ -4,23 +4,23 @@ This card describes the registered scoring snapshot `20261021T1027Z`, taken on 2
 frozen with the preregistration, and, at the end, the data added after the freeze for the
 exploratory extensions (docs/deviations.md).
 
-## Sources and licence
-| Source | Access | Licence |
+## Sources and license
+| Source | Access | License |
 |---|---|---|
 | ANSS Comprehensive Earthquake Catalog (ComCat), FDSN event service `https://earthquake.usgs.gov/fdsnws/event/1/` | `query?eventid=<id>&format=geojson&includesuperseded=true`; `query?format=csv&latitude=..&longitude=..&maxradiuskm=..&minmagnitude=..&eventtype=earthquake&orderby=time-asc` | U.S. public domain |
 | USGS operational aftershock forecasts (OAF), every version | `https://earthquake.usgs.gov/product/oaf/<id>/us/<updateTime>/forecast.json` | U.S. public domain |
 
 Derived tables and prompts: CC BY 4.0 (data/LICENSE.md). Every raw file has a manifest line in
 `data/manifest.jsonl` (URL, UTC retrieval time, bytes, SHA-256 of stored and of decoded bytes,
-gzip flag, licence). `uv run laf verify` re-hashes every raw file (9,433 on 2026-10-22: the
+gzip flag, `licence`). `uv run laf verify` re-hashes every raw file (9,433 on 2026-10-22: the
 snapshots, OAF versions, event histories, reference files, training catalogs and literature
 queries) and re-validates every OAF file.
 
 ## Collection
 - `uv run laf fetch` (snapshot 20261021T1027Z; resumed with `--snapshot`
   after truncated USGS responses): per sequence, the event document with superseded
-  products; every OAF version not already stored; then a ComCat catalog for a circle centred on
-  the epicentre with radius 1.5 x max over valid versions of (radius + centre offset) (or 1.5x
+  products; every OAF version not already stored; then a ComCat catalog for a circle centered on
+  the epicenter with radius 1.5 x max over valid versions of (radius + center offset) (or 1.5x
   the Wells & Coppersmith radius), from 30 days before to 90 days after the mainshock or to the
   snapshot time, at `catalog_min_mag` (2.5 for the Alaska sequences, 3.0 elsewhere). The count
   endpoint is checked first (limit 20,000). The snapshot id fixes the catalog end time, so a
@@ -77,8 +77,8 @@ All times are epoch milliseconds UTC; windows are half open, `[start, end)`.
 2. **Wrong-event products.** Kamchatka's first `oaf` product contains a Myanmar forecast created
    two days before the Kamchatka mainshock; Flores' first contains the Colombia forecast.
    Venezuela versions 1-6 are forecasts for the M7.2 foreshock 33 s before the M7.5 (magMain
-   7.2), and four of them are also centred about 142 km away. All are rejected
-   (`Forecast.event_mismatch`: creation before origin, centre offset, or magMain differing from
+   7.2), and four of them are also centered about 142 km away. All are rejected
+   (`Forecast.event_mismatch`: creation before origin, center offset, or magMain differing from
    the mainshock by more than 0.25).
 3. **Invalid JSON.** Two Kamchatka versions (2025-07-31) contain trailing commas; repaired by
    removing trailing commas only, flagged `repaired_json`.
@@ -115,7 +115,7 @@ product's fractiles; `rule`: code rule by date), capped share and seed (20261021
 issue id). Built by
 `uv run laf etas --snapshot S` in under 2 minutes for all 61 issues.
 `etas_forecasts_hindsight.parquet`: the same refit on today's catalog (catalog effect).
-`etas_forecasts_analyst.parquet`: labelled sensitivity variant with the analyst settings
+`etas_forecasts_analyst.parquet`: labeled sensitivity variant with the analyst settings
 inferred for the Colombia and Venezuela products (`config/analyst_settings.toml`; column
 `settings`; ADR 0010 section 4.1). `etas_validation.parquet`:
 the V2 re-simulations of official versions from their published parameters, with the official

@@ -1,4 +1,4 @@
-# Data licence
+# Data license
 
 - `data/raw/`: unmodified downloads from the USGS ANSS Comprehensive Earthquake Catalog
   (ComCat) and USGS operational aftershock forecast products. U.S. public domain. Please cite

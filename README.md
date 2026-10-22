@@ -46,7 +46,7 @@ happened. (b) Average score difference from the USGS forecast on the preregister
   catalog, which holds revisions no forecaster had at the time. Here, test earthquakes come after
   the training cutoff, and each prompt holds the catalog as it stood at the forecast time.
 - **Methods from other fields:** preregistration with a public hash and hashed live forecasts
-  (clinical trials, earthquake-forecast testing centres), a scoring rule from epidemic
+  (clinical trials, earthquake-forecast testing centers), a scoring rule from epidemic
   forecasting, and a memorization check comparing earthquakes before and after the training
   cutoff, with open models as controls.
 
@@ -67,7 +67,7 @@ happened. (b) Average score difference from the USGS forecast on the preregister
 ## Why trust it
 - **Preregistered:** hypotheses and analysis frozen (tag `prereg-v1`, SHA-256 posted publicly)
   before any scored call; scoring code frozen (tag `scoring-v1`) before any result was read.
-  Later additions are labelled exploratory ([deviations](docs/deviations.md)).
+  Later additions are labeled exploratory ([deviations](docs/deviations.md)).
 - **No hindsight:** each prompt holds only the earthquake catalog as it stood at the forecast
   time, rebuilt from ComCat's revision histories (it reproduces 95.1% of USGS's own counts).
 - **No memorization:** test sequences began after the models' training cutoffs; earlier
@@ -121,7 +121,7 @@ money (`laf smoke`, `laf pilot`, `laf run`, `laf live`, `laf probe`) need `ANTHR
 
 </details>
 
-## Licence and data
+## License and data
 Code: MIT ([LICENSE](LICENSE)). Derived tables and prompts: CC BY 4.0. Raw USGS data are U.S.
 public domain; cite the ANSS Comprehensive Earthquake Catalog and the USGS aftershock forecast
 products ([data/LICENSE.md](data/LICENSE.md)). Citation: [CITATION.cff](CITATION.cff).

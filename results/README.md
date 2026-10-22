@@ -18,7 +18,7 @@ by hand. "Registered" means preregistered (tag `prereg-v1`) and scored by the fr
 | `live-panama-1_provisional.csv` | `uv run laf live-score --snapshot <refetch> --name live-panama-1 --version <update_ms>` | Provisional scores of the live Panama forecasts whose windows have closed |
 
 Columns in the score tables: `dQS` is the mean difference in log-scale quantile score (lower is
-better, so a negative value favours the first forecaster), `lo` and `hi` its 95% moving-block
+better, so a negative value favors the first forecaster), `lo` and `hi` its 95% moving-block
 bootstrap interval, `cells` the number of scored cells.
 
 ## Reading `analysis.html` (the frozen notebook)
@@ -40,6 +40,6 @@ Abbreviations: *I1/I0* = with/without the earthquake catalog; *direct/params* = 
 numbers or with model parameters; *p1/p2* = two prompt wordings; *test-post/test-pre/ambiguous*
 = sequences after, before, or in the month of the Claude training cutoff; *OAF* = USGS
 operational aftershock forecast; *PIT* = probability integral transform (calibration check);
-*Brier* = probability score for "at least one M>=6"; *dQS* = score difference (negative favours
+*Brier* = probability score for "at least one M>=6"; *dQS* = score difference (negative favors
 the first forecaster); *primary cells* = windows whose outcome is final (closed 21+ days).
 
