@@ -11,3 +11,5 @@ T04 done 2026-10-22T10:14Z 6a5e034 849 of 849 succeeded
 T03 running 2026-10-22T10:14Z
 T03 done 2026-10-22T12:31Z 43e88df 630 of 630 succeeded
 T05 running 2026-10-22T13:17Z
+T05 done 2026-10-22T14:01Z 8545162 777 of 777 succeeded; adapter gpt-oss-20b-e1r1-lora-f16.gguf sha256 33c916fdd70c5c34c5f92ed9ef08d8778645c18797527c0033ff3604bff3689a
+T06 running 2026-10-22T13:48Z
