@@ -53,3 +53,7 @@ Each entry: UTC time, change, reason, expected effect on the registered analyses
   would equal ETAS and E1 and were dropped. E1b uses five preference pairs per item (the best
   candidate against the untransformed refit, unless it is best, and the worst candidates),
   15,450 rows, because Adaption alignment needs at least 12,000; one iteration.
+- 2026-10-22T17:05Z. Provisional scores of live-panama-1 (results/live-panama-1_provisional.csv)
+  from a refetch at the hackathon deadline (snapshot 20261022T1700Z), for the 1-day windows that
+  had closed (matched and strict; no M>=5 aftershock in either). Reason: the live windows settle
+  after the hackathon. Effect: none on the registered analysis; settled scores replace these.

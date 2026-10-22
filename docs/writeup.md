@@ -43,17 +43,17 @@ score difference from the USGS forecast on the 33 preregistered windows, with 95
 bootstrap intervals; left of zero favours the forecaster.*
 
 After the freeze we scored 39 more sequences with an official forecast (M≥5, 18 after the Claude
-cutoff) with the frozen code (exploratory). Opus again matched USGS (+0.002, −0.002 to 0.007),
+cutoff; exploratory, frozen code). Opus again matched USGS (+0.002, −0.002 to 0.007),
 and Sonnet without the catalog was clearly worse for M≥4 counts (+0.13). Claude did no better before its cutoff than after, and the open
 models, trained before both sets, kept the same gap on both: no sign of memorization. A fixed
 literature search (Valency) found no paper on any mainshock before its forecasts.
 Live forecasts for the ongoing Panama sequence were hashed and published before their windows
-opened.
+opened; in the first closed window (provisional) Opus scored 0.015 against USGS's 0.027.
 
 ## Future work
 
-These are pilot-scale results. The benchmark grows with every new forecast-bearing sequence,
-which will give it the power to separate the top tier; next we will add tool-using models.
+The benchmark grows with every new forecast-bearing sequence, which will give it the power to
+separate the top tier; next we will add tool-using models.
 
 ## Open-source materials
 
