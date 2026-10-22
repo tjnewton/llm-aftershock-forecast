@@ -1,11 +1,11 @@
 # Windows task queue (written by the Mac only)
 
-## FREEZE (2026-10-22 22:15Z): main is frozen until hackathon judging ends
-The entry was submitted at tag `v1.0-submission`. Do not push to `main` again, not even status
-lines. Stop now: stop the current run and llama-server, run no further tasks (T08 is cancelled),
-and stop the loop. If outputs from a run you already finished are worth keeping, commit them and
-push to the branch `post-submission` (`git push origin HEAD:post-submission`), never to `main`.
-Tyler will lift the freeze in this file after judging.
+## BRANCH (2026-10-22 22:30Z): work only on `post-submission`
+`main` is frozen at the submitted state until hackathon judging ends, and a GitHub rule rejects
+pushes to it. All work happens on the branch `post-submission`: run `git switch post-submission`,
+pull with `git pull --rebase origin post-submission` and push with
+`git push origin HEAD:post-submission`. Never commit on or push to `main`, and leave `gh-pages`
+alone (it is the live explorer the judges see). T08 is on hold (cancelled at the freeze).
 
 The Windows session runs tasks marked `status: ready`, in file order, one at a time, and records
 progress only in ops/windows-status.md. A task marked `status: hold` waits for a later edit. The
@@ -160,7 +160,7 @@ commit: Local run: gpt-oss-20b-e1ar2 e1 block and E3 (N of M succeeded)
 notes: Exploratory (docs/deviations.md). About 40 min. Report the SHA-256 of the converted GGUF adapter in the done line.
 
 ## T08 e1b-adapted
-status: ready
+status: hold
 prepare: uv run laf adaption download --run e1b (records runs/e1b-adaption/checkpoint.json); extract data/interim/e1b-adaption/best.tar.zst into a new empty data/interim/e1b-adaption/adapter/; convert exactly as for E1 with --outfile <models dir>/gpt-oss-20b-e1b-lora-f16.gguf
 server: registered gpt-oss-20b command with --alias laf/gpt-oss-20b-e1b --lora <models dir>/gpt-oss-20b-e1b-lora-f16.gguf
 run: uv run python -m laf.llamacpp --snapshot 20261021T1027Z --model gpt-oss-20b-e1b --block dev (status counts only), then uv run python -m laf.llamacpp --snapshot 20261021T1027Z --model gpt-oss-20b-e1b --block e1, then uv run python -m laf.llamacpp --snapshot 20261021T2300Z --model gpt-oss-20b-e1b --block e3all
