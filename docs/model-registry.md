@@ -114,7 +114,7 @@ checkpoint and checks its SHA-256).
 | e1r1 | E1 | 1 | 0.473 | 7e1b29c647ed60c75e0dc730980031311031398a589faea13fc6c2f8e58f5620 | 33c916fdd70c5c34c5f92ed9ef08d8778645c18797527c0033ff3604bff3689a |
 | e1r2 | E1 (re-upload) | 1 | 0.506 | 2b9d845c6d53cadfb0618ca4a27f79faca8e40a43f78f4dd863342d9bb8ca380 | 7ec520aff551b2470a9471cd52e050b1d6f024ef80148fda8ca63839b699645d |
 | e1ar2 | E1a | 1 | 0.531 | a010c6efb2701daf5d4eb8ba3e36e1348f23b71671d3b1b6452f8651270cc5e8 | 90e868fed977697936f4da3e02ca28fee75522b9b403a2d2b4fdeba59e6d01d6 |
-| e1b | E1b preference pairs, 15,450 rows | 1 (alignment) | pending | pending | pending |
+| e1b | E1b preference pairs, 15,450 rows | 1 (alignment: supervised, then preference) | 0.241 | 5742070f531cc9290a718a191ae5c1d97b84708125d4bd9c7ca67ea72b21c15f | pending |
 
 e1r1, e1r2 and e1ar2 use E1's best hyperparameters (LoRA r 32, alpha 64, q/k/v/o projections,
 3 epochs, learning rate 1e-4, cosine schedule). The win rate is AutoScientist's own metric; the
