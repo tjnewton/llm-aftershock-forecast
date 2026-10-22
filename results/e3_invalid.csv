@@ -1,4 +1,5 @@
 model,arm,info,effort,non_monotone,ok
+allenai/Olmo-3.1-32B-Instruct,direct,I1,none,0.4396825396825397,0.5603174603174603
 claude-haiku-5-5,direct,I1,high,0.030303030303030304,0.9696969696969697
 claude-opus-5-5,direct,I1,high,0.0,1.0
 claude-sonnet-5-5,direct,I0,high,0.0,1.0
