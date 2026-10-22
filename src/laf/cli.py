@@ -104,6 +104,7 @@ def main(argv: list[str] | None = None) -> None:
     cb = sub.add_parser("combined", help="exploratory Claude + official average (no API calls)")
     cb.add_argument("--snapshot", required=True)
     cb.add_argument("--runs", type=Path, default=Path("runs"), help="runs/ or runs/e3")
+    sub.add_parser("replicates", help="adapted-model replicate summary -> results/replicates.csv")
     sub.add_parser("outcome-training", help="E1b preference pairs and the ETAS recalibration fit")
     e3s = sub.add_parser("e3", help="E3 exploratory tables -> results/e3_*.csv (no API calls)")
     e3s.add_argument("--snapshot", required=True)
@@ -361,6 +362,39 @@ def main(argv: list[str] | None = None) -> None:
         Path("results").mkdir(exist_ok=True)
         tab.to_csv(f"results/combined_{a.snapshot}.csv", index=False, lineterminator="\n")
         print(tab[tab["sequence"] == "pooled"].round(3).to_string(index=False))
+    elif a.cmd == "replicates":
+        import pandas as pd
+
+        # data: E1 = 3,090 rows (M>=6.5), E1a = 9,030 rows (M>=6.0); E1 itself had 3 iterations
+        runs = {"e1": "E1", "e1r1": "E1", "e1r2": "E1", "e1a": "E1a", "e1ar2": "E1a", "e1b": "E1b"}
+        e3 = pd.read_csv("results/e3_dqs_extensions.csv").query("sequence == 'pooled'")
+        rows = []
+        for r, data in runs.items():
+            f = Path(f"results/{r}.csv")
+            if not f.exists():
+                continue
+            t = pd.read_csv(f).query("sequence == 'pooled' and scoring == 'penalty'")
+            row = {"run": r, "data": data}
+            for ref in ("official", "etas"):
+                x = t[t["reference"] == ref].iloc[0]
+                row |= {
+                    f"reg_vs_{ref}": x["dQS"],
+                    f"reg_vs_{ref}_lo": x["lo"],
+                    f"reg_vs_{ref}_hi": x["hi"],
+                }
+            for scoring, tag in (("penalty", "e3_m5"), ("m4 valid-only", "e3_m4")):
+                m = e3[(e3["forecaster"] == f"laf/gpt-oss-20b-{r}|direct|I1|medium")
+                       & (e3["role"] == "test-post") & (e3["scoring"] == scoring)]  # fmt: skip
+                if len(m):
+                    row |= {
+                        tag: m["dQS"].iloc[0],
+                        f"{tag}_lo": m["lo"].iloc[0],
+                        f"{tag}_hi": m["hi"].iloc[0],
+                    }
+            rows.append(row)
+        tab = pd.DataFrame(rows)
+        tab.to_csv("results/replicates.csv", index=False, lineterminator="\n")
+        print(tab.round(3).to_string(index=False))
     elif a.cmd == "outcome-training":
         import json
 
