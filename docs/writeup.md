@@ -58,6 +58,24 @@ sequences, and per-sequence estimates, not significance tests, carry the claims.
 the USGS official forecast on settled post-cutoff cells; positive values favour USGS. Bars are
 95% moving-block bootstrap intervals.*
 
+**Exploratory extensions** (added after the freeze; docs/deviations.md). To test the headline
+at scale we scored 39 more sequences that have an official forecast (M≥5, mostly Alaska, the
+Marianas and the US West Coast; 18 after the Claude cutoff, 21 before), with the frozen code:
+536 settled cells. Most windows saw no M≥5 aftershock, so differences are small. On the
+post-cutoff cells Opus again matched USGS (+0.002, −0.002 to 0.007; for M≥4 counts −0.000,
+−0.032 to 0.016), Sonnet and Haiku were slightly worse (+0.006 and +0.011), and Sonnet without
+the catalog was clearly worse for M≥4 counts (+0.13, 0.07 to 0.20). Claude did no better on
+the pre-cutoff sequences than the ETAS refit's own shift between the two sets, and Olmo, whose
+cutoff predates both, kept the same gap before and after (+0.17 and +0.17): no sign of
+contamination. Averaging Claude's quantiles with the official ones did not reliably improve
+on USGS (Opus, registered cells: −0.013, −0.030 to 0.004). A second live Panama round was
+hashed before its windows opened (tag `live-panama-2`).
+
+![Figure 2](../figures/overview.png)
+
+*Figure 2. Every forecaster against the official forecast, registered cells (left, symmetric
+log scale) and the exploratory post-cutoff set (right).*
+
 ## Future work
 
 The benchmark grows prospectively with every new forecast-bearing sequence, which will turn the
