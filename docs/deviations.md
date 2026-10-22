@@ -30,3 +30,7 @@ Each entry: UTC time, change, reason, expected effect on the registered analyses
   offer that model. Effect: none on registered analyses; descriptive only.
 - 2026-10-22T04:50Z. Combined forecast (exploratory, rule fixed before scoring): equal-weight
   average of each Claude model's quantile-averaged valid samples and the official quantiles.
+- 2026-10-22T10:20Z. E2 method on E3's six M>=6 sequences (data/raw/literature/e3/; one shared
+  "Nikolski Alaska earthquake 2026" query for the three Nikolski events, from the earliest
+  origin): no paper about any of these mainshocks (all matches weak and about other events), so
+  the contamination covariate is zero for every E3 sequence screened.
