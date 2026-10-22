@@ -20,6 +20,8 @@ def _():
         "Opus 5.5 direct, catalog": "#1baf7a",
         "gpt-oss-20b direct, catalog": "#eda100",
         "Olmo-3.1-32B-Instruct direct, catalog": "#e87ba4",
+        "gpt-oss-20b adapted (E1) direct, catalog": "#008300",
+        "gpt-oss-20b adapted, more data (E1a) direct, catalog": "#e34948",
     }
     return COLOR, alt, contextlib, mo, pd
 
@@ -96,7 +98,7 @@ def _(COLOR, alt, chosen, mo, view):
         _out = mo.md("No cells for this selection.")
     else:
         _domain = list(chosen.value)
-        _range = [COLOR.get(x, "#008300") for x in _domain]
+        _range = [COLOR.get(x, "#c3c2b7") for x in _domain]
         _color = alt.Color("label:N", scale=alt.Scale(domain=_domain, range=_range), legend=None)
         _x = alt.X(
             "elapsed_days:Q",

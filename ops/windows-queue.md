@@ -49,3 +49,5 @@ outputs: runs/extensions/dev-gpt-oss-20b-e1a/, runs/extensions/e1-gpt-oss-20b-e1
 commit: Local run: gpt-oss-20b-e1a dev check, e1 block and E3 (N of M succeeded)
 notes: E1a = E1 recipe on 9,030 rows (M>=6.0 sequences). If T03 is still running when this
   becomes ready, run this first and then resume T03 (the runner re-sends only unanswered requests).
+
+## END
