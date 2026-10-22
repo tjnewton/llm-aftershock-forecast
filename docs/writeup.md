@@ -26,8 +26,9 @@ publicly before any scored call (tag `prereg-v1`).
 On the 33 settled windows of the two post-cutoff sequences with an official forecast (Colombia
 and Flores Sea), Opus and Sonnet could not be distinguished from USGS (score difference −0.022,
 95% interval −0.074 to 0.032, and −0.015, −0.081 to 0.017; negative favours the model), while
-Haiku was worse (+0.124, 0.004 to 0.278; Figure 1b). Two sequences cannot separate this top
-tier: the ETAS refit and even a naive baseline also tie USGS. The benchmark does separate weaker
+Haiku was worse (+0.124, 0.004 to 0.278; Figure 1b). With only two earthquakes the test cannot
+tell these top forecasters apart: the ETAS refit and even a naive rule of thumb (the aftershock
+count so far, extended with the usual decay) also tie USGS. The benchmark does separate weaker
 forecasters. Two open models run locally, gpt-oss-20b and Olmo 3.1 32B, were far behind, with
 12% and 54% of answers unusable against at most 2.7% for Claude; fine-tuning gpt-oss-20b on ETAS
 forecasts for 515 earlier sequences (Adaption) made every answer usable but still trailed USGS
@@ -53,7 +54,7 @@ opened; in the first closed window (provisional) Opus scored 0.015 against USGS'
 ## Future work
 
 The benchmark grows with every new forecast-bearing sequence, which will give it the power to
-separate the top tier; next I will add tool-using models.
+tell the top forecasters apart; next I will add tool-using models.
 
 ## Open-source materials
 

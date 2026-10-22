@@ -20,9 +20,11 @@ happened. (b) Average score difference from the USGS forecast on the preregister
 ## What I found
 - **Claude Opus 5.5 sits in the top tier with the USGS forecast** and its statistical model
   (ETAS): I found no difference, on the two preregistered sequences or on 18 more recent ones
-  (exploratory). Sonnet 5.5 tied on the first and was very slightly worse on the second. Two
-  sequences cannot separate the top tier (even a naive baseline ties USGS there), which is why
-  the benchmark grows with every new USGS forecast.
+  (exploratory). Sonnet 5.5 tied on the first and was very slightly worse on the second. With only
+  two earthquakes, though, the test can't tell these top forecasters apart: even a simple rule of
+  thumb (take the aftershock count so far and extend it with the usual decay) scores about as
+  well as USGS there. More earthquakes will sharpen that, and the benchmark grows with every new
+  USGS forecast.
 - **The benchmark does separate weaker forecasters.** Haiku 5.5 and the small open models
   (gpt-oss-20b, Olmo 3.1 32B) are clearly worse than USGS, and the open models often give
   unusable answers (12% and 54%, against at most 2.7% for Claude). Fine-tuning gpt-oss-20b to

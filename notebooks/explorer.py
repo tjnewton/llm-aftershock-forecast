@@ -61,8 +61,10 @@ were trained, so they could not have memorized the answers.
 
 - **Claude Opus 5.5 sits in the top tier with the official USGS forecast** and its statistical
   model (ETAS), on the preregistered test and again on 18 more recent sequences. Sonnet 5.5 tied
-  on the first and was very slightly worse on the second. Two sequences cannot separate the top
-  tier: even a naive baseline ties USGS there, so the benchmark grows with every new forecast.
+  on the first and was very slightly worse on the second. With only two earthquakes, though,
+  the test can't tell these top forecasters apart: even a simple rule of thumb (take the
+  aftershock count so far and extend it with the usual decay) scores about as well as USGS
+  there. More earthquakes will sharpen that, and the benchmark grows with every new forecast.
 - **The benchmark does separate weaker forecasters**: Haiku 5.5 and the small open models
   (gpt-oss-20b, Olmo 3.1 32B) were clearly worse, and the open models often gave unusable
   answers; fine-tuning one of them fixed the format but not the skill.
