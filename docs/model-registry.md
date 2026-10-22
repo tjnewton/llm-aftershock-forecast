@@ -112,7 +112,7 @@ checkpoint and checks its SHA-256).
 | e1 (prereg E1) | E1, 3,090 rows | 3 | 0.471 | d06688de19b9c40d319d6f0511ca36b2486a029e9793311b883030799c7ba1ae | not recorded (the reported value had 65 characters) |
 | e1a | E1a, 9,030 rows | 1 | 0.505 | 50a9b4c264eb6604aa6e2975b0a25415930484460da851583f2cca69a35b2e7f | not reported |
 | e1r1 | E1 | 1 | 0.473 | 7e1b29c647ed60c75e0dc730980031311031398a589faea13fc6c2f8e58f5620 | 33c916fdd70c5c34c5f92ed9ef08d8778645c18797527c0033ff3604bff3689a |
-| e1r2 | E1 (re-upload) | 1 | 0.506 | 2b9d845c6d53cadfb0618ca4a27f79faca8e40a43f78f4dd863342d9bb8ca380 | pending |
+| e1r2 | E1 (re-upload) | 1 | 0.506 | 2b9d845c6d53cadfb0618ca4a27f79faca8e40a43f78f4dd863342d9bb8ca380 | 7ec520aff551b2470a9471cd52e050b1d6f024ef80148fda8ca63839b699645d |
 | e1ar2 | E1a | 1 | 0.531 | a010c6efb2701daf5d4eb8ba3e36e1348f23b71671d3b1b6452f8651270cc5e8 | pending |
 | e1b | E1b preference pairs, 15,450 rows | 1 (alignment) | pending | pending | pending |
 
