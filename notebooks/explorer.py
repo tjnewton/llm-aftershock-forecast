@@ -228,7 +228,7 @@ def _(COLOR, alt, chosen, mo, sequence, view, window):
             "elapsed_days:Q",
             scale=alt.Scale(type="log", nice=False),
             axis=alt.Axis(values=[0.3, 1, 3, 7, 14, 28], grid=False),
-            title="days after the main earthquake when the forecast was made",
+            title=["days after the main earthquake", "when the forecast was made"],
         )
         _tip = [
             alt.Tooltip("target:N", title="forecast made"),
