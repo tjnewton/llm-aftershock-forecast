@@ -194,3 +194,31 @@ def dataset(data_dir: Path, items, rows, cats, workers: int = 8) -> list[dict]:
             }
         )
     return out
+
+
+OUTCOME_DAYS = 60  # last issue (28 d) plus its 1-month window
+
+
+def outcome_catalog_url(ev: dict) -> str:
+    """Events in the same circle from the mainshock to the end of the last issue's month window,
+    M >= 3.95: the outcomes of every training window (E1b/E1c, exploratory)."""
+    t0 = int(ev["time_ms"])
+    q = {
+        "format": "csv",
+        "starttime": _iso(t0),
+        "endtime": _iso(t0 + OUTCOME_DAYS * DAY_MS),
+        "latitude": f"{ev['latitude']:.4f}",
+        "longitude": f"{ev['longitude']:.4f}",
+        "maxradiuskm": f"{wells_coppersmith_radius_km(ev['mag']):.1f}",
+        "minmagnitude": f"{CATALOG_FLOOR}",
+        "eventtype": "earthquake",
+        "orderby": "time-asc",
+    }
+    return f"{FDSN}/query?" + urllib.parse.urlencode(q)
+
+
+def fetch_outcomes(data_dir: Path, ev: pd.DataFrame) -> None:
+    for r in ev.to_dict("records"):
+        rel = f"{RAW}/outcomes/{r['id']}.csv"
+        if not (data_dir / rel).exists():
+            store(data_dir, rel, download(outcome_catalog_url(r)), outcome_catalog_url(r))

@@ -38,7 +38,7 @@ def _record(name: str, data: dict) -> None:
     )
 
 
-def upload(c, path: Path) -> str:
+def upload(c, path: Path, pairs: bool = False) -> str:
     """Raw processing: rows are trained as written (prereg: no rephrasing, no web search)."""
     import hashlib
 
@@ -46,7 +46,9 @@ def upload(c, path: Path) -> str:
         str(path),
         name=f"laf-{path.stem}",
         processing_mode="raw",
-        column_mapping={"prompt": "prompt", "completion": "completion"},
+        column_mapping={"prompt": "prompt", "chosen": "chosen", "rejected": "rejected"}
+        if pairs
+        else {"prompt": "prompt", "completion": "completion"},
     )
     c.datasets.wait_for_completion(ds.dataset_id)
     status = c.datasets.get_status(ds.dataset_id)
@@ -76,13 +78,14 @@ def launch(
     model: str = MODEL,
     hyperparams: dict | None = None,
     max_iterations: int | None = None,
+    alignment: bool = False,
 ) -> str:
     """Spends Adaption credits: supervised (instruction) LoRA fine-tuning; the checkpoint used
     is the one AutoScientist reports as best."""
     kw: dict[str, object] = {
         "dataset_id": dataset_id,
         "model": model,
-        "training_method": "instruction",
+        "training_method": "alignment" if alignment else "instruction",
     }  # raw upload already canonicalized the prompt and completion columns
     if hyperparams:
         kw["hyperparams"] = {k: v for k, v in hyperparams.items() if v is not None}

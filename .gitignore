@@ -30,3 +30,6 @@ __marimo__/
 
 # OS
 .DS_Store
+
+# E1b preference pairs (~ 90M): rebuilt by laf outcome-training; SHA-256 in runs/e1b-adaption/dataset.json
+data/processed/training/e1b_pairs.jsonl

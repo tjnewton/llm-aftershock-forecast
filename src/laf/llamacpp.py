@@ -70,6 +70,14 @@ MODELS["gpt-oss-20b-e1a"] = {
     "id": "laf/gpt-oss-20b-e1a",
     "lora": "gpt-oss-20b-e1a-lora-f16.gguf",
 }
+# Replicates (e1r1, e1r2: E1 data; e1ar2: E1a data) and E1b (outcome preference pairs);
+# exploratory, same serving settings
+for _r in ("e1r1", "e1r2", "e1ar2", "e1b"):
+    MODELS[f"gpt-oss-20b-{_r}"] = {
+        **MODELS["gpt-oss-20b-e1"],
+        "id": f"laf/gpt-oss-20b-{_r}",
+        "lora": f"gpt-oss-20b-{_r}-lora-f16.gguf",
+    }
 # local: p1 only, k = 3 seeds (PLAN 4.1); dev is the format check, never scored
 LOCAL_BLOCKS = {
     "core": {**BLOCKS["core"], "paras": ("p1",), "k": 3},

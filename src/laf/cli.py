@@ -86,6 +86,7 @@ def main(argv: list[str] | None = None) -> None:
     ad.add_argument("--run", default="e1", help="records in runs/<run>-adaption/ (E1: e1)")
     ad.add_argument("--best-from", help="launch with another run's best hyperparameters")
     ad.add_argument("--max-iterations", type=int, help="AutoScientist iterations (default 3)")
+    ad.add_argument("--pairs", action="store_true", help="preference pairs (alignment training)")
     tr = sub.add_parser("training-set", help="E1 training set (ComCat requests; prereg sec. 11)")
     tr.add_argument("--start", default="2010-01-01")
     tr.add_argument("--end", default="2025-07-01", help="exclusive end (origin < end)")
@@ -103,6 +104,7 @@ def main(argv: list[str] | None = None) -> None:
     cb = sub.add_parser("combined", help="exploratory Claude + official average (no API calls)")
     cb.add_argument("--snapshot", required=True)
     cb.add_argument("--runs", type=Path, default=Path("runs"), help="runs/ or runs/e3")
+    sub.add_parser("outcome-training", help="E1b preference pairs and the ETAS recalibration fit")
     e3s = sub.add_parser("e3", help="E3 exploratory tables -> results/e3_*.csv (no API calls)")
     e3s.add_argument("--snapshot", required=True)
     e1 = sub.add_parser("e1", help="E1 adapted-model table (no API calls)")
@@ -289,7 +291,7 @@ def main(argv: list[str] | None = None) -> None:
         adapt.RUN = Path(f"runs/{a.run}-adaption")
         rec = lambda n: json.loads((adapt.RUN / n).read_text(encoding="utf-8"))  # noqa: E731
         if a.action == "upload":
-            print("dataset", adapt.upload(c, a.file))
+            print("dataset", adapt.upload(c, a.file, pairs=a.pairs))
         elif a.action == "recommend":
             print(
                 json.dumps(
@@ -305,7 +307,12 @@ def main(argv: list[str] | None = None) -> None:
             else:
                 hp = None
             ds = rec("dataset.json")["dataset_id"]
-            print("run", adapt.launch(c, ds, hyperparams=hp, max_iterations=a.max_iterations))
+            print(
+                "run",
+                adapt.launch(
+                    c, ds, hyperparams=hp, max_iterations=a.max_iterations, alignment=a.pairs
+                ),
+            )
         elif a.action == "download":
             out = Path(f"data/interim/{a.run}-adaption/best.tar.zst")
             print(adapt.fetch_checkpoint(c, rec("run.json")["run_id"], out))
@@ -354,6 +361,26 @@ def main(argv: list[str] | None = None) -> None:
         Path("results").mkdir(exist_ok=True)
         tab.to_csv(f"results/combined_{a.snapshot}.csv", index=False, lineterminator="\n")
         print(tab[tab["sequence"] == "pooled"].round(3).to_string(index=False))
+    elif a.cmd == "outcome-training":
+        import json
+
+        from laf import outcome_training as O
+        from laf import training as T
+
+        out = a.data_dir / "processed" / "training"
+        rows = [json.loads(x) for x in (out / "e1_train.jsonl").read_text("utf-8").splitlines()]
+        ev = T.fetch(a.data_dir, "2010-01-01", "2025-07-01", 6.5)
+        T.fetch_outcomes(a.data_dir, ev)
+        items, _, _ = T.build(a.data_dir, ev)
+        fit, dpo = O.build(rows, O.outcomes(a.data_dir, items))
+        (out / "e1b_pairs.jsonl").write_text(
+            "".join(json.dumps(r) + "\n" for r in dpo), encoding="utf-8", newline="\n"
+        )
+        Path("results").mkdir(exist_ok=True)
+        Path("results/etas_recal_fit.json").write_text(
+            json.dumps(fit, indent=1) + "\n", encoding="utf-8", newline="\n"
+        )
+        print(fit, f"{len(dpo)} preference pairs")
     elif a.cmd == "e3":
         from laf import extensions as X
 
