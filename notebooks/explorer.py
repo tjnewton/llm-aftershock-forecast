@@ -28,10 +28,21 @@ def _():
 
 @app.cell
 def _(contextlib, mo, pd):
+    import io
+    import urllib.request
+
+    def _read(path):
+        # In the browser the CSV arrives over HTTP already decompressed while the response still
+        # says gzip, which pandas would decompress again: read the bytes, then parse them.
+        if str(path).startswith("http"):
+            with urllib.request.urlopen(str(path)) as r:
+                return pd.read_csv(io.BytesIO(r.read()))
+        return pd.read_csv(str(path))
+
     _base = mo.notebook_location() / "public"
-    _frames = [pd.read_csv(str(_base / "explorer.csv")).assign(set="Registered")]
+    _frames = [_read(_base / "explorer.csv").assign(set="Registered")]
     with contextlib.suppress(Exception):  # the exploratory E3 table is optional
-        _frames.append(pd.read_csv(str(_base / "explorer_e3.csv")).assign(set="E3 (exploratory)"))
+        _frames.append(_read(_base / "explorer_e3.csv").assign(set="E3 (exploratory)"))
     all_data = pd.concat(_frames, ignore_index=True)
     mo.md(
         """# Do LLMs forecast aftershocks like the USGS?
