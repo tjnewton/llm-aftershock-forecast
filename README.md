@@ -1,82 +1,103 @@
-# LLM aftershock-forecast benchmark
+# Do AI chatbots forecast aftershocks as well as the USGS?
 
-Do general-purpose LLMs give calibrated aftershock forecasts? This benchmark gives a model the
-information the USGS operational aftershock forecast (OAF) had at an issue time (the mainshock
-and the ComCat catalog so far) and scores its count quantiles and large-aftershock
-probabilities against what happened and against the official forecast, on sequences after the
-model's training cutoff. Entry for the Open Scientific Intelligence Hackathon, Oct 21-22, 2026.
+A preregistered, contamination-aware benchmark. Language models get exactly what the US
+Geological Survey (USGS) knew when it issued each official aftershock forecast, and both are
+scored against what happened, on earthquakes after the models' training cutoff. Entry for the
+Open Scientific Intelligence Hackathon, Oct 21-22, 2026.
+
+**[Write-up](docs/writeup.md)** ·
+**[Interactive explorer](https://tjnewton.github.io/llm-aftershock-forecast/)** (runs Python in
+your browser; about 15 s to load) ·
+**[Full analysis](https://tjnewton.github.io/llm-aftershock-forecast/analysis.html)**
+
+![Forecasts for the Flores Sea sequence and every forecaster against USGS](figures/headline.png)
+
+*(a) Forecasts of the number of magnitude 5+ aftershocks in the next week, made at six times
+after the M7.8 Flores Sea earthquake: shaded bands are the 50% and 90% ranges, dots what
+happened. (b) Average score difference from the USGS forecast on the preregistered test, with
+95% intervals; left of zero is better than USGS.*
 
 ## What we found
-- **Claude Opus 5.5 forecasts aftershock counts about as well as the official USGS forecast**,
-  on the preregistered test (two sequences) and on 18 more recent sequences (exploratory).
-  Sonnet 5.5 is close; Haiku 5.5 is a little worse.
-- **Small open models** (gpt-oss-20b, Olmo 3.1 32B) are far behind and often give unusable
-  answers; fine-tuning gpt-oss-20b fixes the format but not the skill.
-- **Seeing the earthquake catalog helps**, and **there is no sign of memorization**: models do no
-  better on events before their training cutoff than the statistical baselines do.
+- **Claude Opus 5.5 sits in the top tier with the USGS forecast** and its statistical model
+  (ETAS): we found no difference, on the two preregistered sequences or on 18 more recent ones
+  (exploratory). Sonnet 5.5 tied on the first and was very slightly worse on the second. Two
+  sequences cannot separate the top tier (even a naive baseline ties USGS there), which is why
+  the benchmark grows with every new USGS forecast.
+- **The benchmark does separate weaker forecasters.** Haiku 5.5 and the small open models
+  (gpt-oss-20b, Olmo 3.1 32B) are clearly worse than USGS, and the open models often give
+  unusable answers (12% and 54%, against at most 2.7% for Claude). Fine-tuning gpt-oss-20b to
+  imitate statistical forecasts for 515 past sequences fixed the format but not the skill.
+- **Context matters:** without the list of recent quakes, Sonnet was clearly worse, and asking
+  for model parameters instead of direct forecasts made every model worse.
+- **No sign of memorization:** Claude did no better on sequences from before its training
+  cutoff, and the open models, trained before both sets, kept the same gap on both.
+- USGS and Opus both under-predicted the early Flores Sea aftershocks (panel a).
 
-Try it: interactive explorer at https://tjnewton.github.io/llm-aftershock-forecast/ (loads in
-about 15 s; it runs Python in your browser and has a glossary).
+![Every forecaster against USGS, preregistered and exploratory](figures/overview.png)
 
-**Terms.** *Aftershocks* follow a large *mainshock*; *M>=5* means magnitude 5 or larger. An
-*issue time* is when a forecast is made, for the next day, week or month (*windows*). The *USGS
-official* forecast is the published operational aftershock forecast; *ETAS* and
-*Reasenberg-Jones* are the standard statistical models behind it. Scores are *log-scale quantile
-scores* (lower is better); *dQS* is a forecaster's score minus the official forecast's.
+## Why trust it
+- **Preregistered:** hypotheses and analysis frozen (tag `prereg-v1`, SHA-256 posted publicly)
+  before any scored call; scoring code frozen (tag `scoring-v1`) before any result was read.
+  Later additions are labelled exploratory ([deviations](docs/deviations.md)).
+- **No hindsight:** each prompt holds only the earthquake catalog as it stood at the forecast
+  time, rebuilt from ComCat's revision histories (it reproduces 95.1% of USGS's own counts).
+- **No memorization:** test sequences began after the models' training cutoffs; earlier
+  sequences serve as a contamination check.
+- **Prospective:** live forecasts for the ongoing M7.7 Panama sequence were hashed and published
+  before their windows opened (tags `live-panama-1`, `live-panama-2`).
+- **Reproducible:** every download is hashed in `data/manifest.jsonl`, and every result
+  regenerates offline (below). Total API cost: $64.
 
-**Status:** complete for the hackathon. The design was preregistered
-([docs/preregistration.md](docs/preregistration.md), tag `prereg-v1`) and the scoring code frozen
-(tag `scoring-v1`) before any result was read. Results:
-- Write-up: [docs/writeup.md](docs/writeup.md); figures in [figures/](figures/).
-- Frozen analysis notebook, rendered: [results/analysis.html](results/analysis.html)
-  (source [notebooks/analysis.py](notebooks/analysis.py)).
-- Interactive explorer (marimo, WASM, loads in about 15 s):
-  https://tjnewton.github.io/llm-aftershock-forecast/ (branch `gh-pages`, source
-  [notebooks/explorer.py](notebooks/explorer.py)).
-- Exploratory extensions after the freeze (39 more sequences, adapted open models, a combined
-  forecast, a second live round): [docs/deviations.md](docs/deviations.md), tables in
-  [results/](results/) (guide: [results/README.md](results/README.md)).
-- Live Panama forecasts, hashed before their windows opened: tags `live-panama-1`,
-  `live-panama-2`.
+## Why it matters
+After a large earthquake, people ask chatbots how many more shocks to expect. To our knowledge
+this is the first test of language-model aftershock forecasts against an operational product
+([novelty search](docs/research/novelty-and-literature.md)). The design (information-matched
+prompts, as-of data, post-cutoff tests, hashed live forecasts) carries over to other operational
+science forecasts.
 
-## Reproduce the results (no API calls, no network)
+## Built with
+Claude Haiku, Sonnet and Opus 5.5 (Anthropic API) as forecasters; gpt-oss-20b and Olmo 3.1 32B
+served locally with llama.cpp; **Adaption** AutoScientist for fine-tuning gpt-oss-20b (LoRA);
+**Valency** for the fixed literature search and citation checks; **marimo** for the analysis
+notebook and the in-browser explorer; USGS ComCat and operational aftershock forecast products
+for the data.
+
+## Reproduce (no API calls, no network)
 ```bash
-uv sync && uv run laf verify                                       # every raw file re-hashed
+uv sync && uv run laf verify                                       # re-hash every raw file
 uv run marimo export html notebooks/analysis.py -o results/analysis.html   # registered analysis
 uv run laf figures --snapshot 20261021T1027Z                       # figures/ and explorer data
-uv run laf e3 --snapshot 20261021T2300Z                            # exploratory E3 tables
+uv run laf e3 --snapshot 20261021T2300Z                            # exploratory tables
 ```
 
-## Quick start
-```bash
-uv sync                                   # Python 3.12, locked dependencies
-uv run pytest                             # tests use real USGS golden files, no network
-uv run laf fetch                          # new raw snapshot from ComCat + every OAF version
-uv run laf tables --snapshot <SNAPSHOT>   # tidy parquet tables in data/processed/<SNAPSHOT>/
-uv run laf verify                         # re-hash every raw file, re-validate every forecast
-uv run laf asof --snapshot <SNAPSHOT>     # ComCat product histories -> catalog as of each issue time
-uv run laf items --snapshot <SNAPSHOT>    # benchmark items (what each forecaster may see)
-uv run laf etas --snapshot <SNAPSHOT>     # legacy-ETAS refit baseline (docs/adr/0010-etas-refit.md)
-uv run laf etas-validate --snapshot <SNAPSHOT>  # validation vs official products, USGS Java, synthetic truth
-```
-Scoring and outputs (no API calls): `laf figures`, `laf e1`, `laf e3`, `laf combined`,
-`laf literature`, `laf live-score`; `uv run marimo export html notebooks/analysis.py -o
-results/analysis.html`. Local models: `python -m laf.llamacpp` (see its docstring).
-Calls that spend money (`laf smoke`, `laf pilot`, `laf run`, `laf live`, `laf probe`) need
-`ANTHROPIC_API_KEY` in the environment or an untracked `.env` (see `.env.example`).
+<details>
+<summary>Terms, commands and layout</summary>
 
-## Layout
+**Terms.** *Aftershocks* follow a large *mainshock*; *M5+* means magnitude 5 or larger. A
+forecast is issued at an *issue time* for the next day, week and month (*windows*). *ETAS* and
+*Reasenberg-Jones* are the standard statistical models behind the USGS forecast. Scores are
+*log-scale quantile scores* (lower is better); *dQS* is a forecaster's score minus the official
+forecast's.
+
+**Commands.** `uv run pytest` (tests use real USGS golden files, no network); data: `laf fetch`,
+`laf tables`, `laf asof`, `laf items`, `laf etas`, `laf etas-validate` (each takes
+`--snapshot`); scoring: `laf figures`, `laf e1`, `laf e3`, `laf combined`, `laf replicates`,
+`laf literature`, `laf live-score`; local models: `python -m laf.llamacpp`. Calls that spend
+money (`laf smoke`, `laf pilot`, `laf run`, `laf live`, `laf probe`) need `ANTHROPIC_API_KEY`.
+
 | Path | Contents |
 |---|---|
-| `src/laf/` | `oaf` (forecast parsing/validation), `catalog`, `usgs` (fetch + manifest), `asof` (catalog as of a past time), `generic_rj` (USGS generic RJ + completeness by regime), `etas` (legacy USGS ETAS port), `etas_validate`, `tables`, `items`, `prompts`, `providers`, `pilot`, `cli` |
-| `config/sequences.toml` | sequences and roles (outcome-blind rules); `sequences_e3.toml`: exploratory E3 set |
-| `data/raw/`, `data/manifest.jsonl` | immutable downloads with URL, time, size, SHA-256 |
-| `data/processed/<snapshot>/` | parquet tables, `items.jsonl`, ETAS refit forecasts |
-| `runs/` | batch requests and results per model and block, local-model runs, live rounds, ETAS validation, Adaption records (`runs/e3/`, `runs/extensions/`: exploratory) |
-| `prompts/` | templates, JSON schemas, rationale, hashes |
-| `results/`, `figures/`, `notebooks/` | score tables ([guide](results/README.md)), figures, the frozen analysis notebook and the explorer |
-| `ops/` | the task queue and status log the two machines used during the overnight runs |
-| `docs/` | [plan](docs/PLAN.md), [preregistration](docs/preregistration.md), [research brief](docs/research-brief.md), [data card](docs/data-card.md), [model registry](docs/model-registry.md), [ADRs](docs/adr/), [event checklist](docs/event-checklist.md), [open questions](docs/open-questions.md) |
+| `src/laf/` | the `laf` package: data, as-of catalog, baselines, prompts, runners, scoring, figures |
+| `config/` | sequences and their roles; `sequences_e3.toml` is the exploratory set |
+| `data/raw/`, `data/manifest.jsonl` | immutable downloads with URL, time, size and SHA-256 |
+| `data/processed/<snapshot>/` | parquet tables, benchmark items, ETAS refit forecasts |
+| `prompts/` | templates, JSON schemas, hashes |
+| `runs/` | every model request and answer; `runs/e3/`, `runs/extensions/` are exploratory |
+| `results/`, `figures/`, `notebooks/` | score tables ([guide](results/README.md)), figures, analysis notebook and explorer |
+| `docs/` | [preregistration](docs/preregistration.md), [deviations](docs/deviations.md), [data card](docs/data-card.md), [model registry](docs/model-registry.md), [decisions](docs/adr/) |
+| `ops/` | the task queue the two machines shared during the overnight runs |
+
+</details>
 
 ## Licence and data
 Code: MIT ([LICENSE](LICENSE)). Derived tables and prompts: CC BY 4.0. Raw USGS data are U.S.

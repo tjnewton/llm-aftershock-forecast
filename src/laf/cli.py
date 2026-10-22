@@ -492,7 +492,7 @@ def main(argv: list[str] | None = None) -> None:
                 tab,
                 seq,
                 win,
-                ["official", "etas", "claude-sonnet-5-5|direct|I1|high"],
+                ["official", "etas", "claude-opus-5-5|direct|I1|high"],
                 out / f"fan_{seq.split()[0].lower()}_{win.split()[1].lower()}.png",
             )
         reg = pd.concat(
@@ -508,12 +508,13 @@ def main(argv: list[str] | None = None) -> None:
             if Path(csv).exists():  # descriptive extensions, scored apart (laf e1)
                 t = pd.read_csv(csv).query("sequence == 'pooled' and scoring == 'penalty'")
                 reg = pd.concat([reg, t[t["reference"] == "official"].assign(forecaster=f)])
-        panels = [("Registered: Colombia, Flores Sea (33 cells)", reg)]
+        F.fig_headline(tab, reg, out / "headline.png")
+        panels = [("Preregistered test: Colombia, Flores Sea (33 windows)", reg)]
         e3 = [Path("results/e3_dqs_main.csv"), Path("results/e3_dqs_extensions.csv")]
         if all(p.exists() for p in e3):
             t = pd.concat([pd.read_csv(p) for p in e3])
             t = t.query("sequence == 'pooled' and role == 'test-post' and scoring == 'penalty'")
-            panels.append(("E3 post-cutoff, 18 sequences (exploratory)", t))
+            panels.append(("18 more recent sequences (exploratory)", t))
         F.fig_overview(panels, out / "overview.png")
         # reader-facing summary for the explorer: difference from the official forecast
         sets = ("Preregistered", "39 more sequences (exploratory)")

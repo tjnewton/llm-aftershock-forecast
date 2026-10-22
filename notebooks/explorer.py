@@ -59,14 +59,16 @@ were trained, so they could not have memorized the answers.
 
 **What we found**
 
-- **Claude Opus 5.5 forecast about as well as the official USGS forecast**, on the
-  preregistered test and again on 18 more recent sequences. Sonnet 5.5 was close (as good on the
-  preregistered test, very slightly worse on the extra sequences); Haiku 5.5 was a little worse.
-- **Small open models** (gpt-oss-20b, Olmo 3.1 32B) were far behind and often gave unusable
-  answers; fine-tuning one of them fixed the format but did not make it as good as USGS.
+- **Claude Opus 5.5 sits in the top tier with the official USGS forecast** and its statistical
+  model (ETAS), on the preregistered test and again on 18 more recent sequences. Sonnet 5.5 tied
+  on the first and was very slightly worse on the second. Two sequences cannot separate the top
+  tier: even a naive baseline ties USGS there, so the benchmark grows with every new forecast.
+- **The benchmark does separate weaker forecasters**: Haiku 5.5 and the small open models
+  (gpt-oss-20b, Olmo 3.1 32B) were clearly worse, and the open models often gave unusable
+  answers; fine-tuning one of them fixed the format but not the skill.
 - **Seeing the list of recent quakes matters**: without it, forecasts were worse.
 - **No sign of memorization**: the models did no better on earthquakes from before their training
-  cutoff than the baselines did.
+  cutoff.
 
 The methods, preregistration and full results are in the project repository:
 https://github.com/tjnewton/llm-aftershock-forecast (see `docs/writeup.md`)."""
@@ -179,7 +181,7 @@ def _(all_data, dataset):
 def _(data, mo):
     seqs = sorted(data["seq_label"].unique())
     labels = sorted(data["label"].unique())
-    _start = next((s for s in seqs if "Colombia" in s), seqs[0])
+    _start = next((s for s in seqs if "Flores" in s), seqs[0])
     sequence = mo.ui.dropdown(seqs, value=_start, label="Earthquake sequence")
     window = mo.ui.dropdown(["1 Day", "1 Week", "1 Month"], value="1 Week", label="Forecast window")
     default = [
