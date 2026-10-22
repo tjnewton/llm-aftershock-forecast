@@ -15,3 +15,4 @@ T05 done 2026-10-22T14:01Z 8545162 777 of 777 succeeded; adapter gpt-oss-20b-e1r
 T06 running 2026-10-22T13:48Z
 T06 done 2026-10-22T14:25Z d1190de 777 of 777 succeeded; adapter gpt-oss-20b-e1r2-lora-f16.gguf sha256 7ec520aff551b2470a9471cd52e050b1d6f024ef80148fda8ca63839b699645d
 T07 running 2026-10-22T14:19Z
+T07 done 2026-10-22T14:57Z 61d5619 777 of 777 succeeded; adapter gpt-oss-20b-e1ar2-lora-f16.gguf sha256 90e868fed977697936f4da3e02ca28fee75522b9b403a2d2b4fdeba59e6d01d6
