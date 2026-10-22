@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./favicon.ico" />
+    <!-- Preload is necessary because we show these images when we disconnect from the server,
+    but at that point we cannot load these images from the server -->
+    <link rel="preload" href="./assets/gradient-yHQUC_QB.png" as="image" />
+    <link rel="preload" href="./assets/noise-60BoTA8O.png" as="image" />
+    <!-- Preload the fonts -->
+    <link rel="preload" href="./assets/Lora-VariableFont_wght-CZceb_kH.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Regular-Bam3NpBI.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Bold-C_DwAp7Z.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Regular-CEsLFVD9.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Medium-D5MAsWEG.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Bold-C6PDArdf.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="a marimo app" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./manifest.json" />
+
+    <script data-marimo="true">
+      function __resizeIframe(obj) {
+        const scrollbarHeight = 20; // Max between windows, mac, and linux
+
+        function setHeight() {
+          // Guard against race condition where iframe isn't ready
+          if (!obj.contentWindow?.document?.documentElement) {
+            return;
+          }
+          const element = obj.contentWindow.document.documentElement;
+          // If there is no vertical scrollbar, we don't need to resize the iframe
+          if (element.scrollHeight === element.clientHeight) {
+            return;
+          }
+
+          // Create a new height that includes the scrollbar height if it's visible
+          const hasHorizontalScrollbar = element.scrollWidth > element.clientWidth;
+          const newHeight = element.scrollHeight + (hasHorizontalScrollbar ? scrollbarHeight : 0);
+
+          // Only update the height if it's different from the current height
+          if (obj.style.height !== `${newHeight}px`) {
+            obj.style.height = `${newHeight}px`;
+          }
+        }
+
+        // Resize the iframe to the height of the content and bottom scrollbar height
+        setHeight();
+
+        // Resize the iframe when the content changes
+        const resizeObserver = new ResizeObserver((_entries) => {
+          setHeight();
+        });
+        // Only observe if iframe content is ready
+        if (obj.contentWindow?.document?.body) {
+          resizeObserver.observe(obj.contentWindow.document.body);
+        }
+      }
+    </script>
+    <marimo-filename hidden>notebook.py</marimo-filename>
+    <!-- TODO(Trevor): Legacy, required by VS Code plugin. Remove when plugin is updated (see marimo/server/_templates/template.py) -->
+    <marimo-version data-version="{{ version }}" hidden></marimo-version>
+    <marimo-user-config data-config="{{ user_config }}" hidden></marimo-user-config>
+    <marimo-server-token data-token="{{ server_token }}" hidden></marimo-server-token>
+    <!-- /TODO -->
+    <title>LLM aftershock forecasts vs USGS</title>
+    <script type="module" crossorigin src="./assets/index-s-M1OXjs.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/rolldown-runtime-B0Z9INg1.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-DVplv7_D.js">
+    <link rel="modulepreload" crossorigin href="./assets/compiler-runtime-BrajqUja.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEvent-Dfcbgjhg.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-dom-_LrxgvjW.js">
+    <link rel="modulepreload" crossorigin href="./assets/schemas-Dv42wLFq.js">
+    <link rel="modulepreload" crossorigin href="./assets/isObject-BCaOs5rp.js">
+    <link rel="modulepreload" crossorigin href="./assets/isSymbol-oX0TOjjx.js">
+    <link rel="modulepreload" crossorigin href="./assets/now-Cmx0b_zA.js">
+    <link rel="modulepreload" crossorigin href="./assets/debounce-aFmHgJZY.js">
+    <link rel="modulepreload" crossorigin href="./assets/isArrayLikeObject-DnwgSs_Z.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseMerge-CQpUq7ep.js">
+    <link rel="modulepreload" crossorigin href="./assets/objects-snlMn4yk.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEventListener-D9cftcHj.js">
+    <link rel="modulepreload" crossorigin href="./assets/invariant-Ci2dTZ72.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-VPSq73n8.js">
+    <link rel="modulepreload" crossorigin href="./assets/utils-B4K466FK.js">
+    <link rel="modulepreload" crossorigin href="./assets/session-DqoWmb7X.js">
+    <link rel="modulepreload" crossorigin href="./assets/Deferred-CrTnjj37.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-DX8Y2WbJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/clsx-DB0hHKMi.js">
+    <link rel="modulepreload" crossorigin href="./assets/cn-ldLVeaqm.js">
+    <link rel="modulepreload" crossorigin href="./assets/jsx-runtime-B74pBk57.js">
+    <link rel="modulepreload" crossorigin href="./assets/fullscreen-B9tHcfpV.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-iaThVDkA.js">
+    <link rel="modulepreload" crossorigin href="./assets/menu-items-BrwnTgyK.js">
+    <link rel="modulepreload" crossorigin href="./assets/use-restore-focus-BxEGwIbk.js">
+    <link rel="modulepreload" crossorigin href="./assets/createLucideIcon-DfJ2oMlA.js">
+    <link rel="modulepreload" crossorigin href="./assets/circle-DXf-VWZG.js">
+    <link rel="modulepreload" crossorigin href="./assets/button-COI-NGrx.js">
+    <link rel="modulepreload" crossorigin href="./assets/check-BQNapYaf.js">
+    <link rel="modulepreload" crossorigin href="./assets/I18nProvider-Cg2I_s1_.js">
+    <link rel="modulepreload" crossorigin href="./assets/useNumberFormatter-D7O_26UI.js">
+    <link rel="modulepreload" crossorigin href="./assets/select-DTBn5eTb.js">
+    <link rel="modulepreload" crossorigin href="./assets/toast-BGzLGnvw.js">
+    <link rel="modulepreload" crossorigin href="./assets/tooltip-C9TuY18o.js">
+    <link rel="modulepreload" crossorigin href="./assets/paths-bkIFVj8h.js">
+    <link rel="modulepreload" crossorigin href="./assets/useLifecycle-Mq4gc5kS.js">
+    <link rel="modulepreload" crossorigin href="./assets/toDate-DOj9Q6uC.js">
+    <link rel="modulepreload" crossorigin href="./assets/database-zap-B_PMVg8T.js">
+    <link rel="modulepreload" crossorigin href="./assets/alert-dialog-BaPGzeOK.js">
+    <link rel="modulepreload" crossorigin href="./assets/arrays-BqUx5USx.js">
+    <link rel="modulepreload" crossorigin href="./assets/once-Haz_uxEL.js">
+    <link rel="modulepreload" crossorigin href="./assets/numbers-Mk3-CcoU.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDebounce-B_ccBZTp.js">
+    <link rel="modulepreload" crossorigin href="./assets/input-BoBxR50a.js">
+    <link rel="modulepreload" crossorigin href="./assets/use-toast-Wu434mLr.js">
+    <link rel="modulepreload" crossorigin href="./assets/requests-lt0JK8Jt.js">
+    <link rel="modulepreload" crossorigin href="./assets/uuid-k9DpjH68.js">
+    <link rel="modulepreload" crossorigin href="./assets/write-secret-modal-DzKAInL2.js">
+    <link rel="modulepreload" crossorigin href="./assets/plus-C5silF6g.js">
+    <link rel="modulepreload" crossorigin href="./assets/trash-2-DcgaW8fn.js">
+    <link rel="modulepreload" crossorigin href="./assets/preload-helper-uBIymjUX.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-Cny7_yZb.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DBMV4gqt.js">
+    <link rel="modulepreload" crossorigin href="./assets/capabilities-BJvf-MD4.js">
+    <link rel="modulepreload" crossorigin href="./assets/cjs-C49f7GXV.js">
+    <link rel="modulepreload" crossorigin href="./assets/createReducer-DgRODTW6.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-qhAY4L2r.js">
+    <link rel="modulepreload" crossorigin href="./assets/marked.esm-B_3iMIUq.js">
+    <link rel="modulepreload" crossorigin href="./assets/strings-B2vv-ENv.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BOfh4hMd.js">
+    <link rel="modulepreload" crossorigin href="./assets/badge-crT3E0Rm.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DtH-7lot.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BmExfiwX.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-1tmpVXyz.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-LSsCJjA3.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DusFODSa.js">
+    <link rel="modulepreload" crossorigin href="./assets/stex-Dc5bKD4z.js">
+    <link rel="modulepreload" crossorigin href="./assets/useTheme-COhSHkCj.js">
+    <link rel="modulepreload" crossorigin href="./assets/useAsyncData-C7aJJz0Y.js">
+    <link rel="modulepreload" crossorigin href="./assets/purify.es--06brOip.js">
+    <link rel="modulepreload" crossorigin href="./assets/cells-BRkCaSsh.js">
+    <link rel="modulepreload" crossorigin href="./assets/coerce-CpE6kUdX.js">
+    <link rel="modulepreload" crossorigin href="./assets/get-DjNf4SIX.js">
+    <link rel="modulepreload" crossorigin href="./assets/_hasPath-BmRQipI0.js">
+    <link rel="modulepreload" crossorigin href="./assets/hasIn-yw4sIeJR.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseSet-Bpdo9AvU.js">
+    <link rel="modulepreload" crossorigin href="./assets/pick-DKIID_Mo.js">
+    <link rel="modulepreload" crossorigin href="./assets/state-BAJYRhmO.js">
+    <link rel="modulepreload" crossorigin href="./assets/state-C3oDoyFe.js">
+    <link rel="modulepreload" crossorigin href="./assets/LazyAnyLanguageCodeMirror-CKcCbG2G.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-D8O_CYCG.js">
+    <link rel="modulepreload" crossorigin href="./assets/micromark-factory-space-D9Dr-k4J.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-YOKDWASO-BIpRENEC.js">
+    <link rel="modulepreload" crossorigin href="./assets/markdown-renderer-BG3sp2rs.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-Djr5m5ac.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-icon-BIiRXh_3.js">
+    <link rel="modulepreload" crossorigin href="./assets/useRunCells-B2vUhREg.js">
+    <link rel="modulepreload" crossorigin href="./assets/RenderHTML-BbOqmHy3.js">
+    <link rel="modulepreload" crossorigin href="./assets/blob-D5nfNHOo.js">
+    <link rel="modulepreload" crossorigin href="./assets/kbd-pdKBv96t.js">
+    <link rel="modulepreload" crossorigin href="./assets/useInstallPackage-iX1eufdl.js">
+    <link rel="modulepreload" crossorigin href="./assets/errors-DCrsa1nH.js">
+    <link rel="modulepreload" crossorigin href="./assets/api-BeC_VSGv.js">
+    <link rel="modulepreload" crossorigin href="./assets/share-BZW3tzEX.js">
+    <link rel="modulepreload" crossorigin href="./assets/events-CbeVJ6OD.js">
+    <link rel="modulepreload" crossorigin href="./assets/state-_Qai_QyX.js">
+    <link rel="modulepreload" crossorigin href="./assets/pair-CaQyK6En.js">
+    <link rel="modulepreload" crossorigin href="./assets/ErrorBoundary-Gl5nCA8C.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-BOKzA3tF.js">
+    <link rel="modulepreload" crossorigin href="./assets/chevron-right-eAtVhbNZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/dropdown-menu-C1rnl-0o.js">
+    <link rel="modulepreload" crossorigin href="./assets/html-to-image-DK9Zl1lU.js">
+    <link rel="modulepreload" crossorigin href="./assets/download-DCJXy66H.js">
+    <link rel="modulepreload" crossorigin href="./assets/switch-CTaiAjrz.js">
+    <link rel="modulepreload" crossorigin href="./assets/tabs-BuQlZFbt.js">
+    <link rel="modulepreload" crossorigin href="./assets/table-DG7Ap4H4.js">
+    <link rel="modulepreload" crossorigin href="./assets/eye-off-CxVozGAC.js">
+    <link rel="modulepreload" crossorigin href="./assets/refresh-cw-Qw1f8Jhy.js">
+    <link rel="modulepreload" crossorigin href="./assets/tree-actions-GM5E_bUs.js">
+    <link rel="modulepreload" crossorigin href="./assets/ellipsis-63DyBLHQ.js">
+    <link rel="modulepreload" crossorigin href="./assets/external-link-UrX9KO36.js">
+    <link rel="modulepreload" crossorigin href="./assets/spinner-DyNE-o8o.js">
+    <link rel="modulepreload" crossorigin href="./assets/message-circle-C3rKm8_a.js">
+    <link rel="modulepreload" crossorigin href="./assets/hat-glasses-C8RhSVii.js">
+    <link rel="modulepreload" crossorigin href="./assets/package-GSoSTiIK.js">
+    <link rel="modulepreload" crossorigin href="./assets/datasource-Cq6x_5ML.js">
+    <link rel="modulepreload" crossorigin href="./assets/alert-DTaqCu_d.js">
+    <link rel="modulepreload" crossorigin href="./assets/state-XsPO8hNi.js">
+    <link rel="modulepreload" crossorigin href="./assets/cell-link-LSth_8hT.js">
+    <link rel="modulepreload" crossorigin href="./assets/MarimoErrorOutput-D60XkCny.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDateFormatter-DA-62E-Y.js">
+    <link rel="modulepreload" crossorigin href="./assets/en-US-Buu61juQ.js">
+    <link rel="modulepreload" crossorigin href="./assets/isValid-q_Ad80ug.js">
+    <link rel="modulepreload" crossorigin href="./assets/dates-BbFQ2oE4.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-CNPGWpMu.js">
+    <link rel="modulepreload" crossorigin href="./assets/precisionRound-Bq_nmf5u.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-D5bOh7g6.js">
+    <link rel="modulepreload" crossorigin href="./assets/vega-loader.browser-CLRkNgm7.js">
+    <link rel="modulepreload" crossorigin href="./assets/tooltip-mT3CGest.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-icons.esm-D6tfmvq8.js">
+    <link rel="modulepreload" crossorigin href="./assets/extends-CvVTau-c.js">
+    <link rel="modulepreload" crossorigin href="./assets/objectWithoutPropertiesLoose-Do6ywDBO.js">
+    <link rel="modulepreload" crossorigin href="./assets/useIframeCapabilities-CwTkczVN.js">
+    <link rel="modulepreload" crossorigin href="./assets/error-banner-Cd69vvyX.js">
+    <link rel="modulepreload" crossorigin href="./assets/utils-CaQYvazl.js">
+    <link rel="modulepreload" crossorigin href="./assets/formats-yZ06h1Pl.js">
+    <link rel="modulepreload" crossorigin href="./assets/table-vrvqpuKJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-resizable-panels.browser.esm-Dbe0MrFr.js">
+    <link rel="modulepreload" crossorigin href="./assets/JsonOutput-D6HIIsCb.js">
+    <link rel="modulepreload" crossorigin href="./assets/chart-no-axes-column-C4_v6fQW.js">
+    <link rel="modulepreload" crossorigin href="./assets/square-function-_W_Lo0P4.js">
+    <link rel="modulepreload" crossorigin href="./assets/spec-BfSBcO5B.js">
+    <link rel="modulepreload" crossorigin href="./assets/semaphore-BjoL5P0h.js">
+    <link rel="modulepreload" crossorigin href="./assets/fileToBase64-BgBraYAr.js">
+    <link rel="modulepreload" crossorigin href="./assets/useBoolean-BDD6_xQQ.js">
+    <link rel="modulepreload" crossorigin href="./assets/code-xml-SQaZqvcO.js">
+    <link rel="modulepreload" crossorigin href="./assets/file-headphone-Dl35U6h3.js">
+    <link rel="modulepreload" crossorigin href="./assets/file-BPBVl9pl.js">
+    <link rel="modulepreload" crossorigin href="./assets/image-wZvTj8WY.js">
+    <link rel="modulepreload" crossorigin href="./assets/file-icons-CdJgUy-I.js">
+    <link rel="modulepreload" crossorigin href="./assets/globe-UdPdIbF7.js">
+    <link rel="modulepreload" crossorigin href="./assets/esm-CI_o7NhW.js">
+    <link rel="modulepreload" crossorigin href="./assets/useAddCell-GR7eEQrT.js">
+    <link rel="modulepreload" crossorigin href="./assets/readonly-python-code-DCSMIsTX.js">
+    <link rel="modulepreload" crossorigin href="./assets/data-grid-types-DgHVN_Zz.js">
+    <link rel="modulepreload" crossorigin href="./assets/glide-utils-CIrAxdjv.js">
+    <link rel="modulepreload" crossorigin href="./assets/column-preview-Cm2D6vyX.js">
+    <link rel="modulepreload" crossorigin href="./assets/square-BPmgQFnh.js">
+    <link rel="modulepreload" crossorigin href="./assets/triangle-alert-DmIqR8sY.js">
+    <link rel="modulepreload" crossorigin href="./assets/prop-types-Djf4O40e.js">
+    <link rel="modulepreload" crossorigin href="./assets/es-Cqst59WX.js">
+    <link rel="modulepreload" crossorigin href="./assets/package-data-dv4FBHxR.js">
+    <link rel="modulepreload" crossorigin href="./assets/markdown-export-DzhB1FrN.js">
+    <link rel="modulepreload" crossorigin href="./assets/renderShortcut-BkVJQ_Zh.js">
+    <link rel="modulepreload" crossorigin href="./assets/bundle.esm-D3tw5rqW.js">
+    <link rel="modulepreload" crossorigin href="./assets/icons-CiZ_8zS-.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDeepCompareMemoize-DFIVN9dn.js">
+    <link rel="modulepreload" crossorigin href="./assets/pathUtils-DPmlLd-r.js">
+    <link rel="modulepreload" crossorigin href="./assets/floating-outline-XD9FAV-f.js">
+    <link rel="stylesheet" crossorigin href="./assets/cells-0PFKL3SH.css">
+    <link rel="stylesheet" crossorigin href="./assets/markdown-renderer-DjIHoF9Z.css">
+    <link rel="stylesheet" crossorigin href="./assets/JsonOutput-B0GmlMnR.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-Bcdzex-3.css">
+  <marimo-wasm hidden=""></marimo-wasm>
+    <script>
+        if (window.location.protocol === 'file:') {
+            alert('Warning: This file must be served by an HTTP server to function correctly.');
+        }
+    </script>
+    
+    <style>
+        #save-button {
+            display: none !important;
+        }
+        #filename-input {
+            display: none !important;
+        }
+    </style>
+    
+<script data-marimo="true">
+    Object.defineProperty(window, "__MARIMO_EXPORT_CONTEXT__", {
+        value: Object.freeze({
+            trusted: true,
+            notebookCode: "import marimo\n\n__generated_with = \"0.25.2\"\napp = marimo.App(width=\"medium\", app_title=\"LLM aftershock forecasts vs USGS\")\n\n\n@app.cell\ndef _():\n    import contextlib\n\n    import altair as alt\n    import marimo as mo\n    import pandas as pd\n\n    COLOR = {\n        \"USGS official\": \"#52514e\",\n        \"Legacy-ETAS refit\": \"#6250d6\",\n        \"Haiku 5.5 direct, catalog\": \"#2a78d6\",\n        \"Sonnet 5.5 direct, catalog\": \"#eb6834\",\n        \"Opus 5.5 direct, catalog\": \"#1baf7a\",\n        \"gpt-oss-20b direct, catalog\": \"#eda100\",\n        \"Olmo-3.1-32B-Instruct direct, catalog\": \"#e87ba4\",\n    }\n    return COLOR, alt, contextlib, mo, pd\n\n\n@app.cell\ndef _(contextlib, mo, pd):\n    _base = mo.notebook_location() / \"public\"\n    _frames = [pd.read_csv(str(_base / \"explorer.csv\")).assign(set=\"Registered\")]\n    with contextlib.suppress(Exception):  # the exploratory E3 table is optional\n        _frames.append(pd.read_csv(str(_base / \"explorer_e3.csv\")).assign(set=\"E3 (exploratory)\"))\n    all_data = pd.concat(_frames, ignore_index=True)\n    mo.md(\n        \"\"\"# Do LLMs forecast aftershocks like the USGS?\n    Each panel shows one forecaster's N(M\u003E=5) forecast at every issue time of a sequence: the\n    5-95% band, the 25-75% band and the median, with the count that was later observed. Claude\n    answers are quantile-averaged over their valid samples. Scores are log-scale quantile scores\n    (lower is better) from the code frozen at tag `scoring-v1`; the analysis plan was frozen at\n    `prereg-v1`. The \"E3 (exploratory)\" set holds 39 further sequences with an official forecast,\n    added after the freeze (docs/adr/0012-e3-extended-set.md). Source:\n    https://github.com/tjnewton/llm-aftershock-forecast\"\"\"\n    )\n    return (all_data,)\n\n\n@app.cell\ndef _(all_data, mo):\n    dataset = mo.ui.dropdown(\n        sorted(all_data[\"set\"].unique(), reverse=True), value=\"Registered\", label=\"Set\"\n    )\n    dataset  # noqa: B018 (marimo displays the last expression)\n    return (dataset,)\n\n\n@app.cell\ndef _(all_data, dataset):\n    data = all_data[all_data[\"set\"] == dataset.value]\n    return (data,)\n\n\n@app.cell\ndef _(data, mo):\n    seqs = sorted(data[\"name\"].unique())\n    labels = sorted(data[\"label\"].unique())\n    sequence = mo.ui.dropdown(\n        seqs, value=\"Flores Sea\" if \"Flores Sea\" in seqs else seqs[0], label=\"Sequence\"\n    )\n    window = mo.ui.dropdown([\"1 Day\", \"1 Week\", \"1 Month\"], value=\"1 Week\", label=\"Window\")\n    default = [\n        x\n        for x in (\"USGS official\", \"Legacy-ETAS refit\", \"Sonnet 5.5 direct, catalog\")\n        if x in labels\n    ]\n    chosen = mo.ui.multiselect(labels, value=default, label=\"Forecasters\", max_selections=4)\n    primary_only = mo.ui.checkbox(value=False, label=\"Primary cells only (settled \u003E= 21 days)\")\n    mo.hstack([sequence, window, chosen, primary_only], justify=\"start\", wrap=True)\n    return chosen, primary_only, sequence, window\n\n\n@app.cell\ndef _(chosen, data, primary_only, sequence, window):\n    view = data[\n        (data[\"name\"] == sequence.value)\n        \u0026 (data[\"window\"] == window.value)\n        \u0026 data[\"label\"].isin(chosen.value)\n    ]\n    if primary_only.value:\n        view = view[view[\"primary\"]]\n    return (view,)\n\n\n@app.cell\ndef _(COLOR, alt, chosen, mo, view):\n    if view.empty:\n        _out = mo.md(\"No cells for this selection.\")\n    else:\n        _domain = list(chosen.value)\n        _range = [COLOR.get(x, \"#008300\") for x in _domain]\n        _color = alt.Color(\"label:N\", scale=alt.Scale(domain=_domain, range=_range), legend=None)\n        _x = alt.X(\n            \"elapsed_days:Q\",\n            scale=alt.Scale(type=\"log\", nice=False),\n            axis=alt.Axis(values=[0.3, 1, 3, 7, 14, 28], grid=False),\n            title=\"issue time, days after mainshock\",\n        )\n        _tip = [\n            alt.Tooltip(\"target:N\", title=\"issue\"),\n            alt.Tooltip(\"q050:Q\", title=\"5%\"),\n            alt.Tooltip(\"q500:Q\", title=\"median\"),\n            alt.Tooltip(\"q950:Q\", title=\"95%\"),\n            alt.Tooltip(\"y5:Q\", title=\"observed\"),\n            alt.Tooltip(\"log_qs:Q\", title=\"log-QS\", format=\".3f\"),\n        ]\n        _base = alt.Chart(view).encode(x=_x)\n        _outer = _base.mark_area(opacity=0.18).encode(\n            y=alt.Y(\"q050:Q\", title=\"N(M\u003E=5)\"), y2=\"q950:Q\", color=_color\n        )\n        _inner = _base.mark_area(opacity=0.35).encode(y=\"q250:Q\", y2=\"q750:Q\", color=_color)\n        _median = _base.mark_line(strokeWidth=2).encode(y=\"q500:Q\", color=_color)\n        _obs = _base.mark_circle(size=70, color=\"#0b0b0b\", opacity=1).encode(y=\"y5:Q\", tooltip=_tip)\n        _chart = (\n            alt.layer(_outer, _inner, _median, _obs)\n            .properties(width=230, height=220)\n            .facet(column=alt.Column(\"label:N\", title=None, sort=_domain))\n            .configure_view(stroke=None)\n        )\n        _out = mo.ui.altair_chart(_chart)\n    _out  # noqa: B018 (marimo displays the last expression)\n    return\n\n\n@app.cell\ndef _(mo, view):\n    _tab = (\n        view.pivot_table(index=[\"target\", \"elapsed_days\"], columns=\"label\", values=\"log_qs\")\n        .sort_index(level=\"elapsed_days\")\n        .round(3)\n        if not view.empty\n        else view\n    )\n    mo.vstack([mo.md(\"**Log-QS per issue time** (lower is better)\"), _tab])\n    return\n\n\n@app.cell\ndef _(data, dataset, mo):\n    _p = data[data[\"primary\"]]\n    _col = \"name\" if dataset.value == \"Registered\" else \"role\"\n    _tab = (\n        _p.pivot_table(index=\"label\", columns=_col, values=\"log_qs\")\n        .assign(**{\"all primary cells\": _p.groupby(\"label\")[\"log_qs\"].mean()})\n        .sort_values(\"all primary cells\")\n        .round(3)\n    )\n    mo.vstack(\n        [\n            mo.md(\"\"\"**Mean log-QS over primary cells, every forecaster** (forecasters\n    without a catalog, or at low effort, were run on the test-post sequences only, so compare within\n    a column)\"\"\"),\n            _tab,\n        ]\n    )\n    return\n\n\nif __name__ == \"__main__\":\n    app.run()\n",
+        }),
+        writable: false,
+        configurable: false,
+    });
+</script>
+<marimo-code hidden="">import%20marimo%0A%0A__generated_with%20%3D%20%220.25.2%22%0Aapp%20%3D%20marimo.App(width%3D%22medium%22%2C%20app_title%3D%22LLM%20aftershock%20forecasts%20vs%20USGS%22)%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20import%20contextlib%0A%0A%20%20%20%20import%20altair%20as%20alt%0A%20%20%20%20import%20marimo%20as%20mo%0A%20%20%20%20import%20pandas%20as%20pd%0A%0A%20%20%20%20COLOR%20%3D%20%7B%0A%20%20%20%20%20%20%20%20%22USGS%20official%22%3A%20%22%2352514e%22%2C%0A%20%20%20%20%20%20%20%20%22Legacy-ETAS%20refit%22%3A%20%22%236250d6%22%2C%0A%20%20%20%20%20%20%20%20%22Haiku%205.5%20direct%2C%20catalog%22%3A%20%22%232a78d6%22%2C%0A%20%20%20%20%20%20%20%20%22Sonnet%205.5%20direct%2C%20catalog%22%3A%20%22%23eb6834%22%2C%0A%20%20%20%20%20%20%20%20%22Opus%205.5%20direct%2C%20catalog%22%3A%20%22%231baf7a%22%2C%0A%20%20%20%20%20%20%20%20%22gpt-oss-20b%20direct%2C%20catalog%22%3A%20%22%23eda100%22%2C%0A%20%20%20%20%20%20%20%20%22Olmo-3.1-32B-Instruct%20direct%2C%20catalog%22%3A%20%22%23e87ba4%22%2C%0A%20%20%20%20%7D%0A%20%20%20%20return%20COLOR%2C%20alt%2C%20contextlib%2C%20mo%2C%20pd%0A%0A%0A%40app.cell%0Adef%20_(contextlib%2C%20mo%2C%20pd)%3A%0A%20%20%20%20_base%20%3D%20mo.notebook_location()%20%2F%20%22public%22%0A%20%20%20%20_frames%20%3D%20%5Bpd.read_csv(str(_base%20%2F%20%22explorer.csv%22)).assign(set%3D%22Registered%22)%5D%0A%20%20%20%20with%20contextlib.suppress(Exception)%3A%20%20%23%20the%20exploratory%20E3%20table%20is%20optional%0A%20%20%20%20%20%20%20%20_frames.append(pd.read_csv(str(_base%20%2F%20%22explorer_e3.csv%22)).assign(set%3D%22E3%20(exploratory)%22))%0A%20%20%20%20all_data%20%3D%20pd.concat(_frames%2C%20ignore_index%3DTrue)%0A%20%20%20%20mo.md(%0A%20%20%20%20%20%20%20%20%22%22%22%23%20Do%20LLMs%20forecast%20aftershocks%20like%20the%20USGS%3F%0A%20%20%20%20Each%20panel%20shows%20one%20forecaster's%20N(M%3E%3D5)%20forecast%20at%20every%20issue%20time%20of%20a%20sequence%3A%20the%0A%20%20%20%205-95%25%20band%2C%20the%2025-75%25%20band%20and%20the%20median%2C%20with%20the%20count%20that%20was%20later%20observed.%20Claude%0A%20%20%20%20answers%20are%20quantile-averaged%20over%20their%20valid%20samples.%20Scores%20are%20log-scale%20quantile%20scores%0A%20%20%20%20(lower%20is%20better)%20from%20the%20code%20frozen%20at%20tag%20%60scoring-v1%60%3B%20the%20analysis%20plan%20was%20frozen%20at%0A%20%20%20%20%60prereg-v1%60.%20The%20%22E3%20(exploratory)%22%20set%20holds%2039%20further%20sequences%20with%20an%20official%20forecast%2C%0A%20%20%20%20added%20after%20the%20freeze%20(docs%2Fadr%2F0012-e3-extended-set.md).%20Source%3A%0A%20%20%20%20https%3A%2F%2Fgithub.com%2Ftjnewton%2Fllm-aftershock-forecast%22%22%22%0A%20%20%20%20)%0A%20%20%20%20return%20(all_data%2C)%0A%0A%0A%40app.cell%0Adef%20_(all_data%2C%20mo)%3A%0A%20%20%20%20dataset%20%3D%20mo.ui.dropdown(%0A%20%20%20%20%20%20%20%20sorted(all_data%5B%22set%22%5D.unique()%2C%20reverse%3DTrue)%2C%20value%3D%22Registered%22%2C%20label%3D%22Set%22%0A%20%20%20%20)%0A%20%20%20%20dataset%20%20%23%20noqa%3A%20B018%20(marimo%20displays%20the%20last%20expression)%0A%20%20%20%20return%20(dataset%2C)%0A%0A%0A%40app.cell%0Adef%20_(all_data%2C%20dataset)%3A%0A%20%20%20%20data%20%3D%20all_data%5Ball_data%5B%22set%22%5D%20%3D%3D%20dataset.value%5D%0A%20%20%20%20return%20(data%2C)%0A%0A%0A%40app.cell%0Adef%20_(data%2C%20mo)%3A%0A%20%20%20%20seqs%20%3D%20sorted(data%5B%22name%22%5D.unique())%0A%20%20%20%20labels%20%3D%20sorted(data%5B%22label%22%5D.unique())%0A%20%20%20%20sequence%20%3D%20mo.ui.dropdown(%0A%20%20%20%20%20%20%20%20seqs%2C%20value%3D%22Flores%20Sea%22%20if%20%22Flores%20Sea%22%20in%20seqs%20else%20seqs%5B0%5D%2C%20label%3D%22Sequence%22%0A%20%20%20%20)%0A%20%20%20%20window%20%3D%20mo.ui.dropdown(%5B%221%20Day%22%2C%20%221%20Week%22%2C%20%221%20Month%22%5D%2C%20value%3D%221%20Week%22%2C%20label%3D%22Window%22)%0A%20%20%20%20default%20%3D%20%5B%0A%20%20%20%20%20%20%20%20x%0A%20%20%20%20%20%20%20%20for%20x%20in%20(%22USGS%20official%22%2C%20%22Legacy-ETAS%20refit%22%2C%20%22Sonnet%205.5%20direct%2C%20catalog%22)%0A%20%20%20%20%20%20%20%20if%20x%20in%20labels%0A%20%20%20%20%5D%0A%20%20%20%20chosen%20%3D%20mo.ui.multiselect(labels%2C%20value%3Ddefault%2C%20label%3D%22Forecasters%22%2C%20max_selections%3D4)%0A%20%20%20%20primary_only%20%3D%20mo.ui.checkbox(value%3DFalse%2C%20label%3D%22Primary%20cells%20only%20(settled%20%3E%3D%2021%20days)%22)%0A%20%20%20%20mo.hstack(%5Bsequence%2C%20window%2C%20chosen%2C%20primary_only%5D%2C%20justify%3D%22start%22%2C%20wrap%3DTrue)%0A%20%20%20%20return%20chosen%2C%20primary_only%2C%20sequence%2C%20window%0A%0A%0A%40app.cell%0Adef%20_(chosen%2C%20data%2C%20primary_only%2C%20sequence%2C%20window)%3A%0A%20%20%20%20view%20%3D%20data%5B%0A%20%20%20%20%20%20%20%20(data%5B%22name%22%5D%20%3D%3D%20sequence.value)%0A%20%20%20%20%20%20%20%20%26%20(data%5B%22window%22%5D%20%3D%3D%20window.value)%0A%20%20%20%20%20%20%20%20%26%20data%5B%22label%22%5D.isin(chosen.value)%0A%20%20%20%20%5D%0A%20%20%20%20if%20primary_only.value%3A%0A%20%20%20%20%20%20%20%20view%20%3D%20view%5Bview%5B%22primary%22%5D%5D%0A%20%20%20%20return%20(view%2C)%0A%0A%0A%40app.cell%0Adef%20_(COLOR%2C%20alt%2C%20chosen%2C%20mo%2C%20view)%3A%0A%20%20%20%20if%20view.empty%3A%0A%20%20%20%20%20%20%20%20_out%20%3D%20mo.md(%22No%20cells%20for%20this%20selection.%22)%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20_domain%20%3D%20list(chosen.value)%0A%20%20%20%20%20%20%20%20_range%20%3D%20%5BCOLOR.get(x%2C%20%22%23008300%22)%20for%20x%20in%20_domain%5D%0A%20%20%20%20%20%20%20%20_color%20%3D%20alt.Color(%22label%3AN%22%2C%20scale%3Dalt.Scale(domain%3D_domain%2C%20range%3D_range)%2C%20legend%3DNone)%0A%20%20%20%20%20%20%20%20_x%20%3D%20alt.X(%0A%20%20%20%20%20%20%20%20%20%20%20%20%22elapsed_days%3AQ%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20scale%3Dalt.Scale(type%3D%22log%22%2C%20nice%3DFalse)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20axis%3Dalt.Axis(values%3D%5B0.3%2C%201%2C%203%2C%207%2C%2014%2C%2028%5D%2C%20grid%3DFalse)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20title%3D%22issue%20time%2C%20days%20after%20mainshock%22%2C%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20%20%20%20%20_tip%20%3D%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20alt.Tooltip(%22target%3AN%22%2C%20title%3D%22issue%22)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20alt.Tooltip(%22q050%3AQ%22%2C%20title%3D%225%25%22)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20alt.Tooltip(%22q500%3AQ%22%2C%20title%3D%22median%22)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20alt.Tooltip(%22q950%3AQ%22%2C%20title%3D%2295%25%22)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20alt.Tooltip(%22y5%3AQ%22%2C%20title%3D%22observed%22)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20alt.Tooltip(%22log_qs%3AQ%22%2C%20title%3D%22log-QS%22%2C%20format%3D%22.3f%22)%2C%0A%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%20%20%20%20_base%20%3D%20alt.Chart(view).encode(x%3D_x)%0A%20%20%20%20%20%20%20%20_outer%20%3D%20_base.mark_area(opacity%3D0.18).encode(%0A%20%20%20%20%20%20%20%20%20%20%20%20y%3Dalt.Y(%22q050%3AQ%22%2C%20title%3D%22N(M%3E%3D5)%22)%2C%20y2%3D%22q950%3AQ%22%2C%20color%3D_color%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20%20%20%20%20_inner%20%3D%20_base.mark_area(opacity%3D0.35).encode(y%3D%22q250%3AQ%22%2C%20y2%3D%22q750%3AQ%22%2C%20color%3D_color)%0A%20%20%20%20%20%20%20%20_median%20%3D%20_base.mark_line(strokeWidth%3D2).encode(y%3D%22q500%3AQ%22%2C%20color%3D_color)%0A%20%20%20%20%20%20%20%20_obs%20%3D%20_base.mark_circle(size%3D70%2C%20color%3D%22%230b0b0b%22%2C%20opacity%3D1).encode(y%3D%22y5%3AQ%22%2C%20tooltip%3D_tip)%0A%20%20%20%20%20%20%20%20_chart%20%3D%20(%0A%20%20%20%20%20%20%20%20%20%20%20%20alt.layer(_outer%2C%20_inner%2C%20_median%2C%20_obs)%0A%20%20%20%20%20%20%20%20%20%20%20%20.properties(width%3D230%2C%20height%3D220)%0A%20%20%20%20%20%20%20%20%20%20%20%20.facet(column%3Dalt.Column(%22label%3AN%22%2C%20title%3DNone%2C%20sort%3D_domain))%0A%20%20%20%20%20%20%20%20%20%20%20%20.configure_view(stroke%3DNone)%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20%20%20%20%20_out%20%3D%20mo.ui.altair_chart(_chart)%0A%20%20%20%20_out%20%20%23%20noqa%3A%20B018%20(marimo%20displays%20the%20last%20expression)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo%2C%20view)%3A%0A%20%20%20%20_tab%20%3D%20(%0A%20%20%20%20%20%20%20%20view.pivot_table(index%3D%5B%22target%22%2C%20%22elapsed_days%22%5D%2C%20columns%3D%22label%22%2C%20values%3D%22log_qs%22)%0A%20%20%20%20%20%20%20%20.sort_index(level%3D%22elapsed_days%22)%0A%20%20%20%20%20%20%20%20.round(3)%0A%20%20%20%20%20%20%20%20if%20not%20view.empty%0A%20%20%20%20%20%20%20%20else%20view%0A%20%20%20%20)%0A%20%20%20%20mo.vstack(%5Bmo.md(%22**Log-QS%20per%20issue%20time**%20(lower%20is%20better)%22)%2C%20_tab%5D)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(data%2C%20dataset%2C%20mo)%3A%0A%20%20%20%20_p%20%3D%20data%5Bdata%5B%22primary%22%5D%5D%0A%20%20%20%20_col%20%3D%20%22name%22%20if%20dataset.value%20%3D%3D%20%22Registered%22%20else%20%22role%22%0A%20%20%20%20_tab%20%3D%20(%0A%20%20%20%20%20%20%20%20_p.pivot_table(index%3D%22label%22%2C%20columns%3D_col%2C%20values%3D%22log_qs%22)%0A%20%20%20%20%20%20%20%20.assign(**%7B%22all%20primary%20cells%22%3A%20_p.groupby(%22label%22)%5B%22log_qs%22%5D.mean()%7D)%0A%20%20%20%20%20%20%20%20.sort_values(%22all%20primary%20cells%22)%0A%20%20%20%20%20%20%20%20.round(3)%0A%20%20%20%20)%0A%20%20%20%20mo.vstack(%0A%20%20%20%20%20%20%20%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.md(%22%22%22**Mean%20log-QS%20over%20primary%20cells%2C%20every%20forecaster**%20(forecasters%0A%20%20%20%20without%20a%20catalog%2C%20or%20at%20low%20effort%2C%20were%20run%20on%20the%20test-post%20sequences%20only%2C%20so%20compare%20within%0A%20%20%20%20a%20column)%22%22%22)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20_tab%2C%0A%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20)%0A%20%20%20%20return%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20app.run()%0A</marimo-code></head>
+  <body>
+    <div id="root"></div>
+    <script data-marimo="true">
+      Object.defineProperty(window, "__MARIMO_MOUNT_CONFIG__", {
+        value: Object.freeze({
+            "filename": "notebook.py",
+            "cwd": "",
+            "lspWorkspace": null,
+            "mode": "read",
+            "version": "0.25.2",
+            "serverToken": "unused",
+            "config": {"ai": {"allow_provider_config": true, "custom_providers": {}, "enabled": true, "models": {"custom_models": [], "displayed_models": []}}, "completion": {"activate_on_typing": true, "auto_close_pairs": true, "copilot": false, "signature_hint_on_typing": false}, "diagnostics": {"sql_linter": true}, "display": {"cell_output": "below", "code_editor_font_size": 14, "code_lens": true, "dataframes": "rich", "default_table_max_columns": 50, "default_table_page_size": 10, "default_width": "medium", "reference_highlighting": true, "theme": "light"}, "formatting": {"line_length": 79}, "keymap": {"overrides": {}, "preset": "default"}, "language_servers": {"pylsp": {"enable_flake8": false, "enable_mypy": true, "enable_pydocstyle": false, "enable_pyflakes": false, "enable_pylint": false, "enable_ruff": true, "enabled": false}}, "mcp": {"mcpServers": {}, "presets": []}, "package_management": {"manager": "uv"}, "runtime": {"auto_instantiate": false, "auto_reload": "off", "default_csv_encoding": "utf-8", "default_sql_output": "auto", "on_cell_change": "autorun", "output_max_bytes": 8000000, "reactive_tests": true, "show_tracebacks": false, "std_stream_max_bytes": 1000000, "watcher_on_save": "lazy"}, "save": {"autosave": "off", "autosave_delay": 1000, "format_on_save": false}, "server": {"browser": "default", "follow_symlink": false}, "snippets": {"custom_paths": [], "include_default_snippets": true}},
+            "configOverrides": {},
+            "appConfig": {"app_title": "LLM aftershock forecasts vs USGS", "sql_output": "auto", "width": "medium"},
+            "layout": null,
+            "view": {"showAppCode": false},
+            "notebook": null,
+            "session": null,
+            "runtimeConfig": null
+        }),
+        writable: false,
+        configurable: false,
+      });
+    </script>
+  </body>
+</html>
