@@ -22,15 +22,17 @@ windows, and a prompt catalog rebuilt as ComCat stood at the issue time from its
 histories (the rebuild reproduces 95.1% of the official products' own observation counts).
 Claude Haiku, Sonnet and Opus 5.5 answered 3,710 structured requests, either directly as nine
 quantiles of the M≥5 count or as Reasenberg-Jones parameters, with and without the catalog. We
-scored them against the observed counts with the log-scale quantile score, beside the official
+scored them against the observed counts with the log-scale quantile score (how far the forecast
+range falls from what happened, on a log scale; lower is better), beside the official
 forecast, a port of the USGS legacy-ETAS code refit at each issue time, and simpler baselines.
 The hypotheses, cells and analysis were preregistered and frozen (tag `prereg-v1`, SHA-256
 posted publicly) before any scored call, and the scoring code was frozen (`scoring-v1`) before
 any result was read.
 
-On the 33 settled cells of the post-cutoff sequences that have an official forecast (Colombia
-and Flores Sea), Sonnet and Opus could not be distinguished from USGS at this scale: the pooled
-score difference to the official forecast is −0.015 (95% block-bootstrap interval −0.081 to 0.017)
+On the 33 settled cells (sequence × issue time × window) of the post-cutoff sequences that have
+an official forecast (Colombia and Flores Sea), Sonnet and Opus could not be distinguished from
+USGS at this scale: the pooled score difference to the official forecast (negative favours the
+model) is −0.015 (95% interval from resampling blocks of issue times, −0.081 to 0.017)
 for Sonnet and −0.022 (−0.074 to 0.032) for Opus, with signs that differ between the two
 sequences, while Haiku is worse than the official forecast (+0.124, 0.004 to 0.278, or +0.048
 counting only its valid answers; Figure 1).
@@ -90,8 +92,8 @@ from observed aftershock counts rather than from ETAS forecasts.
 
 Code, data, prompts, preregistration and all model outputs:
 https://github.com/tjnewton/llm-aftershock-forecast (tags `prereg-v1`, `scoring-v1`,
-`live-panama-1`, `live-panama-2`). Interactive results explorer (marimo, runs in the browser):
-https://tjnewton.github.io/llm-aftershock-forecast/; frozen analysis notebook, rendered:
+`live-panama-1`, `live-panama-2`). Interactive results explorer (marimo, runs in the browser; loads in
+about 15 s): https://tjnewton.github.io/llm-aftershock-forecast/; frozen analysis notebook, rendered:
 `results/analysis.html`. Adapted models: Adaption AutoScientist. Literature search and citation
 checks: Valency MCP Bond. Video: [VIDEO LINK].
 

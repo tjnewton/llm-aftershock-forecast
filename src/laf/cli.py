@@ -468,7 +468,7 @@ def main(argv: list[str] | None = None) -> None:
             if (p.parent / "requests.jsonl").exists()
         )
         df = A.score_all(cell_df, A.baselines(tables, items, cell_df), A.llm_samples(runs, items))
-        tab = F.explorer_table(df)
+        tab = F.explorer_table(df, tables["sequences"])
         public = Path("notebooks/public")
         public.mkdir(parents=True, exist_ok=True)
         tab.to_csv(public / "explorer.csv", index=False, lineterminator="\n")
@@ -515,6 +515,13 @@ def main(argv: list[str] | None = None) -> None:
             t = t.query("sequence == 'pooled' and role == 'test-post' and scoring == 'penalty'")
             panels.append(("E3 post-cutoff, 18 sequences (exploratory)", t))
         F.fig_overview(panels, out / "overview.png")
+        # reader-facing summary for the explorer: difference from the official forecast
+        sets = ("Preregistered", "39 more sequences (exploratory)")
+        summ = pd.concat([p.assign(set=n) for n, (_, p) in zip(sets, panels, strict=False)])
+        summ["forecaster"] = summ["forecaster"].map(F.display_name)
+        summ[["set", "forecaster", "dQS", "lo", "hi", "cells"]].to_csv(
+            public / "summary.csv", index=False, lineterminator="\n"
+        )
         print(f"{len(tab)} explorer rows -> {public / 'explorer.csv'}; figures -> {out}/")
     elif a.cmd == "probe":
         import pandas as pd

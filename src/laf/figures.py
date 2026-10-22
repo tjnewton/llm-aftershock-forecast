@@ -29,6 +29,10 @@ LABEL = {
     "naive": "Naive",
     "laf/gpt-oss-20b-e1": "gpt-oss-20b adapted (E1)",
     "laf/gpt-oss-20b-e1a": "gpt-oss-20b adapted, more data (E1a)",
+    "laf/gpt-oss-20b-e1r1": "gpt-oss-20b adapted (E1 repeat 1)",
+    "laf/gpt-oss-20b-e1r2": "gpt-oss-20b adapted (E1 repeat 2)",
+    "laf/gpt-oss-20b-e1ar2": "gpt-oss-20b adapted, more data (E1a repeat)",
+    "laf/gpt-oss-20b-e1b": "gpt-oss-20b adapted on outcomes (E1b)",
 }
 COLOR = {
     "claude-haiku-5-5": "#2a78d6",
@@ -51,9 +55,10 @@ def display_name(forecaster: str) -> str:
     return f"{name} {arm}, {info_txt}{low}"
 
 
-def explorer_table(df: pd.DataFrame) -> pd.DataFrame:
+def explorer_table(df: pd.DataFrame, seqs: pd.DataFrame | None = None) -> pd.DataFrame:
     """One row per forecaster x cell: nine M>=5 quantiles (quantile-averaged over valid samples
-    for LLMs), answer-level log-QS, the observed count and cell metadata."""
+    for LLMs), answer-level log-QS, the observed count and cell metadata; with `seqs`, a
+    reader-facing sequence label (magnitude, name and, unless the name has one, month)."""
     ok = df[df["status"].eq("ok") & df["m5"].notna()]
     keys = ["forecaster", "issue_id", "window"]
     q = ok.groupby(keys)["m5"].apply(lambda s: np.mean(np.vstack(s.to_list()), axis=0))
@@ -70,12 +75,19 @@ def explorer_table(df: pd.DataFrame) -> pd.DataFrame:
             "elapsed_days",
             "y5",
             "time_start_ms",
+            "sequence_id",
         ]
     ]
     n = ok.groupby(keys).size().rename("n_samples").reset_index()
     out = qs.merge(score, on=keys).merge(n, on=keys).merge(meta, on=["issue_id", "window"])
     out["label"] = out["forecaster"].map(display_name)
     out["target"] = out["issue_id"].str.split("@").str[1]
+    if seqs is not None:
+        s = seqs.set_index("sequence_id")
+        dated = s["name"].str.contains(r"\d{4}-\d{2}-\d{2}$")
+        when = pd.to_datetime(s["origin_ms"], unit="ms").dt.strftime(" (%b %Y)").where(~dated, "")
+        s_label = "M" + s["mag"].map("{:.1f}".format) + " " + s["name"] + when
+        out["seq_label"] = out["sequence_id"].map(s_label)
     return out.sort_values(["name", "window", "elapsed_days", "forecaster"])
 
 

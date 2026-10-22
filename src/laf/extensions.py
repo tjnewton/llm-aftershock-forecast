@@ -79,7 +79,7 @@ def e3_tables(proc: Path, seed: int = 20261021, b: int = 10_000) -> dict[str, pd
         if tag == "extensions":
             from laf.figures import explorer_table
 
-            out["explorer_e3"] = explorer_table(df)
+            out["explorer_e3"] = explorer_table(df, tables["sequences"])
         if tag == "main":
             out["e3_invalid"] = A.invalid_table(df).reset_index()
             out["e3_coverage"] = A.coverage_table(df, df["primary"]).reset_index()

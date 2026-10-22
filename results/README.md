@@ -20,3 +20,26 @@ by hand. "Registered" means preregistered (tag `prereg-v1`) and scored by the fr
 Columns in the score tables: `dQS` is the mean difference in log-scale quantile score (lower is
 better, so a negative value favours the first forecaster), `lo` and `hi` its 95% moving-block
 bootstrap interval, `cells` the number of scored cells.
+
+## Reading `analysis.html` (the frozen notebook)
+Its headings follow the preregistration. In plain terms:
+
+| Heading | Question | Answer |
+|---|---|---|
+| 5. Primary outcome | How good is each forecaster's count forecast? | Log-scale quantile score per sequence; lower is better |
+| 5/7. Output status shares | How often are answers unusable? | Claude at most 2.7% invalid; open models 12-54% |
+| 5. Coverage, PIT | Are forecast ranges the right width? | USGS ranges are wide (cautious); Sonnet's closest to nominal |
+| 6. H1 | Is each Claude model as good as USGS on post-cutoff sequences with a USGS forecast? | Haiku worse; Sonnet and Opus not distinguishable from USGS |
+| 6. H2 | Does asking for model parameters instead of the numbers help? | No, it is worse for every model |
+| 6. H3 | Are Claude's ranges worse calibrated than USGS's? | Not supported |
+| 6. H4 | Does seeing the earthquake catalog help? | Yes for Sonnet; not consistently for the others |
+| H5 (probe) | Do models recall the events (memorization)? | Descriptive only |
+| 6. Catalog / code-and-analyst effect | How much do catalog revisions and analyst choices change the ETAS refit? | Descriptive |
+
+Abbreviations: *I1/I0* = with/without the earthquake catalog; *direct/params* = answer with the
+numbers or with model parameters; *p1/p2* = two prompt wordings; *test-post/test-pre/ambiguous*
+= sequences after, before, or in the month of the Claude training cutoff; *OAF* = USGS
+operational aftershock forecast; *PIT* = probability integral transform (calibration check);
+*Brier* = probability score for "at least one M>=6"; *dQS* = score difference (negative favours
+the first forecaster); *primary cells* = windows whose outcome is final (closed 21+ days).
+

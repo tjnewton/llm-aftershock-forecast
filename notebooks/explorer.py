@@ -23,11 +23,12 @@ def _():
         "gpt-oss-20b adapted (E1) direct, catalog": "#008300",
         "gpt-oss-20b adapted, more data (E1a) direct, catalog": "#e34948",
     }
-    return COLOR, alt, contextlib, mo, pd
+    SETS = {"Registered": "Preregistered", "E3": "39 more sequences (exploratory)"}
+    return COLOR, SETS, alt, contextlib, mo, pd
 
 
 @app.cell
-def _(contextlib, mo, pd):
+def _(SETS, contextlib, mo, pd):
     import io
     import urllib.request
 
@@ -40,30 +41,124 @@ def _(contextlib, mo, pd):
         return pd.read_csv(str(path))
 
     _base = mo.notebook_location() / "public"
-    _frames = [_read(_base / "explorer.csv").assign(set="Registered")]
-    with contextlib.suppress(Exception):  # the exploratory E3 table is optional
-        _frames.append(_read(_base / "explorer_e3.csv").assign(set="E3 (exploratory)"))
+    _frames = [_read(_base / "explorer.csv").assign(set=SETS["Registered"])]
+    with contextlib.suppress(Exception):  # the exploratory table is optional
+        _frames.append(_read(_base / "explorer_e3.csv").assign(set=SETS["E3"]))
     all_data = pd.concat(_frames, ignore_index=True)
+    summary = _read(_base / "summary.csv")
     mo.md(
-        """# Do LLMs forecast aftershocks like the USGS?
-Each panel shows one forecaster's N(M>=5) forecast at every issue time of a sequence: the
-5-95% band, the 25-75% band and the median, with the count that was later observed. Claude
-answers are quantile-averaged over their valid samples. Scores are log-scale quantile scores
-(lower is better) from the code frozen at tag `scoring-v1`; the analysis plan was frozen at
-`prereg-v1`. The "E3 (exploratory)" set holds 39 further sequences with an official forecast,
-added after the freeze (docs/adr/0012-e3-extended-set.md). Source:
-https://github.com/tjnewton/llm-aftershock-forecast"""
+        """# Do AI chatbots forecast aftershocks as well as the USGS?
+
+After a large earthquake, smaller **aftershocks** follow for weeks, and people need to know how
+many to expect. The US Geological Survey (USGS) publishes official aftershock forecasts for
+that. We gave large language models exactly the information USGS had when it issued each
+forecast (the main earthquake and the list of quakes recorded so far) and asked them the same
+question: how many aftershocks of magnitude 5 or larger in the next day, week and month? We
+then compared both with what actually happened, on earthquakes that occurred after the models
+were trained, so they could not have memorized the answers.
+
+**What we found**
+
+- **Claude Opus 5.5 forecast about as well as the official USGS forecast**, on the
+  preregistered test and again on 18 more recent sequences. Sonnet 5.5 was close (as good on the
+  preregistered test, very slightly worse on the extra sequences); Haiku 5.5 was a little worse.
+- **Small open models** (gpt-oss-20b, Olmo 3.1 32B) were far behind and often gave unusable
+  answers; fine-tuning one of them fixed the format but did not make it as good as USGS.
+- **Seeing the list of recent quakes matters**: without it, forecasts were worse.
+- **No sign of memorization**: the models did no better on earthquakes from before their training
+  cutoff than the baselines did.
+
+The methods, preregistration and full results are in the project repository:
+https://github.com/tjnewton/llm-aftershock-forecast (see `docs/writeup.md`)."""
     )
-    return (all_data,)
+    return all_data, summary
 
 
 @app.cell
-def _(all_data, mo):
+def _(mo):
+    mo.accordion(
+        {
+            "How to read the chart": mo.md(
+                """Each panel is one forecaster. Moving left to right, each point in time is a
+moment when a forecast was made (days after the main earthquake). The **shaded bands** are the
+forecaster's range for the number of magnitude-5+ aftershocks in the coming window (light: 90%
+range, dark: middle 50%), the **line** is its most likely number, and the **black dots** are
+the number that actually happened. A good forecast has the dots inside the bands, close to the
+line, with bands no wider than needed. Hover over a dot for the numbers."""
+            ),
+            "Glossary": mo.md(
+                """- **Mainshock / aftershocks / sequence**: the large earthquake, the smaller ones
+that follow it, and the two together.
+- **Magnitude (M)**: earthquake size on a logarithmic scale; each step up is about 30 times more
+energy, and roughly 10 times rarer. **M>=5** means magnitude 5 or larger, strong enough to damage
+buildings near the epicentre.
+- **Issue time / window**: when a forecast is made, and the period it covers (the next day, week
+or month).
+- **USGS official**: the published US Geological Survey operational aftershock forecast.
+- **Legacy-ETAS refit, RJ-MLE refit, Generic RJ, Naive**: standard statistical forecasting methods
+(ETAS and Reasenberg-Jones models), and a simple baseline that extends the number of M5+
+aftershocks so far with the usual decay over time.
+- **catalog / no catalog**: whether the model saw the list of earthquakes recorded so far.
+- **direct**: the model answered with the numbers; **params**: it gave model parameters instead.
+- **Score (log-scale quantile score)**: how far the forecast range is from what happened, on a
+logarithmic scale; lower is better, 0 is perfect.
+- **Difference vs USGS**: a forecaster's score minus the USGS score on the same windows; negative
+means better than USGS.
+- **Preregistered**: the hypotheses and analysis were fixed and published before any forecast
+was made. **Exploratory**: added afterwards, reported as such.
+- **Training cutoff / contamination**: the date after which a model saw no training data; events
+after it cannot have been memorized.
+- **Adapted (E1, E1a)**: gpt-oss-20b fine-tuned on forecasts for past earthquakes."""
+            ),
+        }
+    )
+    return
+
+
+@app.cell
+def _(SETS, all_data, mo):
     dataset = mo.ui.dropdown(
-        sorted(all_data["set"].unique(), reverse=True), value="Registered", label="Set"
+        [x for x in SETS.values() if x in set(all_data["set"])],
+        value=SETS["Registered"],
+        label="Earthquake set",
     )
     dataset  # noqa: B018 (marimo displays the last expression)
     return (dataset,)
+
+
+@app.cell
+def _(dataset, mo, summary):
+    _s = summary[summary["set"] == dataset.value].sort_values("dQS")
+
+    def _reading(r):
+        if r["hi"] < 0:
+            return "better than USGS"
+        if r["lo"] > 0:
+            return "worse than USGS"
+        return "not distinguishable from USGS"
+
+    _tab = _s.assign(
+        **{
+            "Difference vs USGS": _s["dQS"].round(3),
+            "95% interval": _s.apply(lambda r: f"{r['lo']:.3f} to {r['hi']:.3f}", axis=1),
+            "Reading": _s.apply(_reading, axis=1),
+            "Windows scored": _s["cells"].astype(int),
+        }
+    )[["forecaster", "Difference vs USGS", "95% interval", "Reading", "Windows scored"]]
+    _which = (
+        "the two preregistered sequences with a USGS forecast (Colombia and Flores Sea)"
+        if dataset.value.startswith("Pre")
+        else "18 sequences after the Claude training cutoff (exploratory)"
+    )
+    mo.vstack(
+        [
+            mo.md(f"""## Who forecasts as well as USGS?
+Average score difference from the official USGS forecast on {_which}; negative is better than
+USGS, and the interval shows the uncertainty (block bootstrap)."""),
+            _tab.rename(columns={"forecaster": "Forecaster"}).set_index("Forecaster"),
+        ]
+    )
+    return
 
 
 @app.cell
@@ -74,27 +169,35 @@ def _(all_data, dataset):
 
 @app.cell
 def _(data, mo):
-    seqs = sorted(data["name"].unique())
+    seqs = sorted(data["seq_label"].unique())
     labels = sorted(data["label"].unique())
-    sequence = mo.ui.dropdown(
-        seqs, value="Flores Sea" if "Flores Sea" in seqs else seqs[0], label="Sequence"
-    )
-    window = mo.ui.dropdown(["1 Day", "1 Week", "1 Month"], value="1 Week", label="Window")
+    _start = next((s for s in seqs if "Colombia" in s), seqs[0])
+    sequence = mo.ui.dropdown(seqs, value=_start, label="Earthquake sequence")
+    window = mo.ui.dropdown(["1 Day", "1 Week", "1 Month"], value="1 Week", label="Forecast window")
     default = [
         x
-        for x in ("USGS official", "Legacy-ETAS refit", "Sonnet 5.5 direct, catalog")
+        for x in ("USGS official", "Opus 5.5 direct, catalog", "gpt-oss-20b direct, catalog")
         if x in labels
     ]
-    chosen = mo.ui.multiselect(labels, value=default, label="Forecasters", max_selections=4)
-    primary_only = mo.ui.checkbox(value=False, label="Primary cells only (settled >= 21 days)")
-    mo.hstack([sequence, window, chosen, primary_only], justify="start", wrap=True)
+    chosen = mo.ui.multiselect(
+        labels, value=default, label="Forecasters (up to 4)", max_selections=4
+    )
+    primary_only = mo.ui.checkbox(
+        value=False, label="Only windows whose outcome is final (closed 21+ days ago)"
+    )
+    mo.vstack(
+        [
+            mo.md("## Forecasts against what happened"),
+            mo.hstack([sequence, window, chosen, primary_only], justify="start", wrap=True),
+        ]
+    )
     return chosen, primary_only, sequence, window
 
 
 @app.cell
 def _(chosen, data, primary_only, sequence, window):
     view = data[
-        (data["name"] == sequence.value)
+        (data["seq_label"] == sequence.value)
         & (data["window"] == window.value)
         & data["label"].isin(chosen.value)
     ]
@@ -104,30 +207,32 @@ def _(chosen, data, primary_only, sequence, window):
 
 
 @app.cell
-def _(COLOR, alt, chosen, mo, view):
+def _(COLOR, alt, chosen, mo, sequence, view, window):
     if view.empty:
-        _out = mo.md("No cells for this selection.")
+        _out = mo.md("No forecasts for this selection.")
     else:
         _domain = list(chosen.value)
-        _range = [COLOR.get(x, "#c3c2b7") for x in _domain]
+        _range = [COLOR.get(x, "#8a8980") for x in _domain]
         _color = alt.Color("label:N", scale=alt.Scale(domain=_domain, range=_range), legend=None)
         _x = alt.X(
             "elapsed_days:Q",
             scale=alt.Scale(type="log", nice=False),
             axis=alt.Axis(values=[0.3, 1, 3, 7, 14, 28], grid=False),
-            title="issue time, days after mainshock",
+            title="days after the main earthquake when the forecast was made",
         )
         _tip = [
-            alt.Tooltip("target:N", title="issue"),
-            alt.Tooltip("q050:Q", title="5%"),
-            alt.Tooltip("q500:Q", title="median"),
-            alt.Tooltip("q950:Q", title="95%"),
-            alt.Tooltip("y5:Q", title="observed"),
-            alt.Tooltip("log_qs:Q", title="log-QS", format=".3f"),
+            alt.Tooltip("target:N", title="forecast made"),
+            alt.Tooltip("q050:Q", title="low end (5%)"),
+            alt.Tooltip("q500:Q", title="most likely"),
+            alt.Tooltip("q950:Q", title="high end (95%)"),
+            alt.Tooltip("y5:Q", title="actually happened"),
+            alt.Tooltip("log_qs:Q", title="score (lower is better)", format=".3f"),
         ]
         _base = alt.Chart(view).encode(x=_x)
         _outer = _base.mark_area(opacity=0.18).encode(
-            y=alt.Y("q050:Q", title="N(M>=5)"), y2="q950:Q", color=_color
+            y=alt.Y("q050:Q", title="number of M5+ aftershocks in the window"),
+            y2="q950:Q",
+            color=_color,
         )
         _inner = _base.mark_area(opacity=0.35).encode(y="q250:Q", y2="q750:Q", color=_color)
         _median = _base.mark_line(strokeWidth=2).encode(y="q500:Q", color=_color)
@@ -138,7 +243,16 @@ def _(COLOR, alt, chosen, mo, view):
             .facet(column=alt.Column("label:N", title=None, sort=_domain))
             .configure_view(stroke=None)
         )
-        _out = mo.ui.altair_chart(_chart)
+        _out = mo.vstack(
+            [
+                mo.ui.altair_chart(_chart),
+                mo.md(
+                    f"""*{sequence.value}, {window.value.lower()} windows: shaded bands are each
+forecaster's range (light 90%, dark 50%), the line its most likely number, black dots what
+actually happened.*"""
+                ),
+            ]
+        )
     _out  # noqa: B018 (marimo displays the last expression)
     return
 
@@ -152,25 +266,9 @@ def _(mo, view):
         if not view.empty
         else view
     )
-    mo.vstack([mo.md("**Log-QS per issue time** (lower is better)"), _tab])
-    return
-
-
-@app.cell
-def _(data, dataset, mo):
-    _p = data[data["primary"]]
-    _col = "name" if dataset.value == "Registered" else "role"
-    _tab = (
-        _p.pivot_table(index="label", columns=_col, values="log_qs")
-        .assign(**{"all primary cells": _p.groupby("label")["log_qs"].mean()})
-        .sort_values("all primary cells")
-        .round(3)
-    )
     mo.vstack(
         [
-            mo.md("""**Mean log-QS over primary cells, every forecaster** (forecasters
-without a catalog, or at low effort, were run on the test-post sequences only, so compare within
-a column)"""),
+            mo.md("**Score at each forecast time** (lower is better; 0 would be perfect)"),
             _tab,
         ]
     )

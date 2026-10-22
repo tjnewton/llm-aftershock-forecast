@@ -6,14 +6,33 @@ and the ComCat catalog so far) and scores its count quantiles and large-aftersho
 probabilities against what happened and against the official forecast, on sequences after the
 model's training cutoff. Entry for the Open Scientific Intelligence Hackathon, Oct 21-22, 2026.
 
+## What we found
+- **Claude Opus 5.5 forecasts aftershock counts about as well as the official USGS forecast**,
+  on the preregistered test (two sequences) and on 18 more recent sequences (exploratory).
+  Sonnet 5.5 is close; Haiku 5.5 is a little worse.
+- **Small open models** (gpt-oss-20b, Olmo 3.1 32B) are far behind and often give unusable
+  answers; fine-tuning gpt-oss-20b fixes the format but not the skill.
+- **Seeing the earthquake catalog helps**, and **there is no sign of memorization**: models do no
+  better on events before their training cutoff than the statistical baselines do.
+
+Try it: interactive explorer at https://tjnewton.github.io/llm-aftershock-forecast/ (loads in
+about 15 s; it runs Python in your browser and has a glossary).
+
+**Terms.** *Aftershocks* follow a large *mainshock*; *M>=5* means magnitude 5 or larger. An
+*issue time* is when a forecast is made, for the next day, week or month (*windows*). The *USGS
+official* forecast is the published operational aftershock forecast; *ETAS* and
+*Reasenberg-Jones* are the standard statistical models behind it. Scores are *log-scale quantile
+scores* (lower is better); *dQS* is a forecaster's score minus the official forecast's.
+
 **Status:** complete for the hackathon. The design was preregistered
 ([docs/preregistration.md](docs/preregistration.md), tag `prereg-v1`) and the scoring code frozen
 (tag `scoring-v1`) before any result was read. Results:
 - Write-up: [docs/writeup.md](docs/writeup.md); figures in [figures/](figures/).
 - Frozen analysis notebook, rendered: [results/analysis.html](results/analysis.html)
   (source [notebooks/analysis.py](notebooks/analysis.py)).
-- Interactive explorer (marimo, WASM): https://tjnewton.github.io/llm-aftershock-forecast/
-  (branch `gh-pages`, source [notebooks/explorer.py](notebooks/explorer.py)).
+- Interactive explorer (marimo, WASM, loads in about 15 s):
+  https://tjnewton.github.io/llm-aftershock-forecast/ (branch `gh-pages`, source
+  [notebooks/explorer.py](notebooks/explorer.py)).
 - Exploratory extensions after the freeze (39 more sequences, adapted open models, a combined
   forecast, a second live round): [docs/deviations.md](docs/deviations.md), tables in
   [results/](results/) (guide: [results/README.md](results/README.md)).
