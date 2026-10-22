@@ -102,6 +102,9 @@ def main(argv: list[str] | None = None) -> None:
     e3s.add_argument("--snapshot", required=True)
     e1 = sub.add_parser("e1", help="E1 adapted-model table (no API calls)")
     e1.add_argument("--snapshot", required=True)
+    e1.add_argument(
+        "--model", default="gpt-oss-20b-e1", help="adapted model (E1a: gpt-oss-20b-e1a)"
+    )
     lt = sub.add_parser("literature", help="E2 literature exposure table (no network)")
     lt.add_argument("--snapshot", required=True)
     pr = sub.add_parser("probe", help="SPENDS MONEY (~$0.3): recall probe (prereg sec. 8)")
@@ -357,9 +360,10 @@ def main(argv: list[str] | None = None) -> None:
             for p in Path("runs").glob("*/results.jsonl")
             if (p.parent / "requests.jsonl").exists()
         )
-        tab, inv = X.e1_table(a.data_dir / "processed" / a.snapshot, runs)
+        tab, inv = X.e1_table(a.data_dir / "processed" / a.snapshot, runs, model=a.model)
         Path("results").mkdir(exist_ok=True)
-        tab.to_csv("results/e1.csv", index=False, lineterminator="\n")
+        out = "e1" if a.model == "gpt-oss-20b-e1" else a.model.rsplit("-", 1)[-1]
+        tab.to_csv(f"results/{out}.csv", index=False, lineterminator="\n")
         print(tab.round(3).to_string(index=False))
         print(inv.round(3).to_string())
     elif a.cmd == "literature":
