@@ -69,11 +69,11 @@ commit: Local run: gpt-oss-20b-e1r2 e1 block and E3 (N of M succeeded)
 notes: Exploratory (docs/deviations.md). About 40 min. Report the SHA-256 of the converted GGUF adapter in the done line.
 
 ## T07 e1ar2-adapted
-status: hold
+status: ready
 prepare: uv run laf adaption download --run e1ar2 (records runs/e1ar2-adaption/checkpoint.json); extract data/interim/e1ar2-adaption/best.tar.zst into a new empty data/interim/e1ar2-adaption/adapter/; convert exactly as for E1 with --outfile <models dir>/gpt-oss-20b-e1ar2-lora-f16.gguf
 server: registered gpt-oss-20b command with --alias laf/gpt-oss-20b-e1ar2 --lora <models dir>/gpt-oss-20b-e1ar2-lora-f16.gguf
 run: uv run python -m laf.llamacpp --snapshot 20261021T1027Z --model gpt-oss-20b-e1ar2 --block e1, then uv run python -m laf.llamacpp --snapshot 20261021T2300Z --model gpt-oss-20b-e1ar2 --block e3all
-outputs: runs/extensions/e1-gpt-oss-20b-e1ar2/, runs/e3/extensions/e3all-gpt-oss-20b-e1ar2/, runs/e1ar2-adaption/checkpoint.json
+outputs: runs/extensions/e1-gpt-oss-20b-e1ar2/, runs/e3/extensions/e3all-gpt-oss-20b-e1ar2/, runs/e1ar2-adaption/checkpoint.json (already recorded on the Mac; the download must match it)
 commit: Local run: gpt-oss-20b-e1ar2 e1 block and E3 (N of M succeeded)
 notes: Exploratory (docs/deviations.md). About 40 min. Report the SHA-256 of the converted GGUF adapter in the done line.
 
