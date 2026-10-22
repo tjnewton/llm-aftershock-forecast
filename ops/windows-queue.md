@@ -16,7 +16,7 @@ Task format:
     notes: <anything else>
 
 ## T01 e3-e1-adapted
-status: hold
+status: ready
 server: registered gpt-oss-20b command with --alias laf/gpt-oss-20b-e1 --lora <models dir>/gpt-oss-20b-e1-lora-f16.gguf (the adapter you converted for E1)
 run: uv run python -m laf.llamacpp --snapshot 20261021T2300Z --model gpt-oss-20b-e1 --block e3all
 outputs: runs/e3/extensions/e3all-gpt-oss-20b-e1/
@@ -24,7 +24,7 @@ commit: Local run: gpt-oss-20b-e1 on E3 (e3all, N of M succeeded)
 notes: E3 extended exploratory set (docs/adr/0012-e3-extended-set.md). About 2.4 s per request.
 
 ## T02 e3-olmo
-status: hold
+status: ready
 server: registered olmo-3.1-32b-instruct command (no --lora)
 run: uv run python -m laf.llamacpp --snapshot 20261021T2300Z --model olmo-3.1-32b-instruct --block e3all
 outputs: runs/e3/e3all-olmo-3.1-32b-instruct/
@@ -32,7 +32,7 @@ commit: Local run: Olmo-3.1-32B-Instruct on E3 (e3all, N of M succeeded)
 notes: About 7 s per request.
 
 ## T03 e3-gpt-oss
-status: hold
+status: ready
 server: registered gpt-oss-20b command (no --lora, alias openai/gpt-oss-20b)
 run: uv run python -m laf.llamacpp --snapshot 20261021T2300Z --model gpt-oss-20b --block e3all
 outputs: runs/e3/e3all-gpt-oss-20b/
