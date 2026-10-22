@@ -443,10 +443,10 @@ def main(argv: list[str] | None = None) -> None:
                 if f in set(ans["forecaster"])
             ]
         )
-        e1 = Path("results/e1.csv")
-        if e1.exists():  # descriptive extension, scored apart (laf e1)
-            t = pd.read_csv(e1).query("sequence == 'pooled' and scoring == 'penalty'")
-            reg = pd.concat([reg, t[t["reference"] == "official"].assign(forecaster=F.OVERVIEW[5])])
+        for csv, f in (("results/e1.csv", F.OVERVIEW[5]), ("results/e1a.csv", F.OVERVIEW[6])):
+            if Path(csv).exists():  # descriptive extensions, scored apart (laf e1)
+                t = pd.read_csv(csv).query("sequence == 'pooled' and scoring == 'penalty'")
+                reg = pd.concat([reg, t[t["reference"] == "official"].assign(forecaster=f)])
         panels = [("Registered: Colombia, Flores Sea (33 cells)", reg)]
         e3 = [Path("results/e3_dqs_main.csv"), Path("results/e3_dqs_extensions.csv")]
         if all(p.exists() for p in e3):

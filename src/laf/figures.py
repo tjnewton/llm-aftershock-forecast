@@ -28,6 +28,7 @@ LABEL = {
     "generic_rj": "Generic RJ",
     "naive": "Naive",
     "laf/gpt-oss-20b-e1": "gpt-oss-20b adapted (E1)",
+    "laf/gpt-oss-20b-e1a": "gpt-oss-20b adapted, more data (E1a)",
 }
 COLOR = {
     "claude-haiku-5-5": "#2a78d6",
@@ -209,6 +210,7 @@ OVERVIEW = (
     "openai/gpt-oss-20b|direct|I1|medium",
     "allenai/Olmo-3.1-32B-Instruct|direct|I1|none",
     "laf/gpt-oss-20b-e1|direct|I1|medium",
+    "laf/gpt-oss-20b-e1a|direct|I1|medium",
     "etas",
     "rj_mle",
     "generic_rj",
@@ -218,6 +220,7 @@ FAMILY = {
     "openai/gpt-oss-20b": "#eda100",
     "allenai/Olmo-3.1-32B-Instruct": "#e87ba4",
     "laf/gpt-oss-20b-e1": "#008300",
+    "laf/gpt-oss-20b-e1a": "#e34948",
 }
 
 
