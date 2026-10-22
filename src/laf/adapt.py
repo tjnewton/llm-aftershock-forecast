@@ -44,7 +44,7 @@ def upload(c, path: Path) -> str:
 
     ds = c.datasets.upload_file(
         str(path),
-        name="laf-e1-etas-refit",
+        name=f"laf-{path.stem}",
         processing_mode="raw",
         column_mapping={"prompt": "prompt", "completion": "completion"},
     )
@@ -70,7 +70,13 @@ def recommend(c, dataset_id: str, model: str = MODEL) -> dict:
     return data
 
 
-def launch(c, dataset_id: str, model: str = MODEL, hyperparams: dict | None = None) -> str:
+def launch(
+    c,
+    dataset_id: str,
+    model: str = MODEL,
+    hyperparams: dict | None = None,
+    max_iterations: int | None = None,
+) -> str:
     """Spends Adaption credits: supervised (instruction) LoRA fine-tuning; the checkpoint used
     is the one AutoScientist reports as best."""
     kw: dict[str, object] = {
@@ -80,10 +86,18 @@ def launch(c, dataset_id: str, model: str = MODEL, hyperparams: dict | None = No
     }  # raw upload already canonicalized the prompt and completion columns
     if hyperparams:
         kw["hyperparams"] = {k: v for k, v in hyperparams.items() if v is not None}
+    if max_iterations:
+        kw["max_iterations"] = max_iterations
     run = c.autoscientist.create(**kw)
     _record(
         "run.json",
-        {"run_id": run.id, "model": model, "dataset_id": dataset_id, "hyperparams": hyperparams},
+        {
+            "run_id": run.id,
+            "model": model,
+            "dataset_id": dataset_id,
+            "hyperparams": hyperparams,
+            "max_iterations": max_iterations,
+        },
     )
     return run.id
 

@@ -84,6 +84,8 @@ def main(argv: list[str] | None = None) -> None:
     ad.add_argument("action", choices=("upload", "recommend", "launch", "status", "download"))
     ad.add_argument("--file", type=Path, default=Path("data/processed/training/e1_train.jsonl"))
     ad.add_argument("--run", default="e1", help="records in runs/<run>-adaption/ (E1: e1)")
+    ad.add_argument("--best-from", help="launch with another run's best hyperparameters")
+    ad.add_argument("--max-iterations", type=int, help="AutoScientist iterations (default 3)")
     tr = sub.add_parser("training-set", help="E1 training set (ComCat requests; prereg sec. 11)")
     tr.add_argument("--start", default="2010-01-01")
     tr.add_argument("--end", default="2025-07-01", help="exclusive end (origin < end)")
@@ -287,12 +289,15 @@ def main(argv: list[str] | None = None) -> None:
                 )
             )
         elif a.action == "launch":
-            hp = (
-                rec("recommendation.json").get("hyperparams")
-                if (adapt.RUN / "recommendation.json").exists()
-                else None
-            )
-            print("run", adapt.launch(c, rec("dataset.json")["dataset_id"], hyperparams=hp))
+            if a.best_from:
+                src = Path(f"runs/{a.best_from}-adaption/status.json")
+                hp = json.loads(src.read_text(encoding="utf-8"))["best_hyperparams"]
+            elif (adapt.RUN / "recommendation.json").exists():
+                hp = rec("recommendation.json").get("hyperparams")
+            else:
+                hp = None
+            ds = rec("dataset.json")["dataset_id"]
+            print("run", adapt.launch(c, ds, hyperparams=hp, max_iterations=a.max_iterations))
         elif a.action == "download":
             out = Path(f"data/interim/{a.run}-adaption/best.tar.zst")
             print(adapt.fetch_checkpoint(c, rec("run.json")["run_id"], out))
@@ -409,6 +414,26 @@ def main(argv: list[str] | None = None) -> None:
                 ["official", "etas", "claude-sonnet-5-5|direct|I1|high"],
                 out / f"fan_{seq.split()[0].lower()}_{win.split()[1].lower()}.png",
             )
+        reg = pd.concat(
+            [
+                A.ci_table(A.dqs(ans, f, "official", oaf), np.random.default_rng(20261021))
+                .query("sequence == 'pooled'")
+                .assign(forecaster=f)
+                for f in F.OVERVIEW
+                if f in set(ans["forecaster"])
+            ]
+        )
+        e1 = Path("results/e1.csv")
+        if e1.exists():  # descriptive extension, scored apart (laf e1)
+            t = pd.read_csv(e1).query("sequence == 'pooled' and scoring == 'penalty'")
+            reg = pd.concat([reg, t[t["reference"] == "official"].assign(forecaster=F.OVERVIEW[5])])
+        panels = [("Registered: Colombia, Flores Sea (33 cells)", reg)]
+        e3 = [Path("results/e3_dqs_main.csv"), Path("results/e3_dqs_extensions.csv")]
+        if all(p.exists() for p in e3):
+            t = pd.concat([pd.read_csv(p) for p in e3])
+            t = t.query("sequence == 'pooled' and role == 'test-post' and scoring == 'penalty'")
+            panels.append(("E3 post-cutoff, 18 sequences (exploratory)", t))
+        F.fig_overview(panels, out / "overview.png")
         print(f"{len(tab)} explorer rows -> {public / 'explorer.csv'}; figures -> {out}/")
     elif a.cmd == "probe":
         import pandas as pd

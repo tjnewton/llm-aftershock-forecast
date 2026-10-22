@@ -24,3 +24,9 @@ Each entry: UTC time, change, reason, expected effect on the registered analyses
   The tag was created before a rebase onto a Windows status commit, so it points to
   781d2c8, a twin of main's 44ae96f with identical files (calls.jsonl SHA-256 as above); tag
   rules forbid moving it.
+- 2026-10-22T04:50Z. E1a (exploratory): the E1 recipe on a larger training set (ComCat M>=6.0
+  instead of 6.5, same years and rules: 1,505 sequences, 9,030 rows), AutoScientist with E1's
+  best hyperparameters and one iteration (time). E1d (Olmo base) skipped: Adaption does not
+  offer that model. Effect: none on registered analyses; descriptive only.
+- 2026-10-22T04:50Z. Combined forecast (exploratory, rule fixed before scoring): equal-weight
+  average of each Claude model's quantile-averaged valid samples and the official quantiles.

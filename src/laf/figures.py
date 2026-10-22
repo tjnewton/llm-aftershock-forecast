@@ -27,6 +27,7 @@ LABEL = {
     "rj_mle": "RJ-MLE refit",
     "generic_rj": "Generic RJ",
     "naive": "Naive",
+    "laf/gpt-oss-20b-e1": "gpt-oss-20b adapted (E1)",
 }
 COLOR = {
     "claude-haiku-5-5": "#2a78d6",
@@ -196,6 +197,64 @@ def fig_coverage(df: pd.DataFrame, path: Path) -> None:
     ax.set_ylabel("empirical coverage (%)", fontsize=9, color=MUTED)
     _style(ax, "Calibration of N(M>=5) intervals, primary cells")
     ax.legend(frameon=False, fontsize=7.5, labelcolor=INK, loc="upper left")
+    fig.tight_layout()
+    fig.savefig(path, facecolor=SURFACE)
+    plt.close(fig)
+
+
+OVERVIEW = (
+    "claude-opus-5-5|direct|I1|high",
+    "claude-sonnet-5-5|direct|I1|high",
+    "claude-haiku-5-5|direct|I1|high",
+    "openai/gpt-oss-20b|direct|I1|medium",
+    "allenai/Olmo-3.1-32B-Instruct|direct|I1|none",
+    "laf/gpt-oss-20b-e1|direct|I1|medium",
+    "etas",
+    "rj_mle",
+    "generic_rj",
+    "naive",
+)
+FAMILY = {
+    "openai/gpt-oss-20b": "#eda100",
+    "allenai/Olmo-3.1-32B-Instruct": "#e87ba4",
+    "laf/gpt-oss-20b-e1": "#008300",
+}
+
+
+def fig_overview(panels: list[tuple[str, pd.DataFrame]], path: Path) -> None:
+    """Pooled dQS(forecaster, official) with 95% intervals, one panel per cell set; rows in a
+    fixed order, colour by model family, baselines in muted ink. Symlog x: open models' gaps
+    are an order of magnitude larger than Claude's."""
+    rows = [f for f in OVERVIEW if any(f in set(t["forecaster"]) for _, t in panels)]
+    fig, axes = plt.subplots(
+        1, len(panels), figsize=(3.6 * len(panels) + 1.6, 0.36 * len(rows) + 1.4), dpi=200,
+        sharey=True, facecolor=SURFACE,
+    )  # fmt: skip
+    for ax, (title, t) in zip(np.atleast_1d(axes), panels, strict=True):
+        t = t.set_index("forecaster")
+        for i, f in enumerate(rows):
+            if f not in t.index:
+                continue
+            r, y = t.loc[f], len(rows) - 1 - i
+            c = COLOR.get(f.split("|")[0], FAMILY.get(f.split("|")[0], MUTED))
+            ax.plot([r["lo"], r["hi"]], [y, y], color=c, linewidth=2, solid_capstyle="round")
+            ax.scatter([r["dQS"]], [y], s=36, color=c, edgecolor=SURFACE, linewidth=1.5, zorder=3)
+        ax.axvline(0, color=MUTED, linewidth=1)
+        span = float(t.loc[t.index.intersection(rows), ["lo", "hi"]].abs().to_numpy().max())
+        if span > 0.3:  # open models: an order of magnitude beyond Claude's gaps
+            ax.set_xscale("symlog", linthresh=0.05)
+            ticks = [-0.1, 0, 0.1, 1] + ([3] if span > 2 else [])
+            ax.set_xlim(-0.15, span * 1.3)
+        else:
+            step = 0.01 if span < 0.05 else 0.05
+            ticks = list(np.arange(-np.ceil(span / step), np.ceil(span / step) + 1) * step)
+        ax.set_xticks(ticks, [f"{x:g}" for x in ticks])
+        ax.set_xlabel("dQS vs official  (> 0: official better)", fontsize=8, color=MUTED)
+        ax.set_title(title, loc="left", fontsize=9, color=INK)
+        _style(ax)
+    np.atleast_1d(axes)[0].set_yticks(
+        range(len(rows)), [display_name(f) for f in reversed(rows)], fontsize=8, color=INK
+    )
     fig.tight_layout()
     fig.savefig(path, facecolor=SURFACE)
     plt.close(fig)
