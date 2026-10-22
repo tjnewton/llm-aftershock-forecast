@@ -12,8 +12,8 @@ model's training cutoff. Entry for the Open Scientific Intelligence Hackathon, O
 - Write-up: [docs/writeup.md](docs/writeup.md); figures in [figures/](figures/).
 - Frozen analysis notebook, rendered: [results/analysis.html](results/analysis.html)
   (source [notebooks/analysis.py](notebooks/analysis.py)).
-- Interactive explorer (marimo, WASM): branch `gh-pages`, source
-  [notebooks/explorer.py](notebooks/explorer.py).
+- Interactive explorer (marimo, WASM): https://tjnewton.github.io/llm-aftershock-forecast/
+  (branch `gh-pages`, source [notebooks/explorer.py](notebooks/explorer.py)).
 - Exploratory extensions after the freeze (39 more sequences, adapted open models, a combined
   forecast, a second live round): [docs/deviations.md](docs/deviations.md), tables in
   [results/](results/).

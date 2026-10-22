@@ -88,8 +88,10 @@ from observed aftershock counts rather than from ETAS forecasts.
 
 Code, data, prompts, preregistration and all model outputs:
 https://github.com/tjnewton/llm-aftershock-forecast (tags `prereg-v1`, `scoring-v1`,
-`live-panama-1`). Interactive results explorer and the frozen analysis notebook (marimo):
-[EXPLORER LINK]. Literature search and citation checks: Valency MCP Bond. Video: [VIDEO LINK].
+`live-panama-1`, `live-panama-2`). Interactive results explorer (marimo, runs in the browser):
+https://tjnewton.github.io/llm-aftershock-forecast/; frozen analysis notebook, rendered:
+`results/analysis.html`. Adapted models: Adaption AutoScientist. Literature search and citation
+checks: Valency MCP Bond. Video: [VIDEO LINK].
 
 ## References
 
