@@ -5,7 +5,8 @@
 pushes to it. All work happens on the branch `post-submission`: run `git switch post-submission`,
 pull with `git pull --rebase origin post-submission` and push with
 `git push origin HEAD:post-submission`. Never commit on or push to `main`, and leave `gh-pages`
-alone (it is the live explorer the judges see). T08 is on hold (cancelled at the freeze).
+alone (it is the live explorer the judges see). If T08 is still running, let it finish and commit
+its outputs and `done` line on this branch; do not start it again (it is on hold).
 
 The Windows session runs tasks marked `status: ready`, in file order, one at a time, and records
 progress only in ops/windows-status.md. A task marked `status: hold` waits for a later edit. The
