@@ -6,6 +6,8 @@ app = marimo.App(width="medium", app_title="LLM aftershock forecasts vs USGS")
 
 @app.cell
 def _():
+    import contextlib
+
     import altair as alt
     import marimo as mo
     import pandas as pd
@@ -19,20 +21,41 @@ def _():
         "gpt-oss-20b direct, catalog": "#eda100",
         "Olmo-3.1-32B-Instruct direct, catalog": "#e87ba4",
     }
-    return COLOR, alt, mo, pd
+    return COLOR, alt, contextlib, mo, pd
 
 
 @app.cell
-def _(mo, pd):
-    data = pd.read_csv(str(mo.notebook_location() / "public" / "explorer.csv"))
+def _(contextlib, mo, pd):
+    _base = mo.notebook_location() / "public"
+    _frames = [pd.read_csv(str(_base / "explorer.csv")).assign(set="Registered")]
+    with contextlib.suppress(Exception):  # the exploratory E3 table is optional
+        _frames.append(pd.read_csv(str(_base / "explorer_e3.csv")).assign(set="E3 (exploratory)"))
+    all_data = pd.concat(_frames, ignore_index=True)
     mo.md(
         """# Do LLMs forecast aftershocks like the USGS?
 Each panel shows one forecaster's N(M>=5) forecast at every issue time of a sequence: the
 5-95% band, the 25-75% band and the median, with the count that was later observed. Claude
 answers are quantile-averaged over their valid samples. Scores are log-scale quantile scores
 (lower is better) from the code frozen at tag `scoring-v1`; the analysis plan was frozen at
-`prereg-v1`. Source: https://github.com/tjnewton/llm-aftershock-forecast"""
+`prereg-v1`. The "E3 (exploratory)" set holds 39 further sequences with an official forecast,
+added after the freeze (docs/adr/0012-e3-extended-set.md). Source:
+https://github.com/tjnewton/llm-aftershock-forecast"""
     )
+    return (all_data,)
+
+
+@app.cell
+def _(all_data, mo):
+    dataset = mo.ui.dropdown(
+        sorted(all_data["set"].unique(), reverse=True), value="Registered", label="Set"
+    )
+    dataset  # noqa: B018 (marimo displays the last expression)
+    return (dataset,)
+
+
+@app.cell
+def _(all_data, dataset):
+    data = all_data[all_data["set"] == dataset.value]
     return (data,)
 
 
@@ -121,10 +144,11 @@ def _(mo, view):
 
 
 @app.cell
-def _(data, mo):
+def _(data, dataset, mo):
     _p = data[data["primary"]]
+    _col = "name" if dataset.value == "Registered" else "role"
     _tab = (
-        _p.pivot_table(index="label", columns="name", values="log_qs")
+        _p.pivot_table(index="label", columns=_col, values="log_qs")
         .assign(**{"all primary cells": _p.groupby("label")["log_qs"].mean()})
         .sort_values("all primary cells")
         .round(3)

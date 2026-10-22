@@ -343,7 +343,10 @@ def main(argv: list[str] | None = None) -> None:
 
         Path("results").mkdir(exist_ok=True)
         for name, tab in X.e3_tables(a.data_dir / "processed" / a.snapshot).items():
-            tab.to_csv(f"results/{name}.csv", index=False, lineterminator="\n")
+            dest = "notebooks/public" if name.startswith("explorer") else "results"
+            tab.to_csv(f"{dest}/{name}.csv", index=False, lineterminator="\n")
+            if name.startswith("explorer"):
+                continue
             pooled = tab[tab["sequence"] == "pooled"] if "sequence" in tab else tab
             print(f"== {name}\n{pooled.round(3).to_string(index=False)}")
     elif a.cmd == "e1":
