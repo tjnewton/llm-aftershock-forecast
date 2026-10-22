@@ -108,3 +108,61 @@ def run_live(client, items: list[Item], out: Path) -> tuple[str, float]:
     if spent > BUDGET_USD:
         print(f"WARNING: live spend ${spent:.2f} above ${BUDGET_USD}")
     return hashlib.sha256(body.encode("utf-8")).hexdigest(), spent
+
+
+def provisional_scores(
+    data_dir: Path, snapshot: str, seq: Sequence, run: Path, version_ms: int
+) -> pd.DataFrame:
+    """Provisional scores for the live windows that closed before `snapshot`: N(M>=5) counted in
+    the item's circle from the fresh catalog, the mean log-QS of each model's valid direct
+    answers, and, for the matched item, the official version's log-QS on the same window."""
+    from laf.catalog import count_in_window
+    from laf.cli import snapshot_ms
+    from laf.forecast import official_forecast
+    from laf.oaf import Circle
+    from laf.schemas import validate
+    from laf.scoring import quantile_score
+
+    t = build_tables(data_dir, snapshot, [seq])
+    end_ms = snapshot_ms(snapshot)
+    ov = t["oaf_versions"]
+    cutoff = int(ov.loc[ov["update_ms"] == version_ms, "info_cutoff_ms"].iloc[0])
+    items = [json.loads(x) for x in (run / "items.jsonl").read_text(encoding="utf-8").splitlines()]
+    calls = [json.loads(x) for x in (run / "calls.jsonl").read_text(encoding="utf-8").splitlines()]
+    rows = []
+    for it in items:
+        circle = Circle(it["region"]["lat"], it["region"]["lon"], it["region"]["radius_km"])
+        for w in it["windows"]:
+            if w["end_ms"] > end_ms:
+                continue  # window still open
+            y = count_in_window(t["catalog"], circle, w["start_ms"], w["end_ms"], 5.0)
+            scores: dict[str, list[float]] = {}
+            for c in calls:
+                if c["item_id"] != it["item_id"] or c["arm"] != "direct":
+                    continue
+                status, parsed, _ = validate("direct", c["text"], c["stop_reason"])
+                if status == "ok" and parsed:
+                    q = parsed[w["key"]]["m5_count_quantiles"]
+                    scores.setdefault(c["model_requested"], []).append(
+                        quantile_score([q[k] for k in sorted(q)], y)
+                    )
+            off = None
+            if it["item_id"].endswith("matched"):
+                fc = official_forecast(
+                    t["forecast_fractiles"], t["forecast_bins"], seq.id, cutoff, w["label"]
+                )
+                off = quantile_score(list(fc.m5), y)
+            for model, s in sorted(scores.items()):
+                rows.append(
+                    {
+                        "item_id": it["item_id"],
+                        "window": w["label"],
+                        "window_end_utc": pd.Timestamp(w["end_ms"], unit="ms", tz="UTC"),
+                        "y5": y,
+                        "model": model,
+                        "n_valid": len(s),
+                        "log_qs": sum(s) / len(s),
+                        "official_log_qs": off,
+                    }
+                )
+    return pd.DataFrame(rows)

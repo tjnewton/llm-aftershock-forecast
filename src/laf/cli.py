@@ -95,6 +95,11 @@ def main(argv: list[str] | None = None) -> None:
     fg = sub.add_parser("figures", help="figures/*.png and the explorer table (no API calls)")
     fg.add_argument("--snapshot", required=True)
     sub.add_parser("e3-select", help="E3 candidate list -> config/sequences_e3.toml (ComCat)")
+    ls_ = sub.add_parser("live-score", help="provisional scores of closed live windows (no API)")
+    ls_.add_argument("--snapshot", required=True, help="fresh Panama refetch after the windows")
+    ls_.add_argument("--name", required=True, help="live run under runs/, e.g. live-panama-1")
+    ls_.add_argument("--version", type=int, required=True, help="matched official update_ms")
+    ls_.add_argument("--sequence", default="us6000u18k")
     cb = sub.add_parser("combined", help="exploratory Claude + official average (no API calls)")
     cb.add_argument("--snapshot", required=True)
     cb.add_argument("--runs", type=Path, default=Path("runs"), help="runs/ or runs/e3")
@@ -332,6 +337,14 @@ def main(argv: list[str] | None = None) -> None:
         e3.write_config(sel, Path("config/sequences_e3.toml"))
         print(sel.groupby("role").size().to_string())
         print(sel[["id", "mag", "role", "place"]].to_string(index=False))
+    elif a.cmd == "live-score":
+        from laf.live import provisional_scores
+
+        seq = next(s for s in seqs if s.id == a.sequence)
+        tab = provisional_scores(a.data_dir, a.snapshot, seq, Path("runs") / a.name, a.version)
+        Path("results").mkdir(exist_ok=True)
+        tab.to_csv(f"results/{a.name}_provisional.csv", index=False, lineterminator="\n")
+        print(tab.round(3).to_string(index=False) if len(tab) else "no closed windows yet")
     elif a.cmd == "combined":
         from laf import extensions as X
 
