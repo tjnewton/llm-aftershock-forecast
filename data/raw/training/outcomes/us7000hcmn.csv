@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-05-26T12:02:21.110Z,-14.9076,-70.2924,236,7.2,mww,144,40,2.494,1.38,us,us7000hcmn,2025-07-16T22:19:13.114Z,"10 km W of Azángaro, Peru",earthquake,9.6,1.9,0.042,55,reviewed,us,us

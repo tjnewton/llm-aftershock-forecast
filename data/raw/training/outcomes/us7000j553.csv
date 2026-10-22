@@ -1,0 +1,212 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2023-01-18T06:06:11.454Z,2.7306,127.0221,29.708,7,mwc,141,21,1.976,0.95,us,us7000j553,2023-10-09T22:58:31.015Z,"156 km NW of Tobelo, Indonesia",earthquake,6.7,3.131,0.027,133,reviewed,us,us
+2023-01-18T06:19:13.687Z,2.8239,127.0179,35,5.1,mb,54,115,2.068,0.91,us,us7000j5dp,2023-03-31T19:45:19.040Z,"163 km NW of Tobelo, Indonesia",earthquake,4.85,1.917,0.095,36,reviewed,us,us
+2023-01-18T06:21:53.434Z,2.5854,126.9129,55.297,4.4,mb,22,131,1.858,0.41,us,us6000jje5,2023-03-31T19:43:25.040Z,"Molucca Sea",earthquake,10.85,10.257,0.202,10,reviewed,us,us
+2023-01-18T06:28:04.620Z,2.7322,126.9106,47.607,4.5,mb,21,88,2,0.57,us,us6000jjdv,2023-03-31T19:43:23.040Z,"165 km NW of Tobelo, Indonesia",earthquake,5.45,10.148,0.163,12,reviewed,us,us
+2023-01-18T06:52:05.328Z,2.7108,126.9027,50.398,4.6,mb,48,118,1.981,0.58,us,us6000jjdy,2023-03-31T19:43:23.040Z,"164 km NW of Tobelo, Indonesia",earthquake,6.53,6.642,0.098,31,reviewed,us,us
+2023-01-18T07:00:33.965Z,2.6154,127.0118,35,4.8,mb,63,101,1.865,0.95,us,us7000j566,2023-03-31T19:45:05.040Z,"148 km NW of Tobelo, Indonesia",earthquake,7.12,1.886,0.077,52,reviewed,us,us
+2023-01-18T07:20:21.826Z,2.8174,127.1375,47.416,4.6,mb,56,99,2.045,0.47,us,us7000j56f,2023-03-31T19:45:06.040Z,"Molucca Sea",earthquake,8.46,5.618,0.088,39,reviewed,us,us
+2023-01-18T08:01:26.536Z,2.6982,127.1349,50.394,5.5,mb,109,31,1.927,0.77,us,us7000j56g,2023-03-31T19:45:06.040Z,"144 km NW of Tobelo, Indonesia",earthquake,6.87,3.8,0.046,163,reviewed,us,us
+2023-01-18T08:15:01.128Z,2.7897,127.1201,35,4.4,mb,29,116,2.019,0.64,us,us6000jje3,2023-03-31T19:43:24.040Z,"153 km NW of Tobelo, Indonesia",earthquake,9.87,1.061,0.139,15,reviewed,us,us
+2023-01-18T09:09:22.284Z,2.8107,127.0827,59.196,4.4,mb,22,134,2.045,0.93,us,us6000jje4,2024-01-18T19:12:57.571Z,"157 km NW of Tobelo, Indonesia",earthquake,12.81,9.307,0.123,19,reviewed,us,us
+2023-01-18T09:39:07.466Z,2.7363,127.079,67.668,4.6,mb,37,109,1.972,0.66,us,us7000j56y,2023-03-31T19:45:07.040Z,"152 km NW of Tobelo, Indonesia",earthquake,7.26,8.261,0.095,33,reviewed,us,us
+2023-01-18T10:26:00.091Z,2.716,126.9909,35,4.4,mb,23,102,1.967,1.18,us,us6000jje7,2023-03-31T19:43:25.040Z,"157 km NW of Tobelo, Indonesia",earthquake,6.86,1.941,0.127,18,reviewed,us,us
+2023-01-18T10:47:35.584Z,2.674,126.9412,58.361,4.2,mb,19,130,1.937,0.57,us,us6000jjea,2023-03-31T19:43:25.040Z,"158 km NW of Tobelo, Indonesia",earthquake,11.63,10.358,0.141,14,reviewed,us,us
+2023-01-18T12:10:54.980Z,2.599,126.8006,35,4.4,mb,24,121,1.901,0.55,us,us6000jjeb,2023-03-31T19:43:26.040Z,"165 km NW of Tobelo, Indonesia",earthquake,11.02,1.936,0.139,15,reviewed,us,us
+2023-01-18T13:35:11.931Z,2.6628,127.02,47.541,4.3,mb,29,112,1.91,0.45,us,us7000j57g,2023-03-31T19:45:08.040Z,"150 km NW of Tobelo, Indonesia",earthquake,9.94,7.906,0.119,20,reviewed,us,us
+2023-01-18T13:39:43.330Z,2.7378,126.9009,30.531,4.8,mb,81,77,2.008,0.59,us,us7000j57i,2023-03-31T19:45:08.040Z,"166 km NW of Tobelo, Indonesia",earthquake,5.87,4.973,0.071,61,reviewed,us,us
+2023-01-18T13:40:51.959Z,2.6702,127.1304,53.707,4.3,mb,22,161,1.9,0.54,us,us6000jjfd,2023-03-31T19:43:31.040Z,"142 km NW of Tobelo, Indonesia",earthquake,10.98,7.298,0.148,14,reviewed,us,us
+2023-01-18T13:55:28.974Z,2.7211,127.1358,48.764,4.5,mb,51,106,1.95,0.63,us,us7000j57p,2023-03-31T19:45:09.040Z,"146 km NW of Tobelo, Indonesia",earthquake,7.73,5.739,0.093,35,reviewed,us,us
+2023-01-18T14:03:09.338Z,2.7955,126.9949,44.406,4.2,mb,18,129,2.044,0.22,us,us6000jjej,2023-03-31T19:43:26.040Z,"163 km NW of Tobelo, Indonesia",earthquake,5.17,10.254,0.166,12,reviewed,us,us
+2023-01-18T14:04:13.017Z,2.7838,127.1272,63.333,4.2,mb,25,131,2.013,0.46,us,us6000jjfb,2023-03-31T19:43:30.040Z,"152 km NW of Tobelo, Indonesia",earthquake,10.01,9.416,0.125,18,reviewed,us,us
+2023-01-18T14:21:39.970Z,2.7711,127.0537,56.605,4.6,mb,70,70,2.01,0.62,us,us7000j57n,2023-03-31T19:45:09.040Z,"156 km NW of Tobelo, Indonesia",earthquake,6.61,7.487,0.075,53,reviewed,us,us
+2023-01-18T15:03:33.226Z,2.8561,127.2252,54.864,4.5,mb,34,118,2.075,0.52,us,us7000j59b,2023-03-31T19:45:10.040Z,"152 km NW of Tobelo, Indonesia",earthquake,10.06,7.93,0.104,27,reviewed,us,us
+2023-01-18T15:14:01.799Z,2.7226,126.9833,46.534,4.6,mb,83,103,1.975,0.71,us,us7000j59c,2023-03-31T19:45:10.040Z,"158 km NW of Tobelo, Indonesia",earthquake,7.29,6.9,0.066,69,reviewed,us,us
+2023-01-18T15:33:07.277Z,2.6208,127.0252,58.388,4.1,mb,21,128,1.868,0.37,us,us6000jjeq,2023-03-31T19:43:27.040Z,"147 km NW of Tobelo, Indonesia",earthquake,11.56,7.673,0.144,13,reviewed,us,us
+2023-01-18T15:43:31.175Z,2.9276,127.0925,35,4.9,mb,104,106,2.159,0.71,us,us7000j59h,2023-03-31T19:45:11.040Z,"167 km NW of Tobelo, Indonesia",earthquake,6.46,1.899,0.062,81,reviewed,us,us
+2023-01-18T16:06:40.710Z,2.6606,126.9997,49.952,4.9,mb,103,112,1.912,0.72,us,us7000j59l,2023-03-31T19:45:11.040Z,"Molucca Sea",earthquake,6.87,5.831,0.062,83,reviewed,us,us
+2023-01-18T16:15:57.984Z,2.695,127.0915,54.949,4.3,mb,29,117,1.93,0.48,us,us6000jjes,2023-03-31T19:43:27.040Z,"147 km NW of Tobelo, Indonesia",earthquake,9.83,8.228,0.119,20,reviewed,us,us
+2023-01-18T18:15:36.473Z,2.6911,126.8984,46.469,4.6,mb,48,110,1.963,0.52,us,us7000j5ak,2023-03-31T19:45:13.040Z,"163 km NW of Tobelo, Indonesia",earthquake,8.04,8.302,0.086,40,reviewed,us,us
+2023-01-18T18:55:38.702Z,2.6451,126.9312,60.838,4.5,mb,61,121,1.911,0.67,us,us7000j5aw,2023-03-31T19:45:14.040Z,"157 km NW of Tobelo, Indonesia",earthquake,8.48,6.276,0.08,46,reviewed,us,us
+2023-01-18T19:55:00.899Z,2.6921,126.8287,51.121,4.8,mb,78,108,1.982,0.87,us,us7000j5bk,2023-03-31T19:45:16.040Z,"169 km NW of Tobelo, Indonesia",earthquake,8.01,6.603,0.064,76,reviewed,us,us
+2023-01-18T20:57:50.626Z,2.7438,126.9974,46.353,4.6,mb,57,84,1.993,0.79,us,us7000j5c1,2024-01-18T19:13:08.505Z,"159 km NW of Tobelo, Indonesia",earthquake,9.66,7.216,0.086,40,reviewed,us,us
+2023-01-18T23:10:22.187Z,2.6671,126.8865,42.856,4.3,mb,32,112,1.943,0.7,us,us6000jjf5,2023-03-31T19:43:29.040Z,"162 km NW of Tobelo, Indonesia",earthquake,10.98,6.676,0.122,19,reviewed,us,us
+2023-01-19T00:52:14.765Z,2.8378,127.0081,35,4.4,mb,32,146,2.083,0.52,us,us6000jjgq,2023-03-31T19:43:32.040Z,"165 km NW of Tobelo, Indonesia",earthquake,5.01,1.937,0.12,20,reviewed,us,us
+2023-01-19T00:55:56.964Z,2.6461,126.7978,35,4.2,mb,17,184,1.947,0.5,us,us6000jjh3,2023-03-31T19:43:35.040Z,"168 km NW of Tobelo, Indonesia",earthquake,15.74,1.977,0.147,13,reviewed,us,us
+2023-01-19T01:36:23.195Z,2.801,127.2439,35,4.4,mb,15,131,20.827,0.24,us,us6000jjgs,2023-03-31T19:43:32.040Z,"146 km NW of Tobelo, Indonesia",earthquake,11.12,1.888,0.17,10,reviewed,us,us
+2023-01-19T02:24:56.968Z,2.9459,127.2927,35,4.2,mb,16,120,2.161,0.5,us,us6000jjh4,2023-03-31T19:43:36.040Z,"156 km NNW of Tobelo, Indonesia",earthquake,9.04,1.944,0.2,9,reviewed,us,us
+2023-01-19T04:54:29.603Z,2.7042,127.0452,35,4.5,mb,19,152,1.946,0.56,us,us6000jjgz,2024-01-18T19:13:16.897Z,"152 km NW of Tobelo, Indonesia",earthquake,9.6,1.939,0.163,11,reviewed,us,us
+2023-01-19T07:38:34.635Z,2.7637,127.012,51.964,4.5,mb,34,140,2.01,0.34,us,us7000j5fk,2023-03-31T19:45:22.040Z,"159 km NW of Tobelo, Indonesia",earthquake,4.95,8.015,0.113,24,reviewed,us,us
+2023-01-19T07:58:27.249Z,2.8043,127.0002,44.984,4.4,mb,28,153,2.052,0.43,us,us7000j5fm,2023-03-31T19:45:22.040Z,"163 km NW of Tobelo, Indonesia",earthquake,6.05,9.073,0.134,21,reviewed,us,us
+2023-01-19T11:04:45.912Z,2.656,127.0019,55.119,4.5,mb,33,114,1.907,0.65,us,us6000jjh9,2023-03-31T19:43:37.040Z,"151 km NW of Tobelo, Indonesia",earthquake,9.34,8.19,0.118,21,reviewed,us,us
+2023-01-19T11:54:29.352Z,2.8996,126.6652,23.649,4.5,mb,24,108,2.227,0.89,us,us6000jjhe,2023-03-31T19:43:38.040Z,"197 km NW of Tobelo, Indonesia",earthquake,9.75,6.027,0.163,11,reviewed,us,us
+2023-01-19T12:29:49.742Z,2.7749,126.987,41.554,4.7,mb,54,93,2.026,0.93,us,us7000j5hq,2023-03-31T19:45:25.040Z,"Molucca Sea",earthquake,9.17,4.904,0.083,44,reviewed,us,us
+2023-01-19T13:00:21.304Z,2.9462,127.0475,52.185,4.8,mb,42,116,2.183,0.82,us,us7000j5ht,2023-03-31T19:45:25.040Z,"171 km NW of Tobelo, Indonesia",earthquake,8.55,8.683,0.079,49,reviewed,us,us
+2023-01-19T15:03:36.418Z,2.7909,127.0919,52.848,4.5,mb,21,108,2.024,1.16,us,us6000jjhq,2023-03-31T19:43:39.040Z,"Molucca Sea",earthquake,7.96,9.043,0.145,16,reviewed,us,us
+2023-01-19T15:20:13.295Z,2.5129,126.5695,56.608,4.1,mb,23,107,1.904,0.42,us,us6000jjhs,2023-03-31T19:43:40.040Z,"Molucca Sea",earthquake,12.48,8.504,0.165,14,reviewed,us,us
+2023-01-19T17:08:54.733Z,2.6248,127.1475,58.127,4.2,mb,20,145,1.854,0.79,us,us6000jji8,2023-03-31T19:43:42.040Z,"Molucca Sea",earthquake,8.94,8.738,0.141,16,reviewed,us,us
+2023-01-19T17:51:31.397Z,2.7314,126.8195,46.251,4.7,mb,54,118,2.022,0.78,us,us7000j5kl,2023-03-31T19:45:31.040Z,"172 km NW of Tobelo, Indonesia",earthquake,8.64,3.96,0.075,54,reviewed,us,us
+2023-01-19T18:51:37.067Z,2.6425,126.8328,54.043,4.5,mb,59,73,1.933,0.83,us,us7000j5kz,2023-03-31T19:45:32.040Z,"165 km NW of Tobelo, Indonesia",earthquake,9.41,6.444,0.082,44,reviewed,us,us
+2023-01-19T20:18:17.163Z,2.7685,127.1185,39.868,4.3,mb,28,161,1.999,1.16,us,us6000jji3,2023-03-31T19:43:42.040Z,"151 km NW of Tobelo, Indonesia",earthquake,11.48,7.948,0.133,16,reviewed,us,us
+2023-01-19T20:35:20.072Z,2.7314,127.0244,51.227,4.7,mb,77,99,1.976,0.79,us,us7000j5ls,2023-03-31T19:45:33.040Z,"155 km NW of Tobelo, Indonesia",earthquake,7.38,5.615,0.063,77,reviewed,us,us
+2023-01-19T21:49:06.734Z,2.7117,126.9991,58.29,4.3,mb,47,120,1.962,0.5,us,us7000j5mh,2023-03-31T19:45:35.040Z,"156 km NW of Tobelo, Indonesia",earthquake,8.08,7.758,0.092,34,reviewed,us,us
+2023-01-20T01:25:04.964Z,2.6943,126.9659,35,4.3,mb,19,94,1.951,0.55,us,us6000jjnr,2023-03-31T19:43:43.040Z,"157 km NW of Tobelo, Indonesia",earthquake,11.62,1.943,0.188,9,reviewed,us,us
+2023-01-20T10:40:14.498Z,3.0079,127.0761,53.381,4.7,mb,86,107,2.24,0.43,us,us7000j5s7,2023-03-31T19:45:41.040Z,"175 km NW of Tobelo, Indonesia",earthquake,8.58,7.076,0.066,70,reviewed,us,us
+2023-01-20T12:29:40.141Z,2.8439,127.0225,41.473,4.3,mb,21,162,2.087,0.38,us,us6000jjpu,2023-03-31T19:43:47.040Z,"Molucca Sea",earthquake,10.8,8.993,0.142,15,reviewed,us,us
+2023-01-20T14:29:46.068Z,2.9926,126.9301,35.061,4,mb,19,156,2.249,0.26,us,us6000jjp9,2023-03-31T19:43:44.040Z,"Molucca Sea",earthquake,11.35,9.198,0.156,12,reviewed,us,us
+2023-01-20T17:49:34.758Z,2.745,126.9444,24.625,5,mb,130,55,2.005,0.71,us,us7000j5vr,2023-03-31T19:45:44.040Z,"163 km NW of Tobelo, Indonesia",earthquake,7.94,4.577,0.053,122,reviewed,us,us
+2023-01-20T19:04:11.226Z,2.176,127.3055,109.974,4.3,mb,28,95,1.396,0.74,us,us6000jjpi,2023-03-31T19:43:45.040Z,"92 km WNW of Tobelo, Indonesia",earthquake,5.34,7.809,0.109,27,reviewed,us,us
+2023-01-20T19:33:59.222Z,2.8487,126.9995,51.607,4,mb,18,146,2.095,0.56,us,us6000jjpj,2023-03-31T19:43:46.040Z,"167 km NW of Tobelo, Indonesia",earthquake,8.04,10.364,0.184,10,reviewed,us,us
+2023-01-20T19:57:43.576Z,2.6372,126.7544,40.771,4.2,mb,24,111,1.951,0.69,us,us6000jjpk,2023-03-31T19:43:46.040Z,"Molucca Sea",earthquake,12.93,8.506,0.159,14,reviewed,us,us
+2023-01-21T01:14:37.658Z,2.3923,126.7277,49.806,4.5,mb,49,105,1.732,0.68,us,us7000j5zi,2023-03-31T19:45:48.040Z,"160 km WNW of Tobelo, Indonesia",earthquake,9.85,7.894,0.086,42,reviewed,us,us
+2023-01-21T03:58:09.650Z,2.7552,127.054,44.905,5.1,mb,67,80,1.995,0.9,us,us7000j603,2023-03-31T19:45:50.040Z,"155 km NW of Tobelo, Indonesia",earthquake,7.53,5.812,0.059,95,reviewed,us,us
+2023-01-21T05:26:09.631Z,2.7721,126.9975,55.782,4.3,mb,20,137,2.021,1.02,us,us6000jjqa,2023-03-31T19:43:47.040Z,"Molucca Sea",earthquake,11.84,8.11,0.122,19,reviewed,us,us
+2023-01-21T06:17:08.477Z,2.7842,127.0146,52.582,4.7,mb,42,115,2.03,0.83,us,us7000j610,2023-03-31T19:45:54.040Z,"160 km NW of Tobelo, Indonesia",earthquake,8.88,5.883,0.093,35,reviewed,us,us
+2023-01-21T09:24:40.484Z,2.7651,127.0662,42.036,4.5,mb,39,120,2.003,0.49,us,us7000j61s,2023-03-31T19:45:57.040Z,"155 km NW of Tobelo, Indonesia",earthquake,9.2,8.294,0.097,32,reviewed,us,us
+2023-01-21T11:49:57.998Z,2.6374,126.909,53.379,4.1,mb,27,114,1.909,0.49,us,us6000jjqk,2024-01-18T19:14:00.975Z,"158 km NW of Tobelo, Indonesia",earthquake,9.85,8.607,0.117,22,reviewed,us,us
+2023-01-21T15:02:26.712Z,3.0934,126.8245,49.602,4.4,mb,35,113,2.369,0.84,us,us7000j632,2024-01-18T19:14:07.910Z,"200 km NW of Tobelo, Indonesia",earthquake,4.85,7.803,0.107,25,reviewed,us,us
+2023-01-21T17:24:06.444Z,2.657,126.6547,35,4.5,mb,45,104,2.003,0.48,us,us6000jjqr,2023-03-31T19:43:51.040Z,"182 km NW of Tobelo, Indonesia",earthquake,9.68,1.903,0.096,36,reviewed,us,us
+2023-01-21T17:43:40.707Z,2.7118,126.8934,47.837,4.3,mb,40,84,1.984,0.69,us,us6000jjqs,2023-03-31T19:43:51.040Z,"165 km NW of Tobelo, Indonesia",earthquake,10.49,8.178,0.106,30,reviewed,us,us
+2023-01-21T20:06:50.880Z,2.7214,126.9929,28.931,5.1,mww,127,52,1.972,0.62,us,us7000j646,2023-03-31T19:46:07.040Z,"157 km NW of Tobelo, Indonesia",earthquake,8.49,3.872,0.08,15,reviewed,us,us
+2023-01-22T02:29:04.165Z,2.7978,126.9838,40.742,4.5,mb,35,93,2.049,0.42,us,us7000j65t,2023-04-11T18:51:51.040Z,"164 km NW of Tobelo, Indonesia",earthquake,8.1,3.958,0.115,23,reviewed,us,us
+2023-01-22T04:43:47.365Z,2.7671,127.2314,50.498,4,mb,16,161,6.652,0.51,us,us6000jkb3,2023-04-11T18:51:40.040Z,"143 km NW of Tobelo, Indonesia",earthquake,7.74,11.031,0.172,10,reviewed,us,us
+2023-01-22T06:42:05.844Z,2.7381,126.9916,45.562,4.6,mb,70,108,1.989,0.47,us,us7000j66q,2023-04-11T18:51:52.040Z,"159 km NW of Tobelo, Indonesia",earthquake,7.99,5.542,0.074,65,reviewed,us,us
+2023-01-22T13:10:24.842Z,2.7308,126.7271,53.443,4.3,mb,24,169,2.048,0.89,us,us7000j685,2023-04-11T18:51:52.040Z,"180 km NW of Tobelo, Indonesia",earthquake,7.34,10.186,0.137,18,reviewed,us,us
+2023-01-22T17:57:43.070Z,2.729,127.0199,37.868,4.7,mb,63,86,1.975,0.65,us,us7000j69g,2023-04-11T18:51:53.040Z,"156 km NW of Tobelo, Indonesia",earthquake,6.1,6.227,0.075,54,reviewed,us,us
+2023-01-22T18:21:01.698Z,2.8623,127.0919,30.351,4.5,mb,73,115,2.095,0.57,us,us7000j69f,2023-04-11T18:51:52.040Z,"161 km NW of Tobelo, Indonesia",earthquake,9.86,4.679,0.071,59,reviewed,us,us
+2023-01-22T22:50:51.538Z,2.6826,127.0214,35,4.5,mb,21,137,15.956,0.85,us,us6000jkbx,2023-04-11T18:51:40.040Z,"Molucca Sea",earthquake,15.95,1.806,0.157,12,reviewed,us,us
+2023-01-23T02:42:58.194Z,2.777,127.1631,51.722,4.6,mb,52,96,2.002,0.44,us,us7000j6aq,2023-04-11T18:51:53.040Z,"149 km NW of Tobelo, Indonesia",earthquake,9.27,7.625,0.091,36,reviewed,us,us
+2023-01-23T03:43:21.807Z,3.0671,127.4254,35,4.4,mb,22,102,2.281,0.98,us,us6000jlwy,2023-04-11T18:51:44.040Z,"161 km NNW of Tobelo, Indonesia",earthquake,10.68,1.939,0.13,17,reviewed,us,us
+2023-01-23T13:36:06.965Z,2.698,126.9894,52.426,4.2,mb,29,124,1.95,0.66,us,us6000jlxl,2023-04-11T18:51:45.040Z,"156 km NW of Tobelo, Indonesia",earthquake,13.92,9.629,0.122,19,reviewed,us,us
+2023-01-23T14:01:53.556Z,3.0151,127.0689,35,4.7,mb,90,84,2.248,0.58,us,us7000j6cb,2023-04-11T18:51:54.040Z,"Pulau-Pulau Talaud, Indonesia",earthquake,8.1,1.845,0.069,63,reviewed,us,us
+2023-01-23T14:09:00.252Z,2.9525,127.0088,58.17,4.5,mb,41,85,2.195,0.46,us,us7000j6cd,2023-04-11T18:51:54.040Z,"175 km NW of Tobelo, Indonesia",earthquake,5.72,7.437,0.097,31,reviewed,us,us
+2023-01-23T14:40:03.394Z,3.1265,127.3272,55.506,4.1,mb,16,175,2.339,0.42,us,us6000jlxn,2023-04-11T18:51:45.040Z,"172 km NNW of Tobelo, Indonesia",earthquake,10.39,10.384,0.185,9,reviewed,us,us
+2023-01-23T15:15:07.238Z,3.0014,126.9769,47.982,4.2,mb,25,137,2.249,0.92,us,us6000jlxq,2023-04-11T18:51:45.040Z,"181 km NW of Tobelo, Indonesia",earthquake,10.19,4.578,0.131,16,reviewed,us,us
+2023-01-23T15:38:35.809Z,2.7568,127.0395,42.887,4.6,mb,70,122,1.999,0.84,us,us7000j6cn,2023-04-11T18:51:54.040Z,"156 km NW of Tobelo, Indonesia",earthquake,9.67,6.313,0.068,64,reviewed,us,us
+2023-01-23T17:06:48.456Z,2.7944,126.899,30.491,5,mb,81,93,2.063,0.69,us,us7000j6e6,2023-04-11T18:51:54.040Z,"170 km NW of Tobelo, Indonesia",earthquake,9.71,4.126,0.069,66,reviewed,us,us
+2023-01-23T18:17:34.706Z,2.8202,127.0015,9.735,5.5,mww,116,43,2.067,0.94,us,us6000jirz,2023-04-11T18:51:26.040Z,"164 km NW of Tobelo, Indonesia",earthquake,7.61,3.335,0.08,15,reviewed,us,us
+2023-01-24T01:10:20.922Z,2.7739,126.9144,18.473,5.1,mww,87,49,2.039,0.8,us,us6000jiti,2023-04-11T18:51:26.040Z,"167 km NW of Tobelo, Indonesia",earthquake,6.93,3.265,0.089,12,reviewed,us,us
+2023-01-24T01:14:31.403Z,2.569,126.3889,35,4.7,mb,23,70,2.035,0.83,us,us6000jlue,2023-04-11T18:51:42.040Z,"197 km NE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,10.87,1.94,0.148,14,reviewed,us,us
+2023-01-24T02:13:14.936Z,2.8182,126.944,35,5.8,mww,131,31,2.076,0.61,us,us6000jitq,2023-04-11T18:51:26.040Z,"169 km NW of Tobelo, Indonesia",earthquake,6.53,1.76,0.058,29,reviewed,us,us
+2023-01-24T02:18:28.916Z,2.8282,126.942,35,4.7,mb,23,102,2.086,0.58,us,us6000jluf,2023-04-11T18:51:42.040Z,"169 km NW of Tobelo, Indonesia",earthquake,8.47,1.906,0.195,8,reviewed,us,us
+2023-01-24T02:25:23.625Z,2.7746,126.8379,35,4.6,mb,40,124,2.058,0.41,us,us6000jitw,2023-04-11T18:51:26.040Z,"Molucca Sea",earthquake,10.52,1.918,0.117,22,reviewed,us,us
+2023-01-24T02:26:57.818Z,2.7848,127.0061,35,4.4,mb,23,115,2.032,0.58,us,us6000jlug,2023-04-11T18:51:42.040Z,"161 km NW of Tobelo, Indonesia",earthquake,5.44,1.889,0.179,9,reviewed,us,us
+2023-01-24T02:28:53.831Z,2.5213,126.4108,35,4.6,mb,25,110,1.983,0.58,us,us6000jluw,2023-04-11T18:51:43.040Z,"196 km NE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,8.14,1.908,0.128,18,reviewed,us,us
+2023-01-24T02:30:04.675Z,2.9043,127.088,35,5.4,mb,113,54,2.137,0.69,us,us6000jitx,2023-04-11T18:51:26.040Z,"165 km NW of Tobelo, Indonesia",earthquake,7.39,1.8,0.044,174,reviewed,us,us
+2023-01-24T02:37:06.287Z,2.8189,126.8519,35,4.6,mb,52,117,2.097,0.52,us,us6000jluh,2023-04-11T18:51:42.040Z,"176 km NW of Tobelo, Indonesia",earthquake,8.69,1.879,0.097,32,reviewed,us,us
+2023-01-24T02:38:32.603Z,2.8856,127.2573,35,4.5,mb,24,117,2.103,0.69,us,us6000jluv,2023-04-11T18:51:43.040Z,"152 km NNW of Tobelo, Indonesia",earthquake,9.33,1.922,0.128,18,reviewed,us,us
+2023-01-24T02:50:57.122Z,2.6908,126.5906,35,4.2,mb,14,148,2.058,0.42,us,us6000jlui,2023-04-11T18:51:42.040Z,"190 km NW of Tobelo, Indonesia",earthquake,13.43,1.956,0.176,9,reviewed,us,us
+2023-01-24T02:53:31.094Z,2.9088,127.1235,35,4.6,mb,41,127,2.137,0.69,us,us6000jiu4,2023-04-11T18:51:27.040Z,"Molucca Sea",earthquake,10.51,1.916,0.101,29,reviewed,us,us
+2023-01-24T03:16:50.069Z,2.806,127.1825,35,4,mb,15,168,2.029,0.5,us,us6000jluk,2024-01-18T19:15:13.219Z,"150 km NW of Tobelo, Indonesia",earthquake,12.96,1.947,0.196,7,reviewed,us,us
+2023-01-24T03:22:15.140Z,2.9175,127.2949,35,4.4,mb,16,159,2.133,0.74,us,us6000jluj,2023-04-11T18:51:42.040Z,"153 km NNW of Tobelo, Indonesia",earthquake,7.34,1.945,0.169,10,reviewed,us,us
+2023-01-24T03:36:08.195Z,2.8298,127.3658,35,4.4,mb,19,120,2.044,0.47,us,us6000jlul,2023-04-11T18:51:43.040Z,"141 km NNW of Tobelo, Indonesia",earthquake,10.02,1.933,0.162,13,reviewed,us,us
+2023-01-24T03:38:37.121Z,2.9076,127.1653,35,4.5,mb,34,127,2.131,0.69,us,us6000jiua,2023-04-11T18:51:27.040Z,"160 km NW of Tobelo, Indonesia",earthquake,10.78,1.897,0.124,19,reviewed,us,us
+2023-01-24T03:50:52.358Z,2.9529,127.2743,35,4.3,mb,19,139,2.168,1.06,us,us6000jlw6,2023-04-11T18:51:44.040Z,"158 km NNW of Tobelo, Indonesia",earthquake,11.95,1.761,0.147,13,reviewed,us,us
+2023-01-24T04:02:54.811Z,2.7818,126.9104,35,4.9,mb,49,109,2.048,0.67,us,us6000jiud,2023-04-11T18:51:27.040Z,"168 km NW of Tobelo, Indonesia",earthquake,6.25,1.853,0.077,53,reviewed,us,us
+2023-01-24T04:13:59.200Z,2.7244,127.1493,35,4.5,mb,30,123,1.952,0.58,us,us6000jiui,2023-04-11T18:51:27.040Z,"145 km NW of Tobelo, Indonesia",earthquake,7.02,1.926,0.121,20,reviewed,us,us
+2023-01-24T04:21:05.024Z,2.8528,127.0019,35,4.1,mb,16,167,2.099,0.42,us,us6000jlup,2023-04-11T18:51:43.040Z,"Molucca Sea",earthquake,13.8,1.958,0.186,8,reviewed,us,us
+2023-01-24T04:48:21.137Z,2.5936,126.7846,35,4,mb,14,150,1.901,0.39,us,us6000jlun,2023-04-11T18:51:43.040Z,"166 km NW of Tobelo, Indonesia",earthquake,14.54,1.8,0.196,7,reviewed,us,us
+2023-01-24T04:49:02.671Z,2.8675,127.2473,35,4.1,mb,14,166,6.693,0.83,us,us6000jlw5,2023-04-11T18:51:44.040Z,"151 km NW of Tobelo, Indonesia",earthquake,15.71,1.972,0.185,11,reviewed,us,us
+2023-01-24T05:04:39.907Z,2.8419,126.954,52.471,4.5,mb,41,117,2.097,0.37,us,us6000jiuq,2023-04-11T18:51:27.040Z,"Molucca Sea",earthquake,9.71,7.058,0.099,30,reviewed,us,us
+2023-01-24T05:09:18.751Z,2.8713,127.1987,55.995,4.3,mb,22,143,2.092,0.68,us,us6000jlw4,2023-04-11T18:51:44.040Z,"155 km NW of Tobelo, Indonesia",earthquake,11.47,7.502,0.154,13,reviewed,us,us
+2023-01-24T05:14:12.092Z,2.6671,126.8508,52.701,4.3,mb,32,120,1.952,0.37,us,us6000jiut,2023-04-11T18:51:27.040Z,"165 km NW of Tobelo, Indonesia",earthquake,10.29,4.102,0.122,20,reviewed,us,us
+2023-01-24T05:35:07.209Z,2.8024,126.9746,51.27,4.5,mb,40,119,2.055,0.55,us,us6000jiuy,2023-04-11T18:51:27.040Z,"165 km NW of Tobelo, Indonesia",earthquake,9.6,7.829,0.1,30,reviewed,us,us
+2023-01-24T08:48:58.052Z,2.8064,127.2083,45.751,4.2,mb,23,138,2.027,0.81,us,us6000jluy,2023-04-11T18:51:43.040Z,"148 km NW of Tobelo, Indonesia",earthquake,11.12,8.395,0.152,15,reviewed,us,us
+2023-01-24T09:25:00.334Z,2.8028,126.678,35,4,mb,15,133,2.132,0.51,us,us6000jluz,2023-04-11T18:51:43.040Z,"189 km NW of Tobelo, Indonesia",earthquake,8.25,1.825,0.196,7,reviewed,us,us
+2023-01-24T10:17:29.175Z,2.8339,127.0001,46.297,4.7,mb,41,109,2.081,0.74,us,us6000jlv0,2023-04-11T18:51:43.040Z,"Molucca Sea",earthquake,8.07,7.587,0.102,29,reviewed,us,us
+2023-01-24T11:08:10.590Z,2.7706,127.186,42.651,4.6,mb,60,84,1.994,0.58,us,us6000jivy,2023-04-11T18:51:28.040Z,"147 km NW of Tobelo, Indonesia",earthquake,7.53,6.778,0.083,43,reviewed,us,us
+2023-01-24T12:06:34.287Z,2.806,126.9835,38.562,4.4,mb,64,104,2.057,0.38,us,us6000jiw4,2023-04-11T18:51:28.040Z,"164 km NW of Tobelo, Indonesia",earthquake,8.84,7.247,0.085,42,reviewed,us,us
+2023-01-24T13:06:37.465Z,2.738,126.8597,50.04,4.5,mb,43,117,2.018,0.69,us,us6000jlv5,2023-04-11T18:51:43.040Z,"169 km NW of Tobelo, Indonesia",earthquake,8.41,1.573,0.104,27,reviewed,us,us
+2023-01-24T13:11:21.947Z,3.0821,127.016,35.881,5,mb,75,104,2.321,0.68,us,us6000jiwc,2023-04-11T18:51:28.040Z,"186 km NW of Tobelo, Indonesia",earthquake,7.77,4.307,0.062,83,reviewed,us,us
+2023-01-24T15:21:07.960Z,2.732,126.8924,64.194,4.2,mb,25,114,2.004,0.8,us,us6000jlvb,2023-04-11T18:51:43.040Z,"166 km NW of Tobelo, Indonesia",earthquake,10.66,9.342,0.146,13,reviewed,us,us
+2023-01-24T17:09:54.208Z,2.6127,126.6714,55.238,4.4,mb,28,143,1.956,0.27,us,us6000jlvd,2023-04-11T18:51:43.040Z,"178 km WNW of Tobelo, Indonesia",earthquake,9.34,8.611,0.117,21,reviewed,us,us
+2023-01-24T18:31:42.958Z,2.6864,126.8087,50.345,4.4,mb,32,106,1.982,0.59,us,us6000jlvk,2023-04-11T18:51:43.040Z,"Molucca Sea",earthquake,8.31,6.676,0.112,28,reviewed,us,us
+2023-01-24T19:25:40.914Z,2.9885,127.0439,53.781,4.4,mb,46,108,2.225,0.7,us,us6000jizd,2023-04-11T18:51:29.040Z,"175 km NW of Tobelo, Indonesia",earthquake,8.23,7.89,0.092,38,reviewed,us,us
+2023-01-24T20:12:55.993Z,2.9423,127.2788,39.689,4.5,mb,47,72,2.158,0.59,us,us6000jizz,2023-04-11T18:51:29.040Z,"156 km NNW of Tobelo, Indonesia",earthquake,6.67,6.978,0.091,41,reviewed,us,us
+2023-01-24T20:17:58.699Z,3.1604,127.0141,35,5.3,mb,167,41,2.399,0.99,us,us6000jj00,2023-04-11T18:51:29.040Z,"193 km NW of Tobelo, Indonesia",earthquake,7.08,1.823,0.042,200,reviewed,us,us
+2023-01-24T21:23:51.649Z,3.0899,127.3087,55.789,4.3,mb,26,124,2.303,0.6,us,us6000jlvq,2023-04-11T18:51:44.040Z,"169 km NNW of Tobelo, Indonesia",earthquake,13.77,9.215,0.122,19,reviewed,us,us
+2023-01-25T00:44:54.720Z,3.115,127.0491,35.68,4.5,mb,44,109,2.349,1.09,us,us6000jlu4,2023-04-11T18:51:42.040Z,"Pulau-Pulau Talaud, Indonesia",earthquake,8.93,5.276,0.09,36,reviewed,us,us
+2023-01-25T06:49:33.994Z,2.8827,127.133,31.592,4.3,mb,22,155,2.11,0.49,us,us6000jlud,2023-04-11T18:51:42.040Z,"Molucca Sea",earthquake,10.51,6.847,0.153,13,reviewed,us,us
+2023-01-25T15:50:56.400Z,2.8144,127.0816,46.865,4.2,mb,15,166,2.049,0.68,us,us6000jlz0,2023-04-11T18:51:46.040Z,"158 km NW of Tobelo, Indonesia",earthquake,12.65,10.657,0.166,10,reviewed,us,us
+2023-01-25T15:51:50.730Z,2.8108,126.9383,43.5,4.6,mb,49,85,2.07,0.82,us,us6000jj7q,2023-04-11T18:51:32.040Z,"168 km NW of Tobelo, Indonesia",earthquake,5.53,7.368,0.09,37,reviewed,us,us
+2023-01-25T16:28:21.589Z,2.7578,126.7581,35,4,mb,11,178,2.064,0.85,us,us6000jlyb,2023-04-11T18:51:46.040Z,"179 km NW of Tobelo, Indonesia",earthquake,11.75,1.982,0.196,7,reviewed,us,us
+2023-01-25T16:48:08.954Z,3.1406,127.0219,41.965,4.4,mb,43,111,2.378,0.43,us,us6000jlyd,2023-04-11T18:51:46.040Z,"Pulau-Pulau Talaud, Indonesia",earthquake,9.69,7.609,0.092,34,reviewed,us,us
+2023-01-25T19:31:07.519Z,2.8254,127.2766,36.436,4.5,mb,51,145,2.042,0.86,us,us6000jj8q,2023-04-11T18:51:32.040Z,"146 km NW of Tobelo, Indonesia",earthquake,7.65,6.833,0.084,42,reviewed,us,us
+2023-01-26T01:46:22.455Z,2.842,127.2438,35,4.3,mb,19,148,2.06,0.63,us,us6000jlts,2023-04-11T18:51:41.040Z,"149 km NW of Tobelo, Indonesia",earthquake,11.34,1.937,0.148,13,reviewed,us,us
+2023-01-26T02:15:02.600Z,2.6442,126.8692,35,4,mb,15,160,1.925,0.5,us,us6000jltu,2023-04-11T18:51:41.040Z,"162 km NW of Tobelo, Indonesia",earthquake,15.25,1.829,0.173,9,reviewed,us,us
+2023-01-26T02:25:10.364Z,2.8189,126.761,35,4.1,mb,16,167,2.122,0.76,us,us6000jltt,2023-04-11T18:51:41.040Z,"183 km NW of Tobelo, Indonesia",earthquake,11.93,1.892,0.174,9,reviewed,us,us
+2023-01-26T02:51:41.071Z,2.8807,127.108,35,4.3,mb,16,155,2.111,0.37,us,us6000jltx,2023-04-11T18:51:42.040Z,"Molucca Sea",earthquake,12.43,1.957,0.177,9,reviewed,us,us
+2023-01-26T04:23:51.212Z,2.8391,126.9856,35,5.7,mww,107,29,2.088,0.91,us,us6000jjbj,2024-10-09T15:04:54.935Z,"167 km NW of Tobelo, Indonesia",earthquake,6.91,1.768,0.061,26,reviewed,us,us
+2023-01-26T04:34:23.984Z,2.5517,126.6152,35,4.4,mb,16,133,1.921,0.44,us,us6000jlze,2023-04-11T18:51:46.040Z,"179 km WNW of Tobelo, Indonesia",earthquake,8.91,1.913,0.161,11,reviewed,us,us
+2023-01-26T05:33:48.270Z,2.7188,126.7167,26.541,4.3,mb,19,127,2.04,0.83,us,us6000jltz,2023-04-11T18:51:42.040Z,"180 km NW of Tobelo, Indonesia",earthquake,10.33,6.491,0.129,17,reviewed,us,us
+2023-01-26T06:13:15.422Z,2.6363,127.1828,58.808,4.1,mb,18,154,1.861,0.43,us,us6000jlu2,2023-04-11T18:51:42.040Z,"136 km NW of Tobelo, Indonesia",earthquake,13.32,8.276,0.135,16,reviewed,us,us
+2023-01-26T06:33:45.142Z,2.84,127.0684,64.583,4.8,mb,69,108,2.076,0.47,us,us6000jjce,2023-04-11T18:51:33.040Z,"161 km NW of Tobelo, Indonesia",earthquake,7.22,6.661,0.075,67,reviewed,us,us
+2023-01-26T08:47:42.418Z,2.7314,127.0085,52.739,4.1,mb,36,113,1.979,0.37,us,us6000jlz8,2023-04-11T18:51:46.040Z,"157 km NW of Tobelo, Indonesia",earthquake,7.7,7.627,0.105,28,reviewed,us,us
+2023-01-26T08:57:32.233Z,2.7852,126.8024,42.938,4.3,mb,37,99,2.078,0.42,us,us6000jlza,2023-04-11T18:51:46.040Z,"177 km NW of Tobelo, Indonesia",earthquake,10.05,8.38,0.1,31,reviewed,us,us
+2023-01-26T12:28:08.257Z,2.7983,127.0292,48.574,4,mb,24,136,2.041,0.4,us,us6000jlzh,2023-04-11T18:51:46.040Z,"160 km NW of Tobelo, Indonesia",earthquake,9.64,9.482,0.15,13,reviewed,us,us
+2023-01-26T13:11:32.455Z,2.7257,126.7964,38.582,4.5,mb,28,128,2.023,0.59,us,us6000jlzm,2023-04-11T18:51:46.040Z,"Molucca Sea",earthquake,4.66,7.658,0.118,21,reviewed,us,us
+2023-01-26T14:40:57.596Z,2.6517,126.894,48.341,4.4,mb,15,137,1.926,0.96,us,us6000jlzq,2023-04-11T18:51:46.040Z,"160 km NW of Tobelo, Indonesia",earthquake,11.67,9.01,0.161,11,reviewed,us,us
+2023-01-26T15:47:26.047Z,2.8409,127.1773,41.145,4.1,mb,31,110,2.064,0.95,us,us6000jlzs,2023-04-11T18:51:47.040Z,"153 km NW of Tobelo, Indonesia",earthquake,10.71,8.215,0.124,20,reviewed,us,us
+2023-01-26T15:53:32.170Z,2.7809,127.0215,54.448,4.1,mb,28,82,2.025,0.45,us,us6000jlzt,2023-04-11T18:51:47.040Z,"160 km NW of Tobelo, Indonesia",earthquake,10.38,8.004,0.14,18,reviewed,us,us
+2023-01-26T15:55:29.301Z,2.7738,127.0139,42.445,4.2,mb,31,129,2.02,0.49,us,us6000jm07,2024-01-18T19:15:55.181Z,"160 km NW of Tobelo, Indonesia",earthquake,15.09,4.415,0.124,23,reviewed,us,us
+2023-01-26T16:26:07.759Z,2.8814,126.8379,29.724,4.3,mb,38,109,2.161,0.64,us,us6000jlzu,2023-04-11T18:51:47.040Z,"182 km NW of Tobelo, Indonesia",earthquake,9.65,5.66,0.111,27,reviewed,us,us
+2023-01-26T16:59:56.488Z,2.7359,127.0258,54.723,4.2,mb,32,117,1.98,0.63,us,us6000jlzx,2023-04-11T18:51:47.040Z,"156 km NW of Tobelo, Indonesia",earthquake,15.22,6.892,0.132,19,reviewed,us,us
+2023-01-26T17:25:58.419Z,2.7929,126.8576,34.247,4.6,mb,53,118,2.071,0.91,us,us6000jjik,2023-04-11T18:51:34.040Z,"173 km NW of Tobelo, Indonesia",earthquake,12.64,5.506,0.081,45,reviewed,us,us
+2023-01-26T17:33:45.521Z,2.709,127.3963,64.11,4.4,mb,27,138,1.925,0.87,us,us6000jm04,2023-04-11T18:51:47.040Z,"128 km NNW of Tobelo, Indonesia",earthquake,6.21,9.193,0.126,18,reviewed,us,us
+2023-01-26T21:22:57.347Z,3.061,126.9892,43.872,4.3,mb,32,105,2.305,0.42,us,us6000jm08,2023-04-11T18:51:47.040Z,"185 km NW of Tobelo, Indonesia",earthquake,10.65,9.028,0.109,24,reviewed,us,us
+2023-01-26T22:30:26.639Z,2.7438,126.6932,47.351,4.2,mb,26,126,2.071,0.39,us,us6000jm0b,2023-04-11T18:51:47.040Z,"184 km NW of Tobelo, Indonesia",earthquake,9.57,7.995,0.141,14,reviewed,us,us
+2023-01-27T00:40:05.409Z,2.7726,126.9823,49.021,4.2,mb,13,141,4.492,0.39,us,us6000jlti,2024-01-18T19:16:01.672Z,"162 km NW of Tobelo, Indonesia",earthquake,15.66,11.262,0.176,9,reviewed,us,us
+2023-01-27T09:16:57.519Z,2.8127,126.8178,55.452,4.4,mb,21,104,2.1,0.99,us,us6000jm0v,2023-04-11T18:51:47.040Z,"178 km NW of Tobelo, Indonesia",earthquake,11.95,8.448,0.144,14,reviewed,us,us
+2023-01-28T00:03:31.879Z,3.0504,126.9979,38.508,4.7,mb,45,111,2.293,0.59,us,us6000jjvx,2023-04-11T18:51:37.040Z,"184 km NW of Tobelo, Indonesia",earthquake,8.59,7.352,0.104,28,reviewed,us,us
+2023-01-29T01:45:44.856Z,2.9066,126.8881,48.939,4.5,mb,36,108,2.174,0.66,us,us6000jk36,2023-04-13T21:53:07.040Z,"180 km NW of Tobelo, Indonesia",earthquake,8.53,4.752,0.099,32,reviewed,us,us
+2023-01-29T03:20:20.797Z,2.8499,126.9825,51.395,4.6,mb,34,116,2.1,0.71,us,us6000jk3i,2023-04-13T21:53:07.040Z,"168 km NW of Tobelo, Indonesia",earthquake,9.02,0.796,0.122,21,reviewed,us,us
+2023-01-29T05:15:38.885Z,2.7358,127.0428,64.686,4.6,mb,56,108,1.978,0.47,us,us6000jk40,2023-04-13T21:53:08.040Z,"154 km NW of Tobelo, Indonesia",earthquake,8.23,2.587,0.083,49,reviewed,us,us
+2023-01-29T14:09:05.351Z,2.7289,127.0706,34.347,4.4,mb,25,112,1.966,0.44,us,us6000jmxg,2023-04-13T21:53:33.040Z,"152 km NW of Tobelo, Indonesia",earthquake,10.9,5.436,0.126,19,reviewed,us,us
+2023-01-29T15:20:28.798Z,2.9047,126.9938,49.175,4.7,mb,28,126,2.151,0.72,us,us6000jk64,2023-04-13T21:53:08.040Z,"172 km NW of Tobelo, Indonesia",earthquake,13.31,7.745,0.11,25,reviewed,us,us
+2023-01-29T16:11:02.225Z,2.8896,126.9662,47.576,4.7,mb,56,109,2.141,0.75,us,us6000jk6a,2023-04-13T21:53:08.040Z,"173 km NW of Tobelo, Indonesia",earthquake,8.02,7.103,0.068,65,reviewed,us,us
+2023-01-29T17:26:32.250Z,2.8623,127.0656,45.361,4.3,mb,28,125,2.098,0.71,us,us6000jmxh,2023-04-13T21:53:33.040Z,"163 km NW of Tobelo, Indonesia",earthquake,11.94,8.294,0.122,19,reviewed,us,us
+2023-01-29T19:57:14.754Z,2.8491,126.9433,42.236,5,mb,66,93,2.106,0.81,us,us6000jk70,2023-04-13T21:53:09.040Z,"171 km NW of Tobelo, Indonesia",earthquake,6.49,6.04,0.062,82,reviewed,us,us
+2023-01-29T20:25:22.946Z,2.6589,126.6496,52.418,4.5,mb,26,134,2.007,0.84,us,us6000jmxm,2023-04-13T21:53:33.040Z,"Molucca Sea",earthquake,12.92,7.391,0.121,20,reviewed,us,us
+2023-01-29T22:14:57.403Z,2.71,126.666,35,4.6,mb,22,118,2.049,0.58,us,us6000jmxr,2023-04-13T21:53:33.040Z,"Molucca Sea",earthquake,7.46,1.873,0.151,13,reviewed,us,us
+2023-01-29T23:50:27.239Z,2.6813,127.2482,35,4.1,mb,13,166,1.9,0.72,us,us6000jmxw,2023-04-13T21:53:33.040Z,"135 km NW of Tobelo, Indonesia",earthquake,11.01,1.985,0.175,9,reviewed,us,us
+2023-01-30T00:44:33.287Z,2.7141,126.796,35,4.4,mb,20,121,2.012,0.5,us,us6000jmwu,2023-04-13T21:53:32.040Z,"173 km NW of Tobelo, Indonesia",earthquake,14.74,1.936,0.155,12,reviewed,us,us
+2023-01-30T08:36:15.601Z,2.7748,127.2569,35,4.3,mb,23,127,1.993,0.53,us,us6000jmy4,2023-04-13T21:53:34.040Z,"142 km NW of Tobelo, Indonesia",earthquake,8.74,1.951,0.137,15,reviewed,us,us
+2023-01-30T08:58:24.929Z,2.6811,126.7548,35,4.3,mb,34,54,1.993,0.94,us,us6000jmy2,2023-04-13T21:53:34.040Z,"174 km NW of Tobelo, Indonesia",earthquake,7.72,1.934,0.103,27,reviewed,us,us
+2023-01-30T22:56:43.336Z,2.7173,127.1018,45.733,4.2,mb,23,103,1.951,0.63,us,us6000jmyk,2023-04-13T21:53:34.040Z,"148 km NW of Tobelo, Indonesia",earthquake,10.73,8.207,0.136,15,reviewed,us,us
+2023-01-31T12:02:38.685Z,2.8318,127.1317,37.559,4.4,mb,52,72,2.06,0.5,us,us6000jkid,2023-04-13T21:53:13.040Z,"Molucca Sea",earthquake,8.43,7.077,0.087,40,reviewed,us,us
+2023-01-31T13:55:10.020Z,2.7425,126.9775,58.838,4.2,mb,20,111,1.996,0.86,us,us6000jm9u,2023-04-13T21:53:26.040Z,"160 km NW of Tobelo, Indonesia",earthquake,13.75,9.263,0.153,12,reviewed,us,us
+2023-02-01T04:32:41.067Z,2.8084,127.1186,35,4.2,mb,18,119,2.038,0.27,us,us6000jmhz,2023-04-13T21:53:27.040Z,"155 km NW of Tobelo, Indonesia",earthquake,7.72,1.951,0.166,10,reviewed,us,us
+2023-02-01T15:23:12.644Z,2.6118,126.924,49.408,4.4,mb,50,103,1.88,0.51,us,us6000jmic,2023-04-13T21:53:27.040Z,"155 km NW of Tobelo, Indonesia",earthquake,6.59,7.883,0.09,36,reviewed,us,us
+2023-02-01T17:25:09.533Z,2.8386,127.0849,55.512,4.3,mb,29,118,2.072,0.57,us,us6000jmid,2023-04-13T21:53:27.040Z,"160 km NW of Tobelo, Indonesia",earthquake,10.39,7.617,0.126,18,reviewed,us,us
+2023-02-01T21:03:18.502Z,2.9957,126.964,52.474,4.2,mb,36,110,2.246,0.44,us,us6000jmij,2023-04-13T21:53:27.040Z,"182 km NW of Tobelo, Indonesia",earthquake,6.48,7.62,0.113,22,reviewed,us,us
+2023-02-02T01:06:06.363Z,3.0003,126.8399,35,4.3,mb,24,154,2.275,0.34,us,us6000jmrm,2023-04-13T21:53:28.040Z,"Pulau-Pulau Talaud, Indonesia",earthquake,8.4,1.952,0.147,13,reviewed,us,us
+2023-02-03T12:36:24.814Z,2.6634,126.9692,55.479,4.2,mb,33,135,1.921,0.25,us,us6000jmt2,2023-04-13T21:53:30.040Z,"Molucca Sea",earthquake,10.42,8.221,0.115,22,reviewed,us,us
+2023-02-03T17:23:40.271Z,2.6329,126.8298,31.589,4.9,mb,106,90,1.925,0.62,us,us6000jl7m,2023-04-13T21:53:21.040Z,"164 km NW of Tobelo, Indonesia",earthquake,8.31,4.808,0.061,92,reviewed,us,us
+2023-02-03T17:31:49.717Z,2.4859,126.7121,36.529,4.1,mb,12,130,1.824,0.7,us,us6000jmtb,2023-04-13T21:53:30.040Z,"166 km WNW of Tobelo, Indonesia",earthquake,15.87,6.076,0.198,7,reviewed,us,us
+2023-02-03T17:48:15.004Z,2.8393,127.3198,35,4.5,mb,51,75,2.054,0.97,us,us6000jmte,2023-04-13T21:53:30.040Z,"144 km NNW of Tobelo, Indonesia",earthquake,4.66,1.887,0.089,44,reviewed,us,us
+2023-02-05T01:40:35.280Z,3.0078,126.8516,59.293,4.3,mb,26,127,2.28,0.25,us,us6000jn3i,2023-04-15T21:39:54.040Z,"Pulau-Pulau Talaud, Indonesia",earthquake,12.8,8.858,0.148,14,reviewed,us,us
+2023-02-05T22:29:33.958Z,2.8312,126.9788,35,4.1,mb,23,161,2.082,0.34,us,us6000jn48,2023-04-15T21:39:54.040Z,"Molucca Sea",earthquake,7.4,1.937,0.146,13,reviewed,us,us
+2023-02-06T12:48:40.593Z,3.031,126.8752,46.899,4.2,mb,23,115,2.297,0.56,us,us6000jnuh,2023-04-15T21:40:03.040Z,"191 km NW of Tobelo, Indonesia",earthquake,10.53,9.294,0.146,14,reviewed,us,us
+2023-02-08T13:06:57.259Z,2.8377,127.0361,45.934,4.5,mb,35,120,2.079,0.56,us,us6000jpcm,2023-04-15T21:40:09.040Z,"163 km NW of Tobelo, Indonesia",earthquake,9.14,8.813,0.113,23,reviewed,us,us
+2023-02-09T04:31:33.364Z,2.9113,127.2793,35,4.3,mb,13,145,2.127,0.36,us,us6000jpjw,2023-04-15T21:40:11.040Z,"153 km NNW of Tobelo, Indonesia",earthquake,8.03,1.949,0.188,8,reviewed,us,us
+2023-02-09T06:09:30.629Z,2.22,127.0319,106.673,4.5,mb,39,110,1.477,0.54,us,us6000jmni,2023-04-15T21:39:50.040Z,"121 km WNW of Tobelo, Indonesia",earthquake,6.93,7.395,0.104,29,reviewed,us,us
+2023-02-09T06:20:46.119Z,2.7848,127.0118,35,4.2,mb,21,122,2.031,0.48,us,us6000jpk2,2023-04-15T21:40:11.040Z,"161 km NW of Tobelo, Indonesia",earthquake,8.93,1.757,0.16,14,reviewed,us,us
+2023-02-10T23:35:17.009Z,2.5779,126.7162,51.583,4.2,mb,21,78,1.908,0.33,us,us6000jpnf,2023-04-15T21:40:12.040Z,"171 km WNW of Tobelo, Indonesia",earthquake,4.98,8.105,0.137,15,reviewed,us,us
+2023-02-12T20:12:59.608Z,2.1776,127.2831,99.392,4.2,mb,19,108,1.399,0.62,us,us6000jqc2,2023-04-22T21:33:21.040Z,"94 km WNW of Tobelo, Indonesia",earthquake,10.82,9.584,0.175,9,reviewed,us,us
+2023-02-13T00:26:07.194Z,2.8039,126.9024,35,4.4,mb,25,163,2.071,0.66,us,us6000jqjp,2023-04-22T21:33:22.040Z,"171 km NW of Tobelo, Indonesia",earthquake,12.11,1.952,0.134,16,reviewed,us,us
+2023-02-13T13:45:31.683Z,3.342,126.844,61.19,4.4,mb,16,128,2.606,0.61,us,us6000jqk3,2023-04-22T21:33:22.040Z,"220 km NW of Tobelo, Indonesia",earthquake,8.27,10.926,0.156,12,reviewed,us,us
+2023-02-15T16:15:29.195Z,2.9209,126.913,56.769,4.5,mb,20,145,2.182,0.77,us,us6000jr0w,2023-04-22T21:33:25.040Z,"179 km NW of Tobelo, Indonesia",earthquake,14,10.077,0.164,11,reviewed,us,us
+2023-02-16T03:46:06.754Z,2.7019,127.2149,35,4.1,mb,15,136,1.923,0.66,us,us6000jr8d,2023-04-22T21:33:26.040Z,"139 km NW of Tobelo, Indonesia",earthquake,14.41,1.941,0.165,10,reviewed,us,us
+2023-02-19T08:26:35.277Z,2.8509,127.0043,36.348,4.2,mb,30,83,2.097,0.52,us,us6000jry8,2023-04-29T21:57:12.040Z,"167 km NW of Tobelo, Indonesia",earthquake,10.36,7.813,0.124,21,reviewed,us,us
+2023-02-19T23:12:21.709Z,2.7233,126.9943,35,4.8,mww,73,43,1.974,0.88,us,us6000jq6k,2023-04-29T21:57:14.040Z,"157 km NW of Tobelo, Indonesia",earthquake,6.9,1.804,0.098,10,reviewed,us,us
+2023-02-20T00:01:18.958Z,2.7197,126.9851,35,4.8,mb,82,110,1.972,0.74,us,us6000jq6y,2023-04-29T21:57:15.040Z,"158 km NW of Tobelo, Indonesia",earthquake,5.38,1.863,0.074,56,reviewed,us,us
+2023-02-25T05:28:14.027Z,2.948,126.6357,32.356,4.3,mb,20,146,2.282,0.91,us,us7000jh37,2023-04-29T21:57:36.040Z,"Molucca Sea",earthquake,11.17,7.153,0.142,14,reviewed,us,us
+2023-02-28T22:06:49.562Z,2.6997,126.5308,45.296,4.5,mb,69,105,2.089,0.62,us,us7000jgcp,2023-05-08T02:00:00.040Z,"Molucca Sea",earthquake,7.2,4.713,0.072,56,reviewed,us,us
+2023-03-01T04:15:56.291Z,2.3561,127.4677,10.369,4.3,mb,15,185,1.577,0.78,us,us7000ji7p,2023-05-08T02:00:03.040Z,"91 km NW of Tobelo, Indonesia",earthquake,11.73,5.845,0.169,10,reviewed,us,us
+2023-03-02T13:38:20.078Z,2.8152,127.0643,54.595,4.6,mb,35,135,2.052,1.06,us,us7000jgt6,2023-05-08T02:00:20.040Z,"Molucca Sea",earthquake,9.54,7.97,0.102,29,reviewed,us,us
+2023-03-06T14:27:39.486Z,2.8518,127.1472,56.2,4.1,mb,13,137,2.078,0.8,us,us7000jiwg,2023-05-15T02:50:27.040Z,"156 km NW of Tobelo, Indonesia",earthquake,11.07,9.782,0.214,6,reviewed,us,us
+2023-03-10T07:30:42.938Z,2.5626,126.9011,54.626,4.2,mb,18,124,1.839,0.55,us,us7000jk5q,2023-05-15T02:49:30.040Z,"153 km NW of Tobelo, Indonesia",earthquake,9.77,7.76,0.159,11,reviewed,us,us
+2023-03-13T05:41:51.865Z,2.6263,126.8465,35,4.1,mb,30,129,1.914,0.7,us,us7000jkuw,2023-05-20T23:20:33.040Z,"163 km NW of Tobelo, Indonesia",earthquake,4.95,1.923,0.14,16,reviewed,us,us
+2023-03-14T02:43:01.955Z,2.8125,126.4444,35,4.2,mb,16,183,5.304,0.55,us,us7000jkw7,2023-05-20T23:20:34.040Z,"210 km NE of Bitung, Indonesia",earthquake,7.08,1.97,0.132,16,reviewed,us,us
+2023-03-15T21:49:16.629Z,2.8356,127.1203,52.818,4.4,mb,52,110,2.065,0.7,us,us7000jlh0,2023-05-20T23:20:39.040Z,"157 km NW of Tobelo, Indonesia",earthquake,9.02,7.954,0.082,43,reviewed,us,us
+2023-03-16T00:49:08.034Z,2.482,126.8654,35,4,mb,17,120,1.771,0.75,us,us7000jlpx,2023-05-20T23:20:40.040Z,"152 km WNW of Tobelo, Indonesia",earthquake,9.09,1.95,0.164,10,reviewed,us,us

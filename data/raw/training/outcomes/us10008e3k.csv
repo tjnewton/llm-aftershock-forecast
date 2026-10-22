@@ -1,0 +1,8 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2017-04-03T17:40:18.560Z,-22.6784,25.1558,29,6.5,mww,,15,2.36,1.11,us,us10008e3k,2022-05-03T18:15:03.303Z,"132 km WSW of Moijabana, Botswana",earthquake,7.5,1.8,0.048,42,reviewed,us,us
+2017-04-03T18:11:26.140Z,-22.5783,25.1693,16.15,4.7,mb,,68,2.457,0.62,us,us10008fjd,2017-06-23T07:26:28.040Z,"129 km W of Moijabana, Botswana",earthquake,7.7,3.3,0.247,7,reviewed,us,us
+2017-04-03T18:38:12.260Z,-22.5667,25.0991,14.96,4.6,mb,,107,2.479,0.74,us,us10008fjf,2017-06-23T07:26:28.040Z,"136 km W of Moijabana, Botswana",earthquake,7.8,6.3,0.546,1,reviewed,us,us
+2017-04-03T23:16:22.840Z,-22.5758,25.1258,15.91,4,mb,,108,2.466,1.28,us,us10008fja,2017-06-23T07:26:29.040Z,"Botswana",earthquake,8,6.4,0.517,1,reviewed,us,us
+2017-04-05T00:55:50.440Z,-22.5646,25.0868,10,5,mb,,56,2.483,0.71,us,us10008egm,2022-05-03T19:53:49.122Z,"137 km SSW of Letlhakane, Botswana",earthquake,4,1.7,0.06,89,reviewed,us,us
+2017-04-06T02:30:22.180Z,-22.7852,25.0163,10,4.5,mb,,70,2.282,0.6,us,us10008gx1,2017-06-23T07:26:33.040Z,"124 km NNE of Khudumelapye, Botswana",earthquake,6.8,1.8,0.242,5,reviewed,us,us
+2017-04-08T19:55:32.780Z,-22.5662,25.0836,14.43,4.7,mb,,61,2.482,0.39,us,us10008fwy,2017-06-23T07:26:36.040Z,"137 km SSW of Letlhakane, Botswana",earthquake,7.6,4.1,0.073,56,reviewed,us,us

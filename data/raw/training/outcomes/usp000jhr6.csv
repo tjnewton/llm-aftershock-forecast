@@ -1,0 +1,13 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2012-04-12T07:15:48.500Z,28.696,-113.104,13,7,mww,474,95.9,,1.18,us,usp000jhr6,2022-05-03T15:36:20.092Z,"69 km ENE of San Luis, Mexico",earthquake,,,,,reviewed,us,us
+2012-04-12T07:49:01.760Z,28.871,-112.898,10,4.1,mb,60,120.6,,1.49,us,usp000jhra,2014-11-07T01:47:30.036Z,"93 km W of Bahía de Kino, Mexico",earthquake,,,,5,reviewed,us,us
+2012-04-12T07:57:32.420Z,28.543,-113.04,10,4.3,mb,132,115.8,,1.39,us,usp000jhrc,2014-11-07T01:47:30.047Z,"70 km E of San Luis, Mexico",earthquake,,,,33,reviewed,us,us
+2012-04-12T08:54:42.400Z,28.777,-113.431,16.1,4.4,mb,266,113.4,,,us,usp000jhrf,2014-11-07T01:47:30.062Z,"49 km NE of San Luis, Mexico",earthquake,,,,118,reviewed,unm,us
+2012-04-12T10:26:55.430Z,28.714,-113.07,10,4.9,mb,336,106,,1.12,us,usp000jhrq,2015-03-24T01:28:17.411Z,"73 km ENE of San Luis, Mexico",earthquake,,,,169,reviewed,us,us
+2012-04-12T17:58:59.210Z,28.696,-113.139,10,4,mb,62,171.5,,1.32,us,usp000jhsp,2014-11-07T01:47:30.392Z,"66 km ENE of San Luis, Mexico",earthquake,,,,11,reviewed,us,us
+2012-04-12T22:40:11.050Z,28.586,-112.74,10,4.1,md,5,198.4,,1.36,us,usp000jhte,2014-11-07T01:47:30.495Z,"82 km WSW of Bahía de Kino, Mexico",earthquake,,,,,reviewed,us,unm
+2012-04-13T00:22:10.980Z,28.94,-112.78,10,4,md,6,149.2,,0.86,us,usp000jhtp,2014-11-07T01:47:30.513Z,"82 km W of Bahía de Kino, Mexico",earthquake,,,,,reviewed,us,unm
+2012-04-13T16:21:07.900Z,28.472,-112.886,13.9,4,md,5,166.1,,,us,usp000jhvt,2014-11-07T01:47:30.922Z,"84 km E of San Luis, Mexico",earthquake,,,,,reviewed,unm,unm
+2012-04-14T08:28:30.810Z,28.778,-113.105,10,4.1,mb,73,166.8,,1.37,us,usp000jhxv,2014-11-07T01:47:31.205Z,"73 km ENE of San Luis, Mexico",earthquake,,,,26,reviewed,us,us
+2012-04-14T09:19:43.400Z,28.785,-113.169,5.8,4,md,5,191.4,,,us,usp000jhxy,2014-11-07T01:47:31.222Z,"68 km NE of San Luis, Mexico",earthquake,,,,,reviewed,unm,unm
+2012-04-16T10:23:24.550Z,28.946,-113.041,10,4.1,mb,60,166.9,,1.49,us,usp000jj2e,2014-11-07T01:47:32.765Z,"89 km NE of San Luis, Mexico",earthquake,,,,16,reviewed,us,us

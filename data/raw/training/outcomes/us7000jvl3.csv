@@ -1,0 +1,10 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2023-04-24T20:00:57.265Z,-0.8082,98.5112,34,7.1,mww,131,34,2.297,0.7,us,us7000jvl3,2023-07-11T01:45:09.040Z,"171 km SSE of Teluk Dalam, Indonesia",earthquake,7.37,1.785,0.062,25,reviewed,us,us
+2023-04-24T22:19:15.925Z,-0.9345,98.5221,21.352,5,mb,121,47,2.416,0.47,us,us7000jvnk,2023-07-11T01:45:04.040Z,"169 km NW of Tuapejat, Indonesia",earthquake,6.68,4.221,0.06,89,reviewed,us,us
+2023-04-25T03:40:19.873Z,-0.7467,98.8529,35,4.4,mb,21,196,2.404,0.57,us,us7000jxic,2023-07-11T01:45:15.040Z,"141 km W of Pariaman, Indonesia",earthquake,6.7,1.961,0.203,7,reviewed,us,us
+2023-04-26T20:43:02.390Z,-0.7335,98.591,25.639,5.1,mb,89,44,2.264,0.84,us,us7000jw4k,2023-07-11T01:45:06.040Z,"168 km SSE of Teluk Dalam, Indonesia",earthquake,8.1,3.865,0.057,100,reviewed,us,us
+2023-05-24T04:07:43.275Z,-0.7877,98.4891,20.522,4.4,mb,32,114,2.27,0.65,us,us7000k3ef,2023-07-29T22:00:33.040Z,"168 km SSE of Teluk Dalam, Indonesia",earthquake,9.38,3.116,0.155,12,reviewed,us,us
+2023-05-31T00:58:41.379Z,-0.8752,98.673,21.087,5.1,mb,130,41,2.427,0.65,us,us7000k54v,2024-01-18T20:02:27.894Z,"163 km NW of Tuapejat, Indonesia",earthquake,7.67,3.828,0.055,106,reviewed,us,us
+2023-06-09T17:17:29.906Z,-1.2003,98.2138,10,4.6,mb,86,108,2.568,0.57,us,us7000k7gk,2023-08-12T17:15:13.040Z,"178 km WNW of Tuapejat, Indonesia",earthquake,7.92,1.837,0.072,64,reviewed,us,us
+2023-06-20T07:44:51.362Z,-0.9601,98.4763,18.664,4.6,mb,46,93,2.423,0.56,us,us7000k9te,2023-08-26T20:54:24.040Z,"171 km NW of Tuapejat, Indonesia",earthquake,10.23,4.171,0.102,29,reviewed,us,us
+2023-06-20T08:39:17.895Z,-0.9713,98.6027,19.993,5.5,mww,142,40,2.482,0.77,us,us7000k9ti,2023-08-26T20:54:24.040Z,"160 km NW of Tuapejat, Indonesia",earthquake,6.81,3.356,0.093,11,reviewed,us,us

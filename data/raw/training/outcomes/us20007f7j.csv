@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-10-19T00:26:01.090Z,-4.8626,108.1627,614,6.6,mww,,16,2.022,1.21,us,us20007f7j,2022-05-03T18:02:02.240Z,"161 km NNE of Pamanukan, Indonesia",earthquake,6.6,1.9,,,reviewed,us,us

@@ -1,0 +1,22 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2013-01-05T08:58:14.957Z,55.228,-134.8591,8.7,7.5,mw,,,,1.51,ak,ak0138esnzr,2022-05-03T16:02:50.203Z,"110 km SW of Edna Bay, Alaska",earthquake,,1,,,reviewed,ak,ak
+2013-01-05T09:12:06.901Z,55.6493,-135.647,11.8,4.7,ml,,,,1.04,ak,ak0138f481e,2019-05-13T22:44:38.250Z,"91 km SW of Port Alexander, Alaska",earthquake,,2.1,,,reviewed,ak,ak
+2013-01-05T09:17:58.199Z,55.9447,-135.0465,10,4,ml,,,,0.78,ak,ak0138f5ekr,2019-05-13T22:44:38.665Z,"42 km SW of Port Alexander, Alaska",earthquake,,0,,,reviewed,ak,ak
+2013-01-05T09:27:20.359Z,55.6044,-135.1965,20,4.7,mb,,,,1.06,ak,ak0138f7gtf,2019-05-13T22:44:25.061Z,"79 km SSW of Port Alexander, Alaska",earthquake,,0,,,reviewed,ak,ak
+2013-01-05T09:32:06.123Z,55.1193,-134.8506,0.7,4.5,mb,,,,1.38,ak,ak0138f8ias,2021-02-18T19:35:56.729Z,"115 km WSW of Craig, Alaska",earthquake,,1.4,,,reviewed,ak,ak
+2013-01-05T09:41:27.006Z,55.7492,-135.228,10,4.1,ml,,,,1.01,ak,ak0138fahcs,2019-05-13T22:44:25.965Z,"66 km SSW of Port Alexander, Alaska",earthquake,,0,,,reviewed,ak,ak
+2013-01-05T10:11:18.806Z,55.8293,-135.2961,10,4.7,mb,,,,0.88,ak,ak0138fpgug,2019-05-13T22:44:26.846Z,"off the coast of Southeastern Alaska",earthquake,,0,,,reviewed,ak,ak
+2013-01-05T11:39:36.247Z,55.5078,-135.1465,20,4,mb,,,,1.25,ak,ak0138ggxug,2019-05-13T22:44:28.673Z,"88 km SSW of Port Alexander, Alaska",earthquake,,0,,,reviewed,ak,ak
+2013-01-05T12:28:27.081Z,55.0813,-134.6954,10,5.2,mb,,,,1.31,ak,ak0138gzzv8,2021-02-18T19:35:53.809Z,"107 km WSW of Craig, Alaska",earthquake,,0,,,reviewed,ak,ak
+2013-01-05T15:32:13.966Z,55.465,-135.0453,20,4,mb,,,,0.87,ak,ak0138it4j8,2021-02-18T19:35:51.018Z,"90 km SSW of Port Alexander, Alaska",earthquake,,0,,,reviewed,ak,ak
+2013-01-05T15:41:41.866Z,55.6428,-135.2548,13.4,4,mb,,,,1.03,ak,ak0138iv44q,2021-02-18T19:35:44.045Z,"77 km SSW of Port Alexander, Alaska",earthquake,,4,,,reviewed,ak,ak
+2013-01-05T20:43:18.025Z,55.4611,-135.3818,10.4,4.2,mb,,,,0.95,ak,ak0138lunqy,2019-05-13T22:44:36.083Z,"99 km SSW of Port Alexander, Alaska",earthquake,,1.6,,,reviewed,ak,ak
+2013-01-05T21:26:54.333Z,55.2455,-134.7101,20,4,mb,,,,1.15,ak,ak0138mcizd,2019-05-13T22:44:36.531Z,"102 km WSW of Craig, Alaska",earthquake,,0,,,reviewed,ak,ak
+2013-01-06T08:37:28.124Z,55.723,-135.1789,20,4.5,mb,,,,1.03,ak,ak013a27jgs,2021-02-18T19:35:41.147Z,"67 km SSW of Port Alexander, Alaska",earthquake,,0,,,reviewed,ak,ak
+2013-01-07T15:07:35.481Z,55.381,-134.8016,20,4,ml,,,,1.29,ak,ak013btqia4,2019-05-13T22:46:39.322Z,"95 km SW of Edna Bay, Alaska",earthquake,,0,,,reviewed,ak,ak
+2013-01-08T14:46:33.580Z,56.0262,-135.3753,5.3,4.3,mb,,,,1,ak,ak013dgwry6,2019-05-13T22:47:02.646Z,"51 km WSW of Port Alexander, Alaska",earthquake,,1,,,reviewed,ak,ak
+2013-01-08T18:45:02.492Z,55.3844,-134.9764,20,4.9,mw,,,,1.47,ak,ak013dja895,2021-02-18T19:35:38.648Z,"98 km SSW of Port Alexander, Alaska",earthquake,,0,,,reviewed,ak,ak
+2013-01-09T04:12:48.387Z,55.3376,-134.8731,9.6,4.7,mb,,,,0.93,ak,ak013eyaj6u,2019-05-13T22:47:27.711Z,"Southeastern Alaska",earthquake,,0.7,,,reviewed,ak,ak
+2013-01-09T14:47:32.643Z,55.3404,-134.7948,20,4.2,mb,,,,1.05,ak,ak013f4gc34,2019-05-13T22:47:40.435Z,"98 km SW of Edna Bay, Alaska",earthquake,,0,,,reviewed,ak,ak
+2013-01-14T14:55:49.580Z,55.0508,-134.8149,13.5,5.5,mw,,,,1.9,ak,ak013ne6tla,2022-05-03T16:03:28.361Z,"116 km WSW of Craig, Alaska",earthquake,,0.9,,,reviewed,ak,ak
+2013-01-31T09:53:40.320Z,55.4365,-134.9627,14,5.9,mw,,,,0.95,ak,ak0131ffc3tc,2022-05-03T16:04:44.646Z,"92 km SSW of Port Alexander, Alaska",earthquake,,1.1,,,reviewed,ak,ak

@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2018-08-21T21:31:47.600Z,10.7731,-62.9019,146.82,7.3,mww,,15,1.822,1.1,us,us1000gez7,2026-06-29T02:22:29.627Z,"40 km ENE of Carúpano, Venezuela",earthquake,7.5,3.4,0.033,88,reviewed,us,us
+2018-08-22T13:27:48.490Z,10.6593,-62.9288,108,5.8,mww,,32,1.925,0.9,us,us1000gfc8,2022-05-03T19:28:01.349Z,"35 km E of Carúpano, Venezuela",earthquake,7.1,1.9,0.044,50,reviewed,us,us
+2018-09-01T08:30:16.640Z,10.6588,-62.9105,98.69,4.2,mb,,65,4.105,0.86,us,us2000hag5,2018-11-07T18:37:12.040Z,"37 km E of Carúpano, Venezuela",earthquake,9.5,12.8,0.167,10,reviewed,us,us
+2018-09-02T02:20:36.440Z,10.6658,-62.8875,107.02,4.4,mb,,82,1.894,0.81,us,us2000hcjh,2018-11-07T18:37:12.040Z,"40 km E of Carúpano, Venezuela",earthquake,7.7,7.3,0.061,77,reviewed,us,us
+2018-09-06T05:08:04.560Z,10.6568,-62.882,113.23,4.2,mb,,82,4.084,0.69,us,us2000hgk1,2018-11-14T17:40:14.040Z,"near the coast of Venezuela",earthquake,7.3,10.8,0.167,10,reviewed,us,us

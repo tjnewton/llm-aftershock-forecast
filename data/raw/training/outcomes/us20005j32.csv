@@ -1,0 +1,90 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-04-16T23:58:36.980Z,0.3819,-79.9218,20.59,7.8,mww,,15,1.44,0.94,us,us20005j32,2025-08-01T09:59:30.614Z,"27 km SSE of Muisne, Ecuador",earthquake,5.7,3.2,,,reviewed,us,us
+2016-04-17T00:12:00.470Z,-0.0704,-80.0631,10,4.5,ml,,174,1.641,0.77,us,us10005fnl,2016-06-27T23:01:53.040Z,"15 km S of Pedernales, Ecuador",earthquake,6.4,1.7,0.105,12,reviewed,us,us
+2016-04-17T00:16:00.140Z,0.0279,-80.2,10,4.7,mb,,75,1.761,1.18,us,us20005j4g,2016-06-27T23:01:54.040Z,"17 km WSW of Pedernales, Ecuador",earthquake,6.5,1.8,0.114,23,reviewed,us,us
+2016-04-17T00:29:31.380Z,-0.2648,-80.4644,15.49,5.5,mb,,44,2.008,0.88,us,us20005j3i,2022-05-03T17:44:23.901Z,"near the coast of Ecuador",earthquake,6.3,3.5,0.041,205,reviewed,us,us
+2016-04-17T00:59:04.930Z,0.3543,-80.3259,10,4.5,mb,,58,1.878,0.78,us,us20005j3z,2016-06-27T23:01:54.040Z,"43 km NW of Pedernales, Ecuador",earthquake,5.2,1.8,0.069,61,reviewed,us,us
+2016-04-17T01:09:17.070Z,-0.0518,-80.2221,10,4.3,mb,,143,1.794,0.83,us,us10005bp2,2016-06-27T23:01:54.040Z,"23 km SW of Pedernales, Ecuador",earthquake,6,1.9,0.168,10,reviewed,us,us
+2016-04-17T01:19:02.480Z,-0.1255,-80.4162,10,4.1,mb,,83,1.998,1.16,us,us10005bp3,2016-06-27T23:01:54.040Z,"near the coast of Ecuador",earthquake,6.6,1.9,0.197,7,reviewed,us,us
+2016-04-17T02:18:01.040Z,-0.2943,-80.2984,10,4.8,mb,,56,1.86,0.91,us,us20005j48,2016-06-27T23:01:54.040Z,"36 km NNE of Bahía de Caráquez, Ecuador",earthquake,6.6,1.8,0.043,164,reviewed,us,us
+2016-04-17T03:05:33.860Z,0.3172,-80.2471,10,4.6,mb,,79,1.798,0.85,us,us20005j4d,2016-06-27T23:01:54.040Z,"34 km NW of Pedernales, Ecuador",earthquake,6.5,1.7,0.08,46,reviewed,us,us
+2016-04-17T04:02:08.760Z,-0.2626,-80.6224,10,4.8,mb,,48,2.137,0.78,us,us20005j4m,2016-06-27T23:01:55.040Z,"43 km NNW of Bahía de Caráquez, Ecuador",earthquake,2.6,1.8,0.044,159,reviewed,us,us
+2016-04-17T04:25:35.080Z,-0.3892,-80.3101,10,4.4,mb,,142,1.81,0.7,us,us10005bpa,2022-08-02T22:20:35.148Z,"26 km NNE of Bahía de Caráquez, Ecuador",earthquake,5.9,1.7,0.143,14,reviewed,us,us
+2016-04-17T05:42:50.980Z,0.3044,-80.4309,10,4.6,mb,,60,1.981,0.74,us,us20005j5g,2022-08-02T18:45:53.480Z,"49 km WNW of Pedernales, Ecuador",earthquake,5.3,1.8,0.076,52,reviewed,us,us
+2016-04-17T07:14:00.760Z,-0.3852,-80.2013,23.95,5.8,mww,,36,1.728,0.94,us,us20005j62,2022-05-03T17:44:25.150Z,"34 km NE of Bahía de Caráquez, Ecuador",earthquake,4,3.6,,,reviewed,us,us
+2016-04-17T07:22:25.240Z,-0.4017,-80.3223,10,4.6,mb,,139,1.813,0.73,us,us10005bpd,2022-08-02T22:39:00.327Z,"24 km NNE of Bahía de Caráquez, Ecuador",earthquake,7.9,1.9,0.109,25,reviewed,us,us
+2016-04-17T08:52:27.050Z,-0.4385,-80.7442,10,4.4,mb,,89,2.147,0.72,us,us20005j6e,2016-06-27T23:01:57.040Z,"39 km WNW of Bahía de Caráquez, Ecuador",earthquake,6.5,1.9,0.084,41,reviewed,us,us
+2016-04-17T09:23:41.020Z,-0.2344,-80.6943,10,5.6,mwb,,45,2.212,1.06,us,us20005j6q,2024-06-16T23:46:48.478Z,"50 km NW of Bahía de Caráquez, Ecuador",earthquake,6.4,1.7,0.04,61,reviewed,us,us
+2016-04-17T20:24:00.890Z,0.5721,-79.9153,10,4.5,mb,,145,1.515,1.25,us,us20005ja5,2022-08-02T18:53:37.598Z,"12 km ESE of Muisne, Ecuador",earthquake,5.6,1.9,0.122,20,reviewed,us,us
+2016-04-17T21:35:17.220Z,-0.9875,-80.3306,10,4.4,mb,,149,1.545,0.99,us,us20005jb0,2016-06-27T23:02:02.040Z,"14 km ESE of Rocafuerte, Ecuador",earthquake,5.4,1.9,0.104,27,reviewed,us,us
+2016-04-18T00:38:54.320Z,0.2654,-80.1897,10,4.4,mb,,87,1.704,1.48,us,us10005by5,2016-06-27T23:02:03.040Z,"26 km NW of Pedernales, Ecuador",earthquake,6.4,1.9,0.085,40,reviewed,us,us
+2016-04-18T09:13:36.700Z,0.5443,-80.1175,10,4.3,mb,,81,1.694,1.28,us,us10005byk,2016-06-27T23:02:06.040Z,"13 km SW of Muisne, Ecuador",earthquake,2.6,1.9,0.119,20,reviewed,us,us
+2016-04-18T10:29:17.470Z,-0.2671,-79.825,67.67,4.4,mb,,89,1.353,1.27,us,us20005jfq,2016-06-27T23:02:06.040Z,"45 km SE of Pedernales, Ecuador",earthquake,7.2,6.5,0.1,29,reviewed,us,us
+2016-04-18T13:25:44.480Z,-0.2698,-80.2939,10,4.9,mb,,74,1.815,0.73,us,us20005jhl,2022-08-02T19:04:35.666Z,"39 km NNE of Bahía de Caráquez, Ecuador",earthquake,5.9,1.7,0.027,425,reviewed,us,us
+2016-04-18T13:35:10.600Z,-0.3441,-80.3319,10,4.1,mb,,142,1.855,1,us,us10005byl,2016-06-27T23:02:08.040Z,"29 km NNE of Bahía de Caráquez, Ecuador",earthquake,4.3,1.9,0.127,17,reviewed,us,us
+2016-04-18T17:07:33.590Z,-0.3494,-80.5056,10,4.5,mb,,141,1.992,1.05,us,us20005jip,2016-06-27T23:02:09.040Z,"28 km NNW of Bahía de Caráquez, Ecuador",earthquake,7,1.9,0.073,55,reviewed,us,us
+2016-04-18T18:38:10.770Z,-0.9989,-80.8511,10,4.9,mb,,76,2.041,1.09,us,us20005jj6,2022-08-02T19:07:19.384Z,"15 km WSW of Manta, Ecuador",earthquake,6.6,1.8,0.031,333,reviewed,us,us
+2016-04-18T19:12:38.050Z,-0.9738,-80.8034,10,4.6,mb,,152,2.001,0.87,us,us20005jjr,2016-06-27T23:02:10.040Z,"10 km W of Manta, Ecuador",earthquake,4.5,1.9,0.063,75,reviewed,us,us
+2016-04-18T20:00:45.620Z,-0.2351,-80.7415,10,4.1,mb,,85,2.251,0.36,us,us10005byu,2016-06-27T23:02:10.040Z,"53 km NW of Bahía de Caráquez, Ecuador",earthquake,8.4,1.5,0.174,9,reviewed,us,us
+2016-04-18T21:15:52.790Z,-0.0613,-80.7718,10,4.9,mb,,78,2.271,0.95,us,us20005jly,2025-12-22T17:14:20.558Z,"70 km NNW of Bahía de Caráquez, Ecuador",earthquake,3.2,1.8,0.03,342,reviewed,us,us
+2016-04-19T02:03:14.700Z,-0.2099,-80.7622,10,4.9,mb,,47,2.271,0.82,us,us20005jpe,2016-06-27T23:02:12.040Z,"57 km NW of Bahía de Caráquez, Ecuador",earthquake,5.8,1.8,0.027,432,reviewed,us,us
+2016-04-19T05:15:02.530Z,-0.0279,-80.8393,10,4.4,mb,,157,2.337,0.65,us,us20005jqg,2016-06-27T23:02:14.040Z,"78 km NW of Bahía de Caráquez, Ecuador",earthquake,9.1,1.9,0.091,37,reviewed,us,us
+2016-04-19T13:07:30.420Z,0.2841,-80.3387,10,4.4,mb,,83,1.854,0.94,us,us20005jsi,2016-06-27T23:02:17.040Z,"39 km NW of Pedernales, Ecuador",earthquake,7.3,1.8,0.075,51,reviewed,us,us
+2016-04-19T17:12:53.560Z,-1.2749,-80.8546,10,4.7,mwr,,64,1.987,1.12,us,us20005jux,2022-08-02T19:15:32.612Z,"31 km WNW of Jipijapa, Ecuador",earthquake,6.3,1.8,0.08,15,reviewed,us,us
+2016-04-19T21:54:21.390Z,0.5615,-80.0435,10,4.4,mb,,143,1.624,1.03,us,us10005dqq,2022-08-02T22:08:14.944Z,"6 km SSW of Muisne, Ecuador",earthquake,7,1.9,0.127,18,reviewed,us,us
+2016-04-19T22:22:25.480Z,0.5783,-80.0247,11,5.6,mwb,,47,1.609,0.68,us,us20005jyu,2022-05-03T18:51:32.306Z,"3 km S of Muisne, Ecuador",earthquake,6,1.7,0.038,66,reviewed,us,us
+2016-04-20T01:48:11.280Z,0.6249,-79.9257,10,4.2,mb,,140,1.524,1.58,us,us20005kcb,2016-06-27T23:02:23.040Z,"10 km E of Muisne, Ecuador",earthquake,6.3,1.9,0.2,7,reviewed,us,us
+2016-04-20T01:49:16.940Z,0.6231,-79.9113,10,4.3,mb,,141,1.509,1.03,us,us20005kcg,2016-06-27T23:02:23.040Z,"12 km E of Muisne, Ecuador",earthquake,3.1,1.9,0.116,21,reviewed,us,us
+2016-04-20T01:50:38.990Z,0.6897,-80.0286,10,4.4,mb,,91,1.64,1.05,us,us20005kcj,2016-06-27T23:02:23.040Z,"8 km N of Muisne, Ecuador",earthquake,7.1,1.9,0.109,24,reviewed,us,us
+2016-04-20T08:25:07.450Z,0.6637,-80.2997,19.45,4.5,mb,,57,1.907,1.19,us,us20005k35,2016-06-27T23:02:24.040Z,"31 km W of Muisne, Ecuador",earthquake,6.1,4.3,0.047,134,reviewed,us,us
+2016-04-20T08:33:47.330Z,0.639,-80.2104,14,6.2,mww,,48,1.804,0.83,us,us20005k37,2022-05-03T18:51:48.134Z,"21 km W of Muisne, Ecuador",earthquake,5.1,1.3,,,reviewed,us,us
+2016-04-20T08:35:10.620Z,0.7079,-80.0352,10,6,mwb,,78,1.651,1.43,us,us20005kb6,2024-06-16T23:46:53.301Z,"10 km N of Muisne, Ecuador",earthquake,6.9,1.8,0.042,54,reviewed,us,us
+2016-04-20T08:56:51.020Z,0.4653,-80.0595,19.99,4.1,mb,,95,1.618,1.33,us,us10005ds4,2016-06-27T23:02:25.040Z,"16 km SSW of Muisne, Ecuador",earthquake,5.2,5.1,0.262,4,reviewed,us,us
+2016-04-20T09:13:17.220Z,0.5015,-80.1295,10,4.6,mb,,84,1.695,1.24,us,us20005k3e,2022-08-02T22:44:34.798Z,"17 km SW of Muisne, Ecuador",earthquake,2.2,1.9,0.046,138,reviewed,us,us
+2016-04-20T09:35:40.910Z,-0.0268,-80.1292,10,4.3,mb,,144,1.627,0.99,us,us10005dry,2016-06-27T23:02:25.040Z,"13 km SW of Pedernales, Ecuador",earthquake,5.9,1.9,0.16,11,reviewed,us,us
+2016-04-20T11:23:22.930Z,-0.2187,-80.3719,10,4.3,mwr,,87,1.884,0.97,us,us20005k5q,2016-06-27T23:02:26.040Z,"42 km N of Bahía de Caráquez, Ecuador",earthquake,5,1.3,0.068,21,reviewed,us,us
+2016-04-20T12:13:14.880Z,0.6172,-80.1351,10,4.2,mb,,84,1.726,0.9,us,us10005ds5,2016-06-27T23:02:27.040Z,"12 km W of Muisne, Ecuador",earthquake,5.9,1.8,0.186,8,reviewed,us,us
+2016-04-20T16:20:36.680Z,0.694,-80.2163,10,4.7,mb,,84,1.822,1.17,us,us20005k7i,2022-08-02T19:28:25.175Z,"23 km WNW of Muisne, Ecuador",earthquake,6.3,1.8,0.043,166,reviewed,us,us
+2016-04-20T16:30:53.500Z,-0.2588,-80.3931,10,4.7,mb,,93,1.911,1.34,us,us20005k7l,2016-06-27T23:02:28.040Z,"37 km N of Bahía de Caráquez, Ecuador",earthquake,6.1,1.8,0.049,125,reviewed,us,us
+2016-04-20T21:30:04.050Z,0.5694,-79.9283,6.38,4.9,mwr,,67,1.513,0.72,us,us20005kab,2022-08-02T19:25:35.080Z,"11 km ESE of Muisne, Ecuador",earthquake,6.1,3.5,0.086,13,reviewed,us,us
+2016-04-20T22:31:29.840Z,-0.4526,-80.8114,10,4.8,mb,,89,2.271,0.66,us,us20005kaq,2016-06-27T23:02:30.040Z,"46 km WNW of Bahía de Caráquez, Ecuador",earthquake,4.7,1.6,0.052,115,reviewed,us,us
+2016-04-21T12:31:16.270Z,-0.1768,-80.2201,10,4.4,mb,,55,1.729,1.34,us,us20005kg9,2016-06-27T23:02:33.040Z,"33 km SW of Pedernales, Ecuador",earthquake,6.4,1.9,0.105,26,reviewed,us,us
+2016-04-21T13:53:41.430Z,-0.3218,-80.5747,10,4.2,mb,,151,2.1,0.92,us,us20005kh1,2016-06-27T23:02:33.040Z,"34 km NNW of Bahía de Caráquez, Ecuador",earthquake,5.4,1.9,0.166,10,reviewed,us,us
+2016-04-22T03:03:41.720Z,-0.2921,-80.5039,10,6,mww,,44,2.025,0.91,us,us20005kqh,2022-05-03T18:01:56.425Z,"34 km NNW of Bahía de Caráquez, Ecuador",earthquake,5.8,1.7,,,reviewed,us,us
+2016-04-22T03:20:13.380Z,-0.2814,-80.5039,10.29,5.9,mww,,44,2.024,0.86,us,us20005kqp,2022-05-03T17:45:16.361Z,"36 km NNW of Bahía de Caráquez, Ecuador",earthquake,6.1,3,,,reviewed,us,us
+2016-04-22T04:25:33.950Z,-0.8186,-80.5594,10,4.3,mb,,173,1.897,0.83,us,us20005kr9,2022-08-02T22:34:52.149Z,"16 km NW of Rocafuerte, Ecuador",earthquake,6.6,2,0.169,10,reviewed,us,us
+2016-04-22T04:31:34.170Z,-0.4209,-80.5435,10,5,mb,,60,2.05,1.15,us,us20005krb,2022-08-02T19:42:23.204Z,"23 km NW of Bahía de Caráquez, Ecuador",earthquake,5.8,1.8,0.031,337,reviewed,us,us
+2016-04-22T05:37:39.420Z,-0.397,-80.2195,10,4.3,mb,,147,1.766,0.97,us,us20005ks8,2016-07-08T02:49:17.040Z,"31 km NE of Bahía de Caráquez, Ecuador",earthquake,6.2,1.9,0.129,17,reviewed,us,us
+2016-04-22T08:52:20.040Z,-0.2369,-80.5858,10,4.8,mb,,96,2.099,0.75,us,us20005kta,2022-05-03T17:45:23.857Z,"43 km NNW of Bahía de Caráquez, Ecuador",earthquake,4.7,1.9,0.068,67,reviewed,us,us
+2016-04-22T10:39:55.420Z,-0.1163,-80.6691,16.5,4.3,mb,,85,2.171,0.82,us,us10005dd5,2016-07-08T02:49:17.040Z,"59 km NNW of Bahía de Caráquez, Ecuador",earthquake,7.7,5.3,0.125,18,reviewed,us,us
+2016-04-22T13:36:07.880Z,0.27,-80.326,10,4.4,mb,,84,1.84,1.43,us,us10005dda,2022-08-02T21:43:28.844Z,"37 km NW of Pedernales, Ecuador",earthquake,6.3,1.9,0.155,12,reviewed,us,us
+2016-04-22T15:36:27.920Z,-0.5059,-80.9056,10,4.8,mb,,101,2.26,0.93,us,us20005kww,2016-07-08T02:49:17.040Z,"54 km W of Bahía de Caráquez, Ecuador",earthquake,5.5,1.9,0.071,61,reviewed,us,us
+2016-04-22T15:39:05.180Z,-0.2728,-80.7219,10,4.9,mb,,116,2.214,1.07,us,us20005kwx,2022-08-02T19:47:05.713Z,"48 km NW of Bahía de Caráquez, Ecuador",earthquake,6.2,1.5,0.065,74,reviewed,us,us
+2016-04-22T16:27:04.880Z,0.8542,-79.997,10,4.4,mb,,141,1.663,1.32,us,us10005ddc,2016-07-08T02:49:18.040Z,"26 km N of Muisne, Ecuador",earthquake,6.3,1.9,0.149,13,reviewed,us,us
+2016-04-23T01:24:33.900Z,0.6128,-80.2522,10,5.7,mww,,36,1.839,0.9,us,us20005l3v,2024-06-16T23:46:58.140Z,"26 km W of Muisne, Ecuador",earthquake,5.6,1.1,,,reviewed,us,us
+2016-04-23T04:06:33.360Z,0.5923,-80.3759,10,4.8,mb,,55,1.957,0.93,us,us20005l4c,2022-08-02T19:51:46.064Z,"39 km W of Muisne, Ecuador",earthquake,5.4,1.7,0.03,334,reviewed,us,us
+2016-04-24T07:22:00.310Z,0.6026,-79.5669,10,4.3,mb,,135,1.173,1.12,us,us20005ld4,2016-07-08T02:49:20.040Z,"32 km NNW of Rosa Zarate, Ecuador",earthquake,5.8,1.9,0.108,25,reviewed,us,us
+2016-04-24T14:36:21.200Z,-0.1689,-80.9278,10,4.4,mb,,89,2.443,0.87,us,us20005lem,2016-07-08T02:49:20.040Z,"73 km NW of Bahía de Caráquez, Ecuador",earthquake,6.8,1.9,0.179,9,reviewed,us,us
+2016-04-25T07:06:22.720Z,-0.0753,-80.1958,25.79,4.1,mwr,,89,1.772,1.12,us,us20005lia,2016-07-08T02:49:21.040Z,"22 km SW of Pedernales, Ecuador",earthquake,6.2,6.1,0.089,12,reviewed,us,us
+2016-04-25T21:15:53.140Z,-1.0378,-80.7743,10,4.7,mb,,66,1.957,1.38,us,us10005bha,2022-08-02T20:08:36.398Z,"10 km SW of Manta, Ecuador",earthquake,6.8,1.8,0.073,57,reviewed,us,us
+2016-04-26T15:50:35.360Z,0.232,-80.5052,10,4.4,mb,,147,2.054,0.8,us,us10005e1v,2016-07-08T02:49:24.040Z,"53 km WNW of Pedernales, Ecuador",earthquake,8.9,1.9,0.099,29,reviewed,us,us
+2016-04-26T21:58:34.720Z,-0.1943,-80.7309,10,5.4,mww,,47,2.265,0.75,us,us10005bsh,2022-08-02T20:19:19.844Z,"56 km NW of Bahía de Caráquez, Ecuador",earthquake,5.8,1.8,,,reviewed,us,us
+2016-04-27T00:08:13.050Z,-0.6077,-80.9115,10,4.1,mb,,104,2.223,0.69,us,us10005cdc,2016-07-08T02:49:25.040Z,"near the coast of Ecuador",earthquake,7.3,2,0.185,8,reviewed,us,us
+2016-04-27T00:39:07.000Z,0.22,-80.25,5,4.1,mb,,,,1.12,us,us10005cdd,2016-07-08T02:49:25.040Z,"27 km NW of Pedernales, Ecuador",earthquake,10.7,8.5,0.233,5,reviewed,qui,us
+2016-04-30T01:44:40.870Z,0.5094,-79.7834,10,4.2,mb,,86,1.359,1.15,us,us10005ga4,2016-07-19T20:03:06.040Z,"28 km ESE of Muisne, Ecuador",earthquake,7.6,1.8,0.137,15,reviewed,us,us
+2016-04-30T22:32:06.350Z,-0.2614,-80.8007,10,4.3,mb,,171,2.401,1.04,us,us10005gaw,2016-07-19T20:03:07.040Z,"56 km NW of Bahía de Caráquez, Ecuador",earthquake,8.4,1.9,0.114,22,reviewed,us,us
+2016-05-03T03:44:59.330Z,0.25,-79.8732,10,4.5,mb,,140,1.422,0.92,us,us10005d7t,2016-07-19T20:03:11.040Z,"28 km NE of Pedernales, Ecuador",earthquake,4.6,1.8,0.073,55,reviewed,us,us
+2016-05-04T22:28:55.030Z,-1.1501,-80.8771,10,4.3,mb,,155,2.79,1.1,us,us10005gt5,2016-07-19T20:03:13.040Z,"26 km WSW of Montecristi, Ecuador",earthquake,5,1.9,0.108,24,reviewed,us,us
+2016-05-05T16:06:41.580Z,0.0132,-80.5617,10,4.4,mb,,97,2.122,1.4,us,us10005h2k,2016-07-19T20:03:14.040Z,"57 km W of Pedernales, Ecuador",earthquake,7.9,1.9,0.097,32,reviewed,us,us
+2016-05-06T08:37:44.660Z,-0.117,-80.7801,10,4.1,mb,,161,2.355,0.68,us,us10005h5c,2016-07-20T18:10:45.040Z,"66 km NW of Bahía de Caráquez, Ecuador",earthquake,8.2,2,0.158,11,reviewed,us,us
+2016-05-11T23:04:47.600Z,0.029,-80.0495,10,4.2,mb,,215,1.612,1.42,us,us10005ii9,2016-07-20T18:10:53.040Z,"4 km S of Pedernales, Ecuador",earthquake,8.7,2,0.186,8,reviewed,us,us
+2016-05-15T09:51:40.970Z,0.5571,-80.3009,42.17,4.8,mb,,83,1.877,0.88,us,us10005hja,2016-07-22T19:39:07.040Z,"31 km W of Muisne, Ecuador",earthquake,7.8,6.7,0.056,97,reviewed,us,us
+2016-05-18T07:57:02.650Z,0.4261,-79.7899,16,6.7,mww,,21,1.352,1.13,us,us10005i5t,2022-05-03T18:52:34.877Z,"32 km SE of Muisne, Ecuador",earthquake,6.5,1.7,,,reviewed,us,us
+2016-05-18T08:06:17.680Z,0.4334,-79.8336,10,4.8,mb,,91,1.396,1.19,us,us10005i5w,2016-07-22T19:39:12.040Z,"28 km SE of Muisne, Ecuador",earthquake,7,1.9,0.091,38,reviewed,us,us
+2016-05-18T16:46:43.860Z,0.4947,-79.616,29.95,6.9,mww,,17,1.192,1.09,us,us10005i9n,2022-05-03T17:48:55.829Z,"24 km NW of Rosa Zarate, Ecuador",earthquake,6.6,3,,,reviewed,us,us
+2016-05-19T07:05:50.620Z,0.6232,-80.0177,37.26,4.5,mb,,92,1.613,0.92,us,us10005ief,2016-07-22T19:39:13.040Z,"1 km N of Muisne, Ecuador",earthquake,4.3,7.3,0.088,38,reviewed,us,us
+2016-05-24T21:03:17.620Z,0.4694,-79.7804,10,4.6,mb,,94,1.349,0.81,us,us20005xme,2022-08-02T23:45:46.557Z,"30 km ESE of Muisne, Ecuador",earthquake,6.9,1.8,0.07,61,reviewed,us,us
+2016-05-31T15:48:11.960Z,0.5288,-80.1662,10,4.4,mb,,82,1.739,0.96,us,us20005zdi,2016-08-10T22:30:29.040Z,"18 km WSW of Muisne, Ecuador",earthquake,9.5,1.9,0.154,12,reviewed,us,us
+2016-06-01T10:05:18.800Z,0.2166,-80.4056,23.43,4.9,mb,,58,1.954,1.04,us,us20005zk3,2025-12-22T17:15:06.638Z,"42 km WNW of Pedernales, Ecuador",earthquake,6.4,2.4,0.028,401,reviewed,us,us
+2016-06-01T15:00:54.530Z,0.3367,-80.4661,10,4.7,mb,,85,2.017,0.95,us,us20005zlz,2016-08-10T22:30:31.040Z,"54 km WNW of Pedernales, Ecuador",earthquake,8,1.6,0.064,75,reviewed,us,us
+2016-06-06T16:45:10.030Z,0.5823,-80.0321,13.42,4.5,mb,,83,1.617,0.67,us,us200062cm,2016-08-18T00:36:32.040Z,"3 km SSW of Muisne, Ecuador",earthquake,6,4.6,0.093,34,reviewed,us,us

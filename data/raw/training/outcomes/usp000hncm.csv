@@ -1,0 +1,12 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2010-10-21T17:53:13.570Z,24.696,-109.156,13,6.7,mwc,352,50.3,,1.21,us,usp000hncm,2022-07-18T22:42:34.824Z,"97 km SSW of El Huitusi, Mexico",earthquake,,,,,reviewed,us,us
+2010-10-21T17:59:00.640Z,24.752,-109.26,10,5.3,mb,41,103.7,,1.32,us,usp000hncn,2014-11-07T01:42:44.593Z,"96 km SSW of Topolobampo, Mexico",earthquake,,,,2,reviewed,us,us
+2010-10-21T19:21:57.360Z,24.558,-109.197,6.1,4.4,mb,43,114.3,,1.33,us,usp000hncq,2014-11-07T01:42:44.598Z,"109 km NNE of Los Barriles, Mexico",earthquake,,27.1,,27,reviewed,us,us
+2010-10-21T22:38:36.000Z,24.767,-109.508,10,4.1,mb,82,68.8,,1.47,us,usp000hncs,2014-11-07T01:42:44.606Z,"103 km SSW of Topolobampo, Mexico",earthquake,,,,39,reviewed,us,us
+2010-10-22T03:01:08.730Z,24.486,-109.244,10,4,mb,30,121.6,,1.02,us,usp000hnd1,2014-11-07T01:42:44.653Z,"100 km NNE of Los Barriles, Mexico",earthquake,,,,14,reviewed,us,us
+2010-10-22T04:10:16.680Z,24.494,-109.086,10,4.1,mb,55,106.9,,1.22,us,usp000hnd3,2014-11-07T01:42:44.661Z,"109 km NE of Los Barriles, Mexico",earthquake,,,,24,reviewed,us,us
+2010-10-23T11:53:12.100Z,24.854,-109.555,10,4.1,md,15,103.2,,,us,usp000hnev,2014-11-07T01:42:45.031Z,"97 km SSW of Topolobampo, Mexico",earthquake,,,,,reviewed,unm,unm
+2010-10-25T10:06:14.480Z,24.587,-109.2,10,5.1,mwc,174,66.8,,1.26,us,usp000hnhv,2025-12-22T15:53:12.081Z,"110 km SSW of El Huitusi, Mexico",earthquake,,,,,reviewed,us,gcmt
+2010-10-25T10:08:00.560Z,24.564,-109.268,10,4.6,mb,83,83.7,,1.33,us,usp000hnhw,2014-11-07T01:42:45.397Z,"107 km NNE of Los Barriles, Mexico",earthquake,,,,38,reviewed,us,us
+2010-10-25T19:04:52.730Z,24.459,-109.274,10,4,mb,6,134.3,,0.69,us,usp000hnjq,2014-11-07T01:42:45.549Z,"96 km NNE of Los Barriles, Mexico",earthquake,,,,1,reviewed,us,us
+2010-12-10T11:11:06.530Z,24.619,-109.213,10,4.3,mb,87,84.1,,1.43,us,usp000hqrk,2014-11-07T01:43:06.029Z,"107 km SSW of El Huitusi, Mexico",earthquake,,,,49,reviewed,us,us

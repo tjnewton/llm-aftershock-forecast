@@ -1,0 +1,26 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2011-10-28T18:54:34.040Z,-14.438,-75.966,24,6.9,mww,474,46.5,,1,us,usp000ja1p,2022-04-08T22:09:40.910Z,"39 km SW of Santiago, Peru",earthquake,,,,,reviewed,us,us
+2011-10-28T19:01:02.330Z,-14.379,-75.998,22.3,5.6,mb,252,90.1,,0.83,us,usp000ja1q,2022-04-08T22:13:01.185Z,"37 km SW of Santiago, Peru",earthquake,,10,,189,reviewed,us,us
+2011-10-28T19:10:33.360Z,-14.483,-76.114,8.2,5,mb,51,99.4,,0.86,us,usp000ja1r,2014-11-07T01:46:12.114Z,"54 km SW of Santiago, Peru",earthquake,,14.1,,19,reviewed,us,us
+2011-10-28T20:26:48.370Z,-14.429,-76.095,15,4.8,mb,64,99.5,,0.88,us,usp000ja1v,2014-11-07T01:46:12.129Z,"49 km WSW of Santiago, Peru",earthquake,,13.9,,30,reviewed,us,us
+2011-10-28T21:51:57.950Z,-14.527,-76.108,17.3,4.9,mb,123,71.9,,0.83,us,usp000ja1x,2014-11-07T01:46:12.137Z,"57 km SW of Santiago, Peru",earthquake,,12,,75,reviewed,us,us
+2011-10-28T22:00:04.950Z,-14.67,-76.014,25.9,5,mb,137,99.6,,0.79,us,usp000ja1y,2015-03-24T02:22:42.661Z,"62 km SSW of Santiago, Peru",earthquake,,9.9,,101,reviewed,us,us
+2011-10-28T23:46:01.720Z,-14.512,-75.844,10,5.6,mwc,355,68.8,,0.85,us,usp000ja21,2024-06-17T18:13:39.859Z,"38 km SSW of Santiago, Peru",earthquake,,,,,reviewed,us,gcmt
+2011-10-29T00:48:58.380Z,-14.38,-75.973,37.7,4.8,mb,191,72.3,,0.69,us,usp000ja26,2014-11-07T01:46:12.230Z,"35 km SW of Santiago, Peru",earthquake,,4.2,,131,reviewed,us,us
+2011-10-29T01:37:49.550Z,-14.717,-75.83,37.5,4.5,mb,50,102,,0.97,us,usp000ja29,2014-11-07T01:46:12.251Z,"60 km SSW of Santiago, Peru",earthquake,,6.9,,20,reviewed,us,us
+2011-10-29T01:45:30.460Z,-14.662,-76.036,35,4.1,mb,17,167.6,,0.99,us,usp000ja2a,2014-11-07T01:46:12.256Z,"63 km SSW of Santiago, Peru",earthquake,,,,2,reviewed,us,us
+2011-10-29T04:23:37.880Z,-14.688,-75.949,26.5,4.7,mb,53,99.7,,1.06,us,usp000ja2g,2014-11-07T01:46:12.280Z,"61 km SSW of Santiago, Peru",earthquake,,14.2,,26,reviewed,us,us
+2011-10-29T05:26:03.480Z,-14.526,-76.066,26.9,4.8,mb,34,78,,0.91,us,usp000ja2j,2014-11-07T01:46:12.287Z,"53 km SW of Santiago, Peru",earthquake,,15.8,,12,reviewed,us,us
+2011-10-29T05:33:45.920Z,-14.522,-76.178,25.7,4.8,mb,70,101.7,,1.02,us,usp000ja2k,2014-11-07T01:46:12.290Z,"62 km SW of Santiago, Peru",earthquake,,15,,39,reviewed,us,us
+2011-10-29T08:31:05.640Z,-14.717,-75.948,18.4,4.8,mb,66,104.4,,1,us,usp000ja2t,2014-11-07T01:46:12.355Z,"64 km SSW of Santiago, Peru",earthquake,,17.3,,40,reviewed,us,us
+2011-10-29T17:14:29.330Z,-14.55,-76.376,10,4.5,mb,26,152.6,,1.22,us,usp000ja32,2014-11-07T01:46:12.381Z,"76 km S of Paracas, Peru",earthquake,,,,8,reviewed,us,us
+2011-10-29T22:07:45.450Z,-14.683,-76.262,35,4.1,mb,14,190.9,,1.12,us,usp000ja3c,2014-11-07T01:46:12.418Z,"81 km SW of Santiago, Peru",earthquake,,,,5,reviewed,us,us
+2011-10-30T00:50:06.370Z,-14.429,-76.436,28.5,4.1,mb,19,167.7,,0.58,us,usp000ja3m,2014-11-07T01:46:12.443Z,"64 km SSW of Paracas, Peru",earthquake,,15.6,,6,reviewed,us,us
+2011-10-30T06:02:47.000Z,-14.41,-76.32,45,4.3,m,8,192.6,,,us,usp000ja4b,2014-11-07T01:46:12.591Z,"60 km S of Paracas, Peru",earthquake,,,,,reviewed,lim,lim
+2011-10-30T10:58:01.620Z,-14.354,-75.854,46.5,4.7,mb,42,100,,1.09,us,usp000ja4n,2014-11-07T01:46:12.622Z,"24 km SW of Santiago, Peru",earthquake,,8.6,,21,reviewed,us,us
+2011-10-30T15:25:00.890Z,-14.515,-76.164,15.9,4.1,ml,9,188.2,,1.44,us,usp000ja4u,2014-11-07T01:46:12.680Z,"60 km SW of Santiago, Peru",earthquake,,41.5,,,reviewed,us,lim
+2011-10-31T20:35:09.380Z,-14.693,-76.225,9.8,4.7,mb,20,189.1,,1.13,us,usp000ja61,2014-11-07T01:46:12.909Z,"78 km SW of Santiago, Peru",earthquake,,24.2,,3,reviewed,us,us
+2011-11-01T17:30:15.640Z,-14.714,-76.328,1.5,4.5,mb,30,142.9,,1.15,us,usp000ja75,2014-11-07T01:46:15.968Z,"88 km SW of Santiago, Peru",earthquake,,20,,13,reviewed,us,us
+2011-11-02T02:06:23.410Z,-14.424,-76.234,33.8,4.8,mb,34,156.2,,1.64,us,usp000ja7r,2014-11-07T01:46:16.312Z,"61 km S of Paracas, Peru",earthquake,,25.7,,18,reviewed,us,us
+2011-11-24T04:36:26.380Z,-14.279,-76.02,40.5,4.5,mb,18,201.2,,0.99,us,usp000jbb1,2014-11-07T01:46:24.444Z,"34 km WSW of Santiago, Peru",earthquake,,16.8,,7,reviewed,us,us
+2011-11-27T19:56:39.240Z,-14.333,-75.919,35,5.2,mwc,189,99.3,,1.14,us,usp000jbg7,2022-04-08T22:12:42.076Z,"27 km SW of Santiago, Peru",earthquake,,,,,reviewed,us,gcmt

@@ -1,0 +1,17 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-12-06T22:03:33.390Z,5.2834,96.1678,13,6.5,mww,,27,0.778,1.13,us,us10007ghm,2025-05-29T23:20:25.575Z,"14 km WNW of Reuleuet, Indonesia",earthquake,5.6,0.2,,,reviewed,us,us
+2016-12-06T22:10:35.440Z,5.2296,96.1855,10,5.2,mb,,79,0.758,0.93,us,us200080h2,2017-03-03T07:06:05.040Z,"10 km W of Reuleuet, Indonesia",earthquake,6.7,1.9,0.108,28,reviewed,us,us
+2016-12-06T22:18:21.460Z,5.2343,96.1582,10,4.2,mb,,79,0.785,0.81,us,us200080h5,2017-03-03T07:06:05.040Z,"14 km W of Reuleuet, Indonesia",earthquake,6,1.9,0.136,15,reviewed,us,us
+2016-12-06T22:27:39.380Z,5.3066,96.1822,10,4.3,mb,,80,0.765,0.61,us,us200080h6,2017-03-03T07:06:05.040Z,"14 km NW of Reuleuet, Indonesia",earthquake,4,1.9,0.201,7,reviewed,us,us
+2016-12-06T22:34:11.070Z,5.2515,96.0939,10,4.1,mb,,166,0.85,1.06,us,us200080h8,2017-03-03T07:06:05.040Z,"20 km SE of Sigli, Indonesia",earthquake,7.5,2,0.166,10,reviewed,us,us
+2016-12-06T22:38:18.100Z,5.2899,96.1701,10,4.3,mb,,80,0.776,0.81,us,us200080h9,2017-03-03T07:06:05.040Z,"14 km WNW of Reuleuet, Indonesia",earthquake,9.1,1.9,0.142,14,reviewed,us,us
+2016-12-06T22:40:50.720Z,5.3734,96.1744,10,4.3,mb,,78,0.782,0.92,us,us200080hc,2017-03-03T07:06:05.040Z,"21 km NW of Reuleuet, Indonesia",earthquake,5.9,1.8,0.111,23,reviewed,us,us
+2016-12-07T16:05:42.460Z,5.1409,96.1472,14.05,4.5,mb,,80,0.801,0.79,us,us10007gmq,2017-03-03T07:06:06.040Z,"northern Sumatra, Indonesia",earthquake,6.5,2,0.102,28,reviewed,us,us
+2016-12-07T16:43:01.380Z,5.1146,96.1531,12.73,4,mb,,198,0.799,0.58,us,us200080ru,2017-03-03T07:06:06.040Z,"18 km SW of Reuleuet, Indonesia",earthquake,4.6,6.8,0.157,11,reviewed,us,us
+2016-12-07T17:16:03.330Z,5.1073,96.121,10,4.1,mb,,197,0.831,0.56,us,us200080rw,2017-03-03T07:06:07.040Z,"21 km SW of Reuleuet, Indonesia",earthquake,9.9,2,0.197,7,reviewed,us,us
+2016-12-08T07:21:51.940Z,5.189,96.1805,10,4.4,mb,,149,0.764,1.03,us,us10007pnj,2017-03-03T07:06:08.040Z,"11 km WSW of Reuleuet, Indonesia",earthquake,5.8,1.6,0.179,9,reviewed,us,us
+2016-12-09T09:49:04.300Z,5.365,96.236,22.56,4.7,mb,,64,0.721,1.13,us,us20007zfx,2017-03-09T02:14:24.040Z,"17 km NNW of Reuleuet, Indonesia",earthquake,7.8,5.1,0.086,41,reviewed,us,us
+2016-12-09T14:08:03.960Z,5.0747,96.1088,10,4.3,mb,,153,0.849,0.56,us,us20007zs4,2017-03-09T02:14:24.040Z,"24 km SW of Reuleuet, Indonesia",earthquake,7.3,1.9,0.177,9,reviewed,us,us
+2016-12-10T16:42:47.750Z,5.2776,96.1987,39.56,4.4,mb,,117,0.747,0.9,us,us200081l4,2017-03-09T02:14:26.040Z,"11 km NW of Reuleuet, Indonesia",earthquake,3.8,10.7,0.139,15,reviewed,us,us
+2016-12-11T02:50:35.690Z,5.3016,96.2091,17.94,4.9,mb,,66,0.738,0.77,us,us20007zvy,2022-05-03T18:05:22.573Z,"12 km NW of Reuleuet, Indonesia",earthquake,5.2,4,0.062,81,reviewed,us,us
+2016-12-17T00:36:48.180Z,5.3577,96.3302,17.46,4.2,mb,,103,0.627,0.9,us,us10007nuu,2017-03-16T02:31:24.040Z,"16 km NNE of Reuleuet, Indonesia",earthquake,8.5,5.8,0.118,20,reviewed,us,us

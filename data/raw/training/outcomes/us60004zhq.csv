@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2019-08-02T12:03:27.001Z,-7.2822,104.7907,49,6.9,mww,,23,2.839,0.76,us,us60004zhq,2025-12-22T18:14:22.438Z,"152 km SW of Labuan, Indonesia",earthquake,7,1.9,0.043,51,reviewed,us,us
+2019-08-03T09:24:17.896Z,-6.7575,105.0147,71.36,4.2,mb,,181,3.141,1.57,us,us600052wm,2019-10-19T21:42:20.040Z,"99 km WSW of Labuan, Indonesia",earthquake,9,9.8,0.147,13,reviewed,us,us
+2019-08-15T12:13:39.999Z,-6.7124,104.8617,54.26,4.5,mb,,138,2.735,0.57,us,us600055da,2019-11-02T15:26:07.040Z,"113 km WSW of Labuan, Indonesia",earthquake,9.9,8.4,0.099,30,reviewed,us,us

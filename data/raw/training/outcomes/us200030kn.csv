@@ -1,0 +1,11 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2015-07-27T21:41:21.710Z,-2.6286,138.5277,48,7,mww,,12,6.278,1.2,us,us200030kn,2022-07-31T21:09:28.114Z,"234 km W of Abepura, Indonesia",earthquake,6.7,1.8,,,reviewed,us,us
+2015-07-27T22:26:34.940Z,-2.4934,138.4657,35,4.3,mb,,113,6.224,1.02,us,us100032c4,2015-10-22T20:05:08.040Z,"241 km W of Abepura, Indonesia",earthquake,12.8,2,0.238,5,reviewed,us,us
+2015-07-27T22:27:38.010Z,-2.4802,138.3675,48.39,4.4,mb,,166,6.127,0.46,us,us100032cd,2015-10-22T20:05:08.040Z,"252 km W of Abepura, Indonesia",earthquake,12.3,8.5,0.24,5,reviewed,us,us
+2015-07-28T07:50:43.140Z,-2.8175,138.3174,61.11,4.5,mb,,125,6.061,0.78,us,us200030r4,2015-10-22T20:05:09.040Z,"258 km W of Abepura, Indonesia",earthquake,12.4,8.2,0.103,28,reviewed,us,us
+2015-07-28T09:13:18.590Z,-2.6831,138.4086,54.31,4.2,mb,,96,6.156,0.74,us,us100032vm,2015-10-22T20:05:10.040Z,"247 km W of Abepura, Indonesia",earthquake,6.8,8.4,0.142,14,reviewed,us,us
+2015-07-29T14:47:39.260Z,-2.7363,138.3801,68.04,4.4,mb,,100,6.126,0.76,us,us1000333t,2015-10-22T20:05:14.040Z,"250 km W of Abepura, Indonesia",earthquake,5.9,8.7,0.117,21,reviewed,us,us
+2015-08-26T14:18:40.400Z,-2.7293,138.4424,59.45,4.6,mb,,55,2.269,0.67,us,us1000351k,2015-11-24T02:09:37.040Z,"243 km W of Abepura, Indonesia",earthquake,8.3,7.2,0.073,57,reviewed,us,us
+2015-09-19T06:54:43.440Z,-2.7637,138.5394,55.85,4.4,mb,,74,2.176,1.03,us,us10003jtc,2015-12-21T23:16:23.040Z,"233 km W of Abepura, Indonesia",earthquake,9.4,10,0.149,13,reviewed,us,us
+2015-09-21T18:46:27.980Z,-2.5907,138.7013,8.78,5,mb,,44,2.002,0.92,us,us20003miv,2015-12-21T23:16:29.040Z,"214 km W of Abepura, Indonesia",earthquake,4.9,4.2,0.063,81,reviewed,us,us
+2015-09-21T19:25:10.120Z,-2.6642,138.6924,14.03,4,mb,,123,2.015,0.73,us,us10003lak,2015-12-21T23:16:30.040Z,"215 km W of Abepura, Indonesia",earthquake,8.3,6,0.211,6,reviewed,us,us

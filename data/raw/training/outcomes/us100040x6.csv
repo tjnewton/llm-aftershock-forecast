@@ -1,0 +1,21 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2015-11-24T22:50:54.370Z,-10.0598,-71.0184,620.56,7.6,mww,,10,2.852,1,us,us100040x6,2022-05-03T17:36:19.318Z,"185 km WNW of Iñapari, Peru",earthquake,8.5,3.1,,,reviewed,us,us
+2015-11-24T23:44:14.010Z,-10.5573,-70.9903,595.15,4.6,mb,,40,3.28,1.07,us,us10004112,2016-02-18T04:48:54.040Z,"160 km WNW of Iñapari, Peru",earthquake,9.6,6.1,0.039,193,reviewed,us,us
+2015-11-24T23:55:20.210Z,-10.2872,-70.8723,618.84,4.1,mb,,39,3.119,1.23,us,us1000412a,2016-02-18T04:48:54.040Z,"159 km WNW of Iñapari, Peru",earthquake,9.3,8.7,0.059,79,reviewed,us,us
+2015-11-25T00:28:16.830Z,-11.0331,-70.8484,597.09,4.7,mb,,37,3.758,0.83,us,us10004132,2022-08-01T20:04:16.803Z,"138 km W of Iñapari, Peru",earthquake,10.7,5.8,0.042,171,reviewed,us,us
+2015-11-25T04:30:29.380Z,-10.0811,-71.1445,589.77,4.3,mb,,106,2.799,0.86,us,us1000415g,2016-02-18T04:48:54.040Z,"196 km WNW of Iñapari, Peru",earthquake,11.8,9.2,0.138,15,reviewed,us,us
+2015-11-25T11:45:25.430Z,-9.2977,-71.4485,514.99,4.3,mb,,79,1.992,0.78,us,us100041rj,2016-02-18T04:48:55.040Z,"146 km SSW of Tarauacá, Brazil",earthquake,12.5,9.7,0.108,24,reviewed,us,us
+2015-11-25T16:19:24.860Z,-9.8471,-71.2808,630.47,4.3,mb,,79,2.531,0.75,us,us100041rs,2016-02-18T04:48:55.040Z,"193 km ESE of Marechal Thaumaturgo, Brazil",earthquake,15.7,12,0.101,28,reviewed,us,us
+2015-11-25T18:47:56.000Z,-10.4,-70.54,655,4.3,mb,,,,1.04,us,us100041au,2016-02-18T04:48:55.040Z,"121 km WNW of Iñapari, Peru",earthquake,9.9,5.4,0.039,184,reviewed,bdf,us
+2015-11-25T23:49:34.380Z,-10.5191,-71.1385,591.92,4.2,mb,,68,3.173,0.73,us,us100041s4,2016-02-18T04:48:56.040Z,"176 km WNW of Iñapari, Peru",earthquake,12.5,7.5,0.105,25,reviewed,us,us
+2015-11-26T05:45:18.400Z,-9.1825,-71.2574,602.75,6.7,mww,,19,2.033,1.06,us,us100041f1,2022-08-01T20:31:10.288Z,"125 km SSW of Tarauacá, Brazil",earthquake,8.8,3.2,,,reviewed,us,us
+2015-11-26T05:56:05.120Z,-9.0648,-71.3216,602.6,4.9,mb,,73,1.905,0.86,us,us1000426y,2016-02-25T22:32:54.040Z,"117 km SSW of Tarauacá, Brazil",earthquake,10.2,6.6,0.052,115,reviewed,us,us
+2015-11-26T06:01:22.990Z,-9.197,-71.2903,602.14,4.6,mb,,73,2.02,0.73,us,us1000426x,2016-02-25T22:32:55.040Z,"128 km SSW of Tarauacá, Brazil",earthquake,11.5,6.9,0.069,63,reviewed,us,us
+2015-11-26T13:42:24.490Z,-9.7561,-71.2455,605.58,4.9,mb,,64,2.476,0.98,us,us100041im,2016-02-25T22:32:55.040Z,"184 km SSW of Tarauacá, Brazil",earthquake,11.5,7,0.031,327,reviewed,us,us
+2015-11-26T20:50:46.270Z,-10.5666,-71.183,601.8,4.2,mb,,158,3.194,0.57,us,us1000427z,2016-02-25T22:32:56.040Z,"180 km WNW of Iñapari, Peru",earthquake,16.9,11.2,0.215,6,reviewed,us,us
+2015-11-27T00:52:54.610Z,-9.2924,-71.0944,616.98,5.1,mb,,42,2.224,0.77,us,us100041lm,2016-02-25T22:32:56.040Z,"130 km SSW of Tarauacá, Brazil",earthquake,9.4,5.2,0.022,679,reviewed,us,us
+2015-11-29T10:41:32.140Z,-10.1732,-71.1811,625.64,4.2,mb,,146,2.856,1.13,us,us1000420y,2016-02-25T22:33:00.040Z,"195 km WNW of Iñapari, Peru",earthquake,15,9.7,0.098,29,reviewed,us,us
+2015-12-03T23:29:48.500Z,-10.2601,-71.4165,622.67,4,mb,,145,2.817,0.87,us,us100044q2,2016-03-02T03:36:29.040Z,"209 km SE of Marechal Thaumaturgo, Brazil",earthquake,7.9,10.7,0.133,15,reviewed,us,us
+2015-12-06T13:49:42.450Z,-9.831,-71.1892,638.37,4.2,mb,,67,2.569,0.78,us,us20004fxy,2016-03-02T03:36:34.040Z,"190 km SSW of Tarauacá, Brazil",earthquake,13.1,9.1,0.044,145,reviewed,us,us
+2015-12-19T04:25:25.450Z,-11.0846,-71.0143,601.42,4,mb,,79,3.727,1.05,us,us100048up,2016-03-12T02:29:17.040Z,"157 km W of Iñapari, Peru",earthquake,13.4,7.1,0.298,5,reviewed,us,us
+2016-01-03T11:08:34.460Z,-10.7827,-70.7808,633.39,4.3,mb,,61,3.578,0.96,us,us10004b0k,2016-03-28T22:09:34.040Z,"132 km W of Iñapari, Peru",earthquake,13,7.5,0.093,33,reviewed,us,us

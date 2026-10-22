@@ -1,0 +1,15 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-12-27T21:39:14.770Z,-39.3398,-74.9849,10,6.7,mww,,19,1.319,0.63,us,us6000d3i9,2025-12-22T19:05:18.065Z,"146 km WNW of Corral, Chile",earthquake,5.8,1.7,0.048,42,reviewed,us,us
+2020-12-27T21:45:13.131Z,-39.7089,-75.0785,10,4.8,mb,,121,1.284,0.76,us,us6000d6ez,2021-03-06T23:19:37.040Z,"142 km W of Corral, Chile",earthquake,7.2,1.9,0.149,14,reviewed,us,us
+2020-12-27T22:02:37.298Z,-39.3338,-75.0854,10,4.3,mb,,166,1.393,0.38,us,us6000d3ia,2021-03-06T23:19:38.040Z,"154 km WNW of Corral, Chile",earthquake,4.8,1.8,0.218,6,reviewed,us,us
+2020-12-27T22:19:09.266Z,-39.2053,-74.9569,10,4.5,mb,,159,1.362,0.86,us,us6000d3id,2021-03-06T23:19:38.040Z,"151 km WNW of Corral, Chile",earthquake,5.4,1.9,0.18,9,reviewed,us,us
+2020-12-28T00:09:01.846Z,-39.2531,-75.1223,10,4.4,mwr,,115,1.453,0.74,us,us6000d3ix,2022-08-09T02:06:26.539Z,"161 km WNW of Corral, Chile",earthquake,6,1.8,0.073,18,reviewed,us,us
+2020-12-28T01:05:26.446Z,-39.3191,-74.9358,10,4,mwr,,147,1.294,0.86,us,us6000d3jm,2021-03-06T23:19:41.040Z,"143 km WNW of Corral, Chile",earthquake,6.2,1.9,,,reviewed,us,guc
+2020-12-28T06:09:08.621Z,-39.377,-75.1186,10,4.4,mwr,,144,1.4,0.77,us,us6000d3ky,2021-03-06T23:19:47.040Z,"155 km WNW of Corral, Chile",earthquake,5.2,1.5,0.057,30,reviewed,us,us
+2020-12-28T08:51:15.087Z,-39.4301,-75.2166,10,4.1,mwr,,154,1.453,0.57,us,us6000d3m3,2021-03-06T23:19:50.040Z,"161 km WNW of Corral, Chile",earthquake,7.6,1.9,,,reviewed,us,guc
+2020-12-28T13:03:13.135Z,-39.1561,-74.8059,10,4.4,mb,,191,1.289,0.19,us,us6000d3ny,2021-03-06T23:19:54.040Z,"143 km NW of Corral, Chile",earthquake,4.8,2,0.378,3,reviewed,us,us
+2020-12-28T15:58:34.215Z,-39.4357,-74.9726,10,4.3,mwr,,146,1.273,0.56,us,us6000d3pv,2021-03-06T23:19:57.040Z,"141 km WNW of Corral, Chile",earthquake,6.7,1.4,0.052,36,reviewed,us,us
+2020-12-29T06:44:38.778Z,-39.4918,-75.0715,10,4.3,mb,,154,1.327,0.58,us,us6000d3xd,2021-03-06T23:20:11.040Z,"147 km WNW of Corral, Chile",earthquake,6.8,1.9,0.104,28,reviewed,us,us
+2020-12-29T12:58:12.300Z,-39.4505,-74.9519,10,4.5,mwr,,147,1.253,0.55,us,us6000d406,2021-03-06T23:20:18.040Z,"139 km WNW of Corral, Chile",earthquake,3.9,1.9,,,reviewed,us,guc
+2021-01-04T15:06:30.316Z,-39.2948,-74.9122,10,4.2,mwr,,101,1.288,0.68,us,us6000d5gc,2021-03-13T22:59:11.040Z,"143 km WNW of Corral, Chile",earthquake,6.4,1.8,0.078,16,reviewed,us,us
+2021-01-29T10:13:03.032Z,-39.4126,-74.9595,10,4.1,mwr,,140,1.272,0.81,us,us6000dcuw,2021-04-16T19:02:14.040Z,"141 km WNW of Corral, Chile",earthquake,7.5,1.8,,,reviewed,us,guc

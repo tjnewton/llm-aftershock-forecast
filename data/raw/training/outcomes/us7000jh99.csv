@@ -1,0 +1,7 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2023-03-04T06:41:23.113Z,-29.5023,-178.7965,211,6.9,mww,345,23,0.799,0.61,us,us7000jh99,2023-05-08T02:00:44.040Z,"Kermadec Islands, New Zealand",earthquake,9.91,1.901,0.045,47,reviewed,us,us
+2023-03-07T16:12:59.784Z,-29.6549,-178.7039,212.68,4.5,mb,58,112,0.788,0.88,us,us7000jjk7,2023-05-15T02:50:16.040Z,"Kermadec Islands, New Zealand",earthquake,13.34,5.828,0.096,32,reviewed,us,us
+2023-03-08T17:07:11.359Z,-29.8376,-178.6351,212.416,4.2,mb,28,154,0.847,1.01,us,us7000jjub,2023-05-15T02:50:00.040Z,"Kermadec Islands, New Zealand",earthquake,11.16,7.218,0.236,5,reviewed,us,us
+2023-03-14T23:45:31.573Z,-29.8035,-179.2164,309.485,4.6,mb,67,115,1.252,0.86,us,us7000jjyt,2024-01-18T19:29:19.202Z,"Kermadec Islands region",earthquake,15.45,6.019,0.082,44,reviewed,us,us
+2023-03-26T23:18:30.981Z,-29.1102,-178.7444,135.19,4.3,mb,15,137,0.726,0.49,us,us6000k0vr,2023-06-03T22:06:08.040Z,"Kermadec Islands, New Zealand",earthquake,21.58,7.368,0.178,9,reviewed,us,us
+2023-04-10T22:02:39.300Z,-29.854,-178.8463,191.044,4.5,mb,31,79,1,1.08,us,us6000k3d2,2023-06-17T21:36:44.040Z,"Kermadec Islands, New Zealand",earthquake,15.28,4.921,0.124,19,reviewed,us,us

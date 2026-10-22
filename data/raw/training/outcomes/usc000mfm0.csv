@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2014-02-02T09:26:37.820Z,-32.9076,-177.8806,44.26,6.5,mww,,22,3.651,1.28,us,usc000mfm0,2022-05-03T16:43:31.077Z,"south of the Kermadec Islands",earthquake,,3.6,,,reviewed,us,us
+2014-03-11T03:26:40.530Z,-32.9244,-178.0667,10,4.4,mb,,138,6.614,0.59,us,usc000nnt1,2014-05-15T02:24:20.000Z,"south of the Kermadec Islands",earthquake,,2,0.22,9,reviewed,us,us
+2014-03-21T07:14:04.570Z,-32.8953,-177.8015,35,4.8,mb,,110,6.768,1.32,us,usc000nuxd,2014-05-24T00:54:36.000Z,"south of the Kermadec Islands",earthquake,,1.8,0.227,7,reviewed,us,us

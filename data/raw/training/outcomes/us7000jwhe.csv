@@ -1,0 +1,11 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2023-04-28T03:13:48.476Z,-25.1498,178.4274,563,6.6,mww,127,46,5.212,0.9,us,us7000jwhe,2023-07-11T01:45:44.040Z,"south of the Fiji Islands",earthquake,10.41,1.946,0.098,10,reviewed,us,us
+2023-04-28T03:34:10.824Z,-25.1399,178.372,570.099,5.5,mww,109,38,5.25,0.88,us,us7000jwi2,2023-07-11T01:45:45.040Z,"south of the Fiji Islands",earthquake,9.63,5.91,0.103,9,reviewed,us,us
+2023-04-28T03:51:06.373Z,-25.0889,178.4405,576.784,5.6,mww,108,37,5.253,1.12,us,us7000jwiw,2023-07-11T01:45:46.040Z,"south of the Fiji Islands",earthquake,9.9,4.804,0.098,10,reviewed,us,us
+2023-04-28T04:57:27.078Z,-25.0551,178.4359,582.631,4.5,mb,19,84,5.3,0.84,us,us7000jwk3,2023-07-11T01:45:46.040Z,"south of the Fiji Islands",earthquake,7.66,12.909,0.15,13,reviewed,us,us
+2023-04-28T05:44:10.560Z,-24.8007,178.5468,588.136,4,mb,15,130,6.798,0.97,us,us6000k9gi,2023-07-11T01:45:46.040Z,"south of the Fiji Islands",earthquake,18.61,16.217,0.15,12,reviewed,us,us
+2023-04-28T07:02:31.774Z,-25.2811,178.4506,604.583,4.9,mb,95,73,5.096,0.89,us,us7000jwkm,2023-07-11T01:45:47.040Z,"south of the Fiji Islands",earthquake,11.4,8.486,0.063,80,reviewed,us,us
+2023-04-28T14:26:44.735Z,-24.9922,178.6837,574.317,4.5,mb,35,88,5.201,0.69,us,us7000jwnf,2023-07-11T01:45:45.040Z,"south of the Fiji Islands",earthquake,14.4,9,0.119,21,reviewed,us,us
+2023-04-28T19:06:01.362Z,-24.8931,178.6576,574.351,4.5,mb,18,137,5.314,0.9,us,us6000k9gv,2024-01-18T19:52:49.794Z,"south of the Fiji Islands",earthquake,19.79,17.943,0.124,19,reviewed,us,us
+2023-04-30T06:15:27.443Z,-25.2759,178.549,602.879,4.6,mb,47,125,5.063,0.67,us,us7000jx4q,2023-07-15T22:10:35.040Z,"south of the Fiji Islands",earthquake,14.83,9.837,0.066,74,reviewed,us,us
+2023-06-17T15:07:56.611Z,-25.0404,178.7349,595.646,4.1,mb,24,135,5.153,0.82,us,us7000kaln,2023-08-21T04:19:45.040Z,"south of the Fiji Islands",earthquake,15.84,18.632,0.131,18,reviewed,us,us

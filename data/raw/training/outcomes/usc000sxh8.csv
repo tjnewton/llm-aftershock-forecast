@@ -1,0 +1,225 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2014-11-15T02:31:41.720Z,1.8929,126.5217,45,7.1,mww,,18,1.397,0.71,us,usc000sxh8,2022-08-07T04:11:47.109Z,"155 km NW of Ternate, Indonesia",earthquake,5.8,1.7,,,reviewed,us,us
+2014-11-15T02:34:59.790Z,1.6728,126.2983,44.94,5.9,mb,,59,1.393,1.18,us,usb000t0pj,2022-05-03T18:19:58.574Z,"148 km E of Laikit, Laikit II (Dimembe), Indonesia",earthquake,9.8,7.5,0.122,33,reviewed,us,us
+2014-11-15T02:43:16.800Z,1.7235,126.283,35,5.1,mb,,52,1.437,0.79,us,usb000t0ps,2015-02-12T01:42:45.040Z,"147 km E of Laikit, Laikit II (Dimembe), Indonesia",earthquake,7.6,2,0.232,11,reviewed,us,us
+2014-11-15T02:44:31.060Z,1.8216,126.2098,35,4.7,mb,,116,1.557,1.36,us,usb000t0qp,2015-02-12T01:42:45.040Z,"142 km ENE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,8.1,2,0.552,3,reviewed,us,us
+2014-11-15T02:46:44.970Z,1.7662,126.4154,34.58,4.7,mb,,140,1.371,0.58,us,usb000t0nm,2015-02-12T01:42:45.040Z,"152 km NW of Ternate, Indonesia",earthquake,17.3,7.8,0.317,5,reviewed,us,us
+2014-11-15T02:49:12.760Z,1.6986,126.3344,39.82,4.7,mb,,95,1.382,0.68,us,usb000t0nr,2015-02-12T01:42:45.040Z,"153 km E of Laikit, Laikit II (Dimembe), Indonesia",earthquake,5.4,9.2,0.225,16,reviewed,us,us
+2014-11-15T02:53:44.730Z,1.8572,126.5467,42,4.6,mb,,141,1.354,0.82,us,usb000t0ph,2015-02-12T01:42:45.040Z,"150 km NW of Ternate, Indonesia",earthquake,10.4,11.3,0.193,11,reviewed,us,us
+2014-11-15T02:55:34.320Z,2.0112,126.7533,35,4.4,mb,,157,1.375,0.25,us,usb000t0pt,2015-02-12T01:42:45.040Z,"143 km WNW of Tobelo, Indonesia",earthquake,14.7,2,0.38,4,reviewed,us,us
+2014-11-15T02:58:33.050Z,1.8719,126.425,35,4.3,mb,,166,1.442,0.49,us,usb000t0qt,2015-02-12T01:42:45.040Z,"160 km NW of Ternate, Indonesia",earthquake,10.4,2,0.266,7,reviewed,us,us
+2014-11-15T03:16:18.050Z,1.7591,126.3295,35,4.6,mb,,147,1.427,0.67,us,usb000t0p7,2015-02-12T01:42:45.040Z,"153 km E of Laikit, Laikit II (Dimembe), Indonesia",earthquake,7.6,2,0.206,13,reviewed,us,us
+2014-11-15T03:23:00.230Z,1.8255,126.488,18.02,5,mb,,87,1.366,0.77,us,usc000sxhu,2015-02-12T01:42:45.040Z,"151 km NW of Ternate, Indonesia",earthquake,7.2,3.7,0.073,72,reviewed,us,us
+2014-11-15T03:29:15.260Z,1.8574,126.6063,35,4.3,mb,,162,1.319,0.6,us,usb000t0p8,2015-02-12T01:42:45.040Z,"146 km NW of Ternate, Indonesia",earthquake,5.7,2,0.188,13,reviewed,us,us
+2014-11-15T03:37:54.130Z,1.945,126.295,23.24,4.3,mb,,161,1.583,0.71,us,usb000t0p9,2015-02-12T01:42:45.040Z,"155 km ENE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,7.6,9.8,0.237,8,reviewed,us,us
+2014-11-15T03:38:16.820Z,1.9515,126.6947,35,4.2,mb,,182,1.35,1.36,us,usb000t0nu,2015-02-12T01:42:45.040Z,"Molucca Sea",earthquake,30.3,2,0.374,5,reviewed,us,us
+2014-11-15T03:40:16.820Z,1.8875,126.2702,35,4.1,mb,,149,1.558,0.27,us,usb000t0nn,2015-02-12T01:42:45.040Z,"150 km ENE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,9.4,2,0.37,4,reviewed,us,us
+2014-11-15T03:48:27.250Z,2.1513,127.093,36.09,4.4,mb,,56,1.397,1.08,us,usc000sxic,2015-02-12T01:42:45.040Z,"112 km WNW of Tobelo, Indonesia",earthquake,8.7,7.5,0.101,30,reviewed,us,us
+2014-11-15T03:57:02.020Z,1.6888,126.3068,40.15,4.6,mb,,84,1.397,0.78,us,usc000sxid,2015-02-12T01:42:45.040Z,"149 km E of Laikit, Laikit II (Dimembe), Indonesia",earthquake,7.1,6.5,0.077,57,reviewed,us,us
+2014-11-15T04:02:00.340Z,2.0083,126.9625,49.81,4.1,mb,,180,1.293,0.29,us,usb000t0nh,2015-02-12T01:42:46.040Z,"120 km WNW of Tobelo, Indonesia",earthquake,7.6,13.8,0.301,6,reviewed,us,us
+2014-11-15T04:06:05.550Z,1.8319,126.621,36.84,4.9,mb,,89,1.29,0.71,us,usc000sxih,2015-02-12T01:42:46.040Z,"143 km NW of Ternate, Indonesia",earthquake,6.9,5.8,0.061,106,reviewed,us,us
+2014-11-15T04:07:43.690Z,1.8258,126.537,17.81,4.7,mb,,126,1.335,0.75,us,usb000t0nw,2015-02-12T01:42:46.040Z,"148 km NW of Ternate, Indonesia",earthquake,8.4,5.3,0.195,17,reviewed,us,us
+2014-11-15T04:22:00.860Z,1.7149,126.1618,16.29,4.1,mb,,109,1.525,0.28,us,usc000sxiv,2015-02-12T01:42:46.040Z,"134 km E of Laikit, Laikit II (Dimembe), Indonesia",earthquake,9.5,5.5,0.213,11,reviewed,us,us
+2014-11-15T04:38:04.580Z,1.8914,126.7101,44.96,4.4,mb,,96,1.291,0.86,us,usc000sxix,2015-02-12T01:42:46.040Z,"142 km NNW of Ternate, Indonesia",earthquake,8,2.9,0.105,28,reviewed,us,us
+2014-11-15T04:50:21.940Z,1.8608,126.438,35,4.1,mb,,173,1.425,0.77,us,usb000t0r5,2015-02-12T01:42:46.040Z,"158 km NW of Ternate, Indonesia",earthquake,7.5,2,0.261,8,reviewed,us,us
+2014-11-15T04:59:01.520Z,1.9275,126.7984,35,4.4,mb,,93,1.28,0.99,us,usb000t0p4,2015-02-12T01:42:46.040Z,"136 km W of Tobelo, Indonesia",earthquake,8.5,2,0.13,18,reviewed,us,us
+2014-11-15T05:00:22.620Z,1.8703,126.7113,27.27,4.5,mb,,116,1.272,0.62,us,usb000t0pa,2015-02-12T01:42:46.040Z,"140 km NNW of Ternate, Indonesia",earthquake,7.1,6.5,0.106,28,reviewed,us,us
+2014-11-15T05:01:50.700Z,1.6611,126.2886,35,4.6,mb,,116,1.393,0.84,us,usb000t0re,2015-02-12T01:42:46.040Z,"147 km E of Laikit, Laikit II (Dimembe), Indonesia",earthquake,6.8,2,0.109,27,reviewed,us,us
+2014-11-15T05:09:03.440Z,2.0706,126.9381,35,4.1,mb,,67,1.359,0.63,us,usb000t0p5,2015-02-12T01:42:46.040Z,"125 km WNW of Tobelo, Indonesia",earthquake,9.3,2,0.158,12,reviewed,us,us
+2014-11-15T05:10:01.200Z,1.8382,126.4028,35,4.8,mb,,69,1.432,0.87,us,usb000t0p1,2015-02-12T01:42:46.040Z,"159 km NW of Ternate, Indonesia",earthquake,8.1,2,0.105,30,reviewed,us,us
+2014-11-15T05:24:09.730Z,1.8472,126.4402,35,4.5,mb,,111,1.413,0.52,us,usb000t0pk,2015-02-12T01:42:46.040Z,"157 km NW of Ternate, Indonesia",earthquake,4.9,2,0.111,26,reviewed,us,us
+2014-11-15T05:47:58.730Z,1.9,126.5705,35,4.7,mb,,72,1.374,0.6,us,usc000sxjn,2015-02-12T01:42:46.040Z,"152 km NW of Ternate, Indonesia",earthquake,6.8,1.9,0.126,21,reviewed,us,us
+2014-11-15T06:12:13.550Z,1.7207,126.3107,30.18,4.2,mb,,114,1.415,0.54,us,usb000t0rb,2015-02-12T01:42:46.040Z,"150 km E of Laikit, Laikit II (Dimembe), Indonesia",earthquake,7.9,7.3,0.153,13,reviewed,us,us
+2014-11-15T06:14:00.320Z,1.9167,126.459,35,4.8,mb,,37,1.454,0.82,us,usc000sxjq,2015-02-12T01:42:46.040Z,"161 km NW of Ternate, Indonesia",earthquake,4.9,1.9,0.078,53,reviewed,us,us
+2014-11-15T06:23:43.520Z,1.7221,126.2375,35,4,mb,,162,1.471,0.62,us,usb000t0nb,2015-02-12T01:42:46.040Z,"142 km E of Laikit, Laikit II (Dimembe), Indonesia",earthquake,8.4,2,0.164,11,reviewed,us,us
+2014-11-15T07:36:36.570Z,1.8557,126.4406,35,4,mb,,161,1.42,0.49,us,usb000t0pl,2015-02-12T01:42:47.040Z,"157 km NW of Ternate, Indonesia",earthquake,6.1,2,0.232,6,reviewed,us,us
+2014-11-15T08:02:06.980Z,1.9029,126.4124,29.37,4.2,mb,,115,1.473,0.89,us,usb000t0ni,2015-02-12T01:42:47.040Z,"163 km NW of Ternate, Indonesia",earthquake,9,6.4,0.152,14,reviewed,us,us
+2014-11-15T08:09:46.650Z,1.7812,126.4646,35,4.1,mb,,114,1.348,0.47,us,usb000t0pd,2015-02-12T01:42:47.040Z,"149 km NW of Ternate, Indonesia",earthquake,5.5,2,0.123,20,reviewed,us,us
+2014-11-15T08:11:43.530Z,1.6909,126.3751,35,4.6,mb,,47,1.347,1.11,us,usc000sxk4,2015-02-12T01:42:47.040Z,"150 km NW of Ternate, Indonesia",earthquake,6.4,1.9,0.085,44,reviewed,us,us
+2014-11-15T08:24:36.030Z,1.9421,126.3386,35,4.2,mb,,99,1.551,0.25,us,usb000t0pg,2015-02-12T01:42:47.040Z,"159 km ENE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,9.8,2,0.141,15,reviewed,us,us
+2014-11-15T08:32:36.160Z,1.6295,126.1272,35,4.3,mb,,103,1.503,0.55,us,usb000t0ns,2015-02-12T01:42:47.040Z,"129 km E of Laikit, Laikit II (Dimembe), Indonesia",earthquake,5.9,2,0.153,13,reviewed,us,us
+2014-11-15T08:48:22.830Z,1.5794,126.1918,35,4.4,mb,,44,1.422,0.81,us,usb000t0nf,2015-02-12T01:42:47.040Z,"135 km E of Laikit, Laikit II (Dimembe), Indonesia",earthquake,7.1,2,0.117,21,reviewed,us,us
+2014-11-15T08:50:24.360Z,1.9846,126.698,35,4.5,mb,,109,1.377,0.97,us,usb000t0pn,2015-02-12T01:42:47.040Z,"148 km W of Tobelo, Indonesia",earthquake,8.1,2,0.128,19,reviewed,us,us
+2014-11-15T08:54:25.530Z,1.802,126.1559,30.33,4.6,mb,,71,1.585,0.82,us,usb000t0nc,2015-02-12T01:42:47.040Z,"136 km ENE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,7.8,5.5,0.112,24,reviewed,us,us
+2014-11-15T08:58:41.310Z,1.6857,126.3781,35,4.1,mb,,147,1.342,0.62,us,usb000t0p2,2015-02-12T01:42:47.040Z,"149 km NW of Ternate, Indonesia",earthquake,7.3,2,0.185,9,reviewed,us,us
+2014-11-15T09:11:49.360Z,1.6902,126.321,35,4,mb,,163,1.387,0.39,us,usb000t0pp,2015-02-12T01:42:47.040Z,"151 km E of Laikit, Laikit II (Dimembe), Indonesia",earthquake,8.3,2,0.212,8,reviewed,us,us
+2014-11-15T09:25:57.920Z,1.7125,126.3354,35,4.1,mb,,166,1.391,0.6,us,usb000t0pq,2015-02-12T01:42:47.040Z,"153 km E of Laikit, Laikit II (Dimembe), Indonesia",earthquake,8.8,2,0.234,6,reviewed,us,us
+2014-11-15T09:26:57.320Z,1.8497,126.6317,35,5,mb,,90,1.298,0.94,us,usc000sxkp,2015-02-12T01:42:47.040Z,"143 km NW of Ternate, Indonesia",earthquake,6.7,1.9,0.064,85,reviewed,us,us
+2014-11-15T09:47:57.850Z,1.7859,126.5628,35,5.5,mww,,28,1.288,0.93,us,usc000sxkt,2022-05-03T17:06:42.071Z,"143 km NW of Ternate, Indonesia",earthquake,5.7,0.8,,,reviewed,us,us
+2014-11-15T09:53:29.570Z,1.685,126.2781,35,4.5,mb,,149,1.416,0.45,us,usb000t0q3,2015-02-12T01:42:47.040Z,"146 km E of Laikit, Laikit II (Dimembe), Indonesia",earthquake,12.6,2,0.164,16,reviewed,us,us
+2014-11-15T09:57:40.660Z,1.9885,126.6976,35,4.2,mb,,167,1.381,0.61,us,usb000t0nz,2015-02-12T01:42:47.040Z,"148 km W of Tobelo, Indonesia",earthquake,7.3,2,0.199,8,reviewed,us,us
+2014-11-15T10:41:51.900Z,1.7089,126.4414,35,4.4,mb,,96,1.312,0.55,us,usc000sxl2,2015-02-12T01:42:47.040Z,"Molucca Sea",earthquake,8.7,2,0.12,24,reviewed,us,us
+2014-11-15T10:46:04.530Z,1.9176,126.7376,35,4,mb,,153,1.3,1.01,us,usb000t0q8,2015-02-12T01:42:47.040Z,"143 km W of Tobelo, Indonesia",earthquake,6,2,0.183,10,reviewed,us,us
+2014-11-15T11:12:02.660Z,1.7773,126.4955,35,5.4,mb,,46,1.325,0.8,us,usc000sxl8,2022-05-03T17:06:39.269Z,"147 km NW of Ternate, Indonesia",earthquake,7,1.9,0.045,172,reviewed,us,us
+2014-11-15T11:20:53.170Z,1.8426,126.7719,35,4.2,mb,,183,1.218,0.61,us,usb000t0ne,2015-02-12T01:42:47.040Z,"134 km NNW of Ternate, Indonesia",earthquake,5.8,2,0.2,8,reviewed,us,us
+2014-11-15T11:22:47.970Z,1.8506,126.5962,35,4.3,mb,,128,1.319,1.04,us,usb000t0q0,2015-02-12T01:42:47.040Z,"146 km NW of Ternate, Indonesia",earthquake,6.3,2,0.13,18,reviewed,us,us
+2014-11-15T11:25:58.650Z,1.7935,126.623,35,4.1,mb,,152,1.258,1.24,us,usb000t0py,2015-02-12T01:42:47.040Z,"139 km NW of Ternate, Indonesia",earthquake,8.3,2,0.136,16,reviewed,us,us
+2014-11-15T11:26:37.970Z,1.8385,126.2941,35,4.2,mb,,166,1.507,0.68,us,usb000t0rf,2015-02-12T01:42:47.040Z,"151 km ENE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,8.3,2,0.235,7,reviewed,us,us
+2014-11-15T11:42:44.530Z,1.8214,126.6467,35,4.2,mb,,134,1.266,0.79,us,usc000sxlh,2015-02-12T01:42:48.040Z,"140 km NW of Ternate, Indonesia",earthquake,6.7,1.9,0.136,16,reviewed,us,us
+2014-11-15T12:02:17.940Z,2.0887,126.9226,35,4.2,mb,,191,1.381,0.76,us,usb000t0q2,2015-02-12T01:42:48.040Z,"127 km WNW of Tobelo, Indonesia",earthquake,8,2,0.14,15,reviewed,us,us
+2014-11-15T12:06:40.640Z,1.7782,126.3749,35,4.2,mb,,132,1.408,0.79,us,usc000sxlm,2015-02-12T01:42:48.040Z,"156 km NW of Ternate, Indonesia",earthquake,8.4,2,0.136,17,reviewed,us,us
+2014-11-15T12:50:17.460Z,1.827,126.2742,35,4.1,mb,,160,1.513,0.22,us,usb000t0q6,2015-02-12T01:42:48.040Z,"149 km ENE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,7.8,2,0.175,10,reviewed,us,us
+2014-11-15T13:39:24.360Z,1.7515,126.6371,35,4.8,mb,,118,1.216,0.88,us,usc000sxlz,2015-02-12T01:42:48.040Z,"134 km NW of Ternate, Indonesia",earthquake,5.5,1.8,0.143,18,reviewed,us,us
+2014-11-15T15:04:32.530Z,1.8595,126.4909,35,4.3,mb,,144,1.39,1.31,us,usc000sxmk,2015-02-12T01:42:48.040Z,"154 km NW of Ternate, Indonesia",earthquake,9.5,2,0.133,18,reviewed,us,us
+2014-11-15T17:22:04.340Z,2.0092,126.6539,48.3,4.4,mb,,148,1.42,0.48,us,usb000t0ny,2015-02-12T01:42:48.040Z,"153 km WNW of Tobelo, Indonesia",earthquake,8.6,11.7,0.162,12,reviewed,us,us
+2014-11-15T17:27:02.470Z,1.7541,126.6783,57.65,4.2,mb,,134,1.194,1.41,us,usb000t0np,2015-02-12T01:42:48.040Z,"132 km NW of Ternate, Indonesia",earthquake,6.6,9.9,0.153,13,reviewed,us,us
+2014-11-15T17:29:58.810Z,1.557,126.4696,35.79,4.5,mb,,95,1.188,1.04,us,usc000sxn6,2015-02-12T01:42:48.040Z,"132 km NW of Ternate, Indonesia",earthquake,7.6,8.8,0.121,21,reviewed,us,us
+2014-11-15T18:53:05.210Z,1.8697,126.6188,74.68,4.3,mb,,104,1.322,0.69,us,usb000t0qi,2015-02-12T01:42:49.040Z,"146 km NW of Ternate, Indonesia",earthquake,8.2,9.5,0.133,18,reviewed,us,us
+2014-11-15T20:34:57.020Z,1.8322,126.3737,44.4,4.4,mb,,97,1.447,0.77,us,usc000sxp3,2015-02-12T01:42:49.040Z,"160 km ENE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,6.4,5.9,0.091,38,reviewed,us,us
+2014-11-16T00:42:46.510Z,1.8893,126.3985,35,4.7,mb,,66,1.472,0.97,us,usc000sxqc,2015-02-12T01:42:49.040Z,"163 km NW of Ternate, Indonesia",earthquake,7.1,1.9,0.065,76,reviewed,us,us
+2014-11-16T01:45:21.860Z,1.69,126.5237,49.4,4.4,mb,,94,1.241,0.55,us,usb000t0zu,2015-02-12T01:42:49.040Z,"138 km NW of Ternate, Indonesia",earthquake,8.7,8,0.117,23,reviewed,us,us
+2014-11-16T03:52:02.650Z,2.2761,127.1631,35,4.1,mb,,197,1.508,0.66,us,usb000t111,2015-02-12T01:42:49.040Z,"111 km WNW of Tobelo, Indonesia",earthquake,8.4,2,0.198,7,reviewed,us,us
+2014-11-16T04:19:13.590Z,2.2559,127.1143,35,4.3,mb,,190,1.495,0.82,us,usb000t110,2015-02-12T01:42:49.040Z,"115 km WNW of Tobelo, Indonesia",earthquake,7.5,2,0.308,6,reviewed,us,us
+2014-11-16T06:38:42.840Z,2.0721,126.8154,35,4.6,mb,,84,1.404,0.56,us,usc000sxs3,2015-02-12T01:42:50.040Z,"138 km WNW of Tobelo, Indonesia",earthquake,5,2,0.107,30,reviewed,us,us
+2014-11-16T10:04:02.160Z,1.6368,126.4997,35,4.6,mb,,95,1.22,0.71,us,usc000sxt7,2015-02-12T01:42:50.040Z,"135 km NW of Ternate, Indonesia",earthquake,7.4,2,0.093,37,reviewed,us,us
+2014-11-16T10:12:20.320Z,1.6898,126.5753,35,4.6,mb,,90,1.207,0.65,us,usc000sxt9,2015-02-12T01:42:50.040Z,"134 km NW of Ternate, Indonesia",earthquake,7.2,2,0.094,35,reviewed,us,us
+2014-11-16T10:20:38.520Z,1.5499,126.514,35,4.5,mb,,94,1.15,0.51,us,usc000sxtd,2015-02-12T01:42:50.040Z,"128 km NW of Ternate, Indonesia",earthquake,4.5,2,0.095,34,reviewed,us,us
+2014-11-16T10:55:04.580Z,1.8445,126.8466,35,4.4,mb,,147,1.185,0.62,us,usc000sxtn,2015-02-12T01:42:50.040Z,"130 km W of Tobelo, Indonesia",earthquake,6.1,1.9,0.148,15,reviewed,us,us
+2014-11-16T12:31:17.830Z,1.7693,126.5282,35,4.8,mb,,88,1.297,0.86,us,usc000sxug,2015-02-12T01:42:51.040Z,"144 km NW of Ternate, Indonesia",earthquake,7.4,1.7,0.075,57,reviewed,us,us
+2014-11-16T13:13:05.420Z,2.018,126.7538,51.68,4,mb,,136,1.381,0.45,us,usb000t101,2015-02-12T01:42:51.040Z,"143 km WNW of Tobelo, Indonesia",earthquake,12.1,7.5,0.156,14,reviewed,us,us
+2014-11-16T14:13:50.310Z,1.8076,126.7924,36.13,4,mb,,183,1.178,0.77,us,usb000t10f,2015-02-12T01:42:51.040Z,"130 km NNW of Ternate, Indonesia",earthquake,10.7,12.9,0.172,10,reviewed,us,us
+2014-11-16T14:55:15.370Z,1.6416,126.6468,53.43,4.1,mb,,124,1.124,0.84,us,usb000t0zl,2015-02-12T01:42:51.040Z,"124 km NW of Ternate, Indonesia",earthquake,8.6,7,0.165,12,reviewed,us,us
+2014-11-16T14:56:37.470Z,2.0501,126.7539,35,4.4,mb,,121,1.409,0.56,us,usb000t10k,2015-02-12T01:42:51.040Z,"144 km WNW of Tobelo, Indonesia",earthquake,8,2,0.149,14,reviewed,us,us
+2014-11-16T15:50:22.880Z,1.9397,126.617,49.92,4.1,mb,,166,1.381,0.57,us,usb000t10h,2015-02-12T01:42:51.040Z,"153 km NW of Ternate, Indonesia",earthquake,6.1,10.9,0.135,16,reviewed,us,us
+2014-11-17T05:06:51.610Z,1.5583,126.4753,35,4.6,mb,,130,1.185,0.98,us,usc000sy1f,2015-02-12T01:42:53.040Z,"132 km NW of Ternate, Indonesia",earthquake,8.4,2,0.129,20,reviewed,us,us
+2014-11-17T05:08:50.480Z,1.7912,126.3974,35,4.3,mb,,115,1.401,1.04,us,usb000t25m,2015-02-12T01:42:53.040Z,"155 km NW of Ternate, Indonesia",earthquake,9.2,2,0.153,13,reviewed,us,us
+2014-11-17T07:44:07.580Z,1.834,126.7558,35,4.2,mb,,182,1.219,0.66,us,usb000t24q,2015-02-12T01:42:53.040Z,"134 km NNW of Ternate, Indonesia",earthquake,10.7,2,0.177,10,reviewed,us,us
+2014-11-17T16:14:39.810Z,1.8494,126.6187,42.8,4.1,mb,,69,1.305,0.61,us,usb000t23i,2015-02-12T01:42:54.040Z,"144 km NW of Ternate, Indonesia",earthquake,9.8,9.4,0.158,14,reviewed,us,us
+2014-11-17T21:51:30.450Z,1.8817,126.8684,35,4.2,mb,,191,8.972,0.46,us,usb000t247,2015-02-12T01:42:55.040Z,"128 km W of Tobelo, Indonesia",earthquake,14.6,2,0.159,12,reviewed,us,us
+2014-11-18T04:47:16.630Z,1.8693,126.4751,30,5.8,mww,,19,1.408,0.87,us,usc000sycq,2022-05-03T18:20:08.511Z,"156 km NW of Ternate, Indonesia",earthquake,5.4,1.8,,,reviewed,us,us
+2014-11-18T04:56:10.320Z,1.9502,126.5001,35,4.8,mb,,103,1.456,0.6,us,usc000sycs,2015-02-12T01:42:58.040Z,"161 km NW of Ternate, Indonesia",earthquake,6.9,1.9,0.09,41,reviewed,us,us
+2014-11-18T05:03:15.230Z,1.8799,126.5109,35,4.9,mb,,112,1.394,1.29,us,usc000sycr,2015-02-12T01:42:58.040Z,"154 km NW of Ternate, Indonesia",earthquake,8,2,0.089,44,reviewed,us,us
+2014-11-18T06:48:08.160Z,1.8633,126.4555,44.86,4.6,mb,,106,1.416,0.71,us,usc000syd7,2015-02-12T01:42:58.040Z,"157 km NW of Ternate, Indonesia",earthquake,5.8,7.5,0.094,36,reviewed,us,us
+2014-11-18T08:30:29.570Z,1.7217,126.4429,35,4.9,mb,,202,1.32,0.9,us,usc000sydh,2025-12-22T17:01:38.176Z,"146 km NW of Ternate, Indonesia",earthquake,10.6,2,0.097,36,reviewed,us,us
+2014-11-18T12:43:22.400Z,1.9675,126.3801,35,5.2,mb,,47,1.543,1.12,us,usc000syen,2015-02-12T01:42:59.040Z,"165 km ENE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,7,1.9,0.053,121,reviewed,us,us
+2014-11-18T14:23:10.670Z,2.0172,126.5236,49.59,4,mb,,130,1.496,1.16,us,usb000t284,2015-02-12T01:42:59.040Z,"166 km NW of Ternate, Indonesia",earthquake,9.4,9.3,0.196,10,reviewed,us,us
+2014-11-19T01:41:23.200Z,1.6894,126.5131,43.95,4.2,mb,,126,1.248,0.3,us,usb000t2g9,2015-02-18T03:30:45.040Z,"138 km NW of Ternate, Indonesia",earthquake,12.7,10.3,0.187,9,reviewed,us,us
+2014-11-19T02:00:56.240Z,1.75,126.2851,35,4.2,mb,,98,1.453,0.32,us,usb000t2gb,2015-02-18T03:30:45.040Z,"148 km E of Laikit, Laikit II (Dimembe), Indonesia",earthquake,9,2,0.216,7,reviewed,us,us
+2014-11-19T08:20:07.600Z,1.8246,126.5062,35.83,4,mb,,172,1.354,0.68,us,usb000t2hk,2015-02-18T03:30:45.040Z,"Molucca Sea",earthquake,10.5,13.9,0.212,7,reviewed,us,us
+2014-11-19T14:55:15.650Z,2.5321,126.9018,35.28,4,mb,,193,1.809,0.93,us,usb000t2gy,2015-02-18T03:30:46.040Z,"151 km NW of Tobelo, Indonesia",earthquake,12.5,9.7,0.183,10,reviewed,us,us
+2014-11-19T20:37:50.490Z,1.6731,126.5151,39.7,4.2,mb,,148,1.235,0.41,us,usb000sy1v,2015-02-18T03:30:47.040Z,"137 km NW of Ternate, Indonesia",earthquake,8.4,9.6,0.128,18,reviewed,us,us
+2014-11-19T23:23:03.360Z,1.8614,126.4334,41.09,4.2,mb,,153,1.428,0.31,us,usb000t2g5,2015-02-18T03:30:47.040Z,"158 km NW of Ternate, Indonesia",earthquake,11.2,9.3,0.158,12,reviewed,us,us
+2014-11-20T02:38:36.150Z,1.8068,126.3702,43.33,4,mb,,150,1.431,0.53,us,usc000t3qq,2015-02-18T03:30:47.040Z,"159 km NW of Ternate, Indonesia",earthquake,8.7,12.1,0.163,12,reviewed,us,us
+2014-11-20T03:08:06.890Z,1.8267,126.4462,58.96,4.3,mb,,103,1.394,0.98,us,usc000t3r5,2015-02-18T03:30:47.040Z,"154 km NW of Ternate, Indonesia",earthquake,9.8,9.6,0.16,13,reviewed,us,us
+2014-11-20T04:53:52.830Z,1.9418,126.2394,40.64,4,mb,,153,1.618,0.65,us,usc000t3qr,2015-02-18T03:30:47.040Z,"149 km ENE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,11.8,14.3,0.212,8,reviewed,us,us
+2014-11-20T08:00:50.140Z,1.7896,126.6083,44.48,4,mb,,157,1.263,0.53,us,usc000t3qx,2015-02-18T03:30:48.040Z,"140 km NW of Ternate, Indonesia",earthquake,11.2,11,0.149,13,reviewed,us,us
+2014-11-20T12:20:55.990Z,1.8684,126.4703,32.57,4.2,mb,,99,1.41,0.52,us,usc000t3qy,2015-02-18T03:30:48.040Z,"156 km NW of Ternate, Indonesia",earthquake,9.3,6.4,0.132,18,reviewed,us,us
+2014-11-21T00:50:49.780Z,1.825,126.4195,35,4.9,mb,,52,1.411,1.08,us,usb000syff,2015-02-18T03:30:49.040Z,"156 km NW of Ternate, Indonesia",earthquake,6.4,1.9,0.055,107,reviewed,us,us
+2014-11-21T05:27:11.350Z,1.9649,126.5643,35,4.3,mb,,159,1.431,0.93,us,usc000t3y5,2015-02-18T03:30:49.040Z,"158 km NW of Ternate, Indonesia",earthquake,4.2,2,0.148,13,reviewed,us,us
+2014-11-21T10:10:19.630Z,2.2999,127.0562,35,6.5,mww,,9,1.549,1.16,us,usb000syhz,2022-07-27T08:22:04.644Z,"123 km WNW of Tobelo, Indonesia",earthquake,5.1,1.8,,,reviewed,us,us
+2014-11-21T11:42:26.940Z,2.2253,127.1089,34.65,4.4,mb,,99,1.466,1.1,us,usb000syij,2015-02-18T03:30:51.040Z,"114 km WNW of Tobelo, Indonesia",earthquake,7,3.7,0.117,23,reviewed,us,us
+2014-11-21T12:43:48.480Z,1.8744,126.3199,35,4.7,mb,,105,1.514,1,us,usb000syis,2015-02-18T03:30:51.040Z,"155 km ENE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,7.3,1.9,0.086,45,reviewed,us,us
+2014-11-21T12:46:23.770Z,1.8541,126.2582,35,4.1,mb,,165,1.544,1.16,us,usc000t3yu,2015-02-18T03:30:51.040Z,"148 km ENE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,8,2,0.197,8,reviewed,us,us
+2014-11-21T12:55:15.290Z,1.7577,126.4701,35,4.6,mb,,84,1.327,0.93,us,usc000t3yd,2015-02-18T03:30:51.040Z,"147 km NW of Ternate, Indonesia",earthquake,7.1,1.3,0.101,30,reviewed,us,us
+2014-11-21T14:20:21.000Z,1.6083,126.4423,35.7,4.3,mb,,150,1.242,1.43,us,usc000t3yj,2015-02-18T03:30:51.040Z,"138 km NW of Ternate, Indonesia",earthquake,15.5,13.2,0.177,10,reviewed,us,us
+2014-11-21T17:07:01.090Z,1.7886,126.3735,36.67,4.5,mb,,93,1.416,1.5,us,usb000sym2,2015-02-18T03:30:51.040Z,"157 km NW of Ternate, Indonesia",earthquake,7.8,7.7,0.113,26,reviewed,us,us
+2014-11-21T18:26:37.960Z,2.0876,127.0944,68.55,4.2,mb,,82,1.335,0.83,us,usc000t3xu,2015-02-18T03:30:51.040Z,"109 km WNW of Tobelo, Indonesia",earthquake,7.3,4.9,0.132,20,reviewed,us,us
+2014-11-21T19:33:28.030Z,1.8451,126.5627,59.4,4.2,mb,,175,1.335,0.57,us,usc000t3xe,2015-02-18T03:30:52.040Z,"148 km NW of Ternate, Indonesia",earthquake,8.7,7.5,0.141,15,reviewed,us,us
+2014-11-21T20:40:24.040Z,1.888,126.6786,58.03,4.4,mb,,144,1.304,1.1,us,usb000sypp,2015-02-18T03:30:52.040Z,"144 km NNW of Ternate, Indonesia",earthquake,9.1,9.6,0.105,28,reviewed,us,us
+2014-11-22T05:20:21.990Z,1.8543,126.3553,35,4.2,mb,,116,1.476,1.09,us,usc000t411,2015-02-18T03:30:53.040Z,"158 km ENE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,8.6,2,0.14,16,reviewed,us,us
+2014-11-23T18:26:22.780Z,1.8516,126.5007,55.77,4.7,mb,,123,1.378,0.68,us,usb000szch,2015-02-18T03:30:55.040Z,"153 km NW of Ternate, Indonesia",earthquake,8,9.3,0.102,31,reviewed,us,us
+2014-11-24T05:02:30.180Z,2.246,127.0959,50.2,4.8,mb,,73,1.489,1.16,us,usb000szg0,2015-02-18T03:30:56.040Z,"116 km WNW of Tobelo, Indonesia",earthquake,7,6,0.067,73,reviewed,us,us
+2014-11-25T14:59:17.090Z,1.8295,126.4841,48.37,4.6,mb,,84,1.372,0.86,us,usb000szvw,2015-02-18T03:30:59.040Z,"152 km NW of Ternate, Indonesia",earthquake,6.5,6.6,0.103,37,reviewed,us,us
+2014-11-25T15:28:46.510Z,1.9435,126.7294,31.53,4.2,mb,,150,1.326,0.93,us,usc000t4ur,2015-02-18T03:30:59.040Z,"144 km W of Tobelo, Indonesia",earthquake,8.1,7.4,0.187,9,reviewed,us,us
+2014-11-25T16:29:51.460Z,2.3557,127.0029,37.38,5.1,mb,,71,1.614,0.87,us,usb000szwg,2025-12-22T17:01:48.209Z,"131 km WNW of Tobelo, Indonesia",earthquake,6.9,5.5,0.056,115,reviewed,us,us
+2014-11-25T19:57:02.420Z,1.8756,126.3359,43.56,4.4,mb,,106,1.504,1.21,us,usb000szzd,2015-02-18T03:31:00.040Z,"157 km ENE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,6.6,7.5,0.108,28,reviewed,us,us
+2014-11-26T12:27:27.970Z,2.3985,126.9867,35,4.2,mb,,128,1.659,0.94,us,usc000t57q,2015-02-24T00:35:05.040Z,"135 km WNW of Tobelo, Indonesia",earthquake,9.7,2,0.128,18,reviewed,us,us
+2014-11-26T14:33:43.640Z,1.9604,126.5751,39,6.8,mww,,19,1.421,1.19,us,usb000t08w,2022-07-27T08:49:02.024Z,"157 km NW of Ternate, Indonesia",earthquake,4.3,1.7,,,reviewed,us,us
+2014-11-26T14:43:50.670Z,1.7601,126.1478,35,4.9,mb,,78,1.564,1.3,us,usc000t57f,2015-02-24T00:35:05.040Z,"133 km ENE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,7.3,1.9,0.129,24,reviewed,us,us
+2014-11-26T14:46:36.370Z,2.0864,126.5926,35,4.9,mb,,25,1.517,0.9,us,usb000t09b,2015-02-24T00:35:05.040Z,"162 km WNW of Tobelo, Indonesia",earthquake,7.5,2,0.072,66,reviewed,us,us
+2014-11-26T14:48:31.570Z,1.9395,126.4333,42.61,5.1,mb,,80,1.488,0.83,us,usb000t09d,2015-02-24T00:35:05.040Z,"165 km NW of Ternate, Indonesia",earthquake,7.4,6.2,0.057,101,reviewed,us,us
+2014-11-26T14:49:49.610Z,1.8122,126.4582,30.39,5.6,mb,,20,1.375,0.78,us,usb000t098,2022-05-03T17:07:21.918Z,"152 km NW of Ternate, Indonesia",earthquake,6.8,3.2,0.038,248,reviewed,us,us
+2014-11-26T15:02:47.760Z,1.8354,126.5089,35,5,mb,,54,1.36,1.02,us,usb000t09g,2015-02-24T00:35:05.040Z,"151 km NW of Ternate, Indonesia",earthquake,7.1,1.9,0.065,80,reviewed,us,us
+2014-11-26T15:11:54.130Z,1.8812,126.6246,35,4.1,mb,,113,1.328,1.09,us,usc000t572,2015-02-24T00:35:05.040Z,"147 km NW of Ternate, Indonesia",earthquake,6.2,2,0.151,13,reviewed,us,us
+2014-11-26T15:18:49.760Z,1.925,126.5517,35,4.6,mb,,106,1.405,1.3,us,usb000t0a1,2015-02-24T00:35:06.040Z,"155 km NW of Ternate, Indonesia",earthquake,8.1,2,0.092,37,reviewed,us,us
+2014-11-26T15:20:24.230Z,1.7679,126.3964,34.95,4.2,mb,,119,1.385,0.85,us,usc000t56i,2015-02-24T00:35:06.040Z,"154 km NW of Ternate, Indonesia",earthquake,12.2,10.8,0.215,7,reviewed,us,us
+2014-11-26T15:30:43.500Z,2.1017,126.6836,35,4.2,mb,,86,1.487,1.1,us,usb000t0a6,2015-02-24T00:35:06.040Z,"153 km WNW of Tobelo, Indonesia",earthquake,9,2,0.132,19,reviewed,us,us
+2014-11-26T15:31:56.120Z,1.8079,126.4359,35,4.1,mb,,114,1.387,1.05,us,usc000t573,2015-02-24T00:35:06.040Z,"154 km NW of Ternate, Indonesia",earthquake,10.8,2,0.166,11,reviewed,us,us
+2014-11-26T15:33:54.000Z,1.9481,126.7141,35,4.6,mb,,124,1.338,1.37,us,usc000t57i,2015-02-24T00:35:06.040Z,"146 km W of Tobelo, Indonesia",earthquake,7.8,2,0.119,23,reviewed,us,us
+2014-11-26T15:34:25.420Z,1.8515,126.2227,35,4.5,mb,,124,1.567,1.16,us,usc000t575,2015-02-24T00:35:06.040Z,"144 km ENE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,12.7,2,0.135,18,reviewed,us,us
+2014-11-26T16:03:50.640Z,2.0414,126.7972,38.24,4.1,mb,,155,1.383,0.85,us,usc000t57j,2015-02-24T00:35:06.040Z,"139 km WNW of Tobelo, Indonesia",earthquake,10.1,7.4,0.185,9,reviewed,us,us
+2014-11-26T17:16:02.900Z,1.7711,126.4889,35,5,mb,,68,1.324,1.12,us,usb000t0ax,2015-02-24T00:35:06.040Z,"Molucca Sea",earthquake,6.6,1.4,0.064,80,reviewed,us,us
+2014-11-26T17:43:54.010Z,1.9486,126.5341,42.92,4.5,mb,,101,1.435,0.9,us,usb000t0b3,2015-02-24T00:35:06.040Z,"159 km NW of Ternate, Indonesia",earthquake,8.2,7.3,0.116,23,reviewed,us,us
+2014-11-26T18:23:00.370Z,1.9078,126.6124,46.43,4,mb,,124,1.357,0.28,us,usc000t57x,2015-02-24T00:35:06.040Z,"150 km NW of Ternate, Indonesia",earthquake,9.6,12.6,0.156,12,reviewed,us,us
+2014-11-26T19:47:52.940Z,1.879,126.5788,44.49,4.3,mb,,117,1.352,0.61,us,usb000t0ca,2015-02-24T00:35:06.040Z,"150 km NW of Ternate, Indonesia",earthquake,8.6,4.9,0.122,21,reviewed,us,us
+2014-11-26T19:55:13.180Z,1.9428,126.5745,43.25,4.1,mb,,180,1.407,0.25,us,usc000t577,2015-02-24T00:35:06.040Z,"156 km NW of Ternate, Indonesia",earthquake,10.7,12.5,0.233,6,reviewed,us,us
+2014-11-26T21:07:55.450Z,1.8054,126.4663,29.3,4.6,mb,,105,1.365,0.78,us,usb000t0d6,2015-02-24T00:35:06.040Z,"151 km NW of Ternate, Indonesia",earthquake,6.9,5.3,0.075,56,reviewed,us,us
+2014-11-26T21:28:50.100Z,2.0456,126.658,37.98,4.5,mb,,90,1.45,0.73,us,usb000t0dc,2015-02-24T00:35:06.040Z,"154 km WNW of Tobelo, Indonesia",earthquake,8,1.1,0.083,45,reviewed,us,us
+2014-11-26T22:05:41.740Z,1.9557,126.5706,42.24,4.8,mb,,96,1.42,0.71,us,usb000t0dm,2025-12-22T17:01:51.740Z,"157 km NW of Ternate, Indonesia",earthquake,4.2,5.9,0.061,85,reviewed,us,us
+2014-11-27T05:26:38.450Z,1.8026,126.4557,35,4.7,mb,,103,1.37,1.24,us,usb000t0iw,2015-02-24T00:35:07.040Z,"152 km NW of Ternate, Indonesia",earthquake,7.9,2,0.083,47,reviewed,us,us
+2014-11-27T11:23:38.790Z,1.9607,126.6188,35,4.4,mb,,136,1.397,0.57,us,usc000t5l8,2015-02-24T00:35:07.040Z,"154 km NNW of Ternate, Indonesia",earthquake,6.2,1.9,0.123,20,reviewed,us,us
+2014-11-27T17:17:35.600Z,1.404,126.7132,46.82,4.4,mb,,118,0.906,0.69,us,usb000t0rh,2015-02-24T00:35:08.040Z,"100 km NW of Ternate, Indonesia",earthquake,6.2,7.4,0.112,26,reviewed,us,us
+2014-11-27T23:22:13.440Z,2.0023,126.4927,42.22,4.5,mb,,75,1.502,0.7,us,usb000t0se,2015-02-24T00:35:08.040Z,"166 km NW of Ternate, Indonesia",earthquake,5.1,5.9,0.064,75,reviewed,us,us
+2014-11-28T00:22:03.310Z,1.3045,126.6988,39.46,4.6,mb,,80,0.852,0.92,us,usb000t0sg,2015-02-24T00:35:08.040Z,"95 km NW of Ternate, Indonesia",earthquake,6.6,4.8,0.076,54,reviewed,us,us
+2014-11-28T02:38:17.390Z,1.8448,126.6812,35,4.2,mb,,174,1.267,0.48,us,usc000t5ys,2015-02-24T00:35:08.040Z,"140 km NW of Ternate, Indonesia",earthquake,7.9,2,0.2,10,reviewed,us,us
+2014-11-28T17:05:26.100Z,2.0606,126.827,50.58,4,mb,,173,1.389,0.77,us,usc000t5yb,2015-02-24T00:35:10.040Z,"136 km WNW of Tobelo, Indonesia",earthquake,10.5,7.6,0.173,10,reviewed,us,us
+2014-11-28T19:29:33.660Z,1.9083,126.4369,47.27,5.2,mb,,50,1.462,1.03,us,usb000t0ys,2015-02-24T00:35:10.040Z,"162 km NW of Ternate, Indonesia",earthquake,6.8,4.5,0.049,142,reviewed,us,us
+2014-11-28T19:43:06.940Z,1.7829,126.9795,52.85,4,mb,,130,1.076,0.96,us,usc000t5yk,2015-02-24T00:35:10.040Z,"114 km W of Tobelo, Indonesia",earthquake,10,9.6,0.211,8,reviewed,us,us
+2014-11-28T21:13:07.690Z,2.3877,126.6266,35,4.1,mb,,108,1.767,0.84,us,usc000t5zi,2015-02-24T00:35:10.040Z,"170 km WNW of Tobelo, Indonesia",earthquake,9.5,2,0.117,21,reviewed,us,us
+2014-11-28T23:07:54.530Z,1.5944,126.5562,48.28,4.1,mb,,113,1.15,0.79,us,usc000t5ym,2015-02-24T00:35:10.040Z,"128 km NW of Ternate, Indonesia",earthquake,9.1,5,0.146,14,reviewed,us,us
+2014-11-29T03:28:20.620Z,1.455,126.5855,30.86,4.2,mb,,163,1.034,0.34,us,usc000t61m,2015-02-24T00:35:11.040Z,"115 km NW of Ternate, Indonesia",earthquake,10.6,8.6,0.187,8,reviewed,us,us
+2014-11-29T06:12:52.590Z,2.3038,126.9535,35,4.2,mb,,134,1.576,1.17,us,usc000t614,2015-02-24T00:35:11.040Z,"133 km WNW of Tobelo, Indonesia",earthquake,6.6,2,0.166,11,reviewed,us,us
+2014-11-29T19:40:10.610Z,2.3835,127.0084,37,5.8,mww,,19,1.64,0.81,us,usb000t18g,2022-05-03T18:20:31.112Z,"132 km WNW of Tobelo, Indonesia",earthquake,6.6,1.9,,,reviewed,us,us
+2014-11-29T20:08:35.850Z,2.33,127.0252,36.62,4.2,mb,,111,1.585,0.98,us,usc000t616,2015-02-24T00:35:12.040Z,"128 km WNW of Tobelo, Indonesia",earthquake,9.8,8.9,0.14,15,reviewed,us,us
+2014-11-29T21:23:58.370Z,1.8982,126.5516,47.18,4.8,mb,,96,1.384,0.74,us,usb000t19f,2015-02-24T00:35:12.040Z,"153 km NW of Ternate, Indonesia",earthquake,6.7,6.8,0.059,93,reviewed,us,us
+2014-11-30T06:04:42.640Z,1.9219,126.2817,35,4.1,mb,,168,1.575,0.55,us,usc000t6tu,2015-02-24T00:35:13.040Z,"Molucca Sea",earthquake,7.1,2,0.165,11,reviewed,us,us
+2014-12-01T03:15:33.000Z,2.3138,127.0399,35,4.1,mb,,148,1.566,1.05,us,usc000t6yb,2015-02-24T00:35:14.040Z,"125 km WNW of Tobelo, Indonesia",earthquake,12.9,2,0.144,14,reviewed,us,us
+2014-12-01T03:33:11.000Z,2.3423,127.0825,35,4,mb,,194,1.585,0.59,us,usc000t6y8,2015-02-24T00:35:14.040Z,"123 km WNW of Tobelo, Indonesia",earthquake,12.3,2,0.211,7,reviewed,us,us
+2014-12-01T04:39:55.600Z,1.7941,126.6109,33.25,4.3,mb,,106,1.265,0.87,us,usc000t6yk,2015-02-24T00:35:14.040Z,"140 km NW of Ternate, Indonesia",earthquake,10.3,6.4,0.125,19,reviewed,us,us
+2014-12-01T16:36:57.500Z,1.8969,126.4076,35,4.8,mb,,59,1.472,0.84,us,usb000t1k5,2015-02-24T00:35:15.040Z,"163 km NW of Ternate, Indonesia",earthquake,7.4,1.9,0.073,67,reviewed,us,us
+2014-12-02T00:03:27.410Z,2.0375,126.6761,35,4.3,mb,,129,1.434,0.69,us,usc000t7bl,2015-02-24T00:35:15.040Z,"152 km WNW of Tobelo, Indonesia",earthquake,7.5,2,0.116,22,reviewed,us,us
+2014-12-02T22:40:50.150Z,2.023,126.4956,35,4.4,mb,,117,1.517,0.62,us,usc000t7cm,2015-02-24T00:35:17.040Z,"168 km NW of Ternate, Indonesia",earthquake,6.9,1.9,0.127,18,reviewed,us,us
+2014-12-03T00:27:07.440Z,1.7206,126.2313,29.72,4.7,mb,,190,1.475,0.59,us,usc000t7d8,2015-02-28T02:16:05.040Z,"142 km E of Laikit, Laikit II (Dimembe), Indonesia",earthquake,12.6,8.8,0.208,7,reviewed,us,us
+2014-12-04T00:19:52.290Z,2.2951,126.9565,35,4.4,mb,,106,1.567,0.96,us,usc000t7nj,2015-02-28T02:16:06.040Z,"132 km WNW of Tobelo, Indonesia",earthquake,8.9,1.9,0.162,11,reviewed,us,us
+2014-12-04T12:49:10.290Z,2.0003,126.6877,57.82,4.2,mb,,165,1.396,0.39,us,usc000t3q0,2015-02-28T02:16:07.040Z,"150 km WNW of Tobelo, Indonesia",earthquake,10.7,10.2,0.141,14,reviewed,us,us
+2014-12-05T14:55:54.440Z,2.0031,126.6251,56.54,4.8,mb,,134,1.43,0.6,us,usc000t3zz,2015-02-28T02:16:09.040Z,"156 km W of Tobelo, Indonesia",earthquake,8.8,4.3,0.113,24,reviewed,us,us
+2014-12-05T15:39:04.300Z,1.9723,126.5294,41.52,5.3,mb,,73,1.456,0.88,us,usc000t405,2025-12-22T17:02:12.363Z,"161 km NW of Ternate, Indonesia",earthquake,8.3,5.5,0.07,70,reviewed,us,us
+2014-12-05T20:04:34.850Z,2.0384,126.7584,52.67,4.4,mb,,67,1.397,0.89,us,usc000t7ug,2015-02-28T02:16:09.040Z,"143 km WNW of Tobelo, Indonesia",earthquake,8.3,7.3,0.109,24,reviewed,us,us
+2014-12-06T11:03:01.340Z,1.885,126.4401,35,4.6,mb,,93,1.442,0.61,us,usc000t48x,2015-02-28T02:16:10.040Z,"160 km NW of Ternate, Indonesia",earthquake,8.1,1.7,0.093,35,reviewed,us,us
+2014-12-08T01:28:18.220Z,1.7361,126.9276,117.8,5.2,mb,,70,1.053,1.02,us,usc000t4hj,2015-02-28T02:16:13.040Z,"116 km NNW of Ternate, Indonesia",earthquake,6.6,4.6,0.057,104,reviewed,us,us
+2014-12-08T02:40:15.670Z,2.0151,126.3077,35,4.3,mb,,103,1.626,0.95,us,usc000t9e0,2015-02-28T02:16:13.040Z,"159 km ENE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,9.1,1.9,0.122,19,reviewed,us,us
+2014-12-08T04:41:58.650Z,1.5145,126.6487,38.38,4.6,mb,,154,1.029,0.91,us,usc000t4hz,2015-02-28T02:16:13.040Z,"114 km NW of Ternate, Indonesia",earthquake,8.7,6,0.128,18,reviewed,us,us
+2014-12-08T07:35:52.980Z,1.9374,126.3274,20,5.4,mwb,,34,1.555,0.79,us,usc000t4ij,2025-12-22T17:23:11.305Z,"158 km ENE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,5.4,1.8,0.089,12,reviewed,us,us
+2014-12-09T02:42:38.160Z,2.0029,126.5544,50.39,4.3,mb,,164,1.467,0.96,us,usc000t9pb,2015-02-28T02:16:14.040Z,"162 km NW of Ternate, Indonesia",earthquake,6,11.2,0.16,11,reviewed,us,us
+2014-12-09T03:09:22.520Z,1.5378,126.232,40.71,5.7,mww,,25,1.366,0.54,us,usc000t4qz,2022-05-03T17:08:25.037Z,"140 km E of Laikit, Laikit II (Dimembe), Indonesia",earthquake,5.9,4,,,reviewed,us,us
+2014-12-09T20:33:50.950Z,2.04,126.7151,55.08,4.1,mb,,185,1.418,0.54,us,usc000t9pi,2015-02-28T02:16:16.040Z,"148 km WNW of Tobelo, Indonesia",earthquake,7.8,11.8,0.197,7,reviewed,us,us
+2014-12-10T02:22:22.590Z,1.8493,126.3441,43.48,4.4,mb,,120,1.48,0.86,us,usc000t51e,2015-03-04T21:54:54.040Z,"157 km ENE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,10.4,10.5,0.155,12,reviewed,us,us
+2014-12-10T07:16:49.000Z,1.9115,126.6973,35,4.2,mb,,181,1.315,0.59,us,usc000t9rn,2015-03-04T21:54:54.040Z,"145 km NNW of Ternate, Indonesia",earthquake,7,2,0.199,7,reviewed,us,us
+2014-12-10T15:44:53.890Z,2.1264,126.5974,10,4.3,mb,,106,1.549,1.37,us,usc000t9r7,2015-03-04T21:54:54.040Z,"163 km WNW of Tobelo, Indonesia",earthquake,6.6,1.7,0.137,18,reviewed,us,us
+2014-12-10T17:29:53.430Z,1.9436,126.6441,58.08,4.2,mb,,182,1.369,0.97,us,usc000t9rc,2015-03-04T21:54:55.040Z,"151 km NNW of Ternate, Indonesia",earthquake,11.6,12.4,0.186,9,reviewed,us,us
+2014-12-10T21:18:46.160Z,1.7912,126.2296,28.59,4.8,mb,,74,1.522,0.96,us,usc000t5c9,2015-03-04T21:54:57.040Z,"143 km ENE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,7.8,4.9,0.069,66,reviewed,us,us
+2014-12-11T01:10:33.870Z,2.2876,127.1623,49.28,4.2,mb,,76,1.519,0.55,us,usc000t9sv,2015-03-04T21:54:57.040Z,"112 km WNW of Tobelo, Indonesia",earthquake,9,9.2,0.175,10,reviewed,us,us
+2014-12-13T09:17:49.800Z,1.8131,126.4451,35,5,mb,,56,1.385,0.68,us,usc000t6ah,2015-03-04T21:55:01.040Z,"153 km NW of Ternate, Indonesia",earthquake,6.7,1.9,0.06,100,reviewed,us,us
+2014-12-14T14:14:36.130Z,1.7993,126.2607,35,4.8,mb,,90,1.504,1.21,us,usc000t6j8,2015-03-04T21:55:03.040Z,"147 km ENE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,6.7,1.9,0.074,66,reviewed,us,us
+2014-12-14T18:44:59.690Z,1.8546,126.3884,55.15,4.6,mb,,112,1.453,0.93,us,usc000t6kz,2015-03-04T21:55:03.040Z,"161 km NW of Ternate, Indonesia",earthquake,6.7,8.6,0.094,36,reviewed,us,us
+2014-12-16T15:28:15.220Z,2.2417,126.9889,57.41,4.1,mb,,140,1.508,0.72,us,usc000tcm1,2015-03-04T21:55:06.040Z,"126 km WNW of Tobelo, Indonesia",earthquake,8.9,4.9,0.139,16,reviewed,us,us
+2014-12-17T05:47:05.020Z,1.8192,126.4609,34.15,4.3,mb,,171,1.379,0.61,us,usc000tcn1,2015-03-06T02:58:59.040Z,"Molucca Sea",earthquake,10.6,7.3,0.142,15,reviewed,us,us
+2014-12-20T23:59:34.270Z,2.3972,126.9872,35,4.2,mb,,100,1.658,1.14,us,usc000tcrr,2015-03-06T02:59:06.040Z,"135 km WNW of Tobelo, Indonesia",earthquake,5.3,1.9,0.141,15,reviewed,us,us
+2014-12-21T11:34:13.570Z,2.0892,126.6483,41,6.3,mww,,19,1.492,0.98,us,usc000t8vq,2022-05-03T17:08:41.090Z,"156 km WNW of Tobelo, Indonesia",earthquake,6.1,1.8,,,reviewed,us,us
+2014-12-21T12:14:25.960Z,2.0791,126.7087,35,4.5,mb,,118,1.455,1.11,us,usc000t8vy,2015-03-06T02:59:07.040Z,"149 km WNW of Tobelo, Indonesia",earthquake,6.2,2,0.135,18,reviewed,us,us
+2014-12-21T12:19:03.900Z,2.1257,126.6535,35,4.1,mb,,157,1.522,0.89,us,usc000t8w1,2015-03-06T02:59:07.040Z,"157 km WNW of Tobelo, Indonesia",earthquake,6.7,2,0.198,8,reviewed,us,us
+2014-12-21T13:29:57.120Z,2.0397,126.6015,56.88,5.2,mb,,29,1.473,0.74,us,usc000t8wa,2015-03-06T02:59:07.040Z,"160 km WNW of Tobelo, Indonesia",earthquake,6.4,4.4,0.043,188,reviewed,us,us
+2014-12-21T13:40:41.640Z,2.0551,126.5767,48.53,5.2,mb,,20,1.499,0.68,us,usc000t8wc,2022-05-03T17:08:42.273Z,"163 km WNW of Tobelo, Indonesia",earthquake,5.8,4.5,0.044,181,reviewed,us,us
+2014-12-21T14:01:03.770Z,2.0413,126.561,49.35,4.7,mb,,79,1.496,0.88,us,usc000t8we,2015-03-06T02:59:07.040Z,"164 km WNW of Tobelo, Indonesia",earthquake,6.8,6.3,0.081,48,reviewed,us,us
+2014-12-21T14:18:41.350Z,2.1241,126.6173,53.14,5.2,mb,,40,1.538,0.91,us,usc000t8wi,2025-12-22T17:02:30.558Z,"160 km WNW of Tobelo, Indonesia",earthquake,6.6,4.8,0.053,130,reviewed,us,us
+2014-12-21T18:46:26.650Z,2.0342,126.6279,55.81,4,mb,,181,1.455,0.69,us,usc000tcv3,2015-03-06T02:59:08.040Z,"157 km WNW of Tobelo, Indonesia",earthquake,8.6,12.1,0.149,12,reviewed,us,us
+2014-12-23T10:24:43.980Z,1.6718,126.1861,35,4.2,mb,,161,1.48,0.57,us,usc000td6k,2015-03-06T02:59:12.040Z,"136 km E of Laikit, Laikit II (Dimembe), Indonesia",earthquake,7.6,2,0.167,10,reviewed,us,us
+2014-12-24T08:10:12.620Z,1.8253,126.1943,16.4,4.3,mb,,160,1.571,0.62,us,usc000td8n,2015-03-17T02:36:55.040Z,"140 km ENE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,9.5,7.1,0.161,11,reviewed,us,us
+2014-12-25T17:36:36.720Z,1.9591,126.5646,48.55,4.4,mb,,91,1.426,0.71,us,usc000t9za,2015-03-17T02:37:07.040Z,"158 km NW of Ternate, Indonesia",earthquake,7.9,7.3,0.101,28,reviewed,us,us
+2014-12-25T21:29:47.960Z,1.981,126.4881,50.18,4.6,mb,,110,1.488,0.35,us,usc000team,2015-03-17T02:37:09.040Z,"165 km NW of Ternate, Indonesia",earthquake,5.3,11.1,0.193,8,reviewed,us,us
+2014-12-26T18:42:37.380Z,1.8361,126.4147,47.34,4.4,mb,,105,1.422,1.1,us,usc000teb5,2015-03-17T02:37:19.040Z,"158 km NW of Ternate, Indonesia",earthquake,8.9,7.8,0.126,20,reviewed,us,us
+2014-12-26T21:33:51.440Z,2.0374,126.6598,43.71,4.3,mb,,103,1.442,0.72,us,usc000teb6,2015-03-17T02:37:20.040Z,"154 km WNW of Tobelo, Indonesia",earthquake,9.2,8.8,0.125,20,reviewed,us,us
+2014-12-26T21:51:34.840Z,1.8855,126.3418,35,4.8,mb,,48,1.507,0.75,us,usc000ta4w,2015-03-17T02:37:20.040Z,"158 km ENE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,6.8,1.9,0.065,1,reviewed,us,us
+2014-12-27T15:14:04.310Z,1.2317,126.4224,45.46,4.6,mb,,90,1.048,0.95,us,usc000ta8j,2015-03-17T02:37:30.040Z,"117 km WNW of Ternate, Indonesia",earthquake,6.1,9.2,0.136,19,reviewed,us,us
+2014-12-29T09:10:44.520Z,2.0198,126.6329,41.1,4,mb,,169,1.44,0.73,us,usc000tf8k,2015-03-17T02:37:53.040Z,"156 km WNW of Tobelo, Indonesia",earthquake,9,11.9,0.156,11,reviewed,us,us
+2014-12-29T11:29:46.750Z,1.2475,126.4997,45.81,4.5,mb,,106,0.987,0.59,us,usc000tajb,2015-03-17T02:37:54.040Z,"110 km WNW of Ternate, Indonesia",earthquake,6.4,8.9,0.106,26,reviewed,us,us
+2014-12-29T17:17:26.090Z,1.88,126.2194,88.26,4.4,mb,,106,1.589,0.75,us,usc000tak7,2015-03-17T02:37:57.040Z,"145 km ENE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,8.6,8.2,0.109,24,reviewed,us,us
+2015-01-02T20:11:08.450Z,2.4886,126.4484,48.22,5.1,mb,,45,1.936,0.9,us,usc000tbbg,2015-03-27T07:01:17.040Z,"192 km WNW of Tobelo, Indonesia",earthquake,7,5.6,0.055,105,reviewed,us,us
+2015-01-02T21:09:08.700Z,2.5386,126.8176,35,4.3,mb,,176,1.838,0.91,us,usc000tg4m,2015-03-27T07:01:17.040Z,"160 km NW of Tobelo, Indonesia",earthquake,10,2,0.177,9,reviewed,us,us
+2015-01-03T04:55:46.200Z,2.5639,126.7203,35,4.5,mb,,119,1.893,1.05,us,usc000tgex,2015-03-27T07:01:22.040Z,"170 km WNW of Tobelo, Indonesia",earthquake,8,2,0.14,15,reviewed,us,us
+2015-01-03T06:07:08.510Z,1.8891,126.8205,50.94,4.2,mb,,148,1.236,0.79,us,usc000tge3,2015-03-27T07:01:23.040Z,"133 km W of Tobelo, Indonesia",earthquake,9.4,11.6,0.159,11,reviewed,us,us
+2015-01-08T21:47:26.340Z,1.9814,126.5471,25.02,4.2,mb,,174,1.454,0.32,us,usc000thia,2015-04-10T18:56:34.040Z,"161 km NW of Ternate, Indonesia",earthquake,11.5,4.4,0.198,8,reviewed,us,us
+2015-01-09T21:46:19.340Z,2.4589,126.1431,66.05,4.1,mb,,155,2.074,0.45,us,usc000ths1,2015-04-10T18:56:34.040Z,"168 km NE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,11.5,15.5,0.185,9,reviewed,us,us
+2015-01-10T17:48:51.320Z,2.2129,126.0676,19.45,4.5,mb,,132,1.932,1.33,us,usc000ti9f,2015-04-10T18:56:35.040Z,"145 km ENE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,10,7.1,0.181,10,reviewed,us,us
+2015-01-11T23:51:14.920Z,2.0515,126.0761,61.28,4.6,mb,,99,1.811,0.84,us,usc000tibt,2015-04-10T18:56:36.040Z,"137 km ENE of Laikit, Laikit II (Dimembe), Indonesia",earthquake,8.5,8.1,0.122,20,reviewed,us,us
+2015-01-12T18:53:25.310Z,1.8134,126.397,56.14,4,mb,,169,1.417,0.53,us,usc000til4,2015-04-10T18:56:37.040Z,"157 km NW of Ternate, Indonesia",earthquake,11.9,15,0.212,7,reviewed,us,us

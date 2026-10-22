@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2023-11-27T21:46:42.183Z,-3.5605,144.0313,10,6.5,mww,248,15,3.482,0.5,us,us7000le6w,2024-02-06T21:53:53.040Z,"44 km E of Wewak, Papua New Guinea",earthquake,6.08,1.578,0.093,11,reviewed,us,us
+2023-11-27T21:56:55.221Z,-3.4876,144.055,10,5.1,mb,50,122,3.484,0.37,us,us7000lf4r,2024-02-06T21:53:56.040Z,"47 km E of Wewak, Papua New Guinea",earthquake,10.07,1.874,0.092,39,reviewed,us,us
+2023-11-28T03:11:55.317Z,-3.5027,143.766,10,4.7,mb,31,136,3.212,0.69,us,us7000le8g,2024-02-06T21:53:53.040Z,"15 km ENE of Wewak, Papua New Guinea",earthquake,6.73,1.911,0.12,21,reviewed,us,us
+2023-11-28T03:17:47.469Z,-3.5245,144.0816,10,4.4,mb,16,154,3.52,0.22,us,us7000lf5s,2024-02-06T21:53:56.040Z,"50 km E of Wewak, Papua New Guinea",earthquake,8.68,1.883,0.155,12,reviewed,us,us
+2023-11-28T17:25:28.860Z,-3.5032,143.745,10,4.5,mb,34,125,3.191,0.65,us,us7000lf67,2024-02-06T21:53:57.040Z,"13 km ENE of Wewak, Papua New Guinea",earthquake,7.18,1.867,0.11,24,reviewed,us,us

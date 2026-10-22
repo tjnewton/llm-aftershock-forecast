@@ -1,0 +1,18 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2018-10-10T23:16:02.130Z,49.2902,156.2968,20,6.5,mww,,14,3.923,0.64,us,us1000hacw,2022-05-03T19:34:52.115Z,"154 km S of Severo-Kuril’sk, Russia",earthquake,7.4,1.8,0.053,34,reviewed,us,us
+2018-10-10T23:19:42.580Z,49.1265,156.302,10,5.2,mb,,195,4.173,0.66,us,us1000hcxg,2018-12-21T21:15:53.040Z,"172 km S of Severo-Kuril’sk, Russia",earthquake,7.5,2,0.159,13,reviewed,us,us
+2018-10-10T23:21:50.620Z,49.2,156.28,10,5.5,mb,,65,4.014,0.57,us,us1000hcxa,2022-05-03T19:34:53.221Z,"164 km S of Severo-Kuril’sk, Russia",earthquake,8,1.8,0.048,148,reviewed,us,us
+2018-10-10T23:26:12.490Z,49.1392,156.193,10,4.8,mb,,112,4.086,0.62,us,us1000hcxb,2018-12-21T21:15:53.040Z,"170 km S of Severo-Kuril’sk, Russia",earthquake,10.5,1.9,0.095,34,reviewed,us,us
+2018-10-10T23:53:34.430Z,49.2192,156.4734,10,4.4,mb,,190,3.97,0.74,us,us1000hcxd,2018-12-21T21:15:53.040Z,"163 km S of Severo-Kuril’sk, Russia",earthquake,7.4,2,0.162,11,reviewed,us,us
+2018-10-11T00:14:18.740Z,49.4323,156.0849,10,4.7,mb,,177,3.818,0.5,us,us1000hae0,2018-12-21T21:15:49.040Z,"138 km S of Severo-Kuril’sk, Russia",earthquake,7.4,1.9,0.099,31,reviewed,us,us
+2018-10-11T00:14:39.760Z,49.3262,156.2063,10,5.4,mb,,73,3.901,0.71,us,us1000hadv,2018-12-21T21:15:49.040Z,"150 km S of Severo-Kuril’sk, Russia",earthquake,8.3,1.8,0.039,228,reviewed,us,us
+2018-10-11T01:30:20.900Z,49.3443,156.0955,10,5,mb,,135,3.901,0.44,us,us1000haf0,2018-12-21T21:15:49.040Z,"148 km S of Severo-Kuril’sk, Russia",earthquake,9.8,1.9,0.064,78,reviewed,us,us
+2018-10-11T02:16:16.320Z,49.2243,156.1998,10,5.2,mb,,83,4.002,0.64,us,us1000haff,2022-05-03T20:17:13.784Z,"161 km S of Severo-Kuril’sk, Russia",earthquake,8.5,1.8,0.026,485,reviewed,us,us
+2018-10-11T03:38:38.410Z,49.2508,156.1857,10,4.8,mb,,135,3.978,0.59,us,us1000hagg,2018-12-21T21:15:49.040Z,"158 km S of Severo-Kuril’sk, Russia",earthquake,10.2,1.9,0.052,116,reviewed,us,us
+2018-10-11T05:47:32.930Z,49.1973,156.1499,10,5.2,mb,,93,4.035,0.74,us,us1000hah2,2025-12-22T17:51:30.078Z,"164 km S of Severo-Kuril’sk, Russia",earthquake,8.5,1.8,0.026,494,reviewed,us,us
+2018-10-11T06:32:01.720Z,49.1239,156.2594,10,4.4,mb,,167,4.091,0.64,us,us1000hdc9,2018-12-21T21:15:54.040Z,"172 km S of Severo-Kuril’sk, Russia",earthquake,5.7,2,0.169,10,reviewed,us,us
+2018-10-11T15:08:10.420Z,49.2413,156.2354,17.03,5.1,mww,,33,3.98,0.73,us,us1000hamb,2025-12-22T17:51:30.869Z,"159 km S of Severo-Kuril’sk, Russia",earthquake,8.5,3.4,0.078,16,reviewed,us,us
+2018-10-12T13:58:37.050Z,49.1822,156.2022,10,4.8,mb,,189,4.042,0.9,us,us1000hb2e,2018-12-21T21:15:50.040Z,"166 km S of Severo-Kuril’sk, Russia",earthquake,10.7,2,0.093,36,reviewed,us,us
+2018-10-12T22:22:01.600Z,49.3107,156.1359,10,4.9,mb,,135,3.927,0.66,us,us1000hbe6,2025-12-22T17:51:31.844Z,"151 km S of Severo-Kuril’sk, Russia",earthquake,8.6,1.9,0.035,261,reviewed,us,us
+2018-10-14T03:44:19.360Z,49.4406,155.9454,40.92,4.4,mb,,138,3.834,0.76,us,us1000hdzf,2018-12-21T21:15:55.040Z,"137 km S of Severo-Kuril’sk, Russia",earthquake,12.3,8.8,0.134,16,reviewed,us,us
+2018-10-20T09:51:20.510Z,49.3746,156.1303,42.62,4.8,mb,,161,3.866,0.58,us,us1000hexl,2018-12-21T22:27:07.040Z,"144 km S of Severo-Kuril’sk, Russia",earthquake,10.4,4.2,0.048,132,reviewed,us,us

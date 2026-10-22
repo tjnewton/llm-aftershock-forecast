@@ -1,0 +1,11 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-08-18T00:03:48.566Z,12.0257,124.1272,10,6.6,mww,,14,5.128,0.73,us,us6000bgbr,2025-12-22T19:05:30.242Z,"13 km E of San Pedro, Philippines",earthquake,7.1,1.6,0.06,27,reviewed,us,us
+2020-08-18T00:23:01.898Z,12.1007,124.0724,10,4.5,mb,,74,5.215,0.55,us,us7000bclm,2020-10-24T20:09:12.040Z,"11 km ENE of Pawican, Philippines",earthquake,5.8,1.8,0.088,38,reviewed,us,us
+2020-08-18T03:45:01.936Z,11.9463,124.129,10,4.4,mb,,136,24.5,0.79,us,us7000bclw,2020-10-24T20:09:12.040Z,"11 km NE of Limbuhan, Philippines",earthquake,8.4,1.9,0.162,11,reviewed,us,us
+2020-08-18T08:04:45.487Z,11.9145,124.1123,10,4.4,mb,,134,25.129,0.46,us,us7000bclt,2020-10-24T20:09:12.040Z,"7 km ENE of Limbuhan, Philippines",earthquake,11.1,1.9,0.24,5,reviewed,us,us
+2020-08-18T09:20:20.119Z,11.9316,124.2718,10,4.5,mb,,136,33.189,0.31,us,us7000bclx,2020-10-24T20:09:12.040Z,"19 km W of Santo Niño, Philippines",earthquake,10.9,1.9,0.144,14,reviewed,us,us
+2020-08-18T10:18:18.254Z,11.9187,124.304,10,4.7,mb,,136,4.979,0.59,us,us7000bclz,2020-10-24T20:09:12.040Z,"15 km W of Santo Niño, Philippines",earthquake,14.9,1.9,0.153,13,reviewed,us,us
+2020-08-18T11:21:23.806Z,11.9913,124.1354,10,4.6,mb,,116,5.093,0.75,us,us7000bcm1,2020-10-24T20:09:12.040Z,"15 km E of San Pedro, Philippines",earthquake,9.9,1.9,0.07,61,reviewed,us,us
+2020-08-18T21:50:45.773Z,11.9572,124.2088,10,4.8,mb,,75,5.041,0.61,us,us6000bguy,2025-12-22T19:05:39.917Z,"19 km ENE of Limbuhan, Philippines",earthquake,7.1,1.8,0.069,65,reviewed,us,us
+2020-08-18T21:57:50.655Z,11.7694,124.1328,10,4.6,mb,,133,4.883,0.43,us,us6000bgv9,2020-10-24T20:09:05.040Z,"15 km SE of Limbuhan, Philippines",earthquake,10.6,1.9,0.107,26,reviewed,us,us
+2020-09-23T04:05:54.675Z,12.1574,123.9092,10,4.5,mb,,105,5.316,0.77,us,us6000c2j6,2020-12-05T21:03:06.040Z,"1 km NW of Palanas, Philippines",earthquake,9.8,1.8,0.145,14,reviewed,us,us

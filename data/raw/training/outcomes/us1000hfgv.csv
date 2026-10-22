@@ -1,0 +1,17 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2018-10-22T06:16:26.450Z,49.3346,-129.289,10,6.8,mww,,36,1.505,1.09,us,us1000hfgv,2022-05-03T19:35:42.430Z,"210 km SW of Port McNeill, Canada",earthquake,6,1.8,0.042,55,reviewed,us,us
+2018-10-22T06:22:48.120Z,49.297,-129.7237,10,6.5,mww,,68,1.692,0.71,us,us1000hfh3,2022-05-03T19:35:47.549Z,"237 km SW of Port McNeill, Canada",earthquake,3.3,1.7,0.071,19,reviewed,us,us
+2018-10-22T06:28:21.000Z,49.4363,-129.3854,10,4.4,mb,,167,1.45,0.98,us,us1000hh2n,2019-01-10T17:18:36.040Z,"208 km SW of Port McNeill, Canada",earthquake,6.3,1.8,0.13,17,reviewed,us,us
+2018-10-22T06:31:45.180Z,49.5072,-129.0661,10,4.5,mb,,170,1.283,0.95,us,us1000hh2v,2019-01-10T17:18:36.040Z,"186 km SW of Port McNeill, Canada",earthquake,8.4,2,0.11,24,reviewed,us,us
+2018-10-22T06:36:07.090Z,49.3296,-129.6659,10,4.9,mb,,85,1.643,0.93,us,us1000hfhb,2019-01-10T17:18:33.040Z,"232 km SW of Port McNeill, Canada",earthquake,6.3,1.8,0.039,209,reviewed,us,us
+2018-10-22T06:48:51.160Z,49.5838,-129.6508,10,4.1,mb,,175,1.439,0.99,us,us1000hh2q,2019-01-10T17:18:36.040Z,"214 km WSW of Port McNeill, Canada",earthquake,8.8,2,0.234,5,reviewed,us,us
+2018-10-22T07:13:08.340Z,49.1773,-128.8393,10,4.3,mb,,92,1.534,0.98,us,us1000hfhp,2019-01-10T17:18:33.040Z,"201 km SW of Port McNeill, Canada",earthquake,3.9,1.9,0.044,149,reviewed,us,us
+2018-10-22T08:43:21.450Z,49.3023,-129.39,10,4.4,mb,,156,1.566,1.05,us,us1000hfis,2019-01-10T17:18:33.040Z,"218 km SW of Port McNeill, Canada",earthquake,5.4,1.9,0.033,263,reviewed,us,us
+2018-10-22T13:25:02.790Z,49.3578,-129.5534,10,4.2,mb,,170,1.577,1.06,us,us1000hfl5,2019-01-10T17:18:33.040Z,"223 km SW of Port McNeill, Canada",earthquake,8.9,2,0.044,146,reviewed,us,us
+2018-10-22T13:42:19.090Z,49.2969,-129.209,10,4.3,mb,,165,1.513,0.89,us,us1000hflb,2019-01-10T17:18:33.040Z,"209 km SW of Port McNeill, Canada",earthquake,8.5,2,0.049,116,reviewed,us,us
+2018-10-22T14:00:00.670Z,49.3069,-129.4995,10,4.6,mb,,163,1.6,0.79,us,us1000hflf,2019-01-10T17:18:33.040Z,"224 km SW of Port McNeill, Canada",earthquake,7,1.9,0.035,237,reviewed,us,us
+2018-10-22T16:27:00.900Z,49.0689,-128.9922,10,5.2,mww,,80,1.668,1.01,us,us1000hfn8,2025-12-22T17:51:46.598Z,"217 km SW of Port McNeill, Canada",earthquake,6.8,1.9,0.04,60,reviewed,us,us
+2018-10-23T23:07:38.680Z,49.1768,-129.5261,10,4,mb,,172,1.719,0.8,us,us1000hgbt,2019-01-10T17:18:34.040Z,"235 km SW of Port McNeill, Canada",earthquake,7.9,2,0.098,28,reviewed,us,us
+2018-11-01T04:22:19.760Z,49.3356,-129.3083,10,4.9,mww,,84,1.51,0.83,us,us2000i53f,2025-12-22T17:52:00.644Z,"211 km SW of Port McNeill, Canada",earthquake,7.2,1.9,0.039,63,reviewed,us,us
+2018-11-05T20:25:35.860Z,49.2407,-129.4142,10,4.3,mb,,165,1.627,1.24,us,us2000i755,2022-08-08T09:55:55.826Z,"224 km SW of Port McNeill, Canada",earthquake,7.9,2,0.04,180,reviewed,us,us
+2018-12-09T16:20:13.320Z,49.0257,-128.8745,10,5.4,mww,,163,1.686,1.05,us,us1000i5cf,2025-12-22T17:52:47.834Z,"213 km WSW of Vernon, Canada",earthquake,7.7,1.9,0.04,59,reviewed,us,us

@@ -1,0 +1,26 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2010-12-20T18:41:59.200Z,28.412,59.18,12,6.7,mwc,279,24.3,,1.21,us,usp000hr7k,2022-07-19T01:38:06.287Z,"111 km SE of Bam, Iran",earthquake,,,,,reviewed,us,us
+2010-12-20T18:50:23.100Z,28.302,59.195,14.1,4.2,mb,38,68.1,,,us,usp000hr7m,2014-11-07T01:43:10.220Z,"121 km SE of Bam, Iran",earthquake,,,,1,reviewed,thr,us
+2010-12-20T18:56:53.810Z,28.402,58.942,10,4.2,mb,15,65.5,,1.09,us,usp000hr7n,2014-11-07T01:43:10.224Z,"96 km SE of Bam, Iran",earthquake,,,,1,reviewed,us,us
+2010-12-20T22:12:58.800Z,28.282,59.224,15,4.9,mb,90,68.4,,,us,usp000hr7v,2014-11-07T01:43:10.247Z,"124 km SE of Bam, Iran",earthquake,,,,30,reviewed,thr,us
+2010-12-20T23:49:11.400Z,28.433,59.045,34.3,4,mb,40,135.4,,,us,usp000hr7x,2014-11-07T01:43:10.264Z,"100 km SE of Bam, Iran",earthquake,,,,8,reviewed,teh,us
+2010-12-21T01:01:39.000Z,28.27,59.21,12,4.1,mblg,26,68.3,,,us,usp000hr81,2014-11-07T01:43:10.277Z,"124 km SE of Bam, Iran",earthquake,,,,,reviewed,teh,teh
+2010-12-21T12:14:18.380Z,28.161,59.058,10,4.3,mb,36,66.9,,0.94,us,usp000hr90,2014-11-07T01:43:10.426Z,"125 km SSE of Bam, Iran",earthquake,,,,12,reviewed,us,us
+2010-12-25T22:24:16.600Z,28.435,59.058,43.6,4.2,mb,53,88.5,,,us,usp000hryp,2014-11-07T01:43:14.511Z,"101 km SE of Bam, Iran",earthquake,,,,17,reviewed,thr,us
+2010-12-28T19:01:42.600Z,28.399,59.282,12.8,4.1,mblg,26,119.7,,,us,usp000hs71,2014-11-07T01:43:16.117Z,"119 km SE of Bam, Iran",earthquake,,,,,reviewed,teh,teh
+2011-01-02T15:23:45.770Z,28.262,59.308,10,4.1,ml,18,125.3,,1.14,us,usp000hsff,2014-11-07T01:43:20.245Z,"131 km SE of Bam, Iran",earthquake,,,,,reviewed,us,thr
+2011-01-27T07:02:03.400Z,28.167,58.907,10,4.9,mwc,92,65.3,,1.27,us,usp000htpx,2014-11-07T01:43:30.317Z,"Southeastern Iran",earthquake,,,,,reviewed,us,gcmt
+2011-01-27T07:18:16.100Z,28.247,59.026,5,4,mblg,11,82.5,,,us,usp000htpy,2014-11-07T01:43:30.359Z,"115 km SE of Bam, Iran",earthquake,,,,,reviewed,teh,teh
+2011-01-27T08:38:28.340Z,28.195,59.015,10,6.2,mww,296,24.1,,1.05,us,usp000htpz,2022-07-19T03:06:05.439Z,"119 km SSE of Bam, Iran",earthquake,,,,,reviewed,us,us
+2011-01-27T08:43:26.730Z,28.128,59.057,10,5,mb,50,50.8,,1.18,us,usp000htq0,2022-04-08T21:32:39.387Z,"128 km SSE of Bam, Iran",earthquake,,,,3,reviewed,us,us
+2011-01-27T09:07:54.800Z,28.23,58.96,22,4.8,mblg,38,116.8,,,us,usp000htq1,2014-11-07T01:43:30.430Z,"113 km SSE of Bam, Iran",earthquake,,,,,reviewed,teh,teh
+2011-01-27T15:01:43.160Z,28.116,59.001,10,4.3,mb,58,66.3,,1.35,us,usp000htqe,2014-11-07T01:43:30.483Z,"126 km SSE of Bam, Iran",earthquake,,,,15,reviewed,us,us
+2011-01-27T21:49:45.800Z,28.406,58.958,7,4,mb,29,68.9,,,us,usp000htr0,2014-11-07T01:43:30.591Z,"97 km SE of Bam, Iran",earthquake,,,,7,reviewed,teh,us
+2011-01-28T04:20:36.300Z,28.15,59.07,15,5.2,mwc,148,46.1,,,us,usp000htrf,2022-04-08T21:32:30.006Z,"126 km SSE of Bam, Iran",earthquake,,,,,reviewed,thr,gcmt
+2011-01-28T05:06:49.500Z,28.42,58.93,21,4.5,mb,76,65.4,,,us,usp000htrj,2014-11-07T01:43:30.662Z,"94 km SE of Bam, Iran",earthquake,,,,22,reviewed,teh,us
+2011-01-28T06:34:04.100Z,28.44,58.96,14,4,mb,28,162.7,,,us,usp000htrp,2014-11-07T01:43:30.676Z,"94 km SE of Bam, Iran",earthquake,,,,7,reviewed,teh,us
+2011-01-28T12:41:24.400Z,28.279,59.137,14.1,4.1,ml,14,218,,,us,usp000hts1,2014-11-07T01:43:30.772Z,"119 km SE of Bam, Iran",earthquake,,,,,reviewed,thr,thr
+2011-01-29T00:50:18.000Z,28.15,59.08,15,4.4,mb,40,95.8,,,us,usp000htsv,2014-11-07T01:43:31.006Z,"127 km SSE of Bam, Iran",earthquake,,,,22,reviewed,thr,us
+2011-01-29T04:43:19.000Z,28.33,59.02,16,4.6,mb,92,63.7,,,us,usp000htt1,2014-11-07T01:43:31.296Z,"107 km SE of Bam, Iran",earthquake,,,,29,reviewed,teh,us
+2011-01-29T14:56:19.200Z,28.23,59.07,14.1,4,ml,20,136.1,,,us,usp000httg,2014-11-07T01:43:31.493Z,"119 km SE of Bam, Iran",earthquake,,,,,reviewed,thr,thr
+2011-01-30T17:56:10.300Z,28.21,59.11,16,4.1,mb,47,67.4,,,us,usp000htvb,2014-11-07T01:43:31.737Z,"123 km SE of Bam, Iran",earthquake,,,,9,reviewed,thr,us

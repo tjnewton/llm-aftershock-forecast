@@ -1,0 +1,13 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-07-12T19:16:58.460Z,-22.5907,-114.2583,10,6.8,mww,213,30,6.355,0.86,us,us6000i1wg,2022-11-23T14:49:06.958Z,"Easter Island region",earthquake,9.25,1.72,0.04,59,reviewed,us,us
+2022-07-12T21:47:56.574Z,-22.4641,-114.0216,10,5.6,mww,120,42,32.846,0.69,us,us6000i1xv,2024-01-18T16:40:10.490Z,"Easter Island region",earthquake,12.87,1.487,0.048,41,reviewed,us,us
+2022-07-12T22:17:02.944Z,-22.4496,-114.1974,10,4.8,mb,80,100,28.343,0.61,us,us7000hs4t,2022-09-24T21:25:49.040Z,"Easter Island region",earthquake,14.25,1.859,0.063,77,reviewed,us,us
+2022-07-13T00:19:58.067Z,-22.2806,-113.9757,10,4.7,mb,60,113,28.462,0.47,us,us6000i1zh,2022-09-24T21:25:48.040Z,"Easter Island region",earthquake,15.92,1.901,0.07,62,reviewed,us,us
+2022-07-13T00:27:19.898Z,-22.4166,-113.8361,10,4.9,mb,65,76,6.223,0.57,us,us6000i1zf,2022-09-24T21:25:48.040Z,"Easter Island region",earthquake,8.1,1.825,0.068,68,reviewed,us,us
+2022-07-13T11:40:45.011Z,-22.6729,-114.2318,10,4.5,mb,22,98,6.279,0.53,us,us7000hsf5,2024-01-18T16:40:12.051Z,"Easter Island region",earthquake,9.1,1.8,0.131,19,reviewed,us,us
+2022-07-13T14:44:06.661Z,-22.5249,-114.3545,10,4.5,mb,16,99,6.464,0.8,us,us7000hsfb,2022-09-24T21:25:45.040Z,"Easter Island region",earthquake,13.99,1.931,0.171,11,reviewed,us,us
+2022-07-14T03:27:56.302Z,-22.5656,-114.2435,10,4.9,mb,45,75,40.897,0.56,us,us6000i2aj,2022-09-24T21:25:41.040Z,"Easter Island region",earthquake,15.7,1.8,0.053,112,reviewed,us,us
+2022-07-16T09:43:03.032Z,-22.5316,-114.1373,10,4.8,mb,99,81,33.588,0.45,us,us6000i30c,2022-09-27T16:56:52.040Z,"Easter Island region",earthquake,13.75,1.902,0.047,141,reviewed,us,us
+2022-07-16T10:31:57.160Z,-22.6172,-114.1405,10,4.9,mb,97,155,37.048,0.57,us,us6000i30n,2022-09-27T16:56:53.040Z,"Easter Island region",earthquake,15,1.908,0.035,255,reviewed,us,us
+2022-07-17T23:20:46.729Z,-22.4454,-114.2308,10,5.6,mww,82,63,6.442,0.59,us,us6000i3bs,2022-09-27T16:56:58.040Z,"Easter Island region",earthquake,10.4,1.8,0.083,14,reviewed,us,us
+2022-07-19T23:17:44.535Z,-22.4863,-113.8956,10,4.4,mb,53,124,37.794,0.66,us,us6000i67f,2022-09-27T16:57:04.040Z,"Easter Island region",earthquake,14.2,1.643,0.081,44,reviewed,us,us

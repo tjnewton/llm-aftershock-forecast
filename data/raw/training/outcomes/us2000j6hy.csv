@@ -1,0 +1,21 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2019-01-20T01:32:52.480Z,-30.0404,-71.3815,63,6.7,mww,,22,0.173,1.47,us,us2000j6hy,2025-12-22T18:02:58.269Z,"10 km SSW of Coquimbo, Chile",earthquake,5.8,1.8,0.036,73,reviewed,us,us
+2019-01-20T02:36:00.260Z,-30.0756,-71.408,59.28,4.3,mb,,91,0.214,1.14,us,us2000j6iw,2019-04-05T21:41:01.040Z,"15 km SSW of Coquimbo, Chile",earthquake,6.7,5.7,0.177,9,reviewed,us,us
+2019-01-20T04:59:45.780Z,-30.0998,-71.3611,60.97,4.4,mb,,101,0.209,0.86,us,us2000j6k2,2019-04-05T21:41:01.040Z,"16 km S of Coquimbo, Chile",earthquake,2.7,6.2,0.24,6,reviewed,us,us
+2019-01-20T07:39:27.020Z,-30.1422,-71.3507,62.7,4,mb,,128,0.243,0.59,us,us2000j6kt,2019-04-05T21:41:01.040Z,"20 km S of Coquimbo, Chile",earthquake,3,5.9,0.367,2,reviewed,us,us
+2019-01-22T00:41:20.660Z,-30.0953,-71.4701,49.52,4.6,mb,,99,0.267,0.92,us,us2000j71c,2019-04-12T17:13:45.040Z,"20 km SW of Coquimbo, Chile",earthquake,6.3,6.3,0.133,17,reviewed,us,us
+2019-01-22T13:44:47.320Z,-30.2224,-71.6299,43.82,4.8,mb,,147,0.454,0.71,us,us2000j78i,2019-04-12T17:13:57.040Z,"40 km SW of Coquimbo, Chile",earthquake,7.8,1.3,0.393,2,reviewed,us,us
+2019-01-22T16:19:26.450Z,-30.1362,-71.5813,47.09,4.8,mb,,90,0.368,0.87,us,us2000j7ac,2019-04-12T17:14:00.040Z,"30 km SW of Coquimbo, Chile",earthquake,5.6,6.1,0.321,7,reviewed,us,us
+2019-01-24T10:28:28.420Z,-30.1191,-71.3753,58.3,5.1,mb,,61,0.232,1.13,us,us2000j86l,2019-04-12T17:14:34.040Z,"18 km S of Coquimbo, Chile",earthquake,6.7,0.8,0.036,245,reviewed,us,us
+2019-01-25T08:29:17.680Z,-30.1795,-71.5061,64.23,4.6,mb,,105,0.348,0.92,us,us2000j8pl,2019-04-12T17:14:56.040Z,"29 km SSW of Coquimbo, Chile",earthquake,5.4,6.9,0.172,10,reviewed,us,us
+2019-01-26T07:48:54.120Z,-30.0543,-71.5357,57.62,4.4,mb,,128,0.291,0.78,us,us2000j94t,2019-04-12T17:15:19.040Z,"21 km WSW of Coquimbo, Chile",earthquake,6.9,10.1,0.219,6,reviewed,us,us
+2019-01-28T03:33:36.320Z,-29.6795,-71.3763,37.12,4.4,mb,,136,0.266,1.27,us,us2000j9kh,2019-04-12T17:15:59.040Z,"27 km NNW of La Serena, Chile",earthquake,4,7.9,0.13,17,reviewed,us,us
+2019-02-12T14:13:09.050Z,-29.6813,-71.2978,35,4.1,ml,,171,0.242,0.71,us,us2000jgnn,2019-05-01T22:00:35.040Z,"25 km N of La Serena, Chile",earthquake,5.6,2,0.051,50,reviewed,us,us
+2019-02-15T07:00:06.580Z,-30.0228,-71.3881,36.52,4.5,mb,,131,0.166,1.05,us,us2000jibh,2019-05-01T22:00:46.040Z,"Near the coast of Coquimbo, Chile",earthquake,4.2,11.3,0.312,3,reviewed,us,us
+2019-02-25T22:54:32.530Z,-29.6718,-71.3338,35.82,4.5,mwr,,117,0.259,0.89,us,us2000jn53,2019-05-11T17:40:53.040Z,"27 km NNW of La Serena, Chile",earthquake,4.3,4.4,0.039,63,reviewed,us,us
+2019-02-26T08:47:26.280Z,-30.1663,-71.4669,47.16,4.9,mb,,78,0.316,1,us,us2000jnt0,2019-05-14T18:36:30.040Z,"26 km SSW of Coquimbo, Chile",earthquake,4.9,3.9,0.044,162,reviewed,us,us
+2019-03-05T16:31:26.050Z,-29.8891,-71.8443,10.07,4.4,mb,,202,0.802,1.15,us,us1000jaux,2019-05-24T21:21:06.040Z,"49 km W of Coquimbo, Chile",earthquake,5.9,1.8,0.24,5,reviewed,us,us
+2019-03-07T06:34:09.414Z,-30.0876,-71.3535,67.36,4.3,mb,,154,0.487,0.63,us,us1000jbrq,2019-05-24T21:21:12.040Z,"14 km S of Coquimbo, Chile",earthquake,5.1,3.6,0.16,11,reviewed,us,us
+2019-03-09T02:16:58.576Z,-30.2237,-71.3998,45.71,4.6,mwr,,94,0.492,1,us,us1000jcrf,2019-05-24T21:21:20.040Z,"30 km S of Coquimbo, Chile",earthquake,3.8,5,0.036,76,reviewed,us,us
+2019-03-16T18:06:15.402Z,-29.7721,-71.5547,41,5.2,mww,,52,0.767,1.44,us,us1000jh4d,2025-12-22T18:06:19.651Z,"28 km NW of Coquimbo, Chile",earthquake,4.9,1.9,0.069,20,reviewed,us,us
+2019-03-18T23:56:43.950Z,-30.1839,-71.2386,69.27,4,mb,,149,0.38,0.91,us,us1000ji8p,2019-06-01T21:24:25.040Z,"27 km SSE of Coquimbo, Chile",earthquake,5.7,3.3,0.212,6,reviewed,us,us

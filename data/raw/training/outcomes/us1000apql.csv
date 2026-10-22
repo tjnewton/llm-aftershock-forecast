@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2017-10-10T18:53:27.830Z,-54.2632,8.6086,9,6.7,mww,,20,18.167,1.08,us,us1000apql,2022-05-03T19:59:55.931Z,"Bouvet Island region",earthquake,8.8,1.8,0.083,14,reviewed,us,us
+2017-10-11T00:08:26.300Z,-54.2586,8.3362,10,5.6,mww,,74,18.139,0.88,us,us1000apzz,2022-05-03T20:02:17.999Z,"Bouvet Island region",earthquake,11.7,1.8,0.089,12,reviewed,us,us
+2017-10-13T09:34:50.150Z,-54.2592,8.0851,10,4.5,mb,,116,18.11,0.34,us,us1000auki,2018-01-09T02:14:58.040Z,"Bouvet Island region",earthquake,11.5,1.9,0.171,10,reviewed,us,us

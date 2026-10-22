@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2021-05-19T00:42:19.688Z,-33.0647,-109.3943,10,6.7,mww,,31,5.884,0.95,us,us7000e4aw,2025-12-22T18:00:55.285Z,"southern East Pacific Rise",earthquake,10.5,1.7,0.083,14,reviewed,us,us
+2021-06-21T15:15:11.974Z,-33.2343,-109.5199,10,5.2,mb,,129,6.054,0.84,us,us7000eexm,2025-12-22T19:02:50.967Z,"southern East Pacific Rise",earthquake,14.3,1.9,0.047,147,reviewed,us,us
+2021-06-28T04:21:05.644Z,-33.2886,-109.6464,10,5.4,mww,,61,6.11,0.82,us,us6000eqez,2025-12-22T19:03:09.446Z,"southern East Pacific Rise",earthquake,9.4,1.7,0.075,17,reviewed,us,us

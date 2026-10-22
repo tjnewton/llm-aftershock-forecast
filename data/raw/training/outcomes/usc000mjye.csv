@@ -1,0 +1,9 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2014-02-07T08:40:13.550Z,-15.0691,167.3721,122,6.5,mww,,20,0.409,1.15,us,usc000mjye,2022-05-03T16:41:17.643Z,"32 km E of Port-Olry, Vanuatu",earthquake,,1.8,,,reviewed,us,us
+2014-02-08T19:14:48.380Z,-15.1687,167.5458,135.35,4.5,mb,,148,0.431,0.8,us,usc000ml44,2014-04-22T18:30:09.000Z,"52 km ESE of Port-Olry, Vanuatu",earthquake,,5.1,0.108,27,reviewed,us,us
+2014-02-10T15:49:39.440Z,-15.1422,167.4501,120.32,4.7,mb,,120,0.385,1.13,us,usc000mxs9,2014-04-22T18:30:12.000Z,"42 km ESE of Port-Olry, Vanuatu",earthquake,,5.7,0.184,16,reviewed,us,us
+2014-02-12T00:09:37.320Z,-15.037,167.3349,120.91,5.2,mb,,27,0.427,0.7,us,usc000mnln,2025-12-22T16:28:17.231Z,"28 km E of Port-Olry, Vanuatu",earthquake,,3.8,0.045,183,reviewed,us,us
+2014-02-20T21:18:18.570Z,-15.0346,167.6348,259.15,4.6,mb,,60,0.584,0.78,us,usc000murv,2014-05-07T00:03:04.000Z,"60 km E of Port-Olry, Vanuatu",earthquake,,4.8,0.057,90,reviewed,us,us
+2014-03-04T06:44:48.990Z,-15.326,167.5197,120.6,4.7,mb,,54,0.328,0.78,us,usb000n0k8,2014-05-13T21:36:51.000Z,"43 km ENE of Luganville, Vanuatu",earthquake,,3.7,0.085,42,reviewed,us,us
+2014-03-05T17:34:19.590Z,-14.7947,167.2548,109.6,5.6,mwb,,35,7.278,0.87,us,usb000n1mk,2022-05-03T16:46:43.517Z,"33 km NE of Port-Olry, Vanuatu",earthquake,,3.8,0.058,29,reviewed,us,us
+2014-03-24T09:00:19.530Z,-14.9175,167.4316,142.88,4.4,mb,,187,7.177,0.61,us,usc000p34k,2014-05-24T00:54:43.000Z,"40 km ENE of Port-Olry, Vanuatu",earthquake,,13.9,0.162,12,reviewed,us,us

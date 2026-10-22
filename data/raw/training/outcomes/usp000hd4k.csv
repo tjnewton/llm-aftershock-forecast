@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2010-05-24T16:18:29.090Z,-8.087,-71.558,581.2,6.5,mwc,460,22.8,,0.8,us,usp000hd4k,2022-07-16T14:07:36.945Z,"87 km W of Tarauacá, Brazil",earthquake,,,,,reviewed,us,us

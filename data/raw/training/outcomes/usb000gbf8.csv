@@ -1,0 +1,9 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2013-04-19T03:05:52.650Z,46.221,150.788,110,7.2,mww,770,10.1,,0.86,us,usb000gbf8,2022-07-25T00:00:35.463Z,"252 km ENE of Kuril’sk, Russia",earthquake,,,,,reviewed,us,us
+2013-04-20T05:17:17.030Z,45.922,150.526,130.3,4,mb,31,138,,0.74,us,us2013pfgr,2014-11-07T01:50:36.501Z,"220 km ENE of Kuril’sk, Russia",earthquake,,7.8,,23,reviewed,us,us
+2013-04-21T06:31:57.780Z,45.983,150.774,97.1,4.5,mb,120,101,,0.91,us,usb000gd2l,2014-11-07T01:50:37.098Z,"241 km ENE of Kuril’sk, Russia",earthquake,,6.7,,90,reviewed,us,us
+2013-05-03T16:31:17.270Z,45.95,150.903,108.2,4.5,mb,41,177.8,,1.28,us,usp000k0jm,2014-11-07T01:50:43.993Z,"249 km ENE of Kuril’sk, Russia",earthquake,,9.9,,23,reviewed,us,us
+2013-05-15T13:51:42.440Z,46.122,151.129,109.5,5.3,mb,503,48.6,,0.67,us,usc000gx9n,2025-12-22T16:39:53.295Z,"272 km ENE of Kuril’sk, Russia",earthquake,,,,296,reviewed,us,us
+2013-06-03T20:27:22.320Z,45.382,151.015,51.5,4.9,mb,143,135,,0.75,us,usb000hcgz,2014-11-07T01:51:00.274Z,"246 km E of Kuril’sk, Russia",earthquake,,5.7,,131,reviewed,us,us
+2013-06-04T02:23:01.210Z,45.413,150.907,46.7,5.1,mb,413,81,,0.94,us,usb000hcqw,2025-12-22T16:40:43.293Z,"238 km E of Kuril’sk, Russia",earthquake,,3.3,,384,reviewed,us,us
+2013-06-04T11:00:09.170Z,45.379,150.919,23.6,5.5,mwb,397,51,,0.78,us,usb000hcvg,2022-05-03T16:21:19.251Z,"239 km E of Kuril’sk, Russia",earthquake,,2.9,,,reviewed,us,us

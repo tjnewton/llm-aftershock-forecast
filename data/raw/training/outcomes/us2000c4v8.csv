@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2017-12-15T16:47:58.230Z,-7.4921,108.1743,90,6.5,mww,,28,2.365,1.07,us,us2000c4v8,2025-05-01T02:07:22.109Z,"12 km SSW of Kawalu, Indonesia",earthquake,8,1.8,0.058,29,reviewed,us,us

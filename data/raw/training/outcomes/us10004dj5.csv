@@ -1,0 +1,38 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-01-11T16:38:05.900Z,3.8965,126.8621,13,6.5,mww,,22,3.144,0.72,us,us10004dj5,2022-05-03T17:39:22.536Z,"227 km SE of Sarangani, Philippines",earthquake,4.2,1.5,,,reviewed,us,us
+2016-01-11T16:51:16.350Z,3.7068,126.7939,10,4.5,mb,,137,2.971,0.58,us,us10004exa,2016-03-30T02:27:54.040Z,"238 km SE of Sarangani, Philippines",earthquake,12.9,1.8,0.157,12,reviewed,us,us
+2016-01-11T16:54:31.170Z,3.7311,126.9074,10,4.4,mb,,130,2.975,0.93,us,us10004ex9,2016-03-30T02:27:54.040Z,"244 km SE of Sarangani, Philippines",earthquake,12,1.8,0.12,20,reviewed,us,us
+2016-01-11T17:01:23.850Z,3.8277,126.8335,10,4.7,mb,,110,3.081,0.92,us,us10004djm,2016-03-30T02:27:55.040Z,"Pulau-Pulau Talaud, Indonesia",earthquake,7.8,1.9,0.077,52,reviewed,us,us
+2016-01-11T17:22:39.340Z,3.8934,127.1399,10,4.2,mb,,176,3.109,0.7,us,us10004ex4,2016-03-30T02:27:55.040Z,"249 km SE of Sarangani, Philippines",earthquake,7.6,2,0.176,9,reviewed,us,us
+2016-01-11T17:42:36.270Z,3.8297,126.8966,10,4.4,mb,,152,3.073,1.08,us,us10004ex0,2016-03-30T02:27:55.040Z,"235 km SE of Sarangani, Philippines",earthquake,5.1,1.9,0.143,14,reviewed,us,us
+2016-01-11T18:36:51.540Z,3.7372,126.9678,10,4.1,mb,,174,2.972,0.75,us,us10004ex1,2016-03-30T02:27:55.040Z,"248 km SE of Sarangani, Philippines",earthquake,9.3,1.7,0.145,13,reviewed,us,us
+2016-01-11T19:14:43.460Z,3.6521,126.7189,10,4.3,mb,,153,2.933,0.94,us,us10004dl7,2016-03-30T02:27:55.040Z,"238 km SE of Sarangani, Philippines",earthquake,5.2,1.9,0.133,16,reviewed,us,us
+2016-01-11T20:04:35.430Z,3.6938,126.8153,10,4.5,mb,,132,2.954,0.87,us,us10004ex3,2016-03-30T02:27:55.040Z,"241 km SE of Sarangani, Philippines",earthquake,8.3,1.9,0.097,31,reviewed,us,us
+2016-01-11T21:20:36.010Z,3.7797,126.9747,10,4.5,mb,,115,3.013,0.7,us,us10004dm1,2016-03-30T02:27:55.040Z,"245 km SE of Sarangani, Philippines",earthquake,7.8,1.9,0.099,30,reviewed,us,us
+2016-01-11T21:51:30.310Z,3.6558,126.6422,14.93,4.2,mb,,151,2.954,0.72,us,us10004ex6,2016-03-30T02:27:55.040Z,"233 km SE of Sarangani, Philippines",earthquake,13.2,6,0.158,11,reviewed,us,us
+2016-01-11T22:09:45.080Z,3.8224,127.1602,10,4.3,mb,,156,3.037,0.48,us,us10004ex8,2016-03-30T02:27:55.040Z,"250 km NNW of Tobelo, Indonesia",earthquake,8.1,1.9,0.154,12,reviewed,us,us
+2016-01-11T23:45:51.950Z,3.8423,127.0896,10,4.4,mb,,157,3.062,0.88,us,us10004exi,2016-03-30T02:27:55.040Z,"249 km SE of Sarangani, Philippines",earthquake,8.2,1.8,0.179,9,reviewed,us,us
+2016-01-12T02:19:51.190Z,3.8808,126.9784,10,4.4,mb,,142,3.112,0.83,us,us10004fe3,2016-03-30T02:27:55.040Z,"237 km SE of Sarangani, Philippines",earthquake,14.8,1.9,0.148,13,reviewed,us,us
+2016-01-12T12:27:22.480Z,3.7186,126.9938,10,5.2,mb,,80,2.95,0.82,us,us10004dru,2016-03-30T02:27:56.040Z,"247 km NNW of Tobelo, Indonesia",earthquake,7.7,1.8,0.056,104,reviewed,us,us
+2016-01-12T19:35:47.230Z,3.6,126.8269,10,4.1,mb,,150,2.86,1.04,us,us10004fdw,2016-03-30T02:27:57.040Z,"Pulau-Pulau Talaud, Indonesia",earthquake,9.3,1.9,0.146,14,reviewed,us,us
+2016-01-12T20:20:03.430Z,3.7512,127.0147,10,4.8,mb,,77,2.98,1.03,us,us10004du0,2016-03-30T02:27:57.040Z,"249 km NNW of Tobelo, Indonesia",earthquake,7.9,1.9,0.087,41,reviewed,us,us
+2016-01-12T21:08:22.370Z,3.7882,127.0032,10,4.5,mb,,113,3.018,0.99,us,us10004fdv,2022-08-02T08:57:20.874Z,"247 km SE of Sarangani, Philippines",earthquake,7.7,1.9,0.106,26,reviewed,us,us
+2016-01-13T02:26:33.780Z,3.7513,126.9605,10,4.1,mb,,175,2.987,0.88,us,us10004flv,2016-03-30T02:27:57.040Z,"246 km SE of Sarangani, Philippines",earthquake,8.9,1.9,0.185,8,reviewed,us,us
+2016-01-13T05:07:15.570Z,3.6229,126.8696,10,4.2,mb,,155,2.875,1.12,us,us10004flx,2016-03-30T02:27:57.040Z,"244 km NNW of Tobelo, Indonesia",earthquake,6.5,1.9,0.2,7,reviewed,us,us
+2016-01-13T09:46:38.050Z,3.8144,127.0322,10,4.5,mb,,102,3.04,0.61,us,us10004fl9,2016-03-30T02:27:57.040Z,"247 km SE of Sarangani, Philippines",earthquake,8,1.2,0.113,23,reviewed,us,us
+2016-01-13T20:17:44.190Z,3.7733,126.924,10,4.4,mb,,132,3.014,0.79,us,us10004e73,2016-03-30T02:27:58.040Z,"242 km SE of Sarangani, Philippines",earthquake,8.9,1.9,0.107,25,reviewed,us,us
+2016-01-14T00:10:18.690Z,3.6702,126.8336,10,4.7,mb,,108,2.928,0.84,us,us10004ea4,2016-03-30T02:27:59.040Z,"244 km SE of Sarangani, Philippines",earthquake,7.6,1.9,0.087,40,reviewed,us,us
+2016-01-14T05:41:01.690Z,3.7534,127.0053,10,4.7,mb,,152,2.983,0.5,us,us10004fn3,2016-03-30T02:27:59.040Z,"250 km SE of Sarangani, Philippines",earthquake,7.2,1.9,0.114,23,reviewed,us,us
+2016-01-15T19:52:53.210Z,3.7604,127.0492,10,4.4,mb,,115,2.985,1.1,us,us10004g1d,2016-04-06T17:30:21.040Z,"248 km NNW of Tobelo, Indonesia",earthquake,9.3,1.9,0.135,17,reviewed,us,us
+2016-01-17T23:29:10.720Z,3.9375,126.9304,10,4.6,mb,,153,3.174,1.23,us,us10004gc3,2016-04-06T17:30:24.040Z,"229 km SE of Sarangani, Philippines",earthquake,8.5,1.9,0.119,21,reviewed,us,us
+2016-01-20T17:38:01.660Z,3.8492,126.9414,10,4.4,mb,,133,3.086,0.87,us,us20004uqz,2016-04-06T17:30:28.040Z,"237 km SE of Sarangani, Philippines",earthquake,6.4,1.9,0.112,23,reviewed,us,us
+2016-01-21T20:10:38.630Z,3.777,126.7831,10,5,mb,,87,3.041,0.81,us,us10004g66,2016-04-06T17:30:30.040Z,"231 km SE of Sarangani, Philippines",earthquake,7.5,1.9,0.069,68,reviewed,us,us
+2016-01-21T20:23:30.230Z,3.7853,126.8674,11.77,4.7,mb,,112,3.034,0.81,us,us10004g6a,2016-04-06T17:30:30.040Z,"237 km SE of Sarangani, Philippines",earthquake,7.4,4.8,0.074,56,reviewed,us,us
+2016-01-22T15:19:06.230Z,3.8488,126.8786,10,4.3,mb,,156,3.095,0.74,us,us20004v2u,2016-04-08T23:06:08.040Z,"232 km SE of Sarangani, Philippines",earthquake,10.4,1.9,0.142,14,reviewed,us,us
+2016-01-28T00:09:52.340Z,4.1866,126.9201,10,4.3,mb,,139,6.85,1.17,us,us20004wl3,2016-04-08T23:06:18.040Z,"210 km SE of Sarangani, Philippines",earthquake,8,2,0.188,8,reviewed,us,us
+2016-02-01T12:30:32.480Z,3.7587,126.9992,10,4.6,mb,,118,2.989,1.12,us,us20004x47,2016-04-14T22:51:38.040Z,"249 km SE of Sarangani, Philippines",earthquake,6.4,1.9,0.117,22,reviewed,us,us
+2016-02-01T13:05:18.000Z,3.8055,127.1375,10,4.3,mb,,158,19.424,0.25,us,us20004x48,2016-04-14T22:51:38.040Z,"249 km NNW of Tobelo, Indonesia",earthquake,20.4,2,0.154,12,reviewed,us,us
+2016-02-06T03:12:47.080Z,3.8334,126.9585,10,4.3,mb,,173,3.068,0.39,us,us20004z9z,2016-04-19T01:33:20.040Z,"240 km SE of Sarangani, Philippines",earthquake,8.6,1.9,0.169,10,reviewed,us,us
+2016-02-09T01:14:13.590Z,4.0955,126.6355,56.79,4.2,mb,,176,19.866,0.41,us,us20004z6s,2016-04-19T01:33:25.040Z,"194 km SE of Sarangani, Philippines",earthquake,24.7,9.9,0.152,12,reviewed,us,us
+2016-02-20T15:10:10.420Z,3.6583,127.0718,51.38,4.2,mb,,159,2.882,1.22,us,us10004s3q,2016-05-03T23:44:13.040Z,"237 km NNW of Tobelo, Indonesia",earthquake,10.1,11.2,0.14,14,reviewed,us,us
+2016-03-04T03:59:41.050Z,3.9775,126.6519,37.63,4.8,mb,,95,3.252,0.84,us,us10004uld,2016-05-16T18:01:42.040Z,"205 km SE of Sarangani, Philippines",earthquake,6.8,6.2,0.073,57,reviewed,us,us

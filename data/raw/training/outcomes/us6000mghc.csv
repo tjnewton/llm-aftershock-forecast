@@ -1,0 +1,10 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2024-03-03T16:16:53.995Z,-58.8881,159.1441,23.187,6.8,mww,49,58,4.403,0.57,us,us6000mghc,2024-05-10T21:25:58.040Z,"Macquarie Island region",earthquake,10.52,3.009,0.037,72,reviewed,us,us
+2024-03-04T13:06:29.403Z,-59.2628,158.9642,10,4.5,mb,17,146,4.777,1.25,us,us7000m464,2024-05-15T17:35:06.040Z,"Macquarie Island region",earthquake,15.34,1.794,0.181,9,reviewed,us,us
+2024-03-05T19:52:52.612Z,-59.1953,158.7607,10,6.1,mww,77,41,4.71,1.18,us,us6000mgyj,2024-05-15T17:35:05.040Z,"Macquarie Island region",earthquake,11.98,1.775,0.05,38,reviewed,us,us
+2024-03-05T20:30:44.998Z,-59.2048,159.0849,10,4.4,mb,12,152,4.72,1.04,us,us7000m47v,2024-05-15T17:35:05.040Z,"Macquarie Island region",earthquake,11.17,1.957,0.162,11,reviewed,us,us
+2024-03-06T15:20:00.902Z,-58.8434,158.3009,10,4.3,mb,13,149,4.371,1,us,us6000migg,2024-05-15T17:35:04.040Z,"Macquarie Island region",earthquake,7.29,1.96,0.187,8,reviewed,us,us
+2024-03-08T12:39:57.494Z,-59.0276,159.5036,10,4.3,mb,22,77,4.552,1.02,us,us6000mivd,2024-05-15T17:35:02.040Z,"Macquarie Island region",earthquake,9.36,1.794,0.177,10,reviewed,us,us
+2024-03-12T05:07:56.903Z,-59.212,158.865,10,4.6,mb,23,86,4.726,0.87,us,us7000m4t8,2024-05-18T21:24:38.040Z,"Macquarie Island region",earthquake,10.83,1.859,0.141,15,reviewed,us,us
+2024-03-16T00:14:51.989Z,-58.935,158.3538,10,5.9,mww,57,52,4.46,0.5,us,us6000mj77,2024-05-18T21:23:15.040Z,"Macquarie Island region",earthquake,11.01,1.827,0.06,27,reviewed,us,us
+2024-03-25T17:00:02.616Z,-59.0543,158.6349,10,5.5,mww,33,114,4.571,0.75,us,us7000m7xz,2024-06-01T21:55:46.040Z,"Macquarie Island region",earthquake,13.38,1.916,0.071,19,reviewed,us,us

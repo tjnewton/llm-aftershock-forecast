@@ -1,0 +1,9 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-11-18T13:37:08.687Z,-4.9043,100.7862,25,6.9,mww,99,34,2.229,0.52,us,us7000iqpn,2023-01-28T19:58:26.040Z,"204 km SW of Bengkulu, Indonesia",earthquake,6.86,1.872,0.05,39,reviewed,us,us
+2022-11-18T13:59:04.743Z,-4.5305,100.5796,10,4.6,mb,23,186,2.375,0.64,us,us7000irup,2023-01-28T19:58:30.040Z,"203 km WSW of Bengkulu, Indonesia",earthquake,9.14,1.939,0.182,9,reviewed,us,us
+2022-11-18T14:07:00.628Z,-4.6015,100.5808,10,5.4,mb,64,106,2.38,0.48,us,us7000iqqs,2023-01-28T19:58:26.040Z,"206 km WSW of Bengkulu, Indonesia",earthquake,5.81,1.857,0.086,46,reviewed,us,us
+2022-11-18T16:22:51.069Z,-4.8526,100.5733,10,4.4,mb,20,165,2.425,0.48,us,us7000iruu,2023-01-28T19:58:30.040Z,"220 km WSW of Bengkulu, Indonesia",earthquake,10.31,1.947,0.178,9,reviewed,us,us
+2022-11-19T07:56:18.569Z,-4.583,100.5838,10,4.3,mb,22,194,2.375,0.64,us,us7000is38,2023-01-30T06:00:08.040Z,"205 km WSW of Bengkulu, Indonesia",earthquake,6.36,1.958,0.188,8,reviewed,us,us
+2022-11-20T18:44:27.574Z,-4.6466,101.1048,38.102,4.1,mb,12,201,1.867,0.87,us,us7000is52,2023-01-30T06:00:27.040Z,"southern Sumatra, Indonesia",earthquake,13.73,8.399,0.184,9,reviewed,us,us
+2022-11-21T01:41:03.683Z,-5.0127,100.7293,21.173,4.9,mb,62,110,2.312,0.4,us,us7000ir8m,2023-01-30T06:00:30.040Z,"southwest of Sumatra, Indonesia",earthquake,5.47,4.275,0.081,48,reviewed,us,us
+2022-12-01T08:29:42.286Z,-5.0322,100.7331,10,5.1,mww,86,33,2.314,0.5,us,us6000j5z2,2023-02-05T23:25:45.040Z,"southwest of Sumatra, Indonesia",earthquake,7.06,1.847,0.086,13,reviewed,us,us

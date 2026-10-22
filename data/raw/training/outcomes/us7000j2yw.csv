@@ -1,0 +1,94 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2023-01-08T12:32:42.372Z,-14.9467,166.8791,29,7,mww,116,36,6.096,0.57,us,us7000j2yw,2023-03-20T06:02:58.040Z,"23 km WNW of Port-Olry, Vanuatu",earthquake,7.75,1.851,0.042,54,reviewed,us,us
+2023-01-08T12:40:23.359Z,-14.968,166.8093,35,4.8,mb,22,112,6.05,0.4,us,us7000j594,2023-03-20T06:03:47.040Z,"29 km WNW of Port-Olry, Vanuatu",earthquake,8.82,1.876,0.155,13,reviewed,us,us
+2023-01-08T12:48:16.164Z,-14.8069,166.7606,35,4.2,mb,22,157,6.18,0.68,us,us7000j596,2023-03-20T06:03:48.040Z,"Vanuatu",earthquake,11.91,1.956,0.159,11,reviewed,us,us
+2023-01-08T12:49:04.608Z,-15.0854,166.6611,34.645,4.8,mb,31,156,5.887,0.55,us,us7000j587,2023-03-20T06:03:45.040Z,"45 km W of Port-Olry, Vanuatu",earthquake,7.29,5.99,0.103,29,reviewed,us,us
+2023-01-08T12:51:28.586Z,-15.0113,166.6939,35,4.2,mb,13,85,5.967,0.26,us,us7000j597,2023-03-20T06:03:48.040Z,"40 km W of Port-Olry, Vanuatu",earthquake,10.79,1.713,0.236,5,reviewed,us,us
+2023-01-08T12:59:04.071Z,-15.0166,166.6938,28.251,4.7,mb,37,156,5.962,0.47,us,us7000j588,2023-03-20T06:03:45.040Z,"40 km W of Port-Olry, Vanuatu",earthquake,11.32,5.598,0.101,30,reviewed,us,us
+2023-01-08T13:02:32.541Z,-14.9915,166.8065,35,4.8,mb,33,97,6.027,0.73,us,us7000j589,2023-03-20T06:03:45.040Z,"29 km W of Port-Olry, Vanuatu",earthquake,8.05,1.837,0.122,21,reviewed,us,us
+2023-01-08T13:03:50.697Z,-15.1514,166.7468,35,4.8,mb,33,99,7.452,0.81,us,us7000j58k,2023-03-20T06:03:46.040Z,"37 km WSW of Port-Olry, Vanuatu",earthquake,6.75,1.843,0.103,29,reviewed,us,us
+2023-01-08T13:14:57.958Z,-15.096,166.8104,35,4.7,mb,26,148,5.934,0.89,us,us7000j58d,2023-03-20T06:03:45.040Z,"28 km WSW of Port-Olry, Vanuatu",earthquake,11.13,1.917,0.165,11,reviewed,us,us
+2023-01-08T13:24:30.185Z,-15.1056,166.9253,35,4.8,mb,44,63,5.97,0.5,us,us7000j2ze,2024-01-18T19:10:19.754Z,"17 km WSW of Port-Olry, Vanuatu",earthquake,10.34,1.912,0.074,56,reviewed,us,us
+2023-01-08T13:35:03.436Z,-15.1075,166.8665,35,4.5,mb,27,144,5.945,1.01,us,us7000j58l,2024-01-18T19:10:22.837Z,"23 km WSW of Port-Olry, Vanuatu",earthquake,11.12,1.939,0.135,17,reviewed,us,us
+2023-01-08T13:50:08.428Z,-15.1308,166.712,39.241,4.7,mb,27,86,5.864,0.72,us,us7000j2zj,2023-03-20T06:02:59.040Z,"40 km WSW of Port-Olry, Vanuatu",earthquake,6.53,7.684,0.12,21,reviewed,us,us
+2023-01-08T14:11:27.850Z,-15.083,166.8052,35,4.3,mb,15,154,5.943,0.82,us,us7000j58g,2023-03-20T06:03:45.040Z,"29 km W of Port-Olry, Vanuatu",earthquake,10.69,1.926,0.218,6,reviewed,us,us
+2023-01-08T15:03:21.065Z,-15.0718,166.7798,35,4.8,mb,22,122,5.944,0.67,us,us7000j58r,2023-03-20T06:03:46.040Z,"31 km W of Port-Olry, Vanuatu",earthquake,12.64,1.893,0.154,13,reviewed,us,us
+2023-01-08T15:06:29.505Z,-15.2114,166.928,35,4.6,mb,21,158,5.876,0.94,us,us7000j58t,2023-03-20T06:03:47.040Z,"24 km SW of Port-Olry, Vanuatu",earthquake,8.03,1.936,0.141,15,reviewed,us,us
+2023-01-08T15:33:36.613Z,-15.0613,166.6785,35,4.6,mb,22,156,5.916,0.65,us,us7000j2zt,2023-03-20T06:02:59.040Z,"42 km W of Port-Olry, Vanuatu",earthquake,12.54,1.954,0.12,21,reviewed,us,us
+2023-01-08T16:49:21.131Z,-15.1455,166.9063,35,4.9,mb,33,158,5.926,0.94,us,us7000j305,2023-03-20T06:03:00.040Z,"21 km WSW of Port-Olry, Vanuatu",earthquake,5.94,1.881,0.099,32,reviewed,us,us
+2023-01-08T17:15:08.934Z,-15.0976,166.7282,35,5,mb,86,38,5.901,0.82,us,us7000j30e,2023-03-20T06:03:00.040Z,"37 km W of Port-Olry, Vanuatu",earthquake,6.55,1.787,0.073,60,reviewed,us,us
+2023-01-08T18:16:19.765Z,-15.0979,166.9147,39.673,4.7,mb,36,153,5.973,0.56,us,us7000j58y,2023-03-20T06:03:47.040Z,"Vanuatu",earthquake,13.22,7.581,0.108,26,reviewed,us,us
+2023-01-08T19:47:04.642Z,-15.103,166.5958,26.596,4.4,mb,13,155,5.847,1.21,us,us7000j592,2024-01-18T19:10:29.634Z,"51 km W of Port-Olry, Vanuatu",earthquake,15.3,7.188,0.268,4,reviewed,us,us
+2023-01-08T20:56:34.389Z,-15.191,166.9059,36.526,4.4,mb,14,80,0.384,0.69,us,us7000j590,2023-03-20T06:03:47.040Z,"24 km SW of Port-Olry, Vanuatu",earthquake,3.07,8.42,0.203,7,reviewed,us,us
+2023-01-08T21:12:18.189Z,-15.0776,166.9387,34.436,4.6,mb,31,55,0.447,0.74,us,us7000j58z,2023-03-20T06:03:47.040Z,"14 km WSW of Port-Olry, Vanuatu",earthquake,8.01,4.235,0.129,18,reviewed,us,us
+2023-01-09T00:09:37.029Z,-14.9974,166.7066,36.037,4.2,mb,22,105,0.656,0.58,us,us7000j5g6,2023-03-20T06:03:48.040Z,"39 km W of Port-Olry, Vanuatu",earthquake,8.21,6.936,0.237,5,reviewed,us,us
+2023-01-09T00:37:38.264Z,-14.9368,166.7335,37.928,4.8,mb,33,111,0.68,0.53,us,us7000j5g2,2023-03-20T06:03:48.040Z,"38 km WNW of Port-Olry, Vanuatu",earthquake,10.69,7.551,0.128,19,reviewed,us,us
+2023-01-09T01:46:13.087Z,-14.9141,166.9082,30.524,5.2,mb,122,30,0.602,0.56,us,us7000j31q,2023-03-20T06:03:02.040Z,"22 km NW of Port-Olry, Vanuatu",earthquake,7.31,3.787,0.06,91,reviewed,us,us
+2023-01-09T01:48:00.586Z,-14.9506,166.7923,13.29,5,mb,61,72,0.633,0.65,us,us7000j31r,2023-03-20T06:03:02.040Z,"31 km WNW of Port-Olry, Vanuatu",earthquake,6.69,2.896,0.081,49,reviewed,us,us
+2023-01-09T02:39:31.686Z,-14.9811,166.7238,22.525,4.4,mb,22,116,0.655,0.81,us,us7000j5g4,2023-03-20T06:03:48.040Z,"38 km W of Port-Olry, Vanuatu",earthquake,7.29,4.869,0.139,15,reviewed,us,us
+2023-01-09T04:35:53.887Z,-14.7608,166.9993,14.712,4.4,mb,23,145,0.71,0.82,us,us7000j5gc,2023-03-20T06:03:49.040Z,"32 km NNW of Port-Olry, Vanuatu",earthquake,8.73,6.185,0.13,17,reviewed,us,us
+2023-01-09T05:46:32.397Z,-14.9169,166.7465,35,4.3,mb,13,127,0.687,0.63,us,us7000j5gg,2023-03-20T06:03:49.040Z,"37 km WNW of Port-Olry, Vanuatu",earthquake,7.27,1.977,0.177,9,reviewed,us,us
+2023-01-09T10:05:02.629Z,-15.165,166.787,32.598,4.2,mb,25,97,0.49,0.78,us,us7000j5gd,2023-03-20T06:03:49.040Z,"33 km WSW of Port-Olry, Vanuatu",earthquake,6.48,4.744,0.187,8,reviewed,us,us
+2023-01-09T18:40:00.606Z,-15.0529,166.7779,7.079,4.4,mb,31,84,5.961,0.88,us,us7000j5gt,2023-03-20T06:03:50.040Z,"31 km W of Port-Olry, Vanuatu",earthquake,10.08,5.253,0.115,22,reviewed,us,us
+2023-01-09T19:36:18.027Z,-15.2211,166.8851,35,4.7,mb,45,61,5.849,0.82,us,us7000j5gw,2023-03-20T06:03:50.040Z,"28 km SW of Port-Olry, Vanuatu",earthquake,11,1.881,0.101,30,reviewed,us,us
+2023-01-09T21:21:54.599Z,-15.5003,166.5448,29.399,5,mb,44,82,5.463,0.77,us,us7000j3a7,2023-03-20T06:03:09.040Z,"Vanuatu",earthquake,11,5.251,0.105,29,reviewed,us,us
+2023-01-10T05:24:48.623Z,-14.9892,167.226,109.273,5.7,mww,100,27,0.456,0.63,us,us7000j3cb,2023-03-20T06:03:11.040Z,"17 km ENE of Port-Olry, Vanuatu",earthquake,8.52,4.872,0.073,18,reviewed,us,us
+2023-01-11T01:15:30.162Z,-14.7553,166.7974,10,4.7,mb,39,80,0.792,0.69,us,us7000j5qu,2023-03-20T06:03:54.040Z,"43 km NW of Port-Olry, Vanuatu",earthquake,7.2,1.819,0.147,14,reviewed,us,us
+2023-01-11T08:39:52.945Z,-14.7604,166.8762,15,5.8,mww,120,18,0.752,0.77,us,us7000j3ky,2023-03-20T06:03:19.040Z,"37 km NW of Port-Olry, Vanuatu",earthquake,4.69,1.513,0.098,10,reviewed,us,us
+2023-01-11T09:25:54.589Z,-14.893,166.9404,38.049,4.5,mb,15,135,0.607,1.08,us,us7000j5r5,2023-03-20T06:03:56.040Z,"21 km NW of Port-Olry, Vanuatu",earthquake,5.47,9.037,0.171,10,reviewed,us,us
+2023-01-11T09:43:19.602Z,-14.7507,166.9029,15.236,4.5,mb,19,139,0.751,0.94,us,us7000j5r6,2024-01-18T19:11:22.173Z,"37 km NNW of Port-Olry, Vanuatu",earthquake,8.86,2.081,0.156,12,reviewed,us,us
+2023-01-11T15:17:25.937Z,-14.6664,166.8198,10,4.2,mb,14,92,6.331,0.56,us,us7000j5rf,2023-03-20T06:03:56.040Z,"49 km NNW of Port-Olry, Vanuatu",earthquake,12.38,1.901,0.235,5,reviewed,us,us
+2023-01-12T00:13:35.724Z,-14.7053,166.9053,10,4.5,mb,18,106,0.792,1.37,us,us7000j5t6,2023-03-20T06:03:58.040Z,"Vanuatu",earthquake,8.95,1.914,0.157,12,reviewed,us,us
+2023-01-12T07:12:51.418Z,-14.7624,166.4276,10,4.1,mb,15,187,1.012,0.67,us,us7000j5tf,2023-03-20T06:03:59.040Z,"75 km WNW of Port-Olry, Vanuatu",earthquake,10.4,2,0.145,16,reviewed,us,us
+2023-01-12T15:09:16.303Z,-15.0307,166.7492,35,4.5,mb,60,120,5.97,0.75,us,us7000j5u3,2023-03-20T06:04:01.040Z,"34 km W of Port-Olry, Vanuatu",earthquake,9.24,1.895,0.083,49,reviewed,us,us
+2023-01-13T00:42:55.169Z,-14.6552,167.3059,155.354,4.6,mb,37,49,0.794,0.64,us,us7000j41c,2023-03-20T06:03:32.040Z,"49 km NNE of Port-Olry, Vanuatu",earthquake,6.54,5.91,0.111,24,reviewed,us,us
+2023-01-13T15:35:20.698Z,-14.9138,166.5463,35,4.5,mb,17,155,6.005,0.56,us,us7000j5ur,2023-03-20T06:04:02.040Z,"58 km WNW of Port-Olry, Vanuatu",earthquake,9.97,1.948,0.156,12,reviewed,us,us
+2023-01-13T18:56:03.472Z,-14.8073,167.5023,124.337,4.5,mb,29,85,6.482,0.85,us,us7000j5us,2023-03-20T06:04:03.040Z,"53 km ENE of Port-Olry, Vanuatu",earthquake,4.88,9.12,0.124,21,reviewed,us,us
+2023-01-13T21:31:05.427Z,-14.8661,166.7541,17.335,4.7,mb,53,38,0.706,0.66,us,us7000j5v0,2023-03-20T06:04:03.040Z,"39 km WNW of Port-Olry, Vanuatu",earthquake,6.91,2.56,0.086,41,reviewed,us,us
+2023-01-14T14:31:27.485Z,-14.9489,166.7189,20.746,5.1,mww,36,76,8.59,1.13,us,us7000j4e1,2023-03-20T06:03:41.040Z,"39 km WNW of Port-Olry, Vanuatu",earthquake,8.31,4.762,0.073,18,reviewed,us,us
+2023-01-15T12:04:16.208Z,-14.9867,166.8837,21,5.6,mww,110,25,8.738,0.81,us,us7000j4ij,2023-03-31T19:44:23.040Z,"21 km WNW of Port-Olry, Vanuatu",earthquake,8.87,1.838,0.054,33,reviewed,us,us
+2023-01-16T07:12:27.719Z,-14.7056,166.8473,10,4.8,mb,77,105,0.813,0.38,us,us7000j4n4,2023-03-31T19:44:35.040Z,"44 km NNW of Port-Olry, Vanuatu",earthquake,7.65,1.825,0.067,73,reviewed,us,us
+2023-01-16T19:08:52.429Z,-14.773,167.3973,130.921,4.3,mb,17,154,7.316,0.7,us,us6000jj52,2023-03-31T19:43:13.040Z,"45 km NE of Port-Olry, Vanuatu",earthquake,13.27,5.976,0.238,5,reviewed,us,us
+2023-01-19T08:09:15.958Z,-15.0106,166.974,35,4.6,mb,25,162,6.076,0.53,us,us6000jjhj,2023-03-31T19:43:38.040Z,"Vanuatu",earthquake,9.47,1.956,0.116,26,reviewed,us,us
+2023-01-20T03:45:59.360Z,-15.0137,167.028,30.32,4.4,mb,17,141,0.463,1.25,us,us6000jjnu,2023-03-31T19:43:43.040Z,"5 km WNW of Port-Olry, Vanuatu",earthquake,10.66,4.089,0.191,8,reviewed,us,us
+2023-02-03T00:10:06.556Z,-14.5964,166.7198,37.319,5,mb,91,49,0.966,0.47,us,us6000jl35,2023-04-13T21:53:20.040Z,"62 km NW of Port-Olry, Vanuatu",earthquake,7.12,5.591,0.045,160,reviewed,us,us
+2023-02-08T11:28:49.600Z,-14.8733,166.694,10,4.8,mb,45,86,6.095,0.45,us,us6000jmgi,2023-04-15T21:39:47.040Z,"44 km WNW of Port-Olry, Vanuatu",earthquake,9.99,1.889,0.096,34,reviewed,us,us
+2023-02-08T19:18:26.002Z,-14.9122,167.4293,138.022,4.4,mb,27,134,6.357,0.54,us,us6000jpcz,2023-04-15T21:40:09.040Z,"40 km ENE of Port-Olry, Vanuatu",earthquake,10.31,4.792,0.155,12,reviewed,us,us
+2023-02-16T05:37:04.075Z,-15.0306,167.0391,34.694,5.6,mww,143,32,0.443,0.45,us,us6000jpb1,2023-04-22T21:33:13.040Z,"3 km WNW of Port-Olry, Vanuatu",earthquake,8.22,4.289,0.063,24,reviewed,us,us
+2023-02-23T12:32:44.300Z,-14.7265,166.9289,21.529,4.5,mb,23,132,0.764,0.61,us,us7000jh0f,2023-04-29T21:57:30.040Z,"38 km NNW of Port-Olry, Vanuatu",earthquake,12.06,3.848,0.205,7,reviewed,us,us
+2023-03-02T18:04:30.810Z,-15.3766,166.3907,17,6.5,mww,70,45,5.522,1.23,us,usd000j5jt,2023-05-08T02:00:22.040Z,"83 km WSW of Port-Olry, Vanuatu",earthquake,7.88,0.407,0.043,52,reviewed,us,us
+2023-03-02T18:05:31.940Z,-15.0524,166.5727,10,5.7,mb,41,57,0.724,0.63,us,us7000jiip,2023-05-08T02:00:23.040Z,"53 km W of Port-Olry, Vanuatu",earthquake,10.2,1.762,0.149,20,reviewed,us,us
+2023-03-02T18:10:32.365Z,-15.056,166.6459,10,5.2,mb,68,76,0.664,0.86,us,us7000jihy,2023-05-08T02:00:23.040Z,"45 km W of Port-Olry, Vanuatu",earthquake,9.02,1.817,0.087,44,reviewed,us,us
+2023-03-02T18:11:07.084Z,-14.9061,166.672,10,5.2,mb,68,40,0.743,0.8,us,us7000jgv8,2023-05-08T02:00:23.040Z,"45 km WNW of Port-Olry, Vanuatu",earthquake,6.12,1.781,0.08,52,reviewed,us,us
+2023-03-02T18:14:42.744Z,-15.2415,166.5078,10,4.7,mb,17,66,0.701,0.52,us,us7000jih8,2023-05-08T02:00:23.040Z,"64 km WSW of Port-Olry, Vanuatu",earthquake,7.16,1.86,0.276,4,reviewed,us,us
+2023-03-02T18:17:05.596Z,-15.223,166.6972,10,4.7,mb,45,87,0.537,0.61,us,us7000jiha,2023-05-08T02:00:23.040Z,"Vanuatu",earthquake,6.83,1.821,0.127,29,reviewed,us,us
+2023-03-02T18:19:19.347Z,-15.0157,166.4464,10,4.2,mb,21,102,0.847,1.12,us,us7000jihb,2023-05-08T02:00:23.040Z,"Vanuatu",earthquake,5.16,1.867,0.264,4,reviewed,us,us
+2023-03-02T18:33:37.190Z,-14.8304,166.5139,10,4.8,mb,60,57,0.905,0.64,us,us7000jihc,2023-05-08T02:00:24.040Z,"64 km WNW of Port-Olry, Vanuatu",earthquake,3.36,1.799,0.08,48,reviewed,us,us
+2023-03-02T18:40:44.099Z,-15.136,166.5063,10,4.7,mb,48,65,0.74,0.6,us,us7000jihw,2023-05-08T02:00:24.040Z,"61 km W of Port-Olry, Vanuatu",earthquake,7.9,1.23,0.096,33,reviewed,us,us
+2023-03-02T18:45:55.167Z,-15.1597,166.5118,10,4.3,mb,17,95,0.726,0.47,us,us7000jiii,2023-05-08T02:00:24.040Z,"61 km WSW of Port-Olry, Vanuatu",earthquake,7.69,1.927,0.238,6,reviewed,us,us
+2023-03-02T18:50:08.222Z,-14.8619,166.6438,10,4.6,mb,45,81,0.794,0.94,us,us7000jihh,2023-05-08T02:00:24.040Z,"50 km WNW of Port-Olry, Vanuatu",earthquake,4.71,1.805,0.114,23,reviewed,us,us
+2023-03-02T18:52:21.310Z,-14.8153,166.5388,10,4.5,mb,48,85,0.898,0.81,us,us7000jihi,2023-05-08T02:00:24.040Z,"62 km WNW of Port-Olry, Vanuatu",earthquake,8.34,1.726,0.118,30,reviewed,us,us
+2023-03-02T18:54:07.790Z,-14.9188,166.7031,10,4.7,mb,40,88,0.713,0.88,us,us7000jihf,2023-05-08T02:00:25.040Z,"42 km WNW of Port-Olry, Vanuatu",earthquake,10.21,1.786,0.113,24,reviewed,us,us
+2023-03-02T19:05:05.843Z,-14.8286,166.7535,10,4.8,mb,45,71,0.753,1.03,us,us7000jihe,2023-05-08T02:00:25.040Z,"Vanuatu",earthquake,10.75,1.816,0.098,32,reviewed,us,us
+2023-03-02T19:17:17.351Z,-14.935,166.5056,10,4.4,mb,15,109,0.844,0.52,us,us7000jii4,2023-05-08T02:00:25.040Z,"62 km W of Port-Olry, Vanuatu",earthquake,5.44,1.931,0.24,5,reviewed,us,us
+2023-03-02T19:32:27.860Z,-14.7795,166.5857,10,4.9,mb,68,39,0.892,0.68,us,us7000jgvl,2023-05-08T02:00:25.040Z,"59 km WNW of Port-Olry, Vanuatu",earthquake,6.99,1.471,0.064,76,reviewed,us,us
+2023-03-02T19:41:30.727Z,-14.8608,166.5757,10,4.2,mb,21,115,0.841,0.63,us,us7000jihl,2023-05-08T02:00:25.040Z,"57 km WNW of Port-Olry, Vanuatu",earthquake,4.62,1.907,0.215,6,reviewed,us,us
+2023-03-02T20:12:53.033Z,-14.9083,166.6146,10,4.6,mb,27,106,0.781,0.97,us,us7000jii6,2023-05-08T02:00:26.040Z,"Vanuatu",earthquake,4.31,1.846,0.151,13,reviewed,us,us
+2023-03-02T20:53:46.153Z,-14.8517,166.6747,10,4.6,mb,27,112,0.782,0.58,us,us7000jii8,2023-05-08T02:00:26.040Z,"47 km WNW of Port-Olry, Vanuatu",earthquake,6.79,1.892,0.165,11,reviewed,us,us
+2023-03-02T20:55:29.022Z,-14.891,166.7167,12.935,5.1,mb,91,50,0.725,0.77,us,us7000jgwe,2023-05-08T02:00:26.040Z,"41 km WNW of Port-Olry, Vanuatu",earthquake,7.01,3.857,0.073,61,reviewed,us,us
+2023-03-02T20:59:53.405Z,-14.9164,166.7793,10,4.4,mb,25,93,0.668,1.06,us,us7000jii7,2023-05-08T02:00:27.040Z,"34 km WNW of Port-Olry, Vanuatu",earthquake,7.53,1.847,0.17,13,reviewed,us,us
+2023-03-02T21:06:57.970Z,-14.8973,166.7618,10,4.6,mb,22,82,0.693,0.5,us,us7000jii9,2023-05-08T02:00:27.040Z,"37 km WNW of Port-Olry, Vanuatu",earthquake,7.93,1.852,0.152,13,reviewed,us,us
+2023-03-02T21:15:30.465Z,-14.7949,166.7227,11.242,4.3,mb,13,133,0.797,0.33,us,us7000jihr,2023-05-08T02:00:27.040Z,"46 km NW of Port-Olry, Vanuatu",earthquake,10.87,3.47,0.377,2,reviewed,us,us
+2023-03-02T21:45:20.720Z,-14.9989,166.8639,28.775,4.6,mb,21,125,0.553,0.63,us,us7000jiht,2023-05-08T02:00:28.040Z,"Vanuatu",earthquake,9.86,5.463,0.158,12,reviewed,us,us
+2023-03-02T22:06:52.801Z,-14.8493,166.7892,10,4.4,mb,14,101,0.716,0.3,us,us7000jihv,2023-05-08T02:00:28.040Z,"37 km NW of Port-Olry, Vanuatu",earthquake,8.34,1.864,0.379,2,reviewed,us,us
+2023-03-02T23:05:11.087Z,-14.8101,166.7173,10,4.6,mb,35,52,0.788,0.42,us,us7000jiih,2023-05-08T02:00:28.040Z,"46 km NW of Port-Olry, Vanuatu",earthquake,8.48,1.824,0.119,21,reviewed,us,us
+2023-03-02T23:42:29.411Z,-14.9504,166.7012,10,4.3,mb,22,78,0.692,0.56,us,us7000jiic,2023-05-08T02:00:29.040Z,"Vanuatu",earthquake,4.6,1.818,0.202,7,reviewed,us,us
+2023-03-02T23:56:30.104Z,-15.088,166.615,10,4.4,mb,29,47,0.671,0.63,us,us7000jii1,2023-05-08T02:00:29.040Z,"49 km W of Port-Olry, Vanuatu",earthquake,5.42,1.847,0.162,11,reviewed,us,us
+2023-03-03T00:54:27.959Z,-14.7756,166.5553,10,5.3,mww,71,31,0.915,0.47,us,us7000jgyd,2023-05-08T02:00:30.040Z,"62 km WNW of Port-Olry, Vanuatu",earthquake,6.1,1.803,0.073,18,reviewed,us,us
+2023-03-03T05:45:39.644Z,-14.8043,166.7205,10,4.4,mb,12,122,0.791,0.98,us,us7000jiji,2023-05-08T02:00:32.040Z,"46 km NW of Port-Olry, Vanuatu",earthquake,4.11,1.931,0.19,8,reviewed,us,us
+2023-03-03T08:43:32.126Z,-14.7392,166.6184,10,4.5,mb,15,155,6.192,0.65,us,us7000jijt,2023-05-08T02:00:33.040Z,"59 km NW of Port-Olry, Vanuatu",earthquake,10.79,1.908,0.191,8,reviewed,us,us
+2023-03-03T11:58:39.090Z,-14.9889,166.5526,10,4.2,mb,16,84,5.938,0.77,us,us7000jika,2023-05-08T02:00:35.040Z,"Vanuatu",earthquake,13.75,1.919,0.176,9,reviewed,us,us
+2023-03-05T01:46:03.197Z,-14.6451,166.8449,20.953,4.6,mb,24,133,0.869,0.78,us,us7000jiud,2023-05-15T02:50:41.040Z,"50 km NNW of Port-Olry, Vanuatu",earthquake,7.56,7.05,0.125,19,reviewed,us,us
+2023-03-07T01:14:01.271Z,-15.1036,167.1604,75.379,5,mb,59,58,0.344,0.66,us,us7000jhsd,2023-05-15T02:50:24.040Z,"11 km SE of Port-Olry, Vanuatu",earthquake,6.66,2.901,0.071,62,reviewed,us,us
+2023-03-08T14:07:14.618Z,-14.8392,166.6021,10,4.5,mb,40,41,0.838,0.44,us,us7000jjug,2023-05-15T02:50:02.040Z,"55 km WNW of Port-Olry, Vanuatu",earthquake,3.74,1.837,0.093,34,reviewed,us,us
+2023-03-08T22:14:34.994Z,-14.7354,166.5882,10,4.8,mb,39,92,0.924,0.62,us,us7000jjuk,2023-05-15T02:49:59.040Z,"Vanuatu",earthquake,7.7,1.845,0.109,26,reviewed,us,us

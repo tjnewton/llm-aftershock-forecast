@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2014-04-15T03:57:01.370Z,-53.4967,8.722,11.18,6.8,mww,,27,18.877,0.74,us,usb000pkxl,2022-05-03T16:47:57.023Z,"Bouvet Island region",earthquake,,3.1,,,reviewed,us,us

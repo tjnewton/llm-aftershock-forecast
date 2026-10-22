@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2024-07-10T04:55:41.780Z,-53.3092,25.3481,4,6.6,mww,107,23,18.352,0.76,us,us7000my76,2024-09-20T16:00:53.040Z,"south of Africa",earthquake,8.92,1.712,0.05,38,reviewed,us,us
+2024-07-17T19:38:56.905Z,-53.0452,25.4357,10,4.5,mb,24,75,20.922,0.65,us,us6000ngph,2024-09-28T22:41:08.040Z,"south of Africa",earthquake,14.23,1.849,0.132,17,reviewed,us,us
+2024-09-05T08:14:29.480Z,-52.9537,25.517,10,4.7,mb,18,117,20.841,0.85,us,us6000nxib,2024-11-15T16:20:11.040Z,"south of Africa",earthquake,15.47,1.93,0.133,17,reviewed,us,us

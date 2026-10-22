@@ -1,0 +1,31 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2015-11-08T16:47:02.160Z,6.8431,94.648,10,6.6,mww,,31,2.792,1.23,us,us10003vry,2022-08-01T16:48:48.245Z,"Nicobar Islands, India region",earthquake,5.6,1.7,,,reviewed,us,us
+2015-11-08T16:59:20.850Z,6.9335,94.7617,10,5.2,mb,,24,2.755,0.77,us,us10003vs5,2016-02-05T03:16:37.040Z,"130 km NNW of Sabang, Indonesia",earthquake,7.7,1.8,0.052,121,reviewed,us,us
+2015-11-08T17:46:51.300Z,6.7698,94.7617,10,4.7,mb,,120,2.658,0.86,us,us10003vsd,2016-02-05T03:16:37.040Z,"115 km NNW of Sabang, Indonesia",earthquake,9.8,1.9,0.096,33,reviewed,us,us
+2015-11-08T18:48:44.340Z,6.8607,94.4746,10,4.6,mb,,188,2.945,1.18,us,us10003vsm,2016-02-05T03:16:37.040Z,"142 km NW of Sabang, Indonesia",earthquake,11.7,1.9,0.136,16,reviewed,us,us
+2015-11-08T19:10:52.680Z,6.7839,94.5809,10,4.5,mb,,182,2.815,0.68,us,us10003z2a,2016-02-05T03:16:37.040Z,"128 km NW of Sabang, Indonesia",earthquake,7.8,1.9,0.15,13,reviewed,us,us
+2015-11-08T19:14:47.430Z,6.984,94.534,10,5.6,mwc,,47,2.966,1.11,us,us10003vsp,2022-05-03T19:21:41.184Z,"148 km NW of Sabang, Indonesia",earthquake,9.3,1.8,,,reviewed,us,gcmt
+2015-11-08T19:25:39.910Z,6.8286,94.3758,10,4.2,mb,,194,3.01,0.89,us,us10003z2b,2016-02-05T03:16:37.040Z,"147 km NW of Sabang, Indonesia",earthquake,9.4,2,0.2,7,reviewed,us,us
+2015-11-08T20:30:07.080Z,7.1265,94.6264,10,4.7,mb,,158,2.979,1.25,us,us10003vte,2016-02-05T03:16:37.040Z,"156 km NNW of Sabang, Indonesia",earthquake,7.7,1.9,0.133,17,reviewed,us,us
+2015-11-08T20:59:39.200Z,6.9108,94.4761,10,4.8,mb,,168,2.971,0.75,us,us10003vtp,2016-02-05T03:16:37.040Z,"146 km NW of Sabang, Indonesia",earthquake,8.3,1.9,0.139,16,reviewed,us,us
+2015-11-08T22:37:21.570Z,7.0161,94.571,10,4.4,mb,,194,2.955,0.69,us,us10003z2z,2016-02-05T03:16:37.040Z,"149 km NNW of Sabang, Indonesia",earthquake,15.8,2,0.155,12,reviewed,us,us
+2015-11-09T05:55:04.070Z,6.5938,94.9403,10,4.2,mb,,206,2.413,0.94,us,us10003xum,2016-02-05T03:16:38.040Z,"88 km NNW of Sabang, Indonesia",earthquake,23.4,2,0.216,6,reviewed,us,us
+2015-11-09T06:18:55.740Z,6.7631,94.9712,10,4.3,mb,,177,2.487,0.74,us,us10003xup,2016-02-05T03:16:38.040Z,"103 km NNW of Sabang, Indonesia",earthquake,12.6,1.8,0.161,11,reviewed,us,us
+2015-11-09T06:56:02.590Z,6.5349,94.8069,10,4.4,mb,,201,2.493,0.93,us,us10003xur,2016-02-05T03:16:38.040Z,"90 km NW of Sabang, Indonesia",earthquake,11.7,2,0.143,14,reviewed,us,us
+2015-11-09T07:02:56.350Z,6.5806,94.6421,10,4.7,mb,,80,2.657,0.92,us,us10003vwq,2016-02-05T03:16:38.040Z,"106 km NW of Sabang, Indonesia",earthquake,8.2,1.7,0.091,37,reviewed,us,us
+2015-11-09T07:05:13.930Z,6.6385,94.8281,10,4.6,mb,,159,2.53,0.67,us,us10003xv6,2016-02-05T03:16:38.040Z,"98 km NNW of Sabang, Indonesia",earthquake,10.5,1.9,0.132,17,reviewed,us,us
+2015-11-09T07:07:44.320Z,6.5379,94.6341,12.58,4.8,mb,,88,2.643,0.79,us,us10003vws,2016-02-05T03:16:38.040Z,"104 km NW of Sabang, Indonesia",earthquake,9.7,5,0.085,42,reviewed,us,us
+2015-11-09T07:13:27.180Z,6.5052,94.725,10,4.9,mb,,36,2.548,0.92,us,us10003vwv,2016-11-10T21:59:39.148Z,"94 km NW of Sabang, Indonesia",earthquake,8.1,1,0.064,76,reviewed,us,us
+2015-11-09T07:21:33.000Z,6.571,94.7657,25.18,4.4,mb,,199,2.547,0.63,us,us10003xuw,2016-02-05T03:16:38.040Z,"96 km NW of Sabang, Indonesia",earthquake,17.4,8.7,0.162,11,reviewed,us,us
+2015-11-09T07:28:00.600Z,6.6272,94.7965,10,4.7,mb,,85,2.55,1.11,us,us10003vwz,2016-02-05T03:16:39.040Z,"99 km NW of Sabang, Indonesia",earthquake,9.7,1.9,0.099,31,reviewed,us,us
+2015-11-10T15:59:33.190Z,6.8776,94.4887,10,4.5,mb,,176,2.942,0.66,us,us10003y1c,2016-02-05T03:16:41.040Z,"142 km NW of Sabang, Indonesia",earthquake,12,1.9,0.115,22,reviewed,us,us
+2015-11-10T16:26:33.700Z,6.7858,94.4351,10,4,mb,,117,2.938,0.88,us,us10003y1d,2016-02-05T03:16:41.040Z,"139 km NW of Sabang, Indonesia",earthquake,12.8,1.9,0.212,6,reviewed,us,us
+2015-11-10T19:20:06.440Z,6.6144,94.7456,22.91,4.4,mb,,175,2.586,0.9,us,us10003y1j,2016-02-05T03:16:41.040Z,"102 km NW of Sabang, Indonesia",earthquake,9.1,6.1,0.112,25,reviewed,us,us
+2015-11-12T22:34:55.770Z,6.9315,94.5431,10,4.5,mb,,102,2.928,0.59,us,us10003yqj,2016-02-13T02:08:18.040Z,"143 km NW of Sabang, Indonesia",earthquake,9.2,1.9,0.099,30,reviewed,us,us
+2015-11-14T16:53:31.340Z,6.8326,94.5324,10,5.3,mb,,72,2.882,0.9,us,us10003ydi,2025-12-22T17:11:04.614Z,"135 km NW of Sabang, Indonesia",earthquake,5.2,1.9,0.076,58,reviewed,us,us
+2015-11-14T22:09:53.600Z,7.0032,94.371,10,4.3,mb,,133,3.109,0.7,us,us10003z9s,2016-02-13T02:08:22.040Z,"Nicobar Islands, India region",earthquake,13.1,1.9,0.133,16,reviewed,us,us
+2015-11-15T13:07:45.240Z,6.6724,94.3491,10,4.6,mb,,127,6.032,0.47,us,us10003zbm,2016-02-13T02:08:23.040Z,"137 km NW of Sabang, Indonesia",earthquake,6.1,1.9,0.096,32,reviewed,us,us
+2015-11-25T22:44:27.900Z,6.5543,94.8981,10,4.4,mb,,109,2.426,0.7,us,us100041s1,2016-02-18T04:48:56.040Z,"86 km NNW of Sabang, Indonesia",earthquake,10.4,1.9,0.123,19,reviewed,us,us
+2015-11-26T17:14:19.180Z,6.8689,94.5744,30.36,4.3,mb,,192,2.867,0.6,us,us1000427c,2016-02-25T22:32:55.040Z,"135 km NW of Sabang, Indonesia",earthquake,10.1,7.6,0.125,18,reviewed,us,us
+2015-11-30T02:31:22.420Z,7.0269,94.4304,16.39,4.1,mb,,186,3.074,0.98,us,us10004327,2016-02-25T22:33:01.040Z,"159 km NW of Sabang, Indonesia",earthquake,11.1,8.5,0.262,4,reviewed,us,us
+2015-12-12T14:29:45.930Z,6.7778,94.4573,10,4.4,mb,,145,2.915,0.93,us,us20004gr3,2016-03-05T01:42:04.040Z,"136 km NW of Sabang, Indonesia",earthquake,10.9,1.9,0.149,13,reviewed,us,us

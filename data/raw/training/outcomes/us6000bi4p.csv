@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-08-21T04:09:51.930Z,-6.71,123.4649,624,6.9,mww,,20,2.267,1.31,us,us6000bi4p,2025-12-22T18:40:47.008Z,"222 km SSE of Katabu, Indonesia",earthquake,8.8,1.9,0.052,36,reviewed,us,us
+2020-08-21T04:42:37.724Z,-6.8725,123.483,632.85,4.9,mb,,29,2.142,1.03,us,us6000bi62,2020-10-31T19:06:13.040Z,"238 km NE of Maumere, Indonesia",earthquake,9.3,4,0.067,70,reviewed,us,us
+2020-08-21T10:47:04.958Z,-6.8446,123.5581,635.03,4,mb,,119,2.208,0.45,us,us7000bdrm,2020-10-31T19:06:32.040Z,"240 km SSE of Katabu, Indonesia",earthquake,14.1,11.3,0.15,12,reviewed,us,us
+2020-09-22T22:57:42.429Z,-7.2029,123.2344,573.2,4.4,mb,,35,1.732,0.88,us,us6000bzvs,2020-11-28T21:32:05.040Z,"193 km NE of Maumere, Indonesia",earthquake,10,7,0.083,42,reviewed,us,us

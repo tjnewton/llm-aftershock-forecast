@@ -1,0 +1,8 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2021-08-18T10:10:05.238Z,-14.8818,167.0585,93,6.9,mww,,54,0.579,0.78,us,us6000f7vg,2025-12-22T22:18:21.648Z,"17 km N of Port-Olry, Vanuatu",earthquake,7.9,1.9,0.058,29,reviewed,us,us
+2021-09-02T00:07:59.852Z,-14.563,166.973,32.8,4.4,mb,,148,0.906,0.26,us,us7000f9s6,2021-11-06T20:28:30.040Z,"54 km NNW of Port-Olry, Vanuatu",earthquake,12.7,7.6,0.169,10,reviewed,us,us
+2021-09-03T02:27:04.636Z,-15.0635,167.5901,116.21,4.3,mb,,224,0.533,0.76,us,us7000f9yh,2021-11-17T17:18:42.040Z,"55 km E of Port-Olry, Vanuatu",earthquake,15.4,6.5,0.237,7,reviewed,us,us
+2021-09-15T09:53:46.844Z,-14.8839,167.3361,125.9,4.4,mb,,117,0.574,0.5,us,us7000fd6g,2021-11-23T15:12:26.040Z,"33 km ENE of Port-Olry, Vanuatu",earthquake,12.8,7.1,0.202,9,reviewed,us,us
+2021-09-20T16:47:41.362Z,-14.9429,166.9491,16.6,4.6,mb,,48,0.558,0.54,us,us7000fe3e,2021-12-03T15:02:01.040Z,"17 km NW of Port-Olry, Vanuatu",earthquake,3.5,4.3,0.087,43,reviewed,us,us
+2021-10-07T16:23:06.655Z,-14.3539,167.0637,10,4.3,mb,,218,1.095,1.29,us,us6000fu11,2021-12-10T21:14:25.040Z,"74 km SW of Sola, Vanuatu",earthquake,7.3,2,0.129,20,reviewed,us,us
+2021-10-14T05:51:55.748Z,-15.0476,167.4701,116,5.6,mww,,63,0.473,0.62,us,us6000fugu,2025-12-22T22:17:43.874Z,"42 km E of Port-Olry, Vanuatu",earthquake,9.7,1.9,0.051,37,reviewed,us,us

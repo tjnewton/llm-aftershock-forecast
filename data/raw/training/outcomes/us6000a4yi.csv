@@ -1,0 +1,8 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-06-03T07:35:36.466Z,-23.274,-68.4677,112,6.8,mww,,21,1.164,1.13,us,us6000a4yi,2025-12-22T18:35:20.388Z,"48 km SW of San Pedro de Atacama, Chile",earthquake,6.8,1.8,0.046,45,reviewed,us,us
+2020-06-03T07:50:33.938Z,-23.3547,-68.4336,107.33,4.6,mb,,52,0.464,1.2,us,us6000a4zc,2020-08-18T17:58:45.040Z,"54 km SSW of San Pedro de Atacama, Chile",earthquake,7.3,6.5,0.141,17,reviewed,us,us
+2020-06-07T21:26:32.016Z,-23.2501,-68.5144,120.18,4,mwr,,39,0.428,0.73,us,us6000a7lu,2020-08-18T17:59:03.040Z,"49 km SW of San Pedro de Atacama, Chile",earthquake,6.2,5.3,,,reviewed,us,guc
+2020-06-16T17:54:40.319Z,-23.2758,-68.5679,108.9,4.5,mwr,,33,0.481,0.9,us,us6000aczw,2020-08-22T19:14:57.040Z,"55 km SW of San Pedro de Atacama, Chile",earthquake,5.6,3.9,0.053,34,reviewed,us,us
+2020-06-17T06:40:11.335Z,-23.3495,-68.4931,98.53,4.2,mb,,40,0.49,1.21,us,us6000adb9,2020-08-30T00:00:40.040Z,"57 km SSW of San Pedro de Atacama, Chile",earthquake,6.5,6.5,0.152,12,reviewed,us,us
+2020-07-05T01:59:37.522Z,-22.9693,-68.1547,130.37,4.3,mb,,38,0.028,1.04,us,us7000ai4n,2020-09-11T22:14:13.040Z,"8 km SE of San Pedro de Atacama, Chile",earthquake,8,4.6,0.161,11,reviewed,us,us
+2020-07-20T13:36:12.737Z,-23.3257,-68.5687,113.91,4.2,mb,,87,0.516,0.57,us,us7000arka,2020-09-26T16:58:41.040Z,"59 km SW of San Pedro de Atacama, Chile",earthquake,7.9,7,0.372,3,reviewed,us,us

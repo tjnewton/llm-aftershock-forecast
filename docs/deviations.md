@@ -34,3 +34,22 @@ Each entry: UTC time, change, reason, expected effect on the registered analyses
   "Nikolski Alaska earthquake 2026" query for the three Nikolski events, from the earliest
   origin): no paper about any of these mainshocks (all matches weak and about other events), so
   the contamination covariate is zero for every E3 sequence screened.
+- 2026-10-22T11:40Z. Adaption replicates (exploratory): two more runs on the E1 data (e1r1,
+  e1r2; e1r2 on a re-upload of the same file, since Adaption allows one run per dataset at a
+  time) and one more on the E1a data (e1ar2), all with E1's best hyperparameters and one
+  iteration, so data size and run-to-run variation can be separated. Effect: none on
+  registered analyses.
+- 2026-10-22T11:40Z. Outcome-aware adaptation (exploratory; laf.outcome_training): outcome
+  catalogs to day 60 for the 515 E1 training sequences (2010-2025, no benchmark sequence).
+  Candidates are the ETAS refit transformed by a rate factor and a spread factor on the
+  log(x + 1) scale, scored by the registered log-scale quantile score against realized counts.
+  E1b: preference pairs (best candidate chosen, the untransformed refit rejected), Adaption
+  alignment training. E1c: SFT on the single best global transform (recalibrated ETAS). The
+  same fitted transform applied to the ETAS refit on benchmark cells is a non-LLM baseline
+  (`etas_recal`), which separates recalibration from anything an LLM adds.
+- 2026-10-22T12:05Z. Result of the recalibration fit: on the 3,090 E1 training items the best
+  global transform of the ETAS refit is the identity (k = 1, s = 1; mean log-QS 0.323), so the
+  refit is already calibrated within this family; the `etas_recal` baseline and E1c (SFT on it)
+  would equal ETAS and E1 and were dropped. E1b uses five preference pairs per item (the best
+  candidate against the untransformed refit, unless it is best, and the worst candidates),
+  15,450 rows, because Adaption alignment needs at least 12,000; one iteration.

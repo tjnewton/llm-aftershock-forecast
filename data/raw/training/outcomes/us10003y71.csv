@@ -1,0 +1,24 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2015-11-13T20:51:31.030Z,31.0009,128.8729,12,6.7,mww,,17,1.444,1.25,us,us10003y71,2022-08-01T17:43:30.585Z,"140 km WSW of Makurazaki, Japan",earthquake,5.9,1.7,,,reviewed,us,us
+2015-11-13T21:17:26.580Z,31.0207,128.7986,10,4.9,mb,,61,1.497,0.92,us,us10003y7j,2016-02-13T02:08:20.040Z,"147 km W of Makurazaki, Japan",earthquake,6.3,1.8,0.064,77,reviewed,us,us
+2015-11-13T21:29:00.710Z,30.7365,128.7845,10,4.3,mb,,94,1.624,1.2,us,us10003yyx,2016-02-13T02:08:20.040Z,"157 km WSW of Makurazaki, Japan",earthquake,6.1,1.9,0.201,7,reviewed,us,us
+2015-11-13T21:36:28.450Z,31.2189,128.8638,10,4.4,mb,,63,1.389,0.85,us,us10003yyw,2016-02-13T02:08:20.040Z,"138 km W of Makurazaki, Japan",earthquake,5.2,1.5,0.144,14,reviewed,us,us
+2015-11-13T22:14:21.770Z,31.1281,128.7527,10,4.4,mb,,71,1.503,1.05,us,us10003yyz,2016-02-13T02:08:20.040Z,"149 km W of Makurazaki, Japan",earthquake,6,1.9,0.117,21,reviewed,us,us
+2015-11-14T01:11:53.620Z,31.3889,128.9065,10,4.3,mb,,89,1.326,1.3,us,us10003y8q,2016-02-13T02:08:20.040Z,"134 km W of Kaseda-shirakame, Japan",earthquake,5.6,1.4,0.138,15,reviewed,us,us
+2015-11-14T04:29:25.930Z,30.9216,128.6945,10,4.2,mb,,105,1.616,0.94,us,us10003z8w,2016-02-13T02:08:20.040Z,"159 km WSW of Makurazaki, Japan",earthquake,7.9,1.9,0.158,11,reviewed,us,us
+2015-11-14T05:26:28.020Z,31.2712,128.6902,10,4.2,mb,,117,1.525,0.5,us,us10003z8z,2016-02-13T02:08:20.040Z,"154 km W of Makurazaki, Japan",earthquake,6.1,1.9,0.2,7,reviewed,us,us
+2015-11-14T08:40:56.000Z,31.2782,128.9344,6.69,4.7,mb,,80,1.318,0.56,us,us10003ybg,2016-11-10T22:00:36.056Z,"131 km W of Makurazaki, Japan",earthquake,3.6,5,0.106,27,reviewed,us,us
+2015-11-14T20:34:29.340Z,31.3303,128.853,10,5.1,mww,,59,1.379,0.83,us,us10003ye7,2025-12-22T17:36:25.900Z,"139 km W of Makurazaki, Japan",earthquake,6.6,1.7,,,reviewed,us,us
+2015-11-14T21:41:50.460Z,31.3033,128.812,10,4.5,mb,,92,1.417,0.7,us,us10003yem,2016-02-13T02:08:22.040Z,"143 km W of Makurazaki, Japan",earthquake,6.1,1.9,0.081,45,reviewed,us,us
+2015-11-14T22:35:00.890Z,30.8913,128.7122,10,4.3,mb,,106,1.613,0.69,us,us10003z9x,2016-02-13T02:08:22.040Z,"158 km WSW of Makurazaki, Japan",earthquake,6.6,1.5,0.129,17,reviewed,us,us
+2015-11-15T01:12:23.920Z,30.9746,128.8751,10,4.4,mb,,106,1.452,0.93,us,us10003yfh,2016-02-13T02:08:22.040Z,"141 km WSW of Makurazaki, Japan",earthquake,7.1,1.9,0.115,24,reviewed,us,us
+2015-11-15T06:07:28.310Z,31.139,128.7456,10,4.2,mb,,116,1.506,0.64,us,us10003zb8,2016-02-13T02:08:22.040Z,"150 km W of Makurazaki, Japan",earthquake,7.4,1.9,0.146,14,reviewed,us,us
+2015-11-16T05:11:36.530Z,30.7149,128.7587,10,4.3,mb,,94,1.654,1.28,us,us10003zj0,2016-02-13T02:08:24.040Z,"160 km WSW of Makurazaki, Japan",earthquake,7.2,1.9,0.16,11,reviewed,us,us
+2015-11-16T07:31:14.500Z,31.1872,128.9206,10,4.8,mb,,83,1.349,1.04,us,us10003ylp,2016-02-13T02:08:24.040Z,"133 km W of Makurazaki, Japan",earthquake,6.4,1.9,0.079,49,reviewed,us,us
+2015-11-17T02:07:12.820Z,31.2208,128.7322,10,4.3,mb,,95,1.499,1.11,us,us10003zkx,2016-02-13T02:08:26.040Z,"151 km W of Makurazaki, Japan",earthquake,6.2,1.9,0.154,12,reviewed,us,us
+2015-11-18T04:38:50.880Z,31.3706,128.961,27.5,5.1,mb,,76,1.282,0.88,us,us10003z79,2016-11-10T22:01:02.970Z,"129 km W of Kaseda-shirakame, Japan",earthquake,6.1,4.9,0.048,139,reviewed,us,us
+2015-11-18T12:18:04.590Z,31.0852,128.5119,10,4.7,mb,,60,1.714,0.87,us,us10003z8b,2016-02-13T02:08:29.040Z,"173 km W of Makurazaki, Japan",earthquake,6.1,1.9,0.096,35,reviewed,us,us
+2015-11-18T16:09:59.960Z,31.3715,128.9703,10,4.2,mb,,136,1.274,1.18,us,us10003zty,2016-02-13T02:08:29.040Z,"128 km W of Kaseda-shirakame, Japan",earthquake,4.3,1.9,0.264,4,reviewed,us,us
+2015-11-18T19:56:49.210Z,31.2078,128.9892,10,4.5,mb,,78,1.287,0.53,us,us10003zd4,2016-02-13T02:08:30.040Z,"126 km W of Makurazaki, Japan",earthquake,4.5,1.9,0.092,35,reviewed,us,us
+2015-11-19T14:41:48.180Z,31.2239,128.8522,16.87,4.7,mb,,82,1.398,0.65,us,us10003zkd,2016-11-10T22:01:15.879Z,"139 km W of Makurazaki, Japan",earthquake,6.1,4,0.13,18,reviewed,us,us
+2015-12-07T16:24:24.660Z,31.3413,128.7683,10.94,4.8,mb,,97,1.449,0.61,us,us20004g5x,2016-03-02T03:36:37.040Z,"147 km W of Kaseda-shirakame, Japan",earthquake,8.7,4.8,0.076,54,reviewed,us,us

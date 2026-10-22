@@ -1,0 +1,18 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2018-01-14T09:18:45.540Z,-15.7675,-74.7092,39,7.1,mww,,23,4.29,1.2,us,us2000cjfy,2022-05-03T18:45:10.126Z,"37 km W of Atiquipa, Peru",earthquake,7,1.8,0.032,95,reviewed,us,us
+2018-01-14T09:50:42.810Z,-15.8614,-74.4835,47.75,4.4,mb,,148,4.48,1.2,us,us2000cjgd,2018-04-03T01:40:30.040Z,"14 km WSW of Atiquipa, Peru",earthquake,8.8,8.8,0.19,8,reviewed,us,us
+2018-01-16T15:02:27.080Z,-15.7746,-74.595,47.11,4.8,mb,,131,4.351,0.87,us,us2000cjyg,2018-04-10T01:11:42.040Z,"24 km W of Atiquipa, Peru",earthquake,8.7,6.5,0.079,50,reviewed,us,us
+2018-01-19T04:23:14.440Z,-15.9849,-74.4826,10,4.3,mb,,161,4.586,0.84,us,us1000cdm9,2018-04-10T01:11:46.040Z,"24 km SSW of Atiquipa, Peru",earthquake,9.7,1.9,0.217,6,reviewed,us,us
+2018-01-19T17:44:25.210Z,-15.956,-74.7636,10,4.6,mb,,131,4.43,1.07,us,us2000clb7,2022-08-07T23:13:44.058Z,"46 km WSW of Atiquipa, Peru",earthquake,6.1,1.8,0.09,37,reviewed,us,us
+2018-01-21T06:40:56.980Z,-15.7426,-74.7467,31.07,5,mb,,125,4.251,0.73,us,us2000cm2k,2018-04-10T01:11:50.040Z,"38 km SSW of Acarí, Peru",earthquake,6,3.8,0.031,324,reviewed,us,us
+2018-01-26T14:31:07.430Z,-15.9873,-74.4516,35,4.3,mb,,149,4.603,1.17,us,us2000cpt7,2018-04-20T07:05:26.040Z,"23 km SSW of Atiquipa, Peru",earthquake,8.4,2,0.239,5,reviewed,us,us
+2018-01-26T22:27:08.840Z,-15.8376,-74.6775,30.04,4.6,mb,,141,4.366,0.91,us,us2000cq4y,2018-04-20T07:05:27.040Z,"33 km W of Atiquipa, Peru",earthquake,8.3,5.6,0.071,59,reviewed,us,us
+2018-01-27T20:26:34.390Z,-15.9063,-74.3703,44.58,4.7,mb,,142,4.565,0.87,us,us2000cqg2,2018-04-20T07:05:31.040Z,"12 km S of Atiquipa, Peru",earthquake,8.9,7.4,0.123,20,reviewed,us,us
+2018-01-28T06:03:47.980Z,-16.0079,-74.9247,10,4.8,mb,,151,4.408,0.82,us,us2000cqkb,2018-04-20T07:05:33.040Z,"64 km WSW of Atiquipa, Peru",earthquake,8.4,1.9,0.07,63,reviewed,us,us
+2018-01-29T11:25:17.860Z,-15.7262,-74.2296,60.12,4.7,mb,,148,4.499,0.6,us,us2000cqw6,2018-04-25T01:39:35.040Z,"16 km ENE of Atiquipa, Peru",earthquake,9.6,9.4,0.09,37,reviewed,us,us
+2018-01-30T14:23:52.870Z,-15.8497,-74.6096,34,5.5,mww,,74,4.408,1.24,us,us2000cr9m,2022-08-07T23:43:22.441Z,"27 km WSW of Atiquipa, Peru",earthquake,7.6,1.8,0.056,31,reviewed,us,us
+2018-02-04T18:11:42.460Z,-15.939,-74.9688,51.2,4.4,mb,,148,4.328,1.18,us,us1000cfqt,2018-04-25T01:39:48.040Z,"66 km WSW of Atiquipa, Peru",earthquake,5.8,9.4,0.219,6,reviewed,us,us
+2018-02-05T22:30:59.220Z,-15.9,-74.7325,10,4.7,mb,,150,4.395,0.79,us,us1000cgck,2018-05-03T22:14:58.040Z,"41 km WSW of Atiquipa, Peru",earthquake,9,1.9,0.074,55,reviewed,us,us
+2018-02-07T13:55:09.100Z,-16.1999,-74.8194,10,4.2,mb,,168,4.624,0.67,us,us1000ci8q,2018-05-03T22:15:02.040Z,"66 km SW of Atiquipa, Peru",earthquake,11.2,2,0.235,5,reviewed,us,us
+2018-02-11T18:06:34.000Z,-16.0488,-74.7822,10,4.5,mb,,142,4.505,1.19,us,us2000d0l2,2022-08-08T00:14:35.587Z,"52 km WSW of Atiquipa, Peru",earthquake,4.7,2,0.156,12,reviewed,us,us
+2018-02-19T08:56:23.720Z,-15.8761,-74.0764,52.32,4.7,mb,,143,4.706,0.86,us,us2000d4mq,2018-05-22T02:00:16.040Z,"14 km WSW of Achanizo, Peru",earthquake,7.5,7.2,0.047,136,reviewed,us,us

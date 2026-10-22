@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2014-12-02T05:11:31.000Z,6.1572,123.1261,614,6.6,mww,,9,2.6,1.32,us,usb000t20t,2022-05-03T18:20:44.980Z,"106 km WSW of Sangay, Philippines",earthquake,8.6,1.9,,,reviewed,us,us

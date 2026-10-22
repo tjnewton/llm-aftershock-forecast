@@ -1,0 +1,35 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2023-12-07T12:56:30.184Z,-20.6152,169.3089,48,7.1,mww,146,20,2.637,1.08,us,us7000lgwp,2024-02-10T23:47:40.040Z,"118 km S of Isangel, Vanuatu",earthquake,8.5,1.836,0.05,39,reviewed,us,us
+2023-12-08T00:08:49.133Z,-20.5431,169.0194,10,4.3,mb,17,101,2.527,0.49,us,us7000livy,2024-02-10T23:47:41.040Z,"114 km SSW of Isangel, Vanuatu",earthquake,7.59,1.943,0.189,8,reviewed,us,us
+2023-12-08T07:19:56.760Z,-20.3756,169.4438,48.536,5.6,mww,204,48,2.901,0.62,us,us7000lh9a,2024-02-10T23:47:42.040Z,"93 km S of Isangel, Vanuatu",earthquake,9.2,5.326,0.06,27,reviewed,us,us
+2023-12-08T15:13:28.278Z,-20.479,168.6974,10,4.3,mb,15,121,2.422,0.57,us,us7000lix2,2024-02-10T23:47:43.040Z,"120 km SSW of Isangel, Vanuatu",earthquake,10.98,1.942,0.16,12,reviewed,us,us
+2023-12-08T16:19:29.704Z,-20.9949,169.1639,10,5.2,mww,41,122,2.267,0.9,us,us7000lhjb,2024-02-10T23:47:43.040Z,"146 km ENE of Tadine, New Caledonia",earthquake,9.83,1.849,0.062,25,reviewed,us,us
+2023-12-08T16:51:20.566Z,-21.17,168.9286,10,4.6,mb,26,157,1.989,1.07,us,us7000lhjl,2024-02-10T23:47:43.040Z,"116 km ENE of Tadine, New Caledonia",earthquake,11.79,1.934,0.107,26,reviewed,us,us
+2023-12-08T17:39:45.347Z,-20.4193,169.3595,11.616,4.5,mb,34,146,2.817,0.8,us,us7000lix6,2024-02-10T23:47:43.040Z,"97 km S of Isangel, Vanuatu",earthquake,9.5,4.848,0.109,25,reviewed,us,us
+2023-12-08T19:03:25.841Z,-20.4988,168.82,10,4,mb,19,98,2.462,0.54,us,us7000lixr,2024-02-10T23:47:43.040Z,"116 km SSW of Isangel, Vanuatu",earthquake,9.38,1.924,0.173,12,reviewed,us,us
+2023-12-08T19:03:34.227Z,-20.4346,168.8423,15.348,5.2,mww,153,79,2.527,0.87,us,us7000lhkc,2024-02-10T23:47:43.040Z,"109 km SSW of Isangel, Vanuatu",earthquake,8.23,3.553,0.065,23,reviewed,us,us
+2023-12-08T19:50:28.189Z,-20.3461,168.7921,10,4.4,mb,19,161,2.58,0.61,us,us7000lixc,2024-02-10T23:47:43.040Z,"102 km SSW of Isangel, Vanuatu",earthquake,7.67,1.687,0.149,18,reviewed,us,us
+2023-12-09T01:49:40.705Z,-20.4496,169.0231,10,4.5,mb,22,113,2.605,0.72,us,us7000lizi,2024-02-10T23:47:44.040Z,"104 km SSW of Isangel, Vanuatu",earthquake,10.11,1.911,0.163,13,reviewed,us,us
+2023-12-09T19:45:58.759Z,-20.6289,168.8083,10,4.7,mb,34,101,2.346,0.6,us,us7000lj20,2024-02-10T23:47:47.040Z,"130 km SSW of Isangel, Vanuatu",earthquake,3.47,1.825,0.113,24,reviewed,us,us
+2023-12-11T01:27:30.283Z,-20.5135,168.8459,10,4.4,mb,18,116,2.462,0.76,us,us7000ljat,2024-02-17T22:43:11.040Z,"116 km SSW of Isangel, Vanuatu",earthquake,7.37,1.908,0.162,11,reviewed,us,us
+2023-12-12T16:52:11.911Z,-20.8644,168.639,10,4.1,mb,12,217,2.063,0.68,us,us7000ljw8,2024-02-17T22:43:12.040Z,"109 km NE of Tadine, New Caledonia",earthquake,9.31,1.968,0.198,8,reviewed,us,us
+2023-12-13T03:04:18.911Z,-20.6272,169.4485,35,5.1,mb,112,59,2.716,0.48,us,us7000lijx,2024-02-17T22:43:07.040Z,"121 km S of Isangel, Vanuatu",earthquake,8.46,1.82,0.061,88,reviewed,us,us
+2023-12-15T16:43:48.060Z,-20.9156,168.9094,10,4.5,mb,16,129,2.168,1.14,us,us7000lke2,2024-02-17T22:43:14.040Z,"127 km ENE of Tadine, New Caledonia",earthquake,11.32,1.677,0.163,14,reviewed,us,us
+2023-12-22T14:56:44.290Z,-20.8627,169.388,58.741,4.8,mb,46,121,2.509,0.45,us,us7000lkw9,2024-02-27T22:57:04.040Z,"146 km S of Isangel, Vanuatu",earthquake,10.25,6.391,0.074,56,reviewed,us,us
+2023-12-23T20:43:45.970Z,-20.3914,168.9535,10,5.2,mww,52,121,2.618,0.49,us,us7000ll4n,2024-02-27T22:57:05.040Z,"100 km SSW of Isangel, Vanuatu",earthquake,7.81,1.83,0.066,22,reviewed,us,us
+2023-12-23T21:17:33.793Z,-20.505,169.0546,30.64,4.8,mb,34,55,2.577,0.49,us,us7000ll4w,2024-02-27T22:57:06.040Z,"109 km SSW of Isangel, Vanuatu",earthquake,5.84,5.437,0.121,21,reviewed,us,us
+2023-12-24T01:59:39.371Z,-20.5072,168.9641,10,5.9,mww,88,30,2.527,0.98,us,us7000ll61,2024-03-02T21:39:39.040Z,"111 km SSW of Isangel, Vanuatu",earthquake,8.28,1.753,0.098,10,reviewed,us,us
+2023-12-24T02:00:32.128Z,-20.4518,169.06,10,5.8,mb,50,113,3.046,0.94,us,us6000m1q8,2024-03-02T21:39:35.040Z,"103 km SSW of Isangel, Vanuatu",earthquake,8.25,1.854,0.092,44,reviewed,us,us
+2023-12-24T02:35:51.461Z,-20.4454,169.0108,10,4.9,mb,43,65,2.602,1.05,us,us6000m1qb,2024-03-02T21:39:35.040Z,"103 km SSW of Isangel, Vanuatu",earthquake,9.25,1.829,0.093,37,reviewed,us,us
+2023-12-24T02:49:00.214Z,-20.5869,169.1052,10,4.4,mb,20,151,3.011,0.66,us,us6000m1qc,2024-03-02T21:39:35.040Z,"117 km S of Isangel, Vanuatu",earthquake,11.94,1.953,0.138,15,reviewed,us,us
+2023-12-24T02:54:39.924Z,-20.4692,168.9527,10,4.9,mb,44,109,2.553,1.3,us,us7000ll6d,2024-03-02T21:39:39.040Z,"108 km SSW of Isangel, Vanuatu",earthquake,10.53,1.848,0.101,32,reviewed,us,us
+2023-12-24T04:37:13.985Z,-20.6389,168.8937,10,4.2,mb,15,147,2.382,0.35,us,us6000m1q2,2024-03-02T21:39:35.040Z,"128 km SSW of Isangel, Vanuatu",earthquake,11.97,1.952,0.176,9,reviewed,us,us
+2023-12-24T17:02:48.375Z,-20.4871,168.776,10,4.5,mb,17,100,2.451,0.32,us,us6000m1qw,2024-03-02T21:39:35.040Z,"117 km SSW of Isangel, Vanuatu",earthquake,8.25,1.626,0.157,12,reviewed,us,us
+2023-12-24T17:32:47.475Z,-20.4247,168.757,10,5,mb,59,85,2.496,0.6,us,us6000m1qy,2024-03-02T21:39:35.040Z,"112 km SSW of Isangel, Vanuatu",earthquake,7.87,1.821,0.088,41,reviewed,us,us
+2023-12-24T23:50:55.107Z,-20.4753,168.527,10,4.4,mb,14,166,2.353,0.59,us,us6000m1rb,2024-03-02T21:39:35.040Z,"130 km SW of Isangel, Vanuatu",earthquake,9.16,1.955,0.189,8,reviewed,us,us
+2023-12-29T13:54:21.609Z,-20.7909,169.3333,54.212,4.2,mb,18,162,2.523,0.73,us,us6000m2qi,2024-03-02T21:39:37.040Z,"138 km S of Isangel, Vanuatu",earthquake,5.08,8.738,0.175,9,reviewed,us,us
+2023-12-29T17:02:34.186Z,-20.1324,169.703,121.675,4,mb,14,162,3.243,0.88,us,us6000m2qu,2024-03-02T21:39:37.040Z,"78 km SE of Isangel, Vanuatu",earthquake,11.18,6.565,0.196,8,reviewed,us,us
+2024-01-12T03:35:51.301Z,-20.602,169.8592,120.91,4.8,mb,49,87,3.007,0.88,us,us6000m38e,2024-03-16T19:00:24.040Z,"132 km SSE of Isangel, Vanuatu",earthquake,8.02,6.121,0.071,68,reviewed,us,us
+2024-01-14T07:26:14.195Z,-20.5087,168.9004,10,4.2,mb,15,203,2.493,0.86,us,us6000m4re,2024-03-16T19:01:14.040Z,"114 km SSW of Isangel, Vanuatu",earthquake,11.46,1.996,0.176,10,reviewed,us,us
+2024-01-17T13:48:58.296Z,-20.7739,170.0063,10,4.6,mb,20,105,3.002,0.45,us,us7000lthq,2024-03-29T17:37:56.040Z,"156 km SSE of Isangel, Vanuatu",earthquake,7.03,1.865,0.151,13,reviewed,us,us
+2024-01-19T19:41:50.911Z,-20.874,169.3229,127.667,4.4,mb,15,145,2.457,0.57,us,us7000ltyx,2024-03-29T17:37:56.040Z,"147 km S of Isangel, Vanuatu",earthquake,12.87,10.911,0.139,15,reviewed,us,us

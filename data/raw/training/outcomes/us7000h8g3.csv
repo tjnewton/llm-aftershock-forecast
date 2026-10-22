@@ -1,0 +1,9 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-05-10T23:06:32.368Z,-23.496,-66.6519,220,6.8,mww,162,30,1.505,0.87,us,us7000h8g3,2022-08-12T11:38:28.703Z,"86 km NNW of San Antonio de los Cobres, Argentina",earthquake,9.4,1.9,0.062,25,reviewed,us,us
+2022-05-14T11:47:15.559Z,-23.5731,-66.7726,206.34,4.3,mwr,36,44,1.433,0.8,us,us6000hl3s,2022-07-24T02:38:29.040Z,"85 km NNW of San Antonio de los Cobres, Argentina",earthquake,8,7.9,,,reviewed,us,guc
+2022-05-15T13:00:45.939Z,-23.492,-66.7686,200.82,4.4,mwr,93,63,1.404,0.56,us,us6000hlau,2022-07-24T02:38:51.040Z,"Jujuy, Argentina",earthquake,9.3,6,,,reviewed,us,guc
+2022-05-18T00:21:17.988Z,-23.6481,-67.0052,231.71,4.3,mb,26,127,1.282,0.48,us,us6000hlwj,2022-07-24T02:39:41.040Z,"94 km NW of San Antonio de los Cobres, Argentina",earthquake,12,10.8,0.308,3,reviewed,us,us
+2022-06-12T16:32:20.151Z,-23.4838,-66.5843,207.14,4.6,mb,79,43,1.559,0.41,us,us7000hgyd,2022-08-21T00:16:28.040Z,"85 km NNW of San Antonio de los Cobres, Argentina",earthquake,7.5,5.8,0.034,267,reviewed,us,us
+2022-06-14T00:17:24.679Z,-23.7819,-66.9676,225.3,4.3,mwr,28,111,1.386,0.72,us,us7000hh72,2022-08-21T00:16:56.040Z,"81 km NW of San Antonio de los Cobres, Argentina",earthquake,8.7,9.9,,,reviewed,us,guc
+2022-06-29T14:30:41.654Z,-23.5599,-67.0522,230.86,4.2,mb,23,88,1.199,0.18,us,us7000hl37,2022-09-03T21:03:48.040Z,"104 km NW of San Antonio de los Cobres, Argentina",earthquake,5.3,9.5,0.199,7,reviewed,us,us
+2022-07-05T23:11:12.412Z,-23.6317,-67.0564,229.03,4.4,mb,25,106,1.234,0.37,us,us6000i05d,2022-09-13T06:22:48.040Z,"99 km NW of San Antonio de los Cobres, Argentina",earthquake,10.8,15.3,0.24,5,reviewed,us,us

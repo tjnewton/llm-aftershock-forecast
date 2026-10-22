@@ -1,0 +1,13 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2024-01-08T20:48:42.361Z,4.9225,126.1575,62.574,6.7,mww,138,22,2.209,0.76,us,us6000m2jp,2024-03-16T19:00:03.040Z,"93 km SE of Sarangani, Philippines",earthquake,7.15,3.404,0.06,27,reviewed,us,us
+2024-01-08T21:04:39.509Z,4.7288,126.0407,88.58,4.2,mb,25,110,2.37,0.66,us,us6000m478,2024-03-16T19:00:44.040Z,"98 km SE of Sarangani, Philippines",earthquake,9.77,8.2,0.131,16,reviewed,us,us
+2024-01-08T21:06:16.101Z,4.8164,126.0506,82.702,4.5,mb,50,81,2.287,0.49,us,us6000m479,2024-03-16T19:00:45.040Z,"91 km SE of Sarangani, Philippines",earthquake,9.46,7.922,0.088,38,reviewed,us,us
+2024-01-08T22:30:35.744Z,4.6686,126.299,92.212,4.1,mb,13,134,2.49,0.62,us,us6000m47g,2024-03-16T19:00:46.040Z,"123 km SE of Sarangani, Philippines",earthquake,12,9.419,0.198,7,reviewed,us,us
+2024-01-08T22:49:59.374Z,4.9569,126.4601,62.882,4.2,mb,22,151,2.274,0.46,us,us6000m47b,2024-03-16T19:00:45.040Z,"121 km ESE of Sarangani, Philippines",earthquake,4.66,8.363,0.152,12,reviewed,us,us
+2024-01-09T01:08:41.354Z,4.7116,126.3124,97.409,4.5,mb,52,106,2.453,0.67,us,us6000m2mj,2024-03-16T19:00:05.040Z,"121 km SE of Sarangani, Philippines",earthquake,8.33,3.313,0.094,33,reviewed,us,us
+2024-01-09T03:10:38.970Z,4.6255,126.205,96.647,4.1,mb,19,129,6.443,0.55,us,us6000m48y,2024-03-16T19:00:47.040Z,"118 km SE of Sarangani, Philippines",earthquake,12.61,4.636,0.157,11,reviewed,us,us
+2024-01-12T02:05:04.693Z,4.8837,126.43,44.076,5,mb,57,112,2.331,0.78,us,us6000m387,2024-03-16T19:00:23.040Z,"121 km ESE of Sarangani, Philippines",earthquake,8.08,5.817,0.081,52,reviewed,us,us
+2024-01-12T18:02:34.156Z,4.9202,126.4269,66.758,4.2,mb,31,84,2.296,0.7,us,us6000m4p6,2024-03-16T19:01:05.040Z,"119 km ESE of Sarangani, Philippines",earthquake,7.01,7.672,0.121,23,reviewed,us,us
+2024-01-14T10:56:20.744Z,4.8037,126.1553,92.124,4.5,mb,45,84,2.323,0.68,us,us6000m3lj,2024-03-16T19:00:38.040Z,"101 km SE of Sarangani, Philippines",earthquake,7.26,5.162,0.096,32,reviewed,us,us
+2024-02-01T13:24:39.891Z,4.8476,126.0421,79.771,4.4,mb,29,118,4.259,0.64,us,us7000lvvi,2024-04-13T19:32:41.040Z,"88 km SE of Sarangani, Philippines",earthquake,9.92,7.225,0.12,21,reviewed,us,us
+2024-03-07T03:30:13.827Z,5.1726,125.9703,111.162,4.7,mb,95,91,1.924,0.98,us,us7000m3tr,2024-05-15T17:35:04.040Z,"61 km ESE of Sarangani, Philippines",earthquake,6.62,6.652,0.063,76,reviewed,us,us

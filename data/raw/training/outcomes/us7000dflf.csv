@@ -1,0 +1,830 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2021-03-04T19:28:33.178Z,-29.7228,-177.2794,28.93,8.1,mww,,21,0.739,0.69,us,us7000dflf,2025-12-22T18:58:46.851Z,"2021 Kermadec Islands, New Zealand Earthquake",earthquake,7.7,3.3,0.034,81,reviewed,us,us
+2021-03-04T19:35:52.995Z,-29.7555,-177.1779,10,5.6,mb,,131,26.959,0.83,us,us7000dhr8,2025-12-22T18:58:48.056Z,"Kermadec Islands, New Zealand",earthquake,9.9,1.8,0.098,37,reviewed,us,us
+2021-03-04T19:36:34.002Z,-29.1215,-176.9355,10,4.8,mb,,155,15,0.64,us,us7000dhtl,2021-05-13T22:45:32.040Z,"Kermadec Islands region",earthquake,6.4,1.9,0.249,8,reviewed,us,us
+2021-03-04T19:38:17.266Z,-28.036,-176.8599,10,5.4,mb,,70,1.527,1.27,us,us7000dhtk,2021-05-13T22:45:33.040Z,"Kermadec Islands region",earthquake,10.1,1.9,0.092,43,reviewed,us,us
+2021-03-04T19:40:52.742Z,-29.2617,-176.8865,10,5.2,mb,,95,11.493,0.82,us,us7000dhrm,2021-05-13T22:45:33.040Z,"Kermadec Islands region",earthquake,8,1.8,0.106,29,reviewed,us,us
+2021-03-04T19:42:00.385Z,-29.4689,-176.9116,10,4.9,mb,,188,9.003,0.73,us,us7000dhuh,2021-05-13T22:45:33.040Z,"Kermadec Islands region",earthquake,14.3,1.9,0.212,7,reviewed,us,us
+2021-03-04T19:43:45.890Z,-28.8876,-176.9336,10,5.4,mb,,82,12.007,1.1,us,us7000dhtq,2021-05-13T22:45:34.040Z,"Kermadec Islands region",earthquake,12.4,1.8,0.095,40,reviewed,us,us
+2021-03-04T19:46:16.966Z,-29.5606,-177.4478,10,5.7,mb,,76,0.524,1.05,us,us7000dfm1,2025-12-22T18:58:49.209Z,"Kermadec Islands, New Zealand",earthquake,6.5,1.1,0.065,87,reviewed,us,us
+2021-03-04T19:50:26.676Z,-29.6382,-176.8064,10,5.1,mb,,216,12.739,1.12,us,us7000dhrg,2021-05-13T22:45:34.040Z,"Kermadec Islands region",earthquake,12.5,1.9,0.135,18,reviewed,us,us
+2021-03-04T19:52:36.297Z,-28.2731,-177.4825,10,4.9,mb,,192,12.047,1.11,us,us7000dhrl,2021-05-13T22:45:35.040Z,"Kermadec Islands region",earthquake,10.9,1.9,0.168,13,reviewed,us,us
+2021-03-04T20:00:14.126Z,-29.1131,-176.778,10,5,mb,,228,11.669,0.9,us,us7000dhrk,2021-05-13T22:45:36.040Z,"Kermadec Islands region",earthquake,14.8,2,0.179,11,reviewed,us,us
+2021-03-04T20:04:53.917Z,-28.733,-177.1612,10,5.1,mb,,94,11.787,0.61,us,us7000dht0,2021-05-13T22:45:36.040Z,"Kermadec Islands region",earthquake,8.9,1.9,0.165,14,reviewed,us,us
+2021-03-04T20:10:39.861Z,-29.4933,-176.6166,10,4.7,mb,,218,11.44,0.84,us,us7000dht9,2021-05-13T22:45:37.040Z,"Kermadec Islands region",earthquake,10.8,2,0.184,9,reviewed,us,us
+2021-03-04T20:18:02.111Z,-29.0209,-176.7786,10,4.9,mb,,79,10.882,0.96,us,us7000dhtv,2021-05-13T22:45:37.040Z,"Kermadec Islands region",earthquake,12.5,1.9,0.085,44,reviewed,us,us
+2021-03-04T20:20:44.074Z,-28.9814,-176.7873,10,5.5,mb,,78,1.033,1.15,us,us7000dfmj,2025-12-22T18:52:17.227Z,"Kermadec Islands region",earthquake,10.3,1.8,0.093,40,reviewed,us,us
+2021-03-04T20:22:42.637Z,-29.6688,-177.2705,10,4.9,mb,,159,10.112,0.57,us,us7000dhru,2021-05-13T22:45:38.040Z,"Kermadec Islands, New Zealand",earthquake,14.1,1.9,0.198,9,reviewed,us,us
+2021-03-04T20:24:14.692Z,-30.0074,-176.9387,10,5.1,mb,,134,27.124,0.77,us,us7000dhvj,2021-05-13T22:45:38.040Z,"Kermadec Islands region",earthquake,15.1,1.9,0.106,31,reviewed,us,us
+2021-03-04T20:25:06.406Z,-28.3867,-176.6895,10,6.1,mb,,48,1.383,1.11,us,us7000dfmf,2025-12-22T18:54:23.379Z,"Kermadec Islands region",earthquake,9.5,1.8,0.06,106,reviewed,us,us
+2021-03-04T20:27:43.590Z,-28.6009,-177.2831,10,5.4,mb,,106,11.624,0.84,us,us7000dhrp,2021-05-13T22:45:39.040Z,"Kermadec Islands region",earthquake,11.9,1.8,0.115,30,reviewed,us,us
+2021-03-04T20:31:06.990Z,-29.4846,-177.1064,10,5.2,mb,,132,11.2,0.79,us,us7000dht8,2021-05-13T22:45:40.040Z,"Kermadec Islands, New Zealand",earthquake,13,1.9,0.097,35,reviewed,us,us
+2021-03-04T20:39:28.387Z,-28.7842,-177.0446,10,4.5,mb,,210,9.579,0.54,us,us7000dhrz,2021-05-13T22:45:40.040Z,"Kermadec Islands region",earthquake,14.6,1.9,0.221,6,reviewed,us,us
+2021-03-04T20:45:23.816Z,-28.8765,-176.7679,10,4.6,mb,,187,11.869,0.83,us,us7000dhtz,2021-05-13T22:45:41.040Z,"Kermadec Islands region",earthquake,8,1.9,0.165,12,reviewed,us,us
+2021-03-04T20:48:03.362Z,-29.6006,-177.4949,10,4.1,mb,,259,13.292,0.78,us,us7000dhrs,2021-05-13T22:45:41.040Z,"Kermadec Islands, New Zealand",earthquake,13.3,2,0.26,5,reviewed,us,us
+2021-03-04T20:50:10.164Z,-28.9155,-177.3331,10,4.4,mb,,188,11.898,0.71,us,us7000dhs0,2021-05-13T22:45:41.040Z,"Kermadec Islands region",earthquake,14.4,1.9,0.127,1,reviewed,us,us
+2021-03-04T20:53:32.423Z,-29.0194,-177.047,10,4.8,mb,,70,12.089,0.83,us,us7000dhs1,2021-05-13T22:45:42.040Z,"Kermadec Islands, New Zealand",earthquake,11.4,1.3,0.078,52,reviewed,us,us
+2021-03-04T20:56:56.403Z,-29.2162,-176.9994,10,4.5,mb,,221,19.948,0.75,us,us7000dhs2,2021-05-13T22:45:42.040Z,"Kermadec Islands region",earthquake,17.4,2,0.145,15,reviewed,us,us
+2021-03-04T21:01:17.154Z,-29.0657,-176.2949,10,4.9,mb,,195,12.403,0.72,us,us7000dhtg,2021-05-13T22:45:42.040Z,"Kermadec Islands region",earthquake,7.8,1.9,0.122,21,reviewed,us,us
+2021-03-04T21:04:06.277Z,-29.3952,-177.1249,10,5.8,mb,,53,0.718,1.12,us,us7000dhu0,2025-12-22T18:52:18.365Z,"Kermadec Islands, New Zealand",earthquake,6.3,1.7,0.035,305,reviewed,us,us
+2021-03-04T21:14:02.131Z,-29.0268,-176.9974,10,5,mb,,87,0.843,1.02,us,us7000dhsd,2021-05-13T22:45:44.040Z,"Kermadec Islands region",earthquake,6.4,1.6,0.091,39,reviewed,us,us
+2021-03-04T21:15:39.819Z,-29.5179,-176.6385,10,5,mb,,82,15.86,0.97,us,us7000dhu1,2021-05-13T22:45:44.040Z,"Kermadec Islands region",earthquake,13.9,1.8,0.098,33,reviewed,us,us
+2021-03-04T21:38:04.262Z,-29.7253,-176.841,10,4.9,mb,,131,12.807,1.07,us,us7000dhvz,2021-05-13T22:45:45.040Z,"Kermadec Islands region",earthquake,14.2,1.9,0.119,22,reviewed,us,us
+2021-03-04T21:41:49.237Z,-27.4074,-176.7248,10,4.9,mb,,153,2.116,0.92,us,us7000dhsc,2021-05-13T22:45:45.040Z,"Kermadec Islands region",earthquake,9.1,1.9,0.149,14,reviewed,us,us
+2021-03-04T21:46:01.675Z,-28.4535,-177.1269,10,5.1,mb,,62,1.056,1.13,us,us7000dfnh,2021-05-13T22:45:45.040Z,"Kermadec Islands region",earthquake,9.1,1.5,0.069,68,reviewed,us,us
+2021-03-04T21:55:41.246Z,-28.6781,-176.5374,10,4.8,mb,,78,1.343,1.28,us,us7000dhsh,2021-05-13T22:45:46.040Z,"Kermadec Islands region",earthquake,10.8,1.6,0.109,26,reviewed,us,us
+2021-03-04T22:00:05.053Z,-29.1878,-177.0332,10,5.2,mb,,53,0.785,0.56,us,us7000dfnp,2021-05-13T22:45:46.040Z,"Kermadec Islands, New Zealand",earthquake,4.1,1.7,0.044,172,reviewed,us,us
+2021-03-04T22:05:56.452Z,-28.6071,-176.7115,10,5.5,mb,,57,1.242,1.03,us,us7000dfnw,2025-12-22T18:58:50.367Z,"Kermadec Islands region",earthquake,10.4,1.7,0.032,334,reviewed,us,us
+2021-03-04T22:26:36.513Z,-28.7765,-176.6948,10,4.6,mb,,151,11.992,0.71,us,us7000dhtu,2021-05-13T22:45:47.040Z,"Kermadec Islands region",earthquake,15.2,1.8,0.137,16,reviewed,us,us
+2021-03-04T22:32:56.674Z,-29.8093,-177.3921,10,4.8,mb,,131,12.711,1.03,us,us7000dfp6,2021-05-13T22:45:47.040Z,"Kermadec Islands, New Zealand",earthquake,12.8,1.9,0.103,29,reviewed,us,us
+2021-03-04T22:33:45.433Z,-30.0499,-177.1333,10,5.8,mb,,33,1.059,0.78,us,us7000dfp1,2025-12-22T19:05:13.551Z,"Kermadec Islands, New Zealand",earthquake,6.6,1.7,0.03,407,reviewed,us,us
+2021-03-04T22:40:29.574Z,-28.5323,-176.7186,10,5.2,mb,,68,9.923,1.03,us,us7000dfpt,2021-05-13T22:45:47.040Z,"Kermadec Islands region",earthquake,11,1.8,0.075,59,reviewed,us,us
+2021-03-04T22:41:05.542Z,-28.338,-176.6342,10,5.8,mb,,54,1.452,0.78,us,us7000dfpe,2025-12-22T18:53:15.604Z,"Kermadec Islands region",earthquake,9.7,1.8,0.033,329,reviewed,us,us
+2021-03-04T22:43:18.382Z,-28.5499,-176.4862,10,4.9,mb,,138,15.651,0.9,us,us7000dhty,2021-05-13T22:45:48.040Z,"Kermadec Islands region",earthquake,15.6,1.9,0.117,23,reviewed,us,us
+2021-03-04T22:44:38.140Z,-28.4897,-176.494,10,5.4,mb,,69,11.129,0.83,us,us7000dfq6,2025-12-22T18:00:48.413Z,"Kermadec Islands region",earthquake,8.7,1.7,0.057,106,reviewed,us,us
+2021-03-04T22:45:43.628Z,-28.6605,-176.5467,10,5.2,mb,,59,15.636,0.84,us,us7000dhv7,2021-05-13T22:45:49.040Z,"Kermadec Islands region",earthquake,13.3,1.8,0.094,37,reviewed,us,us
+2021-03-04T22:55:38.412Z,-28.8266,-176.5251,10,5.6,mb,,21,12.029,0.67,us,us7000dfpp,2025-12-22T18:52:19.659Z,"Kermadec Islands region",earthquake,9.7,1.7,0.028,447,reviewed,us,us
+2021-03-04T23:11:17.375Z,-29.7407,-176.6248,10,5.4,mb,,40,1.239,0.95,us,us7000dfpy,2025-12-22T18:52:21.043Z,"Kermadec Islands region",earthquake,8.5,1.7,0.037,247,reviewed,us,us
+2021-03-04T23:12:59.962Z,-28.5168,-176.6801,24,6.5,mwb,,25,11.764,0.64,us,us7000dfq2,2025-12-22T19:06:45.306Z,"Kermadec Islands region",earthquake,8.9,1.8,0.071,19,reviewed,us,us
+2021-03-04T23:26:45.164Z,-28.4988,-176.8646,10,4.7,mb,,141,1.193,0.56,us,us7000dht4,2021-05-13T22:45:51.040Z,"Kermadec Islands region",earthquake,8.2,1.9,0.175,10,reviewed,us,us
+2021-03-04T23:28:29.930Z,-28.9864,-176.9615,10,4.9,mb,,116,0.884,0.61,us,us7000dht2,2021-05-13T22:45:51.040Z,"Kermadec Islands region",earthquake,9.7,1.9,0.09,39,reviewed,us,us
+2021-03-04T23:34:54.576Z,-28.6797,-176.4753,10,5.5,mb,,53,11.246,1.05,us,us7000dfqg,2025-12-22T18:58:51.611Z,"Kermadec Islands region",earthquake,9.8,1.8,0.047,155,reviewed,us,us
+2021-03-04T23:37:09.886Z,-29.6682,-177.2501,10,5.6,mb,,60,0.727,1.41,us,us7000dfqh,2025-12-22T18:58:52.852Z,"Kermadec Islands, New Zealand",earthquake,8.1,1.7,0.076,60,reviewed,us,us
+2021-03-04T23:41:55.668Z,-29.2031,-177.2685,10,5.1,mb,,59,12.101,1,us,us7000dfqq,2021-05-13T22:45:52.040Z,"Kermadec Islands, New Zealand",earthquake,8.3,1.5,0.079,52,reviewed,us,us
+2021-03-04T23:52:53.167Z,-29.3443,-176.98,10,5.1,mb,,33,0.834,1.06,us,us7000dfqu,2021-05-13T22:45:52.040Z,"Kermadec Islands region",earthquake,6.5,1.7,0.038,226,reviewed,us,us
+2021-03-05T00:02:57.512Z,-27.8213,-176.6967,10,5,mb,,64,10.583,0.77,us,us7000didt,2021-05-21T19:49:44.040Z,"Kermadec Islands region",earthquake,9.5,1.8,0.141,16,reviewed,us,us
+2021-03-05T00:19:39.321Z,-29.1782,-177.0845,10,5.5,mb,,30,0.741,0.54,us,us7000dfr3,2025-12-22T18:52:24.645Z,"Kermadec Islands, New Zealand",earthquake,6.8,1.7,0.026,508,reviewed,us,us
+2021-03-05T00:28:19.006Z,-29.0144,-176.5484,10,5.9,mb,,26,1.229,0.65,us,us7000dfrf,2025-12-22T19:06:46.524Z,"Kermadec Islands region",earthquake,8.6,1.8,0.04,228,reviewed,us,us
+2021-03-05T00:49:18.658Z,-29.1622,-176.8503,10,5.2,mb,,58,12.287,1.01,us,us7000dfrl,2021-05-21T19:46:26.040Z,"Kermadec Islands region",earthquake,12.2,1.8,0.083,48,reviewed,us,us
+2021-03-05T00:54:37.636Z,-30.1831,-177.1047,10,5.2,mb,,44,1.178,0.63,us,us7000dfrq,2021-05-21T19:46:26.040Z,"Kermadec Islands, New Zealand",earthquake,11.1,1.8,0.048,142,reviewed,us,us
+2021-03-05T00:58:27.732Z,-30.047,-177.3762,10,5.6,mb,,35,0.932,0.76,us,us7000dfrs,2025-12-22T18:52:25.754Z,"Kermadec Islands, New Zealand",earthquake,6.9,1.7,0.036,276,reviewed,us,us
+2021-03-05T01:07:34.183Z,-29.6096,-177.1102,10,5,mb,,126,0.801,1.24,us,us7000dfru,2021-05-21T19:46:27.040Z,"Kermadec Islands, New Zealand",earthquake,7.6,1.8,0.142,16,reviewed,us,us
+2021-03-05T01:12:22.320Z,-29.9732,-177.1322,10,4.9,mb,,188,1.004,0.82,us,us7000diec,2021-05-21T19:49:49.040Z,"Kermadec Islands, New Zealand",earthquake,9.6,1.9,0.15,18,reviewed,us,us
+2021-03-05T01:19:25.296Z,-30.1646,-176.5479,10,4.4,mb,,261,28.982,0.92,us,us7000dicz,2021-05-21T19:49:39.040Z,"Kermadec Islands region",earthquake,16,2,0.203,8,reviewed,us,us
+2021-03-05T01:22:27.101Z,-30.0004,-176.9811,10,4.6,mb,,214,8.499,0.89,us,us7000did1,2021-05-21T19:49:39.040Z,"Kermadec Islands region",earthquake,11.9,2,0.206,7,reviewed,us,us
+2021-03-05T01:25:26.460Z,-28.8818,-176.7227,10,4.9,mb,,70,11.886,0.89,us,us7000did0,2021-05-21T19:49:39.040Z,"Kermadec Islands region",earthquake,13.1,1.6,0.112,25,reviewed,us,us
+2021-03-05T01:39:21.818Z,-29.7342,-177.2044,10,4.9,mb,,73,0.798,1.38,us,us7000dfs9,2021-05-21T19:46:28.040Z,"Kermadec Islands, New Zealand",earthquake,2.9,1.9,0.084,44,reviewed,us,us
+2021-03-05T01:42:41.953Z,-29.577,-177.0049,10,5.3,mb,,76,0.871,1.18,us,us7000dfsa,2021-05-21T19:46:28.040Z,"Kermadec Islands, New Zealand",earthquake,7.1,1.6,0.091,40,reviewed,us,us
+2021-03-05T01:45:15.288Z,-28.7589,-176.5168,10,5.3,mb,,68,1.328,0.98,us,us7000dfsm,2021-05-21T19:46:30.040Z,"Kermadec Islands region",earthquake,11.8,1.9,0.061,89,reviewed,us,us
+2021-03-05T01:50:09.515Z,-28.8276,-176.6471,10,4.7,mb,,81,19.07,1.26,us,us7000dieg,2021-05-21T19:49:50.040Z,"Kermadec Islands region",earthquake,10.6,1.9,0.133,18,reviewed,us,us
+2021-03-05T01:54:29.472Z,-28.9198,-176.7496,10,5.2,mb,,57,1.082,1.23,us,us7000dfsh,2021-05-21T19:46:29.040Z,"Kermadec Islands region",earthquake,8.3,1.8,0.044,175,reviewed,us,us
+2021-03-05T01:59:48.880Z,-29.0728,-176.7753,10,5.2,mb,,66,1.023,1.08,us,us7000dfsi,2021-05-21T19:46:29.040Z,"Kermadec Islands region",earthquake,10.1,1.8,0.079,53,reviewed,us,us
+2021-03-05T02:15:28.973Z,-29.2807,-176.8215,10,4.5,mb,,138,12.707,0.86,us,us7000did6,2021-05-21T19:49:40.040Z,"Kermadec Islands region",earthquake,11.9,1.8,0.181,9,reviewed,us,us
+2021-03-05T02:19:55.459Z,-29.2517,-176.914,10,4.8,mb,,80,0.887,1.08,us,us7000did5,2021-05-21T19:49:40.040Z,"Kermadec Islands region",earthquake,8.9,1.9,0.176,11,reviewed,us,us
+2021-03-05T02:26:08.963Z,-29.7599,-176.8078,10,4.9,mb,,64,12.524,1.08,us,us7000diey,2021-05-21T19:49:53.040Z,"Kermadec Islands region",earthquake,12.9,1.8,0.081,48,reviewed,us,us
+2021-03-05T02:30:36.279Z,-28.749,-176.5578,17,6.3,mww,,41,9.784,1.16,us,us7000dft1,2025-12-22T18:00:15.420Z,"Kermadec Islands region",earthquake,10.1,1.8,0.08,15,reviewed,us,us
+2021-03-05T02:43:12.943Z,-28.2977,-176.5987,10,5.3,mb,,59,1.501,1.35,us,us7000dftb,2021-05-21T19:46:31.040Z,"Kermadec Islands region",earthquake,9.6,1.8,0.044,170,reviewed,us,us
+2021-03-05T02:47:12.889Z,-28.75,-176.4726,10,5,mb,,83,9.814,0.83,us,us7000dif3,2021-05-21T19:49:54.040Z,"Kermadec Islands region",earthquake,9.7,1.7,0.137,17,reviewed,us,us
+2021-03-05T02:49:50.536Z,-28.3773,-176.6065,10,5.4,mb,,45,1.447,1.22,us,us7000dftf,2025-12-22T18:52:28.099Z,"Kermadec Islands region",earthquake,6.8,1.8,0.036,263,reviewed,us,us
+2021-03-05T02:53:09.184Z,-28.2979,-176.4137,10,5.2,mb,,162,10.931,0.89,us,us7000did9,2021-05-21T19:49:41.040Z,"Kermadec Islands region",earthquake,11.7,1.9,0.135,18,reviewed,us,us
+2021-03-05T03:02:15.192Z,-28.512,-176.5922,10,4.7,mb,,89,12.257,1.43,us,us7000did8,2021-05-21T19:49:41.040Z,"Kermadec Islands region",earthquake,12.7,1.7,0.183,10,reviewed,us,us
+2021-03-05T03:15:51.181Z,-29.0684,-176.256,10,4.7,mb,,153,1.473,0.78,us,us7000didd,2021-05-21T19:49:42.040Z,"Kermadec Islands region",earthquake,9.3,1.9,0.224,7,reviewed,us,us
+2021-03-05T03:18:46.805Z,-29.4053,-176.6597,10,5.1,mb,,123,16.048,1.12,us,us7000didc,2021-05-21T19:49:41.040Z,"Kermadec Islands region",earthquake,16,1.9,0.108,30,reviewed,us,us
+2021-03-05T03:21:38.943Z,-28.6254,-176.5979,10,5.6,mb,,59,11.23,1.29,us,us7000dftl,2026-02-04T20:36:39.105Z,"Kermadec Islands region",earthquake,11.7,1.8,0.048,154,reviewed,us,us
+2021-03-05T03:25:12.528Z,-29.3864,-176.8064,10,4.6,mb,,190,12.508,0.63,us,us7000dide,2021-05-21T19:49:42.040Z,"Kermadec Islands region",earthquake,9.8,2,0.182,11,reviewed,us,us
+2021-03-05T03:33:20.945Z,-28.7606,-176.6741,10,5.6,mb,,45,11.986,1.38,us,us7000dfu4,2025-12-22T18:52:26.896Z,"Kermadec Islands region",earthquake,9.7,1.8,0.032,338,reviewed,us,us
+2021-03-05T03:41:31.044Z,-28.8013,-176.598,10,5.7,mb,,48,1.246,1.18,us,us7000dfu5,2025-12-22T18:52:23.507Z,"Kermadec Islands region",earthquake,8.9,1.7,0.031,377,reviewed,us,us
+2021-03-05T03:44:08.933Z,-28.8426,-176.9716,10,5.2,mb,,119,0.929,1.36,us,us7000diei,2021-05-21T19:49:50.040Z,"Kermadec Islands region",earthquake,8.1,1.8,0.132,19,reviewed,us,us
+2021-03-05T03:53:04.511Z,-29.6096,-176.7007,10,5.2,mb,,57,1.131,1.04,us,us7000dfu7,2021-05-21T19:46:33.040Z,"Kermadec Islands region",earthquake,10.4,1.8,0.054,113,reviewed,us,us
+2021-03-05T04:00:56.980Z,-28.4459,-176.5922,10,4.6,mb,,145,1.417,0.78,us,us7000didj,2021-05-21T19:49:43.040Z,"Kermadec Islands region",earthquake,9.7,1.7,0.243,6,reviewed,us,us
+2021-03-05T04:01:57.007Z,-29.3196,-177.0144,10,5.1,mb,,83,0.802,0.83,us,us7000dfun,2021-05-21T19:46:34.040Z,"Kermadec Islands, New Zealand",earthquake,7.9,1.8,0.077,55,reviewed,us,us
+2021-03-05T04:07:13.652Z,-28.5396,-177.9196,10,4.7,mb,,82,0.702,1.06,us,us7000didk,2021-05-21T19:49:43.040Z,"Kermadec Islands region",earthquake,6.2,1.9,0.276,9,reviewed,us,us
+2021-03-05T04:16:25.861Z,-28.6205,-176.4911,10,5.3,mb,,57,1.405,1.3,us,us7000dfuh,2021-05-21T19:46:33.040Z,"Kermadec Islands region",earthquake,9.8,1.8,0.037,241,reviewed,us,us
+2021-03-05T04:20:59.492Z,-28.3741,-178.0591,10,5.3,mb,,79,0.875,1.21,us,us7000dfum,2021-05-21T19:46:34.040Z,"Kermadec Islands region",earthquake,8.2,1.9,0.046,157,reviewed,us,us
+2021-03-05T04:28:56.958Z,-28.767,-176.7529,10,4.8,mb,,136,11.967,0.62,us,us7000didn,2021-05-21T19:49:44.040Z,"Kermadec Islands region",earthquake,12.4,1.9,0.16,12,reviewed,us,us
+2021-03-05T04:32:22.992Z,-28.3951,-177.9094,10,5,mb,,87,0.847,1.02,us,us7000dieu,2021-05-21T19:49:52.040Z,"Kermadec Islands region",earthquake,7.4,1.8,0.123,21,reviewed,us,us
+2021-03-05T04:32:45.837Z,-28.6168,-176.4695,10,4.9,mb,,187,15.686,0.96,us,us7000dif2,2021-05-21T19:49:54.040Z,"Kermadec Islands region",earthquake,14.3,1.9,0.187,12,reviewed,us,us
+2021-03-05T04:39:10.007Z,-28.6804,-176.4146,10,5.1,mb,,68,11.249,1.16,us,us7000dfv2,2021-05-21T19:46:35.040Z,"Kermadec Islands region",earthquake,6.5,1.8,0.09,40,reviewed,us,us
+2021-03-05T05:04:25.434Z,-29.5324,-176.8455,10,5,mb,,53,12.471,0.57,us,us7000dfux,2021-05-21T19:46:35.040Z,"Kermadec Islands region",earthquake,9.9,1.9,0.101,31,reviewed,us,us
+2021-03-05T05:09:14.162Z,-29.7013,-176.7881,10,4.7,mb,,118,8.84,0.72,us,us7000dfvg,2021-05-21T19:46:37.040Z,"Kermadec Islands region",earthquake,12.6,2,0.138,16,reviewed,us,us
+2021-03-05T05:11:50.794Z,-28.8902,-177.6232,10,4.6,mb,,137,9.294,0.35,us,us7000dike,2021-05-21T19:50:32.040Z,"Kermadec Islands region",earthquake,9.3,1.9,0.151,14,reviewed,us,us
+2021-03-05T05:21:50.874Z,-28.3876,-175.6456,10,4.6,mb,,98,10.46,0.83,us,us7000dif4,2021-05-21T19:49:54.040Z,"Kermadec Islands region",earthquake,12.7,1.9,0.129,19,reviewed,us,us
+2021-03-05T05:22:05.700Z,-27.69,-176.2286,10,4.7,mb,,88,10.341,0.74,us,us7000dikd,2021-05-21T19:50:31.040Z,"Kermadec Islands region",earthquake,9.1,1.8,0.13,20,reviewed,us,us
+2021-03-05T05:23:33.443Z,-29.8305,-178.1708,10,4.8,mb,,85,12.517,0.77,us,us7000dikl,2021-05-21T19:50:33.040Z,"Kermadec Islands, New Zealand",earthquake,8.8,1.7,0.139,16,reviewed,us,us
+2021-03-05T05:31:38.576Z,-28.9941,-176.4997,10,4.5,mb,,147,11.552,1.24,us,us7000didy,2021-05-21T19:49:46.040Z,"Kermadec Islands region",earthquake,14.8,2,0.156,12,reviewed,us,us
+2021-03-05T05:33:29.579Z,-29.1298,-177.015,10,4.6,mb,,146,11.539,0.57,us,us7000didv,2021-05-21T19:49:45.040Z,"Kermadec Islands, New Zealand",earthquake,15,2,0.172,10,reviewed,us,us
+2021-03-05T05:36:18.894Z,-28.8131,-176.4636,10,5,mb,,81,11.143,0.55,us,us7000didx,2021-05-21T19:49:45.040Z,"Kermadec Islands region",earthquake,7.8,1.8,0.115,24,reviewed,us,us
+2021-03-05T05:42:22.910Z,-29.5774,-176.8133,10,4.9,mb,,83,8.942,0.39,us,us7000didw,2021-05-21T19:49:45.040Z,"Kermadec Islands region",earthquake,11.7,1.9,0.125,20,reviewed,us,us
+2021-03-05T05:44:54.146Z,-29.5568,-177.307,10,4.9,mb,,141,8.781,0.59,us,us7000die3,2021-05-21T19:49:47.040Z,"Kermadec Islands, New Zealand",earthquake,12.2,1.9,0.125,20,reviewed,us,us
+2021-03-05T05:47:18.877Z,-28.0506,-177.8398,10,4.5,mb,,139,10.022,0.73,us,us7000didz,2021-05-21T19:49:46.040Z,"Kermadec Islands region",earthquake,12.2,1.9,0.156,13,reviewed,us,us
+2021-03-05T05:47:49.683Z,-29.0578,-176.5983,10,4.9,mb,,123,11.653,0.83,us,us7000dify,2021-05-21T19:50:03.040Z,"Kermadec Islands region",earthquake,12.2,1.9,0.128,19,reviewed,us,us
+2021-03-05T05:53:32.313Z,-31.0086,-179.8395,10,4.5,mb,,148,6.714,0.87,us,us7000die4,2021-05-21T19:49:47.040Z,"Kermadec Islands region",earthquake,8.1,1.9,0.171,10,reviewed,us,us
+2021-03-05T06:05:52.397Z,-29.3274,-176.7823,10,5.1,mb,,71,10.564,0.44,us,us7000dfvh,2021-05-21T19:46:38.040Z,"Kermadec Islands region",earthquake,7.5,1.9,0.083,47,reviewed,us,us
+2021-03-05T06:10:58.952Z,-28.441,-176.6722,10,4.6,mb,,98,10.022,1.06,us,us7000difd,2021-05-21T19:49:57.040Z,"Kermadec Islands region",earthquake,7.7,1.9,0.182,10,reviewed,us,us
+2021-03-05T06:24:55.934Z,-28.8299,-177.5176,10,4.4,mb,,159,9.383,0.71,us,us7000diea,2021-05-21T19:49:48.040Z,"Kermadec Islands region",earthquake,10.7,1.9,0.161,11,reviewed,us,us
+2021-03-05T06:26:17.257Z,-28.0152,-177.3105,10,4.5,mb,,159,13.702,0.44,us,us7000dikg,2021-05-21T19:50:33.040Z,"Kermadec Islands region",earthquake,10.4,1.9,0.164,11,reviewed,us,us
+2021-03-05T06:29:32.600Z,-29.129,-176.877,10,4.9,mb,,80,9.323,0.92,us,us7000dfvz,2021-05-21T19:46:39.040Z,"Kermadec Islands region",earthquake,9.5,1.8,0.117,25,reviewed,us,us
+2021-03-05T06:34:33.632Z,-29.5033,-177.0809,10,4.4,mb,,146,12.255,0.58,us,us7000dikr,2021-05-21T19:50:34.040Z,"Kermadec Islands, New Zealand",earthquake,8.8,1.9,0.162,11,reviewed,us,us
+2021-03-05T06:37:13.311Z,-29.891,-177.6365,10,4.3,mb,,160,8.362,0.55,us,us7000die9,2021-05-21T19:49:48.040Z,"Kermadec Islands, New Zealand",earthquake,10,1.9,0.169,11,reviewed,us,us
+2021-03-05T06:45:13.518Z,-28.4628,-176.8504,10,4.6,mb,,120,9.941,0.82,us,us7000difi,2021-05-21T19:49:58.040Z,"Kermadec Islands region",earthquake,6.7,1.9,0.164,13,reviewed,us,us
+2021-03-05T06:46:41.938Z,-30.1647,-176.5127,10,4.9,mb,,124,8.541,0.85,us,us7000dfvw,2021-05-21T19:46:39.040Z,"Kermadec Islands region",earthquake,12,1.9,0.112,25,reviewed,us,us
+2021-03-05T06:51:25.412Z,-28.8849,-176.256,10,4.4,mb,,164,9.776,0.77,us,us7000diee,2021-05-21T19:49:49.040Z,"Kermadec Islands region",earthquake,8.6,2,0.18,10,reviewed,us,us
+2021-03-05T06:59:39.337Z,-29.8835,-177.3109,10,4.4,mb,,146,12.681,0.66,us,us7000dief,2021-05-21T19:49:49.040Z,"Kermadec Islands, New Zealand",earthquake,9,1.9,0.17,12,reviewed,us,us
+2021-03-05T07:02:51.853Z,-28.0756,-177.5789,10,4.5,mb,,179,33.87,0.38,us,us7000difl,2021-05-21T19:49:59.040Z,"Kermadec Islands region",earthquake,12.7,1.9,0.172,13,reviewed,us,us
+2021-03-05T07:17:40.278Z,-28.5703,-176.6882,10,4.7,mb,,135,11.292,0.81,us,us7000diem,2021-05-21T19:49:51.040Z,"Kermadec Islands region",earthquake,15.5,1.9,0.13,18,reviewed,us,us
+2021-03-05T07:19:43.370Z,-28.2719,-176.7255,10,4.7,mb,,148,11.526,0.35,us,us7000diel,2021-05-21T19:49:51.040Z,"Kermadec Islands region",earthquake,10.1,1.8,0.134,17,reviewed,us,us
+2021-03-05T07:19:55.313Z,-28.568,-176.5425,10,5.1,mb,,82,11.305,0.48,us,us7000dik1,2021-05-21T19:50:29.040Z,"Kermadec Islands region",earthquake,10.1,1.5,0.102,31,reviewed,us,us
+2021-03-05T07:23:18.387Z,-30.1739,-177.1545,10,5.4,mb,,69,8.277,0.69,us,us7000dfw1,2025-12-22T18:58:55.497Z,"Kermadec Islands, New Zealand",earthquake,11.4,1.9,0.072,66,reviewed,us,us
+2021-03-05T07:27:32.553Z,-29.8069,-176.8573,10,4.8,mb,,216,10.139,0.69,us,us7000diex,2021-05-21T19:49:53.040Z,"Kermadec Islands region",earthquake,13.2,1.8,0.118,22,reviewed,us,us
+2021-03-05T07:28:11.313Z,-30.0096,-177.2402,10,4.6,mb,,244,28.378,0.38,us,us7000dik3,2021-05-21T19:50:30.040Z,"Kermadec Islands, New Zealand",earthquake,11.3,2,0.152,14,reviewed,us,us
+2021-03-05T07:39:49.836Z,-27.2894,-177.2958,10,4.6,mb,,181,10.424,0.53,us,us7000digf,2021-05-21T19:50:07.040Z,"Kermadec Islands region",earthquake,11.3,1.9,0.182,12,reviewed,us,us
+2021-03-05T07:43:07.685Z,-29.501,-176.6718,10,4.9,mb,,85,9.064,0.77,us,us7000diev,2021-05-21T19:49:52.040Z,"Kermadec Islands region",earthquake,8.7,1.9,0.115,24,reviewed,us,us
+2021-03-05T08:06:17.343Z,-28.3879,-177.4137,10,4.2,mb,,159,9.827,1.11,us,us7000dikb,2021-05-21T19:50:31.040Z,"Kermadec Islands region",earthquake,8.3,1.9,0.198,9,reviewed,us,us
+2021-03-05T08:13:41.003Z,-29.5019,-176.1259,15,6,mww,,132,1.594,1.06,us,us7000dfwe,2025-12-22T18:52:29.446Z,"Kermadec Islands region",earthquake,9,1.9,0.049,40,reviewed,us,us
+2021-03-05T08:29:07.788Z,-27.8381,-176.8278,10,4.4,mb,,143,10.774,0.96,us,us7000dif6,2021-05-21T19:49:55.040Z,"Kermadec Islands region",earthquake,7.7,1.9,0.189,10,reviewed,us,us
+2021-03-05T08:36:25.857Z,-28.3131,-177.2268,10,4.6,mb,,152,11.194,0.31,us,us7000dif9,2021-05-21T19:49:56.040Z,"Kermadec Islands region",earthquake,9,1.9,0.158,14,reviewed,us,us
+2021-03-05T08:37:08.086Z,-28.8524,-176.9357,10,4.5,mb,,153,9.554,1,us,us7000dikf,2021-05-21T19:50:32.040Z,"Kermadec Islands region",earthquake,9.7,1.9,0.15,14,reviewed,us,us
+2021-03-05T08:41:48.543Z,-29.5226,-176.8955,10,4.7,mb,,145,12.183,0.85,us,us7000dif8,2021-05-21T19:49:56.040Z,"Kermadec Islands region",earthquake,6.2,1.9,0.152,13,reviewed,us,us
+2021-03-05T08:45:19.269Z,-28.8409,-177.36,10,4.3,mb,,136,11.856,0.9,us,us7000dig4,2021-05-21T19:50:04.040Z,"Kermadec Islands region",earthquake,13.5,1.9,0.16,12,reviewed,us,us
+2021-03-05T08:53:48.764Z,-28.4072,-177.5007,10,4.4,mb,,148,9.783,0.33,us,us7000difa,2021-05-21T19:49:56.040Z,"Kermadec Islands region",earthquake,10.7,1.8,0.156,15,reviewed,us,us
+2021-03-05T09:05:48.231Z,-29.0882,-176.9661,10,4.7,mb,,249,12.83,0.57,us,us7000difb,2021-05-21T19:49:57.040Z,"Kermadec Islands region",earthquake,7.1,2,0.153,13,reviewed,us,us
+2021-03-05T09:11:57.408Z,-28.9676,-176.6294,10,4.9,mb,,75,9.56,0.53,us,us7000dife,2021-05-21T19:49:57.040Z,"Kermadec Islands region",earthquake,9.2,1.5,0.104,32,reviewed,us,us
+2021-03-05T09:18:09.334Z,-29.6103,-176.6469,10,4.9,mb,,154,8.976,0.5,us,us7000dfx7,2021-05-21T19:46:43.040Z,"Kermadec Islands region",earthquake,12.2,1.9,0.117,23,reviewed,us,us
+2021-03-05T09:46:13.024Z,-29.0003,-176.9124,10,4.5,mb,,126,9.427,0.38,us,us7000difh,2021-05-21T19:49:58.040Z,"Kermadec Islands region",earthquake,10.6,1.9,0.191,8,reviewed,us,us
+2021-03-05T09:47:23.415Z,-29.8539,-176.6536,10,4.7,mb,,260,10.201,0.59,us,us7000dikt,2021-05-21T19:50:34.040Z,"Kermadec Islands region",earthquake,10.6,2,0.195,8,reviewed,us,us
+2021-03-05T10:00:02.327Z,-28.8471,-176.8072,10,5.3,mb,,64,1.059,0.54,us,us7000dfxg,2025-12-22T18:52:30.617Z,"Kermadec Islands region",earthquake,7.6,1.8,0.079,54,reviewed,us,us
+2021-03-05T10:05:04.572Z,-28.5656,-176.4147,10,4.9,mb,,83,1.49,0.49,us,us7000dih2,2021-05-21T19:50:12.040Z,"Kermadec Islands region",earthquake,4.8,1.9,0.104,29,reviewed,us,us
+2021-03-05T10:08:25.283Z,-29.1316,-176.699,10,4.8,mb,,189,9.386,0.29,us,us7000dih3,2021-05-21T19:50:12.040Z,"Kermadec Islands region",earthquake,12.7,1.2,0.143,15,reviewed,us,us
+2021-03-05T10:10:28.725Z,-28.486,-177.7495,10,4.6,mb,,259,0.772,0.55,us,us7000difm,2021-05-21T19:50:00.040Z,"Kermadec Islands region",earthquake,9.4,2,0.158,13,reviewed,us,us
+2021-03-05T10:13:08.243Z,-29.3665,-177.2172,10,4.3,mb,,262,8.986,0.16,us,us7000difp,2021-05-21T19:50:00.040Z,"Kermadec Islands, New Zealand",earthquake,9.9,2,0.201,7,reviewed,us,us
+2021-03-05T10:20:56.786Z,-29.757,-176.6422,10,4.5,mb,,113,12.903,0.67,us,us7000dikv,2021-05-21T19:50:34.040Z,"Kermadec Islands region",earthquake,9.4,1.9,0.172,10,reviewed,us,us
+2021-03-05T10:22:44.132Z,-28.9688,-177.3729,10,4.5,mb,,186,9.3,0.17,us,us7000difq,2021-05-21T19:50:00.040Z,"Kermadec Islands region",earthquake,13.7,1.9,0.271,5,reviewed,us,us
+2021-03-05T10:40:12.119Z,-28.699,-176.7519,10,4.7,mb,,214,9.759,0.78,us,us7000difr,2021-05-21T19:50:01.040Z,"Kermadec Islands region",earthquake,6.5,2,0.13,19,reviewed,us,us
+2021-03-05T11:00:55.955Z,-29.0619,-178.8845,10,4.3,mb,,137,0.855,0.6,us,us7000difu,2021-05-21T19:50:02.040Z,"Kermadec Islands, New Zealand",earthquake,7.7,1.9,0.217,8,reviewed,us,us
+2021-03-05T11:14:28.439Z,-29.77,-176.4895,10,4.4,mb,,149,8.897,0.29,us,us7000dil1,2021-05-21T19:50:36.040Z,"Kermadec Islands region",earthquake,5.1,2,0.219,6,reviewed,us,us
+2021-03-05T11:16:55.296Z,-29.9082,-177.2164,10,4.9,mb,,61,0.906,0.64,us,us7000dfxr,2021-05-21T19:46:45.040Z,"Kermadec Islands, New Zealand",earthquake,5,1.8,0.074,59,reviewed,us,us
+2021-03-05T11:22:30.502Z,-29.2229,-176.8298,10,4.6,mb,,133,0.961,0.48,us,us7000dig2,2021-05-21T19:50:04.040Z,"Kermadec Islands region",earthquake,8.2,1.9,0.129,18,reviewed,us,us
+2021-03-05T11:28:52.897Z,-28.886,-177.2346,10,4.6,mb,,178,11.903,0.36,us,us7000dihb,2021-05-21T19:50:13.040Z,"Kermadec Islands region",earthquake,8.5,2,0.158,12,reviewed,us,us
+2021-03-05T11:32:42.281Z,-28.823,-176.7876,10,4.6,mb,,138,11.55,0.69,us,us7000dikx,2021-05-21T19:50:35.040Z,"Kermadec Islands region",earthquake,14.8,2,0.152,13,reviewed,us,us
+2021-03-05T11:55:39.920Z,-28.7557,-177.8702,10,4.5,mb,,221,26.54,0.49,us,us7000dig6,2021-05-21T19:50:05.040Z,"Kermadec Islands region",earthquake,20.5,2,0.192,8,reviewed,us,us
+2021-03-05T12:00:38.244Z,-28.4099,-177.9422,10,4.6,mb,,256,26.546,0.67,us,us7000dig7,2021-05-21T19:50:05.040Z,"Kermadec Islands region",earthquake,11.9,2,0.172,10,reviewed,us,us
+2021-03-05T12:04:35.259Z,-29.8555,-177.4281,10,4.9,mb,,114,0.748,0.84,us,us7000diga,2021-05-21T19:50:06.040Z,"Kermadec Islands, New Zealand",earthquake,9.1,1.9,0.115,24,reviewed,us,us
+2021-03-05T12:07:32.838Z,-29.8221,-177.304,33.17,4.4,mb,,128,8.54,0.81,us,us7000dihj,2021-05-21T19:50:14.040Z,"Kermadec Islands, New Zealand",earthquake,12.1,4.2,0.19,12,reviewed,us,us
+2021-03-05T12:09:15.789Z,-29.1394,-177.0452,10,4.9,mb,,135,0.779,0.57,us,us7000digb,2021-05-21T19:50:07.040Z,"Kermadec Islands, New Zealand",earthquake,5.3,1.9,0.114,24,reviewed,us,us
+2021-03-05T12:13:47.150Z,-27.7709,-177.0328,10,4,mb,,142,10.833,0.74,us,us7000dih1,2021-05-21T19:50:11.040Z,"Kermadec Islands region",earthquake,10.5,2,0.231,5,reviewed,us,us
+2021-03-05T12:25:00.674Z,-27.9655,-176.0661,10,4.3,mb,,269,12.104,0.13,us,us7000dihn,2021-05-21T19:50:15.040Z,"Kermadec Islands region",earthquake,12.9,2,0.238,5,reviewed,us,us
+2021-03-05T12:28:46.680Z,-27.8717,-176.3254,10,4.7,mb,,201,41.12,0.58,us,us7000digc,2021-05-21T19:50:07.040Z,"Kermadec Islands region",earthquake,12.2,2,0.166,14,reviewed,us,us
+2021-03-05T12:28:52.720Z,-28.779,-176.69,20.3,5.17,mw,,,,,iscgem,iscgem620360384,2025-12-22T18:58:56.666Z,"Kermadec Islands region",earthquake,,19.6,0.1,,reviewed,iscgem,iscgem
+2021-03-05T12:54:03.109Z,-28.2548,-176.9723,10,4.2,mb,,143,1.295,0.56,us,us7000digg,2021-05-21T19:50:08.040Z,"Kermadec Islands region",earthquake,7.4,2,0.187,8,reviewed,us,us
+2021-03-05T12:57:09.276Z,-28.8287,-176.7872,10,4.4,mb,,264,34.641,0.47,us,us7000dikp,2021-05-21T19:50:33.040Z,"Kermadec Islands region",earthquake,14.4,2,0.218,6,reviewed,us,us
+2021-03-05T13:00:45.817Z,-29.5289,-177.1892,10,5.2,mb,,80,11.123,0.73,us,us7000dfyj,2025-12-22T18:58:57.883Z,"Kermadec Islands, New Zealand",earthquake,11.3,1.8,0.085,46,reviewed,us,us
+2021-03-05T13:28:33.406Z,-28.6048,-177.0966,10,4.7,mb,,128,11.529,0.88,us,us7000dfyr,2021-05-21T19:46:48.040Z,"Kermadec Islands region",earthquake,11.7,1.8,0.147,14,reviewed,us,us
+2021-03-05T13:39:42.666Z,-29.0107,-176.8716,10,4.6,mb,,236,10.854,0.22,us,us7000dii2,2021-05-21T19:50:17.040Z,"Kermadec Islands region",earthquake,10.3,2,0.157,12,reviewed,us,us
+2021-03-05T13:43:18.300Z,-29.2542,-176.505,10,4.5,mb,,146,14.682,0.48,us,us7000dihv,2021-05-21T19:50:16.040Z,"Kermadec Islands region",earthquake,8.9,1.9,0.163,11,reviewed,us,us
+2021-03-05T13:45:30.170Z,-28.7787,-176.5357,10,4.4,mb,,198,12.054,0.28,us,us7000dihw,2021-05-21T19:50:16.040Z,"Kermadec Islands region",earthquake,11.4,2,0.189,8,reviewed,us,us
+2021-03-05T13:58:22.873Z,-29.9126,-176.7874,10,4.6,mb,,82,13.169,0.87,us,us7000digl,2021-05-21T19:50:09.040Z,"Kermadec Islands region",earthquake,14.4,1.8,0.12,21,reviewed,us,us
+2021-03-05T13:59:13.456Z,-28.8125,-176.4021,10,5,mb,,80,12.135,0.51,us,us7000digm,2021-05-21T19:50:09.040Z,"Kermadec Islands region",earthquake,15.1,1.9,0.13,19,reviewed,us,us
+2021-03-05T14:06:35.121Z,-27.8397,-176.902,10,4.7,mb,,152,14.66,1.26,us,us7000dii7,2021-05-21T19:50:18.040Z,"Kermadec Islands region",earthquake,8,1.9,0.148,15,reviewed,us,us
+2021-03-05T14:24:52.718Z,-28.8983,-176.6099,14,6.2,mww,,59,1.205,1.08,us,us7000dfz4,2025-12-22T19:06:04.838Z,"Kermadec Islands region",earthquake,8.3,1.8,0.073,18,reviewed,us,us
+2021-03-05T14:33:24.412Z,-29.2083,-176.3832,10,4.8,mb,,203,12.498,0.55,us,us7000digu,2021-05-21T19:50:10.040Z,"Kermadec Islands region",earthquake,8.5,2,0.143,16,reviewed,us,us
+2021-03-05T14:37:44.275Z,-29.1844,-176.758,10,4.9,mb,,123,28.787,0.81,us,us7000diia,2021-05-21T19:50:18.040Z,"Kermadec Islands region",earthquake,10.2,1.9,0.108,27,reviewed,us,us
+2021-03-05T15:00:46.295Z,-30.1854,-177.5262,10,5,mb,,138,1,1.01,us,us7000dfze,2021-05-21T19:46:50.040Z,"Kermadec Islands, New Zealand",earthquake,9,1.7,0.1,32,reviewed,us,us
+2021-03-05T15:07:25.451Z,-28.6102,-176.5987,10,4.7,mb,,138,1.326,1.15,us,us7000digw,2021-05-21T19:50:11.040Z,"Kermadec Islands region",earthquake,6.4,1.9,0.127,20,reviewed,us,us
+2021-03-05T15:16:46.786Z,-29.125,-176.7145,10,4.9,mb,,76,1.068,0.97,us,us7000dg11,2021-05-21T19:46:51.040Z,"Kermadec Islands region",earthquake,10.8,1.8,0.079,51,reviewed,us,us
+2021-03-05T15:22:13.739Z,-28.5556,-177.1254,10,4.6,mb,,218,0.984,1.16,us,us7000dih0,2021-05-21T19:50:11.040Z,"Kermadec Islands region",earthquake,11.6,2,0.141,15,reviewed,us,us
+2021-03-05T15:33:04.642Z,-30.0143,-176.5996,10,4.5,mb,,243,1.388,0.72,us,us7000dg0z,2021-05-21T19:46:50.040Z,"Kermadec Islands region",earthquake,7.5,2,0.157,12,reviewed,us,us
+2021-03-05T15:34:18.124Z,-30.237,-177.4903,10,4.7,mb,,201,1.059,0.57,us,us7000dih4,2021-05-21T19:50:12.040Z,"Kermadec Islands, New Zealand",earthquake,12.7,2,0.153,15,reviewed,us,us
+2021-03-05T16:20:20.050Z,-28.8435,-176.7896,10,5.3,mb,,65,1.074,0.94,us,us7000dg1h,2021-05-21T19:46:52.040Z,"Kermadec Islands region",earthquake,8.5,1.8,0.048,144,reviewed,us,us
+2021-03-05T16:39:52.477Z,-29.7123,-177.3169,10,4.7,mb,,246,12.366,0.65,us,us7000diie,2021-05-21T19:50:19.040Z,"Kermadec Islands, New Zealand",earthquake,10,2,0.184,9,reviewed,us,us
+2021-03-05T16:54:10.371Z,-29.6353,-177.0568,10,4.8,mb,,147,0.854,0.69,us,us7000dij4,2021-05-21T19:50:23.040Z,"Kermadec Islands, New Zealand",earthquake,6.7,1.9,0.139,16,reviewed,us,us
+2021-03-05T17:13:45.645Z,-28.854,-176.4934,10,5,mb,,72,27.707,0.51,us,us7000dihh,2021-05-21T19:50:14.040Z,"Kermadec Islands region",earthquake,12.2,1.4,0.065,81,reviewed,us,us
+2021-03-05T17:17:46.279Z,-29.5867,-176.3208,10,4.8,mb,,214,1.443,0.82,us,us7000dg33,2021-05-21T19:46:52.040Z,"Kermadec Islands region",earthquake,10.1,1.9,0.118,25,reviewed,us,us
+2021-03-05T17:26:27.528Z,-28.4101,-177.9902,10,4.5,mb,,184,0.833,0.49,us,us7000diii,2021-05-21T19:50:20.040Z,"Kermadec Islands region",earthquake,9.5,2,0.164,13,reviewed,us,us
+2021-03-05T17:33:31.923Z,-29.7829,-176.5042,10,4.7,mb,,150,1.352,0.62,us,us7000dg3j,2021-05-21T19:46:54.040Z,"Kermadec Islands region",earthquake,8.4,1.9,0.115,25,reviewed,us,us
+2021-03-05T18:01:27.408Z,-29.0005,-176.5992,10,5,mb,,69,1.188,0.56,us,us7000dihq,2025-12-22T18:54:37.947Z,"Kermadec Islands region",earthquake,11.6,1.9,0.067,76,reviewed,us,us
+2021-03-05T18:14:19.130Z,-29.8053,-176.6801,10,4.8,mb,,190,1.223,0.73,us,us7000dijj,2021-05-21T19:50:25.040Z,"Kermadec Islands region",earthquake,10,1.9,0.154,13,reviewed,us,us
+2021-03-05T18:55:15.908Z,-28.7212,-177.143,10,4.6,mb,,188,0.864,0.7,us,us7000dijp,2021-05-21T19:50:26.040Z,"Kermadec Islands region",earthquake,10.5,1.9,0.244,6,reviewed,us,us
+2021-03-05T18:56:36.445Z,-28.4706,-176.6545,10,4.8,mb,,136,1.358,0.66,us,us7000dihz,2021-05-21T19:50:16.040Z,"Kermadec Islands region",earthquake,12.5,1.9,0.119,26,reviewed,us,us
+2021-03-05T18:57:21.193Z,-28.44,-176.606,16,5.5,mww,,54,1.41,0.53,us,us7000dg4u,2025-12-22T18:54:38.709Z,"Kermadec Islands region",earthquake,9.3,1.8,0.075,17,reviewed,us,us
+2021-03-05T19:20:42.353Z,-29.514,-176.2046,10,4.7,mb,,151,1.528,0.8,us,us7000dijs,2021-05-21T19:50:27.040Z,"Kermadec Islands region",earthquake,10.3,1.9,0.175,11,reviewed,us,us
+2021-03-05T19:25:45.815Z,-28.5536,-177.3707,10,4.5,mb,,253,0.845,0.84,us,us7000dii3,2021-05-21T19:50:18.040Z,"Kermadec Islands region",earthquake,10.3,2,0.191,10,reviewed,us,us
+2021-03-05T19:34:53.074Z,-30.27,-177.3014,10,5.5,mb,,46,1.158,0.66,us,us7000dg55,2025-12-22T18:58:59.008Z,"Kermadec Islands, New Zealand",earthquake,7.5,1.8,0.046,171,reviewed,us,us
+2021-03-05T19:37:08.171Z,-28.3725,-177.7331,10,5.8,mww,,76,0.886,0.57,us,us7000dg5d,2025-12-22T19:06:06.081Z,"Kermadec Islands region",earthquake,8.9,1.8,0.068,21,reviewed,us,us
+2021-03-05T19:40:35.261Z,-28.2393,-177.7339,10,5.7,mwb,,58,1.016,0.68,us,us7000dg5e,2025-12-22T18:52:33.062Z,"Kermadec Islands region",earthquake,8.2,1.8,0.11,8,reviewed,us,us
+2021-03-05T20:20:43.364Z,-29.7272,-176.4777,10,5.3,mww,,40,1.353,0.76,us,us7000dg5q,2025-12-22T18:00:49.286Z,"Kermadec Islands region",earthquake,7.8,1.8,0.098,10,reviewed,us,us
+2021-03-05T20:23:29.687Z,-29.3787,-176.4604,10,4.8,mb,,142,1.289,0.96,us,us7000diig,2021-05-21T19:50:19.040Z,"Kermadec Islands region",earthquake,12.4,1.9,0.167,12,reviewed,us,us
+2021-03-05T20:25:30.762Z,-30.292,-177.1561,10,4.8,mb,,88,1.241,1.32,us,us7000dijm,2021-05-21T19:50:26.040Z,"Kermadec Islands, New Zealand",earthquake,6.1,1.8,0.116,26,reviewed,us,us
+2021-03-05T20:26:35.721Z,-30.1475,-177.0249,11,5.8,mww,,34,1.194,0.74,us,us7000dg5x,2025-12-22T18:59:00.189Z,"Kermadec Islands, New Zealand",earthquake,7.4,1.8,0.046,45,reviewed,us,us
+2021-03-05T20:31:50.811Z,-30.1224,-177.0345,10,4.7,mb,,87,1.17,0.75,us,us7000diju,2021-05-21T19:50:28.040Z,"Kermadec Islands, New Zealand",earthquake,5.9,1.8,0.108,32,reviewed,us,us
+2021-03-05T20:35:32.905Z,-29.558,-176.5847,10,4.6,mb,,147,1.213,0.58,us,us7000dijv,2021-05-21T19:50:28.040Z,"Kermadec Islands region",earthquake,13,1.9,0.158,14,reviewed,us,us
+2021-03-05T20:42:39.376Z,-30.1979,-177.3621,10,4.7,mb,,158,1.07,1.08,us,us7000diiq,2021-05-21T19:50:21.040Z,"Kermadec Islands, New Zealand",earthquake,9.7,1.9,0.134,20,reviewed,us,us
+2021-03-05T20:45:08.907Z,-30.2962,-177.2666,10,5,mb,,73,1.195,0.66,us,us7000dg6z,2025-12-22T18:59:01.394Z,"Kermadec Islands, New Zealand",earthquake,8.4,1.8,0.082,53,reviewed,us,us
+2021-03-05T20:52:41.511Z,-29.5949,-176.3306,10,5.1,mb,,124,1.437,0.7,us,us7000dg6t,2021-05-21T19:46:59.040Z,"Kermadec Islands region",earthquake,11.2,1.8,0.064,83,reviewed,us,us
+2021-03-05T21:10:09.484Z,-28.9915,-178.3354,10,5.3,mwc,,45,0.436,0.65,us,us7000dhab,2025-12-22T18:59:02.641Z,"Kermadec Islands region",earthquake,8.3,1.8,,,reviewed,us,gcmt
+2021-03-05T21:22:32.136Z,-29.6975,-177.2598,10,4.4,mb,,146,0.737,0.8,us,us7000diiw,2021-05-21T19:50:22.040Z,"Kermadec Islands, New Zealand",earthquake,9.3,2,0.24,5,reviewed,us,us
+2021-03-05T21:31:36.002Z,-30.0004,-177.0951,10,4.7,mb,,103,1.045,0.66,us,us7000dijr,2021-05-21T19:50:27.040Z,"Kermadec Islands, New Zealand",earthquake,6.1,1.8,0.153,13,reviewed,us,us
+2021-03-05T21:45:05.279Z,-28.4,-177.7934,10,4.4,mb,,188,0.85,0.57,us,us7000dij2,2021-05-21T19:50:23.040Z,"Kermadec Islands region",earthquake,10.2,1.9,0.162,11,reviewed,us,us
+2021-03-05T21:47:20.481Z,-30.6196,-176.8373,10,5,mb,,122,1.665,0.7,us,us7000dij0,2021-05-21T19:50:22.040Z,"Kermadec Islands region",earthquake,11.4,1.8,0.062,82,reviewed,us,us
+2021-03-05T22:15:20.310Z,-30.1338,-176.8592,10,4.8,mb,,156,1.284,1.34,us,us7000dij6,2021-05-21T19:50:24.040Z,"Kermadec Islands region",earthquake,9.7,1.8,0.149,14,reviewed,us,us
+2021-03-05T22:24:03.970Z,-28.7627,-176.4218,10,4.8,mb,,93,1.405,1.09,us,us7000dijt,2021-05-21T19:50:28.040Z,"Kermadec Islands region",earthquake,8.2,1.9,0.148,14,reviewed,us,us
+2021-03-05T22:25:01.169Z,-28.4891,-175.9522,10,5.1,mb,,73,1.89,0.59,us,us7000dg7r,2025-12-22T18:59:04.997Z,"Kermadec Islands region",earthquake,6.5,1.7,0.107,28,reviewed,us,us
+2021-03-05T22:34:50.290Z,-30.0882,-177.0627,10,5.1,mb,,41,1.128,0.95,us,us7000dg7t,2025-12-22T18:52:35.445Z,"Kermadec Islands, New Zealand",earthquake,5.1,1.8,0.064,79,reviewed,us,us
+2021-03-05T23:17:31.456Z,-28.8909,-176.8895,16.94,5.1,mww,,53,0.976,0.65,us,us7000dg8c,2025-12-22T18:59:06.210Z,"Kermadec Islands region",earthquake,4.6,3.3,0.093,11,reviewed,us,us
+2021-03-05T23:46:09.772Z,-28.7133,-176.6352,10,4.8,mb,,69,1.251,0.45,us,us7000dijz,2021-05-21T19:50:29.040Z,"Kermadec Islands region",earthquake,10.5,1.3,0.068,66,reviewed,us,us
+2021-03-05T23:48:28.759Z,-29.941,-176.8496,10,5,mb,,37,1.168,0.54,us,us7000dg8m,2025-12-22T18:52:36.824Z,"Kermadec Islands region",earthquake,8.6,1.8,0.049,131,reviewed,us,us
+2021-03-06T00:22:11.340Z,-28.5565,-176.2747,10,5.2,mb,,37,1.604,0.55,us,us7000dinc,2021-05-21T19:50:38.040Z,"Kermadec Islands region",earthquake,5.2,1.8,0.075,59,reviewed,us,us
+2021-03-06T00:25:47.331Z,-29.4184,-176.1772,9.33,5.1,mb,,124,1.539,0.55,us,us7000din9,2021-05-21T19:50:37.040Z,"Kermadec Islands region",earthquake,13.5,4.6,0.102,31,reviewed,us,us
+2021-03-06T00:25:59.148Z,-29.1383,-176.3633,10,5,mb,,111,1.373,0.61,us,us7000diuw,2021-05-21T19:51:30.040Z,"Kermadec Islands region",earthquake,10.3,1.7,0.092,38,reviewed,us,us
+2021-03-06T00:40:41.138Z,-28.4273,-178.2978,10,5.2,mb,,68,0.876,0.94,us,us7000dg94,2021-05-21T19:47:05.040Z,"Kermadec Islands region",earthquake,8.1,1.8,0.073,61,reviewed,us,us
+2021-03-06T00:47:01.480Z,-29.5454,-176.0968,10,4.6,mb,,161,1.626,0.39,us,us7000diux,2021-05-21T19:51:30.040Z,"Kermadec Islands region",earthquake,10.6,1.8,0.164,11,reviewed,us,us
+2021-03-06T01:07:03.722Z,-29.3615,-176.8152,10,5,mb,,82,0.979,1.28,us,us7000dinf,2021-05-21T19:50:39.040Z,"Kermadec Islands region",earthquake,10.1,1.8,0.146,15,reviewed,us,us
+2021-03-06T01:23:51.678Z,-28.8956,-178.1985,10,5,mb,,72,0.42,0.78,us,us7000dgad,2021-05-21T19:47:06.040Z,"Kermadec Islands region",earthquake,7.5,1.8,0.118,23,reviewed,us,us
+2021-03-06T01:28:54.067Z,-29.1961,-177.5022,55.28,4.6,mb,,135,0.376,0.44,us,us7000dinh,2021-05-21T19:50:39.040Z,"Kermadec Islands, New Zealand",earthquake,12.2,5.1,0.245,5,reviewed,us,us
+2021-03-06T02:54:14.391Z,-29.2061,-176.7468,10,4.5,mb,,187,1.034,0.69,us,us7000dinv,2021-05-21T19:50:41.040Z,"Kermadec Islands region",earthquake,5.6,1.9,0.221,6,reviewed,us,us
+2021-03-06T03:03:41.547Z,-29.1658,-177.85,10,4.5,mb,,188,0.104,0.92,us,us7000diu6,2021-05-21T19:51:25.040Z,"Kermadec Islands, New Zealand",earthquake,8.4,1.9,0.192,8,reviewed,us,us
+2021-03-06T03:12:47.753Z,-28.7147,-177.9945,10,4.6,mb,,235,0.531,0.23,us,us7000dinw,2021-05-21T19:50:41.040Z,"Kermadec Islands region",earthquake,5.6,2,0.274,5,reviewed,us,us
+2021-03-06T03:13:13.714Z,-28.7813,-176.7683,10,4.5,mb,,187,1.116,0.87,us,us7000diu7,2021-05-21T19:51:26.040Z,"Kermadec Islands region",earthquake,12.3,1.9,0.243,7,reviewed,us,us
+2021-03-06T03:44:07.748Z,-29.4173,-176.2859,10,4.7,mb,,126,1.445,1.13,us,us7000dip3,2021-05-21T19:50:43.040Z,"Kermadec Islands region",earthquake,7.7,1.8,0.174,10,reviewed,us,us
+2021-03-06T03:59:46.539Z,-29.9349,-176.8036,10.4,5.5,mww,,67,1.197,1.11,us,us7000dgbu,2025-12-22T18:59:08.632Z,"Kermadec Islands region",earthquake,10,2.8,0.063,24,reviewed,us,us
+2021-03-06T04:31:26.192Z,-29.5345,-176.7584,10,4.9,mb,,82,1.061,0.72,us,us7000diqq,2025-12-22T18:54:39.517Z,"Kermadec Islands region",earthquake,3.6,1.9,0.155,13,reviewed,us,us
+2021-03-06T04:47:24.648Z,-29.7396,-177.1111,10,4.3,mb,,190,0.866,0.99,us,us7000diue,2021-05-21T19:51:27.040Z,"Kermadec Islands, New Zealand",earthquake,11.1,2,0.238,6,reviewed,us,us
+2021-03-06T04:48:57.652Z,-28.4325,-177.9426,10,4.5,mb,,187,0.809,0.85,us,us7000diqr,2021-05-21T19:50:57.040Z,"Kermadec Islands region",earthquake,9.3,2,0.242,5,reviewed,us,us
+2021-03-06T04:51:55.024Z,-29.9545,-176.7987,10,4.9,mb,,117,1.212,0.73,us,us7000dgcq,2021-05-21T19:47:13.040Z,"Kermadec Islands region",earthquake,12.2,1.8,0.112,25,reviewed,us,us
+2021-03-06T05:00:36.950Z,-28.5469,-177.2388,10,4.5,mb,,135,0.922,0.68,us,us7000dipc,2021-05-21T19:50:43.040Z,"Kermadec Islands region",earthquake,10.7,1.9,0.181,10,reviewed,us,us
+2021-03-06T05:29:42.424Z,-29.3445,-176.3447,10,4.6,mb,,133,1.387,0.81,us,us7000dipe,2021-05-21T19:50:44.040Z,"Kermadec Islands region",earthquake,12.4,1.9,0.146,17,reviewed,us,us
+2021-03-06T05:31:36.172Z,-28.2897,-176.718,10,4.4,mb,,144,1.427,1.22,us,us7000dipl,2021-05-21T19:50:46.040Z,"Kermadec Islands region",earthquake,11.7,2,0.189,8,reviewed,us,us
+2021-03-06T05:46:38.828Z,-28.9115,-177.2068,10,4.3,mb,,250,0.714,0.41,us,us7000dipj,2021-05-21T19:50:45.040Z,"Kermadec Islands region",earthquake,9.6,2,0.217,6,reviewed,us,us
+2021-03-06T05:47:58.196Z,-29.3921,-176.381,10,4.7,mb,,162,1.359,0.78,us,us7000dir1,2021-05-21T19:51:00.040Z,"Kermadec Islands region",earthquake,11.4,1.9,0.138,19,reviewed,us,us
+2021-03-06T05:52:56.319Z,-29.2144,-176.1799,10,4.7,mb,,125,1.529,0.63,us,us7000dipm,2021-05-21T19:50:46.040Z,"Kermadec Islands region",earthquake,11.6,1.9,0.137,18,reviewed,us,us
+2021-03-06T06:01:36.996Z,-28.9244,-176.3114,10,4.6,mb,,161,9.719,0.6,us,us7000dir2,2021-05-21T19:51:01.040Z,"Kermadec Islands region",earthquake,8.6,1.9,0.182,13,reviewed,us,us
+2021-03-06T06:22:23.585Z,-28.6898,-177.0305,10,4.3,mb,,213,0.962,0.55,us,us7000dips,2021-05-21T19:50:46.040Z,"Kermadec Islands region",earthquake,10.4,2,0.217,9,reviewed,us,us
+2021-03-06T06:41:47.510Z,-29.2861,-176.7848,10,4.8,mb,,173,1,0.76,us,us7000dipx,2021-05-21T19:50:47.040Z,"Kermadec Islands region",earthquake,12,1.9,0.168,13,reviewed,us,us
+2021-03-06T06:54:37.640Z,-28.2287,-177.471,10,4.7,mb,,112,1.089,0.91,us,us7000dipz,2021-05-21T19:50:48.040Z,"Kermadec Islands region",earthquake,6.4,1.9,0.138,16,reviewed,us,us
+2021-03-06T07:00:25.892Z,-28.4478,-177.8944,10,4.8,mb,,192,0.794,0.74,us,us7000dipy,2021-05-21T19:50:48.040Z,"Kermadec Islands region",earthquake,5.3,1.9,0.139,16,reviewed,us,us
+2021-03-06T07:02:24.238Z,-28.4763,-178.011,10,5.8,mww,,62,0.769,0.7,us,us7000dgd9,2025-12-22T18:59:09.767Z,"Kermadec Islands region",earthquake,6.8,1.8,0.083,14,reviewed,us,us
+2021-03-06T07:07:10.862Z,-28.4392,-178.0731,10,4.6,mb,,206,0.812,0.41,us,us7000dirg,2021-05-21T19:51:05.040Z,"Kermadec Islands region",earthquake,6.9,2,0.181,10,reviewed,us,us
+2021-03-06T07:10:51.406Z,-28.5149,-176.86,10,4.7,mb,,173,1.186,0.7,us,us7000diq0,2021-05-21T19:50:49.040Z,"Kermadec Islands region",earthquake,11.6,1.9,0.152,15,reviewed,us,us
+2021-03-06T07:14:13.745Z,-28.4939,-178.0445,10,4.8,mb,,61,0.755,0.7,us,us7000dgds,2021-05-21T19:47:16.040Z,"Kermadec Islands region",earthquake,5.9,1.7,0.113,24,reviewed,us,us
+2021-03-06T07:16:19.959Z,-28.6453,-177.0093,10,5.6,mb,,161,1.003,0.53,us,us7000dgdp,2021-05-21T19:47:16.040Z,"Kermadec Islands region",earthquake,10.7,1.9,0.097,37,reviewed,us,us
+2021-03-06T07:16:29.302Z,-28.6263,-177.0009,10,6.1,mww,,62,1.02,0.82,us,us7000dgdc,2025-12-22T18:59:10.994Z,"Kermadec Islands region",earthquake,6.9,1.7,0.065,23,reviewed,us,us
+2021-03-06T07:17:53.299Z,-28.4138,-178.1653,10,5.3,mb,,79,0.853,0.96,us,us7000dium,2021-05-21T19:51:29.040Z,"Kermadec Islands region",earthquake,4.7,1.9,0.104,31,reviewed,us,us
+2021-03-06T07:20:29.616Z,-28.4727,-178.1626,10,5.5,mb,,68,0.796,0.76,us,us7000dgdw,2025-12-22T18:00:49.994Z,"Kermadec Islands region",earthquake,7.3,1.9,0.065,83,reviewed,us,us
+2021-03-06T07:21:53.676Z,-28.4402,-177.5973,10,5.2,mb,,86,0.853,0.79,us,us7000diul,2021-05-21T19:51:28.040Z,"Kermadec Islands region",earthquake,4.9,1.8,0.119,23,reviewed,us,us
+2021-03-06T07:24:04.508Z,-28.256,-177.5217,10,4.6,mb,,113,1.048,0.44,us,us7000diq4,2021-05-21T19:50:50.040Z,"Kermadec Islands region",earthquake,4.9,1.9,0.147,16,reviewed,us,us
+2021-03-06T07:25:20.232Z,-28.4567,-177.6618,10,4.3,mb,,256,0.819,0.62,us,us7000dive,2021-05-21T19:51:32.040Z,"Kermadec Islands region",earthquake,9,2,0.239,7,reviewed,us,us
+2021-03-06T07:26:00.552Z,-28.6511,-178.8388,10,4.6,mb,,84,0.993,0.69,us,us7000diq3,2021-05-21T19:50:50.040Z,"Kermadec Islands region",earthquake,8.5,1.9,0.173,13,reviewed,us,us
+2021-03-06T07:28:13.852Z,-28.4259,-177.8046,10,4.8,mb,,168,0.823,0.83,us,us7000diq2,2021-05-21T19:50:49.040Z,"Kermadec Islands region",earthquake,5.9,1.9,0.131,18,reviewed,us,us
+2021-03-06T07:30:02.709Z,-29.9964,-177.1164,10,4.7,mb,,224,1.03,0.58,us,us6000e1qg,2021-05-21T19:46:24.040Z,"Kermadec Islands, New Zealand",earthquake,9.7,2,0.165,12,reviewed,us,us
+2021-03-06T07:30:13.334Z,-30.0848,-177.1684,10,5,mb,,88,1.067,0.54,us,us7000div1,2021-05-21T19:51:31.040Z,"Kermadec Islands, New Zealand",earthquake,6.4,1.8,0.107,30,reviewed,us,us
+2021-03-06T07:37:37.988Z,-28.331,-177.7932,10,4.7,mb,,252,0.918,0.87,us,us7000diq7,2021-05-21T19:50:50.040Z,"Kermadec Islands region",earthquake,12.4,2,0.225,7,reviewed,us,us
+2021-03-06T07:55:17.727Z,-28.502,-176.4925,10,4.2,mb,,150,1.461,0.58,us,us7000diqc,2021-05-21T19:50:52.040Z,"Kermadec Islands region",earthquake,6.9,1.9,0.215,8,reviewed,us,us
+2021-03-06T08:04:58.202Z,-28.9309,-177.1144,10,4.6,mb,,90,0.778,0.5,us,us7000diqd,2021-05-21T19:50:52.040Z,"Kermadec Islands region",earthquake,11.5,1.9,0.146,17,reviewed,us,us
+2021-03-06T08:23:57.094Z,-29.8499,-176.7965,10,5.1,mb,,81,1.156,0.5,us,us7000dgdz,2026-02-04T20:36:43.467Z,"Kermadec Islands region",earthquake,7,1.9,0.08,51,reviewed,us,us
+2021-03-06T08:36:58.422Z,-28.4775,-178.0674,10,4.3,mb,,250,0.774,0.48,us,us7000diuj,2021-05-21T19:51:28.040Z,"Kermadec Islands region",earthquake,5.2,2,0.153,12,reviewed,us,us
+2021-03-06T08:39:42.460Z,-28.6822,-175.9758,10,4.6,mb,,208,1.801,0.53,us,us7000diqh,2021-05-21T19:50:54.040Z,"Kermadec Islands region",earthquake,10.6,1.9,0.158,13,reviewed,us,us
+2021-03-06T09:02:56.601Z,-28.5718,-177.8956,10,4.3,mb,,133,0.671,0.48,us,us7000dirq,2021-05-21T19:51:07.040Z,"Kermadec Islands region",earthquake,8.5,1.9,0.142,15,reviewed,us,us
+2021-03-06T09:04:24.857Z,-29.5862,-176.1599,10,4.9,mb,,70,1.58,0.46,us,us7000dgfu,2021-05-21T19:47:19.040Z,"Kermadec Islands region",earthquake,7.5,1.8,0.088,41,reviewed,us,us
+2021-03-06T09:20:58.249Z,-28.2638,-177.4665,10,4.3,mb,,183,1.058,0.55,us,us7000diqn,2021-05-21T19:50:56.040Z,"Kermadec Islands region",earthquake,5.6,1.8,0.142,14,reviewed,us,us
+2021-03-06T09:38:02.712Z,-28.3891,-177.9035,10,5.4,mww,,54,0.853,0.45,us,us7000dgfw,2025-12-22T18:59:13.350Z,"Kermadec Islands region",earthquake,6.8,1.8,0.06,27,reviewed,us,us
+2021-03-06T09:46:06.922Z,-28.5954,-178.3781,10,4.9,mb,,78,0.757,0.53,us,us7000diqp,2021-05-21T19:50:56.040Z,"Kermadec Islands region",earthquake,5.5,1.9,0.132,18,reviewed,us,us
+2021-03-06T10:11:45.630Z,-29.4313,-177.0085,10,4.7,mb,,141,0.824,0.77,us,us7000diry,2021-05-21T19:51:08.040Z,"Kermadec Islands, New Zealand",earthquake,7.5,1.9,0.108,26,reviewed,us,us
+2021-03-06T10:19:18.239Z,-29.4893,-176.4504,10,4.8,mb,,86,1.313,0.44,us,us7000diqs,2021-05-21T19:50:57.040Z,"Kermadec Islands region",earthquake,10.2,1.9,0.109,27,reviewed,us,us
+2021-03-06T10:25:34.964Z,-29.8247,-177.1762,10,4.3,mb,,229,0.874,0.19,us,us7000dirz,2021-05-21T19:51:09.040Z,"Kermadec Islands, New Zealand",earthquake,7.6,2,0.16,12,reviewed,us,us
+2021-03-06T10:34:47.134Z,-28.4217,-177.7664,10,6.2,mww,,69,0.832,0.77,us,us7000dggf,2025-12-22T18:59:14.519Z,"Kermadec Islands region",earthquake,5.6,1.8,0.065,23,reviewed,us,us
+2021-03-06T10:39:50.565Z,-28.4202,-177.8682,10,4.8,mb,,93,0.823,0.25,us,us7000diqu,2021-05-21T19:50:58.040Z,"Kermadec Islands region",earthquake,6.6,1.9,0.131,18,reviewed,us,us
+2021-03-06T10:52:13.853Z,-28.3502,-177.9002,10,4.3,mb,,251,0.891,0.41,us,us7000diqy,2021-05-21T19:50:59.040Z,"Kermadec Islands region",earthquake,8.4,1.8,0.143,15,reviewed,us,us
+2021-03-06T10:59:19.663Z,-28.1768,-177.8728,10,4.4,mb,,264,1.065,0.37,us,us7000dir0,2021-05-21T19:51:00.040Z,"Kermadec Islands region",earthquake,10.2,2,0.239,7,reviewed,us,us
+2021-03-06T11:07:21.116Z,-28.3084,-177.797,10,4.5,mb,,183,0.94,0.34,us,us7000diqx,2021-05-21T19:50:59.040Z,"Kermadec Islands region",earthquake,9.3,1.9,0.121,23,reviewed,us,us
+2021-03-06T11:25:01.922Z,-28.3555,-177.8692,10,4.2,mb,,239,0.887,0.52,us,us7000dir3,2021-05-21T19:51:01.040Z,"Kermadec Islands region",earthquake,9.2,1.7,0.128,17,reviewed,us,us
+2021-03-06T11:32:37.525Z,-28.5074,-177.8624,10,4.2,mb,,267,0.737,0.15,us,us7000dir4,2021-05-21T19:51:02.040Z,"Kermadec Islands region",earthquake,6.4,2,0.216,7,reviewed,us,us
+2021-03-06T11:38:07.688Z,-28.3343,-177.8408,10,4.3,mb,,251,0.91,0.3,us,us7000dir5,2021-05-21T19:51:02.040Z,"Kermadec Islands region",earthquake,6.7,2,0.16,12,reviewed,us,us
+2021-03-06T12:04:53.939Z,-28.2806,-177.9531,10,4.7,mb,,73,0.961,0.7,us,us7000dghf,2021-05-21T19:47:22.040Z,"Kermadec Islands region",earthquake,8.4,1.8,0.098,32,reviewed,us,us
+2021-03-06T12:05:23.693Z,-28.3565,-177.8739,15,6.2,mww,,50,0.886,0.64,us,us7000dgh7,2025-12-22T18:54:40.337Z,"Kermadec Islands region",earthquake,7.7,1.8,0.047,44,reviewed,us,us
+2021-03-06T12:12:04.829Z,-28.907,-176.9055,10,5.4,mb,,81,0.957,0.34,us,us7000dghb,2021-05-21T19:47:22.040Z,"Kermadec Islands region",earthquake,7.6,1.8,0.078,56,reviewed,us,us
+2021-03-06T12:17:42.522Z,-28.6682,-177.6389,10,4.7,mb,,90,0.628,1.02,us,us7000dira,2021-05-21T19:51:03.040Z,"Kermadec Islands region",earthquake,8.9,1.8,0.183,10,reviewed,us,us
+2021-03-06T12:21:04.387Z,-28.3628,-177.7886,10,5.3,mb,,76,0.887,0.67,us,us7000dghh,2021-05-21T19:47:23.040Z,"Kermadec Islands region",earthquake,6.7,1.8,0.054,114,reviewed,us,us
+2021-03-06T12:26:45.214Z,-27.8457,-177.3225,10,4.3,mb,,258,1.492,0.4,us,us7000dire,2021-05-21T19:51:04.040Z,"Kermadec Islands region",earthquake,7.8,2,0.16,12,reviewed,us,us
+2021-03-06T12:30:03.541Z,-28.2797,-177.6619,10,4.5,mb,,202,0.989,0.26,us,us7000dirb,2021-05-21T19:51:03.040Z,"Kermadec Islands region",earthquake,9.3,2,0.156,13,reviewed,us,us
+2021-03-06T12:39:51.643Z,-28.5254,-178.3967,10,4.5,mb,,233,0.826,0.44,us,us7000dirf,2021-05-21T19:51:05.040Z,"Kermadec Islands region",earthquake,9.3,2,0.191,8,reviewed,us,us
+2021-03-06T12:42:38.630Z,-28.2113,-177.3617,10,4.2,mb,,257,1.144,0.33,us,us7000divh,2021-05-21T19:51:33.040Z,"Kermadec Islands region",earthquake,13,2,0.146,13,reviewed,us,us
+2021-03-06T12:44:08.917Z,-28.3978,-177.1058,10,4.2,mb,,254,1.111,0.32,us,us7000divf,2021-05-21T19:51:32.040Z,"Kermadec Islands region",earthquake,6,1.9,0.141,15,reviewed,us,us
+2021-03-06T12:46:49.704Z,-28.5532,-177.5321,10,4.1,mb,,236,0.772,0.23,us,us7000dird,2021-05-21T19:51:04.040Z,"Kermadec Islands region",earthquake,8.1,1.9,0.235,6,reviewed,us,us
+2021-03-06T12:48:15.867Z,-28.1969,-177.703,10,4.5,mb,,137,1.062,0.58,us,us7000dghs,2021-05-21T19:47:24.040Z,"Kermadec Islands region",earthquake,7.9,2,0.145,15,reviewed,us,us
+2021-03-06T12:50:00.325Z,-28.5426,-177.5068,10,4.4,mb,,247,20.292,0.52,us,us7000diri,2021-05-21T19:51:06.040Z,"Kermadec Islands region",earthquake,10.4,2,0.134,17,reviewed,us,us
+2021-03-06T13:03:46.649Z,-28.2666,-177.8183,10,5.4,mww,,70,0.979,1.05,us,us7000dghx,2025-12-22T18:59:15.672Z,"Kermadec Islands region",earthquake,8.5,1.8,0.098,10,reviewed,us,us
+2021-03-06T13:12:05.498Z,-28.2896,-177.6283,10,6.1,mww,,49,0.987,0.83,us,us7000dgi0,2025-12-22T18:59:16.869Z,"Kermadec Islands region",earthquake,7.1,1.8,0.046,45,reviewed,us,us
+2021-03-06T13:29:59.097Z,-28.4383,-178.0589,10,4.5,mb,,106,0.811,0.88,us,us7000dgi6,2021-05-21T19:47:27.040Z,"Kermadec Islands region",earthquake,3.2,1.9,0.128,20,reviewed,us,us
+2021-03-06T13:58:47.242Z,-32.4482,-178.1794,10,4.9,mb,,161,3.2,0.81,us,us7000dgie,2021-05-21T19:47:29.040Z,"south of the Kermadec Islands",earthquake,12.2,1.9,0.119,24,reviewed,us,us
+2021-03-06T14:01:53.517Z,-32.5948,-177.7336,10,4.6,mb,,162,3.343,1.01,us,us7000dirp,2021-05-21T19:51:07.040Z,"south of the Kermadec Islands",earthquake,13.3,2,0.137,16,reviewed,us,us
+2021-03-06T14:08:28.150Z,-28.9426,-176.4374,10,4.5,mb,,232,1.339,0.89,us,us7000disd,2021-05-21T19:51:11.040Z,"Kermadec Islands region",earthquake,13.6,2,0.171,12,reviewed,us,us
+2021-03-06T14:12:26.816Z,-28.8932,-176.3766,10,4.7,mb,,109,1.403,0.96,us,us7000disx,2021-05-21T19:51:15.040Z,"Kermadec Islands region",earthquake,12.6,2,0.133,18,reviewed,us,us
+2021-03-06T14:28:42.973Z,-28.2484,-177.6355,10,4.7,mb,,86,1.025,0.59,us,us7000dgj4,2021-05-21T19:47:30.040Z,"Kermadec Islands region",earthquake,11,1.9,0.126,20,reviewed,us,us
+2021-03-06T14:41:23.150Z,-29.0051,-176.8682,10,5.4,mww,,56,0.958,1.16,us,us7000dgj1,2025-12-22T18:54:40.972Z,"Kermadec Islands region",earthquake,8,1.8,0.098,10,reviewed,us,us
+2021-03-06T15:04:02.850Z,-31.8293,-178.1235,10,4.7,mb,,176,2.581,1.2,us,us7000dirt,2021-05-21T19:51:08.040Z,"Kermadec Islands region",earthquake,8.2,1.9,0.13,18,reviewed,us,us
+2021-03-06T16:28:59.532Z,-30.1989,-177.1828,10,4.6,mb,,91,1.151,0.91,us,us7000ditd,2021-05-21T19:51:19.040Z,"Kermadec Islands, New Zealand",earthquake,7.1,1.7,0.133,17,reviewed,us,us
+2021-03-06T16:34:02.292Z,-30.3785,-176.8378,10,4.3,mb,,220,1.474,0.7,us,us7000dis6,2021-05-21T19:51:10.040Z,"Kermadec Islands region",earthquake,11.4,2,0.188,9,reviewed,us,us
+2021-03-06T16:37:00.044Z,-29.4236,-176.8395,10,4.5,mb,,260,0.967,0.88,us,us7000dis5,2021-05-21T19:51:10.040Z,"Kermadec Islands region",earthquake,13.4,2,0.164,12,reviewed,us,us
+2021-03-06T17:00:51.748Z,-30.1595,-177.3199,10,4.6,mb,,210,1.054,0.77,us,us7000dis9,2021-05-21T19:51:11.040Z,"Kermadec Islands, New Zealand",earthquake,7.3,2,0.165,14,reviewed,us,us
+2021-03-06T17:13:13.491Z,-30.2103,-176.9279,9,5.7,mww,,55,1.297,1.04,us,us7000dgk1,2025-12-22T18:00:17.340Z,"Kermadec Islands region",earthquake,7.2,1.8,0.053,34,reviewed,us,us
+2021-03-06T17:32:45.925Z,-29.447,-175.7677,10,5.5,mww,,101,1.897,0.64,us,us7000dgk3,2021-05-21T19:47:35.040Z,"Kermadec Islands region",earthquake,9.5,1.9,0.08,15,reviewed,us,us
+2021-03-06T17:32:59.220Z,-28.461,-176.312,19.1,5.5,mw,,,,,iscgem,iscgem619921848,2025-12-22T18:52:42.736Z,"Kermadec Islands region",earthquake,,4.9,0.1,,reviewed,iscgem,iscgem
+2021-03-06T18:05:50.691Z,-28.4872,-176.4928,10,4.6,mb,,216,1.468,0.37,us,us7000div9,2021-05-21T19:51:32.040Z,"Kermadec Islands region",earthquake,10.4,2,0.158,12,reviewed,us,us
+2021-03-06T18:08:26.538Z,-28.3986,-177.1375,10,4.5,mb,,254,1.092,0.84,us,us7000dit8,2021-05-21T19:51:17.040Z,"Kermadec Islands region",earthquake,11.7,1.9,0.18,9,reviewed,us,us
+2021-03-06T18:10:38.456Z,-30.1372,-177.1623,10,4.6,mb,,217,1.111,0.76,us,us7000disk,2021-05-21T19:51:12.040Z,"Kermadec Islands, New Zealand",earthquake,10.7,2,0.146,15,reviewed,us,us
+2021-03-06T18:14:20.848Z,-30.4541,-177.5588,10,4.7,mb,,127,1.247,0.84,us,us7000ditt,2021-05-21T19:51:21.040Z,"Kermadec Islands, New Zealand",earthquake,10.8,1.9,0.126,25,reviewed,us,us
+2021-03-06T19:05:08.838Z,-30.0383,-176.8149,10,4.4,mb,,199,1.251,0.8,us,us7000ditz,2021-05-21T19:51:23.040Z,"Kermadec Islands region",earthquake,12.7,1.9,0.219,6,reviewed,us,us
+2021-03-06T20:09:35.510Z,-28.4325,-177.8428,10,5.1,mb,,62,0.813,0.55,us,us7000dgp2,2025-12-22T18:53:20.550Z,"Kermadec Islands region",earthquake,7.5,1.8,0.076,56,reviewed,us,us
+2021-03-06T20:38:07.285Z,-28.6094,-177.5339,10,4.9,mb,,137,0.721,1.31,us,us7000diu1,2021-05-21T19:51:24.040Z,"Kermadec Islands region",earthquake,8.9,1.6,0.169,11,reviewed,us,us
+2021-03-06T20:45:18.056Z,-28.4814,-177.9786,10,5.1,mb,,62,0.762,0.71,us,us7000dgmu,2025-12-22T18:54:43.341Z,"Kermadec Islands region",earthquake,2.9,1.8,0.07,67,reviewed,us,us
+2021-03-06T21:22:36.173Z,-28.3568,-177.2507,10,4.7,mb,,110,1.066,1.07,us,us7000dgnc,2021-05-21T19:47:44.040Z,"Kermadec Islands region",earthquake,10.6,1.8,0.134,17,reviewed,us,us
+2021-03-06T21:42:50.554Z,-28.4007,-176.3085,10,5.2,mb,,59,1.652,0.64,us,us7000dgnp,2025-12-22T18:52:50.933Z,"Kermadec Islands region",earthquake,4.8,1.8,0.062,86,reviewed,us,us
+2021-03-06T21:47:39.946Z,-28.4947,-176.4821,10,5.1,mb,,59,1.472,0.62,us,us7000dgnk,2025-12-22T18:52:47.417Z,"Kermadec Islands region",earthquake,8.5,1.8,0.074,59,reviewed,us,us
+2021-03-06T22:04:12.812Z,-28.5603,-177.7656,12.86,4.2,mb,,201,0.697,0.77,us,us7000ditf,2021-05-21T19:51:19.040Z,"Kermadec Islands region",earthquake,9,7.8,0.237,5,reviewed,us,us
+2021-03-06T22:51:42.225Z,-29.913,-177.2896,10,4.1,mb,,199,0.868,0.55,us,us7000diu0,2021-05-21T19:51:23.040Z,"Kermadec Islands, New Zealand",earthquake,7.5,2,0.262,4,reviewed,us,us
+2021-03-06T23:04:58.163Z,-29.3489,-176.9848,10,4.9,mb,,123,0.831,0.82,us,us7000diu5,2025-12-22T18:59:18.070Z,"Kermadec Islands region",earthquake,10.1,1.8,0.115,24,reviewed,us,us
+2021-03-06T23:08:08.919Z,-29.1797,-176.7491,10,5.2,mb,,109,1.033,0.93,us,us7000dgp1,2025-12-22T18:59:19.226Z,"Kermadec Islands region",earthquake,7.8,1.8,0.091,40,reviewed,us,us
+2021-03-06T23:18:26.554Z,-29.9674,-177.1241,10,4.6,mb,,149,1.004,0.95,us,us7000ditr,2021-05-21T19:51:21.040Z,"Kermadec Islands, New Zealand",earthquake,7.1,1.8,0.136,16,reviewed,us,us
+2021-03-06T23:30:05.376Z,-28.3845,-177.7768,17.82,5.6,mww,,61,0.867,0.57,us,us7000dgp3,2025-12-22T18:52:48.528Z,"Kermadec Islands region",earthquake,9.1,3.2,0.086,13,reviewed,us,us
+2021-03-07T00:11:32.240Z,-29.496,-176.6144,10,4.3,mb,,199,1.174,0.35,us,us7000djrv,2021-05-21T19:51:34.040Z,"Kermadec Islands region",earthquake,12,2,0.218,6,reviewed,us,us
+2021-03-07T00:20:36.554Z,-29.146,-176.8281,10,4.5,mb,,187,0.967,0.73,us,us7000djrw,2021-05-21T19:51:35.040Z,"Kermadec Islands region",earthquake,11.1,1.8,0.171,10,reviewed,us,us
+2021-03-07T00:25:30.086Z,-29.39,-176.8046,10,5,mb,,70,0.992,0.65,us,us7000dgpf,2021-05-21T19:47:48.040Z,"Kermadec Islands region",earthquake,3.7,1.8,0.08,50,reviewed,us,us
+2021-03-07T00:37:41.935Z,-29.8445,-176.9881,10,4.5,mb,,171,1.014,0.67,us,us7000djry,2021-05-21T19:51:35.040Z,"Kermadec Islands region",earthquake,8.6,2,0.221,6,reviewed,us,us
+2021-03-07T01:54:20.074Z,-28.4182,-177.7722,10,5,mb,,70,0.835,1.12,us,us7000dgq7,2021-05-21T19:47:53.040Z,"Kermadec Islands region",earthquake,11.6,1.8,0.151,14,reviewed,us,us
+2021-03-07T01:55:10.322Z,-28.4674,-176.589,8,5.5,mww,,102,1.407,1.22,us,us7000dgpx,2025-12-22T18:55:01.704Z,"Kermadec Islands region",earthquake,6.6,1.8,0.073,18,reviewed,us,us
+2021-03-07T02:05:46.537Z,-28.3166,-178.3457,10,4.4,mb,,132,0.994,1.02,us,us7000djth,2021-05-21T19:51:46.040Z,"Kermadec Islands region",earthquake,7.1,1.9,0.268,5,reviewed,us,us
+2021-03-07T02:07:12.134Z,-28.3356,-176.5472,10,5.2,mb,,70,1.514,1.18,us,us7000dgq3,2025-12-22T18:59:20.452Z,"Kermadec Islands region",earthquake,9.2,1.2,0.064,80,reviewed,us,us
+2021-03-07T03:01:11.235Z,-28.8587,-176.6632,10,4.6,mb,,264,1.173,0.8,us,us7000djsb,2021-05-21T19:51:37.040Z,"Kermadec Islands region",earthquake,11.7,1.9,0.222,7,reviewed,us,us
+2021-03-07T03:06:14.380Z,-29.3789,-177.7145,10,4.4,mb,,139,0.23,0.62,us,us7000djs7,2021-05-21T19:51:36.040Z,"Kermadec Islands, New Zealand",earthquake,7.1,1.9,0.267,5,reviewed,us,us
+2021-03-07T03:26:16.805Z,-28.4729,-177.1489,10,5,mb,,70,1.029,1.36,us,us7000dgqh,2021-05-21T19:47:55.040Z,"Kermadec Islands region",earthquake,9,1.8,0.048,140,reviewed,us,us
+2021-03-07T03:28:18.110Z,-28.844,-176.806,36,5.1,mw,,,,,iscgem,iscgem620177767,2025-12-22T18:00:29.265Z,"Kermadec Islands region",earthquake,,13,0.1,,reviewed,iscgem,iscgem
+2021-03-07T04:10:26.922Z,-29.2219,-176.5717,11,5.6,mww,,45,1.186,1.22,us,us7000dgqr,2025-12-22T18:00:50.669Z,"Kermadec Islands region",earthquake,9.5,1.8,0.052,36,reviewed,us,us
+2021-03-07T04:15:51.541Z,-28.1949,-177.0441,10,4.5,mb,,143,1.303,0.95,us,us7000djsd,2021-05-21T19:51:38.040Z,"Kermadec Islands region",earthquake,10.2,1.9,0.205,8,reviewed,us,us
+2021-03-07T04:45:55.900Z,-29.5758,-176.8249,10,4.9,mb,,79,1.018,0.97,us,us7000dju1,2021-05-21T19:51:52.040Z,"Kermadec Islands region",earthquake,11.4,1.8,0.155,15,reviewed,us,us
+2021-03-07T04:47:36.154Z,-28.6218,-176.4634,10,4.7,mb,,93,1.426,0.86,us,us7000djsg,2021-05-21T19:51:38.040Z,"Kermadec Islands region",earthquake,7.6,1.8,0.195,11,reviewed,us,us
+2021-03-07T05:30:47.775Z,-27.6039,-176.9293,10,4.3,mb,,134,1.857,0.66,us,us7000djsl,2021-05-21T19:51:40.040Z,"Kermadec Islands region",earthquake,6.8,1.9,0.137,16,reviewed,us,us
+2021-03-07T05:39:25.367Z,-29.466,-178.3974,10,4.7,mb,,136,0.464,0.24,us,us7000djsr,2021-05-21T19:51:40.040Z,"Kermadec Islands, New Zealand",earthquake,5.4,1.8,0.153,15,reviewed,us,us
+2021-03-07T05:43:55.064Z,-29.7527,-176.9586,10,4.7,mb,,191,0.985,0.5,us,us7000dgs2,2021-05-21T19:47:59.040Z,"Kermadec Islands region",earthquake,6.7,1.8,0.134,21,reviewed,us,us
+2021-03-07T06:04:18.656Z,-28.4762,-176.626,10,4.2,mb,,252,1.375,0.6,us,us7000djsz,2021-05-21T19:51:42.040Z,"Kermadec Islands region",earthquake,11,2,0.146,16,reviewed,us,us
+2021-03-07T06:07:19.579Z,-29.3341,-176.2416,10,4.4,mb,,255,1.476,0.4,us,us7000djt0,2021-05-21T19:51:42.040Z,"Kermadec Islands region",earthquake,15.6,2,0.149,14,reviewed,us,us
+2021-03-07T06:17:17.807Z,-28.0233,-176.3385,10,4.4,mb,,145,1.853,0.31,us,us7000djt5,2021-05-21T19:51:43.040Z,"Kermadec Islands region",earthquake,10.1,1.9,0.144,15,reviewed,us,us
+2021-03-07T06:30:05.873Z,-29.4904,-176.7299,10,4.3,mb,,219,1.074,0.41,us,us7000djua,2021-05-21T19:51:54.040Z,"Kermadec Islands region",earthquake,13.8,1.9,0.133,19,reviewed,us,us
+2021-03-07T06:31:47.445Z,-28.162,-177.0939,10,4.3,mb,,143,11.174,0.52,us,us7000djt7,2021-05-21T19:51:44.040Z,"Kermadec Islands region",earthquake,8.8,1.9,0.126,20,reviewed,us,us
+2021-03-07T06:57:00.843Z,-28.6626,-178.0164,10,4.5,mb,,178,0.585,0.21,us,us7000djtd,2021-05-21T19:51:45.040Z,"Kermadec Islands region",earthquake,5.1,1.9,0.127,23,reviewed,us,us
+2021-03-07T07:08:16.527Z,-28.7075,-176.1406,10,4.4,mb,,243,1.656,0.31,us,us7000dju2,2021-05-21T19:51:52.040Z,"Kermadec Islands region",earthquake,11.6,2,0.123,19,reviewed,us,us
+2021-03-07T07:56:19.691Z,-32.3938,-178.0058,11,5.6,mww,,69,3.139,0.75,us,us7000dgt1,2026-02-04T20:36:50.900Z,"south of the Kermadec Islands",earthquake,9.2,1.9,0.058,29,reviewed,us,us
+2021-03-07T08:08:17.729Z,-32.444,-178.1,10,4.7,mb,,149,3.192,0.57,us,us7000djtp,2021-05-21T19:51:49.040Z,"south of the Kermadec Islands",earthquake,8,1.9,0.113,29,reviewed,us,us
+2021-03-07T08:13:54.001Z,-29.8156,-177.8745,10,4.3,mb,,177,0.57,0.2,us,us7000djtq,2021-05-21T19:51:50.040Z,"Kermadec Islands, New Zealand",earthquake,7.4,2,0.201,9,reviewed,us,us
+2021-03-07T08:30:56.477Z,-29.5049,-176.7562,10,5,mb,,61,1.055,0.46,us,us7000dgtz,2021-05-21T19:48:04.040Z,"Kermadec Islands region",earthquake,7.8,1.8,0.051,124,reviewed,us,us
+2021-03-07T08:43:57.050Z,-29.3407,-177.764,10,4.2,mb,,229,0.172,0.9,us,us7000djtr,2021-05-21T19:51:50.040Z,"Kermadec Islands, New Zealand",earthquake,4.7,1.9,0.152,14,reviewed,us,us
+2021-03-07T09:35:29.002Z,-28.3167,-177.8124,10,5.1,mb,,61,0.93,0.72,us,us7000dgub,2025-12-22T18:52:58.027Z,"Kermadec Islands region",earthquake,7.5,1.9,0.07,66,reviewed,us,us
+2021-03-07T09:43:10.922Z,-30.3654,-177.0593,10,4.5,mb,,254,8.143,0.97,us,us7000djtx,2021-05-21T19:51:51.040Z,"Kermadec Islands, New Zealand",earthquake,15.8,2,0.163,14,reviewed,us,us
+2021-03-07T10:23:48.692Z,-28.5862,-176.6455,10,4.9,mb,,180,1.302,0.53,us,us7000djv8,2021-05-21T19:52:01.040Z,"Kermadec Islands region",earthquake,12.2,2,0.162,15,reviewed,us,us
+2021-03-07T10:31:14.246Z,-30.2171,-176.7699,10,4.5,mb,,185,1.398,0.67,us,us7000djx2,2021-05-21T19:52:11.040Z,"Kermadec Islands region",earthquake,7.8,2,0.171,11,reviewed,us,us
+2021-03-07T10:51:37.068Z,-28.7985,-178.2579,10,4.6,mb,,182,0.53,0.52,us,us7000dju5,2021-05-21T19:51:53.040Z,"Kermadec Islands region",earthquake,7.4,1.8,0.164,12,reviewed,us,us
+2021-03-07T10:55:25.319Z,-29.008,-176.7459,10,5.1,mb,,122,1.061,0.7,us,us7000dgv8,2025-12-22T18:52:59.189Z,"Kermadec Islands region",earthquake,12.7,1.9,0.09,40,reviewed,us,us
+2021-03-07T11:19:20.538Z,-32.424,-178.3192,10,5.2,mb,,71,3.186,0.71,us,us7000dgwm,2025-12-22T19:06:44.149Z,"south of the Kermadec Islands",earthquake,9.8,1.9,0.095,36,reviewed,us,us
+2021-03-07T11:24:56.534Z,-29.2429,-176.6651,10,5.3,mww,,58,1.104,0.87,us,us7000dgv6,2025-12-22T18:59:25.488Z,"Kermadec Islands region",earthquake,8.2,1.9,0.057,30,reviewed,us,us
+2021-03-07T11:34:39.123Z,-28.5969,-176.3492,10,4.7,mb,,174,1.528,0.71,us,us7000dju9,2021-05-21T19:51:54.040Z,"Kermadec Islands region",earthquake,11,1.7,0.147,16,reviewed,us,us
+2021-03-07T11:45:02.123Z,-32.3958,-178.0594,10,4.7,mb,,198,7.494,0.6,us,us7000djub,2021-05-21T19:51:54.040Z,"south of the Kermadec Islands",earthquake,9.2,1.9,0.165,13,reviewed,us,us
+2021-03-07T12:24:25.059Z,-28.7268,-176.687,10,4.5,mb,,146,1.204,1.1,us,us7000djv1,2021-05-21T19:51:59.040Z,"Kermadec Islands region",earthquake,9.1,1.9,0.18,13,reviewed,us,us
+2021-03-07T12:42:18.045Z,-32.3875,-178.2868,10,4.3,mb,,149,3.147,0.52,us,us7000djue,2021-05-21T19:51:55.040Z,"south of the Kermadec Islands",earthquake,12.2,2,0.238,7,reviewed,us,us
+2021-03-07T13:27:16.319Z,-29.3068,-176.1262,10,4.9,mb,,82,14.218,0.79,us,us7000djum,2021-05-21T19:51:55.040Z,"Kermadec Islands region",earthquake,14.2,1.9,0.11,26,reviewed,us,us
+2021-03-07T13:40:07.266Z,-28.2574,-177.5794,10,4.5,mb,,162,1.03,0.78,us,us7000djul,2021-05-21T19:51:55.040Z,"Kermadec Islands region",earthquake,8.6,1.9,0.18,12,reviewed,us,us
+2021-03-07T13:43:59.251Z,-28.1793,-175.805,10,4.9,mb,,168,10.539,0.99,us,us7000djup,2021-05-21T19:51:56.040Z,"Kermadec Islands region",earthquake,11.8,1.9,0.161,16,reviewed,us,us
+2021-03-07T13:50:12.682Z,-28.3748,-177.6034,10,4.5,mb,,125,0.912,0.51,us,us7000djun,2021-05-21T19:51:56.040Z,"Kermadec Islands region",earthquake,9.2,1.9,0.151,14,reviewed,us,us
+2021-03-07T14:32:58.713Z,-28.3315,-176.5511,10,4.5,mb,,219,1.513,0.41,us,us7000djuv,2021-05-21T19:51:57.040Z,"Kermadec Islands region",earthquake,14.5,1.9,0.192,11,reviewed,us,us
+2021-03-07T14:43:05.712Z,-29.3796,-177.0611,10,4.9,mb,,69,0.769,0.42,us,us7000dgwa,2021-05-21T19:48:09.040Z,"Kermadec Islands, New Zealand",earthquake,6.3,1.8,0.093,38,reviewed,us,us
+2021-03-07T14:48:11.777Z,-28.7434,-176.3111,10,5.4,mb,,63,1.502,0.66,us,us7000dgwg,2025-12-22T18:53:00.295Z,"Kermadec Islands region",earthquake,10.1,1.9,0.031,346,reviewed,us,us
+2021-03-07T15:03:48.776Z,-29.8315,-177.3493,10,4.6,mb,,129,0.772,0.94,us,us7000dgwh,2021-05-21T19:48:09.040Z,"Kermadec Islands, New Zealand",earthquake,9.9,1.9,0.1,31,reviewed,us,us
+2021-03-07T15:13:40.582Z,-29.519,-177.1134,10,4.8,mb,,141,0.762,0.61,us,us7000djv0,2026-02-04T20:36:55.604Z,"Kermadec Islands, New Zealand",earthquake,9.2,1.9,0.148,16,reviewed,us,us
+2021-03-07T15:38:03.968Z,-29.0386,-177.0321,10,4.9,mb,,140,0.811,0.47,us,us7000djv5,2021-05-21T19:52:01.040Z,"Kermadec Islands, New Zealand",earthquake,7,1.7,0.136,20,reviewed,us,us
+2021-03-07T15:42:49.852Z,-29.2949,-176.8324,10,4.8,mb,,191,0.959,0.47,us,us7000djv4,2021-05-21T19:52:00.040Z,"Kermadec Islands region",earthquake,7.5,2,0.196,12,reviewed,us,us
+2021-03-07T15:47:29.927Z,-28.5206,-177.0529,10,4.5,mb,,110,1.054,1.03,us,us7000djvv,2021-05-21T19:52:04.040Z,"Kermadec Islands region",earthquake,7.8,1.9,0.205,10,reviewed,us,us
+2021-03-07T16:05:53.772Z,-29.5131,-176.8628,10,4.6,mb,,119,0.968,0.67,us,us7000dgwr,2021-05-21T19:48:11.040Z,"Kermadec Islands region",earthquake,12.2,1.9,0.141,17,reviewed,us,us
+2021-03-07T16:40:41.872Z,-28.4982,-176.4416,10,5,mb,,77,1.501,0.58,us,us7000dgwu,2021-05-21T19:48:11.040Z,"Kermadec Islands region",earthquake,11.6,1.9,0.09,41,reviewed,us,us
+2021-03-07T16:53:13.829Z,-28.8002,-176.6035,10,5,mb,,77,1.242,1.01,us,us7000djvc,2025-12-22T18:53:19.363Z,"Kermadec Islands region",earthquake,10.7,1.8,0.089,40,reviewed,us,us
+2021-03-07T17:41:10.160Z,-28.5865,-176.4489,10,4.6,mb,,81,1.454,0.91,us,us7000djwe,2021-05-21T19:52:08.040Z,"Kermadec Islands region",earthquake,10.6,1.8,0.146,17,reviewed,us,us
+2021-03-07T19:28:48.050Z,-28.5583,-177.0074,10,5.1,mww,,58,1.058,0.7,us,us7000dgxr,2025-12-22T18:53:02.723Z,"Kermadec Islands region",earthquake,10,1.8,0.083,14,reviewed,us,us
+2021-03-07T21:31:38.826Z,-28.9657,-176.8986,10,4.5,mb,,187,0.943,0.69,us,us7000djw8,2021-05-21T19:52:06.040Z,"Kermadec Islands region",earthquake,9.9,1.9,0.171,10,reviewed,us,us
+2021-03-07T22:42:38.715Z,-28.5726,-176.7966,10,4.2,mb,,268,1.197,0.54,us,us7000djwd,2021-05-21T19:52:07.040Z,"Kermadec Islands region",earthquake,9.7,2,0.199,7,reviewed,us,us
+2021-03-07T23:13:43.268Z,-29.609,-176.9303,10,4.6,mb,,188,0.943,0.71,us,us7000djwh,2021-05-21T19:52:08.040Z,"Kermadec Islands region",earthquake,9,1.7,0.173,10,reviewed,us,us
+2021-03-07T23:30:42.239Z,-29.6847,-176.9376,10,5.2,mb,,66,0.969,0.65,us,us7000dgz9,2026-02-04T20:36:59.536Z,"Kermadec Islands region",earthquake,7.5,1.8,0.057,102,reviewed,us,us
+2021-03-07T23:33:43.839Z,-29.4759,-177.0667,10,5.4,mww,,57,0.787,0.88,us,us7000dgza,2025-12-22T18:53:05.036Z,"Kermadec Islands, New Zealand",earthquake,6.3,1.7,0.086,13,reviewed,us,us
+2021-03-07T23:56:54.290Z,-29.5783,-176.8923,10,5.8,mww,,73,0.963,1.32,us,us7000dgze,2025-12-22T18:59:27.989Z,"Kermadec Islands region",earthquake,7.9,1.8,0.06,27,reviewed,us,us
+2021-03-08T00:23:52.882Z,-29.5864,-176.7905,10,5.1,mb,,80,1.05,0.56,us,us7000dgzr,2021-05-21T19:48:20.040Z,"Kermadec Islands region",earthquake,3.5,1.8,0.086,44,reviewed,us,us
+2021-03-08T00:30:31.765Z,-29.7123,-176.969,10,4.6,mb,,188,0.957,1.23,us,us7000dgzm,2021-05-21T19:48:19.040Z,"Kermadec Islands region",earthquake,7.8,1.5,0.146,14,reviewed,us,us
+2021-03-08T01:00:49.807Z,-29.6572,-177.0202,10,4.9,mb,,133,0.892,1.13,us,us7000dgzu,2021-05-21T19:48:20.040Z,"Kermadec Islands, New Zealand",earthquake,9,1.8,0.129,19,reviewed,us,us
+2021-03-08T01:11:59.052Z,-29.697,-176.4097,10,4.6,mb,,187,1.399,0.86,us,us7000dk6x,2021-05-21T19:52:13.040Z,"Kermadec Islands region",earthquake,10,1.9,0.165,11,reviewed,us,us
+2021-03-08T01:49:10.737Z,-29.5375,-176.3277,10,5,mb,,124,1.427,0.84,us,us7000dh07,2021-05-21T19:48:21.040Z,"Kermadec Islands region",earthquake,13.8,1.9,0.115,24,reviewed,us,us
+2021-03-08T01:59:46.862Z,-30.3683,-177.2532,10,4.9,mb,,141,1.264,1.07,us,us7000dk96,2021-05-21T19:52:30.040Z,"Kermadec Islands, New Zealand",earthquake,8,1.9,0.162,12,reviewed,us,us
+2021-03-08T03:20:22.645Z,-28.8219,-177.0033,10,5.1,mb,,70,0.913,0.97,us,us7000dh0e,2021-05-21T19:48:22.040Z,"Kermadec Islands region",earthquake,8.8,1.8,0.093,37,reviewed,us,us
+2021-03-08T04:05:51.308Z,-29.8773,-176.9076,10,4.6,mb,,140,1.09,0.93,us,us7000dk7i,2021-05-21T19:52:16.040Z,"Kermadec Islands region",earthquake,10.2,1.9,0.151,13,reviewed,us,us
+2021-03-08T04:15:39.558Z,-29.7877,-176.8827,10,4.5,mb,,188,1.06,0.65,us,us7000dk77,2021-05-21T19:52:14.040Z,"Kermadec Islands region",earthquake,8,2,0.22,7,reviewed,us,us
+2021-03-08T04:27:38.165Z,-28.5194,-175.5632,10,4.5,mb,,171,2.197,0.88,us,us7000dk76,2021-05-21T19:52:14.040Z,"Kermadec Islands region",earthquake,15.3,1.9,0.27,5,reviewed,us,us
+2021-03-08T05:25:01.288Z,-28.4369,-176.7235,10,4.6,mb,,145,1.329,0.66,us,us7000dk7q,2021-05-21T19:52:18.040Z,"Kermadec Islands region",earthquake,8.2,1.9,0.243,5,reviewed,us,us
+2021-03-08T05:27:28.111Z,-30.4232,-176.7521,10,5.1,mb,,102,1.557,0.38,us,us7000dh15,2021-05-21T19:48:24.040Z,"Kermadec Islands region",earthquake,7.3,1.9,0.121,22,reviewed,us,us
+2021-03-08T05:59:50.800Z,-28.5392,-176.6492,10,4.9,mb,,61,1.324,0.36,us,us7000dh1i,2025-12-22T18:53:10.900Z,"Kermadec Islands region",earthquake,9.8,1.8,0.071,62,reviewed,us,us
+2021-03-08T06:04:52.923Z,-29.2287,-176.5626,10,4.4,mb,,270,1.194,0.73,us,us7000dk7d,2021-05-21T19:52:15.040Z,"Kermadec Islands region",earthquake,9.1,2,0.268,4,reviewed,us,us
+2021-03-08T06:08:46.738Z,-29.5814,-177.0343,10,5,mb,,70,0.849,0.38,us,us7000dh1j,2026-02-04T20:37:04.863Z,"Kermadec Islands, New Zealand",earthquake,4.4,1.8,0.08,50,reviewed,us,us
+2021-03-08T07:15:06.792Z,-28.872,-177.1011,10,4.3,mb,,270,0.814,0.33,us,us7000dk7h,2021-05-21T19:52:16.040Z,"Kermadec Islands region",earthquake,6.5,2,0.201,7,reviewed,us,us
+2021-03-08T07:28:12.866Z,-29.9851,-176.7921,10,4.6,mb,,234,1.234,0.55,us,us7000dk7j,2021-05-21T19:52:16.040Z,"Kermadec Islands region",earthquake,9.3,2,0.173,10,reviewed,us,us
+2021-03-08T07:31:08.068Z,-29.0219,-176.0813,10,4,mb,,270,1.631,0.45,us,us7000dk97,2021-05-21T19:52:30.040Z,"Kermadec Islands region",earthquake,11.4,2,0.3,3,reviewed,us,us
+2021-03-08T08:44:31.419Z,-29.6472,-176.8133,10,5.2,mww,,48,1.052,0.5,us,us7000dh1y,2025-12-22T18:53:08.518Z,"Kermadec Islands region",earthquake,8.9,1.8,0.089,12,reviewed,us,us
+2021-03-08T08:54:08.097Z,-27.5646,-177.0606,10,4.4,mb,,269,1.84,0.24,us,us7000dk7p,2021-05-21T19:52:17.040Z,"Kermadec Islands region",earthquake,9.7,2,0.309,3,reviewed,us,us
+2021-03-08T10:48:46.640Z,-29.3132,-176.9268,10,4.9,mb,,111,0.878,1.07,us,us7000dh2q,2021-05-21T19:48:27.040Z,"Kermadec Islands region",earthquake,8.5,1.8,0.119,22,reviewed,us,us
+2021-03-08T12:03:04.758Z,-28.2196,-177.6489,10,5.4,mww,,56,1.05,1.19,us,us7000dh30,2025-12-22T18:53:12.082Z,"Kermadec Islands region",earthquake,6.9,1.8,0.057,30,reviewed,us,us
+2021-03-08T12:53:03.677Z,-29.755,-176.9282,10,4.6,mb,,148,1.009,0.8,us,us7000dk81,2021-05-21T19:52:20.040Z,"Kermadec Islands region",earthquake,10.2,1.9,0.173,12,reviewed,us,us
+2021-03-08T13:43:45.301Z,-28.9127,-177.3368,10,4.9,mb,,97,0.615,0.87,us,us7000dk83,2021-05-21T19:52:20.040Z,"Kermadec Islands region",earthquake,8.1,1.9,0.17,17,reviewed,us,us
+2021-03-08T14:10:31.764Z,-29.4114,-176.9279,10,4.7,mb,,141,0.889,0.87,us,us7000dk85,2021-05-21T19:52:21.040Z,"Kermadec Islands region",earthquake,9,1.9,0.142,15,reviewed,us,us
+2021-03-08T14:45:09.001Z,-29.6667,-177.2344,10,5,mb,,135,0.737,1.05,us,us7000dk88,2021-05-21T19:52:22.040Z,"Kermadec Islands, New Zealand",earthquake,8.2,1.7,0.118,26,reviewed,us,us
+2021-03-08T14:56:26.903Z,-28.5531,-176.7343,10,5,mb,,91,1.254,0.5,us,us7000dk8n,2021-05-21T19:52:27.040Z,"Kermadec Islands region",earthquake,10.1,1.8,0.117,27,reviewed,us,us
+2021-03-08T15:21:50.056Z,-28.7998,-176.7376,10,4.4,mb,,162,1.133,0.49,us,us7000dk89,2021-05-21T19:52:22.040Z,"Kermadec Islands region",earthquake,12.3,1.9,0.22,10,reviewed,us,us
+2021-03-08T16:08:06.865Z,-29.6851,-177.2808,10,4.8,mb,,106,0.715,1.22,us,us7000dk8b,2021-05-21T19:52:23.040Z,"Kermadec Islands, New Zealand",earthquake,5.8,1.8,0.131,22,reviewed,us,us
+2021-03-08T16:18:48.946Z,-28.7628,-176.7431,10,4.5,mb,,187,1.144,0.3,us,us7000dk8c,2021-05-21T19:52:23.040Z,"Kermadec Islands region",earthquake,17.4,1.9,0.314,6,reviewed,us,us
+2021-03-08T17:04:38.981Z,-29.4312,-177.5358,54.09,5,mb,,195,0.39,0.8,us,us7000dh4k,2021-05-21T19:48:31.040Z,"Kermadec Islands, New Zealand",earthquake,13.7,7.3,0.133,19,reviewed,us,us
+2021-03-08T17:25:13.109Z,-28.3997,-177.0442,10.77,5,mb,,103,1.145,1.14,us,us7000dh4v,2021-05-21T19:48:32.040Z,"Kermadec Islands region",earthquake,8.5,1.3,0.078,52,reviewed,us,us
+2021-03-08T17:53:23.707Z,-28.7011,-176.6039,10,4.7,mb,,100,1.281,0.99,us,us7000dk8g,2021-05-21T19:52:24.040Z,"Kermadec Islands region",earthquake,11.5,1.9,0.118,22,reviewed,us,us
+2021-03-08T19:36:30.721Z,-29.5672,-177.0696,10,5.1,mb,,60,0.815,0.87,us,us7000dh6k,2025-12-22T18:53:07.419Z,"Kermadec Islands, New Zealand",earthquake,4.2,1.7,0.045,162,reviewed,us,us
+2021-03-08T21:06:14.140Z,-29.5112,-176.1071,10,4.5,mb,,198,1.612,0.72,us,us7000dk8p,2021-05-21T19:52:27.040Z,"Kermadec Islands region",earthquake,15.8,2,0.163,11,reviewed,us,us
+2021-03-08T21:21:41.603Z,-29.4105,-176.6928,10,5.2,mb,,128,1.092,1.01,us,us7000dh79,2025-12-22T18:53:13.211Z,"Kermadec Islands region",earthquake,9.4,1.8,0.08,51,reviewed,us,us
+2021-03-08T21:53:46.547Z,-29.7314,-176.998,10,5.1,mb,,90,0.945,1.04,us,us7000dh7m,2021-05-21T19:48:36.040Z,"Kermadec Islands region",earthquake,8.5,1.8,0.104,30,reviewed,us,us
+2021-03-08T22:26:59.233Z,-29.7072,-177.1099,10,4.5,mb,,212,0.849,1.06,us,us7000dk8q,2021-05-21T19:52:28.040Z,"Kermadec Islands, New Zealand",earthquake,10,1.9,0.171,10,reviewed,us,us
+2021-03-08T22:58:38.206Z,-30.048,-177.0348,10,4.6,mb,,96,1.116,1.22,us,us7000dk8s,2021-05-21T19:52:28.040Z,"Kermadec Islands, New Zealand",earthquake,12.1,1.5,0.157,12,reviewed,us,us
+2021-03-08T23:07:21.280Z,-29.8117,-177.1853,10,4.9,mb,,89,0.859,1,us,us7000dk8t,2021-05-21T19:52:28.040Z,"Kermadec Islands, New Zealand",earthquake,7.2,1.8,0.136,17,reviewed,us,us
+2021-03-08T23:09:53.152Z,-29.9279,-177.2002,10,4.8,mb,,260,0.93,1.33,us,us7000dk8u,2021-05-21T19:52:29.040Z,"Kermadec Islands, New Zealand",earthquake,9.4,1.3,0.168,11,reviewed,us,us
+2021-03-08T23:51:37.390Z,-28.8661,-176.0944,10,5.2,mww,,59,1.65,0.79,us,us7000dh99,2025-12-22T18:00:51.463Z,"Kermadec Islands region",earthquake,7.8,1.7,0.093,11,reviewed,us,us
+2021-03-09T01:51:47.850Z,-29.397,-176.9975,10,4.5,mb,,188,0.827,0.84,us,us7000dki7,2021-05-21T19:52:31.040Z,"Kermadec Islands region",earthquake,6.7,1.9,0.204,7,reviewed,us,us
+2021-03-09T02:21:32.106Z,-29.0572,-176.8872,10,4.6,mb,,166,0.93,0.47,us,us7000dki8,2021-05-21T19:52:31.040Z,"Kermadec Islands region",earthquake,12.9,1.9,0.172,11,reviewed,us,us
+2021-03-09T02:56:09.494Z,-29.6196,-177.2897,10,4.5,mb,,188,0.671,0.58,us,us7000dki9,2021-05-21T19:52:31.040Z,"Kermadec Islands, New Zealand",earthquake,9.5,1.9,0.131,17,reviewed,us,us
+2021-03-09T04:10:45.279Z,-31.4404,-178.8252,10,4.4,mb,,160,2.321,0.59,us,us7000dkib,2021-05-21T19:52:32.040Z,"Kermadec Islands region",earthquake,11,1.9,0.203,7,reviewed,us,us
+2021-03-09T08:42:23.221Z,-28.2635,-176.956,10,4.4,mb,,270,1.298,0.54,us,us7000dkiv,2021-05-21T19:52:36.040Z,"Kermadec Islands region",earthquake,10.7,2,0.219,6,reviewed,us,us
+2021-03-09T09:46:00.804Z,-28.9438,-176.8256,10,4.8,mb,,123,1.011,0.99,us,us7000dhe3,2025-12-22T18:59:31.650Z,"Kermadec Islands region",earthquake,9.6,1.8,0.092,38,reviewed,us,us
+2021-03-09T12:13:46.338Z,-28.5419,-177.1471,10,4.3,mb,,203,0.98,0.54,us,us7000dkis,2021-05-21T19:52:35.040Z,"Kermadec Islands region",earthquake,7.6,2,0.218,6,reviewed,us,us
+2021-03-09T12:16:01.831Z,-28.4634,-177.2189,10,4.4,mb,,143,0.997,0.54,us,us7000dkj5,2021-05-21T19:52:39.040Z,"Kermadec Islands region",earthquake,11.5,2,0.179,9,reviewed,us,us
+2021-03-09T12:23:48.440Z,-28.6124,-177.305,10,4.5,mb,,267,0.834,0.81,us,us7000dkir,2021-05-21T19:52:34.040Z,"Kermadec Islands region",earthquake,11.3,2,0.156,12,reviewed,us,us
+2021-03-09T13:06:49.274Z,-29.5846,-176.9422,10,4.4,mb,,249,0.925,0.68,us,us7000dkit,2021-05-21T19:52:35.040Z,"Kermadec Islands region",earthquake,9.9,2,0.19,10,reviewed,us,us
+2021-03-09T14:07:15.036Z,-29.4015,-176.7834,10,4.8,mb,,228,1.012,0.99,us,us7000dhf6,2021-05-21T19:48:46.040Z,"Kermadec Islands region",earthquake,10,1.9,0.144,18,reviewed,us,us
+2021-03-09T14:09:53.313Z,-32.2826,-178.393,10,4.6,mb,,135,3.054,0.68,us,us7000dkjg,2021-05-21T19:52:42.040Z,"south of the Kermadec Islands",earthquake,12.7,1.9,0.129,18,reviewed,us,us
+2021-03-09T15:12:08.314Z,-27.0875,-175.9633,10,4.3,mb,,108,2.762,0.63,us,us7000dkiw,2021-05-21T19:52:36.040Z,"Kermadec Islands region",earthquake,11.2,2,0.201,8,reviewed,us,us
+2021-03-09T15:20:09.402Z,-28.5968,-176.615,10,4.6,mb,,187,1.32,0.76,us,us7000dhfu,2021-05-21T19:48:47.040Z,"Kermadec Islands region",earthquake,9.5,2,0.129,18,reviewed,us,us
+2021-03-09T16:18:29.496Z,-28.2794,-176.5721,10,4.9,mb,,238,1.531,0.39,us,us7000dhgb,2021-05-21T19:48:48.040Z,"Kermadec Islands region",earthquake,9.6,2,0.129,19,reviewed,us,us
+2021-03-09T18:14:11.544Z,-29.8936,-176.6217,10,4.5,mb,,190,1.309,0.75,us,us7000dkjt,2021-05-21T19:52:45.040Z,"Kermadec Islands region",earthquake,13.5,1.9,0.135,19,reviewed,us,us
+2021-03-09T19:47:03.866Z,-29.9187,-177.4725,10,4.9,mb,,82,0.78,0.98,us,us7000dhi0,2021-05-21T19:48:50.040Z,"Kermadec Islands, New Zealand",earthquake,8.6,1.8,0.116,26,reviewed,us,us
+2021-03-09T21:13:38.422Z,-32.296,-178.1185,10,4.7,mb,,169,3.045,1.08,us,us7000dkjl,2021-05-21T19:52:44.040Z,"south of the Kermadec Islands",earthquake,15.5,1.9,0.142,15,reviewed,us,us
+2021-03-09T22:13:35.147Z,-28.9348,-176.9552,10,4.8,mb,,123,0.906,1.23,us,us7000dhj6,2021-05-21T19:48:54.040Z,"Kermadec Islands region",earthquake,9.2,1.8,0.102,30,reviewed,us,us
+2021-03-10T03:47:33.661Z,-27.9832,-177.5987,10,4.5,mb,,114,1.29,0.86,us,us7000dkm9,2021-05-21T19:52:46.040Z,"Kermadec Islands region",earthquake,9.3,1.8,0.157,12,reviewed,us,us
+2021-03-10T09:46:22.399Z,-29.581,-177.0558,10,4.4,mb,,202,0.832,0.61,us,us7000dkn5,2021-05-21T19:52:52.040Z,"Kermadec Islands, New Zealand",earthquake,3.3,1.9,0.12,23,reviewed,us,us
+2021-03-10T10:12:00.125Z,-28.7393,-176.8051,10,4.4,mb,,258,1.106,0.7,us,us7000dkms,2021-05-21T19:52:49.040Z,"Kermadec Islands region",earthquake,12.5,1.9,0.117,24,reviewed,us,us
+2021-03-10T11:14:45.870Z,-28.4263,-176.4064,10,4.3,mb,,237,1.565,0.34,us,us7000dkmv,2021-05-21T19:52:50.040Z,"Kermadec Islands region",earthquake,15,2,0.177,11,reviewed,us,us
+2021-03-10T12:46:01.732Z,-28.742,-175.7232,10,4.5,mb,,250,1.996,0.6,us,us7000dkmz,2021-05-21T19:52:50.040Z,"Kermadec Islands region",earthquake,7.7,2,0.164,12,reviewed,us,us
+2021-03-10T14:05:00.525Z,-28.5283,-177.3951,10,4.5,mb,,202,0.853,0.54,us,us7000dknh,2021-05-21T19:52:55.040Z,"Kermadec Islands region",earthquake,6.7,1.9,0.14,15,reviewed,us,us
+2021-03-10T14:09:19.122Z,-29.9643,-177.1781,10,4.5,mb,,201,0.97,0.17,us,us7000dkp8,2021-05-21T19:53:00.040Z,"Kermadec Islands, New Zealand",earthquake,12.8,2,0.205,7,reviewed,us,us
+2021-03-10T15:35:56.700Z,-29.9011,-177.2757,10,4.4,mb,,191,0.866,0.79,us,us7000dknl,2021-05-21T19:52:55.040Z,"Kermadec Islands, New Zealand",earthquake,10.6,1.9,0.143,14,reviewed,us,us
+2021-03-10T16:58:37.035Z,-28.8405,-177.2434,52.99,4.5,mb,,163,0.723,0.99,us,us7000dkn7,2021-05-21T19:52:52.040Z,"Kermadec Islands region",earthquake,11.7,5.9,0.121,20,reviewed,us,us
+2021-03-10T17:01:20.491Z,-29.6111,-178.3566,10,4.5,mb,,134,0.521,0.83,us,us7000dkn8,2021-05-21T19:52:52.040Z,"Kermadec Islands, New Zealand",earthquake,6.2,1.9,0.144,14,reviewed,us,us
+2021-03-10T17:22:55.936Z,-29.4562,-176.7882,10,4.9,mb,,155,1.017,0.8,us,us7000dkn9,2021-05-21T19:52:53.040Z,"Kermadec Islands region",earthquake,5.5,1.8,0.122,21,reviewed,us,us
+2021-03-10T17:46:23.777Z,-27.8682,-178.0024,10,4.6,mb,,260,1.373,0.59,us,us7000dknd,2021-05-21T19:52:53.040Z,"Kermadec Islands region",earthquake,7.9,2,0.165,11,reviewed,us,us
+2021-03-10T18:28:14.925Z,-29.8435,-176.9369,10,4.3,mb,,236,1.05,0.76,us,us7000dkne,2021-05-21T19:52:54.040Z,"Kermadec Islands region",earthquake,15.2,2,0.143,14,reviewed,us,us
+2021-03-10T18:37:02.565Z,-29.8215,-177.2861,10,4.6,mb,,188,0.802,0.8,us,us7000dkns,2021-05-21T19:52:56.040Z,"Kermadec Islands, New Zealand",earthquake,5.4,1.9,0.122,20,reviewed,us,us
+2021-03-10T19:25:59.021Z,-28.4209,-177.1142,10,4.5,mb,,190,1.088,0.84,us,us7000dkng,2021-05-21T19:52:55.040Z,"Kermadec Islands region",earthquake,13,1.9,0.191,10,reviewed,us,us
+2021-03-10T20:47:53.395Z,-29.4325,-177.0404,10,4.5,mb,,215,0.798,0.44,us,us7000dkp5,2021-05-21T19:53:00.040Z,"Kermadec Islands, New Zealand",earthquake,6.7,1.9,0.191,9,reviewed,us,us
+2021-03-10T21:49:18.509Z,-29.3016,-176.79,6.76,4.8,mb,,139,0.996,0.79,us,us7000dhyl,2021-05-21T19:49:13.040Z,"Kermadec Islands region",earthquake,8.3,4.8,0.111,25,reviewed,us,us
+2021-03-10T21:57:48.020Z,-28.8694,-176.4047,10,4.3,mb,,195,1.386,0.77,us,us7000dknu,2021-05-21T19:52:57.040Z,"Kermadec Islands region",earthquake,8.9,2,0.307,3,reviewed,us,us
+2021-03-10T23:22:33.769Z,-29.2547,-176.3487,10,4.4,mb,,198,1.381,0.96,us,us7000dknz,2021-05-21T19:52:58.040Z,"Kermadec Islands region",earthquake,9.2,2,0.17,10,reviewed,us,us
+2021-03-10T23:32:04.817Z,-28.924,-176.7775,10,4.5,mb,,123,1.057,0.57,us,us7000dkp3,2021-05-21T19:53:00.040Z,"Kermadec Islands region",earthquake,6.4,1.9,0.18,9,reviewed,us,us
+2021-03-10T23:40:31.720Z,-28.5295,-177.2653,10,4.4,mb,,234,0.92,0.6,us,us7000dkp2,2021-05-21T19:52:59.040Z,"Kermadec Islands region",earthquake,10.3,1.9,0.178,9,reviewed,us,us
+2021-03-11T00:03:40.422Z,-29.4109,-176.6491,10,4.4,mb,,190,1.129,0.49,us,us7000dkxa,2021-05-21T19:53:01.040Z,"Kermadec Islands region",earthquake,11.5,1.9,0.155,12,reviewed,us,us
+2021-03-11T01:52:20.372Z,-29.3437,-176.7472,10,4.6,mb,,133,1.037,0.78,us,us7000dkxd,2021-05-21T19:53:01.040Z,"Kermadec Islands region",earthquake,13,1.8,0.129,18,reviewed,us,us
+2021-03-11T02:14:49.322Z,-29.5088,-176.9073,10,5.1,mb,,59,8.968,0.62,us,us7000di0w,2026-02-04T20:37:09.544Z,"Kermadec Islands region",earthquake,13.2,1.8,0.05,129,reviewed,us,us
+2021-03-11T02:28:19.975Z,-27.2753,-176.3208,10,4.3,mb,,222,2.421,0.48,us,us7000dkz0,2021-05-21T19:53:10.040Z,"Kermadec Islands region",earthquake,9,2,0.201,7,reviewed,us,us
+2021-03-11T02:34:13.024Z,-29.0425,-176.9428,10,4.5,mb,,178,0.886,0.73,us,us7000dkxf,2021-05-21T19:53:02.040Z,"Kermadec Islands region",earthquake,5.8,1.9,0.163,11,reviewed,us,us
+2021-03-11T02:37:08.232Z,-29.2872,-177.0041,10,4.8,mb,,180,0.809,0.89,us,us7000dkxe,2021-05-21T19:53:01.040Z,"Kermadec Islands, New Zealand",earthquake,13.5,1.9,0.168,11,reviewed,us,us
+2021-03-11T02:43:54.701Z,-27.4558,-176.557,10,4.7,mb,,96,2.154,0.52,us,us7000dkxg,2021-05-21T19:53:02.040Z,"Kermadec Islands region",earthquake,14.5,1.9,0.152,13,reviewed,us,us
+2021-03-11T03:24:36.246Z,-29.9299,-177.1031,10,4.6,mb,,183,0.991,1.35,us,us7000dkxi,2021-05-21T19:53:03.040Z,"Kermadec Islands, New Zealand",earthquake,9,1.9,0.146,14,reviewed,us,us
+2021-03-11T03:37:35.828Z,-31.0943,-179.1013,10,4.2,mb,,260,7.98,0.74,us,us7000dkz1,2021-05-21T19:53:10.040Z,"Kermadec Islands region",earthquake,10.3,2,0.176,9,reviewed,us,us
+2021-03-11T04:49:04.510Z,-30.554,-177.6286,10,4.5,mb,,191,1.33,0.77,us,us7000di1e,2021-05-21T19:49:20.040Z,"Kermadec Islands, New Zealand",earthquake,6.2,2,0.121,20,reviewed,us,us
+2021-03-11T05:10:44.692Z,-29.4506,-178.5753,10,4.3,mb,,175,0.6,0.29,us,us7000dkxs,2021-05-21T19:53:04.040Z,"Kermadec Islands, New Zealand",earthquake,12.1,1.9,0.177,10,reviewed,us,us
+2021-03-11T06:28:43.832Z,-29.723,-176.5347,10,4.5,mb,,231,1.305,0.42,us,us7000di24,2021-05-21T19:49:23.040Z,"Kermadec Islands region",earthquake,4.3,2,0.156,16,reviewed,us,us
+2021-03-11T06:33:57.745Z,-29.3275,-176.1043,10,4.5,mb,,208,1.596,0.44,us,us7000dkxp,2021-05-21T19:53:03.040Z,"Kermadec Islands region",earthquake,6.5,2,0.124,21,reviewed,us,us
+2021-03-11T09:17:53.591Z,-29.0685,-176.0736,10,4.7,mb,,234,1.632,0.86,us,us7000di39,2021-05-21T19:49:26.040Z,"Kermadec Islands region",earthquake,10.6,2,0.142,17,reviewed,us,us
+2021-03-11T11:59:15.849Z,-30.3632,-176.4595,10,4.3,mb,,187,1.695,1.03,us,us7000di41,2021-05-21T19:49:29.040Z,"Kermadec Islands region",earthquake,10,2,0.16,15,reviewed,us,us
+2021-03-11T15:32:27.773Z,-28.3839,-177.4428,74.27,4.4,mb,,172,0.958,0.45,us,us7000dkyf,2021-05-21T19:53:08.040Z,"Kermadec Islands region",earthquake,11.5,7.2,0.169,12,reviewed,us,us
+2021-03-12T02:01:22.514Z,-29.8633,-177.0938,10,4.8,mb,,186,0.953,1.37,us,us7000dkzf,2021-05-26T22:06:04.040Z,"Kermadec Islands, New Zealand",earthquake,6.9,1.9,0.167,11,reviewed,us,us
+2021-03-12T02:10:44.349Z,-29.608,-176.2191,10,4.8,mb,,116,1.534,0.95,us,us7000dkzg,2021-05-26T22:06:04.040Z,"Kermadec Islands region",earthquake,14.7,1.9,0.154,13,reviewed,us,us
+2021-03-12T02:19:39.678Z,-32.2259,-178.1582,10,5.1,mww,,132,2.977,1.06,us,us7000diaj,2025-12-22T18:53:31.201Z,"south of the Kermadec Islands",earthquake,14,1.8,0.078,16,reviewed,us,us
+2021-03-12T02:27:33.982Z,-29.6082,-177.1489,10,4.6,mb,,132,0.77,0.58,us,us7000dkzi,2021-05-26T22:06:05.040Z,"Kermadec Islands, New Zealand",earthquake,12.7,1.9,0.165,11,reviewed,us,us
+2021-03-12T04:35:49.067Z,-31.6369,-178.8386,10,4.4,mb,,176,43.302,0.4,us,us7000dkzn,2021-05-26T22:06:07.040Z,"Kermadec Islands region",earthquake,14,2,0.219,6,reviewed,us,us
+2021-03-12T04:41:29.092Z,-28.549,-177.1004,10,4.6,mb,,183,1.004,0.52,us,us7000dkzx,2021-05-26T22:06:07.040Z,"Kermadec Islands region",earthquake,9.7,1.9,0.224,6,reviewed,us,us
+2021-03-12T04:57:47.401Z,-28.6052,-176.0235,10,4.4,mb,,178,1.787,0.86,us,us7000dkzq,2021-05-26T22:06:08.040Z,"Kermadec Islands region",earthquake,10.9,1.9,0.241,5,reviewed,us,us
+2021-03-12T07:47:56.879Z,-29.7689,-176.8166,10,4.9,mb,,79,1.101,0.68,us,us7000dic1,2021-05-26T22:06:10.040Z,"Kermadec Islands region",earthquake,9.7,1.9,0.1,31,reviewed,us,us
+2021-03-12T12:47:08.834Z,-28.0701,-176.994,10,4.3,mb,,205,1.43,0.43,us,us7000dl03,2021-05-26T22:06:15.040Z,"Kermadec Islands region",earthquake,10.3,1.8,0.239,5,reviewed,us,us
+2021-03-12T17:51:13.400Z,-30.2316,-177.4664,11.22,4.9,mb,,123,1.062,0.65,us,us7000diws,2021-05-26T22:06:21.040Z,"Kermadec Islands, New Zealand",earthquake,9.6,4.1,0.087,49,reviewed,us,us
+2021-03-12T19:17:57.394Z,-29.9906,-177.6103,18.8,4.8,mb,,125,0.793,0.64,us,us7000dix2,2021-05-26T22:06:22.040Z,"Kermadec Islands, New Zealand",earthquake,7.3,2.7,0.076,59,reviewed,us,us
+2021-03-12T19:33:11.063Z,-30.1341,-176.9582,10,4.4,mb,,224,1.224,0.54,us,us7000dl0l,2021-05-26T22:06:22.040Z,"Kermadec Islands region",earthquake,14.3,2,0.203,9,reviewed,us,us
+2021-03-12T22:50:05.284Z,-29.794,-177.1773,10,4.4,mb,,215,0.853,0.43,us,us7000dl0s,2021-05-26T22:06:26.040Z,"Kermadec Islands, New Zealand",earthquake,9.1,1.7,0.219,6,reviewed,us,us
+2021-03-12T23:54:40.727Z,-29.279,-176.2231,10,4.7,mb,,166,1.491,0.74,us,us7000diza,2021-05-26T22:06:26.040Z,"Kermadec Islands region",earthquake,12.6,2,0.081,47,reviewed,us,us
+2021-03-12T23:59:50.251Z,-28.6589,-176.5277,10,4.9,mb,,64,1.359,0.68,us,us7000diz9,2021-05-26T22:06:27.040Z,"Kermadec Islands region",earthquake,8.8,1.8,0.058,92,reviewed,us,us
+2021-03-13T00:32:54.941Z,-30.5706,-177.1472,10,4.5,mb,,107,1.485,0.74,us,us6000dvps,2021-05-26T22:06:28.040Z,"Kermadec Islands, New Zealand",earthquake,7.8,1.4,0.163,11,reviewed,us,us
+2021-03-13T02:57:31.521Z,-29.4008,-176.9209,10,4.8,mb,,187,0.893,0.85,us,us6000dvpv,2021-05-26T22:06:30.040Z,"Kermadec Islands region",earthquake,11.6,1.9,0.279,4,reviewed,us,us
+2021-03-13T03:17:49.304Z,-30.1237,-176.912,10,4.7,mb,,133,1.245,1.22,us,us7000dj0a,2025-12-22T18:59:37.748Z,"Kermadec Islands region",earthquake,11.9,1.9,0.123,22,reviewed,us,us
+2021-03-13T05:04:30.517Z,-28.1936,-176.397,10,4.7,mb,,145,1.705,0.43,us,us6000dvpz,2021-05-26T22:06:33.040Z,"Kermadec Islands region",earthquake,9.7,1.9,0.166,13,reviewed,us,us
+2021-03-13T09:36:55.880Z,-28.1698,-176.2902,10,4.5,mb,,237,1.794,0.69,us,us6000dvq6,2021-05-26T22:06:36.040Z,"Kermadec Islands region",earthquake,15,2,0.192,12,reviewed,us,us
+2021-03-13T10:12:32.309Z,-28.4862,-177.5921,10,4.2,mb,,251,0.811,0.28,us,us6000dvq8,2021-05-26T22:06:37.040Z,"Kermadec Islands region",earthquake,10.5,2,0.166,12,reviewed,us,us
+2021-03-13T12:57:30.396Z,-28.71,-176.9015,10,4.6,mb,,123,1.046,0.69,us,us7000dj2z,2025-12-22T18:59:38.903Z,"Kermadec Islands region",earthquake,9.8,1.9,0.122,22,reviewed,us,us
+2021-03-13T13:17:47.507Z,-28.8348,-176.6727,10,4.4,mb,,263,1.173,0.76,us,us6000dvqe,2021-05-26T22:06:42.040Z,"Kermadec Islands region",earthquake,8.3,2,0.139,15,reviewed,us,us
+2021-03-13T14:05:01.181Z,-29.8599,-177.8541,34,5.9,mww,,47,0.616,0.94,us,us7000dj39,2025-12-22T18:59:40.050Z,"Kermadec Islands, New Zealand",earthquake,8,1.8,0.041,58,reviewed,us,us
+2021-03-13T15:00:55.183Z,-29.1662,-176.6534,10,4.9,mb,,132,1.118,1.06,us,us7000dj3z,2025-12-22T18:53:38.262Z,"Kermadec Islands region",earthquake,8.7,1.3,0.085,44,reviewed,us,us
+2021-03-13T16:16:47.949Z,-29.4501,-176.4336,10,4.7,mb,,216,1.321,0.41,us,us6000dvqk,2021-05-26T22:06:46.040Z,"Kermadec Islands region",earthquake,7.1,2,0.142,18,reviewed,us,us
+2021-03-13T17:34:26.703Z,-30.0897,-177.3926,10,4.5,mb,,188,0.962,0.52,us,us6000dvqr,2021-05-26T22:06:48.040Z,"Kermadec Islands, New Zealand",earthquake,11.9,1.7,0.204,9,reviewed,us,us
+2021-03-13T17:46:08.753Z,-30.062,-177.4513,10,4.5,mb,,188,0.914,0.37,us,us6000dvqq,2021-05-26T22:06:48.040Z,"Kermadec Islands, New Zealand",earthquake,8,1.9,0.15,13,reviewed,us,us
+2021-03-13T21:21:58.485Z,-28.1496,-176.6326,14,5.9,mww,,22,1.577,0.78,us,us7000dj5p,2025-12-22T18:53:39.565Z,"Kermadec Islands region",earthquake,7.9,1.5,0.055,32,reviewed,us,us
+2021-03-13T21:24:31.645Z,-28.1995,-176.4653,10,5.4,mb,,80,1.654,0.89,us,us7000dj5y,2025-12-22T18:53:40.679Z,"Kermadec Islands region",earthquake,9.4,1.8,0.071,67,reviewed,us,us
+2021-03-13T21:44:04.344Z,-28.3856,-176.0812,10,4.9,mb,,198,1.833,1.1,us,us6000dvr7,2021-05-26T22:06:52.040Z,"Kermadec Islands region",earthquake,13.2,1.9,0.169,11,reviewed,us,us
+2021-03-14T00:40:15.881Z,-29.814,-177.2048,10,5,mww,,70,0.848,0.77,us,us7000dj6s,2025-12-22T18:53:41.840Z,"Kermadec Islands, New Zealand",earthquake,8.6,1.8,0.093,11,reviewed,us,us
+2021-03-14T01:01:49.966Z,-29.7031,-177.1152,10,4.7,mb,,188,0.843,0.79,us,us6000dvrn,2021-05-26T22:06:55.040Z,"Kermadec Islands, New Zealand",earthquake,8.8,1.9,0.184,9,reviewed,us,us
+2021-03-14T01:48:16.840Z,-29.6873,-177.0585,10,4.6,mb,,188,0.877,0.6,us,us6000dvrp,2021-05-26T22:06:56.040Z,"Kermadec Islands, New Zealand",earthquake,12.6,1.9,0.272,4,reviewed,us,us
+2021-03-14T05:00:20.198Z,-27.1171,-176.4007,10,5.2,mww,,72,2.512,0.58,us,us7000dj7t,2025-12-22T18:53:43.012Z,"Kermadec Islands region",earthquake,4.1,1.8,0.098,10,reviewed,us,us
+2021-03-14T06:48:11.997Z,-27.9968,-176.1103,10,4.9,mb,,206,2.025,0.52,us,us7000dj8c,2025-12-22T18:59:41.341Z,"Kermadec Islands region",earthquake,14.1,1.9,0.087,45,reviewed,us,us
+2021-03-14T07:05:46.104Z,-28.698,-176.5226,10,4.7,mb,,127,1.347,0.93,us,us7000dj8g,2021-05-26T22:07:02.040Z,"Kermadec Islands region",earthquake,5.6,1.9,0.099,33,reviewed,us,us
+2021-03-14T09:01:11.605Z,-28.4726,-176.7984,10,4.4,mb,,185,1.255,0.65,us,us6000dvs8,2021-05-26T22:07:03.040Z,"Kermadec Islands region",earthquake,8.1,2,0.202,7,reviewed,us,us
+2021-03-14T09:45:06.612Z,-28.8524,-176.7549,10,4.6,mb,,162,1.099,0.68,us,us6000dvsn,2021-05-26T22:07:05.040Z,"Kermadec Islands region",earthquake,10.2,1.9,0.136,16,reviewed,us,us
+2021-03-14T09:51:21.727Z,-29.1285,-176.8536,10,4.8,mb,,113,0.947,0.87,us,us6000dvsp,2025-12-22T18:00:52.238Z,"Kermadec Islands region",earthquake,10.1,1.9,0.139,16,reviewed,us,us
+2021-03-14T10:02:03.918Z,-28.9787,-176.2562,10,4.5,mb,,220,1.487,0.54,us,us6000dvsa,2021-05-26T22:07:05.040Z,"Kermadec Islands region",earthquake,9.9,2,0.192,9,reviewed,us,us
+2021-03-14T13:03:20.357Z,-27.15,-175.9305,10,4.3,mb,,133,2.732,0.74,us,us6000dvsg,2021-05-26T22:07:10.040Z,"Kermadec Islands region",earthquake,9,1.9,0.188,9,reviewed,us,us
+2021-03-14T13:12:09.069Z,-29.782,-177.2072,10,4.8,mb,,134,0.825,0.99,us,us6000dvsh,2021-05-26T22:07:10.040Z,"Kermadec Islands, New Zealand",earthquake,11.2,1.9,0.127,19,reviewed,us,us
+2021-03-14T13:24:03.747Z,-29.3537,-176.1385,10,4.8,mb,,72,1.567,0.54,us,us6000dvsj,2021-05-26T22:07:12.040Z,"Kermadec Islands region",earthquake,12.9,1.8,0.089,44,reviewed,us,us
+2021-03-14T17:19:41.594Z,-28.3743,-177.4126,66.42,4.7,mb,,195,0.978,1.26,us,us6000dvsu,2021-05-26T22:07:17.040Z,"Kermadec Islands region",earthquake,11.4,8.5,0.12,21,reviewed,us,us
+2021-03-15T02:47:44.861Z,-29.9353,-178.016,10,4.9,mb,,133,0.692,0.47,us,us7000djep,2021-05-26T22:07:24.040Z,"Kermadec Islands, New Zealand",earthquake,4.7,1.9,0.122,21,reviewed,us,us
+2021-03-15T03:24:50.669Z,-32.0914,-178.1902,10,4.5,mb,,175,2.846,0.81,us,us6000dw2g,2021-05-26T22:07:25.040Z,"south of the Kermadec Islands",earthquake,8.9,1.8,0.181,9,reviewed,us,us
+2021-03-15T03:47:31.319Z,-29.2014,-176.5478,10,4.4,mb,,187,1.208,1.1,us,us6000dw2i,2021-05-26T22:07:25.040Z,"Kermadec Islands region",earthquake,8.7,1.9,0.179,9,reviewed,us,us
+2021-03-15T06:12:25.745Z,-29.6333,-176.7833,10,4.7,mb,,78,1.071,0.6,us,us6000dw2n,2021-05-26T22:07:28.040Z,"Kermadec Islands region",earthquake,8,1.9,0.13,18,reviewed,us,us
+2021-03-15T07:45:38.081Z,-27.4652,-175.3972,10,4.4,mb,,213,2.85,0.63,us,us6000dw2r,2021-05-26T22:07:30.040Z,"Kermadec Islands region",earthquake,14.2,2,0.203,7,reviewed,us,us
+2021-03-15T09:16:01.361Z,-30.2228,-177.2662,10,4.6,mb,,211,1.132,1.26,us,us6000dw2u,2021-05-26T22:07:31.040Z,"Kermadec Islands, New Zealand",earthquake,6.3,2,0.192,10,reviewed,us,us
+2021-03-15T10:44:40.582Z,-29.1612,-176.6391,10,4.9,mb,,69,1.13,1.05,us,us7000djgs,2021-05-26T22:07:32.040Z,"Kermadec Islands region",earthquake,9.8,1.8,0.054,108,reviewed,us,us
+2021-03-15T16:28:56.329Z,-28.9755,-176.8156,10,4.6,mb,,180,1.01,1.1,us,us6000dw33,2021-05-26T22:07:40.040Z,"Kermadec Islands region",earthquake,8.4,1.9,0.142,19,reviewed,us,us
+2021-03-15T19:28:46.867Z,-29.2181,-176.8272,14.15,5.3,mww,,61,0.963,0.96,us,us7000djkm,2025-12-22T18:00:23.478Z,"Kermadec Islands region",earthquake,6.8,2.7,0.053,34,reviewed,us,us
+2021-03-15T20:15:36.828Z,-29.198,-176.8764,10,4.5,mb,,125,0.921,0.57,us,us6000dw3e,2021-05-26T22:07:48.040Z,"Kermadec Islands region",earthquake,14.3,1.4,0.313,8,reviewed,us,us
+2021-03-15T20:44:35.025Z,-29.3758,-176.754,10,5.2,mww,,61,1.034,0.87,us,us7000djlc,2025-12-22T18:54:00.794Z,"Kermadec Islands region",earthquake,8.8,1.8,0.069,20,reviewed,us,us
+2021-03-15T21:31:59.704Z,-29.3351,-176.8863,10,5.1,mww,,57,0.915,0.84,us,us7000djlj,2025-12-22T18:59:44.812Z,"Kermadec Islands region",earthquake,7.5,1.8,0.073,18,reviewed,us,us
+2021-03-15T22:25:31.713Z,-28.7954,-176.7533,10,4.6,mb,,187,1.123,0.71,us,us6000dw3b,2021-05-26T22:07:50.040Z,"Kermadec Islands region",earthquake,6.2,1.9,0.151,13,reviewed,us,us
+2021-03-16T03:13:33.181Z,-29.6479,-176.9157,10,5,mb,,70,0.97,1,us,us7000djne,2021-05-26T22:07:54.040Z,"Kermadec Islands region",earthquake,7.1,1.7,0.101,31,reviewed,us,us
+2021-03-16T04:20:20.263Z,-30.3732,-176.9496,10,4.6,mb,,170,1.41,0.64,us,us6000dwbp,2021-05-26T22:07:56.040Z,"Kermadec Islands region",earthquake,10,1.8,0.158,12,reviewed,us,us
+2021-03-16T08:05:04.085Z,-30.152,-176.9465,10,4.5,mb,,188,1.244,0.4,us,us6000dwc2,2021-05-26T22:07:59.040Z,"Kermadec Islands region",earthquake,6.7,2,0.181,9,reviewed,us,us
+2021-03-16T11:51:59.494Z,-29.4576,-178.6794,313.08,4.2,mb,,57,0.688,0.57,us,us6000dwc6,2021-05-26T22:08:02.040Z,"Kermadec Islands, New Zealand",earthquake,8,6.1,0.108,24,reviewed,us,us
+2021-03-16T12:48:25.383Z,-27.4191,-178.1116,10,5.3,mww,,102,1.826,0.91,us,us7000djrn,2025-12-22T19:06:07.213Z,"Kermadec Islands region",earthquake,3.7,1.9,0.069,20,reviewed,us,us
+2021-03-16T13:13:51.673Z,-29.3177,-176.8032,10,4.4,mb,,199,0.986,0.2,us,us6000dwch,2021-05-26T22:08:03.040Z,"Kermadec Islands region",earthquake,12.8,2,0.19,11,reviewed,us,us
+2021-03-16T13:27:30.111Z,-27.3962,-178.1566,10,4.6,mb,,100,1.852,0.67,us,us6000dwc9,2021-05-26T22:08:05.040Z,"Kermadec Islands region",earthquake,11.8,1.9,0.193,8,reviewed,us,us
+2021-03-16T14:09:25.037Z,-31.5478,-177.7328,10,4.5,mb,,184,2.301,0.38,us,us6000dwcc,2021-05-26T22:08:06.040Z,"Kermadec Islands region",earthquake,7.7,2,0.192,8,reviewed,us,us
+2021-03-16T15:24:16.690Z,-28.4509,-177.2103,10,4.6,mb,,185,1.011,0.67,us,us6000dwcd,2021-05-26T22:08:07.040Z,"Kermadec Islands region",earthquake,5.6,1.9,0.207,10,reviewed,us,us
+2021-03-16T15:56:41.470Z,-29.4348,-176.4228,11.4,4.8,mb,,134,1.328,0.59,us,us7000djyd,2021-05-26T22:08:08.040Z,"Kermadec Islands region",earthquake,9.9,4.8,0.07,64,reviewed,us,us
+2021-03-16T16:17:26.418Z,-29.8322,-177.1937,10,4.9,mb,,134,0.867,0.79,us,us6000dwce,2021-05-26T22:08:08.040Z,"Kermadec Islands, New Zealand",earthquake,8.7,1.9,0.122,21,reviewed,us,us
+2021-03-16T22:22:11.639Z,-28.7696,-176.9381,10,4.5,mb,,187,0.988,0.85,us,us6000dwct,2021-05-26T22:08:17.040Z,"Kermadec Islands region",earthquake,7.8,1.8,0.221,6,reviewed,us,us
+2021-03-17T02:15:51.443Z,-28.5071,-177.7204,10,4.4,mb,,199,0.757,0.54,us,us6000dwds,2021-05-26T22:08:21.040Z,"Kermadec Islands region",earthquake,5.9,2,0.24,5,reviewed,us,us
+2021-03-17T04:08:17.707Z,-28.2385,-176.8508,10,4.6,mb,,133,1.379,0.52,us,us6000dwdz,2021-05-26T22:08:23.040Z,"Kermadec Islands region",earthquake,10.2,1.9,0.165,14,reviewed,us,us
+2021-03-17T09:41:54.280Z,-27.3536,-177.2868,10,4.2,mb,,237,1.967,0.46,us,us6000dwe5,2021-05-26T22:08:27.040Z,"Kermadec Islands region",earthquake,14,1.9,0.142,15,reviewed,us,us
+2021-03-17T14:48:50.745Z,-28.2395,-177.2853,10,4.4,mb,,183,1.15,0.4,us,us6000dwef,2021-05-26T22:08:33.040Z,"Kermadec Islands region",earthquake,11.2,2,0.19,8,reviewed,us,us
+2021-03-17T20:38:26.364Z,-29.829,-177.0336,10,4.8,mb,,152,0.973,1.09,us,us6000dweu,2021-05-26T22:08:39.040Z,"Kermadec Islands, New Zealand",earthquake,10.6,1.8,0.105,29,reviewed,us,us
+2021-03-18T02:47:25.747Z,-28.2527,-177.0641,10,4.6,mb,,270,1.246,0.46,us,us6000dwmt,2021-05-26T22:08:48.040Z,"Kermadec Islands region",earthquake,11.9,2,0.172,10,reviewed,us,us
+2021-03-18T15:21:46.536Z,-29.637,-176.6881,10,4.3,mb,,221,1.15,0.73,us,us6000dwnd,2021-05-26T22:08:57.040Z,"Kermadec Islands region",earthquake,8.1,2,0.188,8,reviewed,us,us
+2021-03-18T15:24:21.779Z,-29.5955,-176.5072,10,4.9,mb,,76,1.288,0.81,us,us7000dklv,2021-05-26T22:08:57.040Z,"Kermadec Islands region",earthquake,11.1,1.8,0.067,76,reviewed,us,us
+2021-03-18T17:39:12.015Z,-29.1948,-176.8316,10,4.4,mb,,199,0.96,0.32,us,us6000dwns,2021-05-26T22:08:59.040Z,"Kermadec Islands region",earthquake,8.7,1.7,0.179,9,reviewed,us,us
+2021-03-18T19:41:49.769Z,-28.6279,-177.655,9.74,4.6,mb,,188,0.66,0.54,us,us6000dwng,2021-05-26T22:09:02.040Z,"Kermadec Islands region",earthquake,7.9,7.4,0.245,7,reviewed,us,us
+2021-03-19T08:14:49.188Z,-28.9839,-177.0145,10,4.3,mb,,193,0.841,0.18,us,us6000dwph,2021-06-02T15:22:56.040Z,"Kermadec Islands region",earthquake,8.4,1.9,0.201,8,reviewed,us,us
+2021-03-19T14:16:37.349Z,-28.3283,-177.558,10,4.5,mb,,202,0.969,0.83,us,us6000dwpk,2021-06-02T15:22:57.040Z,"Kermadec Islands region",earthquake,12.9,2,0.191,8,reviewed,us,us
+2021-03-19T16:47:09.681Z,-28.1477,-176.6816,10,5,mb,,85,1.547,1.09,us,us7000dl10,2025-12-22T18:54:44.132Z,"Kermadec Islands region",earthquake,9.6,1.9,0.116,28,reviewed,us,us
+2021-03-19T18:09:43.559Z,-30.2931,-177.1099,10,5,mb,,38,1.264,0.81,us,us7000dl1h,2021-06-02T15:23:59.040Z,"Kermadec Islands, New Zealand",earthquake,8.6,1.8,0.067,83,reviewed,us,us
+2021-03-19T23:17:57.635Z,-28.9779,-178.3375,208.99,4.5,mb,,90,0.445,0.83,us,us6000dwq0,2021-06-02T15:22:58.040Z,"Kermadec Islands region",earthquake,15.8,5.5,0.11,24,reviewed,us,us
+2021-03-20T10:52:21.292Z,-28.9957,-176.9169,10,4.4,mb,,264,0.919,0.26,us,us6000dwsa,2021-06-02T15:23:03.040Z,"Kermadec Islands region",earthquake,5.6,1.9,0.162,12,reviewed,us,us
+2021-03-20T12:10:10.983Z,-28.4394,-176.8115,10,4.5,mb,,257,1.267,0.6,us,us6000dwsd,2021-06-02T15:23:04.040Z,"Kermadec Islands region",earthquake,11.6,2,0.172,11,reviewed,us,us
+2021-03-20T12:21:32.382Z,-28.7367,-176.6275,10,4.4,mb,,197,1.247,0.63,us,us6000dwt1,2021-06-02T15:23:07.040Z,"Kermadec Islands region",earthquake,10.7,1.9,0.123,19,reviewed,us,us
+2021-03-20T13:12:14.225Z,-28.7403,-176.9822,10,4.5,mb,,263,0.97,0.95,us,us6000dwsg,2021-06-02T15:23:04.040Z,"Kermadec Islands region",earthquake,10.2,1.4,0.191,8,reviewed,us,us
+2021-03-20T18:28:20.252Z,-29.7639,-177.1788,10,4.5,mb,,166,0.833,1.19,us,us6000dwt2,2021-06-02T15:23:07.040Z,"Kermadec Islands, New Zealand",earthquake,5.8,1.9,0.128,18,reviewed,us,us
+2021-03-20T19:39:05.894Z,-30.1093,-177.0339,10,4.6,mb,,191,1.161,0.47,us,us6000dwt7,2021-06-02T15:23:08.040Z,"Kermadec Islands, New Zealand",earthquake,7.4,2,0.206,7,reviewed,us,us
+2021-03-21T02:18:53.622Z,-28.7765,-176.9165,10,4.7,mb,,187,1.002,0.87,us,us6000dxf3,2021-06-02T15:23:11.040Z,"Kermadec Islands region",earthquake,9.6,1.9,0.184,10,reviewed,us,us
+2021-03-21T05:25:11.584Z,-29.6982,-176.4062,10,4.4,mb,,250,14.825,0.32,us,us6000dxey,2021-06-02T15:23:10.040Z,"Kermadec Islands region",earthquake,11.5,2,0.162,11,reviewed,us,us
+2021-03-21T16:27:18.314Z,-28.625,-176.5866,10,4.9,mb,,79,1.329,0.62,us,us7000dlgx,2021-06-02T15:24:22.040Z,"Kermadec Islands region",earthquake,8.4,1.8,0.108,27,reviewed,us,us
+2021-03-21T21:30:07.779Z,-28.1998,-176.962,10,4.3,mb,,252,1.343,0.45,us,us6000dxfx,2021-06-02T15:23:16.040Z,"Kermadec Islands region",earthquake,7.8,2,0.154,12,reviewed,us,us
+2021-03-22T00:53:55.523Z,-27.5368,-176.1979,10,4.2,mb,,217,2.285,0.8,us,us6000dxm4,2021-06-02T15:23:17.040Z,"Kermadec Islands region",earthquake,14.9,2,0.2,7,reviewed,us,us
+2021-03-22T08:18:12.149Z,-28.6611,-176.4549,10,4.8,mb,,80,1.416,0.53,us,us7000dljz,2025-12-22T18:55:00.000Z,"Kermadec Islands region",earthquake,9.1,1.9,0.103,30,reviewed,us,us
+2021-03-22T13:19:25.815Z,-28.334,-176.7492,10,4.6,mb,,168,1.377,0.57,us,us6000dxml,2021-06-02T15:23:20.040Z,"Kermadec Islands region",earthquake,15.5,1.9,0.165,11,reviewed,us,us
+2021-03-22T17:23:23.142Z,-27.6824,-178.1406,10,4.3,mb,,184,1.567,0.43,us,us6000dxmv,2021-06-02T15:23:21.040Z,"Kermadec Islands region",earthquake,10.9,2,0.189,8,reviewed,us,us
+2021-03-22T17:41:11.253Z,-27.5948,-178.303,10,5,mb,,69,1.676,0.96,us,us6000dvis,2021-06-02T15:22:13.040Z,"Kermadec Islands region",earthquake,11,1.8,0.069,68,reviewed,us,us
+2021-03-22T21:20:34.120Z,-29.4922,-177.1974,10,4.6,mb,,188,0.684,0.89,us,us6000dxmz,2021-06-02T15:23:21.040Z,"Kermadec Islands, New Zealand",earthquake,9.5,1.9,0.173,10,reviewed,us,us
+2021-03-22T23:03:08.978Z,-28.5209,-176.418,10,4.6,mb,,138,1.508,0.95,us,us6000dxn6,2021-06-02T15:23:22.040Z,"Kermadec Islands region",earthquake,9.8,1.9,0.146,14,reviewed,us,us
+2021-03-23T12:44:23.064Z,-28.3622,-177.3635,10,4.6,mb,,180,1.01,0.67,us,us6000dxx5,2021-06-02T15:23:24.040Z,"Kermadec Islands region",earthquake,7.1,1.9,0.172,10,reviewed,us,us
+2021-03-23T15:54:48.936Z,-30.2116,-177.4344,10,4.9,mb,,216,1.055,0.7,us,us6000dxxa,2021-06-02T15:23:25.040Z,"Kermadec Islands, New Zealand",earthquake,7.6,2,0.156,13,reviewed,us,us
+2021-03-23T22:30:24.416Z,-28.2043,-177.7628,10,4.4,mb,,188,1.047,1.13,us,us6000dxxj,2021-06-02T15:23:27.040Z,"Kermadec Islands region",earthquake,6.2,1.9,0.203,7,reviewed,us,us
+2021-03-23T23:47:09.529Z,-29.8114,-177.3482,10,4.5,mb,,188,0.758,0.79,us,us6000dxxp,2021-06-02T15:23:28.040Z,"Kermadec Islands, New Zealand",earthquake,8.9,1.9,0.156,12,reviewed,us,us
+2021-03-24T10:34:41.651Z,-29.7168,-176.8416,10,4.4,mb,,235,1.058,0.29,us,us6000dxys,2021-06-02T15:23:29.040Z,"Kermadec Islands region",earthquake,10,2,0.134,17,reviewed,us,us
+2021-03-24T10:35:21.377Z,-29.3034,-176.6303,10,4.5,mb,,209,1.136,0.82,us,us6000dxz0,2025-12-22T19:06:08.502Z,"Kermadec Islands region",earthquake,7,1.8,0.121,23,reviewed,us,us
+2021-03-24T11:22:38.093Z,-29.829,-176.7463,10,4.2,mb,,233,1.183,0.45,us,us6000dxyu,2021-06-02T15:23:29.040Z,"Kermadec Islands region",earthquake,12.1,2,0.146,14,reviewed,us,us
+2021-03-25T00:02:57.903Z,-29.8484,-177.2007,10,4.4,mb,,188,0.874,0.66,us,us6000dy6a,2021-06-02T15:23:32.040Z,"Kermadec Islands, New Zealand",earthquake,12.1,1.9,0.17,10,reviewed,us,us
+2021-03-25T03:40:36.278Z,-28.9464,-176.637,10,5.1,mb,,127,1.169,0.47,us,us6000dw8f,2021-06-02T15:22:45.040Z,"Kermadec Islands region",earthquake,9.1,1.8,0.066,76,reviewed,us,us
+2021-03-25T08:12:11.102Z,-28.2855,-176.7921,10,4.6,mb,,171,1.382,0.48,us,us6000dy6i,2021-06-02T15:23:33.040Z,"Kermadec Islands region",earthquake,12.6,1.9,0.146,14,reviewed,us,us
+2021-03-25T19:27:37.882Z,-28.7276,-176.5169,10,4.8,mb,,76,1.34,0.93,us,us6000dy73,2021-06-02T15:23:36.040Z,"Kermadec Islands region",earthquake,11.6,1.8,0.128,23,reviewed,us,us
+2021-03-26T00:11:16.981Z,-28.334,-177.1675,10,4.6,mb,,168,1.127,0.77,us,us6000dy82,2021-06-08T17:59:36.040Z,"Kermadec Islands region",earthquake,11.7,2,0.206,7,reviewed,us,us
+2021-03-26T09:26:21.383Z,-29.2459,-176.5377,10,4.4,mb,,199,1.215,0.53,us,us6000dy8h,2021-06-08T17:59:38.040Z,"Kermadec Islands region",earthquake,11.8,2,0.162,11,reviewed,us,us
+2021-03-27T09:20:30.242Z,-30.0316,-177.3589,10,4.6,mb,,166,0.927,0.43,us,us6000dwz9,2021-06-08T17:58:45.040Z,"Kermadec Islands, New Zealand",earthquake,6.8,1.9,0.12,21,reviewed,us,us
+2021-03-27T12:03:42.569Z,-29.6212,-176.4515,10,4.3,mb,,216,1.342,0.38,us,us6000dyaw,2021-06-08T17:59:48.040Z,"Kermadec Islands region",earthquake,8.9,2,0.138,16,reviewed,us,us
+2021-03-28T14:44:56.272Z,-28.3396,-177.2386,10,4.6,mb,,138,1.086,0.39,us,us6000dzfv,2021-06-08T17:59:57.040Z,"Kermadec Islands region",earthquake,12.9,1.8,0.137,16,reviewed,us,us
+2021-03-28T14:45:35.907Z,-28.1834,-177.8151,10,4.5,mb,,94,1.062,0.45,us,us6000dzge,2021-06-08T17:59:59.040Z,"Kermadec Islands region",earthquake,9.5,1.9,0.541,8,reviewed,us,us
+2021-03-28T22:29:30.138Z,-28.112,-178.3448,10,4.2,mb,,250,1.186,0.23,us,us6000dzg7,2021-06-08T17:59:59.040Z,"Kermadec Islands region",earthquake,10.4,2,0.175,9,reviewed,us,us
+2021-03-28T22:44:10.633Z,-28.6138,-177.5215,10,4.5,mb,,202,0.723,0.82,us,us6000dzg1,2021-06-08T17:59:58.040Z,"Kermadec Islands region",earthquake,4.8,1.9,0.135,16,reviewed,us,us
+2021-03-28T23:45:37.767Z,-27.5907,-178.1804,10,4.6,mb,,125,1.663,0.94,us,us6000dzg6,2021-06-08T17:59:58.040Z,"Kermadec Islands region",earthquake,7.4,1.9,0.164,11,reviewed,us,us
+2021-03-28T23:49:32.132Z,-27.7791,-178.478,10,4.7,mb,,89,1.538,0.51,us,us6000dzg4,2021-06-08T17:59:58.040Z,"Kermadec Islands region",earthquake,3.1,1.9,0.099,31,reviewed,us,us
+2021-03-29T00:19:03.977Z,-27.2019,-178.1595,10,4.6,mb,,120,2.045,0.61,us,us6000dzmn,2021-06-08T18:00:00.040Z,"Kermadec Islands region",earthquake,5.3,1.9,0.133,17,reviewed,us,us
+2021-03-29T06:00:54.048Z,-30.5221,-179.1536,10,4.2,mb,,140,1.658,0.63,us,us6000dznu,2021-06-08T18:00:05.040Z,"Kermadec Islands region",earthquake,12.3,2,0.216,6,reviewed,us,us
+2021-03-29T07:11:44.319Z,-28.9612,-175.6533,10,4.4,mb,,264,2.011,0.8,us,us6000dzmz,2021-06-08T18:00:01.040Z,"Kermadec Islands region",earthquake,13.3,2,0.202,7,reviewed,us,us
+2021-03-29T23:32:21.342Z,-29.2819,-176.722,10,4.7,mb,,190,1.055,0.79,us,us6000dxip,2021-06-08T17:59:08.040Z,"Kermadec Islands region",earthquake,10.6,1.9,0.11,25,reviewed,us,us
+2021-03-31T01:40:39.910Z,-28.5583,-177.5448,10,4.5,mb,,199,0.762,0.63,us,us6000e00c,2021-06-08T18:00:10.040Z,"Kermadec Islands region",earthquake,5.2,1.9,0.191,8,reviewed,us,us
+2021-03-31T04:05:58.268Z,-29.1942,-176.2984,10,5.1,mb,,51,1.426,1.01,us,us6000dxtw,2021-06-08T17:59:20.040Z,"Kermadec Islands region",earthquake,11.7,1.8,0.093,40,reviewed,us,us
+2021-03-31T09:41:48.551Z,-29.4376,-176.7344,10,4.5,mb,,260,1.06,0.33,us,us6000e00p,2021-06-08T18:00:11.040Z,"Kermadec Islands region",earthquake,10,2,0.156,14,reviewed,us,us
+2021-03-31T16:13:07.870Z,-31.656,-178.6711,10,4.6,mb,,165,2.487,0.91,us,us6000e016,2021-06-08T18:00:14.040Z,"Kermadec Islands region",earthquake,11.8,1.8,0.152,13,reviewed,us,us
+2021-04-01T06:07:51.838Z,-30.0548,-177.6911,10,4.5,mb,,194,0.833,0.51,us,us6000e08t,2021-06-08T18:00:17.040Z,"Kermadec Islands, New Zealand",earthquake,9,2,0.15,18,reviewed,us,us
+2021-04-01T07:55:17.332Z,-29.3645,-176.8834,10,4.5,mb,,203,0.921,0.54,us,us6000e08w,2021-06-08T18:00:18.040Z,"Kermadec Islands region",earthquake,11.6,2,0.157,12,reviewed,us,us
+2021-04-01T09:56:37.651Z,-29.961,-177.6758,20,6.4,mww,,30,0.746,1.4,us,us6000dy64,2025-12-22T18:59:49.689Z,"Kermadec Islands, New Zealand",earthquake,3.9,1.8,0.05,39,reviewed,us,us
+2021-04-01T11:58:34.050Z,-29.7065,-176.8302,10,4.8,mb,,176,1.062,1.3,us,us6000e094,2021-06-08T18:00:19.040Z,"Kermadec Islands region",earthquake,6.7,1.9,0.154,16,reviewed,us,us
+2021-04-01T13:26:47.614Z,-29.8913,-177.0797,10,4.4,mb,,119,0.98,0.94,us,us6000e098,2021-06-08T18:00:19.040Z,"Kermadec Islands, New Zealand",earthquake,8.9,2,0.13,17,reviewed,us,us
+2021-04-01T15:29:07.446Z,-29.1851,-176.6984,10,4.5,mb,,148,1.077,0.7,us,us6000e09d,2021-06-08T18:00:19.040Z,"Kermadec Islands region",earthquake,12.5,1.9,0.128,21,reviewed,us,us
+2021-04-01T15:33:23.967Z,-29.3816,-176.833,10,4.4,mb,,199,0.966,0.53,us,us6000e09e,2021-06-08T18:00:20.040Z,"Kermadec Islands region",earthquake,9.9,1.7,0.179,12,reviewed,us,us
+2021-04-01T17:46:16.169Z,-29.9937,-177.4231,10,4.6,mb,,258,0.866,1.34,us,us6000e09g,2021-06-08T18:00:20.040Z,"Kermadec Islands, New Zealand",earthquake,9.4,2,0.193,10,reviewed,us,us
+2021-04-01T22:10:11.321Z,-30.0234,-177.4672,10,5.6,mww,,36,0.873,0.49,us,us6000dydn,2025-12-22T18:55:29.043Z,"Kermadec Islands, New Zealand",earthquake,3.9,1.7,0.063,24,reviewed,us,us
+2021-04-02T02:20:54.800Z,-30.2293,-176.9382,10,4.5,mb,,158,1.305,0.77,us,us6000e0av,2021-06-12T21:36:24.040Z,"Kermadec Islands region",earthquake,9.2,1.9,0.221,6,reviewed,us,us
+2021-04-02T02:36:48.293Z,-28.6013,-177.4951,10,4.2,mb,,135,0.745,1.29,us,us6000e0aw,2021-06-12T21:36:24.040Z,"Kermadec Islands region",earthquake,10.9,1.9,0.264,5,reviewed,us,us
+2021-04-02T04:43:10.523Z,-29.6787,-176.97,10,4.8,mb,,169,0.941,1.13,us,us6000e0ax,2021-06-12T21:36:26.040Z,"Kermadec Islands region",earthquake,10.1,1.9,0.211,7,reviewed,us,us
+2021-04-02T07:21:00.325Z,-29.9752,-176.9988,10,4.5,mb,,228,1.088,1.14,us,us6000e0b3,2021-06-12T21:36:28.040Z,"Kermadec Islands region",earthquake,6.5,2,0.181,9,reviewed,us,us
+2021-04-02T07:48:42.094Z,-31.452,-178.1133,10,4.2,mb,,176,2.205,0.67,us,us6000e0b4,2021-06-12T21:36:29.040Z,"Kermadec Islands region",earthquake,10.9,1.9,0.237,5,reviewed,us,us
+2021-04-03T01:18:35.032Z,-28.6529,-176.5468,10,4.9,mb,,161,1.347,1.17,us,us6000dyna,2021-06-12T21:36:44.040Z,"Kermadec Islands region",earthquake,15,1.9,0.08,50,reviewed,us,us
+2021-04-03T11:29:09.193Z,-30.0355,-177.3903,10,4.4,mb,,203,0.916,0.51,us,us6000e0dd,2021-06-12T21:36:50.040Z,"Kermadec Islands, New Zealand",earthquake,7.8,1.9,0.138,20,reviewed,us,us
+2021-04-03T13:56:11.949Z,-29.9011,-177.6357,10,4.4,mb,,167,0.702,0.71,us,us6000e0dh,2021-06-12T21:36:51.040Z,"Kermadec Islands, New Zealand",earthquake,7.6,2,0.138,15,reviewed,us,us
+2021-04-04T01:37:23.144Z,-29.7971,-176.7321,10,4.9,mb,,199,1.179,1.16,us,us6000e0zr,2021-06-12T21:36:58.040Z,"Kermadec Islands region",earthquake,13.4,2,0.212,8,reviewed,us,us
+2021-04-04T06:21:23.882Z,-29.9581,-177.4328,10,4.6,mb,,206,0.831,0.44,us,us6000e0zv,2021-06-12T21:37:00.040Z,"Kermadec Islands, New Zealand",earthquake,7.6,2,0.152,16,reviewed,us,us
+2021-04-04T13:59:22.976Z,-29.2328,-176.9563,10,4.4,mb,,114,0.85,0.7,us,us6000e107,2021-06-12T21:37:05.040Z,"Kermadec Islands region",earthquake,8.6,1.9,0.268,7,reviewed,us,us
+2021-04-04T17:25:50.006Z,-30.3789,-178.0265,10,5.1,mb,,61,1.133,1.14,us,us6000dyz6,2025-12-22T18:58:12.605Z,"Kermadec Islands, New Zealand",earthquake,8.1,1.8,0.084,46,reviewed,us,us
+2021-04-04T18:29:06.327Z,-29.6059,-176.7698,10,4.3,mb,,230,1.073,0.76,us,us6000e10d,2021-06-12T21:37:08.040Z,"Kermadec Islands region",earthquake,13.9,2,0.168,10,reviewed,us,us
+2021-04-05T18:41:25.872Z,-29.1145,-176.7154,10,5,mb,,130,1.069,1.01,us,us6000e194,2021-06-12T21:37:26.040Z,"Kermadec Islands region",earthquake,5.3,1.8,0.17,13,reviewed,us,us
+2021-04-05T19:35:22.770Z,-29.5013,-176.8696,10,5,mb,,76,0.959,0.92,us,us6000e198,2025-12-22T18:58:14.848Z,"Kermadec Islands region",earthquake,7.8,1.8,0.075,57,reviewed,us,us
+2021-04-05T20:17:17.596Z,-29.1686,-176.8664,10,4.5,mb,,185,0.932,0.8,us,us6000e18y,2021-06-12T21:37:28.040Z,"Kermadec Islands region",earthquake,9.8,1.8,0.221,10,reviewed,us,us
+2021-04-05T20:26:05.994Z,-29.2596,-177.0246,10,4.9,mb,,68,10.573,1.05,us,us6000e191,2021-06-12T21:37:28.040Z,"Kermadec Islands, New Zealand",earthquake,13.5,1.8,0.119,22,reviewed,us,us
+2021-04-05T21:21:44.973Z,-29.4903,-176.877,10,4.5,mb,,203,0.95,0.64,us,us6000e197,2021-06-12T21:37:30.040Z,"Kermadec Islands region",earthquake,8.8,1.9,0.222,6,reviewed,us,us
+2021-04-06T01:36:25.728Z,-29.541,-176.9576,10,4.4,mb,,188,0.897,0.7,us,us6000e1hd,2021-06-12T21:37:33.040Z,"Kermadec Islands region",earthquake,10.5,1.8,0.169,10,reviewed,us,us
+2021-04-06T07:37:22.942Z,-28.9632,-176.6053,10,5.2,mww,,45,1.191,0.58,us,us6000dzcz,2025-12-22T18:55:44.827Z,"Kermadec Islands region",earthquake,9.5,1.6,0.065,23,reviewed,us,us
+2021-04-06T08:16:16.512Z,-29.4361,-176.9115,14,5.7,mww,,57,0.908,1.21,us,us6000dzd6,2025-12-22T18:55:46.025Z,"Kermadec Islands region",earthquake,8.8,1.7,0.051,37,reviewed,us,us
+2021-04-06T08:46:20.237Z,-29.4428,-176.7139,10,4.3,mb,,174,1.079,1.37,us,us6000e1hr,2021-06-12T21:37:42.040Z,"Kermadec Islands region",earthquake,12.1,1.8,0.217,7,reviewed,us,us
+2021-04-06T08:52:32.953Z,-29.5432,-177.0457,10,4.6,mb,,180,0.826,1.09,us,us6000e1hs,2021-06-12T21:37:43.040Z,"Kermadec Islands, New Zealand",earthquake,8.2,1.9,0.165,11,reviewed,us,us
+2021-04-06T09:12:38.757Z,-29.0401,-176.8927,10,4.2,mb,,267,0.929,0.37,us,us6000e1hu,2021-06-12T21:37:44.040Z,"Kermadec Islands region",earthquake,8.3,2,0.235,6,reviewed,us,us
+2021-04-06T09:15:40.496Z,-29.799,-177.1658,10,4.4,mb,,201,0.864,0.34,us,us6000e1hv,2021-06-12T21:37:44.040Z,"Kermadec Islands, New Zealand",earthquake,7.9,1.9,0.19,8,reviewed,us,us
+2021-04-06T10:07:46.751Z,-29.7196,-176.7107,10,5.3,mww,,59,1.162,0.5,us,us6000dze0,2025-12-22T18:58:16.127Z,"Kermadec Islands region",earthquake,8.9,1.8,0.073,18,reviewed,us,us
+2021-04-06T10:22:59.951Z,-29.704,-177.1923,10,4.7,mb,,201,0.788,0.76,us,us6000e1i6,2021-06-12T21:37:46.040Z,"Kermadec Islands, New Zealand",earthquake,11,2,0.138,16,reviewed,us,us
+2021-04-06T12:40:25.418Z,-29.8517,-178.1294,10,4.8,mb,,140,0.629,0.54,us,us6000dzec,2021-06-12T21:37:48.040Z,"Kermadec Islands, New Zealand",earthquake,8.1,1.6,0.111,27,reviewed,us,us
+2021-04-06T15:44:55.141Z,-29.7147,-177.1862,12.16,4.8,mb,,109,0.799,0.68,us,us6000e1i7,2021-06-12T21:37:49.040Z,"Kermadec Islands, New Zealand",earthquake,9.2,6,0.176,13,reviewed,us,us
+2021-04-07T01:01:19.748Z,-29.994,-176.9225,10,4.6,mb,,199,1.151,0.47,us,us6000e1iw,2021-06-12T21:37:57.040Z,"Kermadec Islands region",earthquake,7.6,2,0.173,10,reviewed,us,us
+2021-04-07T05:26:09.141Z,-31.4043,-177.8623,10,4.5,mb,,95,2.152,0.54,us,us6000e1j0,2021-06-12T21:38:01.040Z,"Kermadec Islands region",earthquake,8.7,1.8,0.191,10,reviewed,us,us
+2021-04-07T09:53:29.653Z,-29.0489,-176.6124,18,6.1,mww,,57,1.168,0.52,us,us6000dzlv,2025-12-22T18:55:50.869Z,"Kermadec Islands region",earthquake,9,1.8,0.043,51,reviewed,us,us
+2021-04-07T10:26:51.786Z,-29.0177,-176.6926,10,5.1,mww,,37,1.105,0.51,us,us6000dzm2,2025-12-22T19:06:55.781Z,"Kermadec Islands region",earthquake,7.7,1.8,0.08,15,reviewed,us,us
+2021-04-07T10:31:21.579Z,-28.532,-176.3826,10,4.4,mb,,265,1.53,0.28,us,us6000e1kr,2021-06-12T21:38:04.040Z,"Kermadec Islands region",earthquake,10.8,2,0.203,7,reviewed,us,us
+2021-04-07T10:38:34.408Z,-28.4585,-176.7367,10,4.1,mb,,268,1.306,0.24,us,us6000e1jm,2021-06-12T21:38:05.040Z,"Kermadec Islands region",earthquake,15.6,2,0.157,11,reviewed,us,us
+2021-04-07T10:41:10.580Z,-28.718,-176.475,10,4.4,mb,,204,1.377,0.77,us,us6000e1jn,2021-06-12T21:38:05.040Z,"Kermadec Islands region",earthquake,13.3,1.9,0.139,16,reviewed,us,us
+2021-04-07T10:42:05.408Z,-28.8137,-176.7002,10,5.4,mww,,75,1.158,0.78,us,us6000dzmg,2025-12-22T18:57:58.047Z,"Kermadec Islands region",earthquake,10.9,1.9,0.065,23,reviewed,us,us
+2021-04-07T10:56:33.970Z,-28.7685,-176.3835,10,4.1,mb,,263,1.434,0.5,us,us6000e1jd,2021-06-12T21:38:06.040Z,"Kermadec Islands region",earthquake,15.6,2,0.166,11,reviewed,us,us
+2021-04-07T11:01:55.878Z,-29.0328,-176.7533,10,4.3,mb,,196,1.05,0.57,us,us6000e1js,2021-06-12T21:38:06.040Z,"Kermadec Islands region",earthquake,6.7,2,0.178,14,reviewed,us,us
+2021-04-07T11:02:59.467Z,-28.3836,-176.3408,10,4.3,mb,,260,1.636,0.34,us,us6000e1jy,2021-06-12T21:38:07.040Z,"Kermadec Islands region",earthquake,12,2,0.217,7,reviewed,us,us
+2021-04-07T11:22:48.037Z,-28.9035,-176.1031,10,4.2,mb,,263,1.634,0.48,us,us6000e1kp,2021-06-12T21:38:07.040Z,"Kermadec Islands region",earthquake,9.7,2,0.152,13,reviewed,us,us
+2021-04-07T11:34:53.015Z,-28.971,-176.5844,10,4.4,mb,,263,1.207,0.28,us,us6000e1je,2021-06-12T21:38:08.040Z,"Kermadec Islands region",earthquake,14.3,2,0.161,12,reviewed,us,us
+2021-04-07T11:41:08.815Z,-28.3289,-175.9829,10,4.1,mb,,265,1.936,0.48,us,us6000e1jf,2021-06-12T21:38:08.040Z,"Kermadec Islands region",earthquake,9,2,0.175,12,reviewed,us,us
+2021-04-07T11:48:38.343Z,-28.9991,-176.7434,10,4.3,mb,,264,1.065,0.42,us,us6000e1ks,2021-06-12T21:38:08.040Z,"Kermadec Islands region",earthquake,10.3,2,0.169,11,reviewed,us,us
+2021-04-07T12:38:55.502Z,-29.5559,-177.0656,10,4.3,mb,,248,0.814,0.36,us,us6000e1jj,2021-06-12T21:38:09.040Z,"Kermadec Islands, New Zealand",earthquake,11.4,2,0.126,19,reviewed,us,us
+2021-04-07T13:15:36.316Z,-29.013,-176.6914,10,4.8,mb,,192,1.107,0.33,us,us7000drhv,2025-12-22T18:57:59.295Z,"Kermadec Islands region",earthquake,5,1.9,0.124,20,reviewed,us,us
+2021-04-07T13:30:20.842Z,-29.0146,-176.248,10,4.4,mb,,268,1.488,0.29,us,us6000e1jk,2021-06-12T21:38:11.040Z,"Kermadec Islands region",earthquake,15.9,2,0.218,6,reviewed,us,us
+2021-04-07T13:34:57.175Z,-28.9735,-176.4012,10,5.1,mb,,70,1.364,0.77,us,us6000dzqf,2025-12-22T18:55:53.120Z,"Kermadec Islands region",earthquake,9.8,1.8,0.066,76,reviewed,us,us
+2021-04-07T14:02:04.359Z,-29.0074,-176.6958,10,4.7,mb,,133,1.104,0.49,us,us6000e1jp,2021-06-12T21:38:12.040Z,"Kermadec Islands region",earthquake,8.9,1.9,0.142,16,reviewed,us,us
+2021-04-07T15:38:36.992Z,-29.2729,-176.4585,10,4.5,mb,,127,1.285,1.14,us,us6000e1jv,2021-06-12T21:38:13.040Z,"Kermadec Islands region",earthquake,10.3,1.9,0.15,13,reviewed,us,us
+2021-04-07T18:48:01.315Z,-28.8249,-176.4594,13,5.7,mww,,46,1.353,0.91,us,us6000dzt8,2025-12-22T18:55:51.987Z,"Kermadec Islands region",earthquake,6,1.7,0.051,37,reviewed,us,us
+2021-04-07T19:08:23.327Z,-28.6557,-176.493,10,4.6,mb,,190,1.388,1.13,us,us6000e1k3,2021-06-12T21:38:17.040Z,"Kermadec Islands region",earthquake,11.7,2,0.181,9,reviewed,us,us
+2021-04-07T19:34:47.221Z,-29.1208,-176.9876,10,4.6,mb,,135,0.832,0.85,us,us6000e1k6,2021-06-12T21:38:19.040Z,"Kermadec Islands region",earthquake,6.1,1.9,0.164,11,reviewed,us,us
+2021-04-07T19:37:23.507Z,-28.7538,-176.5896,10,4.6,mb,,128,1.271,1,us,us6000e1k5,2021-06-12T21:38:19.040Z,"Kermadec Islands region",earthquake,7.4,1.9,0.158,14,reviewed,us,us
+2021-04-07T19:43:01.233Z,-28.8637,-176.44,10,5.2,mww,,57,1.357,0.95,us,us6000dzu7,2025-12-22T18:00:34.620Z,"Kermadec Islands region",earthquake,5.4,1.8,0.069,20,reviewed,us,us
+2021-04-07T19:49:48.125Z,-29.2041,-176.4819,10,4.5,mb,,127,1.265,0.56,us,us6000e1k4,2021-06-12T21:38:20.040Z,"Kermadec Islands region",earthquake,10,1.9,0.221,11,reviewed,us,us
+2021-04-07T19:58:41.185Z,-28.8418,-176.6367,7,5,mb,,57,1.2,1,us,us6000e1k9,2021-06-12T21:38:20.040Z,"Kermadec Islands region",earthquake,11.3,3.9,0.057,96,reviewed,us,us
+2021-04-07T20:36:24.959Z,-28.6823,-176.6979,10,4.3,mb,,230,1.215,0.85,us,us6000e1ka,2021-06-12T21:38:21.040Z,"Kermadec Islands region",earthquake,12.6,2,0.308,5,reviewed,us,us
+2021-04-07T21:16:14.322Z,-28.3899,-176.8812,19.92,4.5,mb,,139,1.253,0.82,us,us6000e1kb,2021-06-12T21:38:23.040Z,"Kermadec Islands region",earthquake,13.4,2.4,0.156,12,reviewed,us,us
+2021-04-07T21:35:34.358Z,-28.5582,-176.7186,10,4.6,mb,,187,1.262,0.79,us,us6000e1kd,2021-06-12T21:38:24.040Z,"Kermadec Islands region",earthquake,9.5,1.9,0.206,7,reviewed,us,us
+2021-04-07T21:36:51.630Z,-28.7093,-176.4364,9.09,4.6,mb,,187,1.412,1,us,us6000e1ke,2021-06-12T21:38:24.040Z,"Kermadec Islands region",earthquake,15,6.2,0.172,10,reviewed,us,us
+2021-04-07T22:35:20.730Z,-28.6245,-176.5073,10,4.3,mb,,104,1.391,0.45,us,us6000e1kh,2021-06-12T21:38:26.040Z,"Kermadec Islands region",earthquake,7.8,1.9,0.189,8,reviewed,us,us
+2021-04-08T01:00:39.949Z,-29.0279,-176.316,10,5.1,mww,,57,1.427,0.81,us,us6000dzw2,2025-12-22T18:58:00.493Z,"Kermadec Islands region",earthquake,7.8,1.5,0.073,18,reviewed,us,us
+2021-04-08T12:19:49.084Z,-28.7762,-176.6008,10,4.6,mb,,81,1.253,1.11,us,us6000dzz4,2021-06-12T21:38:40.040Z,"Kermadec Islands region",earthquake,9.8,1.8,0.08,47,reviewed,us,us
+2021-04-08T12:44:59.172Z,-27.5374,-178.1331,57.63,4.5,mb,,195,1.71,0.86,us,us6000e1u1,2025-12-22T18:56:42.868Z,"Kermadec Islands region",earthquake,13.5,9.2,0.181,13,reviewed,us,us
+2021-04-08T13:03:56.762Z,-29.6978,-175.761,10,4.3,mb,,254,1.943,0.98,us,us6000e1u7,2021-06-12T21:38:41.040Z,"Kermadec Islands region",earthquake,8.6,2,0.202,8,reviewed,us,us
+2021-04-08T16:04:35.510Z,-28.7305,-176.4532,10,4.6,mb,,81,1.39,0.62,us,us6000e1ue,2021-06-12T21:38:43.040Z,"Kermadec Islands region",earthquake,9.6,1.3,0.141,16,reviewed,us,us
+2021-04-08T17:31:29.846Z,-28.489,-176.9347,10,4.8,mb,,133,1.152,1.19,us,us6000e03a,2025-12-22T18:56:44.075Z,"Kermadec Islands region",earthquake,10.9,1.9,0.116,31,reviewed,us,us
+2021-04-08T19:03:57.286Z,-28.3418,-177.2001,10,4.3,mb,,264,1.104,1.05,us,us6000e1ub,2021-06-12T21:38:47.040Z,"Kermadec Islands region",earthquake,12.9,2,0.189,9,reviewed,us,us
+2021-04-09T03:06:24.595Z,-28.5101,-177.0612,10,4.3,mb,,216,1.056,0.92,us,us6000e1un,2021-06-19T21:25:46.040Z,"Kermadec Islands region",earthquake,11.2,1.7,0.266,4,reviewed,us,us
+2021-04-09T08:28:17.911Z,-28.5271,-176.9032,10,4.5,mb,,245,1.149,0.62,us,us6000e1us,2021-06-19T21:25:47.040Z,"Kermadec Islands region",earthquake,9.4,2,0.163,11,reviewed,us,us
+2021-04-09T09:00:37.970Z,-29.3564,-177.0605,35,4.9,mb,,106,0.766,0.83,us,us6000e1v4,2021-06-19T21:25:49.040Z,"Kermadec Islands, New Zealand",earthquake,7,1.9,0.061,84,reviewed,us,us
+2021-04-10T08:35:24.590Z,-30.0279,-177.6124,10,4.6,mb,,137,0.827,0.64,us,us6000e22g,2021-06-19T21:25:57.040Z,"Kermadec Islands, New Zealand",earthquake,8.9,1.9,0.182,11,reviewed,us,us
+2021-04-10T14:13:53.673Z,-29.6423,-177.0346,10,4.4,mb,,202,0.874,0.98,us,us6000e22x,2021-06-19T21:25:59.040Z,"Kermadec Islands, New Zealand",earthquake,5.1,1.9,0.179,10,reviewed,us,us
+2021-04-10T17:51:32.840Z,-31.4674,-179.8538,349.19,4.9,mb,,69,2.77,0.71,us,us6000e0nn,2021-06-19T21:24:56.040Z,"Kermadec Islands region",earthquake,10.9,4.9,0.057,100,reviewed,us,us
+2021-04-10T23:48:16.346Z,-29.4496,-176.6589,9.25,4.4,mb,,199,1.127,0.27,us,us6000e23g,2021-06-19T21:26:02.040Z,"Kermadec Islands region",earthquake,15,7.7,0.269,4,reviewed,us,us
+2021-04-11T05:16:58.032Z,-28.9854,-176.4827,10,4.7,mb,,205,1.291,0.68,us,us6000e255,2021-06-19T21:26:04.040Z,"Kermadec Islands region",earthquake,7.7,1.9,0.166,13,reviewed,us,us
+2021-04-11T08:48:47.536Z,-28.5795,-177.3775,10,4.1,mb,,247,0.82,0.52,us,us6000e25d,2021-06-19T21:26:05.040Z,"Kermadec Islands region",earthquake,5.3,1.9,0.197,8,reviewed,us,us
+2021-04-11T14:40:08.985Z,-29.867,-176.9769,10,5,mb,,131,1.035,0.9,us,us6000e0ub,2021-06-19T21:25:06.040Z,"Kermadec Islands region",earthquake,8.9,1.8,0.097,34,reviewed,us,us
+2021-04-11T15:38:12.793Z,-30.3037,-177.1153,2.9,4.4,mb,,165,1.27,1.26,us,us6000e25e,2021-06-19T21:26:05.040Z,"Kermadec Islands, New Zealand",earthquake,13.5,3.6,0.22,9,reviewed,us,us
+2021-04-11T17:13:35.450Z,-29.9716,-177.5155,10,4.6,mb,,195,0.808,0.95,us,us6000e25i,2021-06-19T21:26:06.040Z,"Kermadec Islands, New Zealand",earthquake,8.6,2,0.165,12,reviewed,us,us
+2021-04-12T03:40:21.013Z,-28.8701,-176.4951,10,4.8,mb,,76,1.309,1.02,us,us6000e34g,2021-06-19T21:26:09.040Z,"Kermadec Islands region",earthquake,12.9,1.9,0.139,16,reviewed,us,us
+2021-04-12T05:26:14.303Z,-30.5758,-177.828,18.64,5.2,mww,,50,1.329,0.46,us,us6000e0yi,2025-12-22T18:58:02.812Z,"Kermadec Islands, New Zealand",earthquake,8.1,1.1,0.065,23,reviewed,us,us
+2021-04-12T11:43:56.026Z,-30.1841,-177.2413,10,4.5,mb,,213,1.11,0.6,us,us6000e34n,2021-06-19T21:26:09.040Z,"Kermadec Islands, New Zealand",earthquake,8.8,2,0.242,8,reviewed,us,us
+2021-04-12T19:12:12.780Z,-28.6219,-177.5744,20.43,4.4,mb,,191,0.694,0.49,us,us6000e355,2021-06-19T21:26:12.040Z,"Kermadec Islands region",earthquake,12.1,8.3,0.179,9,reviewed,us,us
+2021-04-13T21:47:37.504Z,-29.095,-176.36,10,4.7,mb,,122,1.38,1.35,us,us6000e38r,2021-06-19T21:26:19.040Z,"Kermadec Islands region",earthquake,5.2,1.9,0.138,16,reviewed,us,us
+2021-04-14T19:33:04.751Z,-29.3664,-177.9611,73.02,4.5,mb,,167,0.124,0.77,us,us6000e39x,2021-06-19T21:26:24.040Z,"Kermadec Islands, New Zealand",earthquake,13.2,6.6,0.157,12,reviewed,us,us
+2021-04-15T04:21:23.909Z,-28.5185,-177.4469,10,4.2,mb,,132,0.838,0.96,us,us6000e3g1,2021-06-19T21:26:29.040Z,"Kermadec Islands region",earthquake,7.8,1.9,0.304,3,reviewed,us,us
+2021-04-15T12:32:20.770Z,-29.1496,-176.9342,10,4.5,mb,,172,0.874,1.12,us,us6000e3ge,2021-06-19T21:26:31.040Z,"Kermadec Islands region",earthquake,9.8,1.8,0.192,8,reviewed,us,us
+2021-04-15T13:36:30.026Z,-27.6327,-176.6056,10,4.4,mb,,208,1.984,1.21,us,us6000e3gg,2021-06-19T21:26:31.040Z,"Kermadec Islands region",earthquake,6.4,2,0.162,12,reviewed,us,us
+2021-04-15T20:02:02.797Z,-29.5279,-176.9849,10,4.4,mb,,188,0.87,0.62,us,us6000e3gr,2021-06-19T21:26:32.040Z,"Kermadec Islands region",earthquake,11.2,1.6,0.268,7,reviewed,us,us
+2021-04-16T01:26:57.025Z,-27.5485,-176.5827,10,4.6,mb,,129,2.064,1.21,us,us6000e3mu,2021-07-03T16:49:05.040Z,"Kermadec Islands region",earthquake,10.3,1.8,0.158,12,reviewed,us,us
+2021-04-16T05:35:12.970Z,-30.2159,-177.0662,10,4.4,mb,,201,1.224,0.66,us,us6000e3mq,2021-07-03T16:49:05.040Z,"Kermadec Islands, New Zealand",earthquake,12.5,2,0.178,9,reviewed,us,us
+2021-04-16T05:54:55.032Z,-29.9712,-176.8234,10,4.6,mb,,162,1.204,0.32,us,us6000e3mr,2021-07-03T16:49:05.040Z,"Kermadec Islands region",earthquake,10.8,1.9,0.157,12,reviewed,us,us
+2021-04-16T17:22:27.445Z,-28.7123,-176.708,10,4.5,mb,,179,1.194,0.93,us,us6000e3n6,2021-07-03T16:49:07.040Z,"Kermadec Islands region",earthquake,11.5,1.9,0.14,17,reviewed,us,us
+2021-04-16T19:49:06.802Z,-29.9589,-177.8455,59.37,4.3,mb,,186,0.715,0.56,us,us6000e3nb,2021-07-03T16:49:08.040Z,"Kermadec Islands, New Zealand",earthquake,11.2,11.2,0.177,10,reviewed,us,us
+2021-04-16T20:00:18.880Z,-30.4136,-177.7661,10,5,mb,,114,1.173,0.82,us,us6000e27t,2021-07-03T16:47:43.040Z,"Kermadec Islands, New Zealand",earthquake,8.6,1.7,0.088,46,reviewed,us,us
+2021-04-16T22:13:10.970Z,-28.4343,-176.4756,10,5.1,mww,,51,1.509,1.13,us,us6000e28n,2025-12-22T18:56:30.554Z,"Kermadec Islands region",earthquake,8,1.7,0.098,10,reviewed,us,us
+2021-04-17T09:08:59.427Z,-27.1923,-175.9232,10,4.4,mb,,212,2.704,0.6,us,us6000e3pi,2021-07-03T16:49:11.040Z,"Kermadec Islands region",earthquake,12.1,2,0.155,14,reviewed,us,us
+2021-04-17T12:56:39.395Z,-30.99,-178.4664,10,4.6,mb,,157,1.8,0.74,us,us6000e3ps,2021-07-03T16:49:13.040Z,"Kermadec Islands, New Zealand",earthquake,9.9,1.9,0.109,27,reviewed,us,us
+2021-04-17T13:40:25.943Z,-29.9195,-177.8497,10,4.5,mb,,186,0.675,0.76,us,us6000e3pt,2021-07-03T16:49:14.040Z,"Kermadec Islands, New Zealand",earthquake,9.2,1.9,0.15,13,reviewed,us,us
+2021-04-18T12:09:07.135Z,-28.3997,-177.1631,10,4.4,mb,,179,1.077,0.88,us,us6000e3zh,2021-07-03T16:49:29.040Z,"Kermadec Islands region",earthquake,5.7,1.9,0.149,15,reviewed,us,us
+2021-04-18T17:03:39.854Z,-30.2217,-177.1577,10,5.2,mww,,57,1.182,1.25,us,us6000e2nw,2025-12-22T18:56:53.616Z,"Kermadec Islands, New Zealand",earthquake,8.4,1.8,0.066,22,reviewed,us,us
+2021-04-18T17:23:00.588Z,-30.044,-177.3231,10,4.5,mb,,199,0.955,0.29,us,us6000e3zp,2021-07-03T16:49:30.040Z,"Kermadec Islands, New Zealand",earthquake,6.5,2,0.222,7,reviewed,us,us
+2021-04-18T17:31:24.900Z,-30.4006,-177.7262,10,4.4,mb,,189,1.165,0.46,us,us6000e3zq,2021-07-03T16:49:31.040Z,"Kermadec Islands, New Zealand",earthquake,11.5,1.9,0.17,11,reviewed,us,us
+2021-04-20T10:24:23.593Z,-28.749,-176.708,10,4.7,mb,,85,1.178,0.43,us,us6000e50t,2021-07-03T16:49:43.040Z,"Kermadec Islands region",earthquake,7.5,1.9,0.13,18,reviewed,us,us
+2021-04-20T13:04:11.124Z,-31.5717,-177.5425,10,4.6,mb,,97,2.343,1.05,us,us6000e50u,2021-07-03T16:49:44.040Z,"Kermadec Islands region",earthquake,14.5,1.9,0.193,9,reviewed,us,us
+2021-04-20T17:31:20.258Z,-29.7452,-178.4039,10,4.3,mb,,140,0.648,0.36,us,us6000e50z,2021-07-03T16:49:45.040Z,"Kermadec Islands, New Zealand",earthquake,9.8,2,0.168,11,reviewed,us,us
+2021-04-21T09:00:27.686Z,-28.6478,-176.4503,10,4.5,mb,,206,11.344,0.44,us,us7000dxwj,2021-07-03T16:49:53.040Z,"Kermadec Islands region",earthquake,10.7,2,0.128,19,reviewed,us,us
+2021-04-23T00:52:45.234Z,-29.02,-178.0937,253.57,4.2,mb,,111,11.767,0.73,us,us7000dyjt,2021-07-07T18:33:41.040Z,"Kermadec Islands, New Zealand",earthquake,13.7,9.3,0.146,13,reviewed,us,us
+2021-04-23T18:53:35.366Z,-28.0766,-177.4464,10,4.6,mb,,188,1.239,0.64,us,us7000dyki,2021-07-07T18:34:02.040Z,"Kermadec Islands region",earthquake,12.6,2,0.193,11,reviewed,us,us
+2021-04-23T20:10:40.941Z,-28.9603,-177.2737,22.13,4.6,mb,,199,0.639,0.34,us,us7000dykn,2021-07-07T18:34:03.040Z,"Kermadec Islands region",earthquake,11.4,9.1,0.223,7,reviewed,us,us
+2021-04-24T01:14:50.084Z,-29.5172,-176.5817,10,4.7,mb,,146,1.206,1.15,us,us7000dykt,2021-07-07T18:34:09.040Z,"Kermadec Islands region",earthquake,7.4,1.9,0.195,8,reviewed,us,us
+2021-04-24T02:25:50.067Z,-28.4566,-177.2555,63.9,5,mb,,127,0.983,0.96,us,us7000dykv,2021-07-07T18:34:11.040Z,"Kermadec Islands region",earthquake,11,5.5,0.089,40,reviewed,us,us
+2021-04-24T05:30:31.226Z,-29.0649,-176.578,10,4.5,mb,,161,1.195,0.23,us,us7000dykz,2021-07-07T18:34:14.040Z,"Kermadec Islands region",earthquake,9.8,1.9,0.172,10,reviewed,us,us
+2021-04-24T08:16:44.281Z,-29.1177,-176.3943,10,4.5,mb,,228,1.348,0.8,us,us7000dyl3,2021-07-07T18:34:17.040Z,"Kermadec Islands region",earthquake,11.4,1.9,0.163,11,reviewed,us,us
+2021-04-24T09:02:27.709Z,-29.6127,-176.0609,10,4.2,mb,,258,1.67,0.31,us,us7000dylb,2021-07-07T18:34:21.040Z,"Kermadec Islands region",earthquake,8,2,0.166,11,reviewed,us,us
+2021-04-24T09:56:39.208Z,-32.3689,-177.6993,10,4.7,mb,,176,3.12,0.78,us,us7000dyl8,2021-07-07T18:34:24.040Z,"south of the Kermadec Islands",earthquake,11.1,1.9,0.115,23,reviewed,us,us
+2021-04-24T22:13:31.996Z,-28.6254,-176.6732,10,4.4,mb,,198,1.262,0.42,us,us7000dyls,2021-07-07T18:34:41.040Z,"Kermadec Islands region",earthquake,8.8,2,0.219,6,reviewed,us,us
+2021-04-25T18:40:11.696Z,-28.2933,-178.8329,10,4.5,mb,,230,1.236,0.77,us,us7000dyx6,2021-07-07T18:35:04.040Z,"Kermadec Islands region",earthquake,15.2,2,0.313,3,reviewed,us,us
+2021-04-25T18:49:32.709Z,-31.531,-178.8841,10,4.5,mb,,160,2.423,1.04,us,us7000dyx5,2021-07-07T18:35:05.040Z,"Kermadec Islands region",earthquake,12.5,1.9,0.191,8,reviewed,us,us
+2021-04-26T04:26:04.883Z,-29.4225,-176.7335,10,4.6,mb,,187,1.058,0.95,us,us7000dyzm,2021-07-07T18:35:16.040Z,"Kermadec Islands region",earthquake,9.6,1.9,0.152,13,reviewed,us,us
+2021-04-26T13:42:21.701Z,-29.2248,-177.482,56.11,5.2,mww,,60,0.391,0.88,us,us6000e4yi,2025-12-22T18:58:08.936Z,"Kermadec Islands, New Zealand",earthquake,9.2,0.7,0.068,21,reviewed,us,us
+2021-04-26T16:30:33.992Z,-30.0044,-177.5719,10,4.6,mb,,109,0.818,0.59,us,us7000dz06,2021-07-07T18:35:35.040Z,"Kermadec Islands, New Zealand",earthquake,8.2,1.7,0.181,15,reviewed,us,us
+2021-04-26T19:57:54.228Z,-29.0682,-176.5589,10,4.9,mb,,115,1.211,1.18,us,us7000dxl1,2021-07-07T18:35:41.040Z,"Kermadec Islands region",earthquake,10.8,1.8,0.082,47,reviewed,us,us
+2021-04-26T21:07:27.653Z,-29.1325,-176.6817,10,5.7,mww,,42,1.096,1,us,us7000dxn6,2025-12-22T18:57:07.598Z,"Kermadec Islands region",earthquake,9,1.8,0.052,36,reviewed,us,us
+2021-04-26T21:12:10.826Z,-29.1423,-176.6779,10,5.2,mb,,124,1.098,1.05,us,us7000dxng,2025-12-22T18:57:08.910Z,"Kermadec Islands region",earthquake,5.2,1.6,0.072,63,reviewed,us,us
+2021-04-26T22:43:10.464Z,-28.6143,-176.8407,10,4.6,mb,,249,1.142,0.84,us,us7000dz0k,2021-07-07T18:35:47.040Z,"Kermadec Islands region",earthquake,14.8,2,0.182,9,reviewed,us,us
+2021-04-27T00:11:29.735Z,-29.7992,-176.5028,10,4.4,mb,,187,1.36,1.1,us,us7000e01y,2021-07-07T18:35:51.040Z,"Kermadec Islands region",earthquake,9.5,2,0.24,5,reviewed,us,us
+2021-04-27T00:35:22.029Z,-29.2593,-176.7036,10,4.7,mb,,187,1.07,0.88,us,us7000e01z,2021-07-07T18:35:52.040Z,"Kermadec Islands region",earthquake,13.4,1.9,0.194,8,reviewed,us,us
+2021-04-27T00:44:55.751Z,-29.3414,-176.8253,10,5,mb,,75,0.968,0.85,us,us7000dxq4,2025-12-22T18:57:10.015Z,"Kermadec Islands region",earthquake,6.3,1.7,0.065,75,reviewed,us,us
+2021-04-27T01:28:06.416Z,-29.0381,-178.6004,10,4.6,mb,,71,0.622,0.82,us,us7000dxqe,2021-07-07T18:35:53.040Z,"Kermadec Islands, New Zealand",earthquake,6.9,1.8,0.126,19,reviewed,us,us
+2021-04-27T01:36:51.579Z,-28.2569,-177.8254,10,4.4,mb,,217,0.988,0.26,us,us7000e020,2021-07-07T18:35:54.040Z,"Kermadec Islands region",earthquake,8.8,2,0.17,10,reviewed,us,us
+2021-04-27T02:22:57.735Z,-30.8366,-177.796,10,4.7,mb,,136,1.59,0.65,us,us7000e021,2021-07-07T18:35:55.040Z,"Kermadec Islands, New Zealand",earthquake,11.4,1.9,0.159,12,reviewed,us,us
+2021-04-27T04:02:12.586Z,-28.3987,-177.7541,10,4.4,mb,,267,0.857,0.53,us,us7000e025,2021-07-07T18:35:59.040Z,"Kermadec Islands region",earthquake,8.3,2,0.144,14,reviewed,us,us
+2021-04-27T11:20:39.241Z,-29.2842,-176.7788,10,4.4,mb,,199,1.005,0.31,us,us7000e02n,2021-07-07T18:36:09.040Z,"Kermadec Islands region",earthquake,5.5,1.9,0.189,10,reviewed,us,us
+2021-04-27T13:29:12.901Z,-29.5126,-176.8119,10,4.8,mb,,179,1.01,0.94,us,us7000dxuv,2021-07-07T18:36:15.040Z,"Kermadec Islands region",earthquake,11.5,1.9,0.176,12,reviewed,us,us
+2021-04-27T16:33:34.253Z,-29.1216,-176.8483,13,5.9,mww,,47,0.953,0.97,us,us7000dxxy,2025-12-22T18:57:16.074Z,"Kermadec Islands region",earthquake,9.3,1.8,0.053,34,reviewed,us,us
+2021-04-27T16:43:10.654Z,-29.4379,-176.784,10,5.1,mb,,61,1.018,0.68,us,us7000dxy2,2025-12-22T18:57:17.389Z,"Kermadec Islands region",earthquake,4.6,1.8,0.045,165,reviewed,us,us
+2021-04-27T16:58:27.988Z,-29.0109,-176.8276,10,4.4,mb,,113,0.991,0.85,us,us7000e037,2021-07-07T18:36:29.040Z,"Kermadec Islands region",earthquake,7.9,2,0.19,8,reviewed,us,us
+2021-04-27T17:15:48.730Z,-29.4915,-176.6858,10,4.9,mb,,68,1.112,0.77,us,us7000dxyp,2025-12-22T18:00:45.263Z,"Kermadec Islands region",earthquake,7.6,1.8,0.059,100,reviewed,us,us
+2021-04-27T17:53:06.571Z,-29.7129,-176.877,10,5.3,mww,,41,1.029,0.77,us,us7000dxys,2025-12-22T18:58:11.281Z,"Kermadec Islands region",earthquake,8,1.7,0.068,21,reviewed,us,us
+2021-04-27T18:28:58.323Z,-29.4163,-176.7657,10,4.9,mb,,57,1.03,0.6,us,us7000dxzc,2025-12-22T18:57:18.584Z,"Kermadec Islands region",earthquake,9.1,1.8,0.055,112,reviewed,us,us
+2021-04-27T18:37:04.080Z,-28.9062,-176.6714,10,4.3,mb,,264,1.151,0.23,us,us7000e031,2021-07-07T18:36:38.040Z,"Kermadec Islands region",earthquake,12.2,2,0.201,7,reviewed,us,us
+2021-04-27T18:52:01.575Z,-29.1357,-176.6997,10,4.6,mb,,199,1.08,0.53,us,us7000e033,2021-07-07T18:36:39.040Z,"Kermadec Islands region",earthquake,11.3,1.9,0.183,9,reviewed,us,us
+2021-04-28T02:57:26.072Z,-29.2521,-176.7309,10,5.1,mb,,60,1.047,0.57,us,us7000dy3t,2021-07-07T18:36:51.040Z,"Kermadec Islands region",earthquake,7,1.7,0.065,76,reviewed,us,us
+2021-04-28T03:01:53.077Z,-28.2195,-177.5189,10,4.5,mb,,219,1.083,0.44,us,us7000e0cd,2021-07-07T18:36:52.040Z,"Kermadec Islands region",earthquake,9.9,2,0.181,10,reviewed,us,us
+2021-04-28T03:55:43.357Z,-28.9753,-176.9347,10,4.5,mb,,257,0.91,0.89,us,us7000e0cc,2021-07-07T18:36:53.040Z,"Kermadec Islands region",earthquake,7.1,1.9,0.157,12,reviewed,us,us
+2021-04-28T04:24:32.171Z,-29.5158,-176.7996,10,5,mb,,70,1.022,0.85,us,us7000dy4h,2025-12-22T18:58:17.279Z,"Kermadec Islands region",earthquake,8.1,1.8,0.049,131,reviewed,us,us
+2021-04-28T10:26:41.162Z,-28.8616,-176.5928,10,4.5,mb,,228,1.23,0.34,us,us7000e0cr,2021-07-07T18:37:04.040Z,"Kermadec Islands region",earthquake,9.9,1.9,0.163,13,reviewed,us,us
+2021-04-28T10:46:50.961Z,-29.3622,-176.1445,10,4.5,mb,,252,1.563,0.43,us,us7000e0cg,2021-07-07T18:37:06.040Z,"Kermadec Islands region",earthquake,12.3,1.9,0.171,11,reviewed,us,us
+2021-04-28T15:25:21.694Z,-29.1429,-176.7861,10,4.8,mb,,113,1.004,1.11,us,us7000dy8f,2021-07-07T18:37:13.040Z,"Kermadec Islands region",earthquake,7.6,1.3,0.101,30,reviewed,us,us
+2021-04-28T20:36:09.654Z,-28.3689,-177.3605,10,4.4,mb,,229,1.005,0.87,us,us7000e0cx,2021-07-07T18:37:20.040Z,"Kermadec Islands region",earthquake,12.9,1.9,0.218,7,reviewed,us,us
+2021-04-28T20:39:00.187Z,-28.4855,-177.7916,10,4.4,mb,,199,0.766,0.85,us,us7000e0cw,2021-07-07T18:37:20.040Z,"Kermadec Islands region",earthquake,7.8,2,0.19,10,reviewed,us,us
+2021-04-28T20:49:51.837Z,-29.336,-176.8262,10,4.5,mb,,187,0.967,0.63,us,us7000e0cy,2021-07-07T18:37:21.040Z,"Kermadec Islands region",earthquake,11.5,1.9,0.156,12,reviewed,us,us
+2021-04-28T21:41:47.593Z,-28.2752,-176.9917,43.51,4.4,mb,,198,1.269,0.82,us,us7000e0d0,2021-07-07T18:37:23.040Z,"Kermadec Islands region",earthquake,12.1,8.5,0.24,5,reviewed,us,us
+2021-04-29T06:50:26.915Z,-29.339,-176.3205,10,6.1,mww,,190,1.408,0.65,us,us7000dygd,2025-12-22T18:58:18.485Z,"Kermadec Islands region",earthquake,8.6,1.9,0.044,49,reviewed,us,us
+2021-04-29T06:53:52.451Z,-29.0903,-177.0123,10,5.5,mb,,70,0.816,0.62,us,us7000dyh1,2025-12-22T18:58:19.582Z,"Kermadec Islands, New Zealand",earthquake,6.7,1.8,0.045,175,reviewed,us,us
+2021-04-29T07:06:38.251Z,-29.3293,-176.7186,10,5,mb,,129,1.06,0.75,us,us7000dygk,2021-07-07T18:37:34.040Z,"Kermadec Islands region",earthquake,5.8,1.9,0.105,29,reviewed,us,us
+2021-04-29T07:09:17.998Z,-29.2727,-176.8509,10,5,mb,,75,0.942,0.43,us,us7000e0pa,2021-07-07T18:37:35.040Z,"Kermadec Islands region",earthquake,10.1,1.8,0.09,39,reviewed,us,us
+2021-04-29T07:17:04.591Z,-29.7502,-177.2011,10,4.2,mb,,232,0.81,0.69,us,us7000e0pl,2021-07-07T18:37:35.040Z,"Kermadec Islands, New Zealand",earthquake,8.7,2,0.176,9,reviewed,us,us
+2021-04-29T07:20:53.291Z,-28.1231,-176.2229,10,4.8,mb,,122,11.595,0.63,us,us7000e0pq,2021-07-07T18:37:35.040Z,"Kermadec Islands region",earthquake,12.5,1.1,0.119,22,reviewed,us,us
+2021-04-29T07:23:04.335Z,-28.6756,-176.3743,10,4.7,mb,,163,11.351,0.79,us,us7000e0qk,2021-07-07T18:37:36.040Z,"Kermadec Islands region",earthquake,14.1,2,0.166,11,reviewed,us,us
+2021-04-29T07:39:20.362Z,-29.6515,-177.4753,50.27,4.5,mb,,224,0.566,0.42,us,us7000e0pr,2021-07-07T18:37:37.040Z,"Kermadec Islands, New Zealand",earthquake,13.2,13.3,0.151,13,reviewed,us,us
+2021-04-29T07:44:55.699Z,-29.9913,-177.7607,10,4.7,mb,,132,0.758,1.07,us,us7000dyh7,2021-07-07T18:37:37.040Z,"Kermadec Islands, New Zealand",earthquake,4.9,1.9,0.104,28,reviewed,us,us
+2021-04-29T08:19:22.975Z,-29.8818,-177.555,10,4.5,mb,,199,0.713,0.37,us,us7000e0pc,2021-07-07T18:37:38.040Z,"Kermadec Islands, New Zealand",earthquake,14.2,1.8,0.18,9,reviewed,us,us
+2021-04-29T08:26:21.240Z,-28.927,-176.7877,10,4.3,mb,,231,1.048,0.78,us,us7000e0pd,2021-07-07T18:37:38.040Z,"Kermadec Islands region",earthquake,13.2,2,0.168,10,reviewed,us,us
+2021-04-29T09:11:27.200Z,-30.0191,-177.7012,10,4.3,mb,,195,0.796,1.04,us,us7000e0pe,2021-07-07T18:37:39.040Z,"Kermadec Islands, New Zealand",earthquake,6.6,2,0.218,7,reviewed,us,us
+2021-04-29T09:19:24.797Z,-29.1802,-176.8106,10,4.6,mb,,169,0.979,0.89,us,us7000dyht,2021-07-07T18:37:39.040Z,"Kermadec Islands region",earthquake,10.4,1.9,0.114,23,reviewed,us,us
+2021-04-29T10:51:19.993Z,-29.6259,-176.7807,10,4.4,mb,,227,1.071,0.44,us,us7000e0q1,2021-07-07T18:37:42.040Z,"Kermadec Islands region",earthquake,9.3,2,0.17,13,reviewed,us,us
+2021-04-29T12:25:27.486Z,-29.4702,-176.7418,10,5,mb,,106,1.06,1.2,us,us7000dyix,2025-12-22T18:00:46.102Z,"Kermadec Islands region",earthquake,7.1,1.8,0.074,61,reviewed,us,us
+2021-04-29T13:49:14.785Z,-28.4692,-177.5231,10,4.5,mb,,270,0.851,1.12,us,us7000e0pu,2021-07-07T18:37:48.040Z,"Kermadec Islands region",earthquake,9.4,1.9,0.271,4,reviewed,us,us
+2021-04-29T13:54:12.223Z,-29.5209,-176.6173,10,4.9,mb,,195,1.177,0.71,us,us7000dyjl,2025-12-22T18:00:42.180Z,"Kermadec Islands region",earthquake,8.3,1.9,0.122,23,reviewed,us,us
+2021-04-29T13:55:32.114Z,-29.1103,-176.8215,10,4.9,mb,,178,0.977,0.88,us,us7000dyjn,2025-12-22T18:58:20.660Z,"Kermadec Islands region",earthquake,9.6,1.6,0.09,39,reviewed,us,us
+2021-04-29T17:19:41.768Z,-29.4046,-176.8362,10,4.6,mb,,187,0.967,0.67,us,us7000e0q2,2021-07-07T18:38:07.040Z,"Kermadec Islands region",earthquake,6.7,1.9,0.206,7,reviewed,us,us
+2021-04-29T18:00:07.145Z,-29.0069,-176.8288,10,4.5,mb,,199,0.991,0.83,us,us7000e0q5,2021-07-07T18:38:09.040Z,"Kermadec Islands region",earthquake,14.6,1.9,0.382,5,reviewed,us,us
+2021-04-29T21:39:08.330Z,-30.3376,-177.5889,13.45,4.8,mb,,177,1.128,0.88,us,us7000e0qc,2021-07-07T18:38:17.040Z,"Kermadec Islands, New Zealand",earthquake,9.3,4,0.111,25,reviewed,us,us
+2021-04-30T02:06:19.128Z,-29.6157,-177.7379,52.23,5.2,mww,,70,0.405,0.92,us,us7000dyts,2025-12-22T19:05:48.362Z,"Kermadec Islands, New Zealand",earthquake,9.8,4.2,0.083,14,reviewed,us,us
+2021-04-30T05:37:12.890Z,-28.7551,-176.6237,10,4.4,mb,,232,1.243,0.58,us,us7000e0qt,2021-07-10T20:15:43.040Z,"Kermadec Islands region",earthquake,14.1,2,0.179,9,reviewed,us,us
+2021-04-30T15:18:35.528Z,-29.8474,-176.6239,10,4.5,mb,,243,1.285,0.73,us,us7000e0qy,2021-07-10T20:15:44.040Z,"Kermadec Islands region",earthquake,10.6,2,0.171,12,reviewed,us,us
+2021-05-01T03:23:42.373Z,-30.8215,-179.1594,227.59,4.6,mb,,146,1.899,1.11,us,us7000e102,2021-07-10T20:15:51.040Z,"Kermadec Islands region",earthquake,13.3,7.4,0.151,13,reviewed,us,us
+2021-05-01T04:41:29.093Z,-29.4546,-176.7723,10,4.5,mb,,187,1.031,1.24,us,us7000e103,2021-07-10T20:15:51.040Z,"Kermadec Islands region",earthquake,8.2,1.9,0.205,7,reviewed,us,us
+2021-05-01T18:40:21.498Z,-28.4245,-177.8565,22.49,4.3,mb,,188,0.82,0.79,us,us7000e10r,2021-07-10T20:15:54.040Z,"Kermadec Islands region",earthquake,6.7,6.8,0.238,5,reviewed,us,us
+2021-05-01T21:20:17.346Z,-29.8297,-177.5853,34.88,4.4,mb,,188,0.655,0.26,us,us7000e10w,2021-07-10T20:15:54.040Z,"Kermadec Islands, New Zealand",earthquake,15.1,8.2,0.31,3,reviewed,us,us
+2021-05-02T12:39:15.754Z,-29.8788,-176.6277,10,4.4,mb,,193,1.297,0.37,us,us7000e126,2021-07-10T20:15:57.040Z,"Kermadec Islands region",earthquake,9,2,0.131,17,reviewed,us,us
+2021-05-02T15:30:00.837Z,-28.7545,-177.5015,58.52,4.5,mb,,104,0.615,0.53,us,us7000e12a,2021-07-10T20:15:57.040Z,"Kermadec Islands region",earthquake,9.6,7.1,0.163,11,reviewed,us,us
+2021-05-02T21:05:21.191Z,-30.7252,-177.8204,10,4.5,mb,,182,1.478,0.49,us,us7000dzjz,2021-07-10T20:15:03.040Z,"Kermadec Islands, New Zealand",earthquake,10.3,1.9,0.14,15,reviewed,us,us
+2021-05-02T21:54:09.313Z,-29.6205,-177.1027,10,4.5,mb,,136,0.812,0.57,us,us7000e12l,2021-07-10T20:15:59.040Z,"Kermadec Islands, New Zealand",earthquake,9.3,1.9,0.151,13,reviewed,us,us
+2021-05-02T22:20:51.021Z,-29.3867,-176.8894,10,4.6,mb,,151,0.918,0.77,us,us7000e12j,2021-07-10T20:15:59.040Z,"Kermadec Islands region",earthquake,10.4,1.9,0.146,14,reviewed,us,us

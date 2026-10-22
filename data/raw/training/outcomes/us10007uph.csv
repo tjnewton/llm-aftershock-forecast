@@ -1,0 +1,70 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2017-01-22T04:30:22.960Z,-6.2464,155.1718,135,7.9,mww,,9,3.625,1.22,us,us10007uph,2022-05-03T18:57:22.533Z,"35 km WNW of Panguna, Papua New Guinea",earthquake,7.3,1.8,0.042,54,reviewed,us,us
+2017-01-22T04:44:52.760Z,-6.7363,153.6022,10,5.6,mb,,51,2.878,1,us,us10007upq,2022-05-03T18:09:21.089Z,"213 km WSW of Panguna, Papua New Guinea",earthquake,8.4,1.8,0.077,59,reviewed,us,us
+2017-01-22T05:15:01.320Z,-6.0047,154.9363,165.33,4.5,mb,,140,3.297,0.29,us,us20008i60,2017-04-19T18:30:54.040Z,"69 km WNW of Panguna, Papua New Guinea",earthquake,9,9.9,0.14,15,reviewed,us,us
+2017-01-22T05:25:48.410Z,-5.712,153.4332,10,4.4,mb,,99,1.97,0.67,us,us20008i50,2017-04-19T18:30:54.040Z,"198 km SE of Kokopo, Papua New Guinea",earthquake,4.4,1.9,0.126,18,reviewed,us,us
+2017-01-22T05:37:40.070Z,-5.867,154.6655,139.49,4.6,mb,,120,2.997,0.57,us,us10007urt,2017-04-19T18:30:54.040Z,"103 km WNW of Panguna, Papua New Guinea",earthquake,10.9,7.2,0.065,70,reviewed,us,us
+2017-01-22T06:13:54.740Z,-5.93,155.202,150.11,4.4,mb,,115,3.484,0.58,us,us20008i4k,2017-04-19T18:30:54.040Z,"52 km NW of Arawa, Papua New Guinea",earthquake,12.4,5,0.112,25,reviewed,us,us
+2017-01-22T06:23:10.410Z,-5.8384,154.7862,154.57,4,mb,,179,3.082,0.26,us,us20008i4l,2017-04-19T18:30:54.040Z,"93 km NW of Panguna, Papua New Guinea",earthquake,9.9,9.6,0.15,12,reviewed,us,us
+2017-01-22T06:30:41.570Z,-5.9856,154.6635,167.82,4.2,mb,,178,3.062,0.57,us,us20008i52,2017-04-19T18:30:54.040Z,"97 km WNW of Panguna, Papua New Guinea",earthquake,11.5,10.8,0.136,15,reviewed,us,us
+2017-01-22T07:02:38.980Z,-6.54,154.356,10,4,mb,,177,3.195,0.56,us,us20008i4m,2017-04-19T18:30:54.040Z,"127 km W of Panguna, Papua New Guinea",earthquake,12.2,2,0.15,12,reviewed,us,us
+2017-01-22T10:00:25.430Z,-6.9117,154.466,10,4.2,mb,,184,3.543,0.65,us,us20008i5a,2017-04-19T18:30:55.040Z,"130 km WSW of Panguna, Papua New Guinea",earthquake,10.5,2,0.152,12,reviewed,us,us
+2017-01-22T13:31:59.460Z,-5.8334,153.479,21.67,4.9,mb,,116,2.092,0.59,us,us10007uu0,2017-04-19T18:30:55.040Z,"212 km SE of Kokopo, Papua New Guinea",earthquake,8.3,5.3,0.073,60,reviewed,us,us
+2017-01-22T18:35:39.150Z,-5.9034,155.0341,150.54,4.3,mb,,188,3.327,1.16,us,us20008i5n,2017-04-19T18:30:55.040Z,"67 km NW of Panguna, Papua New Guinea",earthquake,10.1,5.9,0.137,15,reviewed,us,us
+2017-01-22T22:26:50.230Z,-6.0512,153.7693,50.81,4.9,mb,,64,2.443,0.75,us,us10007uwj,2017-04-19T18:30:55.040Z,"192 km W of Panguna, Papua New Guinea",earthquake,7.9,7,0.087,42,reviewed,us,us
+2017-01-23T03:06:14.700Z,-5.5129,153.158,10,4.3,mb,,161,1.645,0.58,us,us20008i6t,2017-04-19T18:30:56.040Z,"162 km SE of Kokopo, Papua New Guinea",earthquake,9.3,1.8,0.111,23,reviewed,us,us
+2017-01-24T18:23:50.350Z,-5.4544,153.5927,58.24,4.4,mb,,122,1.898,1.04,us,us20008ih5,2017-04-19T18:30:58.040Z,"191 km SE of Kokopo, Papua New Guinea",earthquake,5.2,10.9,0.17,10,reviewed,us,us
+2017-01-24T20:37:59.110Z,-6.0937,154.1673,35,5.2,mb,,27,2.748,0.87,us,us10007v93,2025-12-22T17:20:56.780Z,"147 km W of Panguna, Papua New Guinea",earthquake,3.5,1.9,0.056,106,reviewed,us,us
+2017-01-26T14:01:23.190Z,-6.3204,154.3992,49.08,4.3,mb,,100,3.07,0.65,us,us20008iqd,2017-04-19T18:31:00.040Z,"120 km W of Panguna, Papua New Guinea",earthquake,6.2,10.4,0.142,14,reviewed,us,us
+2017-01-28T01:43:28.790Z,-5.9446,154.7493,166.27,4.6,mb,,94,3.109,0.5,us,us10007vw6,2017-04-19T18:31:02.040Z,"91 km WNW of Panguna, Papua New Guinea",earthquake,5.6,7.7,0.086,40,reviewed,us,us
+2017-01-28T05:57:59.930Z,-5.9874,154.8186,169.82,4.6,mb,,118,3.19,0.62,us,us10007vwr,2017-04-19T18:31:03.040Z,"82 km WNW of Panguna, Papua New Guinea",earthquake,10.1,7.3,0.075,52,reviewed,us,us
+2017-01-31T00:20:47.050Z,-4.6321,154.0196,99.71,4.2,mb,,183,1.901,1.05,us,us20008jxx,2017-04-27T01:38:39.040Z,"196 km E of Kokopo, Papua New Guinea",earthquake,12.4,9.5,0.141,14,reviewed,us,us
+2017-01-31T00:55:51.450Z,-6.1254,155.6784,10,4.5,mb,,138,3.993,0.76,us,us20008jx7,2017-04-27T01:38:39.040Z,"11 km NNE of Kieta, Papua New Guinea",earthquake,10.8,1.9,0.172,10,reviewed,us,us
+2017-01-31T19:58:37.020Z,-6.5539,154.4917,10,4.5,mb,,196,3.298,1.09,us,us20008jxq,2017-04-27T01:38:40.040Z,"112 km WSW of Panguna, Papua New Guinea",earthquake,12.2,2,0.171,11,reviewed,us,us
+2017-02-03T11:58:46.050Z,-6.4511,154.675,10,4.5,mb,,93,3.36,1.05,us,us20008k8f,2017-04-27T01:38:43.040Z,"90 km W of Panguna, Papua New Guinea",earthquake,10.7,1.9,0.085,41,reviewed,us,us
+2017-02-03T23:15:01.530Z,-6.1184,154.471,35,4.6,mb,,61,2.991,0.92,us,us20008hnd,2017-04-27T01:38:43.040Z,"114 km W of Panguna, Papua New Guinea",earthquake,4.8,2,0.074,55,reviewed,us,us
+2017-02-09T21:07:48.370Z,-5.1774,153.8192,50.87,4.4,mb,,210,1.919,0.66,us,us20008l5b,2017-05-09T01:24:32.040Z,"195 km ESE of Kokopo, Papua New Guinea",earthquake,7.6,12.9,0.219,6,reviewed,us,us
+2017-02-10T11:43:47.950Z,-5.3691,154.2556,162.72,4.4,mb,,82,2.39,0.67,us,us20008lej,2017-05-09T01:24:33.040Z,"171 km NW of Panguna, Papua New Guinea",earthquake,11,7.9,0.097,31,reviewed,us,us
+2017-02-11T07:33:13.130Z,-5.6863,153.6297,37.01,5,mb,,69,2.083,0.96,us,us20008j59,2025-12-22T17:21:21.764Z,"211 km SE of Kokopo, Papua New Guinea",earthquake,8.6,7.4,0.071,62,reviewed,us,us
+2017-02-11T07:59:18.580Z,-5.8179,153.8572,10,4.2,mb,,172,2.336,0.39,us,us20008lg6,2017-05-09T01:24:34.040Z,"188 km WNW of Panguna, Papua New Guinea",earthquake,6,1.9,0.118,20,reviewed,us,us
+2017-02-12T23:42:39.630Z,-6.353,153.7646,35,4.5,mb,,116,2.67,0.58,us,us20008lii,2017-05-13T01:03:18.040Z,"190 km W of Panguna, Papua New Guinea",earthquake,5.1,2,0.132,17,reviewed,us,us
+2017-02-14T11:09:48.640Z,-4.6423,153.6694,88.02,4.5,mb,,116,1.566,0.62,us,us20008m22,2017-05-13T01:03:19.040Z,"158 km ESE of Kokopo, Papua New Guinea",earthquake,11.5,8.1,0.121,20,reviewed,us,us
+2017-02-14T13:55:28.760Z,-6.2328,153.8948,35,4.2,mb,,183,2.661,1.1,us,us20008m25,2017-05-13T01:03:19.040Z,"176 km W of Panguna, Papua New Guinea",earthquake,5.9,2,0.187,8,reviewed,us,us
+2017-02-14T13:56:57.420Z,-6.4268,153.5116,35.87,4.6,mb,,90,2.595,0.63,us,us20008m2a,2017-05-13T01:03:19.040Z,"218 km W of Panguna, Papua New Guinea",earthquake,6.4,7,0.085,42,reviewed,us,us
+2017-02-14T22:19:56.280Z,-5.8787,154.618,75.19,5.1,mb,,100,2.964,0.75,us,us20008jtf,2025-12-22T17:21:25.047Z,"107 km WNW of Panguna, Papua New Guinea",earthquake,8.3,7.2,0.072,63,reviewed,us,us
+2017-02-17T12:27:00.670Z,-6.8569,154.3463,35,4.2,mb,,179,3.425,1.02,us,us20008mru,2017-05-13T01:03:23.040Z,"139 km WSW of Panguna, Papua New Guinea",earthquake,11.6,2,0.152,12,reviewed,us,us
+2017-02-19T23:29:02.310Z,-6.0832,154.9004,161.55,4.5,mb,,119,3.311,0.69,us,us100085rx,2017-05-17T01:19:32.040Z,"69 km WNW of Panguna, Papua New Guinea",earthquake,11.9,8,0.093,34,reviewed,us,us
+2017-02-20T07:42:36.470Z,-5.846,154.597,176.89,4.5,mb,,55,2.928,0.72,us,us100085z8,2017-05-17T01:19:33.040Z,"111 km WNW of Panguna, Papua New Guinea",earthquake,10.5,7.7,0.084,41,reviewed,us,us
+2017-02-20T14:59:06.780Z,-5.0078,153.579,56.88,5,mb,,99,1.627,0.6,us,us20008kwg,2025-12-22T17:21:29.681Z,"162 km ESE of Kokopo, Papua New Guinea",earthquake,4.9,6.8,0.058,95,reviewed,us,us
+2017-02-21T06:45:30.970Z,-6.9512,155.145,10,4.5,mb,,139,4.04,0.76,us,us1000860w,2017-05-17T01:19:34.040Z,"79 km SSW of Panguna, Papua New Guinea",earthquake,14.6,1.9,0.145,16,reviewed,us,us
+2017-02-24T01:57:46.030Z,-5.7826,154.9169,172.53,4.2,mb,,90,3.165,1.05,us,us20008lxf,2017-05-17T01:19:37.040Z,"Bougainville region, Papua New Guinea",earthquake,13.7,9.4,0.136,15,reviewed,us,us
+2017-02-26T00:44:15.200Z,-5.7401,154.8161,99.42,4.3,mb,,124,3.057,0.46,us,us100087aw,2017-05-24T02:48:08.040Z,"97 km NW of Panguna, Papua New Guinea",earthquake,14.3,8.5,0.138,15,reviewed,us,us
+2017-02-26T01:30:04.930Z,-5.8643,153.3486,17.22,4.6,mb,,154,2.032,0.62,us,us20008mgp,2017-05-24T02:48:08.040Z,"206 km SE of Kokopo, Papua New Guinea",earthquake,9.8,5.9,0.094,34,reviewed,us,us
+2017-02-26T10:15:53.760Z,-5.8287,154.8112,192.23,4.5,mb,,188,3.098,0.72,us,us100087b4,2017-05-24T02:48:08.040Z,"92 km NW of Panguna, Papua New Guinea",earthquake,17.2,11.7,0.118,21,reviewed,us,us
+2017-02-27T11:26:30.860Z,-5.9903,154.9477,176.27,4.6,mb,,142,3.299,0.48,us,us20008mnp,2017-05-24T02:48:09.040Z,"69 km WNW of Panguna, Papua New Guinea",earthquake,11.7,6.4,0.119,21,reviewed,us,us
+2017-02-27T17:32:09.690Z,-6.5051,155.1476,342.81,4.1,mb,,120,3.756,0.52,us,us100087hk,2017-05-24T02:48:10.040Z,"42 km WSW of Panguna, Papua New Guinea",earthquake,8.3,8.8,0.109,23,reviewed,us,us
+2017-02-28T14:36:57.200Z,-5.6641,154.302,35,4.1,mb,,215,2.584,0.5,us,us100087qn,2017-05-24T02:48:11.040Z,"149 km WNW of Panguna, Papua New Guinea",earthquake,9.7,2,0.157,11,reviewed,us,us
+2017-03-01T02:32:13.320Z,-5.5002,153.7878,29.25,4.5,mb,,101,2.076,0.67,us,us100085vm,2017-05-24T02:48:11.040Z,"208 km WNW of Panguna, Papua New Guinea",earthquake,6.4,4.7,0.103,28,reviewed,us,us
+2017-03-01T20:25:13.270Z,-8.1956,156.1596,10,4.4,mb,,105,3.942,0.57,us,us1000884f,2017-05-24T02:48:12.040Z,"75 km W of Gizo, Solomon Islands",earthquake,10.9,1.9,0.17,10,reviewed,us,us
+2017-03-02T10:09:43.880Z,-6.3956,155.1589,40.61,4.8,mb,,109,3.7,0.9,us,us100086gr,2017-05-24T02:48:13.040Z,"37 km WSW of Panguna, Papua New Guinea",earthquake,6,9.8,0.109,26,reviewed,us,us
+2017-03-02T20:14:27.700Z,-6.0919,154.97,161.18,4.8,mb,,56,3.373,0.96,us,us100086ku,2017-05-24T02:48:13.040Z,"62 km WNW of Panguna, Papua New Guinea",earthquake,8.8,8.2,0.06,87,reviewed,us,us
+2017-03-04T02:58:20.280Z,-7.3277,155.748,17,6.1,mww,,15,4.654,1.03,us,us100086x7,2022-05-03T19:51:11.454Z,"115 km SSE of Panguna, Papua New Guinea",earthquake,6.8,1.6,0.056,31,reviewed,us,us
+2017-03-04T03:16:31.960Z,-7.267,155.7056,23.63,5.2,mb,,28,4.664,0.86,us,us100086x8,2022-05-03T19:51:12.690Z,"107 km SSE of Panguna, Papua New Guinea",earthquake,5.5,3.6,0.06,92,reviewed,us,us
+2017-03-04T03:18:39.340Z,-7.3175,155.8223,25.21,5,mb,,61,8.818,0.85,us,us100086xu,2017-05-24T02:48:15.040Z,"116 km SSE of Panguna, Papua New Guinea",earthquake,11.8,3.9,0.09,41,reviewed,us,us
+2017-03-04T03:30:03.920Z,-7.3157,155.8093,20.54,4.3,mb,,113,4.605,0.64,us,us10008893,2017-05-24T02:48:15.040Z,"116 km SSE of Panguna, Papua New Guinea",earthquake,10.6,5,0.142,14,reviewed,us,us
+2017-03-04T03:49:55.050Z,-7.1707,155.8132,10,5,mb,,46,4.67,1.08,us,us100086xf,2017-05-24T02:48:15.040Z,"101 km SSE of Panguna, Papua New Guinea",earthquake,9.4,1.8,0.097,34,reviewed,us,us
+2017-03-04T06:32:14.340Z,-5.8501,155.0442,170.13,4.2,mb,,125,3.309,0.92,us,us10008894,2017-05-24T02:48:15.040Z,"70 km NW of Panguna, Papua New Guinea",earthquake,7.3,8.4,0.132,16,reviewed,us,us
+2017-03-04T10:05:20.210Z,-7.3876,155.7523,10,4.9,mb,,94,4.623,0.85,us,us100086yg,2017-05-24T02:48:15.040Z,"122 km SSE of Panguna, Papua New Guinea",earthquake,8.2,1.9,0.065,77,reviewed,us,us
+2017-03-05T07:16:13.020Z,-8.1353,156.384,10,4.7,mb,,149,14.194,0.79,us,us100088nt,2017-05-31T01:58:53.040Z,"50 km W of Gizo, Solomon Islands",earthquake,5.9,1.9,0.123,20,reviewed,us,us
+2017-03-06T15:48:33.410Z,-5.7864,153.6743,35,4.1,mb,,253,2.185,0.34,us,us100088xd,2017-05-31T01:58:55.040Z,"208 km WNW of Panguna, Papua New Guinea",earthquake,13.1,2,0.197,7,reviewed,us,us
+2017-03-07T06:10:19.320Z,-6.2465,154.135,181.82,4.5,mb,,163,2.832,0.77,us,us20008sac,2017-05-31T01:58:56.040Z,"149 km W of Panguna, Papua New Guinea",earthquake,11.6,18.1,0.145,16,reviewed,us,us
+2017-03-07T09:46:03.220Z,-5.9752,153.7466,10,4.8,mb,,43,2.372,0.52,us,us100087fg,2017-05-31T01:58:56.040Z,"196 km W of Panguna, Papua New Guinea",earthquake,7.4,1.8,0.064,75,reviewed,us,us
+2017-03-08T02:42:09.880Z,-7.2447,156.1747,50.44,4.3,mb,,162,5.013,0.73,us,us20008sg6,2017-05-31T01:58:57.040Z,"120 km NW of Gizo, Solomon Islands",earthquake,13.5,5.3,0.138,15,reviewed,us,us
+2017-03-08T15:01:10.890Z,-7.0478,156.1483,57.56,4.2,mb,,97,4.447,1.23,us,us20008sgl,2017-05-31T01:58:58.040Z,"108 km SSE of Kieta, Papua New Guinea",earthquake,8.4,6.8,0.128,17,reviewed,us,us
+2017-03-08T20:44:40.720Z,-6.4333,155.4364,141.02,4.6,mb,,71,3.947,0.86,us,us100087sf,2017-05-31T01:58:59.040Z,"13 km SSW of Panguna, Papua New Guinea",earthquake,8,5.8,0.058,87,reviewed,us,us
+2017-03-09T13:35:18.870Z,-5.0581,154.9423,83.28,4.9,mb,,86,2.9,1.02,us,us100087xg,2017-05-31T01:58:59.040Z,"146 km NNW of Arawa, Papua New Guinea",earthquake,8.4,6.4,0.058,93,reviewed,us,us
+2017-03-10T06:15:13.660Z,-5.7601,153.9738,10,4.5,mb,,97,2.383,0.92,us,us1000882w,2017-05-31T01:59:00.040Z,"178 km WNW of Panguna, Papua New Guinea",earthquake,8,1.9,0.115,22,reviewed,us,us
+2017-03-15T05:35:15.200Z,-5.5104,154.043,33.41,4.8,mb,,102,2.285,0.71,us,us20008s8i,2017-06-07T00:33:39.040Z,"182 km WNW of Panguna, Papua New Guinea",earthquake,7.9,6,0.091,37,reviewed,us,us
+2017-03-17T20:40:05.250Z,-7.6975,156.3564,28.43,4.5,mb,,93,3.95,0.83,us,us20008ua6,2017-06-07T00:33:43.040Z,"69 km NW of Gizo, Solomon Islands",earthquake,6.6,6.6,0.144,16,reviewed,us,us
+2017-03-17T21:04:40.550Z,-7.5295,156.2165,10,4.6,mb,,95,4.149,1.03,us,us20008ua7,2017-06-07T00:33:43.040Z,"93 km NW of Gizo, Solomon Islands",earthquake,5.3,1.9,0.164,11,reviewed,us,us
+2017-03-18T15:22:56.370Z,-5.8745,154.8737,176.33,4.4,mb,,194,3.175,0.8,us,us20008ubw,2017-06-07T00:33:44.040Z,"83 km NW of Panguna, Papua New Guinea",earthquake,11.5,12.7,0.117,21,reviewed,us,us

@@ -1,0 +1,149 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2010-10-25T14:42:22.460Z,-3.487,100.082,20.1,7.8,mwc,379,23,,1.17,us,usp000hnj4,2022-07-18T22:57:12.869Z,"215 km SW of Sungai Penuh, Indonesia",earthquake,,3.5,,,reviewed,us,gcmt
+2010-10-25T14:54:25.520Z,-3.618,99.92,10,4.7,mb,16,195.1,,1.27,us,usp000hnj5,2014-11-07T01:42:45.503Z,"237 km SW of Sungai Penuh, Indonesia",earthquake,,0,,2,reviewed,us,us
+2010-10-25T14:55:53.110Z,-2.941,100.144,10,4,mb,7,219.3,,1.17,us,usp000hnj6,2014-11-07T01:42:45.506Z,"169 km SW of Sungai Penuh, Indonesia",earthquake,,,,1,reviewed,us,us
+2010-10-25T15:10:02.920Z,-3.335,100.123,26.2,4.8,mb,31,187.9,,1.01,us,usp000hnj7,2014-11-07T01:42:45.507Z,"199 km SW of Sungai Penuh, Indonesia",earthquake,,18.1,,6,reviewed,us,us
+2010-10-25T15:13:15.030Z,-3.081,99.962,10,4,mb,15,187.8,,1.46,us,usp000hnj9,2014-11-07T01:42:45.512Z,"195 km SW of Sungai Penuh, Indonesia",earthquake,,0,,1,reviewed,us,us
+2010-10-25T15:21:12.020Z,-3.414,99.938,25.6,5,mb,86,30.7,,1.02,us,usp000hnja,2014-11-07T01:42:45.514Z,"220 km SW of Sungai Penuh, Indonesia",earthquake,,,,18,reviewed,us,us
+2010-10-25T15:23:18.500Z,-3.78,99.923,11.2,4.7,mb,28,144.1,,1.14,us,usp000hnjb,2014-11-07T01:42:45.521Z,"250 km SW of Sungai Penuh, Indonesia",earthquake,,44.2,,2,reviewed,us,us
+2010-10-25T15:31:11.520Z,-3.216,100.221,26.1,4.5,mb,31,187.7,,0.91,us,usp000hnjc,2014-11-07T01:42:45.523Z,"182 km SW of Sungai Penuh, Indonesia",earthquake,,20.5,,4,reviewed,us,us
+2010-10-25T15:35:39.220Z,-3.761,99.502,10,4.1,mb,17,189,,0.73,us,usp000hnjd,2014-11-07T01:42:45.526Z,"282 km SW of Sungai Penuh, Indonesia",earthquake,,0,,4,reviewed,us,us
+2010-10-25T15:40:29.950Z,-3.041,100.215,19.6,4.4,mb,20,187.5,,1.58,us,usp000hnje,2014-11-07T01:42:45.528Z,"170 km SW of Sungai Penuh, Indonesia",earthquake,,,,4,reviewed,us,us
+2010-10-25T15:40:37.460Z,-3.603,99.683,10,4.3,mb,14,200.3,,1.03,us,usp000hnjf,2014-11-07T01:42:45.530Z,"255 km SW of Sungai Penuh, Indonesia",earthquake,,0,,2,reviewed,us,us
+2010-10-25T15:55:59.740Z,-3.46,99.875,31.3,4.7,mb,28,178.6,,0.98,us,usp000hnjg,2014-11-07T01:42:45.532Z,"229 km SW of Sungai Penuh, Indonesia",earthquake,,,,6,reviewed,us,us
+2010-10-25T16:57:54.660Z,-4.093,99.665,10,4,mb,13,216.7,,1.13,us,usp000hnjh,2014-11-07T01:42:45.535Z,"290 km W of Bengkulu, Indonesia",earthquake,,0,,2,reviewed,us,us
+2010-10-25T17:02:13.850Z,-3.455,99.966,26.4,4.8,mb,14,188.2,,0.54,us,usp000hnjj,2014-11-07T01:42:45.537Z,"221 km SW of Sungai Penuh, Indonesia",earthquake,,42,,1,reviewed,us,us
+2010-10-25T17:36:38.600Z,-2.85,99.463,3,4.4,mb,30,124.2,,0.85,us,usp000hnjm,2014-11-07T01:42:45.541Z,"231 km WSW of Sungai Penuh, Indonesia",earthquake,,28.2,,6,reviewed,us,us
+2010-10-25T18:40:26.910Z,-2.858,99.78,26,4.9,mb,35,76,,0.86,us,usp000hnjp,2014-11-07T01:42:45.545Z,"199 km WSW of Sungai Penuh, Indonesia",earthquake,,,,10,reviewed,us,us
+2010-10-25T19:33:26.000Z,-3.51,99.754,10,4.7,mb,37,68,,0.7,us,usp000hnjr,2014-11-07T01:42:45.551Z,"242 km SW of Sungai Penuh, Indonesia",earthquake,,,,11,reviewed,us,us
+2010-10-25T19:37:31.150Z,-2.958,100.372,26,6.3,mwc,258,23.7,,1.04,us,usp000hnjs,2022-05-02T22:22:52.875Z,"150 km SW of Sungai Penuh, Indonesia",earthquake,,,,,reviewed,us,gcmt
+2010-10-25T19:39:27.300Z,-2.963,100.504,31.8,5.7,mb,31,170.8,,0.63,us,usp000hnjt,2022-05-02T22:24:56.582Z,"140 km SW of Sungai Penuh, Indonesia",earthquake,,33.4,,8,reviewed,us,us
+2010-10-25T19:57:54.000Z,-3.154,100.27,10,4.8,mb,41,96,,0.96,us,usp000hnjw,2014-11-07T01:42:45.594Z,"174 km SW of Sungai Penuh, Indonesia",earthquake,,,,7,reviewed,us,us
+2010-10-25T20:04:04.560Z,-3.592,99.888,10,4.4,mb,35,134.3,,0.84,us,usp000hnjx,2014-11-07T01:42:45.598Z,"238 km SW of Sungai Penuh, Indonesia",earthquake,,0,,4,reviewed,us,us
+2010-10-25T20:22:12.460Z,-3.459,99.921,10,4.9,mb,32,57.7,,1.03,us,usp000hnjy,2014-11-07T01:42:45.611Z,"225 km SW of Sungai Penuh, Indonesia",earthquake,,,,6,reviewed,us,us
+2010-10-25T20:44:41.070Z,-3.523,99.661,10,4,mb,17,188.6,,1.11,us,usp000hnjz,2014-11-07T01:42:45.614Z,"251 km SW of Sungai Penuh, Indonesia",earthquake,,,,3,reviewed,us,us
+2010-10-25T20:52:21.600Z,-3.176,99.329,10,4.6,mb,27,118.8,,0.83,us,usp000hnk1,2014-11-07T01:42:45.618Z,"260 km WSW of Sungai Penuh, Indonesia",earthquake,,,,5,reviewed,us,us
+2010-10-25T22:10:03.030Z,-2.809,100.093,18.9,5,mb,77,83.8,,0.86,us,usp000hnk3,2014-11-07T01:42:45.623Z,"166 km WSW of Sungai Penuh, Indonesia",earthquake,,3.3,,25,reviewed,us,us
+2010-10-25T22:49:04.530Z,-3.663,99.812,10,4.6,mb,48,105.7,,0.9,us,usp000hnk5,2014-11-07T01:42:45.636Z,"249 km SW of Sungai Penuh, Indonesia",earthquake,,,,10,reviewed,us,us
+2010-10-25T22:59:53.370Z,-3.301,100.463,19,5.9,mwc,280,25.6,,1.06,us,usp000hnk6,2022-05-02T22:22:50.502Z,"172 km SW of Sungai Penuh, Indonesia",earthquake,,,,,reviewed,us,gcmt
+2010-10-25T23:12:58.040Z,-3.411,99.476,10,5,mb,51,80.9,,1.15,us,usp000hnk8,2014-11-07T01:42:45.679Z,"260 km SW of Sungai Penuh, Indonesia",earthquake,,,,7,reviewed,us,us
+2010-10-26T02:04:13.940Z,-3.563,99.745,10,4.5,mb,19,188.5,,0.75,us,usp000hnke,2014-11-07T01:42:45.713Z,"247 km SW of Sungai Penuh, Indonesia",earthquake,,,,5,reviewed,us,us
+2010-10-26T03:28:28.760Z,-3.262,100.261,10,5,mb,63,143.9,,0.87,us,usp000hnkk,2014-11-07T01:42:45.741Z,"183 km SW of Sungai Penuh, Indonesia",earthquake,,,,16,reviewed,us,us
+2010-10-26T03:50:14.460Z,-3.095,100.144,20.2,4.8,mb,52,63.1,,1.1,us,usp000hnkm,2014-11-07T01:42:45.746Z,"180 km SW of Sungai Penuh, Indonesia",earthquake,,5.9,,10,reviewed,us,us
+2010-10-26T05:13:56.580Z,-3.447,99.571,10,4.3,mb,18,188.6,,0.53,us,usp000hnkq,2014-11-07T01:42:45.764Z,"254 km SW of Sungai Penuh, Indonesia",earthquake,,,,1,reviewed,us,us
+2010-10-26T08:53:14.570Z,-3.593,99.808,16.4,4.9,mb,83,84.2,,1.01,us,usp000hnkz,2014-11-07T01:42:45.807Z,"244 km SW of Sungai Penuh, Indonesia",earthquake,,16.4,,24,reviewed,us,us
+2010-10-26T09:14:25.710Z,-3.23,100.281,10,4.2,mb,13,187.6,,0.81,us,usp000hnm0,2014-11-07T01:42:45.814Z,"179 km SW of Sungai Penuh, Indonesia",earthquake,,,,3,reviewed,us,us
+2010-10-26T09:55:49.060Z,-3.358,99.655,10,4.1,mb,13,203.6,,0.57,us,usp000hnm1,2014-11-07T01:42:45.816Z,"240 km SW of Sungai Penuh, Indonesia",earthquake,,,,3,reviewed,us,us
+2010-10-26T10:00:09.800Z,-2.785,99.783,10,4.6,mb,39,143.9,,0.96,us,usp000hnm2,2014-11-07T01:42:45.817Z,"196 km WSW of Sungai Penuh, Indonesia",earthquake,,,,8,reviewed,us,us
+2010-10-26T10:51:23.090Z,-3.698,99.749,10,5.2,mwc,241,22.7,,0.93,us,usp000hnm6,2025-12-22T15:53:13.582Z,"257 km SW of Sungai Penuh, Indonesia",earthquake,,,,,reviewed,us,gcmt
+2010-10-26T11:05:45.290Z,-3.244,100.11,10,4.7,mb,46,120.4,,1.02,us,usp000hnm7,2014-11-07T01:42:45.855Z,"193 km SW of Sungai Penuh, Indonesia",earthquake,,,,9,reviewed,us,us
+2010-10-26T11:25:17.860Z,-2.717,99.823,22.1,4.7,mb,47,132.7,,0.89,us,usp000hnm9,2014-11-07T01:42:45.909Z,"189 km WSW of Sungai Penuh, Indonesia",earthquake,,,,14,reviewed,us,us
+2010-10-26T11:33:21.990Z,-2.494,99.918,31.6,5.2,mb,96,32.8,,1.03,us,usp000hnma,2014-11-07T01:42:45.991Z,"170 km WSW of Sungai Penuh, Indonesia",earthquake,,,,35,reviewed,us,us
+2010-10-26T13:56:47.400Z,-3.522,99.514,10,4.4,mb,13,207.8,,1.06,us,usp000hnmd,2014-11-07T01:42:46.003Z,"264 km SW of Sungai Penuh, Indonesia",earthquake,,0,,3,reviewed,us,us
+2010-10-26T14:35:35.100Z,-3.205,100.223,19.2,4.5,mb,25,187.7,,0.96,us,usp000hnme,2014-11-07T01:42:46.005Z,"181 km SW of Sungai Penuh, Indonesia",earthquake,,26,,6,reviewed,us,us
+2010-10-26T14:57:49.470Z,-2.284,99.551,26.3,4.7,mb,28,187.2,,1.01,us,usp000hnmf,2014-11-07T01:42:46.007Z,"172 km SSW of Padang, Indonesia",earthquake,,,,7,reviewed,us,us
+2010-10-26T16:51:21.500Z,-3.54,99.38,10,4.1,mb,14,188.8,,0.59,us,usp000hnmh,2014-11-07T01:42:46.011Z,"277 km SW of Sungai Penuh, Indonesia",earthquake,,0,,2,reviewed,us,us
+2010-10-26T18:18:49.190Z,-2.388,99.46,10,4,mb,13,206.4,,1.13,us,usp000hnmk,2014-11-07T01:42:46.016Z,"187 km SSW of Padang, Indonesia",earthquake,,,,2,reviewed,us,us
+2010-10-26T18:50:40.660Z,-3.585,99.808,10,4.1,mb,17,207.5,,1.08,us,usp000hnmq,2014-11-07T01:42:46.023Z,"244 km SW of Sungai Penuh, Indonesia",earthquake,,,,3,reviewed,us,us
+2010-10-26T19:40:37.600Z,-3.597,99.789,4.9,5.1,mb,113,39.9,,1.02,us,usp000hnmt,2014-11-07T01:42:46.030Z,"246 km SW of Sungai Penuh, Indonesia",earthquake,,14.2,,39,reviewed,us,us
+2010-10-26T20:34:40.240Z,-3.871,99.203,10,4.1,mb,17,137.6,,1.1,us,usp000hnmv,2014-11-07T01:42:46.041Z,"southwest of Sumatra, Indonesia",earthquake,,,,7,reviewed,us,us
+2010-10-26T20:41:04.030Z,-2.255,99.575,17.2,4.8,mb,55,95.9,,1.11,us,usp000hnmw,2014-11-07T01:42:46.043Z,"168 km SSW of Padang, Indonesia",earthquake,,19.3,,13,reviewed,us,us
+2010-10-26T20:46:42.780Z,-3.387,99.455,10,4.4,mb,30,75.2,,1.04,us,usp000hnmx,2014-11-07T01:42:46.050Z,"260 km SW of Sungai Penuh, Indonesia",earthquake,,,,9,reviewed,us,us
+2010-10-26T21:48:19.140Z,-3.686,99.724,10,4.7,mb,60,112.3,,0.91,us,usp000hnmy,2014-11-07T01:42:46.054Z,"258 km SW of Sungai Penuh, Indonesia",earthquake,,,,11,reviewed,us,us
+2010-10-26T23:09:44.520Z,-3.783,99.623,11.9,5,mb,86,55.5,,0.79,us,usp000hnmz,2014-11-07T01:42:46.059Z,"274 km SW of Sungai Penuh, Indonesia",earthquake,,17.9,,24,reviewed,us,us
+2010-10-26T23:45:38.500Z,-2.36,99.853,25.3,5.4,mwc,186,28.8,,1.15,us,usp000hnn1,2022-05-02T22:22:55.387Z,"165 km SSW of Padang, Indonesia",earthquake,,3.5,,,reviewed,us,gcmt
+2010-10-27T00:04:03.130Z,-3.496,99.663,32.1,5.1,mwc,132,28.2,,1.14,us,usp000hnn2,2025-12-22T15:18:47.976Z,"249 km SW of Sungai Penuh, Indonesia",earthquake,,,,,reviewed,us,gcmt
+2010-10-27T00:17:30.720Z,-3.458,99.566,31.1,4.9,mwc,110,39.6,,1.02,us,usp000hnn3,2016-11-10T02:35:23.434Z,"255 km SW of Sungai Penuh, Indonesia",earthquake,,,,,reviewed,us,gcmt
+2010-10-27T01:35:35.730Z,-3.787,99.522,10,4.3,mb,18,182,,0.53,us,usp000hnn4,2014-11-07T01:42:46.111Z,"282 km SW of Sungai Penuh, Indonesia",earthquake,,,,6,reviewed,us,us
+2010-10-27T03:31:02.580Z,-3.915,99.528,10,4.6,mb,31,175.6,,1.06,us,usp000hnn9,2014-11-07T01:42:46.124Z,"291 km SW of Sungai Penuh, Indonesia",earthquake,,,,6,reviewed,us,us
+2010-10-27T04:33:20.120Z,-3.538,99.855,10,5,mwc,100,30.7,,0.76,us,usp000hnnb,2025-12-22T15:53:15.059Z,"236 km SW of Sungai Penuh, Indonesia",earthquake,,,,,reviewed,us,gcmt
+2010-10-27T05:16:56.150Z,-2.738,99.593,10,4.5,mb,26,72.5,,0.98,us,usp000hnnf,2014-11-07T01:42:46.149Z,"213 km WSW of Sungai Penuh, Indonesia",earthquake,,,,3,reviewed,us,us
+2010-10-27T11:15:26.900Z,-3.552,99.504,10,4.5,mb,27,118.7,,1.01,us,usp000hnns,2014-11-07T01:42:46.231Z,"267 km SW of Sungai Penuh, Indonesia",earthquake,,,,3,reviewed,us,us
+2010-10-27T15:09:38.310Z,-3.567,99.562,2.1,4.9,mwc,92,38.6,,1.01,us,usp000hnp2,2016-11-10T02:35:25.378Z,"263 km SW of Sungai Penuh, Indonesia",earthquake,,15.4,,,reviewed,us,gcmt
+2010-10-27T16:14:16.840Z,-3.804,99.889,10,4.1,mb,14,188.7,,1.06,us,usp000hnp3,2014-11-07T01:42:46.270Z,"255 km SW of Sungai Penuh, Indonesia",earthquake,,0,,2,reviewed,us,us
+2010-10-27T16:39:11.450Z,-2.506,99.571,10,4.2,mb,13,187.4,,1.22,us,usp000hnp5,2014-11-07T01:42:46.274Z,"192 km SSW of Padang, Indonesia",earthquake,,,,1,reviewed,us,us
+2010-10-27T21:34:57.420Z,-2.913,99.843,13.2,4.9,mb,60,76,,0.72,us,usp000hnpa,2014-11-07T01:42:46.298Z,"196 km WSW of Sungai Penuh, Indonesia",earthquake,,15.4,,13,reviewed,us,us
+2010-10-28T09:37:51.690Z,-3.767,99.714,10,4.3,mb,16,125.7,,1.51,us,usp000hnpx,2014-11-07T01:42:46.582Z,"265 km SW of Sungai Penuh, Indonesia",earthquake,,,,1,reviewed,us,us
+2010-10-28T09:52:11.630Z,-3.176,100.196,10,4.5,mb,26,187.7,,0.8,us,usp000hnpy,2014-11-07T01:42:46.584Z,"181 km SW of Sungai Penuh, Indonesia",earthquake,,,,4,reviewed,us,us
+2010-10-28T17:10:07.270Z,-3.479,99.454,10,4.4,mb,24,188.7,,0.81,us,usp000hnq9,2014-11-07T01:42:46.639Z,"266 km SW of Sungai Penuh, Indonesia",earthquake,,,,7,reviewed,us,us
+2010-10-29T04:06:05.070Z,-3.662,100.098,10,4.4,mb,15,193.9,,1.24,us,usp000hnr1,2014-11-07T01:42:46.799Z,"228 km SW of Sungai Penuh, Indonesia",earthquake,,,,6,reviewed,us,us
+2010-10-29T04:45:39.590Z,-3.248,100.019,10,4.2,mb,17,206.8,,0.93,us,usp000hnr3,2014-11-07T01:42:46.802Z,"201 km SW of Sungai Penuh, Indonesia",earthquake,,,,5,reviewed,us,us
+2010-10-29T13:13:34.570Z,-3.624,99.62,10,4.5,mb,31,182.1,,1.08,us,usp000hnrf,2014-11-07T01:42:46.843Z,"262 km SW of Sungai Penuh, Indonesia",earthquake,,,,6,reviewed,us,us
+2010-10-29T15:11:11.980Z,-3.842,99.751,10,4.4,mb,24,125.2,,1.25,us,usp000hnrn,2014-11-07T01:42:46.864Z,"268 km SW of Sungai Penuh, Indonesia",earthquake,,,,7,reviewed,us,us
+2010-10-29T17:15:20.510Z,-3.684,99.672,10,4.2,mb,18,188.8,,1.46,us,usp000hnrr,2014-11-07T01:42:46.877Z,"262 km SW of Sungai Penuh, Indonesia",earthquake,,,,3,reviewed,us,us
+2010-10-29T18:05:23.690Z,-3.423,99.648,5.1,5,mb,105,28.6,,1.07,us,usp000hnrw,2014-11-07T01:42:46.888Z,"245 km SW of Sungai Penuh, Indonesia",earthquake,,15.1,,39,reviewed,us,us
+2010-10-29T21:27:33.890Z,-3.779,99.739,31,4.5,mb,32,50.2,,1.02,us,usp000hns8,2014-11-07T01:42:46.933Z,"264 km SW of Sungai Penuh, Indonesia",earthquake,,,,7,reviewed,us,us
+2010-10-29T23:47:34.090Z,-3.54,99.444,10,4,mb,15,80.3,,0.52,us,usp000hnsf,2014-11-07T01:42:46.955Z,"271 km SW of Sungai Penuh, Indonesia",earthquake,,,,4,reviewed,us,us
+2010-10-30T00:55:36.790Z,-3.622,99.503,31.2,4.6,mb,65,85.6,,0.72,us,usp000hnsj,2014-11-07T01:42:46.961Z,"272 km SW of Sungai Penuh, Indonesia",earthquake,,10.4,,19,reviewed,us,us
+2010-10-30T08:18:55.920Z,-3.75,99.762,28.6,4.4,mb,24,133,,0.6,us,usp000hnt0,2014-11-07T01:42:47.005Z,"260 km SW of Sungai Penuh, Indonesia",earthquake,,16.1,,6,reviewed,us,us
+2010-10-30T22:48:44.130Z,-3.473,99.725,10,4.3,mb,29,188.5,,0.81,us,usp000hntp,2014-11-07T01:42:47.151Z,"242 km SW of Sungai Penuh, Indonesia",earthquake,,,,6,reviewed,us,us
+2010-10-31T00:01:50.180Z,-3.661,99.736,10.1,4.8,mb,61,125.6,,0.79,us,usp000hntr,2014-11-07T01:42:47.156Z,"255 km SW of Sungai Penuh, Indonesia",earthquake,,16.5,,12,reviewed,us,us
+2010-10-31T00:04:37.850Z,-3.637,99.753,10,4.3,mb,13,188.6,,0.73,us,usp000hnts,2014-11-07T01:42:47.161Z,"252 km SW of Sungai Penuh, Indonesia",earthquake,,,,2,reviewed,us,us
+2010-10-31T00:07:35.050Z,-3.756,99.55,10,4.1,mb,16,189,,0.49,us,usp000hntt,2014-11-07T01:42:47.162Z,"277 km SW of Sungai Penuh, Indonesia",earthquake,,,,4,reviewed,us,us
+2010-10-31T01:32:46.250Z,-3.755,99.592,10,4.1,mb,15,188.9,,0.49,us,usp000hntx,2014-11-07T01:42:47.182Z,"274 km SW of Sungai Penuh, Indonesia",earthquake,,,,6,reviewed,us,us
+2010-10-31T01:43:56.750Z,-3.559,99.816,10,4,mb,11,208.1,,0.52,us,usp000hnty,2014-11-07T01:42:47.184Z,"241 km SW of Sungai Penuh, Indonesia",earthquake,,,,3,reviewed,us,us
+2010-10-31T04:30:42.930Z,-3.26,99.748,10,4.5,mb,31,69.6,,1.42,us,usp000hnu4,2014-11-07T01:42:47.199Z,"226 km SW of Sungai Penuh, Indonesia",earthquake,,,,8,reviewed,us,us
+2010-10-31T12:23:39.810Z,-3.456,100.043,9.4,5.1,mb,88,65.1,,0.98,us,usp000hnue,2014-11-07T01:42:47.272Z,"215 km SW of Sungai Penuh, Indonesia",earthquake,,14.4,,23,reviewed,us,us
+2010-10-31T18:28:28.910Z,-3.734,100.216,10,4.3,mb,14,210.9,,1.17,us,usp000hnuq,2014-11-07T01:42:47.322Z,"226 km SW of Sungai Penuh, Indonesia",earthquake,,,,5,reviewed,us,us
+2010-11-01T05:01:12.500Z,-3.676,99.675,10,4.3,mb,16,125.6,,0.68,us,usp000hnvc,2014-11-07T01:42:49.025Z,"261 km SW of Sungai Penuh, Indonesia",earthquake,,,,2,reviewed,us,us
+2010-11-01T13:28:21.520Z,-3.527,99.695,29.7,4.5,mb,34,117.1,,0.98,us,usp000hnvz,2014-11-07T01:42:49.562Z,"249 km SW of Sungai Penuh, Indonesia",earthquake,,,,6,reviewed,us,us
+2010-11-01T13:30:28.850Z,-3.572,99.598,10,4.3,mb,16,117.2,,0.93,us,usp000hnw0,2014-11-07T01:42:49.579Z,"260 km SW of Sungai Penuh, Indonesia",earthquake,,0,,3,reviewed,us,us
+2010-11-01T15:01:22.710Z,-2.749,99.378,26.4,4.5,mb,28,187.9,,0.81,us,usp000hnw4,2014-11-07T01:42:49.632Z,"226 km SSW of Padang, Indonesia",earthquake,,,,7,reviewed,us,us
+2010-11-02T05:16:16.200Z,-3.62,99.595,10,4.5,mb,22,117.3,,0.78,us,usp000hnwg,2014-11-07T01:42:49.970Z,"264 km SW of Sungai Penuh, Indonesia",earthquake,,,,3,reviewed,us,us
+2010-11-02T14:45:42.890Z,-3.825,99.989,10,4.5,mb,18,207.6,,1.06,us,usp000hnx2,2014-11-07T01:42:50.247Z,"250 km SW of Sungai Penuh, Indonesia",earthquake,,0,,4,reviewed,us,us
+2010-11-03T10:20:59.050Z,-3.621,99.824,10,4.6,mb,36,153.4,,0.97,us,usp000hnyu,2014-11-07T01:42:50.888Z,"245 km SW of Sungai Penuh, Indonesia",earthquake,,0,,4,reviewed,us,us
+2010-11-04T05:39:41.360Z,-3.492,100.382,14.6,4.7,mb,42,110.8,,0.84,us,usp000hp0r,2014-11-07T01:42:51.781Z,"194 km SW of Sungai Penuh, Indonesia",earthquake,,13.8,,8,reviewed,us,us
+2010-11-04T17:06:21.220Z,-3.677,99.717,10,4.6,mb,15,160.3,,1.04,us,usp000hp26,2014-11-07T01:42:52.076Z,"258 km SW of Sungai Penuh, Indonesia",earthquake,,,,2,reviewed,us,us
+2010-11-04T18:25:32.120Z,-3.006,100.17,26.1,4.4,mb,21,206.4,,1.09,us,usp000hp2f,2014-11-07T01:42:52.113Z,"171 km SW of Sungai Penuh, Indonesia",earthquake,,6.4,,4,reviewed,us,us
+2010-11-05T15:21:20.720Z,-2.177,99.419,35,4.9,mb,40,123.8,,1.33,us,usp000hp53,2014-11-07T01:42:52.590Z,"171 km SW of Padang, Indonesia",earthquake,,,,12,reviewed,us,us
+2010-11-06T18:49:40.410Z,-3.754,100.772,24.9,4.5,mb,31,187.8,,1,us,usp000hp78,2014-11-07T01:42:52.859Z,"165 km W of Bengkulu, Indonesia",earthquake,,23.4,,10,reviewed,us,us
+2010-11-06T20:18:12.970Z,-3.553,99.749,10,4.5,mb,44,63.1,,1.2,us,usp000hp7d,2014-11-07T01:42:52.872Z,"246 km SW of Sungai Penuh, Indonesia",earthquake,,,,13,reviewed,us,us
+2010-11-07T11:52:32.420Z,-3.717,99.7,10,4.1,mb,17,188.8,,0.72,us,usp000hp87,2014-11-07T01:42:53.003Z,"263 km SW of Sungai Penuh, Indonesia",earthquake,,,,4,reviewed,us,us
+2010-11-07T14:15:53.200Z,-3.711,99.386,10,4.1,mb,21,189,,1.07,us,usp000hp89,2014-11-07T01:42:53.007Z,"288 km SW of Sungai Penuh, Indonesia",earthquake,,,,3,reviewed,us,us
+2010-11-07T14:19:47.080Z,-3.672,99.654,2.7,4.9,mwc,98,44,,0.85,us,usp000hp8a,2016-11-10T02:35:47.958Z,"263 km SW of Sungai Penuh, Indonesia",earthquake,,13.6,,,reviewed,us,gcmt
+2010-11-07T14:22:43.370Z,-3.793,99.596,10,4.3,mb,15,189,,0.85,us,usp000hp8b,2014-11-07T01:42:53.018Z,"276 km SW of Sungai Penuh, Indonesia",earthquake,,0,,1,reviewed,us,us
+2010-11-07T14:34:06.610Z,-3.774,99.466,10,4.2,mb,11,189.1,,0.8,us,usp000hp8c,2014-11-07T01:42:53.020Z,"286 km SW of Sungai Penuh, Indonesia",earthquake,,,,1,reviewed,us,us
+2010-11-07T15:26:45.000Z,-3.787,99.538,10,4,mb,16,189,,0.92,us,usp000hp8d,2014-11-07T01:42:53.022Z,"281 km SW of Sungai Penuh, Indonesia",earthquake,,0,,2,reviewed,us,us
+2010-11-07T16:08:39.380Z,-3.688,99.564,10,4.2,mb,15,188.9,,1.05,us,usp000hp8e,2014-11-07T01:42:53.024Z,"southwest of Sumatra, Indonesia",earthquake,,0,,1,reviewed,us,us
+2010-11-07T16:15:53.180Z,-3.669,99.638,10,4.2,mb,27,117.3,,0.98,us,usp000hp8f,2014-11-07T01:42:53.025Z,"264 km SW of Sungai Penuh, Indonesia",earthquake,,0,,6,reviewed,us,us
+2010-11-07T17:22:24.330Z,-3.488,99.643,10,4.4,mb,27,188.5,,1.23,us,usp000hp8j,2014-11-07T01:42:53.032Z,"250 km SW of Sungai Penuh, Indonesia",earthquake,,0,,6,reviewed,us,us
+2010-11-08T14:16:24.570Z,-3.626,99.776,33.7,4.6,mb,43,72.7,,1.04,us,usp000hp9q,2014-11-07T01:42:53.242Z,"249 km SW of Sungai Penuh, Indonesia",earthquake,,,,7,reviewed,us,us
+2010-11-08T23:03:30.590Z,-3.72,99.678,10,4.3,mb,22,125.7,,0.61,us,usp000hp9x,2014-11-07T01:42:53.277Z,"264 km SW of Sungai Penuh, Indonesia",earthquake,,,,5,reviewed,us,us
+2010-11-09T11:16:50.450Z,-1.735,99.417,27.8,5.4,mwc,140,27,,1.15,us,usp000hpan,2022-05-02T22:24:32.974Z,"135 km SW of Padang, Indonesia",earthquake,,,,,reviewed,us,gcmt
+2010-11-09T17:27:57.840Z,-3.765,99.651,10,4.4,mb,34,117.4,,0.88,us,usp000hpb4,2014-11-07T01:42:53.479Z,"270 km SW of Sungai Penuh, Indonesia",earthquake,,0,,11,reviewed,us,us
+2010-11-09T17:30:59.510Z,-3.787,99.527,10,4.3,mb,20,189,,1.05,us,usp000hpb5,2014-11-07T01:42:53.482Z,"282 km SW of Sungai Penuh, Indonesia",earthquake,,,,7,reviewed,us,us
+2010-11-12T10:40:28.360Z,-3.073,99.889,10,4.6,mb,38,187.8,,1.44,us,usp000hpf8,2014-11-07T01:42:54.167Z,"201 km SW of Sungai Penuh, Indonesia",earthquake,,,,10,reviewed,us,us
+2010-11-14T00:43:48.170Z,-3.617,99.192,10,4.2,mb,15,125.9,,0.52,us,usp000hphk,2014-11-07T01:42:54.760Z,"299 km SW of Sungai Penuh, Indonesia",earthquake,,,,5,reviewed,us,us
+2010-11-14T14:49:12.190Z,-3.792,100.049,28.9,4.9,mb,42,125.6,,0.89,us,usp000hpm5,2014-11-07T01:42:55.121Z,"243 km SW of Sungai Penuh, Indonesia",earthquake,,,,10,reviewed,us,us
+2010-11-14T21:59:56.370Z,-3.529,99.608,35,4.5,mb,37,59.4,,1.28,us,usp000hpn7,2014-11-07T01:42:55.301Z,"256 km SW of Sungai Penuh, Indonesia",earthquake,,,,13,reviewed,us,us
+2010-11-15T19:31:06.170Z,-3.257,100.406,35,4.1,mb,13,187.6,,1.02,us,usp000hpq8,2014-11-07T01:42:55.637Z,"172 km SW of Sungai Penuh, Indonesia",earthquake,,,,2,reviewed,us,us
+2010-11-15T20:55:00.280Z,-3.112,101.266,58.9,5,mb,48,87.6,,0.74,us,usp000hpqd,2014-11-07T01:42:55.653Z,"117 km S of Sungai Penuh, Indonesia",earthquake,,5.5,,13,reviewed,us,us
+2010-11-17T14:46:18.260Z,-3.262,100.351,35,4.2,mb,13,187.6,,1.19,us,usp000hpsz,2014-11-07T01:42:56.072Z,"176 km SW of Sungai Penuh, Indonesia",earthquake,,,,1,reviewed,us,us
+2010-11-17T15:19:17.620Z,-3.183,100.246,35,4.5,mb,22,187.6,,1.17,us,usp000hpt1,2014-11-07T01:42:56.076Z,"178 km SW of Sungai Penuh, Indonesia",earthquake,,,,5,reviewed,us,us
+2010-11-19T10:20:14.870Z,-3.799,99.825,10,4.5,mb,23,146.6,,0.82,us,usp000hpv4,2014-11-07T01:42:56.448Z,"259 km SW of Sungai Penuh, Indonesia",earthquake,,,,5,reviewed,us,us
+2010-11-19T11:27:40.690Z,-3.354,99.457,10,4.5,mb,49,112.5,,0.97,us,usp000hpv5,2014-11-07T01:42:56.451Z,"258 km WSW of Sungai Penuh, Indonesia",earthquake,,,,6,reviewed,us,us
+2010-11-20T02:13:35.400Z,-3.262,100.256,14.8,4.8,mb,76,103.1,,0.91,us,usp000hpvt,2014-11-07T01:42:56.551Z,"183 km SW of Sungai Penuh, Indonesia",earthquake,,15.2,,29,reviewed,us,us
+2010-11-21T01:02:48.270Z,-3.667,99.782,10,4.2,mb,23,188.6,,0.73,us,usp000hpx0,2014-11-07T01:42:56.782Z,"252 km SW of Sungai Penuh, Indonesia",earthquake,,,,11,reviewed,us,us
+2010-11-22T09:01:40.880Z,-3.675,99.575,10,4.6,mb,36,188.8,,0.81,us,usp000hpyq,2014-11-07T01:42:57.061Z,"269 km SW of Sungai Penuh, Indonesia",earthquake,,,,6,reviewed,us,us
+2010-11-22T14:43:53.670Z,-3.329,99.669,10,4.4,mb,21,188.3,,1.56,us,usp000hpz1,2014-11-07T01:42:57.108Z,"237 km SW of Sungai Penuh, Indonesia",earthquake,,0,,4,reviewed,us,us
+2010-11-22T17:49:51.060Z,-3.659,99.608,10,4.7,mb,35,191.6,,0.98,us,usp000hpza,2014-11-07T01:42:57.157Z,"265 km SW of Sungai Penuh, Indonesia",earthquake,,0,,8,reviewed,us,us
+2010-11-23T10:05:29.470Z,-3.78,100.046,39,4.9,mb,46,182.3,,1.03,us,usp000hq01,2014-11-07T01:42:57.283Z,"242 km SW of Sungai Penuh, Indonesia",earthquake,,9.4,,14,reviewed,us,us
+2010-11-23T14:20:34.560Z,-3.738,99.633,10,4.1,mb,15,119.4,,0.66,us,usp000hq08,2014-11-07T01:42:57.304Z,"269 km SW of Sungai Penuh, Indonesia",earthquake,,0,,1,reviewed,us,us
+2010-11-27T15:26:13.430Z,-3.559,99.942,10,4.9,mb,47,182.2,,0.93,us,usp000hq75,2014-11-07T01:42:58.588Z,"231 km SW of Sungai Penuh, Indonesia",earthquake,,0,,9,reviewed,us,us
+2010-11-27T19:22:04.910Z,-3.939,99.533,10,4.3,mb,18,189.2,,1.16,us,usp000hq7g,2014-11-07T01:42:58.662Z,"293 km SW of Sungai Penuh, Indonesia",earthquake,,,,6,reviewed,us,us
+2010-11-28T14:51:01.230Z,-3.624,99.633,10,4.9,mb,45,182.5,,0.88,us,usp000hq8z,2014-11-07T01:42:58.893Z,"261 km SW of Sungai Penuh, Indonesia",earthquake,,0,,15,reviewed,us,us
+2010-11-29T01:45:25.560Z,-3.599,99.971,14.7,4.8,mb,57,174.8,,0.85,us,usp000hq9p,2014-11-07T01:42:58.964Z,"232 km SW of Sungai Penuh, Indonesia",earthquake,,20.8,,15,reviewed,us,us
+2010-11-30T03:01:54.830Z,-3.672,99.842,13.3,4.7,mb,35,70.1,,0.89,us,usp000hqau,2014-11-07T01:42:59.121Z,"248 km SW of Sungai Penuh, Indonesia",earthquake,,28.4,,5,reviewed,us,us
+2010-11-30T03:07:02.890Z,-3.842,99.673,10,4.3,mb,22,144.2,,0.89,us,usp000hqav,2014-11-07T01:42:59.125Z,"274 km SW of Sungai Penuh, Indonesia",earthquake,,,,4,reviewed,us,us
+2010-11-30T06:02:47.070Z,-2.924,100.16,35,4.9,mb,55,97.2,,0.94,us,usp000hqaz,2014-11-07T01:42:59.199Z,"167 km SW of Sungai Penuh, Indonesia",earthquake,,,,11,reviewed,us,us
+2010-11-30T13:16:18.940Z,-3.675,99.462,10,4.4,mb,24,111.1,,1.02,us,usp000hqbk,2014-11-07T01:42:59.310Z,"279 km SW of Sungai Penuh, Indonesia",earthquake,,,,5,reviewed,us,us
+2010-12-01T11:03:36.490Z,-2.927,100.158,35,4.8,mb,46,168.4,,0.94,us,usp000hqcu,2014-11-07T01:43:02.065Z,"167 km SW of Sungai Penuh, Indonesia",earthquake,,,,10,reviewed,us,us
+2010-12-03T17:08:39.970Z,-3.877,99.672,10,4.1,mb,13,182.7,,1.45,us,usp000hqfj,2014-11-07T01:43:03.715Z,"277 km SW of Sungai Penuh, Indonesia",earthquake,,,,1,reviewed,us,us
+2010-12-04T21:08:03.850Z,-2.386,100.031,35,4.3,mb,16,98.7,,0.87,us,usp000hqh0,2014-11-07T01:43:04.253Z,"155 km WSW of Sungai Penuh, Indonesia",earthquake,,,,4,reviewed,us,us
+2010-12-05T13:50:45.210Z,-3.383,99.402,10,4,mb,15,201.5,,0.94,us,usp000hqj2,2014-11-07T01:43:04.648Z,"265 km WSW of Sungai Penuh, Indonesia",earthquake,,0,,2,reviewed,us,us
+2010-12-06T06:02:23.070Z,-3.853,100.013,31.1,4.6,mb,24,182.4,,1.11,us,usp000hqjy,2014-11-07T01:43:04.781Z,"Kepulauan Mentawai region, Indonesia",earthquake,,24.2,,5,reviewed,us,us
+2010-12-06T07:56:14.760Z,-3.781,100.16,35,5.1,mwc,115,69,,1.03,us,usp000hqk2,2025-12-22T15:55:11.000Z,"233 km W of Bengkulu, Indonesia",earthquake,,,,,reviewed,us,gcmt
+2010-12-08T13:40:20.940Z,-1.887,99.593,41.6,4.2,mb,22,196,,1,us,usp000hqp6,2014-11-07T01:43:05.672Z,"133 km SW of Padang, Indonesia",earthquake,,10.2,,3,reviewed,us,us
+2010-12-10T20:50:31.090Z,-3.377,100.091,0.4,4.9,mb,69,175.1,,1.08,us,usp000hqs3,2014-11-07T01:43:06.108Z,"205 km SW of Sungai Penuh, Indonesia",earthquake,,18.2,,30,reviewed,us,us
+2010-12-11T19:36:48.660Z,-3.855,100.2,27.7,4.7,mb,37,61.2,,0.97,us,usp000hqth,2014-11-07T01:43:06.334Z,"229 km W of Bengkulu, Indonesia",earthquake,,15,,10,reviewed,us,us
+2010-12-13T20:49:38.300Z,-3.391,100.145,0.3,4.5,mb,22,110.6,,0.97,us,usp000hqwb,2014-11-07T01:43:06.821Z,"202 km SW of Sungai Penuh, Indonesia",earthquake,,29.1,,4,reviewed,us,us

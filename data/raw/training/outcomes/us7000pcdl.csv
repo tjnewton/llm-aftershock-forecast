@@ -1,0 +1,23 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-02-08T23:23:14.697Z,17.6506,-82.395,14.326,7.6,mww,235,18,4.662,0.62,us,us7000pcdl,2025-04-26T15:51:49.572Z,"210 km SSW of George Town, Cayman Islands",earthquake,6.99,3.216,0.028,119,reviewed,us,us
+2025-02-08T23:40:22.702Z,17.5615,-82.584,10,4.4,mb,21,119,4.853,0.61,us,us7000pce3,2025-04-26T14:47:05.040Z,"229 km SSW of George Town, Cayman Islands",earthquake,6.21,1.908,0.178,9,reviewed,us,us
+2025-02-08T23:51:06.304Z,17.5799,-83.1814,10,4.8,mb,79,38,5.27,0.92,us,us7000pcdu,2025-04-26T14:47:05.040Z,"229 km NNE of Barra Patuca, Honduras",earthquake,7.31,1.919,0.068,67,reviewed,us,us
+2025-02-09T00:06:55.116Z,17.5202,-82.9683,10,4.3,mb,43,56,5.222,1.12,us,us7000pe9s,2025-04-26T14:47:10.040Z,"236 km NE of Barra Patuca, Honduras",earthquake,8.1,1.891,0.081,44,reviewed,us,us
+2025-02-09T00:16:33.170Z,17.8181,-82.0498,10,4.3,mb,45,41,4.315,0.84,us,us7000pcdw,2025-04-26T14:47:05.040Z,"177 km SSW of George Town, Cayman Islands",earthquake,7.66,1.914,0.079,45,reviewed,us,us
+2025-02-09T00:22:20.481Z,17.2339,-83.638,10,4,mb,22,89,4.715,0.51,us,us7000pe9n,2025-04-26T14:47:10.040Z,"172 km NNE of Barra Patuca, Honduras",earthquake,9.39,1.903,0.119,19,reviewed,us,us
+2025-02-09T00:23:06.371Z,17.7015,-82.852,10,4.2,mb,32,66,5.088,1.11,us,us7000pce1,2025-04-26T14:47:05.040Z,"234 km SW of George Town, Cayman Islands",earthquake,8.95,1.992,0.089,36,reviewed,us,us
+2025-02-09T08:21:29.176Z,17.6485,-82.7748,10,4.6,mb,47,66,5.021,0.49,us,us7000pcgc,2025-04-26T14:47:05.040Z,"233 km SW of George Town, Cayman Islands",earthquake,8.67,1.916,0.037,216,reviewed,us,us
+2025-02-09T09:14:08.197Z,17.5509,-82.9082,10,4.8,mb,163,52,5.161,0.52,us,us7000pcgn,2025-04-26T14:47:05.040Z,"243 km NE of Barra Patuca, Honduras",earthquake,8.33,1.898,0.041,184,reviewed,us,us
+2025-02-09T23:46:17.328Z,17.5533,-83.338,10,4.2,mb,33,50,5.141,0.74,us,us7000pcjy,2025-04-26T14:47:06.040Z,"218 km NNE of Barra Patuca, Honduras",earthquake,8.54,1.949,0.088,36,reviewed,us,us
+2025-02-10T22:31:36.889Z,17.5527,-83.1104,10,4.3,mb,27,70,5.304,0.71,us,us7000pcs6,2025-04-26T14:47:07.040Z,"230 km NNE of Barra Patuca, Honduras",earthquake,7.33,1.967,0.142,14,reviewed,us,us
+2025-02-12T22:10:36.272Z,17.5007,-83.3888,10,4.8,mww,157,36,5.07,0.77,us,us7000pd93,2025-05-02T16:26:16.040Z,"211 km NNE of Barra Patuca, Honduras",earthquake,6.9,1.865,0.054,33,reviewed,us,us
+2025-02-14T07:26:23.748Z,17.4805,-83.29,10,4.7,mb,45,44,5.127,0.77,us,us7000pdkn,2025-05-02T16:26:17.040Z,"214 km NNE of Barra Patuca, Honduras",earthquake,7.52,1.868,0.052,114,reviewed,us,us
+2025-02-14T10:38:54.453Z,17.4764,-83.2319,10,4.4,mb,32,40,5.166,0.84,us,us7000pf94,2025-05-02T16:26:22.040Z,"216 km NNE of Barra Patuca, Honduras",earthquake,7.13,1.895,0.084,42,reviewed,us,us
+2025-02-17T07:00:31.785Z,17.5842,-83.1525,10,4,mb,32,98,5.184,0.51,us,us7000pe7f,2025-05-02T16:26:20.040Z,"231 km NNE of Barra Patuca, Honduras",earthquake,4.07,1.98,0.149,12,reviewed,us,us
+2025-02-22T20:31:32.447Z,17.6863,-82.2717,10,4.3,mb,42,50,4.541,0.76,us,us6000pwmh,2025-05-06T21:39:14.040Z,"200 km SSW of George Town, Cayman Islands",earthquake,8.05,1.958,0.099,29,reviewed,us,us
+2025-02-24T00:30:05.710Z,17.9638,-83.1728,10,4.9,mww,70,79,4.807,0.75,us,us7000pfpx,2025-05-06T21:39:19.040Z,"239 km SW of George Town, Cayman Islands",earthquake,8.14,1.887,0.061,26,reviewed,us,us
+2025-02-24T20:08:37.428Z,17.5702,-82.7176,10,5.4,mww,85,34,4.978,0.93,us,us6000pv78,2025-05-06T21:39:12.040Z,"237 km SW of George Town, Cayman Islands",earthquake,7,1.842,0.041,57,reviewed,us,us
+2025-03-03T05:05:28.153Z,17.6389,-82.236,10,4.2,mb,122,40,4.514,0.51,us,us6000pwju,2025-05-08T19:24:45.040Z,"203 km SSW of George Town, Cayman Islands",earthquake,4.98,1.921,0.057,85,reviewed,us,us
+2025-03-05T03:29:30.824Z,17.5814,-83.4287,10,4.3,mb,61,113,5.096,1.07,us,us6000pwyn,2025-05-16T17:30:01.040Z,"217 km NNE of Barra Patuca, Honduras",earthquake,6.96,1.647,0.071,57,reviewed,us,us
+2025-03-05T15:51:02.696Z,17.3961,-83.2997,10,4.6,mb,93,60,5.065,0.99,us,us6000pymn,2025-05-16T17:30:05.040Z,"205 km NNE of Barra Patuca, Honduras",earthquake,5.18,1.776,0.061,80,reviewed,us,us
+2025-03-12T19:00:33.793Z,17.7756,-82.5673,10,4.3,mb,55,106,4.81,0.76,us,us6000pyfk,2025-05-17T19:19:57.040Z,"209 km SW of George Town, Cayman Islands",earthquake,8.48,1.957,0.087,37,reviewed,us,us

@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2014-05-13T06:35:24.240Z,7.2096,-82.3045,10,6.5,mww,,33,3.121,1.33,us,usb000qk64,2022-07-26T14:54:28.522Z,"110 km SE of Punta de Burica, Panama",earthquake,,1.3,,,reviewed,us,us
+2014-05-13T21:59:04.910Z,7.4762,-82.3994,18.95,4.6,mb,,73,3.026,1,us,usb000qljz,2014-08-06T00:55:35.000Z,"80 km SE of Punta de Burica, Panama",earthquake,,4.2,0.052,126,reviewed,us,us
+2014-05-14T09:46:14.720Z,7.3972,-82.4067,10,5.3,mwc,,63,3.088,0.82,us,usb000qm11,2022-05-03T16:51:15.522Z,"86 km SE of Punta de Burica, Panama",earthquake,,1.3,,,reviewed,us,gcmt
+2014-05-15T18:47:40.290Z,7.1633,-82.332,10,4.3,mb,,94,3.171,1.18,us,usc000ragu,2014-08-09T02:53:44.000Z,"112 km SSE of Punta de Burica, Panama",earthquake,,1.9,0.116,23,reviewed,us,us
+2014-05-17T14:11:21.130Z,7.2094,-82.3683,7.81,4.1,mb,,73,3.171,0.85,us,usc000rb9s,2014-08-09T02:53:47.000Z,"106 km SSE of Punta de Burica, Panama",earthquake,,5.4,0.3,3,reviewed,us,us

@@ -1,0 +1,29 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2012-12-10T16:53:08.770Z,-6.533,129.825,155,7.1,mww,517,8.7,,0.95,us,usp000jwt8,2022-05-03T16:58:48.046Z,"Banda Sea",earthquake,,,,,reviewed,us,us
+2012-12-10T17:35:55.090Z,-6.55,129.858,154.3,4.6,mb,21,146.6,,1.2,us,usp000jwtc,2014-11-07T01:49:35.200Z,"Banda Sea",earthquake,,12.5,,4,reviewed,us,us
+2012-12-10T18:55:03.100Z,-6.515,129.919,157.9,4.4,mb,38,45,,0.77,us,usp000jwte,2014-11-07T01:49:35.204Z,"Banda Sea",earthquake,,6.3,,7,reviewed,us,us
+2012-12-10T19:58:26.990Z,-6.585,129.931,166.4,4.8,mb,64,50.5,,0.85,us,usp000jwtg,2014-11-07T01:49:35.209Z,"Banda Sea",earthquake,,5.1,,27,reviewed,us,us
+2012-12-10T20:47:51.220Z,-6.511,129.904,173,5.2,mb,122,37.4,,1.01,us,usp000jwtj,2014-11-07T01:49:35.217Z,"Banda Sea",earthquake,,5.2,,66,reviewed,us,us
+2012-12-14T22:37:23.640Z,-6.178,130.294,124.2,4.8,mb,66,45.1,,1.39,us,usp000jwyz,2014-11-07T01:49:36.488Z,"278 km WSW of Tual, Indonesia",earthquake,,12.9,,30,reviewed,us,us
+2012-12-17T06:45:59.900Z,-6.799,130.013,142.2,4.7,mb,18,89.7,,0.35,us,usp000jx29,2014-11-07T01:49:37.264Z,"Banda Sea",earthquake,,5.9,,2,reviewed,us,us
+2012-12-17T07:18:37.260Z,-6.795,130.054,151.8,4.4,mb,18,133,,1.47,us,usp000jx2a,2014-11-07T01:49:37.266Z,"Banda Sea",earthquake,,15,,4,reviewed,us,us
+2012-12-17T18:22:58.070Z,-6.634,130.058,141.2,4.1,mb,13,89.8,,1.17,us,usp000jx2z,2014-11-07T01:49:37.413Z,"Banda Sea",earthquake,,11.2,,3,reviewed,us,us
+2012-12-18T19:02:44.400Z,-6.617,129.819,164.5,4.5,mb,23,66.7,,0.98,us,usp000jx47,2014-11-07T01:49:37.649Z,"Banda Sea",earthquake,,7.6,,10,reviewed,us,us
+2012-12-20T07:01:11.720Z,-6.62,129.979,158.2,4.6,mb,21,88.7,,1.46,us,usp000jx69,2014-11-07T01:49:38.013Z,"Banda Sea",earthquake,,11.8,,5,reviewed,us,us
+2012-12-20T13:38:04.890Z,-7.065,129.291,153.8,4.8,mb,32,63,,1.07,us,usp000jx6p,2014-11-07T01:49:38.079Z,"299 km ENE of Lospalos, Timor Leste",earthquake,,7,,8,reviewed,us,us
+2012-12-22T03:44:02.090Z,-6.624,129.861,173.2,4.2,mb,20,87.1,,1.43,us,usp000jx8e,2014-11-07T01:49:38.474Z,"Banda Sea",earthquake,,10.3,,6,reviewed,us,us
+2012-12-24T19:29:03.280Z,-6.353,130.07,137.6,4.4,mb,19,68.7,,0.88,us,usp000jxcc,2014-11-07T01:49:39.475Z,"Banda Sea",earthquake,,8.8,,10,reviewed,us,us
+2012-12-25T03:30:31.370Z,-6.601,129.97,147.7,4.7,mb,35,63.4,,1.44,us,usp000jxcn,2014-11-07T01:49:39.520Z,"Banda Sea",earthquake,,10.6,,16,reviewed,us,us
+2012-12-28T10:13:15.010Z,-6.689,129.863,151.4,4.4,mb,34,67.6,,1.18,us,usp000jxgu,2014-11-07T01:49:40.395Z,"Banda Sea",earthquake,,8.1,,19,reviewed,us,us
+2012-12-29T08:33:20.340Z,-6.523,129.874,154.6,4.6,mb,56,30.4,,1.21,us,usp000jxjd,2014-11-07T01:49:40.748Z,"Banda Sea",earthquake,,7,,22,reviewed,us,us
+2012-12-29T20:29:52.410Z,-6.605,129.895,166.3,4.5,mb,54,67.6,,1.28,us,usp000jxk3,2014-11-07T01:49:40.886Z,"Banda Sea",earthquake,,7.6,,28,reviewed,us,us
+2012-12-29T22:43:54.010Z,-6.585,129.902,160.9,4.5,mb,49,87.5,,1.17,us,usp000jxk9,2014-11-07T01:49:40.910Z,"Banda Sea",earthquake,,7.1,,23,reviewed,us,us
+2013-01-02T07:19:48.430Z,-6.513,129.9,154.3,4.5,mb,38,67.3,,1.35,us,usp000jxqt,2014-11-07T01:49:44.434Z,"Banda Sea",earthquake,,9.2,,12,reviewed,us,us
+2013-01-11T05:48:32.770Z,-7.139,129.774,135.8,4.1,mb,16,87.7,,1.47,us,usp000jy7m,2014-11-07T01:49:48.871Z,"Kepulauan Babar, Indonesia",earthquake,,11.1,,5,reviewed,us,us
+2013-01-18T05:16:13.220Z,-6.84,130.439,85.6,4.8,mb,39,42.5,,0.97,us,usp000jyhn,2014-11-07T01:49:51.226Z,"288 km WSW of Tual, Indonesia",earthquake,,6.6,,14,reviewed,us,us
+2013-01-20T07:58:42.900Z,-6.632,130.137,157.6,4.5,mb,31,70.6,,0.83,us,usp000jym3,2014-11-07T01:49:51.629Z,"Banda Sea",earthquake,,6.3,,9,reviewed,us,us
+2013-01-24T14:47:49.650Z,-6.254,130.128,148.8,4.5,mb,27,81.4,,0.91,us,usp000jysw,2014-11-07T01:49:53.073Z,"298 km WSW of Tual, Indonesia",earthquake,,15,,4,reviewed,us,us
+2013-02-01T18:04:09.310Z,-6.817,129.575,148.4,4.5,mb,23,67.7,,1.24,us,usc000ezps,2014-11-07T01:49:58.488Z,"Banda Sea",earthquake,,9.7,,14,reviewed,us,us
+2013-02-02T07:21:18.840Z,-6.542,129.965,131.4,4.5,mb,70,50.6,,1.13,us,usc000f005,2014-11-07T01:49:59.412Z,"Banda Sea",earthquake,,8,,28,reviewed,us,us
+2013-02-03T06:20:51.730Z,-6.608,130.151,152.8,4.6,mb,49,46.2,,1.11,us,usc000f0fi,2014-11-07T01:50:00.161Z,"Banda Sea",earthquake,,7.5,,20,reviewed,us,us
+2013-02-04T06:55:37.400Z,-7.044,129.502,155.7,4.2,mb,20,83.9,,0.97,us,usp000jyzw,2014-11-07T01:50:00.526Z,"Kepulauan Babar, Indonesia",earthquake,,8.4,,8,reviewed,us,us

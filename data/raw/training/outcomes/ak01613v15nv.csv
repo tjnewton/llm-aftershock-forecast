@@ -1,0 +1,13 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-01-24T10:30:29.557Z,59.6204,-153.3392,125.6,7.1,mw,,,,1.05,ak,ak01613v15nv,2024-06-16T05:38:15.319Z,"47 km ESE of Pedro Bay, Alaska",earthquake,,0.4,,,reviewed,ak,ak
+2016-01-24T10:37:20.706Z,59.6974,-153.3052,110.1,4.3,ml,,,,0.49,ak,ak01613v2mzq,2023-07-28T20:34:38.718Z,"46 km ESE of Pedro Bay, Alaska",earthquake,,0.1,,,reviewed,ak,ak
+2016-01-24T12:37:42.054Z,59.7192,-153.1678,107.1,4.3,ml,,,,0.68,ak,ak01613w9jul,2023-07-28T20:38:35.427Z,"53 km E of Pedro Bay, Alaska",earthquake,,0.3,,,reviewed,ak,ak
+2016-01-24T14:29:28.374Z,59.7312,-153.1457,106.8,4.7,ml,,,,0.69,ak,ak01613xeo9x,2023-07-28T20:41:37.787Z,"54 km E of Pedro Bay, Alaska",earthquake,,0.3,,,reviewed,ak,ak
+2016-01-24T17:37:29.439Z,59.7421,-153.125,105.1,4.2,ml,,,,0.65,ak,ak01613z8owf,2023-07-28T20:45:06.423Z,"55 km E of Pedro Bay, Alaska",earthquake,,0.3,,,reviewed,ak,ak
+2016-01-25T08:06:42.033Z,59.7499,-153.1174,104.5,4.3,ml,,,,0.76,ak,ak01615h8iq3,2023-07-28T20:58:22.389Z,"55 km E of Pedro Bay, Alaska",earthquake,,0.2,,,reviewed,ak,ak
+2016-01-28T05:30:22.261Z,59.6994,-153.1662,107.3,4.5,ml,,,,0.86,ak,ak0161ae7d1u,2023-07-28T21:25:12.093Z,"53 km E of Pedro Bay, Alaska",earthquake,,0.4,,,reviewed,ak,ak
+2016-02-03T20:31:25.777Z,60.3334,-153.5461,188.8,4.5,ml,,,,0.81,ak,ak0161kkd62p,2023-07-31T13:38:32.470Z,"45 km ENE of Port Alsworth, Alaska",earthquake,,0.4,,,reviewed,ak,ak
+2016-02-09T21:17:13.603Z,59.788,-152.9747,108.3,4.1,ml,,,,0.6,ak,ak0161ui3nog,2023-07-31T14:14:32.984Z,"63 km E of Pedro Bay, Alaska",earthquake,,0.3,,,reviewed,ak,ak
+2016-02-10T17:39:55.972Z,59.7134,-153.1544,105.6,4,ml,,,,0.6,ak,ak0161w3e2rx,2023-07-31T14:19:38.100Z,"54 km E of Pedro Bay, Alaska",earthquake,,0.3,,,reviewed,ak,ak
+2016-02-10T17:52:12.212Z,59.7193,-153.1664,105.5,4.3,ml,,,,0.61,ak,ak0161w3grph,2023-07-31T14:19:45.110Z,"53 km E of Pedro Bay, Alaska",earthquake,,0.3,,,reviewed,ak,ak
+2016-02-20T00:00:32.337Z,59.6592,-153.2609,121,4,ml,,,,0.59,ak,ak0162cceroh,2023-07-31T15:52:55.121Z,"49 km ESE of Pedro Bay, Alaska",earthquake,,0.2,,,reviewed,ak,ak

@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-06-01T22:56:00.800Z,-2.0967,100.6654,50,6.6,mww,,16,2.435,0.87,us,us20005zt1,2022-08-03T00:34:07.219Z,"80 km W of Sungai Penuh, Indonesia",earthquake,3.5,1.8,,,reviewed,us,us
+2016-06-02T06:38:59.730Z,-2.2384,100.3726,40.71,4.4,mb,,185,2.633,0.68,us,us200062s8,2016-08-10T22:30:32.040Z,"115 km W of Sungai Penuh, Indonesia",earthquake,13,8.1,0.13,17,reviewed,us,us
+2016-07-10T06:32:46.770Z,-2.3134,100.6991,63.3,4.7,mb,,139,2.644,0.48,us,us100062c3,2016-09-08T01:50:26.040Z,"82 km WSW of Sungai Penuh, Indonesia",earthquake,7.4,7.1,0.09,37,reviewed,us,us

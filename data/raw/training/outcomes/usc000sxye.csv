@@ -1,0 +1,25 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2014-11-16T22:33:20.450Z,-37.6478,179.6621,22,6.7,mww,,25,1.079,0.49,us,usc000sxye,2022-07-27T07:52:44.349Z,"183 km NE of Gisborne, New Zealand",earthquake,6.4,1.7,,,reviewed,us,us
+2014-11-17T17:33:11.400Z,-37.6215,-179.9335,10,4.3,mb,,295,1.399,1.26,us,usb000t25a,2015-02-12T01:42:55.040Z,"214 km ENE of Gisborne, New Zealand",earthquake,13.5,2,0.238,6,reviewed,us,us
+2014-11-18T00:47:18.030Z,-37.7527,-179.9206,33.055,4.3,mb,,,,0.95,us,usb000t288,2015-02-12T01:42:56.040Z,"207 km ENE of Gisborne, New Zealand",earthquake,11.7,6.2,0.201,8,reviewed,wel,us
+2014-11-18T02:37:05.550Z,-37.6844,179.5354,27.61,4.4,mb,,196,0.983,0.7,us,usc000syc2,2015-02-12T01:42:56.040Z,"171 km NE of Gisborne, New Zealand",earthquake,8.7,8.8,0.162,12,reviewed,us,us
+2014-11-18T16:35:31.480Z,-37.5211,179.5608,10,4.1,mb,,184,0.997,1.15,us,usb000t27p,2015-02-12T01:43:00.040Z,"185 km NE of Gisborne, New Zealand",earthquake,8.4,2,0.185,9,reviewed,us,us
+2014-11-18T16:41:28.690Z,-37.4377,179.5952,10,4.5,mb,,198,1.032,1.28,us,usb000t28z,2015-02-12T01:43:00.040Z,"194 km NE of Gisborne, New Zealand",earthquake,11.7,2,0.384,3,reviewed,us,us
+2014-11-19T04:42:04.960Z,-37.6987,179.2185,35,4.5,mb,,195,0.736,0.59,us,usb000t2fw,2015-02-18T03:30:45.040Z,"150 km NE of Gisborne, New Zealand",earthquake,6.6,1.9,0.181,10,reviewed,us,us
+2014-11-19T05:08:51.710Z,-37.754,-179.827,29.843,4.6,mb,,,,0.72,us,usc000syui,2015-02-18T03:30:45.040Z,"214 km ENE of Gisborne, New Zealand",earthquake,12.8,7.9,0.207,10,reviewed,wel,us
+2014-11-19T05:50:37.390Z,-37.7332,-179.96,42,4.2,mb,,,,2.33,us,usb000t2fp,2015-02-18T03:30:45.040Z,"205 km ENE of Gisborne, New Zealand",earthquake,12,8.1,0.235,6,reviewed,wel,us
+2014-11-19T06:40:52.870Z,-37.6885,179.6773,35,4.9,mb,,99,1.095,1.37,us,usc000syt7,2015-02-18T03:30:45.040Z,"181 km NE of Gisborne, New Zealand",earthquake,7.1,2,0.117,25,reviewed,us,us
+2014-11-19T11:25:17.140Z,-37.83,-179.9001,35,4.3,mb,,288,1.447,0.59,us,usb000t2h4,2015-02-18T03:30:46.040Z,"205 km ENE of Gisborne, New Zealand",earthquake,11.8,2,0.201,8,reviewed,us,us
+2014-11-20T00:53:43.320Z,-37.6725,179.9759,35,4.5,mb,,225,1.33,1.06,us,usb000sy4i,2015-02-18T03:30:47.040Z,"204 km ENE of Gisborne, New Zealand",earthquake,8.4,1.9,0.192,10,reviewed,us,us
+2014-11-23T06:00:53.360Z,-37.735,179.996,33,4.4,mb,,,,0.86,us,usb000sz80,2015-02-18T03:30:55.040Z,"202 km ENE of Gisborne, New Zealand",earthquake,10.7,2,0.203,12,reviewed,wel,us
+2014-11-23T11:36:57.890Z,-37.9003,179.7344,25.36,4.9,mb,,149,1.181,0.57,us,usc000t41v,2015-02-18T03:30:55.040Z,"172 km ENE of Gisborne, New Zealand",earthquake,10.7,6.1,0.145,16,reviewed,us,us
+2014-11-23T14:17:54.850Z,-37.7313,179.5457,34.66,4.2,mb,,244,0.998,0.93,us,usc000t41u,2015-02-18T03:30:55.040Z,"169 km NE of Gisborne, New Zealand",earthquake,14.5,9.3,0.186,10,reviewed,us,us
+2014-11-23T18:48:01.060Z,-37.7033,179.5417,49.52,4.1,mb,,264,0.99,0.32,us,usc000t41w,2015-02-18T03:30:55.040Z,"171 km NE of Gisborne, New Zealand",earthquake,13.1,14.2,0.198,8,reviewed,us,us
+2014-11-24T18:37:43.120Z,-37.8419,179.9923,33,4.3,mb,,,,1.42,us,usc000t4l1,2015-02-18T03:30:57.040Z,"195 km ENE of Gisborne, New Zealand",earthquake,12.6,7.1,0.237,5,reviewed,wel,us
+2014-11-25T21:18:40.170Z,-37.8462,-179.956,35,4.1,mb,,221,1.406,0.72,us,usc000t4v5,2015-02-18T03:31:00.040Z,"east of the North Island of New Zealand",earthquake,9.4,2,0.214,7,reviewed,us,us
+2014-11-25T23:03:34.090Z,-37.7193,179.7686,42.89,4.4,mb,,236,1.171,0.98,us,usc000t4v9,2015-02-18T03:31:00.040Z,"186 km NE of Gisborne, New Zealand",earthquake,10.7,10.8,0.24,6,reviewed,us,us
+2014-11-26T22:00:38.390Z,-37.7862,179.5017,35,4.5,mb,,183,0.974,0.93,us,usc000t56g,2015-02-24T00:35:06.040Z,"162 km NE of Gisborne, New Zealand",earthquake,10.2,2,0.139,16,reviewed,us,us
+2014-12-01T14:12:32.350Z,-37.7298,179.374,51.86,4.5,mb,,149,0.863,0.57,us,usc000t6y6,2015-02-24T00:35:15.040Z,"157 km NE of Gisborne, New Zealand",earthquake,11,6.4,0.144,16,reviewed,us,us
+2014-12-01T21:00:07.400Z,-37.6995,179.8633,18.07,4.2,mb,,196,1.243,1.19,us,usc000t6yc,2015-02-24T00:35:15.040Z,"194 km ENE of Gisborne, New Zealand",earthquake,7.9,6.8,0.216,7,reviewed,us,us
+2014-12-11T21:36:03.300Z,-38.0291,179.7428,10,4.2,mb,,169,1.229,0.99,us,usc000t9sk,2015-03-04T21:54:59.040Z,"167 km ENE of Gisborne, New Zealand",earthquake,7.2,2,0.176,10,reviewed,us,us
+2014-12-25T02:24:36.590Z,-37.7553,179.7991,10,4.7,mb,,194,1.2,0.76,us,usc000t9xd,2015-03-17T02:37:04.040Z,"186 km ENE of Gisborne, New Zealand",earthquake,6.3,1.8,0.115,24,reviewed,us,us

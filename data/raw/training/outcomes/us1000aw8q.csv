@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2017-10-24T10:47:47.860Z,-7.2168,123.0735,553.81,6.7,mww,,16,1.634,0.97,us,us1000aw8q,2022-05-03T18:39:26.957Z,"181 km NNE of Maumere, Indonesia",earthquake,8.6,3.1,0.046,46,reviewed,us,us

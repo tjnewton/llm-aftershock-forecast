@@ -1,0 +1,21 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2015-02-16T23:06:28.270Z,39.8558,142.8808,23,6.7,mww,,20,1.925,0.94,us,usb000tpvj,2022-07-27T21:32:17.327Z,"83 km ENE of Miyako, Japan",earthquake,3.8,1.8,,,reviewed,us,us
+2015-02-17T00:37:36.640Z,39.7135,143.0898,33.7,4.4,mb,,124,2.136,0.59,us,usc000trw9,2015-05-11T23:20:19.040Z,"98 km E of Miyako, Japan",earthquake,4.9,6.9,0.219,7,reviewed,us,us
+2015-02-17T00:50:02.640Z,39.8563,143.166,10,4.6,mb,,142,2.119,0.56,us,usb000tpwf,2022-07-27T21:34:13.992Z,"107 km ENE of Miyako, Japan",earthquake,6.8,1.9,0.086,45,reviewed,us,us
+2015-02-17T01:15:06.570Z,39.8018,142.7789,35,4.5,mb,,135,1.886,0.76,us,usb000tpwu,2015-05-11T23:20:19.040Z,"73 km ENE of Miyako, Japan",earthquake,4.6,2,0.093,34,reviewed,us,us
+2015-02-17T02:29:52.130Z,39.6591,142.981,29.43,4.8,mb,,131,2.094,0.44,us,usb000tpxa,2015-05-11T23:20:20.040Z,"89 km E of Miyako, Japan",earthquake,6.3,5.2,0.061,83,reviewed,us,us
+2015-02-17T03:23:23.420Z,39.8013,143.1707,38.89,4.3,mb,,150,2.147,0.56,us,usb000tpxs,2015-05-11T23:20:20.040Z,"106 km E of Miyako, Japan",earthquake,7.5,9.3,0.178,10,reviewed,us,us
+2015-02-17T04:38:41.730Z,39.7421,143.3396,38.95,4.1,mb,,157,2.274,0.9,us,usb000tpya,2015-05-11T23:20:20.040Z,"120 km E of Miyako, Japan",earthquake,7.4,5.9,0.174,10,reviewed,us,us
+2015-02-17T17:00:05.040Z,39.8515,143.0698,10,4.3,mb,,157,2.055,1.24,us,usb000tq2j,2015-05-11T23:20:21.040Z,"99 km ENE of Miyako, Japan",earthquake,5.5,1.8,0.188,9,reviewed,us,us
+2015-02-17T18:35:19.530Z,39.7077,143.2277,32.14,4.1,mb,,139,2.231,1.26,us,usb000tq2y,2015-05-11T23:20:21.040Z,"110 km E of Miyako, Japan",earthquake,7.6,6.8,0.14,16,reviewed,us,us
+2015-02-17T20:27:41.830Z,39.8197,142.8995,39.6,4,mb,,157,1.956,0.72,us,usc000trwv,2015-05-11T23:20:22.040Z,"84 km ENE of Miyako, Japan",earthquake,8.7,10.7,0.163,12,reviewed,us,us
+2015-02-20T03:52:20.840Z,39.6568,143.3203,23.07,4.4,mb,,156,2.359,0.91,us,usc000trs7,2015-05-12T20:29:34.040Z,"118 km E of Miyako, Japan",earthquake,8.7,6.7,0.155,16,reviewed,us,us
+2015-02-20T05:26:54.350Z,39.6906,143.0837,10,4.1,mb,,193,2.144,0.4,us,usc000trsj,2015-05-12T20:29:34.040Z,"98 km E of Miyako, Japan",earthquake,8.1,2,0.198,7,reviewed,us,us
+2015-02-20T11:09:16.520Z,39.9501,142.6709,35,4.4,mb,,136,2.095,1.46,us,usc000trth,2015-05-12T20:29:34.040Z,"71 km ENE of Miyako, Japan",earthquake,6.5,2,0.126,18,reviewed,us,us
+2015-02-22T19:43:32.660Z,39.7592,143.2815,10,5.1,mb,,87,2.242,0.66,us,usc000tsbm,2025-12-22T17:04:01.240Z,"115 km E of Miyako, Japan",earthquake,6.6,1.8,0.057,104,reviewed,us,us
+2015-02-23T05:17:32.990Z,39.689,143.2055,10,4.4,mb,,158,2.226,0.85,us,usc000ttdg,2015-05-12T20:29:41.040Z,"108 km E of Miyako, Japan",earthquake,5.9,1.9,0.154,12,reviewed,us,us
+2015-02-24T01:42:19.660Z,39.6374,143.2264,10,4.4,mb,,179,2.266,0.3,us,usc000tskb,2015-05-12T20:29:42.040Z,"110 km E of Miyako, Japan",earthquake,7.9,1.8,0.169,10,reviewed,us,us
+2015-02-24T02:28:54.090Z,39.6546,143.1982,20,5.8,mww,,19,2.238,0.46,us,usc000tski,2022-07-27T22:53:10.524Z,"107 km E of Miyako, Japan",earthquake,6.5,1.8,,,reviewed,us,us
+2015-03-05T07:30:42.390Z,39.8322,143.2773,25.59,4.5,mb,,133,2.182,1.04,us,usc000tv51,2015-05-28T00:48:33.040Z,"116 km E of Miyako, Japan",earthquake,7.8,5.8,0.104,30,reviewed,us,us
+2015-03-08T10:35:25.990Z,39.8947,143.3597,22.25,4.6,mb,,135,2.123,0.64,us,usc000twit,2015-05-28T00:48:38.040Z,"124 km ENE of Miyako, Japan",earthquake,6.4,5.6,0.094,35,reviewed,us,us
+2015-04-01T18:44:20.390Z,40.2469,143.0581,37.15,4.4,mb,,84,1.768,0.84,us,us10001sv6,2015-06-12T01:53:34.040Z,"116 km NE of Miyako, Japan",earthquake,5.4,6.5,0.093,33,reviewed,us,us

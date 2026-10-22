@@ -1,0 +1,8 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2024-08-25T23:29:07.544Z,-19.8125,-175.0711,96,6.9,mww,276,13,1.56,0.53,us,us7000n9dt,2024-11-02T21:29:06.040Z,"75 km W of Pangai, Tonga",earthquake,9.43,1.841,0.033,86,reviewed,us,us
+2024-08-25T23:30:51.981Z,-19.7667,-174.9814,99.28,6,mb,111,62,1.602,0.61,us,us7000n9dz,2024-11-02T21:29:07.040Z,"65 km W of Pangai, Tonga",earthquake,10.02,6.617,0.058,111,reviewed,us,us
+2024-08-25T23:37:58.334Z,-19.8502,-175.2398,100.508,5.3,mb,145,67,1.542,0.45,us,us7000n9dy,2024-11-02T21:29:06.040Z,"92 km W of Pangai, Tonga",earthquake,10.96,5.046,0.053,121,reviewed,us,us
+2024-08-25T23:50:18.683Z,-19.8519,-175.263,100.492,4.5,mb,22,161,1.544,0.53,us,us7000nhim,2024-11-02T21:29:52.040Z,"95 km W of Pangai, Tonga",earthquake,14.71,3.468,0.132,17,reviewed,us,us
+2024-09-23T00:05:43.647Z,-19.542,-175.4516,170.676,4.4,mb,27,79,1.636,0.88,us,us7000ngty,2024-12-06T19:30:17.040Z,"118 km WNW of Pangai, Tonga",earthquake,11.36,4.083,0.118,21,reviewed,us,us
+2024-10-01T08:38:37.941Z,-19.9509,-175.4323,160.771,4.7,mb,23,81,1.487,1.19,us,us7000nhel,2024-12-14T14:50:53.040Z,"113 km W of Pangai, Tonga",earthquake,14.16,9.667,0.097,32,reviewed,us,us
+2024-10-04T21:15:11.563Z,-19.9349,-175.1468,110.348,4.6,mb,31,113,1.23,0.75,us,us6000nwlr,2024-12-14T14:50:33.040Z,"84 km W of Pangai, Tonga",earthquake,11.57,7.071,0.101,29,reviewed,us,us

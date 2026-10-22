@@ -1,0 +1,49 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2013-04-20T00:02:47.540Z,30.308,102.888,14,6.6,mww,548,12.6,,1.08,us,usb000gcdd,2025-03-26T09:05:21.146Z,"56 km WSW of Linqiong, China",earthquake,,,,,reviewed,us,us
+2013-04-20T00:31:35.820Z,30.401,103.119,10,4.8,mb,75,46.5,,1.15,us,us2013pfan,2014-11-07T01:50:36.240Z,"32 km W of Linqiong, China",earthquake,,,,22,reviewed,us,us
+2013-04-20T00:37:11.600Z,30.215,102.969,10,4.8,mb,83,37.1,,0.97,us,us2013pfaq,2014-11-07T01:50:36.246Z,"52 km WSW of Linqiong, China",earthquake,,,,26,reviewed,us,us
+2013-04-20T01:02:56.180Z,30.255,102.991,10,4.9,mb,114,30.4,,0.71,us,usb000gcez,2022-05-03T16:14:57.365Z,"48 km WSW of Linqiong, China",earthquake,,,,65,reviewed,us,us
+2013-04-20T01:04:21.700Z,30.263,102.97,10,4.6,mb,62,71.6,,0.72,us,us2013pff4,2014-11-07T01:50:36.266Z,"50 km WSW of Linqiong, China",earthquake,,,,24,reviewed,us,us
+2013-04-20T01:10:54.580Z,30.421,103.031,10,4.1,mb,46,70.7,,1.16,us,us2013pff5,2014-11-07T01:50:36.270Z,"41 km W of Linqiong, China",earthquake,,,,13,reviewed,us,us
+2013-04-20T01:11:50.740Z,30.209,102.862,10,5,mb,169,18.8,,0.67,us,usb000gcf9,2022-05-12T18:14:06.456Z,"62 km WSW of Linqiong, China",earthquake,,,,103,reviewed,us,us
+2013-04-20T01:17:46.640Z,30.115,102.784,10,4.3,mb,25,152.6,,1,us,us2013pff6,2014-11-07T01:50:36.294Z,"73 km WSW of Linqiong, China",earthquake,,,,4,reviewed,us,us
+2013-04-20T01:20:09.450Z,30.287,103.058,10,4.8,mb,94,37.7,,0.94,us,usb000gcfh,2014-11-07T01:50:36.297Z,"41 km WSW of Linqiong, China",earthquake,,,,45,reviewed,us,us
+2013-04-20T01:26:00.690Z,30.34,103.049,10,4.6,mb,78,48.1,,1.13,us,usb000gcfl,2014-11-07T01:50:36.304Z,"40 km WSW of Linqiong, China",earthquake,,,,32,reviewed,us,us
+2013-04-20T01:31:42.840Z,30.357,103.312,6.3,4.4,mb,53,85.7,,0.77,us,us2013pff7,2014-11-07T01:50:36.310Z,"15 km WSW of Linqiong, China",earthquake,,14.7,,23,reviewed,us,us
+2013-04-20T01:37:27.920Z,30.282,102.998,10,5.1,mb,175,25.7,,0.79,us,usb000gcfp,2022-05-03T16:15:02.494Z,"46 km WSW of Linqiong, China",earthquake,,,,105,reviewed,us,us
+2013-04-20T01:39:34.220Z,30.151,102.952,10,4.8,mb,87,103.4,,0.8,us,us2013pff9,2014-11-07T01:50:36.328Z,"57 km WSW of Linqiong, China",earthquake,,,,37,reviewed,us,us
+2013-04-20T02:01:41.700Z,30.226,103.11,10,4.2,mb,32,86.6,,0.85,us,us2013pfga,2014-11-07T01:50:36.335Z,"39 km WSW of Linqiong, China",earthquake,,,,7,reviewed,us,us
+2013-04-20T02:12:34.190Z,30.264,102.963,10,4.3,mb,34,103.1,,0.63,us,us2013pfgb,2014-11-07T01:50:36.337Z,"50 km WSW of Linqiong, China",earthquake,,,,7,reviewed,us,us
+2013-04-20T02:19:04.150Z,30.327,103.05,10,4.5,mb,66,70.6,,0.93,us,usb000gcg1,2014-11-07T01:50:36.340Z,"40 km WSW of Linqiong, China",earthquake,,,,24,reviewed,us,us
+2013-04-20T02:29:48.810Z,30.247,102.834,10,4.4,mb,52,87.8,,0.85,us,us2013pfgc,2014-11-07T01:50:36.345Z,"63 km WSW of Linqiong, China",earthquake,,,,15,reviewed,us,us
+2013-04-20T02:38:34.950Z,30.272,103.111,10,4.6,mb,96,35.2,,0.77,us,usb000gcg6,2014-11-07T01:50:36.349Z,"37 km WSW of Linqiong, China",earthquake,,,,44,reviewed,us,us
+2013-04-20T03:19:49.690Z,30.323,102.923,10,4.2,mb,32,87.3,,0.99,us,us2013pfgd,2014-11-07T01:50:36.356Z,"52 km WSW of Linqiong, China",earthquake,,,,6,reviewed,us,us
+2013-04-20T03:34:15.550Z,30.187,102.95,10,5.1,mb,226,17.6,,0.81,us,usb000gcgj,2022-07-25T00:09:46.324Z,"55 km WSW of Linqiong, China",earthquake,,,,141,reviewed,us,us
+2013-04-20T03:55:37.780Z,30.293,102.926,10,4.4,mb,40,165.3,,0.75,us,us2013pfgg,2014-11-07T01:50:36.410Z,"Western Sichuan, China",earthquake,,,,15,reviewed,us,us
+2013-04-20T06:43:22.020Z,30.093,103.157,10.4,4.2,mb,15,87,,1.34,us,us2013pfgt,2014-11-07T01:50:36.525Z,"46 km SW of Linqiong, China",earthquake,,4.7,,7,reviewed,us,us
+2013-04-20T07:18:32.770Z,30.372,102.985,11.5,4.5,mb,100,38,,0.81,us,usb000gcie,2014-11-07T01:50:36.565Z,"45 km W of Linqiong, China",earthquake,,3.4,,71,reviewed,us,us
+2013-04-20T07:53:27.550Z,30.262,103.112,10,4.1,mb,24,129,,0.95,us,us2013pfgu,2014-11-07T01:50:36.576Z,"37 km WSW of Linqiong, China",earthquake,,4.7,,15,reviewed,us,us
+2013-04-20T09:45:12.320Z,30.326,103.082,14.8,4.3,mb,49,70.4,,0.66,us,usb000gcjz,2014-11-07T01:50:36.604Z,"37 km WSW of Linqiong, China",earthquake,,12.1,,31,reviewed,us,us
+2013-04-20T10:59:00.190Z,30.394,103.133,10.1,4.5,mb,86,42,,0.56,us,usb000gcki,2014-11-07T01:50:36.614Z,"31 km W of Linqiong, China",earthquake,,2.4,,66,reviewed,us,us
+2013-04-20T11:12:49.500Z,30.366,103.051,10,4.8,mb,112,48,,0.49,us,usb000gckm,2014-11-07T01:50:36.620Z,"39 km W of Linqiong, China",earthquake,,,,82,reviewed,us,us
+2013-04-20T15:20:52.390Z,30.194,102.993,10,4.6,mb,13,139.1,,1.41,us,usp000k0bq,2014-11-07T01:50:36.813Z,"Western Sichuan, China",earthquake,,,,4,reviewed,us,us
+2013-04-20T16:14:38.890Z,30.21,102.922,43.6,4.5,mb,76,71.5,,0.72,us,usb000gcp3,2014-11-07T01:50:36.822Z,"56 km WSW of Linqiong, China",earthquake,,5.1,,42,reviewed,us,us
+2013-04-20T18:32:09.550Z,30.36,103.084,18.3,4.6,mb,87,48,,0.58,us,usb000gcrx,2014-11-07T01:50:36.843Z,"36 km W of Linqiong, China",earthquake,,3.9,,70,reviewed,us,us
+2013-04-20T19:54:45.860Z,30.307,103.024,10,4.4,mb,64,56,,0.48,us,usb000gctk,2014-11-07T01:50:36.868Z,"43 km WSW of Linqiong, China",earthquake,,,,39,reviewed,us,us
+2013-04-20T20:53:43.110Z,30.339,103.06,10,5.1,mb,228,17.5,,0.74,us,us2013pfbv,2015-01-30T17:22:51.334Z,"39 km WSW of Linqiong, China",earthquake,,,,173,reviewed,us,us
+2013-04-21T03:59:37.540Z,30.225,103.015,10,5,mb,189,19.3,,0.81,us,usb000gd0r,2022-05-03T16:15:36.651Z,"47 km WSW of Linqiong, China",earthquake,,,,107,reviewed,us,us
+2013-04-21T04:39:18.860Z,30.296,103.047,10,4.4,mb,48,48.7,,0.72,us,usb000gd1i,2014-11-07T01:50:37.040Z,"41 km WSW of Linqiong, China",earthquake,,,,15,reviewed,us,us
+2013-04-21T09:05:23.540Z,30.317,102.998,15.7,5.2,mb,229,18,,0.89,us,usb000gd3w,2022-07-25T00:17:22.627Z,"45 km WSW of Linqiong, China",earthquake,,2.9,,178,reviewed,us,us
+2013-04-21T09:30:25.250Z,30.229,102.962,15,4.6,mb,131,39,,0.82,us,usb000gd3z,2014-11-07T01:50:37.143Z,"52 km WSW of Linqiong, China",earthquake,,3.3,,92,reviewed,us,us
+2013-04-21T10:48:24.000Z,30.236,102.968,11.4,4.5,mb,113,46,,0.68,us,usb000gd4j,2014-11-07T01:50:37.190Z,"51 km WSW of Linqiong, China",earthquake,,2.4,,72,reviewed,us,us
+2013-04-21T14:16:55.400Z,30.396,103.021,21.6,4.6,mb,74,46.1,,0.68,us,us2013pga5,2014-11-07T01:50:37.284Z,"eastern Sichuan, China",earthquake,,,,39,reviewed,us,us
+2013-04-21T15:25:23.620Z,30.284,103.019,10,4.3,mb,29,87,,1.02,us,us2013pgc9,2014-11-07T01:50:37.297Z,"44 km WSW of Linqiong, China",earthquake,,,,10,reviewed,us,us
+2013-04-22T21:54:49.360Z,30.288,103.156,10,4.7,mb,91,42.6,,0.81,us,usb000gdve,2014-11-07T01:50:37.808Z,"32 km WSW of Linqiong, China",earthquake,,,,74,reviewed,us,us
+2013-04-23T14:07:19.540Z,30.396,103.114,35,4.3,mb,22,76.9,,0.89,us,us2013pide,2014-11-07T01:50:37.954Z,"33 km W of Linqiong, China",earthquake,,,,9,reviewed,us,us
+2013-04-26T07:31:08.470Z,30.288,103.15,10.5,4,mb,23,86,,0.78,us,us2013plb2,2014-11-07T01:50:38.944Z,"33 km WSW of Linqiong, China",earthquake,,4.5,,10,reviewed,us,us
+2013-04-30T18:14:17.500Z,30.352,102.998,35.9,4.4,mb,86,60,,0.72,us,usb000gixp,2014-11-07T01:50:40.018Z,"45 km W of Linqiong, China",earthquake,,5.7,,66,reviewed,us,us
+2013-05-02T13:16:10.120Z,30.306,103.119,35,4,mb,14,127.9,,0.68,us,usp000k0j2,2014-11-07T01:50:43.411Z,"35 km WSW of Linqiong, China",earthquake,,,,4,reviewed,us,us
+2013-05-10T23:30:09.630Z,30.28,102.982,10,4.2,mb,34,87.1,,0.99,us,us2013qadb,2014-11-07T01:50:46.819Z,"48 km WSW of Linqiong, China",earthquake,,,,5,reviewed,us,us
+2013-05-11T00:50:39.200Z,30.339,102.984,10,4.6,mb,79,71.2,,0.93,us,us2013qbad,2015-01-30T17:59:06.018Z,"46 km W of Linqiong, China",earthquake,,,,42,reviewed,us,us
+2013-05-11T01:07:20.790Z,30.285,102.968,10,4.4,mb,40,103.1,,0.62,us,usc000gtvb,2014-11-07T01:50:46.841Z,"49 km WSW of Linqiong, China",earthquake,,,,16,reviewed,us,us
+2013-05-15T17:24:58.620Z,30.354,103.059,38.2,4.3,mb,45,70.9,,0.7,us,usc000gxfj,2014-11-07T01:50:48.672Z,"39 km W of Linqiong, China",earthquake,,6.8,,19,reviewed,us,us

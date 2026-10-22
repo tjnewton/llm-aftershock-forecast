@@ -1,0 +1,40 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2021-08-14T12:29:08.454Z,18.4335,-73.4822,10,7.2,mww,,23,1.178,0.75,us,us6000f65h,2026-02-11T20:58:06.524Z,"Nippes, Haiti",earthquake,3.1,1.8,0.031,97,reviewed,us,us
+2021-08-14T12:45:08.124Z,18.5581,-73.7508,13.43,4,mb,,52,1.872,0.55,us,us7000f3pq,2021-10-29T14:46:47.040Z,"14 km NW of Baradères, Haiti",earthquake,6.7,7,0.368,2,reviewed,us,us
+2021-08-14T12:49:33.131Z,18.4639,-73.7332,12.55,5.1,mb,,49,1.412,0.69,us,us6000f65p,2021-10-29T14:46:11.040Z,"10 km WSW of Baradères, Haiti",earthquake,4.5,4.1,0.099,33,reviewed,us,us
+2021-08-14T12:56:56.546Z,18.2549,-73.6938,12.97,4.1,mb,,75,2.135,0.51,us,us7000f3pr,2021-10-29T14:46:47.040Z,"6 km SW of Cavaillon, Haiti",earthquake,3.5,6.7,0.213,6,reviewed,us,us
+2021-08-14T13:14:12.790Z,18.4511,-73.464,10,4.1,mb,,72,1.159,0.68,us,us6000f65w,2021-10-29T14:46:11.040Z,"9 km SSE of Petit Trou de Nippes, Haiti",earthquake,5.9,1.9,0.197,7,reviewed,us,us
+2021-08-14T13:14:55.567Z,18.2672,-73.5007,10,4.4,mb,,79,1.225,1.13,us,us6000f667,2021-10-29T14:46:12.040Z,"4 km E of Saint-Louis du Sud, Haiti",earthquake,6.3,1.9,0.08,45,reviewed,us,us
+2021-08-14T13:52:25.491Z,18.4601,-73.6079,10,4.3,mb,,92,2.036,1,us,us7000f3q3,2021-10-29T14:46:47.040Z,"4 km SE of Baradères, Haiti",earthquake,5.7,1.5,0.217,6,reviewed,us,us
+2021-08-14T14:02:35.434Z,18.4513,-73.6071,10,4.2,mb,,92,1.294,0.74,us,us6000f66b,2021-10-29T14:46:12.040Z,"4 km SE of Baradères, Haiti",earthquake,7.1,2,0.371,2,reviewed,us,us
+2021-08-14T14:03:13.938Z,18.5089,-73.5777,10,4.4,mb,,94,1.262,0.71,us,us7000f3qz,2021-10-29T14:46:49.040Z,"7 km ENE of Baradères, Haiti",earthquake,6.1,1.9,0.143,14,reviewed,us,us
+2021-08-14T14:28:50.707Z,18.5376,-73.5688,10,4.8,mb,,45,1.253,0.98,us,us6000f66l,2021-10-29T14:46:12.040Z,"6 km WNW of Petit Trou de Nippes, Haiti",earthquake,3.6,1.8,0.04,195,reviewed,us,us
+2021-08-14T14:40:48.915Z,18.4801,-73.6954,10,4.2,mb,,86,1.375,1.12,us,us6000f66r,2021-10-29T14:46:12.040Z,"5 km W of Baradères, Haiti",earthquake,4.5,1.9,0.187,8,reviewed,us,us
+2021-08-14T14:57:34.309Z,18.4745,-73.6521,10,4.7,mb,,52,1.335,0.91,us,us6000f66y,2021-10-29T14:46:12.040Z,"Haiti region",earthquake,5.8,1.9,0.037,221,reviewed,us,us
+2021-08-14T15:08:10.923Z,18.4358,-73.6068,10,4.3,mb,,59,1.295,1.02,us,us6000f67e,2021-10-29T14:46:13.040Z,"6 km SSE of Baradères, Haiti",earthquake,6.5,1.9,0.201,7,reviewed,us,us
+2021-08-14T16:08:03.051Z,18.5031,-73.712,10,4.7,mwr,,63,2.346,0.94,us,us6000f67i,2021-10-29T14:46:13.040Z,"8 km WNW of Baradères, Haiti",earthquake,6.9,1.9,0.086,13,reviewed,us,us
+2021-08-14T16:44:20.618Z,18.4457,-73.5948,10,4.3,mb,,57,2.055,0.82,us,us7000f3qk,2021-10-29T14:46:48.040Z,"6 km SE of Baradères, Haiti",earthquake,2.1,2,0.097,30,reviewed,us,us
+2021-08-14T17:05:19.011Z,18.4335,-73.5972,9.53,4.9,mwr,,58,1.286,0.68,us,us6000f691,2022-08-08T17:10:44.234Z,"6 km SE of Baradères, Haiti",earthquake,4.6,3.9,0.068,21,reviewed,us,us
+2021-08-14T18:11:10.433Z,18.586,-73.6203,8.82,5.2,mwr,,41,1.301,0.68,us,us6000f69k,2025-12-22T22:13:42.117Z,"11 km N of Baradères, Haiti",earthquake,5.9,4,0.065,23,reviewed,us,us
+2021-08-14T22:10:53.726Z,18.4332,-74.0112,10,4.1,mb,,79,1.678,0.79,us,us6000f6cc,2021-10-29T14:46:15.040Z,"19 km SW of Corail, Haiti",earthquake,5.1,1.3,0.521,1,reviewed,us,us
+2021-08-14T22:14:08.314Z,18.5268,-74.0265,16.09,4.5,mwr,,71,1.651,0.69,us,us6000f6cd,2021-10-29T14:46:15.040Z,"15 km WSW of Corail, Haiti",earthquake,3.5,4.9,0.071,19,reviewed,us,us
+2021-08-15T02:37:53.592Z,18.608,-73.574,13.76,5.1,mww,,28,1.258,1.1,us,us6000f6el,2025-12-22T22:13:45.563Z,"11 km NW of Petit Trou de Nippes, Haiti",earthquake,5.8,4.1,0.063,24,reviewed,us,us
+2021-08-15T03:20:45.298Z,18.3977,-74.0899,8.32,5.8,mww,,34,1.755,1.23,us,us6000f6ez,2025-12-22T22:13:46.150Z,"15 km NNE of Chardonnière, Haiti",earthquake,5.6,2.6,0.038,67,reviewed,us,us
+2021-08-15T03:27:31.211Z,18.4883,-73.9525,10,4.4,mb,,64,1.698,0.9,us,us7000f46u,2021-10-29T14:46:52.040Z,"11 km SW of Corail, Haiti",earthquake,4.2,1.9,0.162,13,reviewed,us,us
+2021-08-15T03:28:47.469Z,18.4348,-73.9481,10,4.7,mb,,53,1.752,1.23,us,us7000f46v,2021-10-29T14:46:53.040Z,"15 km SSW of Corail, Haiti",earthquake,7.9,1.9,0.153,16,reviewed,us,us
+2021-08-15T04:00:02.207Z,18.4016,-74.118,10,4.1,mb,,83,1.767,0.75,us,us6000f6ff,2021-10-29T14:46:16.040Z,"14 km NNE of Chardonnière, Haiti",earthquake,2.7,1.9,0.233,5,reviewed,us,us
+2021-08-15T07:01:42.342Z,18.5116,-73.664,12.65,4,mb,,49,1.344,0.72,us,us6000f6h4,2021-10-29T14:46:16.040Z,"4 km NW of Baradères, Haiti",earthquake,4.3,6.3,0.183,9,reviewed,us,us
+2021-08-15T12:05:43.669Z,18.5351,-73.719,10,4.8,mwr,,39,1.702,0.82,us,us6000f6kw,2021-10-29T14:46:17.040Z,"10 km NW of Baradères, Haiti",earthquake,3.3,1.8,0.065,23,reviewed,us,us
+2021-08-15T16:05:05.851Z,18.5267,-73.5597,11.55,4,mb,,95,1.244,0.65,us,us6000f6mb,2021-10-29T14:46:18.040Z,"5 km W of Petit Trou de Nippes, Haiti",earthquake,6.5,5,0.232,5,reviewed,us,us
+2021-08-15T19:46:43.736Z,18.3654,-73.5289,10,4,mb,,88,2.156,1.16,us,us7000f4ad,2021-10-29T14:46:56.040Z,"11 km N of Saint-Louis du Sud, Haiti",earthquake,6,1.9,0.299,3,reviewed,us,us
+2021-08-15T22:48:43.224Z,18.5163,-73.5273,10,4.4,mb,,55,1.214,0.67,us,us6000f6r1,2021-10-29T14:46:19.040Z,"2 km WSW of Petit Trou de Nippes, Haiti",earthquake,2.4,1.9,0.057,88,reviewed,us,us
+2021-08-16T01:08:59.226Z,18.4445,-74.1611,10,4.2,mb,,80,1.723,0.77,us,us7000f4qh,2021-10-29T14:47:01.040Z,"16 km SE of Moron, Haiti",earthquake,6.4,2,0.11,23,reviewed,us,us
+2021-08-17T04:57:31.522Z,18.4678,-73.5537,10,4.1,mb,,69,1.242,0.64,us,us6000f7fk,2021-10-29T14:46:23.040Z,"7 km SW of Petit Trou de Nippes, Haiti",earthquake,4.6,1.7,0.198,7,reviewed,us,us
+2021-08-18T16:47:53.279Z,18.3559,-73.5103,5.88,4.7,mwr,,35,1.215,0.79,us,us6000f80d,2021-10-29T14:46:28.040Z,"11 km NNE of Saint-Louis du Sud, Haiti",earthquake,5,4,0.068,21,reviewed,us,us
+2021-08-19T03:57:36.718Z,18.4235,-73.601,12.66,4.2,mwr,,47,1.291,0.84,us,us6000f87d,2021-10-29T14:46:29.040Z,"7 km SSE of Baradères, Haiti",earthquake,4.1,3.8,0.083,14,reviewed,us,us
+2021-08-20T05:38:44.179Z,18.5255,-73.3011,10,4,mb,,70,0.999,0.87,us,us6000f8pm,2021-11-02T14:53:33.040Z,"Haiti region",earthquake,5.1,2,0.144,13,reviewed,us,us
+2021-08-21T18:47:31.607Z,18.4147,-73.5504,10.64,4.4,mb,,65,1.865,0.97,us,us6000f9dq,2021-11-02T14:54:04.040Z,"11 km SE of Baradères, Haiti",earthquake,5.4,4.9,0.068,66,reviewed,us,us
+2021-08-22T23:27:12.189Z,18.5759,-73.6174,10,4.5,mb,,44,1.298,0.64,us,us6000f9vk,2021-11-02T14:54:32.040Z,"10 km NNE of Baradères, Haiti",earthquake,4.7,1.9,0.039,191,reviewed,us,us
+2021-08-25T10:51:34.482Z,18.4734,-73.5491,10.37,4.1,mb,,57,1.237,0.94,us,us7000f3kw,2021-11-02T14:55:12.040Z,"7 km SW of Petit Trou de Nippes, Haiti",earthquake,3.6,5.3,0.12,19,reviewed,us,us
+2021-08-27T20:28:34.554Z,18.5019,-74.1203,14.19,4.2,mb,,69,1.698,0.79,us,us7000f8m2,2021-11-06T20:28:58.040Z,"15 km ESE of Moron, Haiti",earthquake,2.9,4.8,0.089,37,reviewed,us,us
+2021-09-20T00:57:10.620Z,18.4416,-73.6182,10,4.3,mb,,72,1.819,0.83,us,us7000fcs7,2021-12-03T15:01:35.040Z,"5 km SSE of Baradères, Haiti",earthquake,5.4,1.8,0.065,66,reviewed,us,us

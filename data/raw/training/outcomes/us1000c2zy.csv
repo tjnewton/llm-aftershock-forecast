@@ -1,0 +1,15 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2018-01-10T02:51:33.290Z,17.4825,-83.52,19,7.5,mww,,12,4.581,0.82,us,us1000c2zy,2022-05-03T18:44:48.043Z,"203 km NNE of Barra Patuca, Honduras",earthquake,5.8,1.7,0.035,79,reviewed,us,us
+2018-01-10T04:00:24.060Z,17.4204,-83.5717,10,4.3,mb,,102,5.257,0.91,us,us1000c30z,2018-04-03T01:40:24.040Z,"194 km NNE of Barra Patuca, Honduras",earthquake,9.2,2,0.087,37,reviewed,us,us
+2018-01-10T04:12:02.150Z,17.4522,-83.6096,10,4.5,mb,,66,4.882,0.52,us,us1000c313,2018-04-03T01:40:24.040Z,"196 km NNE of Barra Patuca, Honduras",earthquake,5.3,1.9,0.052,107,reviewed,us,us
+2018-01-10T04:51:34.420Z,17.4402,-83.1983,10,4.6,mb,,37,5.167,0.92,us,us1000c31h,2018-04-03T01:40:24.040Z,"215 km NNE of Barra Patuca, Honduras",earthquake,6.8,1.9,0.05,121,reviewed,us,us
+2018-01-10T04:57:23.740Z,17.496,-83.2804,10,4.5,mb,,42,5.144,0.97,us,us1000c31j,2022-08-07T22:55:40.628Z,"216 km NNE of Barra Patuca, Honduras",earthquake,7.7,1.9,0.053,105,reviewed,us,us
+2018-01-10T05:13:51.630Z,17.3178,-84.1296,10,4.3,mb,,63,4.435,0.72,us,us1000c31l,2018-04-03T01:40:24.040Z,"168 km N of Barra Patuca, Honduras",earthquake,7.9,2,0.107,25,reviewed,us,us
+2018-01-10T07:10:52.840Z,17.4718,-83.696,10,4.4,mb,,58,4.835,0.57,us,us1000c32m,2018-04-03T01:40:24.040Z,"195 km NNE of Barra Patuca, Honduras",earthquake,8.1,1.9,0.055,95,reviewed,us,us
+2018-01-12T11:22:36.140Z,17.3742,-83.3098,10,4.1,mb,,52,2.792,1.43,us,us2000cprp,2018-04-03T01:40:28.040Z,"202 km NNE of Barra Patuca, Honduras",earthquake,7.3,2,0.131,16,reviewed,us,us
+2018-01-13T00:30:55.620Z,17.5391,-83.3448,10,4.4,mb,,113,5.236,0.81,us,us2000cpul,2018-04-03T01:40:28.040Z,"216 km NNE of Barra Patuca, Honduras",earthquake,8,1.9,0.204,7,reviewed,us,us
+2018-01-14T10:44:09.980Z,17.4561,-83.2427,10,4.1,mb,,47,4.777,1.26,us,us2000cjhw,2018-04-03T01:40:30.040Z,"214 km NNE of Barra Patuca, Honduras",earthquake,7.2,1.3,0.165,10,reviewed,us,us
+2018-01-14T23:02:13.190Z,17.4275,-83.8025,10,4.2,mb,,110,5.069,1.05,us,us2000cpwv,2018-04-03T01:40:31.040Z,"187 km NNE of Barra Patuca, Honduras",earthquake,3.2,2,0.159,11,reviewed,us,us
+2018-01-16T05:46:26.480Z,17.508,-84.0602,10,4.3,mb,,78,4.619,0.91,us,us2000cjv0,2018-04-10T01:11:41.040Z,"190 km N of Barra Patuca, Honduras",earthquake,3.9,2,0.065,66,reviewed,us,us
+2018-01-21T00:55:02.510Z,17.5294,-83.3295,10,4,mb,,56,4.789,0.6,us,us2000cm0b,2022-08-07T23:17:32.941Z,"216 km NNE of Barra Patuca, Honduras",earthquake,7.4,2,0.098,28,reviewed,us,us
+2018-01-22T13:58:02.290Z,16.4186,-83.2736,10,4.5,mb,,49,3.962,0.72,us,us2000cmgb,2018-04-20T07:05:07.040Z,"127 km ENE of Barra Patuca, Honduras",earthquake,7.5,1.9,0.071,58,reviewed,us,us

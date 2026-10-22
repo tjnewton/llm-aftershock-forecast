@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2015-01-07T05:07:07.510Z,5.9045,-82.6576,8,6.5,mww,,61,4.318,1.17,us,usc000tcba,2022-05-03T17:09:48.860Z,"236 km S of Punta de Burica, Panama",earthquake,7.3,1.8,,,reviewed,us,us
