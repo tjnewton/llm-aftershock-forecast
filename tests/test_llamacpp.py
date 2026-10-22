@@ -36,7 +36,7 @@ def _direct_text() -> str:
         "p_m6_at_least_one": 0.05,
     }
     return json.dumps(
-        {"day": w, "week": w, "month": w, "notes": "Fake données."}, ensure_ascii=False
+        {"day": w, "week": w, "month": w, "notes": "Fake\u2028données."}, ensure_ascii=False
     )
 
 
@@ -132,15 +132,15 @@ def test_run_writes_the_batch_layout_and_retries_only_failed_requests(server, tm
         "requests.jsonl",
         "results.jsonl",
     ]
-    first = [json.loads(x) for x in (out / "results.jsonl").read_text("utf-8").splitlines()]
+    first = llamacpp._jsonl(out / "results.jsonl")
     assert [r["result"] for r in first].count("errored") == 2  # seed 1 of both arms
     server["fail"], server["seeds"] = set(), []
     llamacpp.run("http://x", GPT, "dev", [item], "20261021T1027Z", runs=tmp_path)
     assert server["seeds"] == [1, 1]  # only the two failed requests are sent again
     for name in ("requests.jsonl", "results.jsonl", "local_log.jsonl"):
         assert b"\r" not in (out / name).read_bytes()
-    reqs = [json.loads(x) for x in (out / "requests.jsonl").read_text("utf-8").splitlines()]
-    res = [json.loads(x) for x in (out / "results.jsonl").read_text("utf-8").splitlines()]
+    reqs = llamacpp._jsonl(out / "requests.jsonl")
+    res = llamacpp._jsonl(out / "results.jsonl")
     assert [r["custom_id"] for r in res] == [r["custom_id"] for r in reqs]  # one row each
     assert {r["result"] for r in res} == {"succeeded"} and "données" in res[0]["text"]
     assert res[0]["usage"] == {"input_tokens": 10, "output_tokens": 5}

@@ -73,7 +73,9 @@ CHARS_PER_TOKEN = 1.25  # below the pilot prompts' minimum (1.28; median 1.36): 
 
 
 def _jsonl(path: Path) -> list[dict]:
-    return [json.loads(x) for x in path.read_text(encoding="utf-8").splitlines() if x.strip()]
+    # "\n" only: str.splitlines also breaks on U+0085/U+2028/U+2029, which json.dumps with
+    # ensure_ascii=False leaves raw inside strings (model text)
+    return [json.loads(x) for x in path.read_text(encoding="utf-8").split("\n") if x.strip()]
 
 
 def request_id(params: dict, sample: int) -> str:

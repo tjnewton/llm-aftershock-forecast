@@ -137,7 +137,8 @@ def baselines(
 
 
 def _jsonl(path: Path) -> list[dict]:
-    return [json.loads(x) for x in path.read_text(encoding="utf-8").splitlines() if x.strip()]
+    # "\n" only, as in runner._jsonl: str.splitlines also breaks on U+2028 inside strings
+    return [json.loads(x) for x in path.read_text(encoding="utf-8").split("\n") if x.strip()]
 
 
 def llm_samples(run_dirs: list[Path], items: dict[str, Item]) -> list[dict]:

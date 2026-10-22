@@ -57,3 +57,8 @@ Each entry: UTC time, change, reason, expected effect on the registered analyses
   from a refetch at the hackathon deadline (snapshot 20261022T1700Z), for the 1-day windows that
   had closed (matched and strict; no M>=5 aftershock in either). Reason: the live windows settle
   after the hackathon. Effect: none on the registered analysis; settled scores replace these.
+- 2026-10-22T22:40Z (post-submission). The JSONL readers `runner._jsonl` and the frozen
+  `analysis._jsonl` split on "\n" instead of `str.splitlines()`, which also breaks lines at
+  U+0085/U+2028/U+2029 left raw inside JSON strings. Reason: the E1b e3all run could not be
+  finalized (4 U+2028 in model text). Effect: none on registered analyses; no other tracked JSONL
+  file contains these characters, so every existing record reads identically.
