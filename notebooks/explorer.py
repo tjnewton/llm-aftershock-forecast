@@ -55,7 +55,9 @@ that. I gave large language models exactly the information USGS had when it issu
 forecast (the main earthquake and the list of quakes recorded so far) and asked them the same
 question: how many aftershocks of magnitude 5 or larger in the next day, week and month? I
 then compared both with what actually happened, on earthquakes that occurred after the models
-were trained, so they could not have memorized the answers.
+were trained, so they could not have memorized the answers. The charts below also work as a
+hands-on introduction to probabilistic forecasting: each forecaster gives a range, and you can see
+how often what happened fell inside it.
 
 **What I found**
 

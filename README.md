@@ -1,8 +1,10 @@
 # Do AI chatbots forecast aftershocks as well as the USGS?
 
-A preregistered, contamination-aware benchmark. Language models get exactly what the US
-Geological Survey (USGS) knew when it issued each official aftershock forecast, and both are
-scored against what happened, on earthquakes after the models' training cutoff. Entry for the
+Aftershocks kill: the 2011 M6.2 Christchurch aftershock killed 185 people five months after its
+mainshock. Forecasting them is a core task of statistical seismology, and the US Geological
+Survey (USGS) issues operational aftershock forecasts. This preregistered, contamination-aware
+benchmark gives language models exactly what USGS knew when it issued each forecast, and scores
+both against what happened, on earthquakes after the models' training cutoff. Entry for the
 Open Scientific Intelligence Hackathon, Oct 21-22, 2026.
 
 **[Video](https://youtu.be/qpPUB_VTlBY)** ·
@@ -36,6 +38,30 @@ happened. (b) Average score difference from the USGS forecast on the preregister
   cutoff, and the open models, trained before both sets, kept the same gap on both.
 - USGS and Opus both under-predicted the early Flores Sea aftershocks (panel a).
 
+## What's new
+- **First of its kind:** to my knowledge, the first evaluation of language-model aftershock
+  forecasts against an operational product ([novelty search](docs/research/novelty-and-literature.md)).
+- **The obvious test is contaminated twice; this one is not.** Asking chatbots about past
+  earthquakes lets them recall answers they read in training, and scores them against today's
+  catalog, which holds revisions no forecaster had at the time. Here, test earthquakes come after
+  the training cutoff, and each prompt holds the catalog as it stood at the forecast time.
+- **Methods from other fields:** preregistration with a public hash and hashed live forecasts
+  (clinical trials, earthquake-forecast testing centres), a scoring rule from epidemic
+  forecasting, and a memorization check comparing earthquakes before and after the training
+  cutoff, with open models as controls.
+
+## Who can use it
+- **Seismologists:** rebuild ComCat as it stood at past forecast times (`laf asof`) and refit a
+  Python port of the USGS legacy ETAS model validated against the USGS Java code (`laf etas`), to
+  test any forecaster, including machine-learning models and the official product, without
+  hindsight. For example, USGS's 50% ranges held 76% of outcomes, wider than stated.
+- **AI developers and evaluators:** a science benchmark that cannot be memorized, grows with
+  every new USGS forecast and is scored by frozen code.
+- **Emergency managers and the public:** evidence on which chatbot answers to trust after an
+  earthquake.
+- **Learners:** the [explorer](https://tjnewton.github.io/llm-aftershock-forecast/) compares each
+  forecast's range with what happened, with a glossary.
+
 ![Every forecaster against USGS, preregistered and exploratory](figures/overview.png)
 
 ## Why trust it
@@ -50,13 +76,6 @@ happened. (b) Average score difference from the USGS forecast on the preregister
   before their windows opened (tags `live-panama-1`, `live-panama-2`).
 - **Reproducible:** every download is hashed in `data/manifest.jsonl`, and every result
   regenerates offline (below). Total API cost: $64.
-
-## Why it matters
-After a large earthquake, people ask chatbots how many more aftershocks to expect. To my knowledge
-this is the first test of language-model aftershock forecasts against an operational product
-([novelty search](docs/research/novelty-and-literature.md)). The design (information-matched
-prompts, as-of data, post-cutoff tests, hashed live forecasts) carries over to other operational
-science forecasts.
 
 ## Built with
 Claude Haiku, Sonnet and Opus 5.5 (Anthropic API) as forecasters; gpt-oss-20b and Olmo 3.1 32B
