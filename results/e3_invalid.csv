@@ -1,0 +1,5 @@
+model,arm,info,effort,non_monotone,ok
+claude-haiku-5-5,direct,I1,high,0.030303030303030304,0.9696969696969697
+claude-opus-5-5,direct,I1,high,0.0,1.0
+claude-sonnet-5-5,direct,I0,high,0.0,1.0
+claude-sonnet-5-5,direct,I1,high,0.0,1.0
