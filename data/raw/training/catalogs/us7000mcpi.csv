@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2024-04-17T14:14:46.694Z,33.2503,132.3647,32,6.3,mww,386,29,1.351,0.81,us,us7000mcpi,2025-09-08T03:45:15.710Z,"18 km W of Uwajima, Japan",earthquake,4.97,1.826,0.037,69,reviewed,us,us
+2024-04-17T14:19:00.978Z,33.2552,132.3539,50.484,4.8,mb,95,76,1.358,0.8,us,us6000mtqm,2024-06-25T21:02:28.040Z,"19 km W of Uwajima, Japan",earthquake,5.84,7.6,0.068,66,reviewed,us,us
+2024-04-17T15:37:55.683Z,33.323,132.4083,53.956,4.3,mb,19,133,1.292,1.13,us,us6000mtqp,2024-06-25T21:02:28.040Z,"15 km S of Yawatahama, Japan",earthquake,7.51,10.864,0.217,6,reviewed,us,us

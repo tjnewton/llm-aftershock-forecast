@@ -1,0 +1,8 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2013-11-02T18:53:46.900Z,-19.1711,-172.6411,10.05,6.2,mww,,21,5.297,0.72,us,usb000krlz,2022-05-03T16:30:55.607Z,"152 km ESE of Neiafu, Tonga",earthquake,,1.1,,,reviewed,us,us
+2013-11-02T18:56:13.380Z,-19.1504,-172.7294,9.26,5.2,mb,,105,19.71,0.61,us,usb000kygh,2014-01-10T10:03:43.000Z,"143 km ESE of Neiafu, Tonga",earthquake,,3.6,0.068,,reviewed,us,us
+2013-11-02T19:13:35.800Z,-19.2964,-172.5279,10,5.1,mb,,40,5.404,0.68,us,usb000krme,2014-01-10T10:03:43.000Z,"169 km ESE of Neiafu, Tonga",earthquake,,1.7,0.047,,reviewed,us,us
+2013-11-02T19:25:43.380Z,-19.2112,-172.446,10,4.5,mb,,78,2.384,1.13,us,usb000kyg0,2014-01-10T10:03:43.000Z,"173 km ESE of Neiafu, Tonga",earthquake,,1.6,0.128,,reviewed,us,us
+2013-11-02T20:27:46.600Z,-19.2941,-172.6464,10,4.4,mb,,101,2.579,0.6,us,usb000kyg3,2014-01-10T10:03:43.000Z,"157 km ESE of Neiafu, Tonga",earthquake,,1.9,0.13,,reviewed,us,us
+2013-11-03T10:08:54.910Z,-19.2137,-172.5332,4,5.6,mwb,,31,5.324,0.94,us,usb000ks0p,2022-05-03T16:30:59.786Z,"165 km ESE of Neiafu, Tonga",earthquake,,1.7,0.059,,reviewed,us,us
+2013-11-03T21:47:11.040Z,-19.319,-172.5119,10,4.5,mb,,102,2.454,0.81,us,usb000kyhc,2014-01-10T10:03:46.000Z,"171 km ESE of Neiafu, Tonga",earthquake,,1.9,0.205,,reviewed,us,us

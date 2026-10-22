@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-03-20T22:50:20.430Z,54.294,162.8129,30,6.4,mww,,20,2.785,0.71,us,us20005bbh,2022-08-02T15:14:37.320Z,"216 km S of Ust’-Kamchatsk Staryy, Russia",earthquake,4.5,1.8,,,reviewed,us,us
+2016-03-22T04:55:55.340Z,54.2869,162.9554,43.86,4.7,mb,,108,2.857,0.85,us,us20005bnd,2016-06-09T21:41:56.040Z,"218 km S of Ust’-Kamchatsk Staryy, Russia",earthquake,7.6,6.7,0.051,117,reviewed,us,us
+2016-03-25T21:36:27.260Z,54.2076,163.0568,35,5,mb,,28,2.88,0.79,us,us20005cib,2016-06-10T23:32:50.040Z,"227 km S of Ust’-Kamchatsk Staryy, Russia",earthquake,6.9,1.9,0.027,434,reviewed,us,us

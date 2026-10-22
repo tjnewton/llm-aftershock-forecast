@@ -1,0 +1,9 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2013-10-30T02:29:12.000Z,-35.439,-73.193,39.2,5.8,mww,,,,1.26,us,usc000kr9e,2022-07-26T00:41:48.564Z,"71 km W of Constitución, Chile",earthquake,,4.4,,,reviewed,guc,us
+2013-10-30T02:48:28.160Z,-35.3317,-73.1802,22.38,4.1,mb,,169,1.073,0.69,us,usc000krzl,2014-01-10T10:03:35.000Z,"69 km W of Constitución, Chile",earthquake,,7.6,0.523,,reviewed,us,us
+2013-10-30T02:51:47.000Z,-35.314,-73.395,41.5,6.2,mww,,,,1.68,us,usc000kr9k,2022-07-26T00:42:52.091Z,"89 km W of Constitución, Chile",earthquake,,3.9,,,reviewed,guc,us
+2013-10-30T03:28:11.000Z,-35.37,-73.365,15,4.2,mb,,,,0.98,us,usc000kra7,2014-01-10T10:03:37.000Z,"86 km W of Constitución, Chile",earthquake,,3.7,0.146,,reviewed,guc,us
+2013-10-30T03:33:05.000Z,-35.457,-73.331,36.2,4.8,mb,,,,0.99,us,usc000kraf,2014-01-10T10:03:37.000Z,"84 km W of Constitución, Chile",earthquake,,5.4,0.121,,reviewed,guc,us
+2013-10-30T06:21:23.000Z,-35.395,-73.341,31.8,4,mb,,,,1.68,us,usb000kyiw,2014-01-10T10:03:37.000Z,"84 km W of Constitución, Chile",earthquake,,7.7,0.3,,reviewed,guc,us
+2013-10-30T10:45:17.000Z,-35.456,-73.377,25.1,4.3,mb,,,,1.46,us,usc000krfi,2014-01-10T10:03:37.000Z,"88 km W of Constitución, Chile",earthquake,,3.5,0.2,,reviewed,guc,us
+2013-10-30T22:58:42.000Z,-35.384,-73.297,25,4.1,mb,,,,1.99,us,usc000ks24,2014-01-10T10:03:38.000Z,"80 km W of Constitución, Chile",earthquake,,5.9,0.185,,reviewed,guc,us

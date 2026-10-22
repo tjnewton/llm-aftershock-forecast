@@ -1,0 +1,10 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2018-11-30T17:17:39.000Z,-7.3964,128.6579,166.32,4.2,mb,,36,2.681,1.52,us,us1000i3fi,2019-02-09T19:02:22.040Z,"221 km NE of Lospalos, Timor Leste",earthquake,7.2,7.3,0.11,25,reviewed,us,us
+2018-12-01T13:27:21.080Z,-7.3841,128.7065,136,6.4,mww,,20,2.637,0.93,us,us1000hzjp,2022-05-03T19:58:20.497Z,"226 km NE of Lospalos, Timor Leste",earthquake,7.2,1.9,0.043,52,reviewed,us,us
+2018-12-02T04:46:24.020Z,-7.444,128.756,145.22,4.1,mb,,54,2.576,1.23,us,us1000i077,2019-02-09T19:02:19.040Z,"227 km ENE of Lospalos, Timor Leste",earthquake,8.7,9.8,0.166,10,reviewed,us,us
+2018-12-03T14:00:07.530Z,-7.3617,128.7477,131,5.5,mww,,29,2.602,0.9,us,us1000i16h,2022-08-08T10:32:48.926Z,"231 km ENE of Lospalos, Timor Leste",earthquake,6.9,1.9,0.041,57,reviewed,us,us
+2018-12-06T12:05:10.470Z,-7.4626,128.5194,176.52,4.3,mb,,141,2.802,0.89,us,us2000isy5,2019-02-16T19:52:27.040Z,"204 km NE of Lospalos, Timor Leste",earthquake,10.8,18.5,0.217,6,reviewed,us,us
+2018-12-11T23:33:42.990Z,-7.4472,128.6994,140.31,4.4,mb,,63,2.63,0.65,us,us2000iuqc,2019-02-16T22:29:05.040Z,"222 km ENE of Lospalos, Timor Leste",earthquake,9.1,6.9,0.107,25,reviewed,us,us
+2018-12-12T15:18:43.610Z,-7.4394,128.6704,121.64,4.5,mb,,33,2.66,0.94,us,us2000iswn,2019-02-16T22:29:06.040Z,"219 km ENE of Lospalos, Timor Leste",earthquake,7.9,5.6,0.093,34,reviewed,us,us
+2018-12-17T21:29:13.410Z,-7.4285,128.9133,148.56,4.8,mb,,35,2.427,0.95,us,us2000iujf,2019-02-23T20:21:11.040Z,"243 km ENE of Lospalos, Timor Leste",earthquake,8.2,5.5,0.076,53,reviewed,us,us
+2018-12-24T08:50:45.260Z,-7.4238,128.5829,151.43,4.5,mb,,36,2.748,0.79,us,us2000ix1z,2019-03-05T17:46:31.040Z,"212 km NE of Lospalos, Timor Leste",earthquake,5.2,5.5,0.06,82,reviewed,us,us

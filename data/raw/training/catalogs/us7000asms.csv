@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-07-21T20:56:25.167Z,-20.8045,-178.6325,605.2,6,mww,,34,6.479,0.98,us,us7000asms,2025-12-22T17:58:09.484Z,"Fiji region",earthquake,8.6,2.9,0.068,21,reviewed,us,us
+2020-07-29T23:50:52.507Z,-20.7087,-178.4907,599.69,4.5,mb,,100,4.399,0.84,us,us6000b6hp,2020-10-10T17:11:01.040Z,"Fiji region",earthquake,13,7.2,0.07,60,reviewed,us,us
+2020-08-16T04:38:56.773Z,-20.671,-178.5234,584.64,4.2,mb,,123,4.351,0.81,us,us6000biar,2020-10-24T20:09:10.040Z,"Fiji region",earthquake,14.2,8.8,0.128,17,reviewed,us,us

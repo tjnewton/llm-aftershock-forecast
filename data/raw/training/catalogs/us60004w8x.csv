@@ -1,0 +1,16 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2019-07-26T08:13:48.666Z,20.7623,121.947,10,4.8,mb,,105,2.198,1.09,us,us60004vsl,2019-10-11T20:12:34.040Z,"34 km N of Basco, Philippines",earthquake,7.4,1.9,0.068,67,reviewed,us,us
+2019-07-26T20:16:56.891Z,20.7594,121.9193,11.6,5.4,mww,,30,2.191,0.92,us,us60004w50,2025-12-22T18:13:53.372Z,"34 km N of Basco, Philippines",earthquake,6.6,2.9,0.056,31,reviewed,us,us
+2019-07-26T23:37:58.444Z,20.8373,121.9744,9,6,mww,,23,2.138,0.75,us,us60004w8x,2025-12-22T17:55:05.164Z,"43 km N of Basco, Philippines",earthquake,6.4,1.7,0.055,32,reviewed,us,us
+2019-07-26T23:58:57.544Z,20.8179,121.9824,10,4.5,mb,,131,2.159,1.25,us,us60004w9c,2019-10-11T20:12:37.040Z,"40 km N of Basco, Philippines",earthquake,8,1.1,0.104,27,reviewed,us,us
+2019-07-27T00:10:35.285Z,20.8637,122.0344,10,4.2,mb,,143,2.137,0.85,us,us60004znd,2019-10-11T20:12:37.040Z,"46 km N of Basco, Philippines",earthquake,9.3,1.9,0.2,7,reviewed,us,us
+2019-07-27T00:15:57.586Z,20.7621,121.9684,10,4.5,mb,,105,2.206,1.14,us,us60004znl,2019-10-11T20:12:37.040Z,"34 km N of Basco, Philippines",earthquake,8.8,1.9,0.163,11,reviewed,us,us
+2019-07-27T01:24:44.681Z,20.754,122.0083,10,5.7,mww,,40,2.227,1.45,us,us60004wav,2025-12-22T18:13:54.136Z,"34 km N of Basco, Philippines",earthquake,3.7,1.8,0.045,48,reviewed,us,us
+2019-07-27T03:08:13.953Z,20.8089,122.0073,10,4.3,mb,,117,2.176,1.3,us,us60004znq,2019-10-11T20:12:38.040Z,"40 km N of Basco, Philippines",earthquake,7.7,1.8,0.129,17,reviewed,us,us
+2019-07-27T03:19:41.835Z,20.7141,122.0302,10,4.6,mb,,118,2.272,1.09,us,us60004wbv,2019-10-11T20:12:38.040Z,"30 km NNE of Basco, Philippines",earthquake,5.3,1.9,0.107,26,reviewed,us,us
+2019-07-27T10:11:32.108Z,20.8183,122.004,10,5.1,mww,,40,2.167,0.7,us,us60004wg1,2025-12-22T18:13:56.211Z,"41 km N of Basco, Philippines",earthquake,4.6,1.8,0.058,29,reviewed,us,us
+2019-07-30T19:17:58.749Z,20.8325,121.9143,10,4.2,mb,,104,2.122,1.04,us,us600051ux,2019-10-19T21:42:16.040Z,"42 km N of Basco, Philippines",earthquake,5.9,1.9,0.141,17,reviewed,us,us
+2019-07-31T19:20:39.134Z,20.8244,121.8087,10,4.5,mb,,132,2.599,1.2,us,us600052c0,2019-10-19T21:42:17.040Z,"44 km NNW of Basco, Philippines",earthquake,10.7,1.9,0.104,27,reviewed,us,us
+2019-08-01T06:29:45.663Z,20.7427,121.8361,10,4.2,mb,,122,2.181,0.89,us,us600052t5,2019-10-19T21:42:18.040Z,"35 km NNW of Basco, Philippines",earthquake,5.7,1.9,0.187,8,reviewed,us,us
+2019-08-03T21:50:36.037Z,20.7648,121.8107,10,4.1,mwr,,119,2.152,0.91,us,us600050bv,2019-10-19T21:42:08.040Z,"38 km NNW of Basco, Philippines",earthquake,8.6,1.9,0.066,22,reviewed,us,us
+2019-08-05T18:34:27.190Z,20.9525,121.9714,10,4.2,mb,,165,2.032,0.76,us,us600054mj,2019-10-19T21:42:22.040Z,"55 km N of Basco, Philippines",earthquake,6,2,0.199,7,reviewed,us,us

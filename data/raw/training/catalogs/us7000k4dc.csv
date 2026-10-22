@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2023-05-27T00:11:00.804Z,-18.4836,-175.1849,222,6,mww,142,24,1.136,0.57,us,us7000k4dc,2023-07-29T22:00:43.040Z,"Tonga",earthquake,7.6,1.878,0.049,40,reviewed,us,us

@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2023-02-15T09:15:31.447Z,12.2474,123.8139,10,4.9,mb,74,100,5.431,0.63,us,us6000jp2m,2023-04-22T21:33:10.040Z,"1 km NNW of Miaga, Philippines",earthquake,10.44,1.88,0.071,62,reviewed,us,us
+2023-02-15T18:10:08.107Z,12.3099,123.8605,8,6.1,mww,193,38,5.476,0.6,us,us6000jp76,2023-04-22T21:33:11.040Z,"9 km NNE of Miaga, Philippines",earthquake,7.76,1.78,0.036,76,reviewed,us,us
+2023-02-16T21:38:49.294Z,12.3689,123.7775,10,4.5,mb,53,117,5.557,0.64,us,us6000jr93,2023-04-22T21:33:26.040Z,"3 km SSE of Batuan, Philippines",earthquake,4.47,1.877,0.088,38,reviewed,us,us
+2023-02-17T01:54:23.951Z,12.3097,123.6697,10,4.6,mb,28,118,11.251,0.78,us,us6000jray,2023-04-22T21:33:27.040Z,"Masbate region, Philippines",earthquake,7.35,1.84,0.109,25,reviewed,us,us

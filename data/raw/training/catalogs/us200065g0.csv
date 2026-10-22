@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-06-19T09:47:03.560Z,-20.0754,168.7451,10,4.9,mb,,83,9.109,1.07,us,us200065cw,2016-08-27T02:15:29.040Z,"81 km SW of Isangel, Vanuatu",earthquake,3.9,1.8,0.065,74,reviewed,us,us
+2016-06-19T10:03:23.730Z,-20.2717,168.8665,10,4.8,mb,,85,9.045,0.7,us,us200065da,2016-08-27T02:15:29.040Z,"91 km SSW of Isangel, Vanuatu",earthquake,3.3,1.8,0.065,73,reviewed,us,us
+2016-06-19T12:08:40.080Z,-20.2938,168.8724,10,4.6,mb,,85,9.046,1.03,us,us200065dl,2016-08-27T02:15:29.040Z,"93 km SSW of Isangel, Vanuatu",earthquake,12.4,1.9,0.095,33,reviewed,us,us
+2016-06-19T15:24:39.540Z,-20.3598,168.8166,10,4.7,mb,,85,9.113,1.07,us,us200066h0,2016-08-27T02:15:30.040Z,"102 km SSW of Isangel, Vanuatu",earthquake,9.7,1.8,0.099,31,reviewed,us,us
+2016-06-20T03:50:55.240Z,-20.2072,168.7595,15,6,mww,,20,1.439,1.24,us,us200065g0,2022-05-03T17:50:49.854Z,"91 km SW of Isangel, Vanuatu",earthquake,7.8,1.7,,,reviewed,us,us

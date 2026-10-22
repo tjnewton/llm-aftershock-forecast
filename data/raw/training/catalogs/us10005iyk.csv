@@ -1,0 +1,8 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-05-20T18:14:04.670Z,-25.5655,129.8841,10,6,mww,,24,1.53,1.33,us,us10005iyk,2022-08-02T23:18:00.574Z,"116 km WSW of Yulara, Australia",earthquake,2.2,1.7,,,reviewed,us,us
+2016-05-20T19:06:09.000Z,-25.574,129.812,0,4.2,mb,,,,2.12,us,us20005y4t,2016-08-03T22:33:39.040Z,"124 km WSW of Yulara, Australia",earthquake,8.2,5.4,0.2,7,reviewed,aust,us
+2016-05-21T07:12:31.000Z,-25.532,129.838,0,4.2,mb,,,,1.05,us,us10005j3t,2016-08-03T22:33:40.040Z,"120 km WSW of Yulara, Australia",earthquake,8.1,1.9,0.187,8,reviewed,aust,us
+2016-05-21T08:46:18.000Z,-25.601,129.837,0,4.4,mb,,,,1.15,us,us10005j44,2016-08-03T22:33:40.040Z,"122 km WSW of Yulara, Australia",earthquake,6.5,1.9,0.155,12,reviewed,aust,us
+2016-05-21T08:46:44.620Z,-25.5802,129.8082,10,4.4,mb,,95,4.186,0.64,us,us20005yh5,2016-08-03T22:33:40.040Z,"124 km WSW of Yulara, Australia",earthquake,6.5,1.9,0.189,8,reviewed,us,us
+2016-05-21T09:08:34.000Z,-25.519,129.891,0,4.2,mb,,,,0.97,us,us10005j49,2016-08-03T22:33:40.040Z,"114 km WSW of Yulara, Australia",earthquake,5.8,1.9,0.186,8,reviewed,aust,us
+2016-05-21T11:08:31.000Z,-25.512,129.894,0,4.1,mb,,,,1.95,us,us20005yh7,2016-08-03T22:33:40.040Z,"114 km WSW of Yulara, Australia",earthquake,6.1,1.9,0.185,8,reviewed,aust,us

@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-01-05T17:18:45.784Z,13.0007,-89.1775,46,6.2,mww,131,79,0.746,1.19,us,us6000pi09,2026-07-17T15:05:43.759Z,"56 km SSE of La Libertad, El Salvador",earthquake,6.61,1.95,0.037,70,reviewed,us,us
+2025-01-05T17:46:49.585Z,12.9775,-89.1358,58.808,4.3,mb,60,141,0.756,0.62,us,us6000pi14,2025-03-17T21:34:46.040Z,"58 km SSW of El Rosario, El Salvador",earthquake,4.91,9.34,0.072,55,reviewed,us,us
+2025-01-06T04:59:54.006Z,13.034,-88.9844,57.839,4,mb,25,157,0.676,0.92,us,us6000pi45,2025-03-17T21:34:52.040Z,"51 km S of El Rosario, El Salvador",earthquake,4.09,9.894,0.164,10,reviewed,us,us
+2025-01-17T18:40:21.534Z,13.1026,-88.9825,65.62,4,mb,33,175,0.608,1.27,us,us6000pksz,2025-03-29T22:12:42.040Z,"44 km S of El Rosario, El Salvador",earthquake,5.89,8.212,0.133,15,reviewed,us,us

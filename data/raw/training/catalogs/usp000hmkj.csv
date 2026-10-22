@@ -1,0 +1,7 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2010-09-29T18:31:39.410Z,24.305,125.192,32.7,4.6,mb,13,120.5,,1.3,us,usp000hmby,2014-11-07T01:42:31.873Z,"56 km SSW of Hirara, Japan",earthquake,,26.1,,1,reviewed,us,us
+2010-10-04T13:28:38.860Z,24.27,125.154,32,6.3,mwb,370,25.6,,0.92,us,usp000hmkj,2022-07-18T21:29:00.257Z,"61 km SSW of Hirara, Japan",earthquake,,,,,reviewed,us,us
+2010-10-04T14:59:02.580Z,24.24,125.284,38.5,4.7,mb,34,122.2,,0.98,us,usp000hmks,2014-11-07T01:42:38.873Z,"62 km S of Hirara, Japan",earthquake,,6.6,,4,reviewed,us,us
+2010-10-05T05:16:49.880Z,24.324,125.298,35,4.3,mb,24,121.4,,1.14,us,usp000hmmk,2014-11-07T01:42:39.032Z,"53 km S of Hirara, Japan",earthquake,,,,1,reviewed,us,us
+2010-10-05T13:03:51.530Z,24.245,125.278,35,4.2,mwr,30,122.1,,1.27,us,usp000hmn3,2014-11-07T01:42:39.131Z,"61 km S of Hirara, Japan",earthquake,,,,,reviewed,us,nied
+2010-10-18T21:23:55.820Z,24.298,125.316,39.6,4.4,mwr,86,120,,1.08,us,usp000hn8n,2014-11-07T01:42:43.723Z,"56 km S of Hirara, Japan",earthquake,,5.5,,,reviewed,us,nied

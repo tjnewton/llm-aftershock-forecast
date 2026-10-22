@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2011-03-20T08:26:09.580Z,18.994,121.246,27,6,mww,392,28.5,,1.1,us,usp000hy18,2022-07-19T09:20:16.612Z,"43 km NNE of Namuac, Philippines",earthquake,,,,,reviewed,us,us

@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-03-21T14:50:51.364Z,6.9863,-82.4666,10,6.2,mww,266,92,2.389,0.82,us,us7000pllt,2025-05-29T17:36:28.040Z,"124 km SSE of Burica, Panama",earthquake,6.96,1.86,0.034,83,reviewed,us,us

@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2012-06-24T03:15:01.280Z,57.601,163.195,10,6,mww,701,51.3,,0.98,us,usp000jn5s,2022-05-03T15:42:58.338Z,"159 km NNE of Ust’-Kamchatsk Staryy, Russia",earthquake,,,,,reviewed,us,us

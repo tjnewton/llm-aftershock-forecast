@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2017-07-26T10:32:57.430Z,26.8975,130.1836,12,6,mww,,24,1.422,0.71,us,us2000a18e,2022-08-07T12:58:52.186Z,"176 km SSE of Naze, Japan",earthquake,4.7,1.6,0.046,46,reviewed,us,us
+2017-07-26T11:42:38.590Z,26.8467,130.1805,10,4.6,mb,,113,1.386,0.93,us,us2000a365,2017-10-14T00:19:41.040Z,"181 km SSE of Naze, Japan",earthquake,5.8,1.7,0.206,7,reviewed,us,us
+2017-07-26T13:27:48.180Z,26.8778,130.17,10,4.6,mb,,87,1.415,0.91,us,us2000a19i,2017-10-14T00:19:41.040Z,"178 km SSE of Naze, Japan",earthquake,4.5,1.9,0.091,36,reviewed,us,us
+2017-08-15T20:29:15.160Z,26.906,130.1662,10,4.9,mb,,35,1.438,1.06,us,us2000a8ki,2017-11-14T01:42:09.040Z,"175 km SSE of Naze, Japan",earthquake,4.8,1.8,0.049,131,reviewed,us,us

@@ -1,0 +1,17 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2017-05-03T04:46:55.690Z,39.5183,71.3378,10,4.8,mb,,51,0.671,0.51,us,us10008npr,2017-07-29T03:16:17.040Z,"35 km NNW of Karakenja, Tajikistan",earthquake,3.8,1.9,0.057,94,reviewed,us,us
+2017-05-03T04:47:13.380Z,39.4939,71.4438,11,6,mww,,25,0.741,0.75,us,us10008npq,2022-05-03T18:25:50.610Z,"29 km NNW of Karakenja, Tajikistan",earthquake,4.6,1.8,0.06,27,reviewed,us,us
+2017-05-03T05:06:30.180Z,39.5178,71.4784,10,4.7,mb,,102,0.741,1.24,us,us10008nq5,2017-07-29T03:16:17.040Z,"31 km N of Karakenja, Tajikistan",earthquake,5.2,1.9,0.126,19,reviewed,us,us
+2017-05-03T05:36:32.800Z,39.5419,71.3977,21.85,4.8,mb,,61,0.681,1.36,us,us10008nqk,2017-07-29T03:16:17.040Z,"35 km NNW of Karakenja, Tajikistan",earthquake,5.3,3,0.078,51,reviewed,us,us
+2017-05-03T20:03:11.400Z,39.5019,71.502,10,5.1,mb,,56,0.765,0.9,us,us10008nzz,2017-07-29T03:16:19.040Z,"29 km N of Karakenja, Tajikistan",earthquake,6.1,1.8,0.04,200,reviewed,us,us
+2017-05-04T06:52:30.190Z,39.4995,71.3665,10,4,mb,,110,0.699,1.03,us,us10008p67,2017-07-29T03:16:20.040Z,"32 km NNW of Karakenja, Tajikistan",earthquake,2.2,1.9,0.258,4,reviewed,us,us
+2017-05-04T11:10:02.790Z,39.509,71.4795,10,4.9,mb,,41,0.748,1.35,us,us10008p98,2022-05-03T18:25:59.144Z,"30 km N of Karakenja, Tajikistan",earthquake,4.5,1.9,0.054,141,reviewed,us,us
+2017-05-04T18:23:17.640Z,39.5607,71.4131,10,4.6,mb,,41,0.675,1.4,us,us10008pdp,2017-07-29T03:16:21.040Z,"37 km NNW of Karakenja, Tajikistan",earthquake,6.2,1.9,0.079,47,reviewed,us,us
+2017-05-05T05:09:35.970Z,39.4789,71.4223,10,5.8,mww,,20,0.742,1.03,us,us10008pk9,2022-05-03T18:26:11.108Z,"28 km NNW of Karakenja, Tajikistan",earthquake,4.9,1.8,0.054,33,reviewed,us,us
+2017-05-05T05:25:13.000Z,39.4947,71.3001,10,4.8,mb,,59,0.673,1.15,us,us10008pke,2017-07-29T03:16:22.040Z,"34 km NW of Karakenja, Tajikistan",earthquake,3.6,1.9,0.111,25,reviewed,us,us
+2017-05-05T06:38:04.770Z,39.4524,71.3811,8.55,4.7,mb,,62,0.744,1.46,us,us10008pl5,2017-07-29T03:16:22.040Z,"27 km NNW of Karakenja, Tajikistan",earthquake,3.5,5.7,0.112,24,reviewed,us,us
+2017-05-05T17:03:15.530Z,39.5054,71.4642,10,4.5,mb,,61,0.743,0.82,us,us10008pud,2017-07-29T03:16:23.040Z,"30 km N of Karakenja, Tajikistan",earthquake,4.4,1.9,0.064,71,reviewed,us,us
+2017-05-06T07:15:19.230Z,39.4959,71.435,10,5,mb,,33,0.735,1.13,us,us10008q1f,2022-05-03T18:26:26.893Z,"29 km NNW of Karakenja, Tajikistan",earthquake,5.6,1.9,0.063,81,reviewed,us,us
+2017-05-06T19:01:41.700Z,39.4957,71.3312,10,4.2,mb,,101,0.686,1.37,us,us10008q5e,2017-07-29T03:16:25.040Z,"33 km NNW of Karakenja, Tajikistan",earthquake,5.4,1.9,0.2,7,reviewed,us,us
+2017-05-20T21:58:06.970Z,39.4589,71.3377,10,4.3,mb,,115,0.719,1.26,us,us10008tx8,2017-08-05T03:32:13.040Z,"29 km NNW of Karakenja, Tajikistan",earthquake,2.7,1.9,0.237,5,reviewed,us,us
+2017-05-26T19:09:20.310Z,39.4715,71.3539,19.94,4.3,mwr,,32,0.716,0.96,us,us10008vkk,2017-08-10T01:34:03.040Z,"29 km NNW of Karakenja, Tajikistan",earthquake,4.9,4.2,0.065,23,reviewed,us,us

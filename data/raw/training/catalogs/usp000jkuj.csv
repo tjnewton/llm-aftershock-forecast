@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2012-05-23T22:59:52.700Z,-50.42,139.516,10,6,mww,149,24.1,,1.22,us,usp000jkuj,2022-05-03T15:41:32.606Z,"western Indian-Antarctic Ridge",earthquake,,,,,reviewed,us,us
+2012-05-23T23:19:18.050Z,-50.352,139.536,6.6,5.9,mwc,147,39,,1.15,us,usp000jkup,2022-05-03T15:41:33.866Z,"western Indian-Antarctic Ridge",earthquake,,17.8,,,reviewed,us,gcmt
+2012-05-24T00:08:15.230Z,-50.426,139.51,10,4.5,mb,25,76.8,,0.74,us,usp000jkut,2014-11-07T01:47:51.882Z,"western Indian-Antarctic Ridge",earthquake,,,,3,reviewed,us,us

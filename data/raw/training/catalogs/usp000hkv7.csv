@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2010-09-17T19:21:15.010Z,36.443,70.774,220.1,6.3,mwb,385,30,,1.11,us,usp000hkv7,2022-07-18T20:19:51.478Z,"47 km S of Jurm, Afghanistan",earthquake,,,,,reviewed,us,us

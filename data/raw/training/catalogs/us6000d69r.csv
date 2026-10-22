@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2021-01-06T20:59:34.315Z,0.0658,122.9487,148,6.1,mww,,13,1.114,1.23,us,us6000d69r,2025-12-22T18:47:48.492Z,"53 km SSW of Gorontalo, Indonesia",earthquake,6.7,1.8,0.035,78,reviewed,us,us

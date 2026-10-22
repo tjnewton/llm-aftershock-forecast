@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-09-07T06:12:39.688Z,-17.1102,168.5034,10,6.2,mww,,41,2.072,1.03,us,us7000bj6y,2025-12-22T18:44:03.370Z,"72 km NNE of Port-Vila, Vanuatu",earthquake,6.9,1.8,0.058,29,reviewed,us,us
+2020-09-07T06:29:14.938Z,-17.1622,168.5076,10,5.7,mww,,41,2.116,0.83,us,us7000bj71,2025-12-22T18:44:04.183Z,"66 km NNE of Port-Vila, Vanuatu",earthquake,7,1.8,0.05,38,reviewed,us,us
+2020-09-07T09:27:54.348Z,-16.9914,168.6102,10,4.5,mb,,126,2.045,1.1,us,us7000blsq,2020-11-17T19:44:51.040Z,"88 km NNE of Port-Vila, Vanuatu",earthquake,9.2,1.9,0.192,8,reviewed,us,us
+2020-09-15T08:04:28.871Z,-16.9995,168.5749,10,4.7,mb,,131,2.029,1.31,us,us7000bng9,2025-12-22T17:58:45.478Z,"86 km NNE of Port-Vila, Vanuatu",earthquake,5.9,1.9,0.102,29,reviewed,us,us

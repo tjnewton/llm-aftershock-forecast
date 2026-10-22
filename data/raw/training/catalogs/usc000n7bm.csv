@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2014-03-08T21:25:03.790Z,-60.8927,-19.5147,19.93,4.7,mb,,84,11.238,0.89,us,usc000nnqx,2014-05-15T02:23:47.000Z,"east of the South Sandwich Islands",earthquake,,4,0.174,11,reviewed,us,us
+2014-03-11T02:44:05.830Z,-60.8623,-19.9775,10,6.4,mww,,48,10.949,0.82,us,usc000n7bm,2022-05-03T16:44:52.171Z,"east of the South Sandwich Islands",earthquake,,1.7,,,reviewed,us,us
+2014-03-12T05:06:48.420Z,-60.855,-20.1336,11.86,4.4,mb,,133,12.821,0.24,us,usc000nnuk,2014-05-16T21:51:37.000Z,"east of the South Sandwich Islands",earthquake,,5.4,0.267,5,reviewed,us,us
+2014-03-13T17:12:32.460Z,-60.7641,-19.6945,10,5.3,mb,,86,11.098,0.9,us,usc000nac6,2022-05-03T16:45:02.317Z,"east of the South Sandwich Islands",earthquake,,1.7,0.095,42,reviewed,us,us

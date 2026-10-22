@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2010-04-17T23:15:22.020Z,-6.669,147.291,53,6.2,mwc,435,16.6,,0.87,us,usp000hbjw,2022-07-16T11:01:26.350Z,"33 km E of Lae, Papua New Guinea",earthquake,,,,,reviewed,us,us
+2010-04-18T12:05:54.100Z,-6.773,147.383,72,4.1,mb,18,153.6,,0.68,us,usp000hbm0,2014-11-07T01:41:17.382Z,"eastern New Guinea region, Papua New Guinea",earthquake,,12.3,,3,reviewed,us,us
+2010-04-19T07:34:30.800Z,-6.772,147.358,109.5,4.2,mb,25,143,,0.87,us,usp000hbne,2014-11-07T01:41:17.807Z,"40 km E of Lae, Papua New Guinea",earthquake,,13.5,,6,reviewed,us,us
+2010-04-23T09:25:59.200Z,-6.701,147.34,67.1,5.4,mwb,93,77.4,,0.9,us,usp000hbtm,2025-12-22T15:46:34.074Z,"eastern New Guinea region, Papua New Guinea",earthquake,,9.3,,,reviewed,us,us

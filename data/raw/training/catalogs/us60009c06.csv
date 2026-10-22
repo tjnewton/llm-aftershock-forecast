@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-04-25T02:53:06.698Z,-6.5337,154.2347,19,6.1,mww,,27,3.109,1.18,us,us60009c06,2025-12-22T18:33:43.152Z,"140 km W of Panguna, Papua New Guinea",earthquake,6.1,1.6,0.043,52,reviewed,us,us
+2020-04-25T21:47:50.006Z,-6.407,154.298,10,4.7,mb,,67,3.059,0.68,us,us60009cfr,2020-07-11T22:19:06.040Z,"131 km W of Panguna, Papua New Guinea",earthquake,8.7,1.9,0.088,39,reviewed,us,us
+2020-04-26T05:40:32.261Z,-6.5511,154.3932,10,4.4,mb,,66,3.228,0.54,us,us700097p0,2020-07-11T22:19:27.040Z,"123 km WSW of Panguna, Papua New Guinea",earthquake,6.9,1.9,0.117,21,reviewed,us,us
+2020-04-27T20:11:31.148Z,-6.6946,154.3331,10,4.5,mb,,65,3.293,1.26,us,us700097qz,2020-07-11T22:19:28.040Z,"134 km WSW of Panguna, Papua New Guinea",earthquake,7.5,1.9,0.118,21,reviewed,us,us
+2020-05-09T17:23:41.867Z,-6.4466,154.3365,10,4.5,mb,,122,3.114,0.8,us,us70009gm2,2020-07-29T22:14:24.040Z,"127 km W of Panguna, Papua New Guinea",earthquake,7.6,1.9,0.108,27,reviewed,us,us

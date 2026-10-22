@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-11-02T04:53:13.239Z,31.5042,-133.351,10,6,mww,452,23,10.528,0.65,us,us7000ilwt,2023-01-12T23:11:00.040Z,"North Pacific Ocean",earthquake,6.68,1.428,0.038,65,reviewed,us,us

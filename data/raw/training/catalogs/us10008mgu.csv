@@ -1,0 +1,18 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2017-05-01T12:31:55.590Z,59.8209,-136.7114,10,6.2,mww,,28,0.554,0.96,us,us10008mel,2023-08-07T20:23:01.683Z,"47 km NW of Mosquito Lake, Alaska",earthquake,4.1,1.7,,,reviewed,us,us
+2017-05-01T12:36:41.533Z,59.858,-136.6745,5,4.3,ml,,,,0.61,ak,ak0175kbdzzt,2023-08-07T20:23:03.515Z,"49 km NW of Mosquito Lake, Alaska",earthquake,,0,,,reviewed,ak,ak
+2017-05-01T12:36:58.490Z,59.7823,-136.7688,3.62,4.3,ml,,113,0.514,0.97,us,us10008rjw,2023-08-07T20:23:05.487Z,"47 km NW of Mosquito Lake, Alaska",earthquake,3.8,9.8,0.148,6,reviewed,us,us
+2017-05-01T12:49:18.980Z,59.878,-136.838,8.11,5,mwr,,78,0.252,1.05,us,us10008mes,2023-08-07T20:23:27.283Z,"57 km NW of Mosquito Lake, Alaska",earthquake,2,3.8,,,reviewed,us,pgc
+2017-05-01T14:18:15.290Z,59.8295,-136.7042,2.53,6.3,mww,,,,0.85,us,us10008mgu,2023-08-07T20:26:19.427Z,"48 km NW of Mosquito Lake, Alaska",earthquake,2.8,3.2,,,reviewed,pgc,us
+2017-05-01T14:20:24.380Z,59.7772,-136.6292,4.09,5.6,mb,,99,0.581,0.74,us,us10008rky,2023-08-07T20:26:21.271Z,"41 km NW of Mosquito Lake, Alaska",earthquake,2,5,0.124,23,reviewed,us,us
+2017-05-01T14:21:13.010Z,59.7689,-136.6818,10,5.7,mb,,70,0.754,0.49,us,us10008ptp,2023-08-07T20:26:23.146Z,"42 km NW of Mosquito Lake, Alaska",earthquake,6.6,1.8,0.056,114,reviewed,us,us
+2017-05-01T14:35:40.280Z,59.7421,-136.6143,3.87,4,ml,,94,0.581,0.7,us,us10008mhi,2023-08-07T20:26:48.311Z,"37 km NW of Mosquito Lake, Alaska",earthquake,4.6,5.6,0.053,46,reviewed,us,us
+2017-05-01T14:59:10.920Z,59.7489,-136.6058,10,4.8,mb,,93,0.319,0.62,us,us10008mi7,2023-08-07T20:30:06.858Z,"37 km NW of Mosquito Lake, Alaska",earthquake,4.3,1.9,0.248,5,reviewed,us,us
+2017-05-01T14:59:22.450Z,59.7953,-136.6481,12.31,5,mwr,,97,0.576,0.78,us,us10008mty,2023-08-07T20:30:08.689Z,"43 km NW of Mosquito Lake, Alaska",earthquake,4.4,4.5,,,reviewed,us,pgc
+2017-05-01T14:59:50.800Z,59.7709,-136.5826,10.8,4.9,mb,,96,0.335,0.7,us,us10008pu2,2017-07-29T03:16:12.040Z,"38 km NW of Mosquito Lake, Alaska",earthquake,2.3,4.9,0.162,17,reviewed,us,us
+2017-05-01T15:01:20.890Z,59.8653,-136.6306,10,4.1,ml,,82,0.608,1.36,us,us10008pts,2023-08-07T20:30:10.528Z,"48 km NW of Mosquito Lake, Alaska",earthquake,2.8,2,0.081,20,reviewed,us,us
+2017-05-01T15:21:47.090Z,59.8428,-136.7041,10,4.1,mb,,83,0.308,0.61,us,us10008min,2023-08-07T20:30:45.572Z,"Southeastern Alaska",earthquake,3,1.6,0.185,8,reviewed,us,us
+2017-05-01T15:50:31.850Z,59.7634,-136.6574,4.03,4.1,mb,,92,0.343,0.52,us,us10008mjn,2023-08-07T20:32:30.810Z,"41 km NW of Mosquito Lake, Alaska",earthquake,3.7,5.1,0.234,5,reviewed,us,us
+2017-05-01T18:30:40.240Z,59.7949,-136.663,10,4,mb,,89,0.36,0.9,us,us10008mnt,2023-08-07T20:38:44.178Z,"43 km NW of Mosquito Lake, Alaska",earthquake,4.6,1.9,0.15,12,reviewed,us,us
+2017-05-04T03:13:45.440Z,59.8032,-136.6826,10,4.7,mwr,,80,0.348,0.75,us,us10008p4h,2023-08-08T14:04:41.715Z,"45 km NW of Mosquito Lake, Alaska",earthquake,1.3,1.8,,,reviewed,us,pgc
+2017-05-04T03:30:13.060Z,59.7847,-136.705,1.06,4,mb,,82,0.361,0.71,us,us10008u9u,2023-08-08T14:05:09.573Z,"44 km NW of Mosquito Lake, Alaska",earthquake,1.5,3.6,0.366,2,reviewed,us,us

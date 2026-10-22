@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-06-24T01:58:06.248Z,7.9765,129.9606,10,6.2,mww,238,15,4.436,0.67,us,us7000q8bd,2025-09-02T21:23:42.040Z,"east of the Philippine Islands",earthquake,7.27,1.721,0.055,32,reviewed,us,us

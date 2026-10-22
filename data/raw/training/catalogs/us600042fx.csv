@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2019-06-18T13:22:19.010Z,38.6391,139.4769,12,6.4,mww,,33,1.288,0.87,us,us600042fx,2025-12-22T17:54:46.523Z,"31 km WSW of Tsuruoka, Japan",earthquake,5.5,1.8,0.048,42,reviewed,us,us
+2019-06-18T13:41:22.312Z,38.522,139.3022,10,4.4,mb,,102,1.341,0.57,us,us700048ek,2019-09-11T15:19:07.040Z,"35 km NNW of Murakami, Japan",earthquake,5.4,1.9,0.114,22,reviewed,us,us
+2019-06-18T15:57:24.854Z,38.5735,139.418,10,4.4,mb,,63,1.289,0.92,us,us600042jb,2019-09-11T15:19:08.040Z,"38 km N of Murakami, Japan",earthquake,3.8,1.9,0.083,42,reviewed,us,us
+2019-06-20T20:33:21.933Z,38.5877,139.4527,3.84,4.3,mb,,88,1.087,1.01,us,us700046q0,2019-09-11T15:19:21.040Z,"35 km WSW of Tsuruoka, Japan",earthquake,5.7,5.9,0.122,19,reviewed,us,us
+2019-07-11T07:04:26.062Z,38.5881,139.4263,10,4.4,mb,,70,1.291,0.69,us,us70004hr5,2022-08-08T14:51:20.229Z,"37 km WSW of Tsuruoka, Japan",earthquake,4.3,1.9,0.079,46,reviewed,us,us

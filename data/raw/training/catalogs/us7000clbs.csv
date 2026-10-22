@@ -1,0 +1,13 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-11-30T22:55:03.914Z,-24.3221,-67.0048,189,6.3,mww,,32,1.737,1.06,us,us7000clbs,2026-02-04T20:35:59.794Z,"70 km W of San Antonio de los Cobres, Argentina",earthquake,7.6,1.8,0.043,52,reviewed,us,us
+2020-12-01T00:22:39.203Z,-24.2488,-67.071,163.83,4.2,mb,,52,1.642,1.12,us,us7000clfi,2021-02-06T18:29:22.040Z,"76 km W of San Antonio de los Cobres, Argentina",earthquake,6.4,5.7,0.108,24,reviewed,us,us
+2020-12-03T07:29:34.312Z,-24.1345,-66.9281,215.58,4.3,mb,,70,1.644,0.76,us,us7000cmhs,2021-02-12T22:38:35.040Z,"62 km W of San Antonio de los Cobres, Argentina",earthquake,8.8,7.7,0.099,29,reviewed,us,us
+2020-12-03T20:58:02.760Z,-24.2635,-67.0897,157.02,4.5,mb,,63,1.643,0.84,us,us7000cmpj,2021-02-12T22:38:42.040Z,"78 km W of San Antonio de los Cobres, Argentina",earthquake,3,7.3,0.192,8,reviewed,us,us
+2020-12-05T10:14:43.781Z,-24.2192,-67.1798,178.01,4.5,mb,,90,1.559,0.68,us,us7000cne9,2021-02-12T22:39:23.040Z,"87 km W of San Antonio de los Cobres, Argentina",earthquake,4.9,6.6,0.059,84,reviewed,us,us
+2020-12-11T06:22:41.685Z,-24.1546,-67.2042,191.77,4.4,mb,,55,1.494,0.81,us,us7000cq54,2021-02-20T16:11:16.040Z,"90 km W of San Antonio de los Cobres, Argentina",earthquake,8.8,7.9,0.169,11,reviewed,us,us
+2020-12-15T15:10:06.877Z,-24.2007,-66.9635,172.84,4,mb,,120,2.819,0.45,us,us7000cs6h,2021-02-20T16:12:47.040Z,"65 km W of San Antonio de los Cobres, Argentina",earthquake,9.9,9.3,0.232,5,reviewed,us,us
+2020-12-18T18:58:27.388Z,-24.1434,-66.895,195.57,4.1,mb,,55,1.671,1.14,us,us7000cs8g,2021-02-27T23:25:57.040Z,"59 km W of San Antonio de los Cobres, Argentina",earthquake,9.5,4.4,0.174,9,reviewed,us,us
+2020-12-22T01:55:54.606Z,-24.2895,-67.239,186.17,4.2,mb,,70,1.586,0.65,us,us6000d1sn,2021-02-27T23:23:23.040Z,"93 km W of San Antonio de los Cobres, Argentina",earthquake,8.7,5.7,0.159,11,reviewed,us,us
+2020-12-23T03:31:26.611Z,-24.2434,-66.9704,199.81,4.5,mb,,172,1.697,0.36,us,us6000d230,2021-03-06T23:17:51.040Z,"Salta, Argentina",earthquake,11.9,4.8,0.27,4,reviewed,us,us
+2020-12-23T08:21:21.179Z,-24.1427,-67.0334,221.31,4.2,mb,,83,1.584,0.66,us,us6000d254,2021-03-06T23:17:53.040Z,"73 km W of San Antonio de los Cobres, Argentina",earthquake,11.5,14.8,0.236,5,reviewed,us,us
+2020-12-24T02:26:00.496Z,-24.2763,-67.1131,168.18,4.3,mwr,,63,1.641,0.86,us,us6000d2ds,2021-03-06T23:18:07.040Z,"80 km W of San Antonio de los Cobres, Argentina",earthquake,8,6.3,,,reviewed,us,guc

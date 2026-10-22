@@ -1,0 +1,9 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2018-08-17T23:22:24.950Z,8.7791,-83.1527,15,6.1,mww,,37,0.459,1.12,us,us1000gc0k,2022-05-03T19:56:51.654Z,"19 km NNW of Golfito, Costa Rica",earthquake,6,1.7,0.052,36,reviewed,us,us
+2018-08-17T23:49:36.700Z,8.7932,-83.1211,17.72,4.6,mwr,,137,0.428,0.85,us,us1000gc16,2022-08-08T07:15:46.647Z,"16 km W of San Vito, Costa Rica",earthquake,7.1,4.6,0.08,15,reviewed,us,us
+2018-08-19T02:20:33.530Z,8.7228,-83.1455,21.04,4.6,mb,,134,0.457,0.66,us,us1000gcsd,2018-10-27T16:22:06.040Z,"13 km NNW of Golfito, Costa Rica",earthquake,5.7,5.3,0.04,182,reviewed,us,us
+2018-08-21T03:42:06.850Z,8.6095,-83.2191,17.2,4.1,mwr,,177,0.556,0.7,us,us2000h5fl,2018-11-01T17:51:03.040Z,"11 km W of Golfito, Costa Rica",earthquake,3.1,5.1,0.073,18,reviewed,us,us
+2018-08-22T10:28:59.290Z,8.6566,-83.2317,10,4.6,mb,,157,0.554,0.47,us,us1000gf9u,2018-11-01T17:50:54.040Z,"14 km WNW of Golfito, Costa Rica",earthquake,7.1,1.9,0.086,40,reviewed,us,us
+2018-08-29T21:33:42.320Z,8.6677,-83.129,14,5.4,mww,,48,0.453,0.79,us,us2000h52e,2022-05-03T19:28:37.226Z,"7 km NNW of Golfito, Costa Rica",earthquake,5.2,1.8,0.047,44,reviewed,us,us
+2018-08-30T08:02:09.490Z,8.719,-83.089,14.37,4.7,mwr,,136,0.403,0.92,us,us2000h59l,2022-08-08T07:40:18.887Z,"13 km NNE of Golfito, Costa Rica",earthquake,7.2,5.6,0.071,19,reviewed,us,us
+2018-09-14T01:36:00.570Z,8.6921,-83.2541,19.12,4.5,mwr,,109,0.286,0.55,us,us2000heeg,2022-08-08T08:07:58.634Z,"18 km WNW of Golfito, Costa Rica",earthquake,5.6,4.3,0.065,23,reviewed,us,us

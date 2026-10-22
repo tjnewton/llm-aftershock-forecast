@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-09-15T03:41:28.036Z,55.9733,158.3783,344,6.4,mww,,25,2.898,0.68,us,us7000bnd1,2025-12-22T18:42:51.759Z,"21 km WNW of Esso, Russia",earthquake,5.9,1.8,0.028,120,reviewed,us,us

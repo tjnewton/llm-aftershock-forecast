@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2010-03-04T00:18:51.290Z,22.918,120.795,21,6.3,mwc,326,19.8,,0.88,us,usp000h8nd,2022-07-16T04:46:10.797Z,"41 km SE of Yujing, Taiwan",earthquake,,,,,reviewed,us,gcmt
+2010-03-04T08:16:16.850Z,22.901,120.769,23.9,5.2,mwc,195,32.4,,0.82,us,usp000h8pb,2022-07-16T04:51:01.206Z,"40 km SE of Yujing, Taiwan",earthquake,,,,,reviewed,us,gcmt
+2010-03-08T17:54:29.520Z,22.818,120.692,10,4.1,mb,12,109.6,,1.22,us,usp000h8yy,2014-11-07T01:40:57.624Z,"41 km SE of Yujing, Taiwan",earthquake,,,,3,reviewed,us,us
+2010-03-09T05:31:49.310Z,23.04,120.739,10,4.5,ml,7,213.2,,0.85,us,usp000h8zw,2014-11-07T01:40:57.777Z,"29 km ESE of Yujing, Taiwan",earthquake,,,,,reviewed,us,tap

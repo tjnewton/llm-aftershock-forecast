@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-12-18T13:30:10.680Z,-9.9738,-70.9698,612,6.4,mww,,11,2.812,0.74,us,us200082an,2022-05-03T18:06:18.382Z,"186 km NW of Iñapari, Peru",earthquake,9,1.9,,,reviewed,us,us

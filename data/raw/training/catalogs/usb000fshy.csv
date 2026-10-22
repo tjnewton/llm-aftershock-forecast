@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2013-03-25T23:02:12.770Z,14.487,-90.463,189,6.2,mww,674,25.1,,1.1,us,usb000fshy,2022-07-24T21:32:25.936Z,"3 km NW of Fraijanes, Guatemala",earthquake,,,,,reviewed,us,us

@@ -1,0 +1,16 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2023-06-18T21:26:30.265Z,-24.2083,-175.3792,10,4,mb,12,98,3.029,0.54,us,us6000kn93,2023-08-26T20:54:17.040Z,"south of Tonga",earthquake,9.48,1.886,0.3,3,reviewed,us,us
+2023-06-19T21:58:59.397Z,-24.1323,-175.5918,22.059,4.4,mb,12,132,2.97,1.23,us,us6000kng7,2023-08-26T20:54:18.040Z,"south of Tonga",earthquake,9.91,5.687,0.24,5,reviewed,us,us
+2023-06-21T03:38:31.123Z,-24.1926,-175.4003,10,4.7,mb,31,96,3.014,0.62,us,us6000kp4l,2023-08-26T20:54:19.040Z,"south of Tonga",earthquake,5.34,1.874,0.127,19,reviewed,us,us
+2023-06-21T18:02:19.937Z,-23.9835,-175.7336,10,4.6,mb,31,72,2.843,1.02,us,us7000ka67,2023-08-26T20:54:25.040Z,"Tonga region",earthquake,10.72,1.839,0.08,46,reviewed,us,us
+2023-06-25T00:58:35.418Z,-24.2319,-175.4991,10,5.4,mww,95,53,3.06,0.51,us,us7000kaww,2023-09-08T14:18:39.040Z,"south of Tonga",earthquake,7.09,1.664,0.086,13,reviewed,us,us
+2023-06-25T03:06:26.158Z,-24.1652,-175.7184,10,4.9,mb,42,121,3.019,1.29,us,us7000kaxn,2023-09-08T14:18:39.040Z,"south of Tonga",earthquake,10.17,1.232,0.053,110,reviewed,us,us
+2023-06-25T07:16:58.830Z,-24.0818,-175.576,9,6.2,mww,102,37,2.919,0.5,us,us7000kayb,2023-09-08T14:18:39.040Z,"south of Tonga",earthquake,9.12,1.84,0.041,56,reviewed,us,us
+2023-06-25T08:26:32.470Z,-24.0746,-175.7088,10,5.4,mww,65,67,2.929,0.53,us,us7000kayl,2023-09-08T14:18:39.040Z,"south of Tonga",earthquake,10.11,1.846,0.098,10,reviewed,us,us
+2023-06-25T08:53:07.341Z,-24.1992,-175.6497,10,4.2,mb,17,135,3.043,0.53,us,us6000kq30,2023-09-08T14:18:34.040Z,"south of Tonga",earthquake,8.82,1.885,0.152,14,reviewed,us,us
+2023-06-25T08:57:15.831Z,-24.1066,-175.5636,10,4.6,mb,25,165,2.942,0.79,us,us7000kayp,2024-01-18T20:21:02.830Z,"south of Tonga",earthquake,8.25,1.827,0.122,24,reviewed,us,us
+2023-06-25T09:19:12.267Z,-24.1022,-175.7879,10,4.7,mb,44,121,2.968,0.51,us,us6000kq36,2023-09-08T14:18:34.040Z,"south of Tonga",earthquake,4.67,1.872,0.062,78,reviewed,us,us
+2023-06-26T01:38:07.631Z,-23.9721,-175.4188,10,4.4,mb,17,193,5.724,0.7,us,us6000kq8e,2023-09-08T14:18:34.040Z,"295 km S of ‘Ohonua, Tonga",earthquake,12.97,1.956,0.169,10,reviewed,us,us
+2023-07-03T17:26:27.085Z,-23.9581,-175.597,15.572,5.1,mb,61,78,2.799,0.98,us,us6000kpwp,2023-09-09T21:54:42.040Z,"297 km SSW of ‘Ohonua, Tonga",earthquake,10.13,3.469,0.047,145,reviewed,us,us
+2023-07-04T01:23:03.175Z,-23.9008,-175.6936,34.786,4.9,mb,35,131,2.756,1.1,us,us7000kf4u,2023-09-09T21:55:11.040Z,"293 km SSW of ‘Ohonua, Tonga",earthquake,9.76,3.406,0.128,19,reviewed,us,us
+2023-07-04T01:35:17.621Z,-24.1358,-175.4653,10,4.4,mb,17,95,2.962,0.86,us,us7000kf4q,2023-09-09T21:55:11.040Z,"south of Tonga",earthquake,9.47,1.825,0.19,8,reviewed,us,us

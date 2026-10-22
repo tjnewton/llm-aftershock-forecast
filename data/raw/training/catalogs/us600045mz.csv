@@ -1,0 +1,37 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2019-06-25T09:05:40.478Z,56.202,164.2327,10,6.4,mww,,55,4.546,0.57,us,us600045mz,2025-12-22T18:12:09.960Z,"108 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,6.7,1.8,0.033,90,reviewed,us,us
+2019-06-25T15:59:44.705Z,56.2802,163.7544,10,4.7,mb,,91,4.408,0.67,us,us700044rn,2019-09-14T16:08:07.040Z,"79 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,8,1.9,0.029,357,reviewed,us,us
+2019-06-26T02:18:07.841Z,56.1821,164.0881,10,6.3,mww,,15,4.473,0.89,us,us7000451w,2025-12-22T18:12:12.380Z,"100 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,7.2,1.7,0.036,74,reviewed,us,us
+2019-06-26T02:28:55.229Z,56.3498,164.0102,10,4.7,mb,,106,4.558,0.87,us,us70004b5q,2019-09-14T16:08:32.040Z,"95 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,14.4,1.9,0.069,63,reviewed,us,us
+2019-06-26T02:32:51.739Z,56.3201,164.0257,10,4.3,mb,,109,4.543,0.69,us,us70004b5p,2019-09-14T16:08:32.040Z,"96 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,14,1.9,0.1,28,reviewed,us,us
+2019-06-26T02:36:09.689Z,56.3479,164.0543,10,4.1,mb,,109,4.574,0.66,us,us70004b5i,2019-09-14T16:08:31.040Z,"98 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,14.6,1.9,0.099,28,reviewed,us,us
+2019-06-26T02:44:27.341Z,56.2795,163.8914,10,4.6,mb,,105,4.461,0.73,us,us7000452c,2019-09-14T16:08:09.040Z,"87 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,7.3,1.7,0.064,73,reviewed,us,us
+2019-06-26T02:58:23.110Z,56.3219,163.8771,10,4.3,mb,,77,4.486,0.8,us,us70004b5k,2019-09-14T16:08:32.040Z,"87 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,10.6,1.8,0.066,65,reviewed,us,us
+2019-06-26T02:59:44.420Z,56.3997,164.0957,10,4.3,mb,,111,4.627,0.71,us,us70004b5t,2019-09-14T16:08:32.040Z,"101 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,15,1.9,0.143,14,reviewed,us,us
+2019-06-26T03:50:57.124Z,55.9355,164.4178,10,4.4,mb,,92,4.452,0.76,us,us70004548,2019-09-14T16:08:09.040Z,"125 km ESE of Ust’-Kamchatsk Staryy, Russia",earthquake,8.7,1.9,0.066,66,reviewed,us,us
+2019-06-26T05:40:44.261Z,56.1072,164.376,10,4.2,mb,,113,4.543,0.74,us,us70004b5y,2019-09-14T16:08:32.040Z,"118 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,7.8,1.9,0.121,21,reviewed,us,us
+2019-06-26T05:53:33.774Z,56.23,164.5633,10,4.5,mb,,111,4.703,1.02,us,us7000455y,2019-09-14T16:08:09.040Z,"Komandorskiye Ostrova, Russia region",earthquake,11,1.9,0.046,140,reviewed,us,us
+2019-06-26T10:42:57.962Z,56.2447,164.0597,10,4.3,mb,,110,4.504,0.97,us,us7000458n,2019-09-14T16:08:10.040Z,"98 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,6.4,1.9,0.078,46,reviewed,us,us
+2019-06-26T10:57:22.338Z,56.1898,164.4482,10,4.6,mb,,112,4.628,0.65,us,us7000458v,2019-09-14T16:08:10.040Z,"122 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,5.8,1.7,0.077,50,reviewed,us,us
+2019-06-26T11:02:17.772Z,56.1629,164.6036,10,4.2,mb,,112,4.677,0.94,us,us70004592,2019-09-14T16:08:10.040Z,"132 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,6.7,1.9,0.121,19,reviewed,us,us
+2019-06-26T11:07:01.835Z,56.1978,164.5719,10,4.3,mb,,112,4.686,1.01,us,us70004595,2019-09-14T16:08:10.040Z,"129 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,6.5,1.9,0.054,97,reviewed,us,us
+2019-06-26T14:23:29.854Z,56.1528,163.925,10,4.4,mb,,111,4.386,0.94,us,us700045ag,2019-09-14T16:08:10.040Z,"90 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,6.2,1.8,0.097,31,reviewed,us,us
+2019-06-27T04:20:48.119Z,56.2187,164.3027,10,5.7,mww,,44,4.586,0.61,us,us700045r4,2025-12-22T18:12:14.668Z,"113 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,7,1.8,0.039,62,reviewed,us,us
+2019-06-29T01:04:05.606Z,56.3054,164.0006,10,4.8,mb,,117,4.523,1.15,us,us7000474h,2019-09-14T16:08:17.040Z,"94 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,10.5,1.9,0.026,446,reviewed,us,us
+2019-06-29T19:23:55.611Z,56.2042,164.554,10,4.2,mb,,112,4.682,0.77,us,us700047fd,2019-09-14T16:08:19.040Z,"128 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,9.1,1.9,0.097,30,reviewed,us,us
+2019-07-01T00:00:36.284Z,56.2144,163.8954,10,4.4,mb,,79,4.417,0.69,us,us700047th,2019-09-14T16:08:24.040Z,"87 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,10.2,1.9,0.042,165,reviewed,us,us
+2019-07-03T19:06:03.899Z,56.1595,163.9419,10,4.9,mb,,113,4.398,0.77,us,us700049jc,2019-09-26T14:30:06.040Z,"91 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,9.7,1.8,0.027,444,reviewed,us,us
+2019-07-04T20:57:34.789Z,56.0088,163.8557,10,4.2,mb,,151,4.259,0.62,us,us70004a9m,2019-09-26T14:30:13.040Z,"89 km ESE of Ust’-Kamchatsk Staryy, Russia",earthquake,7.5,1.8,0.068,61,reviewed,us,us
+2019-07-05T14:33:51.388Z,56.1496,164.2282,10,4.9,mb,,91,4.509,0.81,us,us70004b2t,2025-12-22T18:12:47.063Z,"109 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,5.8,1.8,0.025,490,reviewed,us,us
+2019-07-05T16:13:59.465Z,56.1544,164.4836,10,4.3,mb,,181,4.62,1.01,us,us70004b7c,2019-09-26T14:30:20.040Z,"124 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,6,2,0.133,16,reviewed,us,us
+2019-07-05T16:19:33.874Z,56.3019,164.0714,10,4.2,mb,,133,4.549,1.38,us,us70004b7k,2019-09-26T14:30:20.040Z,"99 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,13.3,1.9,0.093,32,reviewed,us,us
+2019-07-05T16:48:18.852Z,56.3007,164.226,10,4.4,mb,,148,4.61,1.02,us,us70004b9c,2019-09-26T14:30:20.040Z,"108 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,8.8,1.9,0.076,49,reviewed,us,us
+2019-07-05T18:09:00.411Z,56.0825,164.1285,10,4.9,mb,,57,4.423,0.88,us,us70004bbq,2019-09-26T14:30:21.040Z,"103 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,7.8,1.8,0.037,232,reviewed,us,us
+2019-07-05T18:24:12.213Z,55.9173,164.3101,10,4.2,mb,,128,4.393,0.91,us,us70004bc6,2019-09-26T14:30:21.040Z,"119 km ESE of Ust’-Kamchatsk Staryy, Russia",earthquake,9.7,1.9,0.051,109,reviewed,us,us
+2019-07-06T05:23:33.969Z,56.2117,164.2719,10,5.3,mb,,63,4.569,0.63,us,us70004bud,2025-12-22T18:12:49.398Z,"111 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,7.7,1.8,0.055,113,reviewed,us,us
+2019-07-06T05:29:52.523Z,56.1632,164.1414,10,5,mb,,91,4.482,0.73,us,us70004buv,2019-09-26T14:30:31.040Z,"103 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,9.4,1.9,0.047,145,reviewed,us,us
+2019-07-06T07:09:20.324Z,56.134,164.1796,10,5.1,mb,,91,4.478,0.7,us,us70004c14,2019-09-26T14:30:35.040Z,"106 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,7.8,1.9,0.051,127,reviewed,us,us
+2019-07-08T16:12:27.221Z,56.2849,164.313,10,4.5,mb,,155,4.635,0.86,us,us70004eui,2019-09-26T14:31:00.040Z,"113 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,12.3,1.9,0.041,177,reviewed,us,us
+2019-07-09T19:14:46.508Z,56.1038,164.624,10,4.3,mb,,118,4.648,0.91,us,us70004g57,2019-09-28T20:01:04.040Z,"134 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,8.2,1.9,0.056,90,reviewed,us,us
+2019-07-15T12:25:42.620Z,56.2213,164.3906,10,4.5,mb,,143,4.625,0.67,us,us70004kjs,2019-09-28T20:01:25.040Z,"118 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,12,1.9,0.035,245,reviewed,us,us
+2019-07-18T21:07:35.429Z,56.3659,163.8979,10,4.1,mb,,134,4.525,0.89,us,us60004vwi,2019-10-04T16:37:16.040Z,"89 km E of Ust’-Kamchatsk Staryy, Russia",earthquake,11.3,1.9,0.12,19,reviewed,us,us

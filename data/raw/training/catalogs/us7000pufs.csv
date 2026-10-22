@@ -1,0 +1,7 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-04-23T09:49:11.631Z,40.8342,28.1897,12.736,6.2,mww,275,17,1.129,0.51,us,us7000pufs,2026-10-14T15:06:00.021Z,"24 km SE of Marmara Ereğlisi, Turkey",earthquake,5.31,3.783,0.032,91,reviewed,us,us
+2025-04-23T10:01:04.034Z,40.8471,28.2332,10,4.5,mb,29,54,1.16,0.7,us,us7000pufv,2025-07-11T15:46:18.040Z,"25 km S of Silivri, Turkey",earthquake,4.09,1.911,0.192,8,reviewed,us,us
+2025-04-23T10:46:14.824Z,40.7814,28.3191,10,4.3,mb,32,38,1.155,0.45,us,us7000pug5,2025-07-11T15:46:18.040Z,"29 km SSW of Kumburgaz, Turkey",earthquake,4.3,1.936,0.188,8,reviewed,us,us
+2025-04-23T11:50:34.707Z,40.8719,28.2722,10,4,mb,20,120,1.198,0.59,us,us7000pugg,2025-07-11T15:46:18.040Z,"21 km SSW of Selimpaşa, Turkey",earthquake,6.46,1.955,0.184,8,reviewed,us,us
+2025-04-23T12:12:57.040Z,40.8489,28.2741,10,4.9,mww,59,33,1.181,0.56,us,us7000pugj,2025-08-21T11:27:51.218Z,"24 km SSW of Selimpaşa, Turkey",earthquake,5.86,1.871,0.08,15,reviewed,us,us
+2025-04-25T17:33:16.251Z,40.8537,28.4298,10,4.3,mwr,83,30,1.266,0.43,us,us7000pv32,2025-07-11T15:46:20.040Z,"19 km SSW of Kumburgaz, Turkey",earthquake,4.92,1.862,0.071,19,reviewed,us,us

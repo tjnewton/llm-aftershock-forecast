@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2021-11-25T23:45:41.752Z,22.8232,93.5061,43,6.2,mww,,21,1.726,0.88,us,us7000fx45,2025-12-22T22:20:56.476Z,"20 km WSW of Falam, Myanmar",earthquake,5.4,3.7,0.08,15,reviewed,us,us
+2021-11-27T09:47:16.620Z,22.8532,93.4368,58.3,4.4,mb,,146,3.934,0.4,us,us6000g8ew,2022-02-05T23:03:49.040Z,"25 km WSW of Falam, Myanmar",earthquake,10.3,8.7,0.13,22,reviewed,us,us
+2021-11-29T13:24:26.617Z,22.8125,93.4533,55.11,4.4,mb,,72,1.677,0.47,us,us6000g8r2,2022-02-05T23:03:55.040Z,"24 km NW of Hakha, Myanmar",earthquake,7.4,5.6,0.115,24,reviewed,us,us

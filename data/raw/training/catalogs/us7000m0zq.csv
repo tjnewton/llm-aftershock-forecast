@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2024-02-23T01:51:13.973Z,-35.0892,-110.7745,10,6.3,mww,98,38,7.986,0.86,us,us7000m0zq,2024-05-02T15:50:12.040Z,"southern East Pacific Rise",earthquake,9.49,1.767,0.057,30,reviewed,us,us

@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-02-12T10:02:24.050Z,-9.6338,119.4013,28,6.3,mww,,39,2.971,1.14,us,us20004zp9,2022-08-07T09:36:18.529Z,"94 km W of Waingapu, Indonesia",earthquake,6.4,1.7,,,reviewed,us,us

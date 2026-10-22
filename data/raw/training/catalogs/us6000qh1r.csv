@@ -1,0 +1,16 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-05-31T08:37:17.097Z,42.2705,144.4895,21,6,mww,138,55,1.023,0.71,us,us6000qh1r,2025-08-16T21:54:11.040Z,"78 km S of Kushiro, Japan",earthquake,7.27,1.885,0.056,31,reviewed,us,us
+2025-05-31T08:44:00.414Z,42.3146,144.4608,35,4.4,mb,20,152,1.014,0.65,us,us6000qkmn,2025-08-16T21:54:18.040Z,"73 km S of Kushiro, Japan",earthquake,5.71,1.952,0.149,13,reviewed,us,us
+2025-05-31T08:49:49.113Z,42.2959,144.652,35,4.5,mb,90,132,1.146,0.89,us,us6000qh1w,2025-08-16T21:54:11.040Z,"78 km SSE of Kushiro, Japan",earthquake,7.47,1.485,0.063,74,reviewed,us,us
+2025-05-31T08:56:38.393Z,42.2948,144.4065,35,4.1,mb,23,144,0.97,0.83,us,us6000qkmp,2025-08-16T21:54:18.040Z,"75 km S of Kushiro, Japan",earthquake,8.84,1.95,0.174,9,reviewed,us,us
+2025-05-31T11:37:06.808Z,42.3653,144.4693,48.568,4.8,mb,85,123,1.036,0.64,us,us6000qh2g,2025-08-16T21:54:11.040Z,"68 km S of Kushiro, Japan",earthquake,7.54,6.899,0.028,404,reviewed,us,us
+2025-05-31T11:40:40.327Z,42.2673,144.4403,46.002,4.3,mb,39,165,0.987,0.58,us,us6000qkml,2025-08-16T21:54:18.040Z,"78 km S of Kushiro, Japan",earthquake,6.6,7.142,0.113,22,reviewed,us,us
+2025-05-31T12:29:02.040Z,42.2717,144.5511,35.46,4.8,mb,80,133,1.068,1.03,us,us6000qh2r,2025-08-16T21:54:11.040Z,"79 km S of Kushiro, Japan",earthquake,7.51,7.204,0.029,365,reviewed,us,us
+2025-05-31T14:47:01.387Z,42.2532,144.5659,35,4.4,mb,84,132,1.075,0.65,us,us6000qh38,2025-08-16T21:54:12.040Z,"81 km S of Kushiro, Japan",earthquake,6.8,1.922,0.067,69,reviewed,us,us
+2025-06-01T11:25:42.491Z,42.3287,144.4751,35.019,4.1,mb,33,175,1.029,1.07,us,us6000qkui,2025-08-16T21:54:19.040Z,"72 km S of Kushiro, Japan",earthquake,7.64,8.98,0.111,22,reviewed,us,us
+2025-06-04T19:20:21.965Z,42.2196,144.5656,29.324,4.1,mb,25,173,1.068,0.45,us,us6000qlal,2025-08-20T16:09:01.040Z,"85 km S of Kushiro, Japan",earthquake,8.26,7.771,0.134,15,reviewed,us,us
+2025-06-04T19:55:19.879Z,42.3005,144.6126,41.853,4.5,mb,74,134,1.119,0.7,us,us6000qhyp,2025-08-20T16:08:55.040Z,"77 km SSE of Kushiro, Japan",earthquake,3.15,7.024,0.052,108,reviewed,us,us
+2025-06-04T20:18:26.595Z,42.2593,144.5193,37.375,4.1,mb,36,86,1.042,0.63,us,us6000qhze,2025-08-20T16:08:55.040Z,"80 km S of Kushiro, Japan",earthquake,8.23,8.142,0.114,21,reviewed,us,us
+2025-06-06T20:35:57.317Z,42.2361,144.3767,45.594,4.2,mb,75,134,0.934,0.53,us,us6000qijq,2025-08-20T16:08:56.040Z,"82 km S of Kushiro, Japan",earthquake,8.48,7.749,0.069,58,reviewed,us,us
+2025-06-11T09:30:42.851Z,42.3031,144.5453,37.615,4.6,mb,123,134,1.072,0.56,us,us6000qjiw,2025-08-22T20:25:58.040Z,"75 km S of Kushiro, Japan",earthquake,8.55,7.318,0.055,99,reviewed,us,us
+2025-06-23T17:55:12.519Z,42.2035,144.6299,34.552,4.8,mb,77,126,1.112,0.91,us,us7000q88q,2025-09-02T21:23:41.040Z,"88 km SSE of Kushiro, Japan",earthquake,7.79,5.519,0.041,183,reviewed,us,us

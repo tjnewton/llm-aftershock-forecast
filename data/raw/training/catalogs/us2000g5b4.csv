@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2018-07-15T01:57:19.410Z,14.0625,51.7365,10,6,mww,,64,9.028,1.21,us,us2000g5b4,2022-05-03T19:22:21.929Z,"214 km NNW of Kilmia, Yemen",earthquake,8.6,1.8,0.046,45,reviewed,us,us
+2018-07-15T01:59:08.940Z,14.1481,51.6354,10,5.5,mb,,44,8.956,0.7,us,us2000g9ms,2022-05-03T19:24:59.135Z,"226 km NNW of Kilmia, Yemen",earthquake,9,1.8,0.065,81,reviewed,us,us
+2018-07-15T13:16:04.030Z,13.9438,51.773,10,5,mb,,91,9.032,0.92,us,us2000g9n0,2018-10-02T16:40:45.040Z,"200 km NNW of Kilmia, Yemen",earthquake,7,1.8,0.123,21,reviewed,us,us

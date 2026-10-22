@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2019-06-26T05:23:51.514Z,8.4612,-82.754,32.58,6.2,mww,,42,0.337,1.12,us,us7000455l,2025-12-22T18:12:13.550Z,"4 km SE of Aserrío de Gariché, Panama",earthquake,6.1,4,0.031,100,reviewed,us,us
+2019-06-26T19:12:33.721Z,8.6574,-82.8366,37.06,4.6,mb,,227,0.2,1.25,us,us700045mp,2019-09-14T16:08:11.040Z,"4 km NW of Breñón, Panama",earthquake,8.8,7,0.129,18,reviewed,us,us
+2019-06-27T13:36:16.462Z,8.4078,-82.806,37.12,4.5,mb,,143,0.401,1.11,us,us700045wq,2019-09-14T16:08:13.040Z,"1 km W of La Esperanza, Panama",earthquake,9.2,14.3,0.54,1,reviewed,us,us
+2019-06-28T11:17:32.643Z,8.4286,-82.8134,35,4.4,mb,,50,0.383,0.74,us,us700046i1,2019-09-14T16:08:16.040Z,"3 km SE of Progreso, Panama",earthquake,5.4,2,0.052,105,reviewed,us,us
+2019-07-01T12:24:05.918Z,8.4741,-82.794,26.85,4.4,mb,,153,0.334,0.72,us,us700047zp,2019-09-14T16:08:26.040Z,"1 km SSW of Aserrío de Gariché, Panama",earthquake,8.7,7.6,0.12,20,reviewed,us,us

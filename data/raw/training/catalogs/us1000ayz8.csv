@@ -1,0 +1,15 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2017-10-31T11:31:39.440Z,-3.8261,127.7209,4,5.8,mww,,22,4.58,1.08,us,us1000ayz3,2022-05-03T18:39:39.987Z,"53 km WSW of Ambon, Indonesia",earthquake,6.6,1.7,0.049,40,reviewed,us,us
+2017-10-31T11:34:39.350Z,-3.7687,127.6675,8.14,5.6,mww,,37,4.52,0.96,us,us1000ayz4,2022-05-03T19:55:46.310Z,"57 km W of Ambon, Indonesia",earthquake,6.6,3.1,0.103,9,reviewed,us,us
+2017-10-31T11:50:48.370Z,-3.7449,127.7517,6,6.1,mww,,22,4.503,1.15,us,us1000ayz8,2022-05-03T18:40:40.470Z,"48 km W of Ambon, Indonesia",earthquake,6.6,1.7,0.05,39,reviewed,us,us
+2017-10-31T11:59:41.100Z,-3.7217,127.8087,10,4.9,mb,,119,4.485,0.91,us,us2000bkyi,2018-01-24T01:25:01.040Z,"41 km W of Ambon, Indonesia",earthquake,6.9,1.9,0.136,17,reviewed,us,us
+2017-10-31T12:23:12.900Z,-3.7646,127.6358,10,4,mb,,76,4.514,1.31,us,us2000bkyk,2018-01-24T01:25:01.040Z,"61 km W of Ambon, Indonesia",earthquake,7.9,1.9,0.156,11,reviewed,us,us
+2017-10-31T12:37:47.820Z,-3.8194,127.769,15.77,5.7,mww,,22,4.56,1.09,us,us1000az05,2023-08-14T03:43:25.725Z,"48 km WSW of Ambon, Indonesia",earthquake,6.7,3,0.047,43,reviewed,us,us
+2017-10-31T12:48:30.310Z,-3.7217,127.8763,10,4.5,mb,,84,4.437,1.08,us,us2000bkyy,2018-01-24T01:25:01.040Z,"34 km W of Ambon, Indonesia",earthquake,8.1,1.9,0.108,25,reviewed,us,us
+2017-10-31T13:06:43.450Z,-3.8081,127.7021,10,4.7,mb,,75,4.561,0.74,us,us2000bkyl,2018-01-24T01:25:01.040Z,"54 km WSW of Ambon, Indonesia",earthquake,4.5,1.9,0.095,34,reviewed,us,us
+2017-10-31T13:42:25.330Z,-3.7969,127.6458,10,5.1,mb,,46,4.546,0.7,us,us1000az0u,2018-01-24T01:25:01.040Z,"60 km W of Ambon, Indonesia",earthquake,6.3,1.8,0.065,76,reviewed,us,us
+2017-10-31T14:55:56.960Z,-3.7971,127.7522,10,5.1,mb,,48,4.554,0.85,us,us2000bkys,2018-01-24T01:25:01.040Z,"49 km WSW of Ambon, Indonesia",earthquake,7.6,1.9,0.084,46,reviewed,us,us
+2017-10-31T18:56:33.460Z,-3.8555,127.7633,10,4.4,mb,,74,4.573,1.39,us,us1000az8h,2018-01-24T01:25:01.040Z,"49 km WSW of Ambon, Indonesia",earthquake,4.4,1.9,0.104,27,reviewed,us,us
+2017-11-01T14:50:18.590Z,-3.8333,127.7399,10,4.8,mb,,52,4.589,1.17,us,us1000azw6,2018-01-24T01:25:04.040Z,"51 km WSW of Ambon, Indonesia",earthquake,7.6,1.9,0.087,41,reviewed,us,us
+2017-11-02T03:16:19.720Z,-3.8268,127.7703,10,5,mb,,46,4.56,0.7,us,us2000bfd8,2018-01-24T01:25:05.040Z,"48 km WSW of Ambon, Indonesia",earthquake,5.6,1.9,0.063,79,reviewed,us,us
+2017-11-07T02:51:05.420Z,-3.8439,127.8783,53.28,4.2,mb,,85,4.458,0.83,us,us2000bq89,2018-01-31T03:04:41.040Z,"37 km WSW of Ambon, Indonesia",earthquake,5.4,12.2,0.141,14,reviewed,us,us

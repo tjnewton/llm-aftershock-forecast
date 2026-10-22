@@ -1,0 +1,3 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-11-04T10:02:46.346Z,28.1573,-112.3106,10,6.1,mww,150,91,0.837,0.38,us,us7000imgl,2023-03-08T18:20:14.734Z,"82 km SSW of Bahía de Kino, Mexico",earthquake,5.62,1.847,0.039,63,reviewed,us,us
+2022-11-06T23:33:47.841Z,28.1429,-112.2235,10,4.3,mb,52,135,0.82,0.57,us,us7000imyu,2023-01-21T19:27:11.040Z,"80 km SSW of Bahía de Kino, Mexico",earthquake,5.75,1.938,0.188,8,reviewed,us,us

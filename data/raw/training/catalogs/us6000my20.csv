@@ -1,0 +1,3 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2024-05-12T11:39:12.718Z,14.4264,-92.4617,61.91,6.4,mww,267,30,0.515,1.05,us,us6000my20,2024-10-08T21:11:23.868Z,"28 km WSW of Brisas Barra de Suchiate, Mexico",earthquake,3.41,3.065,0.029,111,reviewed,us,us
+2024-05-12T23:00:02.991Z,14.489,-92.5106,66.677,4.4,mb,82,89,0.479,1.16,us,us6000my6f,2024-07-20T22:20:09.040Z,"27 km SSW of Puerto Madero, Mexico",earthquake,5.81,4.809,0.053,101,reviewed,us,us

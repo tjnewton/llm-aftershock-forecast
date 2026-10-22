@@ -1,0 +1,12 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-06-20T15:05:11.383Z,66.2493,-18.6779,10,5.4,mww,,56,1.869,1.19,us,us6000afgh,2025-12-22T18:36:46.966Z,"15 km NE of Siglufjörður, Iceland",earthquake,6.3,1.8,0.045,47,reviewed,us,us
+2020-06-20T19:26:21.398Z,66.2868,-18.8934,10,5.7,mww,,28,1.848,0.53,us,us6000afj6,2025-12-22T18:36:44.696Z,"15 km N of Siglufjörður, Iceland",earthquake,6.4,1.8,0.043,51,reviewed,us,us
+2020-06-20T20:11:15.177Z,66.2953,-18.5532,10,4.5,mb,,59,1.936,0.91,us,us6000afjq,2020-08-30T00:00:57.040Z,"22 km NE of Siglufjörður, Iceland",earthquake,7.7,1.9,0.052,109,reviewed,us,us
+2020-06-21T18:20:10.499Z,66.3983,-18.8074,10,4.4,mb,,83,1.961,0.86,us,us6000ag0h,2020-08-30T00:01:00.040Z,"27 km N of Siglufjörður, Iceland",earthquake,8.4,1.8,0.071,57,reviewed,us,us
+2020-06-21T19:07:54.833Z,66.381,-18.707,10,6,mww,,55,1.969,0.87,us,us6000ag18,2025-12-22T18:36:51.466Z,"27 km NNE of Siglufjörður, Iceland",earthquake,6.9,1.8,0.034,81,reviewed,us,us
+2020-06-21T19:14:49.937Z,66.2726,-18.6721,10,4.5,mb,,97,1.889,0.58,us,us7000ac7b,2020-08-30T00:01:21.040Z,"17 km NE of Siglufjörður, Iceland",earthquake,6.7,1.9,0.191,8,reviewed,us,us
+2020-06-21T19:29:17.248Z,66.2886,-18.6299,10,4.5,mb,,88,1.912,0.92,us,us6000ag1s,2020-08-30T00:01:00.040Z,"19 km NE of Siglufjörður, Iceland",earthquake,5.1,1.9,0.069,62,reviewed,us,us
+2020-06-21T19:46:17.826Z,66.4191,-18.7916,10,4.5,mb,,85,1.982,0.9,us,us6000ag1w,2025-12-22T18:36:53.557Z,"30 km N of Siglufjörður, Iceland",earthquake,8.7,1.9,0.064,70,reviewed,us,us
+2020-06-21T19:57:09.401Z,66.5048,-18.9503,10,4.4,mb,,84,2.021,1.21,us,us6000ag2l,2020-08-30T00:01:00.040Z,"39 km N of Siglufjörður, Iceland",earthquake,4.8,1.9,0.063,72,reviewed,us,us
+2020-06-24T11:51:44.601Z,66.4235,-18.9333,10,4.1,mb,,55,1.955,0.61,us,us7000afqn,2020-09-05T17:35:38.040Z,"30 km N of Siglufjörður, Iceland",earthquake,6.8,1.9,0.145,13,reviewed,us,us
+2020-06-24T17:19:32.556Z,66.3237,-18.9437,10,4.2,mb,,75,1.868,0.91,us,us7000afr0,2020-09-05T17:35:39.040Z,"19 km N of Siglufjörður, Iceland",earthquake,4.8,1.9,0.066,65,reviewed,us,us

@@ -1,0 +1,3 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2019-06-14T03:53:15.792Z,-21.1779,-174.036,10,5.4,mww,,80,7.542,1.35,us,us600040kw,2025-12-22T18:11:01.159Z,"96 km E of ‘Ohonua, Tonga",earthquake,9.4,1.8,0.083,14,reviewed,us,us
+2019-06-15T21:56:10.835Z,-21.1807,-174.169,13,6.1,mww,,21,7.582,0.89,us,us60004177,2025-12-22T18:11:11.113Z,"82 km ENE of ‘Ohonua, Tonga",earthquake,8.4,1.7,0.052,36,reviewed,us,us

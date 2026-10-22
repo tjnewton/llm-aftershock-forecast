@@ -1,0 +1,11 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-03-19T21:24:22.127Z,-25.2976,-176.2998,21,6.3,mww,,26,4.203,0.68,us,us6000h62z,2024-01-17T22:28:46.623Z,"south of the Fiji Islands",earthquake,8.9,1.8,0.043,52,reviewed,us,us
+2022-03-19T21:33:18.374Z,-25.4875,-176.324,10,4.7,mb,,124,4.018,0.66,us,us7000gwua,2022-05-28T18:35:31.040Z,"south of the Fiji Islands",earthquake,11,1.7,0.143,15,reviewed,us,us
+2022-03-19T21:37:37.275Z,-25.3437,-176.3464,10,4.6,mb,,124,4.146,0.69,us,us7000gwub,2022-05-28T18:35:31.040Z,"south of the Fiji Islands",earthquake,6.2,2,0.173,10,reviewed,us,us
+2022-03-19T22:01:04.960Z,-25.4554,-176.3457,10,4.7,mb,,211,4.042,1.16,us,us7000gwud,2022-05-28T18:35:31.040Z,"south of the Fiji Islands",earthquake,11.9,1.9,0.167,11,reviewed,us,us
+2022-03-19T22:07:49.590Z,-25.4497,-176.1161,10,4.5,mb,,212,4.122,0.62,us,us7000gwue,2022-05-28T18:35:31.040Z,"south of the Fiji Islands",earthquake,12.2,2,0.192,8,reviewed,us,us
+2022-03-19T22:40:12.463Z,-25.4764,-176.1729,10,4.6,mb,,211,4.078,0.75,us,us7000gwug,2022-05-28T18:35:31.040Z,"south of the Fiji Islands",earthquake,12.1,1.9,0.172,10,reviewed,us,us
+2022-03-19T23:50:24.283Z,-25.4438,-176.3501,10,4.6,mb,,212,4.051,0.41,us,us7000gwul,2022-05-28T18:35:31.040Z,"south of the Fiji Islands",earthquake,12.5,2,0.172,10,reviewed,us,us
+2022-03-20T00:33:15.651Z,-25.3492,-176.2902,10,5,mb,,72,4.158,0.6,us,us6000h63t,2022-05-28T18:35:19.040Z,"south of the Fiji Islands",earthquake,10.5,1.8,0.07,66,reviewed,us,us
+2022-03-20T19:02:58.580Z,-25.3397,-176.319,10,4.9,mb,,43,4.158,0.85,us,us6000h68z,2022-05-28T18:35:21.040Z,"south of the Fiji Islands",earthquake,11.8,1.8,0.083,51,reviewed,us,us
+2022-03-22T17:26:27.556Z,-25.3865,-176.1184,39.61,4.9,mb,,102,4.179,0.89,us,us7000gxbv,2022-05-28T18:35:39.040Z,"south of the Fiji Islands",earthquake,6.1,6.1,0.108,32,reviewed,us,us

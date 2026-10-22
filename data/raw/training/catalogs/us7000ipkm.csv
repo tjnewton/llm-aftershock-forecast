@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-11-14T08:08:26.124Z,33.8139,137.3055,346,6.1,mww,274,28,1.127,0.63,us,us7000ipkm,2023-01-28T19:58:14.040Z,"85 km SSE of Toba, Japan",earthquake,7.92,1.907,0.042,54,reviewed,us,us

@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2018-04-05T03:53:38.410Z,6.8325,126.7785,34,6,mww,,17,1.213,0.82,us,us2000dus5,2022-05-03T19:09:21.874Z,"43 km ESE of Tarragona, Philippines",earthquake,7.3,1.8,0.06,27,reviewed,us,us

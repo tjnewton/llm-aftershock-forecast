@@ -1,0 +1,13 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-10-01T01:13:36.524Z,-19.5385,-174.1217,28,6.4,mww,,20,3.988,0.63,us,us6000c3kz,2025-12-22T18:43:05.065Z,"39 km NE of Pangai, Tonga",earthquake,8.4,1.8,0.053,34,reviewed,us,us
+2020-10-01T02:39:48.800Z,-19.3944,-173.997,35,4.4,mb,,100,3.858,0.86,us,us6000c6g3,2020-12-12T22:28:44.040Z,"59 km NE of Pangai, Tonga",earthquake,6.9,2,0.127,18,reviewed,us,us
+2020-10-01T03:08:46.931Z,-19.3126,-174.2658,35,4.6,mb,,93,4.107,0.79,us,us6000c6g6,2020-12-12T22:28:44.040Z,"56 km N of Pangai, Tonga",earthquake,7.9,1.9,0.137,16,reviewed,us,us
+2020-10-01T03:40:50.428Z,-19.4094,-174.1938,35,4.7,mb,,94,4.044,0.43,us,us6000c6g7,2020-12-12T22:28:44.040Z,"47 km NNE of Pangai, Tonga",earthquake,12.7,1.9,0.082,45,reviewed,us,us
+2020-10-01T05:21:47.092Z,-19.5562,-173.9962,35,4.2,mb,,91,3.872,0.69,us,us6000c6g9,2020-12-12T22:28:44.040Z,"47 km NE of Pangai, Tonga",earthquake,9.6,2,0.176,11,reviewed,us,us
+2020-10-01T08:17:58.602Z,-19.6146,-174.105,35,4.6,mb,,81,3.98,0.82,us,us6000c6gi,2020-12-12T22:28:45.040Z,"34 km NE of Pangai, Tonga",earthquake,8.3,1.9,0.146,14,reviewed,us,us
+2020-10-01T11:57:25.050Z,-19.3727,-174.0459,35,4.4,mb,,80,3.902,1.14,us,us6000c6gs,2020-12-12T22:28:45.040Z,"58 km NNE of Pangai, Tonga",earthquake,8.7,1.9,0.19,10,reviewed,us,us
+2020-10-02T17:12:58.331Z,-19.4313,-174.189,35,4.9,mb,,47,4.041,0.9,us,us6000c4xg,2020-12-12T22:28:35.040Z,"45 km NNE of Pangai, Tonga",earthquake,9.8,1.9,0.045,160,reviewed,us,us
+2020-10-05T01:10:16.810Z,-19.4578,-174.0871,35,4.9,mb,,80,3.948,1.25,us,us6000c5kq,2020-12-12T22:28:39.040Z,"48 km NE of Pangai, Tonga",earthquake,11.1,1.9,0.093,36,reviewed,us,us
+2020-10-09T17:01:15.531Z,-19.2599,-174.2134,10,4.8,mb,,78,5.809,0.92,us,us6000c74m,2020-12-19T17:22:42.040Z,"63 km NNE of Pangai, Tonga",earthquake,9.7,1.7,0.097,37,reviewed,us,us
+2020-10-18T08:57:15.022Z,-19.4271,-174.0087,22.56,4.1,mb,,106,3.871,1.1,us,us6000cbgp,2020-12-29T23:07:35.040Z,"Tonga",earthquake,12.5,6.5,0.151,12,reviewed,us,us
+2020-10-20T18:57:50.571Z,-19.372,-173.9881,10,5,mb,,32,3.848,1.01,us,us6000ca8i,2025-12-22T17:59:09.436Z,"62 km NE of Pangai, Tonga",earthquake,7.6,1.8,0.045,165,reviewed,us,us

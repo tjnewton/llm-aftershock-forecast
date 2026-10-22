@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2023-03-27T22:19:15.181Z,-8.2322,158.9118,79,6.2,mww,324,11,1.576,0.72,us,us6000k05c,2023-06-03T22:06:02.040Z,"Solomon Islands",earthquake,7.93,1.845,0.043,52,reviewed,us,us

@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2018-01-24T10:51:19.090Z,41.1034,142.4323,31,6.3,mww,,51,1.061,0.88,us,us2000cnnl,2022-05-03T20:03:04.447Z,"99 km ENE of Misawa, Japan",earthquake,6.3,1.8,0.06,27,reviewed,us,us
+2018-01-25T13:34:52.940Z,41.0222,142.4448,56.24,4.2,mb,,148,1.071,0.83,us,us1000chk0,2018-04-20T07:05:22.040Z,"96 km ENE of Misawa, Japan",earthquake,6.4,9.8,0.127,17,reviewed,us,us
+2018-01-29T03:59:59.080Z,41.022,142.3731,50.32,4.8,mb,,134,1.018,0.88,us,us2000cqua,2018-04-25T01:39:34.040Z,"90 km ENE of Misawa, Japan",earthquake,4.1,7.1,0.059,87,reviewed,us,us
+2018-01-29T23:42:18.920Z,41.161,142.2391,45.58,4.2,mwr,,141,0.963,0.63,us,us2000cr5e,2018-04-25T01:39:36.040Z,"86 km E of Mutsu, Japan",earthquake,3.4,7.5,0.098,10,reviewed,us,us
+2018-02-01T22:41:41.660Z,41.1003,142.7207,53.15,4.2,mb,,135,0.97,0.87,us,us2000d12g,2018-04-25T01:39:42.040Z,"121 km ENE of Misawa, Japan",earthquake,4.8,9.1,0.235,5,reviewed,us,us

@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-09-10T10:08:20.020Z,-5.573,-76.9536,121,6.1,mww,,35,2.111,0.85,us,us10006nkg,2022-05-03T17:58:38.696Z,"51 km N of Moyobamba, Peru",earthquake,5.8,1.8,,,reviewed,us,us

@@ -1,0 +1,12 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-12-15T23:21:57.807Z,5.1789,125.4212,14,6.1,mww,,27,1.884,1.08,us,us7000crdx,2025-12-22T18:47:01.558Z,"25 km S of Sarangani, Philippines",earthquake,7.1,1.7,0.054,33,reviewed,us,us
+2020-12-16T10:30:54.894Z,5.2167,125.2755,26.14,5,mb,,89,1.865,0.58,us,us7000crj1,2021-02-27T23:24:55.040Z,"29 km SW of Sarangani, Philippines",earthquake,5.2,4.6,0.063,79,reviewed,us,us
+2020-12-16T20:51:27.283Z,5.1358,125.4547,65.34,4.5,mb,,96,1.925,0.94,us,us7000cs7n,2021-02-27T23:25:53.040Z,"29 km S of Sarangani, Philippines",earthquake,5.1,8.2,0.132,17,reviewed,us,us
+2020-12-17T12:38:55.235Z,5.1239,125.3912,62.35,4.9,mb,,87,1.942,0.77,us,us7000crsf,2021-02-27T23:25:10.040Z,"31 km SSW of Sarangani, Philippines",earthquake,7.2,7,0.068,68,reviewed,us,us
+2020-12-22T01:19:58.532Z,5.2168,125.2675,53.32,4.9,mb,,65,1.866,0.78,us,us6000d1sk,2021-02-27T23:23:22.040Z,"29 km SW of Sarangani, Philippines",earthquake,8,5.9,0.094,35,reviewed,us,us
+2020-12-29T16:21:48.131Z,5.2608,125.2951,35,5.3,mww,,36,1.819,1.07,us,us6000d40v,2025-12-22T18:47:33.713Z,"24 km SW of Sarangani, Philippines",earthquake,5.7,1.9,0.078,16,reviewed,us,us
+2020-12-29T16:45:13.409Z,5.1557,125.3588,45.84,4.5,mb,,79,1.914,0.78,us,us6000d40z,2021-03-06T23:20:21.040Z,"29 km SSW of Sarangani, Philippines",earthquake,7.6,7.3,0.099,32,reviewed,us,us
+2020-12-29T17:05:22.263Z,5.1959,125.2661,48.21,4.8,mb,,104,1.887,0.82,us,us6000d416,2021-03-06T23:20:22.040Z,"31 km SW of Sarangani, Philippines",earthquake,7.4,7.1,0.066,82,reviewed,us,us
+2020-12-29T17:18:17.976Z,5.1315,125.388,54.16,4.2,mb,,120,1.934,0.48,us,us6000d6qc,2021-03-06T23:20:22.040Z,"31 km SSW of Sarangani, Philippines",earthquake,9.8,11,0.176,11,reviewed,us,us
+2020-12-29T19:08:50.806Z,5.1394,125.2415,55.68,4.4,mb,,89,1.946,0.98,us,us6000d42p,2021-03-06T23:20:25.040Z,"38 km SW of Sarangani, Philippines",earthquake,4,7.2,0.089,44,reviewed,us,us
+2020-12-30T23:03:00.251Z,5.1231,125.2581,54.13,4.6,mb,,108,1.96,0.45,us,us6000d4fn,2021-03-06T23:20:48.040Z,"38 km SW of Sarangani, Philippines",earthquake,5.3,9.1,0.133,17,reviewed,us,us

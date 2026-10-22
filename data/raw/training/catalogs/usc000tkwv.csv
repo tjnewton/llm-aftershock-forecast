@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2015-02-02T10:49:48.530Z,-32.7183,-67.1231,172,6.3,mww,,16,1.766,1,us,usc000tkwv,2022-07-27T18:29:27.588Z,"63 km W of Villa General Roca, Argentina",earthquake,7.4,1.8,,,reviewed,us,us

@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2017-07-18T02:05:19.750Z,-16.4161,-73.6357,43.68,6.4,mww,,49,3.697,0.7,us,us20009x7r,2022-08-07T12:08:57.639Z,"22 km S of Atico, Peru",earthquake,7.2,3.8,0.066,22,reviewed,us,us
+2017-07-18T17:48:19.470Z,-16.5137,-73.8748,45.89,4.3,mb,,153,3.844,0.75,us,us20009z6f,2017-10-11T01:03:55.040Z,"43 km SW of Atico, Peru",earthquake,6.6,12,0.237,5,reviewed,us,us
+2017-08-11T21:45:09.400Z,-16.2986,-73.4744,41,5.6,mww,,59,3.632,0.71,us,us2000a7gq,2022-08-07T14:31:25.140Z,"18 km ESE of Atico, Peru",earthquake,7.2,1.8,0.065,23,reviewed,us,us

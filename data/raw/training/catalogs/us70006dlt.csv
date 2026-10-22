@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2019-11-27T07:23:42.383Z,35.7174,23.2284,69,6,mww,,18,1.421,1.02,us,us70006dlt,2025-12-22T18:22:29.670Z,"45 km WNW of Kíssamos, Greece",earthquake,6.5,1.9,0.051,37,reviewed,us,us

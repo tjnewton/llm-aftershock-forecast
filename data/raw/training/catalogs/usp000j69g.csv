@@ -1,0 +1,3 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2011-08-10T23:45:43.040Z,-7.04,-12.618,10,6,mww,181,26,,1.2,us,usp000j69g,2022-04-08T21:57:58.341Z,"221 km ENE of Georgetown, Saint Helena",earthquake,,,,,reviewed,us,us
+2011-08-11T01:36:45.820Z,-7.008,-12.562,10,5.2,mwc,32,96.7,,1.1,us,usp000j69q,2025-12-22T16:05:46.390Z,"228 km ENE of Georgetown, Saint Helena",earthquake,,,,,reviewed,us,gcmt

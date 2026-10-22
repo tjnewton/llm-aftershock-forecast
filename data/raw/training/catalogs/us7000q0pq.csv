@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-05-22T03:19:35.518Z,35.8915,25.9159,64,6.2,mww,168,35,1.03,0.78,us,us7000q0pq,2025-08-13T15:14:30.040Z,"66 km SE of Emporeío, Greece",earthquake,5.76,1.907,0.036,75,reviewed,us,us

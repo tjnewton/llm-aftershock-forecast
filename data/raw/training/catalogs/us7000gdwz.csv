@@ -1,0 +1,10 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-01-21T16:08:37.210Z,32.7282,132.0386,39,6.3,mww,,25,1.813,1.11,us,us7000gdwz,2023-02-10T15:51:03.910Z,"27 km SSE of Saiki, Japan",earthquake,5.8,1.9,0.073,18,reviewed,us,us
+2022-01-21T16:21:42.172Z,32.7084,131.9951,56.77,4.7,mb,,48,1.772,1.05,us,us7000gfwc,2022-04-01T17:40:37.040Z,"28 km SSE of Saiki, Japan",earthquake,3.6,8,0.13,20,reviewed,us,us
+2022-01-21T17:20:34.126Z,32.6427,131.978,52.36,4.2,mb,,97,1.044,0.8,us,us7000gfw8,2022-04-01T17:40:37.040Z,"29 km ENE of Nobeoka, Japan",earthquake,5,7.5,0.125,22,reviewed,us,us
+2022-01-21T17:43:32.045Z,32.6138,132.0578,43.39,4.3,mb,,88,1.117,1.03,us,us7000gdyi,2022-04-01T17:40:26.040Z,"36 km E of Nobeoka, Japan",earthquake,5,4,0.109,27,reviewed,us,us
+2022-01-21T18:17:11.388Z,32.7153,132.0625,46.9,4.5,mb,,94,1.077,0.67,us,us7000gdyu,2022-08-06T13:09:03.684Z,"30 km SSE of Saiki, Japan",earthquake,5.3,7.6,0.113,27,reviewed,us,us
+2022-01-21T18:43:21.774Z,32.6554,132.0173,52.21,4.1,mb,,111,1.752,0.84,us,us7000gdyz,2022-04-01T17:40:26.040Z,"33 km ENE of Nobeoka, Japan",earthquake,6.1,4.1,0.213,7,reviewed,us,us
+2022-01-21T20:31:51.252Z,32.7042,132.0314,44.84,4.9,mb,,55,1.058,0.83,us,us7000ge07,2022-04-01T17:40:26.040Z,"29 km SSE of Saiki, Japan",earthquake,4.9,5,0.048,143,reviewed,us,us
+2022-01-21T21:48:14.314Z,32.7029,131.9771,60.26,4.3,mb,,114,1.016,0.86,us,us7000ge17,2022-04-01T17:40:27.040Z,"28 km SSE of Saiki, Japan",earthquake,3.5,7.2,0.202,7,reviewed,us,us
+2022-01-22T04:20:54.096Z,32.7336,132.0394,49.29,4.4,mb,,93,1.817,1.09,us,us7000ge59,2022-04-09T20:18:47.040Z,"27 km SSE of Saiki, Japan",earthquake,2.6,7.3,0.19,10,reviewed,us,us

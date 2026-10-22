@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2010-06-01T03:26:15.760Z,9.331,-84.206,18,6,mwc,370,44.9,,1.05,us,usp000hdem,2022-07-16T14:40:02.092Z,"12 km SSW of Quepos, Costa Rica",earthquake,,,,,reviewed,us,gcmt

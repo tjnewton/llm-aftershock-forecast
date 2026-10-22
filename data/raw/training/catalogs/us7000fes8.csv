@@ -1,0 +1,20 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2021-09-27T06:17:21.478Z,35.244,25.2697,6,6,mww,,19,0.313,0.47,us,us7000fes8,2025-12-22T22:17:07.328Z,"6 km N of Thrapsanón, Greece",earthquake,5,1.8,0.043,51,reviewed,us,us
+2021-09-27T06:27:46.478Z,35.2272,25.105,10,4.1,mb,,152,0.186,0.59,us,us6000fqqr,2021-12-04T14:28:41.040Z,"2 km N of Profítis Ilías, Greece",earthquake,6.1,1.9,0.166,10,reviewed,us,us
+2021-09-27T06:37:44.467Z,35.092,25.2617,7.74,4.7,mb,,51,0.361,0.69,us,us7000fesd,2021-12-04T14:29:53.040Z,"6 km S of Arkalochóri, Greece",earthquake,5.8,4.6,0.064,73,reviewed,us,us
+2021-09-27T07:30:46.215Z,35.3273,25.265,10,4.5,mwr,,41,0.309,0.8,us,us7000fesr,2021-12-04T14:29:53.040Z,"0 km E of Kokkíni Cháni, Greece",earthquake,4,1.8,0.073,18,reviewed,us,us
+2021-09-27T07:46:31.892Z,35.1906,25.1782,10,4.2,mb,,59,0.255,0.72,us,us7000fesx,2021-12-04T14:29:53.040Z,"4 km SSE of Ano Arhanes, Greece",earthquake,4.3,1.8,0.101,27,reviewed,us,us
+2021-09-27T08:21:58.537Z,35.1968,25.3649,10,4.4,mwr,,60,0.399,0.81,us,us7000fet2,2021-12-04T14:29:54.040Z,"2 km ESE of Kastélli, Greece",earthquake,7.1,1.8,0.086,13,reviewed,us,us
+2021-09-27T10:23:13.594Z,35.2904,25.2835,10,4.3,mb,,113,0.321,1.13,us,us7000fetj,2021-12-04T14:29:54.040Z,"4 km S of Goúrnes, Greece",earthquake,7.3,1.6,0.138,15,reviewed,us,us
+2021-09-27T10:34:22.510Z,35.1992,25.3342,10,4.4,mb,,110,0.374,0.82,us,us7000fetl,2021-12-04T14:29:55.040Z,"1 km SSW of Kastélli, Greece",earthquake,7.2,1.9,0.123,19,reviewed,us,us
+2021-09-27T14:22:48.678Z,35.1677,25.188,10,4.4,mb,,220,0.271,0.74,us,us6000fqr5,2021-12-04T14:28:43.040Z,"7 km WNW of Arkalochóri, Greece",earthquake,6.5,2,0.202,7,reviewed,us,us
+2021-09-27T16:15:31.034Z,35.1391,25.1837,11.18,4.4,mb,,149,0.282,0.39,us,us6000fqrc,2021-12-04T14:28:45.040Z,"7 km W of Arkalochóri, Greece",earthquake,5.5,3.1,0.161,14,reviewed,us,us
+2021-09-27T20:10:01.502Z,35.1951,25.2253,10,4.7,mb,,51,0.289,0.7,us,us7000feyd,2021-12-04T14:29:59.040Z,"5 km W of Thrapsanón, Greece",earthquake,5.5,1.8,0.056,95,reviewed,us,us
+2021-09-27T21:37:11.444Z,35.2314,25.3177,10,4.3,mwr,,58,0.354,0.79,us,us7000fez9,2021-12-04T14:29:59.040Z,"3 km NW of Kastélli, Greece",earthquake,4.5,1.8,0.086,13,reviewed,us,us
+2021-09-28T15:13:16.867Z,35.2054,25.2791,10,4.7,mb,,58,0.329,0.7,us,us7000ff84,2021-12-04T14:30:09.040Z,"1 km N of Thrapsanón, Greece",earthquake,6.9,1.8,0.067,73,reviewed,us,us
+2021-10-03T14:31:27.622Z,35.1442,25.2375,10,4.6,mb,,119,0.318,0.64,us,us6000fsp1,2021-12-10T21:14:19.040Z,"2 km W of Arkalochóri, Greece",earthquake,5,1.9,0.165,13,reviewed,us,us
+2021-10-15T09:15:40.241Z,35.3078,25.3394,10,4.2,mb,,117,0.368,0.57,us,us6000fw5j,2021-12-25T22:58:52.040Z,"3 km SE of Káto Goúves, Greece",earthquake,5.5,1.9,0.101,27,reviewed,us,us
+2021-10-21T08:04:33.077Z,35.0956,25.2019,10,4.4,mb,,151,0.319,0.46,us,us7000fp88,2021-12-25T22:59:03.040Z,"8 km SW of Arkalochóri, Greece",earthquake,5.2,1.8,0.149,13,reviewed,us,us
+2021-10-21T08:12:57.487Z,35.2352,25.2419,10,4.8,mb,,62,0.292,0.51,us,us6000fwd6,2021-12-25T22:58:56.040Z,"6 km NW of Thrapsanón, Greece",earthquake,4.3,1.8,0.076,53,reviewed,us,us
+2021-10-21T08:44:48.799Z,35.1275,25.1433,10,4.5,mb,,107,0.262,0.42,us,us7000fp8n,2021-12-25T22:59:04.040Z,"9 km SSE of Profítis Ilías, Greece",earthquake,5.9,1.8,0.205,8,reviewed,us,us
+2021-10-22T17:12:50.517Z,35.1159,25.2907,10,4.3,mb,,119,0.37,0.61,us,us6000fwt2,2022-01-08T17:41:58.040Z,"Crete, Greece",earthquake,5.6,1.9,0.116,22,reviewed,us,us

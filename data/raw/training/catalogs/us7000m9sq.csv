@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2024-04-04T03:16:30.313Z,37.7104,141.856,29,6.1,mww,304,59,2.7,0.64,us,us7000m9sq,2025-09-13T16:29:10.227Z,"77 km E of Minami-Sōma, Japan",earthquake,6.43,1.705,0.046,45,reviewed,us,us

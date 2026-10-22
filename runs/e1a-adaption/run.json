@@ -1,0 +1,27 @@
+{
+ "dataset_id": "6051c25b-c9dd-4c69-a8a8-0826f9dfc4ce",
+ "hyperparams": {
+  "batch_size": "max",
+  "dpo_beta": null,
+  "dpo_normalize_logratios_by_length": null,
+  "learning_rate": 0.0001,
+  "lora_alpha": 64.0,
+  "lora_dropout": 0.05,
+  "lora_r": 32.0,
+  "lora_trainable_modules": "q_proj,k_proj,v_proj,o_proj",
+  "lr_scheduler_type": "cosine",
+  "max_grad_norm": 1.0,
+  "min_lr_ratio": 0.1,
+  "n_epochs": 3.0,
+  "rpo_alpha": null,
+  "scheduler_num_cycles": 0.5,
+  "simpo_gamma": null,
+  "train_on_inputs": false,
+  "training_type": "lora",
+  "warmup_ratio": 0.05,
+  "weight_decay": 0.01
+ },
+ "max_iterations": 1,
+ "model": "openai/gpt-oss-20b",
+ "run_id": "fabc976f-5ad9-44bf-85f9-08eeae45ae33"
+}

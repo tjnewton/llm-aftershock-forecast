@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2017-08-11T05:28:25.790Z,14.0065,120.7391,172,6.2,mww,,17,0.214,0.81,us,us2000a77i,2022-08-07T14:27:26.455Z,"1 km SE of Tuy, Philippines",earthquake,6.6,1.9,0.045,47,reviewed,us,us
+2017-08-11T23:22:39.380Z,13.9033,120.7109,110.25,4.5,mb,,70,0.295,0.59,us,us2000a8s7,2017-10-25T00:38:08.040Z,"4 km SSW of Balayan, Philippines",earthquake,10.5,5.5,0.09,36,reviewed,us,us
+2017-08-12T17:51:21.770Z,13.962,120.6702,193.99,4.8,mb,,40,0.293,0.86,us,us2000a7lw,2022-08-07T14:36:17.821Z,"2 km NNE of Bungahan, Philippines",earthquake,8.7,4.6,0.047,138,reviewed,us,us
+2017-08-12T18:02:30.620Z,13.8349,120.7,126.78,4.4,mb,,117,0.351,1.07,us,us2000a8tv,2017-10-25T00:38:10.040Z,"1 km SSW of Hukay, Philippines",earthquake,4.1,6,0.123,21,reviewed,us,us
+2017-08-15T10:04:34.360Z,13.9421,120.7452,104.85,4.2,mb,,102,8.833,0.51,us,us2000a9fe,2017-11-14T01:42:08.040Z,"Mindoro, Philippines",earthquake,13.8,9.3,0.107,24,reviewed,us,us

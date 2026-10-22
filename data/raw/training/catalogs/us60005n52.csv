@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2019-09-24T21:12:01.194Z,-33.8153,56.2398,10,5.1,mww,,51,11.943,0.63,us,us60005n4s,2025-12-22T18:17:24.446Z,"Southwest Indian Ridge",earthquake,10.5,1.8,0.089,12,reviewed,us,us
+2019-09-24T21:19:47.423Z,-33.8212,56.2997,10,6,mww,,16,11.982,0.69,us,us60005n52,2025-12-22T18:17:25.242Z,"Southwest Indian Ridge",earthquake,8.8,1.7,0.049,40,reviewed,us,us
+2019-09-24T21:25:10.422Z,-33.786,56.2852,10,5,mb,,65,11.949,0.43,us,us60005n75,2019-12-20T19:02:18.040Z,"Southwest Indian Ridge",earthquake,11.1,1.8,0.085,44,reviewed,us,us
+2019-09-24T21:29:40.053Z,-33.7415,56.1806,10,4.9,mb,,66,11.856,0.39,us,us60005n7b,2019-12-20T19:02:19.040Z,"Southwest Indian Ridge",earthquake,11.2,1.9,0.101,31,reviewed,us,us

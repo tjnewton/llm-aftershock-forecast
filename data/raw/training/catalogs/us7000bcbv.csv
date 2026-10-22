@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-08-24T21:51:09.259Z,9.5785,-84.6376,20,6,mww,,84,0.644,1.26,us,us7000bcbv,2025-12-22T18:40:55.639Z,"4 km SSW of Jacó, Costa Rica",earthquake,5.5,1.8,0.041,57,reviewed,us,us

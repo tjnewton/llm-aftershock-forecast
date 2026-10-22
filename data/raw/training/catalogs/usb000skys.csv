@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2014-10-11T02:35:47.480Z,41.0272,143.1649,22,6.1,mww,,28,0.987,0.72,us,usb000skys,2022-07-27T04:32:09.682Z,"152 km ENE of Hachinohe, Japan",earthquake,5.9,1.4,,,reviewed,us,us
+2014-10-11T05:20:35.040Z,40.9544,143.0805,20,5.4,mww,,68,1.061,0.61,us,usb000skze,2022-05-03T18:18:42.348Z,"142 km ENE of Hachinohe, Japan",earthquake,5.1,1.8,,,reviewed,us,us
+2014-10-11T09:58:10.370Z,40.8383,143.1698,32.7,4.5,mb,,136,1.175,1.06,us,usb000sl19,2015-01-06T23:49:51.040Z,"146 km ENE of Hachinohe, Japan",earthquake,6.3,4.4,0.163,13,reviewed,us,us
+2014-10-11T10:05:42.550Z,40.9867,143.105,36.33,4.7,mb,,142,1.028,0.86,us,usb000sl1d,2015-01-06T23:49:51.040Z,"145 km ENE of Hachinohe, Japan",earthquake,6.7,8.9,0.224,9,reviewed,us,us
+2014-10-14T18:08:45.960Z,40.9297,143.2338,29.32,5,mb,,74,1.085,0.92,us,usb000sm3f,2025-12-22T17:00:20.056Z,"154 km ENE of Hachinohe, Japan",earthquake,5.1,4.2,0.039,228,reviewed,us,us

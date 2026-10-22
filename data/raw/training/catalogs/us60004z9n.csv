@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2019-08-02T05:50:55.239Z,-49.7307,-113.8331,10,6,mww,,82,22.79,0.92,us,us60004z9n,2025-12-22T18:14:21.011Z,"southern East Pacific Rise",earthquake,8.5,1.8,0.058,29,reviewed,us,us

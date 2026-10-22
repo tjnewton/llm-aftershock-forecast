@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2014-03-15T23:51:32.970Z,-5.5745,-80.9709,29,6.3,mww,,48,2.993,1.22,us,usc000nd0c,2022-07-26T09:40:12.093Z,"16 km W of Sechura, Peru",earthquake,,1.5,,,reviewed,us,us
+2014-03-16T15:25:14.000Z,-5.69,-81,28,4.5,mb,,,,0.77,us,usc000ndjj,2014-05-16T21:51:43.000Z,"24 km SW of Sechura, Peru",earthquake,,2.8,0.145,18,reviewed,lim,us
+2014-03-22T00:38:45.000Z,-5.43,-80.83,37,4.9,mb,,,,0.81,us,usc000nkkl,2014-05-24T00:54:38.000Z,"5 km WSW of Vice, Peru",earthquake,,3.8,0.027,468,reviewed,lim,us
+2014-03-25T07:21:29.000Z,-5.57,-81,36,4.1,mb,,,,0.89,us,usb000ptt2,2014-05-24T00:54:44.000Z,"19 km W of Sechura, Peru",earthquake,,7.3,0.198,8,reviewed,lim,us

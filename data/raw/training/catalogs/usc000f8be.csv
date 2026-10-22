@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2013-02-16T04:37:36.220Z,5.812,125.748,105,6.1,mww,513,17.6,,0.76,us,usc000f8be,2022-07-24T18:11:37.166Z,"16 km SE of Caburan, Philippines",earthquake,,,,,reviewed,us,us

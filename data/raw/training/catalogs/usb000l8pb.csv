@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2013-12-01T06:29:57.800Z,2.044,96.8261,20,6,mww,,27,1.049,0.89,us,usb000l8pb,2022-05-03T16:35:07.184Z,"69 km SE of Sinabang, Indonesia",earthquake,,1.7,,,reviewed,us,us
+2013-12-01T07:17:48.620Z,1.9648,96.7706,10,4.4,mb,,101,1.038,0.92,us,usb000lbw0,2014-02-12T01:08:39.000Z,"71 km SE of Sinabang, Indonesia",earthquake,,1.9,0.189,,reviewed,us,us
+2013-12-01T09:06:21.840Z,1.9732,96.6799,30.27,4.3,mb,,187,1.115,0.68,us,usb000lbw4,2014-02-12T01:08:40.000Z,"65 km SSE of Sinabang, Indonesia",earthquake,,5.3,0.168,,reviewed,us,us
+2013-12-02T07:34:55.930Z,2.0338,96.6783,18.08,5.4,mwb,,65,1.153,1.05,us,usb000l92s,2022-05-03T16:35:13.432Z,"59 km SE of Sinabang, Indonesia",earthquake,,3,0.047,,reviewed,us,us

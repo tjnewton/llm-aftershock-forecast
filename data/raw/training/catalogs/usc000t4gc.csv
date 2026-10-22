@@ -1,0 +1,19 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2014-12-07T12:11:31.220Z,13.7465,-91.3822,28,5.9,mww,,28,0.83,0.85,us,usc000t4ep,2022-07-27T09:55:05.498Z,"50 km S of Nueva Concepción, Guatemala",earthquake,5.9,1.7,,,reviewed,us,us
+2014-12-07T13:51:23.190Z,13.7257,-91.519,35.13,4.2,mb,,199,0.812,0.66,us,usc000t8ds,2015-02-28T02:16:12.040Z,"57 km SSW of Nueva Concepción, Guatemala",earthquake,3.4,13.4,0.214,7,reviewed,us,us
+2014-12-07T14:09:22.580Z,13.7777,-91.498,35,4.5,mb,,128,0.766,0.77,us,usc000t4ew,2015-02-28T02:16:12.040Z,"51 km SSW of Nueva Concepción, Guatemala",earthquake,6.3,2,0.041,193,reviewed,us,us
+2014-12-07T16:05:04.590Z,13.7246,-91.4473,35,4.4,mb,,162,0.83,1.17,us,usc000t4fb,2015-02-28T02:16:12.040Z,"54 km SSW of Nueva Concepción, Guatemala",earthquake,7,2,0.065,72,reviewed,us,us
+2014-12-07T19:40:59.820Z,13.6123,-91.5044,45.08,4.5,mb,,165,0.925,1.18,us,usc000t4g0,2015-02-28T02:16:12.040Z,"near the coast of Guatemala",earthquake,8.6,8.9,0.093,34,reviewed,us,us
+2014-12-07T21:16:35.740Z,13.6717,-91.4731,32,6.1,mww,,54,0.874,0.48,us,usc000t4gc,2022-07-27T09:56:11.519Z,"61 km SSW of Nueva Concepción, Guatemala",earthquake,4.9,1.7,,,reviewed,us,us
+2014-12-07T22:23:12.010Z,13.6276,-91.5033,45.83,4.7,mb,,79,0.91,0.57,us,usc000t4gm,2015-02-28T02:16:13.040Z,"67 km SSW of Nueva Concepción, Guatemala",earthquake,3,6,0.037,254,reviewed,us,us
+2014-12-07T22:27:54.550Z,13.7939,-91.3917,43.59,4.1,mb,,163,0.783,0.58,us,usc000t8cg,2015-02-28T02:16:13.040Z,"46 km SSW of Nueva Concepción, Guatemala",earthquake,8.4,4.5,0.371,2,reviewed,us,us
+2014-12-07T22:52:45.580Z,13.7385,-91.5662,38.56,4.1,mb,,122,0.791,0.4,us,usc000t4gx,2015-02-28T02:16:13.040Z,"58 km SSW of Nueva Concepción, Guatemala",earthquake,5.2,10.4,0.145,16,reviewed,us,us
+2014-12-07T22:58:10.850Z,13.6006,-91.5703,43.16,4.2,mb,,188,0.926,0.39,us,usc000t4iu,2015-02-28T02:16:13.040Z,"72 km SSW of Nueva Concepción, Guatemala",earthquake,4.7,8.2,0.128,19,reviewed,us,us
+2014-12-07T23:23:12.590Z,13.746,-91.5924,40.31,4.2,mb,,187,0.78,1.43,us,usc000t8ea,2015-02-28T02:16:13.040Z,"59 km SSW of Nueva Concepción, Guatemala",earthquake,3.5,12.5,0.128,18,reviewed,us,us
+2014-12-08T00:54:05.250Z,13.8248,-91.475,43.54,4.2,mb,,197,0.727,1.02,us,usc000t9eg,2022-07-27T11:40:07.558Z,"near the coast of Guatemala",earthquake,7.2,9.7,0.124,18,reviewed,us,us
+2014-12-08T04:00:22.380Z,13.644,-91.5303,35,4.7,mb,,92,0.889,1.34,us,usc000t4hv,2015-02-28T02:16:13.040Z,"66 km SSW of Nueva Concepción, Guatemala",earthquake,2.5,2,0.034,290,reviewed,us,us
+2014-12-08T16:32:49.780Z,13.6708,-91.4363,35,4.4,mb,,89,0.885,1.03,us,usc000t4jq,2015-02-28T02:16:14.040Z,"60 km SSW of Nueva Concepción, Guatemala",earthquake,6.7,2,0.066,73,reviewed,us,us
+2014-12-09T12:27:01.210Z,13.5515,-91.4709,36.85,4.1,mb,,201,0.991,0.88,us,usc000t9qb,2015-02-28T02:16:15.040Z,"74 km SW of La Gomera, Guatemala",earthquake,4.4,17.9,0.146,13,reviewed,us,us
+2014-12-11T01:20:40.820Z,13.668,-91.5107,51.58,4.8,mb,,79,0.87,0.5,us,usc000t5fg,2022-07-27T10:13:31.708Z,"63 km SSW of Nueva Concepción, Guatemala",earthquake,3.5,5.4,0.03,370,reviewed,us,us
+2014-12-12T05:55:07.560Z,13.7081,-91.471,37.04,4.2,mb,,165,0.84,0.94,us,usc000t5vk,2015-03-04T21:54:59.040Z,"57 km SSW of Nueva Concepción, Guatemala",earthquake,7.8,12.3,0.088,37,reviewed,us,us
+2014-12-20T08:25:40.990Z,13.759,-91.3159,35,4.5,mb,,160,0.845,1.12,us,usc000t8p1,2015-03-06T02:59:05.040Z,"45 km SW of La Gomera, Guatemala",earthquake,4.6,2,0.057,101,reviewed,us,us

@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2010-08-16T03:30:53.310Z,-17.759,65.647,9.8,6.3,mwc,204,36,,1.18,us,usp000hj9t,2022-05-02T22:09:22.086Z,"Mauritius - Reunion region",earthquake,,2.8,,,reviewed,us,us

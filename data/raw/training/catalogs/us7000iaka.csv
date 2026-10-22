@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-09-23T20:52:58.398Z,3.8109,96.0514,42.181,6.2,mww,197,20,1.668,0.73,us,us7000iaka,2022-11-26T20:58:00.040Z,"37 km SSW of Meulaboh, Indonesia",earthquake,6.54,3.541,0.059,28,reviewed,us,us

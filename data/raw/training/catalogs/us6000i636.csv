@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-07-28T04:15:03.913Z,-21.9311,-70.3386,54,6.1,mww,129,25,0.556,0.9,us,us6000i636,2022-10-01T22:09:25.040Z,"22 km NW of Tocopilla, Chile",earthquake,4.61,1.815,0.036,73,reviewed,us,us

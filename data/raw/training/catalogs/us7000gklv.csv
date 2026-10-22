@@ -1,0 +1,31 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-02-10T06:35:36.226Z,11.8961,144.2478,10,4.5,mb,,131,1.788,0.54,us,us7000gl2r,2022-04-19T17:40:21.040Z,"158 km SSW of Merizo Village, Guam",earthquake,11.7,1.9,0.135,20,reviewed,us,us
+2022-02-10T21:20:07.480Z,11.8558,144.3755,10,4.4,mb,,153,1.788,0.61,us,us7000gjth,2022-04-19T17:39:47.040Z,"159 km SSW of Merizo Village, Guam",earthquake,7.8,1.9,0.117,21,reviewed,us,us
+2022-02-11T01:25:51.612Z,11.7188,144.4136,10,4.9,mb,,93,1.911,0.98,us,us7000gjw2,2022-04-19T17:39:50.040Z,"173 km S of Merizo Village, Guam",earthquake,10.6,1.9,0.058,97,reviewed,us,us
+2022-02-11T02:32:52.146Z,11.7879,144.3318,10,4.4,mb,,266,1.865,0.66,us,us7000gle8,2022-04-19T17:40:30.040Z,"167 km SSW of Merizo Village, Guam",earthquake,7.5,2,0.269,6,reviewed,us,us
+2022-02-13T20:29:46.350Z,11.7884,144.2842,15,6,mww,,42,1.878,0.94,us,us7000gklv,2024-01-30T18:03:35.292Z,"168 km SSW of Merizo Village, Guam",earthquake,9.1,1.8,0.043,51,reviewed,us,us
+2022-02-13T20:41:26.122Z,11.7365,144.4353,10,4.6,mb,,146,1.889,0.7,us,us7000glqd,2022-04-30T14:18:08.040Z,"171 km S of Merizo Village, Guam",earthquake,14.2,1.9,0.119,24,reviewed,us,us
+2022-02-13T20:55:43.562Z,11.8862,144.3352,10,4.5,mb,,80,1.77,0.92,us,us7000glqe,2022-04-30T14:18:08.040Z,"156 km SSW of Merizo Village, Guam",earthquake,7.2,1.9,0.121,20,reviewed,us,us
+2022-02-13T21:03:42.163Z,11.8647,144.4233,10,4.5,mb,,145,1.768,0.62,us,us7000glqg,2022-04-30T14:18:08.040Z,"157 km S of Merizo Village, Guam",earthquake,9.3,1.9,0.18,9,reviewed,us,us
+2022-02-13T21:05:42.571Z,11.8114,144.4347,10,4.2,mb,,266,1.817,0.64,us,us7000glqj,2022-04-30T14:18:08.040Z,"162 km S of Merizo Village, Guam",earthquake,10,1.9,0.216,6,reviewed,us,us
+2022-02-13T21:09:20.182Z,11.7544,144.4442,10,4.5,mb,,145,1.87,0.39,us,us7000glqw,2022-04-30T14:18:08.040Z,"168 km S of Merizo Village, Guam",earthquake,5.1,1.9,0.15,13,reviewed,us,us
+2022-02-13T21:15:33.132Z,11.7455,144.4122,10,4.5,mb,,78,1.885,0.48,us,us7000glr3,2022-04-30T14:18:09.040Z,"170 km S of Merizo Village, Guam",earthquake,11.6,1.9,0.204,11,reviewed,us,us
+2022-02-13T21:20:08.034Z,11.7877,144.348,10,4.7,mb,,142,1.861,0.48,us,us7000glqx,2022-04-30T14:18:09.040Z,"167 km SSW of Merizo Village, Guam",earthquake,10.9,1.9,0.075,54,reviewed,us,us
+2022-02-13T21:24:46.329Z,11.9498,144.2396,10,4.4,mb,,137,1.741,0.64,us,us7000glqi,2022-04-30T14:18:09.040Z,"152 km SSW of Merizo Village, Guam",earthquake,9.1,1.8,0.149,13,reviewed,us,us
+2022-02-13T21:37:47.317Z,11.7939,144.2163,10,4.8,mb,,87,1.894,0.37,us,us7000gkmh,2022-04-30T14:18:09.040Z,"170 km SSW of Merizo Village, Guam",earthquake,11,1.8,0.058,93,reviewed,us,us
+2022-02-13T22:09:18.578Z,11.8182,144.3455,10,4.7,mb,,88,1.832,0.55,us,us7000gkml,2022-04-30T14:18:09.040Z,"163 km SSW of Merizo Village, Guam",earthquake,6.3,1.7,0.053,109,reviewed,us,us
+2022-02-14T02:05:53.080Z,11.7953,144.4198,10,4.6,mb,,145,1.836,0.64,us,us7000gkni,2022-04-30T14:18:10.040Z,"164 km S of Merizo Village, Guam",earthquake,11.9,1.9,0.064,73,reviewed,us,us
+2022-02-14T06:29:23.390Z,11.8202,144.4084,10,4.6,mb,,88,1.814,0.9,us,us7000glyt,2022-04-30T14:18:10.040Z,"162 km S of Merizo Village, Guam",earthquake,11.8,1.9,0.077,50,reviewed,us,us
+2022-02-14T15:14:09.902Z,11.7824,144.4266,10,4.5,mb,,166,1.847,0.47,us,us7000glz9,2022-04-30T14:18:12.040Z,"166 km S of Merizo Village, Guam",earthquake,9.6,1.9,0.157,14,reviewed,us,us
+2022-02-15T13:33:15.686Z,11.7987,144.3866,10,4.5,mb,,102,1.84,0.42,us,us7000gm0g,2022-04-30T14:18:15.040Z,"165 km S of Merizo Village, Guam",earthquake,9.9,1.9,0.093,37,reviewed,us,us
+2022-02-16T15:18:45.144Z,11.6845,144.3868,10,4.5,mb,,87,1.95,0.64,us,us7000gmss,2022-04-30T14:18:19.040Z,"south of the Mariana Islands",earthquake,8.5,1.9,0.136,16,reviewed,us,us
+2022-02-17T09:37:26.226Z,11.7435,144.4305,10,4.4,mb,,87,1.883,0.53,us,us7000gmzu,2022-04-30T14:18:22.040Z,"170 km S of Merizo Village, Guam",earthquake,11.6,1.9,0.204,7,reviewed,us,us
+2022-02-25T23:16:41.782Z,11.8201,144.3963,10,4.7,mb,,87,1.817,1,us,us6000h1ft,2022-05-04T13:40:48.040Z,"162 km S of Merizo Village, Guam",earthquake,6.7,1.9,0.073,57,reviewed,us,us
+2022-02-25T23:45:43.234Z,11.8645,144.3431,10,5,mb,,34,1.789,0.6,us,us6000h1fu,2022-05-04T13:40:50.040Z,"159 km SSW of Merizo Village, Guam",earthquake,4.8,1.9,0.063,80,reviewed,us,us
+2022-02-26T13:28:35.626Z,11.7191,144.3884,10,4.6,mb,,59,1.917,0.9,us,us6000h1rg,2022-05-07T21:32:46.040Z,"173 km S of Merizo Village, Guam",earthquake,4.8,1.8,0.109,25,reviewed,us,us
+2022-03-01T22:57:39.748Z,11.7951,144.3723,10,4.6,mb,,87,1.847,0.82,us,us6000h24f,2022-05-07T21:32:53.040Z,"165 km S of Merizo Village, Guam",earthquake,10.7,1.9,0.081,45,reviewed,us,us
+2022-03-01T23:39:43.735Z,11.9324,144.3593,10,4.5,mb,,87,1.72,0.68,us,us6000h24g,2022-05-07T21:32:53.040Z,"151 km SSW of Merizo Village, Guam",earthquake,12.2,1.9,0.181,9,reviewed,us,us
+2022-03-01T23:52:21.899Z,11.8426,144.4165,10,4.6,mb,,123,1.791,0.64,us,us6000h24k,2022-05-07T21:32:53.040Z,"159 km S of Merizo Village, Guam",earthquake,12.2,1.9,0.08,46,reviewed,us,us
+2022-03-01T23:54:20.028Z,11.8403,144.3243,10,4.9,mb,,70,1.817,0.78,us,us6000h18x,2022-05-07T21:32:41.040Z,"162 km SSW of Merizo Village, Guam",earthquake,9.9,1.9,0.041,184,reviewed,us,us
+2022-03-01T23:56:05.567Z,11.7658,144.4124,10,4.6,mb,,119,1.866,1.09,us,us6000h24j,2022-05-07T21:32:53.040Z,"168 km S of Merizo Village, Guam",earthquake,8.6,1.7,0.1,32,reviewed,us,us
+2022-03-02T01:03:15.018Z,11.6687,144.3905,10,4.7,mb,,88,1.965,0.4,us,us6000h2t1,2022-05-07T21:32:54.040Z,"179 km S of Merizo Village, Guam",earthquake,5.8,1.8,0.091,37,reviewed,us,us

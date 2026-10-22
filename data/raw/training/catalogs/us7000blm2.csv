@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-09-11T07:35:57.187Z,-21.3968,-69.9096,51,6.2,mww,,72,0.077,0.88,us,us7000blm2,2025-12-22T18:42:01.126Z,"82 km NNE of Tocopilla, Chile",earthquake,6.3,1.9,0.071,19,reviewed,us,us
+2020-09-11T08:25:07.591Z,-21.4278,-69.9452,45.09,4.5,mwr,,72,0.116,0.65,us,us7000blpf,2020-11-21T20:10:36.040Z,"78 km NNE of Tocopilla, Chile",earthquake,4.8,6.4,,,reviewed,us,guc
+2020-09-11T10:13:44.000Z,-21.3855,-69.9127,51.83,4.5,mb,,136,0.067,0.63,us,us7000blr1,2020-11-21T20:10:36.040Z,"83 km NNE of Tocopilla, Chile",earthquake,4.2,3.7,0.191,8,reviewed,us,us
+2020-09-12T06:45:04.791Z,-21.4217,-69.8344,51.43,4.4,mb,,132,0.116,0.55,us,us7000bmbe,2020-11-21T20:10:37.040Z,"83 km NNE of Tocopilla, Chile",earthquake,6.2,3.7,0.204,7,reviewed,us,us
+2020-10-06T13:25:11.106Z,-21.4095,-69.872,45.66,4,mb,,149,0.092,0.42,us,us6000c63f,2020-12-12T22:28:42.040Z,"82 km NNE of Tocopilla, Chile",earthquake,5.2,4.4,0.366,2,reviewed,us,us

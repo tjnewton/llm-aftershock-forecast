@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2014-05-18T01:02:32.610Z,4.2485,92.7574,35,6,mww,,19,4.287,0.71,us,usb000qt4l,2022-05-03T16:51:38.353Z,"off the west coast of northern Sumatra",earthquake,,1.6,,,reviewed,us,us

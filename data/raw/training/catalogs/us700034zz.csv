@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2019-04-11T00:52:48.560Z,-6.5146,148.8093,10,4.4,mb,,118,3.303,1.17,us,us700038gs,2019-06-20T19:03:14.040Z,"88 km WSW of Kandrian, Papua New Guinea",earthquake,7.8,1.9,0.189,8,reviewed,us,us
+2019-04-11T21:31:49.967Z,-6.4916,148.635,20.46,5.6,mww,,20,3.242,0.83,us,us700034nf,2025-12-22T18:07:41.552Z,"87 km E of Finschhafen, Papua New Guinea",earthquake,6.5,3.1,0.057,30,reviewed,us,us
+2019-04-12T14:51:31.603Z,-6.4883,148.7394,30,6,mww,,17,3.293,0.97,us,us700034zz,2025-12-22T17:54:23.078Z,"94 km WSW of Kandrian, Papua New Guinea",earthquake,6.5,1.6,0.073,18,reviewed,us,us
+2019-04-13T08:44:03.720Z,-6.5267,148.6825,45.32,5.1,mww,,55,3.232,0.65,us,us700035bx,2025-12-22T18:07:47.232Z,"92 km E of Finschhafen, Papua New Guinea",earthquake,9,7,0.073,18,reviewed,us,us
+2019-05-02T02:29:26.953Z,-6.507,148.7389,35,4.9,mb,,78,3.276,0.67,us,us70003fgy,2025-12-22T18:08:59.145Z,"95 km WSW of Kandrian, Papua New Guinea",earthquake,6.9,2,0.06,88,reviewed,us,us

@@ -1,0 +1,21 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-02-16T18:02:15.429Z,38.5223,44.3881,10,4.7,mb,,58,1.065,1.09,us,us70007rei,2020-05-02T22:10:00.040Z,"37 km ESE of Özalp, Turkey",earthquake,4.8,1.8,0.055,102,reviewed,us,us
+2020-02-23T05:53:01.055Z,38.4465,44.4168,10,5.8,mww,,22,1.075,0.78,us,us70007v29,2025-12-22T18:29:58.614Z,"41 km NW of Salm?s, Iran",earthquake,4.7,1.8,0.055,32,reviewed,us,us
+2020-02-23T07:50:50.355Z,38.4213,44.3183,10,4,mb,,88,0.996,0.82,us,us70007v3g,2020-05-09T21:41:13.040Z,"38 km SE of Özalp, Turkey",earthquake,4.1,2,0.182,8,reviewed,us,us
+2020-02-23T09:48:24.655Z,38.4214,44.3766,10,4.4,mb,,88,1.041,0.66,us,us70007v4j,2020-05-09T21:41:13.040Z,"42 km NW of Salm?s, Iran",earthquake,4.3,1.9,0.117,21,reviewed,us,us
+2020-02-23T10:25:41.766Z,38.4382,44.3121,10,4.1,mb,,88,0.993,0.57,us,us70007v54,2020-05-09T21:41:13.040Z,"37 km SE of Özalp, Turkey",earthquake,5.1,2,0.131,16,reviewed,us,us
+2020-02-23T14:28:40.826Z,38.3641,44.2394,10,4.3,mb,,75,0.93,0.69,us,us70007v82,2020-05-09T21:41:14.040Z,"38 km SE of Özalp, Turkey",earthquake,5.2,1.9,0.097,30,reviewed,us,us
+2020-02-23T16:00:31.626Z,38.4958,44.3732,10,6,mww,,18,1.049,0.92,us,us70007v9g,2025-12-22T18:29:55.022Z,"37 km ESE of Özalp, Turkey",earthquake,3.5,1.8,0.05,38,reviewed,us,us
+2020-02-23T16:20:20.668Z,38.4136,44.3265,10,4,mb,,88,1.001,1.19,us,us70007v9u,2020-05-09T21:41:14.040Z,"39 km SE of Özalp, Turkey",earthquake,5.5,1.9,0.163,10,reviewed,us,us
+2020-02-23T16:37:53.377Z,38.474,44.3565,10,4.1,mb,,87,1.032,0.47,us,us70007va1,2020-05-09T21:41:14.040Z,"37 km ESE of Özalp, Turkey",earthquake,5.1,1.9,0.103,26,reviewed,us,us
+2020-02-23T16:40:00.541Z,38.4983,44.372,10,4.1,mb,,73,1.048,0.84,us,us70007vam,2020-05-09T21:41:14.040Z,"37 km ESE of Özalp, Turkey",earthquake,4.5,1.9,0.117,20,reviewed,us,us
+2020-02-23T16:54:39.971Z,38.4483,44.3389,10,4.4,mb,,87,1.015,0.57,us,us70007va8,2020-05-09T21:41:14.040Z,"38 km SE of Özalp, Turkey",earthquake,4.9,1.7,0.086,39,reviewed,us,us
+2020-02-23T16:56:24.324Z,38.5093,44.3147,10,4.3,mb,,74,1.006,0.63,us,us600085yh,2020-05-09T21:40:50.040Z,"32 km ESE of Özalp, Turkey",earthquake,3.2,1.9,0.113,22,reviewed,us,us
+2020-02-24T15:05:40.749Z,38.4557,44.3095,10,4.2,mb,,64,0.993,0.76,us,us70007vsx,2020-05-09T21:41:16.040Z,"35 km SE of Özalp, Turkey",earthquake,5,1.9,0.118,20,reviewed,us,us
+2020-02-24T23:44:38.315Z,38.5195,44.429,10,4.2,mb,,95,1.644,0.97,us,us70007w6f,2020-05-09T21:41:16.040Z,"41 km ESE of Özalp, Turkey",earthquake,3.2,2,0.11,23,reviewed,us,us
+2020-02-25T14:14:05.050Z,38.4132,44.344,10,4.5,mb,,72,1.015,0.62,us,us70007wg2,2020-05-09T21:41:17.040Z,"40 km SE of Özalp, Turkey",earthquake,4.2,1.9,0.083,42,reviewed,us,us
+2020-02-25T22:28:15.678Z,38.5072,44.2492,10,4.3,mb,,63,0.955,0.96,us,us600084av,2020-05-09T21:40:46.040Z,"27 km SE of Özalp, Turkey",earthquake,4.9,1.8,0.087,37,reviewed,us,us
+2020-03-04T11:33:47.644Z,38.4206,44.2756,10,4,mb,,74,0.962,0.75,us,us600089bn,2020-05-23T22:03:31.040Z,"36 km SE of Özalp, Turkey",earthquake,5.3,1.9,0.144,13,reviewed,us,us
+2020-03-10T02:53:50.830Z,38.4392,44.3856,10,4.1,mb,,65,1.05,0.73,us,us60008czg,2020-05-23T22:03:32.040Z,"42 km SE of Özalp, Turkey",earthquake,5.1,1.9,0.097,29,reviewed,us,us
+2020-03-18T23:07:22.192Z,38.5413,44.3006,10,4.4,mb,,43,1.002,1.16,us,us70008bwm,2020-06-06T20:53:51.040Z,"29 km ESE of Özalp, Turkey",earthquake,5.7,1.9,0.071,57,reviewed,us,us
+2020-03-19T07:13:57.573Z,38.4929,44.318,10,4.2,mb,,94,1.005,0.72,us,us70008c0m,2020-06-06T20:53:52.040Z,"33 km ESE of Özalp, Turkey",earthquake,3.4,1.9,0.116,21,reviewed,us,us

@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-06-04T23:38:12.123Z,52.0536,178.2682,105,6.3,mww,355,10,0.174,0.66,us,us7000hf1u,2024-05-20T03:49:46.219Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,3.97,1.703,0.024,162,reviewed,us,us
+2022-06-05T00:25:54.056Z,51.866,178.2417,110.697,4.3,mb,110,73,0.186,0.55,us,us7000hf2l,2022-08-13T21:52:02.040Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,8.12,4.031,0.057,88,reviewed,us,us
+2022-06-05T01:53:17.044Z,51.9733,178.3554,116.344,4.5,mb,99,83,0.099,0.95,us,us7000hf2y,2022-08-13T21:52:54.040Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,7.84,3.126,0.038,199,reviewed,us,us
+2022-06-07T14:11:46.661Z,51.9868,178.3192,110.987,4,mb,83,76,0.122,0.7,us,us7000hfkt,2022-08-13T21:53:01.040Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,10.01,4.364,0.062,71,reviewed,us,us
+2022-06-22T22:44:39.253Z,51.9027,178.321,135.185,4,mb,57,109,0.126,0.57,us,us7000hkl6,2022-08-28T03:20:19.040Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,10.18,5.244,0.084,38,reviewed,us,us

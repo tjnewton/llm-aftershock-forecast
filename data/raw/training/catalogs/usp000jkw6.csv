@@ -1,0 +1,12 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2012-05-24T22:47:46.800Z,72.96,5.683,10,6.1,mww,579,20.6,,1.18,us,usp000jkw6,2022-05-03T15:40:46.359Z,"Norwegian Sea",earthquake,,,,,reviewed,us,us
+2012-05-24T22:54:43.660Z,72.924,5.809,10,4.1,mb,17,80.8,,1.24,us,usp000jkw7,2014-11-07T01:47:52.584Z,"Norwegian Sea",earthquake,,,,2,reviewed,us,us
+2012-05-24T22:58:39.570Z,72.989,5.646,10,4.1,mb,14,81,,1.02,us,usp000jkw8,2014-11-07T01:47:52.586Z,"Norwegian Sea",earthquake,,,,2,reviewed,us,us
+2012-05-24T23:46:17.220Z,72.944,5.516,10,4.7,mb,164,63.5,,0.98,us,usp000jkwa,2014-11-07T01:47:52.640Z,"Norwegian Sea",earthquake,,,,95,reviewed,us,us
+2012-05-25T00:25:55.930Z,72.939,5.518,10,5,mb,327,30.8,,1.03,us,usp000jkwb,2014-11-07T01:47:52.654Z,"Norwegian Sea",earthquake,,,,248,reviewed,us,us
+2012-05-25T04:01:36.100Z,72.895,5.538,10,4.9,mb,185,63.4,,1.16,us,usp000jkwk,2025-12-22T16:29:19.876Z,"Norwegian Sea",earthquake,,,,104,reviewed,us,us
+2012-05-25T04:13:13.270Z,72.951,5.813,10,4.1,mb,25,99.8,,0.83,us,usp000jkwm,2014-11-07T01:47:52.718Z,"Norwegian Sea",earthquake,,,,8,reviewed,us,us
+2012-05-25T12:53:08.930Z,73.111,5.575,10,4.5,mb,114,87,,1.07,us,usp000jkx2,2014-11-07T01:47:52.776Z,"Greenland Sea",earthquake,,,,86,reviewed,us,us
+2012-05-25T19:27:16.470Z,73.114,5.562,10,4.3,mb,43,84.4,,1.39,us,usp000jkxe,2014-11-07T01:47:52.823Z,"Greenland Sea",earthquake,,,,19,reviewed,us,us
+2012-05-27T03:19:49.040Z,72.985,5.989,10,4.3,mb,23,135.3,,1.08,us,usp000jkz2,2014-11-07T01:47:53.770Z,"Norwegian Sea",earthquake,,,,8,reviewed,us,us
+2012-06-04T20:37:05.650Z,73.096,5.767,10,4.3,mb,26,54.8,,1.11,us,usp000jmb8,2014-11-07T01:48:00.730Z,"Greenland Sea",earthquake,,,,5,reviewed,us,us

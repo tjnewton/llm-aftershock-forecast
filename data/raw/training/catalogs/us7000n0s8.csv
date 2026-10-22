@@ -1,0 +1,14 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2024-07-22T02:50:10.426Z,-15.4203,168.0616,10,4.7,mb,41,111,6.24,0.55,us,us7000n0rf,2024-10-08T21:49:16.005Z,"97 km E of Luganville, Vanuatu",earthquake,6.28,1.885,0.106,27,reviewed,us,us
+2024-07-22T03:38:20.017Z,-15.4382,168.2109,10,4.5,mb,21,131,6.308,0.42,us,us6000ni79,2024-10-08T21:49:14.005Z,"111 km NE of Norsup, Vanuatu",earthquake,10.56,1.85,0.164,11,reviewed,us,us
+2024-07-22T03:54:00.819Z,-15.3946,168.0934,10,4.9,mb,50,112,6.278,0.6,us,us7000n0rr,2024-10-08T21:49:16.005Z,"100 km E of Luganville, Vanuatu",earthquake,10.66,1.885,0.092,37,reviewed,us,us
+2024-07-22T05:04:12.131Z,-15.473,168.1476,10,5.2,mb,140,40,6.244,0.44,us,us7000n0s6,2024-10-09T01:57:22.777Z,"103 km NE of Norsup, Vanuatu",earthquake,7.68,1.836,0.034,282,reviewed,us,us
+2024-07-22T05:04:27.743Z,-15.5073,168.1241,4,6.1,mww,196,26,6.203,0.54,us,us7000n0s8,2024-10-08T21:49:16.005Z,"99 km NE of Norsup, Vanuatu",earthquake,7.46,1.834,0.039,63,reviewed,us,us
+2024-07-22T05:19:34.637Z,-15.3334,168.1683,10,4.7,mb,17,157,6.369,0.67,us,us6000ni7g,2024-10-08T21:49:14.005Z,"109 km E of Luganville, Vanuatu",earthquake,15.23,1.92,0.173,10,reviewed,us,us
+2024-07-22T05:21:28.703Z,-15.5188,168.2778,10,4.9,mb,35,113,6.281,0.46,us,us6000ni7h,2024-10-08T21:49:14.005Z,"112 km ENE of Norsup, Vanuatu",earthquake,8.78,1.867,0.122,21,reviewed,us,us
+2024-07-22T05:30:31.417Z,-15.4974,168.2137,10,4.6,mb,29,113,6.262,0.53,us,us6000ni7a,2024-10-08T21:49:14.005Z,"107 km NE of Norsup, Vanuatu",earthquake,8.79,1.874,0.133,17,reviewed,us,us
+2024-07-22T05:56:23.325Z,-15.5296,168.146,10,4.5,mb,27,131,6.198,0.41,us,us6000ni7b,2024-10-08T21:49:14.005Z,"99 km NE of Norsup, Vanuatu",earthquake,12.83,1.902,0.131,17,reviewed,us,us
+2024-07-22T06:06:32.599Z,-15.4482,168.038,10,4.5,mb,16,152,6.204,0.43,us,us6000ni7c,2024-10-08T21:49:14.005Z,"94 km E of Luganville, Vanuatu",earthquake,10.29,1.922,0.18,9,reviewed,us,us
+2024-07-22T06:08:20.972Z,-15.543,168.0193,10,5,mb,60,75,6.116,0.77,us,us7000n0sn,2024-10-08T21:49:16.005Z,"88 km NE of Norsup, Vanuatu",earthquake,10.07,1.846,0.063,80,reviewed,us,us
+2024-07-22T07:42:43.930Z,-15.4845,168.2493,10,4.5,mb,19,131,6.293,0.51,us,us6000ni7d,2024-10-08T21:49:14.005Z,"111 km NE of Norsup, Vanuatu",earthquake,7.9,1.892,0.164,11,reviewed,us,us
+2024-07-22T14:38:19.074Z,-15.5975,168.1951,10.678,5,mb,56,58,6.171,0.68,us,us7000n0ur,2024-10-08T21:49:17.005Z,"99 km ENE of Norsup, Vanuatu",earthquake,9.64,3.816,0.079,51,reviewed,us,us

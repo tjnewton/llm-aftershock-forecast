@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2014-04-26T06:02:21.000Z,-20.752,-174.7068,45,6.1,mww,,21,7.357,0.86,us,usb000q0ag,2022-07-26T13:47:14.739Z,"56 km NE of Kolonga, Tonga",earthquake,,1.8,,,reviewed,us,us

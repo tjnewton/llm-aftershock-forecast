@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2018-10-10T18:44:55.280Z,-7.4525,114.4553,9,6,mww,,27,1.054,1.15,us,us1000ha6q,2023-11-19T01:32:52.421Z,"49 km NE of Panji, Indonesia",earthquake,5.8,1.7,0.041,58,reviewed,us,us

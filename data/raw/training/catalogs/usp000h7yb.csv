@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2010-02-27T15:45:37.000Z,-24.872,-65.602,10,6.3,mwc,376,44.2,,,us,usp000h7yb,2022-07-16T03:32:42.887Z,"5 km NE of Campo Quijano, Argentina",earthquake,,,,,reviewed,sja,gcmt
+2010-02-27T20:31:06.580Z,-25.019,-65.745,24.4,4.8,mb,12,148.6,,1.24,us,usp000h80j,2014-11-07T01:40:47.186Z,"16 km SW of Campo Quijano, Argentina",earthquake,,33.6,,2,reviewed,us,us
+2010-02-28T09:53:04.550Z,-24.864,-65.423,39.4,4.6,mb,49,99.2,,0.9,us,usp000h86b,2014-11-07T01:40:48.333Z,"8 km S of Salta, Argentina",earthquake,,6.2,,23,reviewed,us,us
+2010-03-19T04:00:41.000Z,-24.915,-65.533,10,4,md,5,159.4,,,us,usp000h9nx,2014-11-07T01:41:03.316Z,"10 km E of Campo Quijano, Argentina",earthquake,,,,,reviewed,sja,sja

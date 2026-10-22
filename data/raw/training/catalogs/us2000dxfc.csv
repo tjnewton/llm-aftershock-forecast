@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2018-04-10T10:19:34.370Z,-31.0258,-71.5292,66,6.2,mww,,19,0.362,1,us,us2000dxfc,2025-02-06T21:07:56.122Z,"56 km SW of Ovalle, Chile",earthquake,4.8,1.8,0.044,50,reviewed,us,us

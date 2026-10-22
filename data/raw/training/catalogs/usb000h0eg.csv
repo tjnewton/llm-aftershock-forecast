@@ -1,0 +1,17 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2013-05-19T17:42:26.650Z,52.409,160.25,35,4.1,mb,17,159.2,,1.48,us,usp000k0sj,2014-11-07T01:50:50.287Z,"129 km SE of Petropavlovsk-Kamchatsky, Russia",earthquake,,,,7,reviewed,us,us
+2013-05-20T22:36:25.850Z,52.476,160.494,33.7,4.6,mb,55,122,,1.3,us,usb000h0ai,2014-11-07T01:50:51.368Z,"139 km ESE of Petropavlovsk-Kamchatsky, Russia",earthquake,,6,,71,reviewed,us,us
+2013-05-20T22:51:45.560Z,52.363,160.259,33.6,5,mb,106,88,,1.14,us,usb000h0b5,2025-12-22T16:40:11.593Z,"132 km SE of Petropavlovsk-Kamchatsky, Russia",earthquake,,3.5,,329,reviewed,us,us
+2013-05-21T00:01:04.450Z,52.369,160.479,35,4.7,mb,43,122.6,,1.08,us,usp000k0ug,2014-11-07T01:50:51.521Z,"144 km ESE of Petropavlovsk-Kamchatsky, Russia",earthquake,,,,32,reviewed,us,us
+2013-05-21T01:55:08.400Z,52.52,160.362,30,6,mww,582,57.2,,0.99,us,usb000h0eg,2022-07-25T02:38:13.181Z,"129 km ESE of Petropavlovsk-Kamchatsky, Russia",earthquake,,,,,reviewed,us,us
+2013-05-21T03:05:50.820Z,52.394,160.294,11.4,5.9,mww,575,41,,1.03,us,usb000h0fe,2022-05-03T16:19:29.407Z,"132 km SE of Petropavlovsk-Kamchatsky, Russia",earthquake,,3.3,,,reviewed,us,us
+2013-05-21T03:08:17.090Z,52.495,160.142,7.6,5.7,mwb,347,57,,0.81,us,usb000h0fh,2022-05-03T16:19:30.818Z,"117 km ESE of Petropavlovsk-Kamchatsky, Russia",earthquake,,3.2,,,reviewed,us,us
+2013-05-21T03:19:36.830Z,52.364,160.346,35,4.6,mb,42,87.5,,1.2,us,usp000k0uq,2014-11-07T01:50:51.891Z,"137 km SE of Petropavlovsk-Kamchatsky, Russia",earthquake,,,,20,reviewed,us,us
+2013-05-21T04:04:10.820Z,52.422,160.56,39,4.5,mb,62,88,,1.05,us,usp000k0uu,2014-11-07T01:50:52.044Z,"146 km ESE of Petropavlovsk-Kamchatsky, Russia",earthquake,,7.3,,40,reviewed,us,us
+2013-05-21T05:48:29.810Z,52.499,160.604,35,5,mb,49,135,,0.76,us,usp000k0v2,2014-11-07T01:50:52.355Z,"145 km ESE of Petropavlovsk-Kamchatsky, Russia",earthquake,,,,42,reviewed,us,us
+2013-05-21T10:00:03.680Z,52.507,160.232,35,4.7,mb,118,104.2,,0.66,us,usb000h0na,2014-11-07T01:50:52.632Z,"122 km ESE of Petropavlovsk-Kamchatsky, Russia",earthquake,,,,87,reviewed,us,us
+2013-05-21T12:20:21.460Z,52.619,160.143,35,4.5,mb,34,165.7,,1.42,us,usp000k0vh,2014-11-07T01:50:52.694Z,"111 km ESE of Petropavlovsk-Kamchatsky, Russia",earthquake,,,,11,reviewed,us,us
+2013-05-21T17:13:34.660Z,52.414,160.544,37.8,4.6,mb,49,121,,1.3,us,usb000h11z,2014-11-07T01:50:52.886Z,"145 km ESE of Petropavlovsk-Kamchatsky, Russia",earthquake,,8.7,,27,reviewed,us,us
+2013-05-21T23:26:47.340Z,52.368,160.485,35,4.4,mb,60,130.9,,0.93,us,us2013qlhp,2014-11-07T01:50:53.045Z,"145 km ESE of Petropavlovsk-Kamchatsky, Russia",earthquake,,,,15,reviewed,us,us
+2013-05-23T10:47:03.120Z,52.485,160.63,35,4.4,mb,28,164,,1.46,us,usb000h373,2014-11-07T01:50:53.339Z,"147 km ESE of Petropavlovsk-Kamchatsky, Russia",earthquake,,,,20,reviewed,us,us
+2013-05-27T17:13:31.050Z,52.409,160.54,39.3,4.6,mb,74,150,,0.98,us,usb000h736,2014-11-07T01:50:54.761Z,"145 km ESE of Petropavlovsk-Kamchatsky, Russia",earthquake,,7.5,,74,reviewed,us,us

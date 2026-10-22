@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2019-04-12T12:23:04.870Z,-15.4067,-172.8171,15.36,6,mww,,29,1.796,0.9,us,us700034ya,2025-12-22T18:07:43.046Z,"121 km ENE of Hihifo, Tonga",earthquake,8.6,3.5,0.08,15,reviewed,us,us

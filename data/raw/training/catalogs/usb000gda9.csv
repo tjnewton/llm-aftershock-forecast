@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2013-04-22T01:16:32.840Z,18.081,-102.182,30,6,mww,539,41,,1.21,us,usb000gda9,2022-08-06T15:09:41.490Z,"7 km NNE of Guacamayas, Mexico",earthquake,,,,,reviewed,us,us

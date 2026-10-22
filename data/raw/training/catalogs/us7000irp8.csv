@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-11-23T01:08:15.435Z,40.8356,30.9831,10,6.1,mww,286,14,0.399,0.64,us,us7000irp8,2025-08-23T04:38:13.765Z,"15 km W of Düzce, Turkey",earthquake,5.05,1.647,0.052,35,reviewed,us,us
+2022-11-23T03:50:58.216Z,40.8188,30.9274,10,4.4,mwr,52,34,0.404,0.63,us,us7000irqn,2023-01-30T06:01:05.040Z,"15 km E of Hendek, Turkey",earthquake,4.77,1.906,0.08,15,reviewed,us,us
+2022-11-27T03:57:45.879Z,40.8448,31.01,10,4.5,mb,68,29,0.4,0.65,us,us7000isne,2023-02-05T23:24:12.040Z,"12 km W of Düzce, Turkey",earthquake,4.13,1.505,0.128,18,reviewed,us,us
+2022-12-03T04:59:21.398Z,40.7866,30.9174,10,4.2,mb,28,71,0.973,0.66,us,us6000j6il,2023-02-11T23:03:03.040Z,"14 km E of Hendek, Turkey",earthquake,4.06,1.568,0.264,4,reviewed,us,us

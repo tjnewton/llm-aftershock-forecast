@@ -1,0 +1,8 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2013-01-28T16:38:53.580Z,42.605,79.708,15,6.1,mww,548,14.5,,0.76,us,usc000ewqq,2022-07-24T16:35:51.450Z,"61 km SE of Kegen, Kazakhstan",earthquake,,,,,reviewed,us,us
+2013-01-28T17:31:45.500Z,42.7,79.541,10,4.3,mb,25,70.2,,1.41,us,usc000ewrz,2014-11-07T01:49:54.172Z,"44 km SE of Kegen, Kazakhstan",earthquake,,,,1,reviewed,us,us
+2013-01-28T19:11:51.540Z,42.563,79.561,10,4.5,mb,50,71.5,,1.25,us,usc000ewuh,2014-11-07T01:49:54.182Z,"58 km SSE of Kegen, Kazakhstan",earthquake,,,,1,reviewed,us,us
+2013-01-28T19:47:38.510Z,42.446,79.57,13,4.6,mb,78,96.9,,0.86,us,usc000ewvl,2014-11-07T01:49:54.197Z,"70 km SSE of Kegen, Kazakhstan",earthquake,,6.8,,16,reviewed,us,us
+2013-01-28T20:37:08.720Z,42.503,79.655,10,4.4,mb,51,66.4,,0.99,us,usc000ewxc,2022-07-24T16:39:52.642Z,"67 km SSE of Kegen, Kazakhstan",earthquake,,,,6,reviewed,us,us
+2013-01-29T08:57:55.560Z,42.521,79.8,10,4.4,mb,52,66.6,,1.05,us,usc000excc,2014-11-07T01:49:54.303Z,"73 km SE of Kegen, Kazakhstan",earthquake,,,,14,reviewed,us,us
+2013-02-19T00:36:06.390Z,42.599,79.58,47.1,4,mb,58,70.8,,1.26,us,usp000jzed,2014-11-07T01:50:09.626Z,"55 km SSE of Kegen, Kazakhstan",earthquake,,6,,3,reviewed,us,us

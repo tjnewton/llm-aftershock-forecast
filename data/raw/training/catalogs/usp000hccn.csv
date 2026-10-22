@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2010-05-06T02:42:47.940Z,-18.058,-70.547,37,6.2,mwc,455,11.8,,0.73,us,usp000hccn,2025-10-22T01:56:50.046Z,"21 km S of Las Yaras, Peru",earthquake,,,,,reviewed,us,us
+2010-05-06T02:58:06.500Z,-18.151,-70.514,35,4.1,mb,20,97.7,,1.21,us,usp000hccp,2014-11-07T01:41:27.117Z,"31 km WSW of Tacna, Peru",earthquake,,,,1,reviewed,us,us
+2010-05-06T06:32:29.420Z,-18.117,-70.704,55.8,4.6,mb,33,97.4,,0.96,us,usp000hccx,2014-11-07T01:41:27.215Z,"31 km SSW of Las Yaras, Peru",earthquake,,6.8,,6,reviewed,us,us

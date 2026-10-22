@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2021-12-30T06:47:08.885Z,23.9867,122.4994,20.94,5.3,mww,,59,0.668,0.63,us,us7000g7wt,2025-12-22T22:23:58.412Z,"73 km SW of Yonakuni, Japan",earthquake,2.9,4.5,0.098,10,reviewed,us,us
+2022-01-03T09:46:35.767Z,24.0079,122.2592,19,6.2,mww,,66,0.629,0.9,us,us7000g8n3,2022-12-15T04:25:35.010Z,"66 km E of Hualien City, Taiwan",earthquake,4.4,1.7,0.053,34,reviewed,us,us
+2022-01-03T23:17:28.505Z,24.026,122.1898,23.34,5,mww,,73,0.563,0.54,us,us7000g8t5,2022-03-12T22:19:05.040Z,"59 km E of Hualien City, Taiwan",earthquake,2.3,4.1,0.098,10,reviewed,us,us
+2022-01-05T13:09:03.262Z,23.9134,122.4519,22.68,4.3,mb,,68,0.751,0.48,us,us7000g97m,2022-03-12T22:19:09.040Z,"82 km SW of Yonakuni, Japan",earthquake,3.2,5.3,0.093,35,reviewed,us,us
+2022-01-16T08:15:41.987Z,24.2173,122.2544,54.78,5.2,mww,,57,0.604,0.69,us,us7000gcej,2022-04-01T17:40:12.040Z,"71 km ENE of Hualien City, Taiwan",earthquake,4.5,1,0.086,13,reviewed,us,us

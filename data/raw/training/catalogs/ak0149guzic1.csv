@@ -1,0 +1,8 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2014-07-25T10:54:06.751Z,58.3219,-137.0442,10,4.7,mb,,,,0.73,ak,ak0149guzeyr,2023-07-21T20:47:55.691Z,"43 km WNW of Elfin Cove, Alaska",earthquake,,0,,,reviewed,ak,ak
+2014-07-25T10:54:50.417Z,58.3354,-136.9711,10,6,mw,,,,1,ak,ak0149guzic1,2023-07-21T20:47:56.893Z,"40 km WNW of Elfin Cove, Alaska",earthquake,,0,,,reviewed,ak,ak
+2014-07-25T10:57:11.358Z,58.3283,-137.0081,10,4.7,mb,,,,0.52,ak,ak0149gv02gv,2023-07-21T20:47:58.032Z,"41 km WNW of Elfin Cove, Alaska",earthquake,,0,,,reviewed,ak,ak
+2014-07-25T10:59:32.560Z,58.3753,-136.951,9.6,4.1,ml,,,,0.54,ak,ak0149gv0jjc,2023-07-21T20:47:59.119Z,"40 km WNW of Elfin Cove, Alaska",earthquake,,0.9,,,reviewed,ak,ak
+2014-07-25T11:08:40.168Z,58.2988,-136.9846,9.7,4.4,mb,,,,0.68,ak,ak0149gvb27k,2023-07-21T20:48:02.595Z,"39 km WNW of Elfin Cove, Alaska",earthquake,,1,,,reviewed,ak,ak
+2014-07-25T11:19:34.818Z,58.2313,-137.102,1.8,4.6,mw,,,,0.65,ak,ak0149gvdeo9,2023-08-18T16:24:40.128Z,"44 km W of Elfin Cove, Alaska",earthquake,,2.4,,,reviewed,ak,ak
+2014-07-25T11:33:55.916Z,58.2766,-137.0648,5.1,4,mb,,,,0.69,ak,ak0149gvggbr,2023-07-21T20:48:29.563Z,"43 km WNW of Elfin Cove, Alaska",earthquake,,1.8,,,reviewed,ak,ak

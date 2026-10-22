@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2021-04-10T07:00:15.485Z,-8.5707,112.5054,67,6,mww,,21,1.631,0.83,us,us6000e0iy,2025-12-22T18:56:02.531Z,"45 km S of Sumberpucung, Indonesia",earthquake,7.3,1.9,0.066,22,reviewed,us,us

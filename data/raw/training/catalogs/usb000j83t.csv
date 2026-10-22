@@ -1,0 +1,8 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2013-08-21T12:38:29.700Z,16.8784,-99.498,21,6.2,mww,,45,0.755,1,us,usb000j83t,2022-08-06T17:15:04.122Z,"5 km ESE of Barrio Nuevo de los Muertos, Mexico",earthquake,,1.7,,,reviewed,us,us
+2013-08-21T12:56:06.300Z,16.776,-99.639,22.4,4.3,mb,,,,0.94,us,usc000jra9,2013-10-25T20:09:29.000Z,"0 km W of Cerro de Piedra, Mexico",earthquake,,6.8,0.217,,reviewed,us_unm,us
+2013-08-21T18:09:17.990Z,16.973,-99.531,19.42,4.2,mb,,156,0.708,0.92,us,usb000j8ie,2013-10-25T20:09:31.000Z,"near the coast of Guerrero, Mexico",earthquake,,7.1,0.052,,reviewed,us,us
+2013-08-26T12:54:01.500Z,16.749,-99.609,20.7,4.4,mb,,,,0.93,us,usb000jbvf,2022-07-25T21:11:24.974Z,"3 km N of Lomas de Chapultepec, Mexico",earthquake,,5.3,0.047,,reviewed,us_unm,us
+2013-08-26T22:20:25.000Z,16.819,-99.624,24.6,4,md,,,,1,us,usc000jrbw,2013-10-25T20:10:15.000Z,"3 km SE of Aguas Calientes, Mexico",earthquake,,8.5,,,reviewed,us_unm,us_unm
+2013-08-30T02:47:34.700Z,16.709,-99.582,7.6,4,md,,,,1.16,us,usc000jrdy,2013-11-06T01:33:33.000Z,"3 km ESE of Lomas de Chapultepec, Mexico",earthquake,,5.9,,,reviewed,us_unm,us_unm
+2013-08-30T03:40:57.700Z,16.781,-99.664,12.9,4,md,,,,1.18,us,usc000jre1,2013-11-06T01:33:33.000Z,"1 km NNE of La Estación, Mexico",earthquake,,9.2,,,reviewed,us_unm,us_unm

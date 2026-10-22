@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2015-12-05T17:20:53.990Z,-16.8044,175.2275,29.61,4.7,mb,,66,2.856,1.01,us,us20004fsi,2016-03-02T03:36:33.040Z,"252 km WNW of Lautoka, Fiji",earthquake,7.3,3,0.127,20,reviewed,us,us
+2015-12-09T12:58:01.780Z,-16.7374,175.2475,10,6.1,mww,,65,2.861,0.8,us,us20004fuz,2022-05-03T19:06:43.287Z,"253 km WNW of Lautoka, Fiji",earthquake,7.8,1.8,,,reviewed,us,us
+2015-12-09T13:11:47.060Z,-16.7939,175.2612,29.05,4.6,mb,,70,2.829,1.01,us,us20004fv6,2016-03-02T03:36:41.040Z,"250 km WNW of Lautoka, Fiji",earthquake,6.7,4.9,0.181,9,reviewed,us,us
+2015-12-09T14:44:11.510Z,-16.751,175.1664,11.45,4.8,mb,,66,2.929,1.04,us,us20004fw3,2025-12-22T17:11:38.080Z,"261 km WNW of Lautoka, Fiji",earthquake,10.5,4.7,0.127,19,reviewed,us,us
+2015-12-17T06:36:22.260Z,-16.8611,175.2905,42.19,4.4,mb,,94,2.781,1.17,us,us100048r8,2016-11-10T22:04:52.441Z,"244 km WNW of Lautoka, Fiji",earthquake,4,8.1,0.162,12,reviewed,us,us

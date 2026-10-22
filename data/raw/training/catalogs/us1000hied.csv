@@ -1,0 +1,10 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2018-10-29T06:54:21.250Z,-57.434,-66.3834,10,6.3,mww,,13,2.603,0.79,us,us1000hied,2022-08-08T09:34:45.489Z,"Drake Passage",earthquake,6.8,1.7,0.037,72,reviewed,us,us
+2018-10-29T07:01:11.180Z,-57.5863,-66.4197,10,5.1,mb,,99,2.745,1.06,us,us2000i62q,2019-01-21T14:29:37.040Z,"Drake Passage",earthquake,7.4,1.8,0.085,45,reviewed,us,us
+2018-10-29T20:17:22.520Z,-57.5496,-66.304,10,5.8,mww,,14,2.726,1.05,us,us1000hip5,2022-05-03T19:41:37.668Z,"Drake Passage",earthquake,7.6,1.7,0.056,31,reviewed,us,us
+2018-10-29T21:07:13.190Z,-57.5419,-66.1638,10,5.6,mww,,40,2.741,1,us,us1000hiqv,2022-05-03T19:50:29.807Z,"Drake Passage",earthquake,3.3,1.7,0.062,25,reviewed,us,us
+2018-10-31T12:36:32.060Z,-57.3881,-66.3008,10,5,mww,,122,2.571,0.69,us,us2000i4ke,2025-12-22T17:51:59.828Z,"Drake Passage",earthquake,8,1.8,0.098,10,reviewed,us,us
+2018-11-06T11:58:12.240Z,-57.5215,-66.0852,10,4.8,mb,,129,2.735,0.81,us,us1000hrm9,2019-01-21T16:42:59.040Z,"Drake Passage",earthquake,7.3,1.9,0.082,46,reviewed,us,us
+2018-11-08T16:07:54.120Z,-57.5532,-65.999,10,4.9,mb,,127,2.78,0.72,us,us1000hpan,2025-12-22T17:52:11.630Z,"Drake Passage",earthquake,3.7,1.8,0.08,51,reviewed,us,us
+2018-11-16T07:19:12.450Z,-57.6054,-66.0559,10,4.9,mb,,97,2.82,0.66,us,us1000hsl2,2019-01-30T18:36:25.040Z,"Drake Passage",earthquake,10.1,1.9,0.079,50,reviewed,us,us
+2018-11-16T17:43:34.660Z,-57.5343,-66.0963,10,4.9,mb,,95,2.745,0.9,us,us1000hst3,2019-01-30T18:36:25.040Z,"Drake Passage",earthquake,5.1,1.8,0.064,76,reviewed,us,us

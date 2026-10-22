@@ -1,0 +1,8 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2021-03-18T00:04:06.698Z,36.9206,5.2014,8,6,mww,,20,3.06,0.45,us,us7000dker,2025-12-22T18:54:25.814Z,"21 km NNE of Bejaïa, Algeria",earthquake,6.9,1.8,0.033,86,reviewed,us,us
+2021-03-18T00:14:21.893Z,36.9455,5.2122,10,4.6,mb,,85,3.038,0.61,us,us6000dwmk,2021-05-26T22:08:43.040Z,"23 km NNE of Bejaïa, Algeria",earthquake,6.1,1.7,0.141,15,reviewed,us,us
+2021-03-18T00:17:05.186Z,36.9107,5.3143,10,5,mww,,38,3.092,0.55,us,us7000dkfb,2025-12-22T18:54:28.452Z,"26 km NE of Bejaïa, Algeria",earthquake,6.4,1.8,0.073,18,reviewed,us,us
+2021-03-18T00:33:27.553Z,36.8702,5.23,10,4.7,mb,,63,3.114,0.55,us,us7000dkfe,2021-05-26T22:08:44.040Z,"18 km NE of Bejaïa, Algeria",earthquake,6.3,1.8,0.07,62,reviewed,us,us
+2021-03-18T16:21:43.274Z,36.9558,5.2711,10,4.4,mb,,90,3.039,0.87,us,us7000dkml,2021-05-26T22:08:57.040Z,"27 km NE of Bejaïa, Algeria",earthquake,6.4,1.6,0.097,35,reviewed,us,us
+2021-03-24T23:23:54.166Z,36.8879,5.2734,10,4.5,mb,,68,3.105,0.48,us,us6000dw71,2021-06-02T15:22:42.040Z,"northern Algeria",earthquake,6.3,1.9,0.127,18,reviewed,us,us
+2021-03-25T02:37:14.465Z,36.8311,5.1854,10,4.6,mb,,52,3.144,0.66,us,us6000dw83,2022-08-09T04:23:39.357Z,"12 km NE of Bejaïa, Algeria",earthquake,6.8,1.9,0.114,23,reviewed,us,us

@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2011-02-04T13:53:46.260Z,24.618,94.68,85,6.2,mww,555,11.8,,1.04,us,usp000hu2t,2022-07-19T03:29:27.801Z,"62 km E of W?ngjing, India",earthquake,,,,,reviewed,us,us
+2011-02-04T14:06:38.220Z,24.531,94.805,78.4,4.1,mb,11,112.8,,0.97,us,usp000hu2v,2014-11-07T01:43:37.280Z,"75 km E of W?ngjing, India",earthquake,,20.3,,1,reviewed,us,us
+2011-02-22T22:57:27.230Z,24.485,94.747,87.3,4,mb,30,112.8,,0.54,us,usp000huy9,2014-11-07T01:43:43.062Z,"70 km E of W?ngjing, India",earthquake,,6.8,,5,reviewed,us,us

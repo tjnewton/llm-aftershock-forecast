@@ -1,0 +1,3 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2018-11-02T11:01:15.880Z,47.8334,146.6972,433,6,mww,,24,2.813,0.82,us,us2000i5tk,2022-05-03T19:37:39.141Z,"298 km E of Dolinsk, Russia",earthquake,8.7,1.9,0.056,31,reviewed,us,us
+2018-11-02T11:09:55.440Z,47.7701,146.7317,411.31,4.6,mb,,106,2.818,1.07,us,us1000hpr1,2019-01-21T14:29:44.040Z,"296 km NNW of Kuril’sk, Russia",earthquake,9.9,5.4,0.046,138,reviewed,us,us

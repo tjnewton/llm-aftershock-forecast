@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2011-07-31T06:43:47.380Z,-16.973,171.471,10,4.3,mb,12,124.4,,0.97,us,usp000j5s4,2014-11-07T01:45:28.389Z,"Vanuatu region",earthquake,,,,1,reviewed,us,us
+2011-07-31T14:34:47.320Z,-17.016,171.579,10,6.1,mww,437,15.8,,0.88,us,usp000j5sk,2022-04-08T21:56:42.893Z,"Vanuatu region",earthquake,,,,,reviewed,us,us
+2011-08-08T08:01:59.580Z,-16.888,171.465,10,4.5,mb,14,115.3,,1.34,us,usp000j65z,2014-11-07T01:45:34.829Z,"Vanuatu region",earthquake,,,,4,reviewed,us,us
+2011-08-15T15:20:09.520Z,-17.035,171.646,20.4,5,mwc,41,61.8,,1.29,us,usp000j6gw,2025-12-22T16:05:56.538Z,"Vanuatu region",earthquake,,18.7,,,reviewed,us,gcmt

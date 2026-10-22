@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-05-13T22:51:15.880Z,35.237,26.9951,76.202,6,mww,124,42,0.338,0.56,us,us7000pz2p,2025-07-24T21:30:16.040Z,"20 km SSE of Fry, Greece",earthquake,4.25,4.198,0.035,80,reviewed,us,us

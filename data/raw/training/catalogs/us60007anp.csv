@@ -1,0 +1,8 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-01-17T16:05:48.854Z,39.7276,77.1456,10,5.3,mww,,98,2.061,1.12,us,us700071qm,2025-12-22T18:26:34.727Z,"103 km ENE of Kashgar, China",earthquake,5.4,1.9,0.083,14,reviewed,us,us
+2020-01-19T13:27:56.630Z,39.8353,77.1084,5.55,6,mww,,22,1.964,0.54,us,us60007anp,2025-12-22T18:26:40.780Z,"104 km ENE of Kashgar, China",earthquake,4.6,3,0.062,25,reviewed,us,us
+2020-01-19T13:48:40.414Z,39.7794,77.1027,10,4.4,mb,,95,2.019,0.71,us,us60007ap1,2020-04-08T19:39:39.040Z,"101 km ENE of Kashgar, China",earthquake,6.8,1.9,0.178,10,reviewed,us,us
+2020-01-19T13:51:53.469Z,39.9746,77.1281,10,4.5,mb,,75,1.826,0.77,us,us60007anx,2020-04-08T19:39:39.040Z,"112 km ENE of Kashgar, China",earthquake,7.4,1.9,0.121,23,reviewed,us,us
+2020-01-25T19:49:36.339Z,39.849,77.23,10,4.5,mb,,63,1.928,1.04,us,us60007fw5,2020-04-11T18:20:50.040Z,"114 km ENE of Kashgar, China",earthquake,4.3,1.8,0.118,21,reviewed,us,us
+2020-01-29T10:14:00.997Z,39.8673,77.1283,10,4.3,mb,,148,1.929,0.82,us,us60007izi,2020-04-18T22:09:52.040Z,"107 km ENE of Kashgar, China",earthquake,5.1,1.9,0.137,15,reviewed,us,us
+2020-01-31T05:45:32.189Z,39.768,77.2433,10,4.6,mb,,76,2.005,1.02,us,us60007l2y,2020-04-18T22:10:00.040Z,"112 km ENE of Kashgar, China",earthquake,5.5,2,0.133,17,reviewed,us,us

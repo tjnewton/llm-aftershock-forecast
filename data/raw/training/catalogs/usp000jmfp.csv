@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2012-06-07T16:03:18.900Z,-15.877,-72.413,110,6.1,mww,579,34.4,,0.88,us,usp000jmfp,2024-06-17T19:28:53.334Z,"16 km S of Uñon, Peru",earthquake,,,,,reviewed,us,us

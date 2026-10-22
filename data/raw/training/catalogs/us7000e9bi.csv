@@ -1,0 +1,47 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2021-05-31T02:51:12.018Z,0.3226,126.3256,24.82,4.5,mb,,69,1.132,1.21,us,us7000e9gr,2021-08-07T22:06:28.040Z,"128 km WSW of Ternate, Indonesia",earthquake,8.2,6,0.14,17,reviewed,us,us
+2021-05-31T02:54:10.760Z,0.2224,126.3126,44.3,4.8,mb,,48,1.186,0.83,us,us6000eg3w,2021-08-07T22:06:28.040Z,"134 km WSW of Ternate, Indonesia",earthquake,6.8,6.3,0.086,41,reviewed,us,us
+2021-05-31T03:01:26.115Z,0.3734,126.3752,37.2,4.4,mb,,91,1.067,0.47,us,us7000e9gk,2021-08-07T22:06:28.040Z,"121 km WSW of Ternate, Indonesia",earthquake,8.5,10.8,0.24,5,reviewed,us,us
+2021-06-03T10:09:58.295Z,0.3165,126.2911,26,6.2,mww,,30,1.166,1.24,us,us7000e9bi,2025-12-22T19:01:48.926Z,"132 km WSW of Ternate, Indonesia",earthquake,6,1.8,0.05,38,reviewed,us,us
+2021-06-03T10:17:14.896Z,0.2321,126.1275,35,4.9,mb,,75,1.35,0.9,us,us7000eb6b,2021-08-07T22:07:30.040Z,"152 km WSW of Ternate, Indonesia",earthquake,5.9,1.8,0.102,40,reviewed,us,us
+2021-06-03T10:21:59.087Z,0.2635,126.2823,35,4.9,mb,,35,1.196,0.91,us,us7000eb6d,2021-08-07T22:07:30.040Z,"Molucca Sea",earthquake,6.8,1.9,0.086,59,reviewed,us,us
+2021-06-03T10:23:30.359Z,0.3224,126.293,35,5.1,mb,,34,1.162,1.05,us,us7000e9cj,2021-08-07T22:07:31.040Z,"132 km WSW of Ternate, Indonesia",earthquake,8,1.9,0.069,68,reviewed,us,us
+2021-06-03T10:24:54.555Z,0.2409,126.1757,44.82,4.6,mb,,71,1.302,0.52,us,us7000eb6e,2021-08-07T22:07:31.040Z,"147 km WSW of Ternate, Indonesia",earthquake,8.7,8.2,0.141,22,reviewed,us,us
+2021-06-03T10:28:21.276Z,0.3097,126.2674,41.23,4.7,mb,,49,1.191,1.19,us,us7000e9cy,2021-08-07T22:07:31.040Z,"135 km WSW of Ternate, Indonesia",earthquake,6.4,7.9,0.084,43,reviewed,us,us
+2021-06-03T10:49:26.997Z,0.2994,126.3239,31.45,4.4,mb,,78,1.143,0.6,us,us7000eb6f,2021-08-07T22:07:32.040Z,"129 km WSW of Ternate, Indonesia",earthquake,7.2,7.1,0.17,10,reviewed,us,us
+2021-06-03T10:50:15.181Z,0.2779,126.239,32.93,4.6,mb,,67,1.229,0.65,us,us7000eb79,2021-08-07T22:07:32.040Z,"139 km WSW of Ternate, Indonesia",earthquake,8.5,6,0.119,24,reviewed,us,us
+2021-06-03T11:14:15.770Z,0.1799,126.3047,40.33,4.5,mb,,50,1.213,0.82,us,us7000e9d7,2021-08-07T22:07:33.040Z,"137 km WSW of Ternate, Indonesia",earthquake,5.8,8.2,0.111,24,reviewed,us,us
+2021-06-03T11:19:03.567Z,0.2443,126.4466,47.64,4.8,mb,,43,1.058,1.1,us,us7000e9d6,2021-08-07T22:07:33.040Z,"120 km WSW of Ternate, Indonesia",earthquake,6.4,5,0.079,49,reviewed,us,us
+2021-06-03T11:51:35.501Z,0.2844,126.4156,41.16,4.3,mb,,78,1.067,0.51,us,us7000eb6p,2021-08-07T22:07:34.040Z,"121 km WSW of Ternate, Indonesia",earthquake,5.9,10.4,0.189,8,reviewed,us,us
+2021-06-03T12:03:04.593Z,0.2753,126.4149,42.74,4.6,mb,,49,1.071,0.7,us,us7000e9dc,2021-08-07T22:07:34.040Z,"122 km WSW of Ternate, Indonesia",earthquake,7,7.4,0.087,40,reviewed,us,us
+2021-06-04T03:31:12.066Z,0.3317,126.452,44.06,4.3,mb,,55,1.013,0.92,us,us7000ebhp,2021-08-24T21:33:58.040Z,"115 km WSW of Ternate, Indonesia",earthquake,5,9.8,0.168,11,reviewed,us,us
+2021-06-04T09:25:45.801Z,0.3743,126.2926,10,4.6,mb,,57,1.144,0.74,us,us7000ebhw,2021-08-24T21:33:56.040Z,"129 km WSW of Ternate, Indonesia",earthquake,7.3,1.9,0.119,21,reviewed,us,us
+2021-06-04T11:47:35.914Z,0.2634,126.4744,39.78,4.6,mb,,58,1.025,0.49,us,us7000e9nm,2021-08-24T21:35:48.040Z,"116 km WSW of Ternate, Indonesia",earthquake,6.1,7.1,0.072,60,reviewed,us,us
+2021-06-04T12:24:14.204Z,0.3215,126.3769,10,4.4,mb,,65,1.086,0.81,us,us7000ebi3,2021-08-24T21:33:55.040Z,"123 km WSW of Ternate, Indonesia",earthquake,6.6,1.8,0.104,27,reviewed,us,us
+2021-06-04T13:45:13.276Z,0.34,126.2897,8.6,5.3,mww,,26,1.159,1,us,us7000e9p4,2025-12-22T19:02:04.606Z,"Molucca Sea",earthquake,5.6,3,0.078,16,reviewed,us,us
+2021-06-04T14:07:56.903Z,0.2489,126.3269,10,4.8,mb,,69,1.162,1.08,us,us7000e9qb,2021-08-24T21:35:47.040Z,"132 km WSW of Ternate, Indonesia",earthquake,5.8,1.9,0.118,22,reviewed,us,us
+2021-06-04T15:17:44.411Z,0.2918,126.2872,10,4.9,mb,,91,1.18,0.9,us,us7000e9qw,2021-08-24T21:35:46.040Z,"133 km WSW of Ternate, Indonesia",earthquake,5.7,1.9,0.079,53,reviewed,us,us
+2021-06-04T15:24:42.249Z,0.1655,126.2436,10,5,mb,,45,1.274,1.11,us,us7000e9r2,2021-08-24T21:35:46.040Z,"144 km WSW of Ternate, Indonesia",earthquake,5.9,1.8,0.05,131,reviewed,us,us
+2021-06-04T18:01:42.076Z,0.4701,126.2553,10,4.1,mb,,106,1.151,0.32,us,us7000ebid,2021-08-24T21:33:54.040Z,"130 km WSW of Ternate, Indonesia",earthquake,5.7,1.9,0.233,5,reviewed,us,us
+2021-06-05T07:10:00.828Z,0.3649,126.3252,10,4.4,mb,,141,1.117,0.81,us,us7000ebpa,2021-08-24T21:33:42.040Z,"126 km WSW of Ternate, Indonesia",earthquake,5.7,1.9,0.179,9,reviewed,us,us
+2021-06-05T13:02:16.107Z,0.3156,126.4979,10,4.7,mb,,65,0.979,0.92,us,us7000ebph,2021-08-24T21:33:42.040Z,"111 km WSW of Ternate, Indonesia",earthquake,6.9,1.9,0.093,35,reviewed,us,us
+2021-06-05T13:24:47.452Z,0.2954,126.2445,10,4.5,mb,,74,1.217,0.75,us,us7000ebpi,2021-08-24T21:33:41.040Z,"138 km WSW of Ternate, Indonesia",earthquake,5.2,1.9,0.164,11,reviewed,us,us
+2021-06-05T21:11:40.205Z,0.2058,126.4529,10,4.8,mb,,55,1.072,0.68,us,us7000ea6p,2021-08-24T21:35:13.040Z,"122 km WSW of Ternate, Indonesia",earthquake,4,1.8,0.066,71,reviewed,us,us
+2021-06-05T22:57:38.235Z,0.2466,126.3835,16.26,5.3,mww,,34,1.113,0.75,us,us7000ea7j,2025-12-22T19:02:09.752Z,"126 km WSW of Ternate, Indonesia",earthquake,6,3.4,0.083,14,reviewed,us,us
+2021-06-05T23:14:58.417Z,0.2541,126.3151,10,4.5,mb,,130,1.17,0.87,us,us7000ebpu,2021-08-24T21:33:40.040Z,"132 km WSW of Ternate, Indonesia",earthquake,10.8,1.9,0.156,12,reviewed,us,us
+2021-06-06T04:02:38.480Z,0.2676,126.508,10,4.6,mb,,98,0.994,0.69,us,us7000ebs3,2021-08-24T21:33:34.040Z,"113 km WSW of Ternate, Indonesia",earthquake,7.7,1.7,0.147,16,reviewed,us,us
+2021-06-06T04:22:53.106Z,0.2863,126.4458,10,4.6,mb,,97,1.039,0.39,us,us7000ebs5,2021-08-24T21:33:33.040Z,"118 km WSW of Ternate, Indonesia",earthquake,5.6,1.9,0.164,13,reviewed,us,us
+2021-06-06T10:23:48.575Z,0.2931,126.443,10,4.5,mb,,96,1.038,0.78,us,us7000ebsk,2021-08-24T21:33:31.040Z,"118 km WSW of Ternate, Indonesia",earthquake,4.2,1.9,0.18,9,reviewed,us,us
+2021-06-07T02:06:32.211Z,0.3776,126.4711,10,4.2,mb,,67,0.977,0.81,us,us7000ec2x,2021-08-24T21:33:20.040Z,"111 km WSW of Ternate, Indonesia",earthquake,3.9,1.9,0.215,8,reviewed,us,us
+2021-06-08T15:04:44.677Z,0.3052,126.2019,10,4.3,mb,,55,1.253,0.63,us,us7000ec4k,2021-08-24T21:33:14.040Z,"142 km WSW of Ternate, Indonesia",earthquake,5.7,1.9,0.142,16,reviewed,us,us
+2021-06-08T15:05:13.562Z,0.4076,126.158,10,4.5,mb,,71,1.261,0.24,us,us7000ec4w,2021-08-24T21:33:12.040Z,"142 km WSW of Ternate, Indonesia",earthquake,6,1.9,0.221,10,reviewed,us,us
+2021-06-08T15:08:02.432Z,0.3537,126.2561,10,4.5,mb,,71,1.185,0.83,us,us7000ec4m,2021-08-24T21:33:14.040Z,"134 km WSW of Ternate, Indonesia",earthquake,8.3,1.9,0.144,17,reviewed,us,us
+2021-06-08T18:28:32.495Z,0.4204,126.4137,10,4.1,mb,,76,1.014,0.89,us,us7000ec4u,2021-08-24T21:33:12.040Z,"115 km WSW of Ternate, Indonesia",earthquake,6.1,1.9,0.184,10,reviewed,us,us
+2021-06-12T08:56:00.458Z,0.2918,126.339,10,4.5,mb,,53,1.132,0.75,us,us7000ecdq,2021-08-26T21:59:10.040Z,"128 km WSW of Ternate, Indonesia",earthquake,6.8,1.9,0.113,23,reviewed,us,us
+2021-06-14T01:22:49.553Z,0.2594,126.3901,10,4.5,mb,,95,1.101,0.87,us,us7000ee3x,2021-08-26T21:59:16.040Z,"125 km WSW of Ternate, Indonesia",earthquake,7,1.8,0.127,18,reviewed,us,us
+2021-06-15T21:17:15.530Z,0.3733,126.4963,10,4.2,mb,,67,0.956,1.15,us,us7000ee5m,2021-08-26T21:59:24.040Z,"109 km WSW of Ternate, Indonesia",earthquake,7.8,1.9,0.152,12,reviewed,us,us
+2021-06-21T23:22:55.756Z,0.4008,126.3902,10,4.7,mb,,50,1.043,0.82,us,us6000epqg,2021-08-27T18:58:13.040Z,"118 km WSW of Ternate, Indonesia",earthquake,4.7,1.9,0.093,35,reviewed,us,us
+2021-06-22T13:25:29.902Z,0.368,126.3833,10,4.9,mb,,36,1.062,0.68,us,us7000ef6y,2021-08-27T18:58:23.040Z,"120 km WSW of Ternate, Indonesia",earthquake,6.3,1.5,0.051,119,reviewed,us,us
+2021-06-27T16:21:29.966Z,0.4523,126.4019,49.5,4.3,mb,,48,1.015,0.43,us,us7000ei6h,2021-09-09T22:06:37.040Z,"115 km WSW of Ternate, Indonesia",earthquake,7.2,9,0.178,11,reviewed,us,us
+2021-06-27T16:48:49.774Z,0.2892,126.2696,3.67,4.4,mb,,67,1.197,0.47,us,us7000ei6i,2021-09-09T22:06:37.040Z,"135 km WSW of Ternate, Indonesia",earthquake,7.7,5.4,0.139,17,reviewed,us,us
+2021-06-29T17:55:36.856Z,0.3063,126.3534,10,4.5,mb,,67,1.113,0.82,us,us7000eiaf,2021-09-09T22:06:47.040Z,"126 km WSW of Ternate, Indonesia",earthquake,4.2,1.9,0.135,21,reviewed,us,us

@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2011-03-31T00:11:58.300Z,-16.541,-177.517,15.5,6.3,mww,373,50,,1.38,us,usp000hyyr,2022-04-08T21:44:16.732Z,"254 km SSE of Alo, Wallis and Futuna",earthquake,,6.4,,,reviewed,us,us
+2011-03-31T02:59:18.340Z,-16.309,-177.53,10,5.4,mwc,104,57.6,,1.21,us,usp000hyz0,2025-12-22T16:00:58.472Z,"229 km SSE of Alo, Wallis and Futuna",earthquake,,,,,reviewed,us,gcmt
+2011-03-31T07:44:22.500Z,-16.566,-177.584,35,5.3,mwc,67,110.9,,1.27,us,usp000hyzp,2025-12-22T16:00:56.056Z,"255 km SSE of Alo, Wallis and Futuna",earthquake,,,,,reviewed,us,gcmt
+2011-04-01T01:48:15.320Z,-16.467,-177.648,21.2,4.5,mb,14,111.6,,1.17,us,usp000hz1h,2014-11-07T01:44:25.100Z,"243 km SSE of Alo, Wallis and Futuna",earthquake,,51.6,,1,reviewed,us,us

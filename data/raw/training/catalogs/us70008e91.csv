@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-03-22T22:38:04.810Z,-4.6744,-104.9519,10,6.1,mww,,53,22.978,0.68,us,us70008e91,2025-12-22T18:31:32.433Z,"central East Pacific Rise",earthquake,11.2,1.6,0.039,64,reviewed,us,us

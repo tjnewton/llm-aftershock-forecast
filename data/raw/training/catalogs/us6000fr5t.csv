@@ -1,0 +1,3 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2021-10-02T20:43:39.504Z,-9.1778,67.2614,10,6,mww,,36,5.377,0.8,us,us6000fr5t,2025-12-22T22:17:20.599Z,"Mid-Indian Ridge",earthquake,8.1,1.7,0.073,18,reviewed,us,us
+2021-10-03T00:22:41.782Z,-9.2369,67.1686,10,4.5,mb,,68,12.456,0.63,us,us6000fsni,2021-12-10T21:14:19.040Z,"Mid-Indian Ridge",earthquake,11.4,1.8,0.156,12,reviewed,us,us

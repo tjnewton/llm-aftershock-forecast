@@ -1,0 +1,10 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2021-07-08T22:49:48.110Z,38.5075,-119.4998333,7.45,6,mw,42,100,0.04846,0.06,nc,nc73584926,2026-04-25T19:17:25.964Z,"Antelope Valley, CA",earthquake,0.14,0.25,,0,reviewed,nc,nc
+2021-07-08T22:50:14.370Z,38.5126667,-119.5021667,7.4,5.03,ml,6,124,0.05088,0.07,nc,nc71123379,2025-12-22T19:07:07.701Z,"32km SE of Markleeville, CA",earthquake,0.42,0.56,0.086,3,reviewed,nc,nc
+2021-07-08T22:59:45.260Z,38.5128333,-119.5106667,6.74,4.31,ml,33,101,0.05749,0.09,nc,nc73584936,2026-01-06T01:01:42.869Z,"32km SE of Markleeville, CA",earthquake,0.21,0.32,0.193,115,reviewed,nc,nc
+2021-07-08T23:33:40.900Z,38.4796667,-119.5448333,1.58,4.63,mw,38,77,0.08722,0.08,nc,nc73585021,2021-09-10T20:06:58.040Z,"29km ENE of Dardanelle, CA",earthquake,0.12,0.53,,6,reviewed,nc,nc
+2021-07-08T23:58:53.570Z,38.537,-119.524,5.83,4.24,mw,52,92,0.0748,0.1,nc,nc73585086,2024-02-23T03:44:10.959Z,"29km SE of Markleeville, CA",earthquake,0.18,0.37,,4,reviewed,nc,nc
+2021-07-09T00:27:46.560Z,38.4781667,-119.5103333,4.81,4.41,ml,25,71,0.06233,0.03,nc,nc73585141,2025-06-11T17:10:11.067Z,"32km ENE of Dardanelle, CA",earthquake,0.13,0.27,0.185,122,reviewed,nc,nc
+2021-07-09T01:46:00.400Z,38.5086667,-119.5343333,3.71,4.55,mw,48,88,0.07555,0.1,nc,nc73585291,2021-09-17T22:48:30.040Z,"30km SE of Markleeville, CA",earthquake,0.17,0.38,,5,reviewed,nc,nc
+2021-07-09T05:04:18.400Z,38.5291667,-119.512,5.7,4.06,mw,50,92,0.06299,0.09,nc,nc73585526,2021-09-17T22:48:38.040Z,"30km SE of Markleeville, CA",earthquake,0.21,0.38,,3,reviewed,nc,nc
+2021-07-09T05:10:35.790Z,38.5426667,-119.5293333,3.92,4.3,mw,53,92,0.0811,0.1,nc,nc73585531,2026-10-17T05:57:07.080Z,"5 km NW of Walker, CA",earthquake,0.2,0.54,,23,reviewed,nc,nc

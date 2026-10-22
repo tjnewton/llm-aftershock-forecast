@@ -1,0 +1,3 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2010-03-04T22:39:26.530Z,-22.227,-68.328,114,6.3,mwb,498,17.7,,0.93,us,usp000h8qr,2022-07-16T04:59:10.950Z,"66 km ENE of Calama, Chile",earthquake,,,,,reviewed,us,us
+2010-03-28T14:29:00.270Z,-22.334,-68.409,98.1,4.2,mb,14,87.5,,1.28,us,usp000ha2p,2014-11-07T01:41:06.151Z,"54 km ENE of Calama, Chile",earthquake,,8.5,,2,reviewed,us,us

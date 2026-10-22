@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2013-06-02T05:43:03.460Z,23.789,121.141,17,6.2,mww,434,39,,0.66,us,usb000hbrt,2022-07-25T04:12:10.004Z,"26 km SE of Puli, Taiwan",earthquake,,,,,reviewed,us,us

@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2019-03-31T10:24:10.023Z,-56.0214,-27.6075,106.46,4.3,mb,,126,5.382,0.89,us,us2000kcf2,2019-06-08T20:51:39.040Z,"South Sandwich Islands region",earthquake,12.2,7.4,0.153,12,reviewed,us,us
+2019-04-05T16:14:16.716Z,-55.9308,-27.8522,57,6.4,mww,,31,5.225,0.86,us,us2000kav9,2025-12-22T18:07:13.213Z,"South Sandwich Islands region",earthquake,8.5,1.8,0.047,44,reviewed,us,us
+2019-04-30T01:47:35.880Z,-56.0439,-27.5168,113.49,4.9,mb,,69,5.437,0.71,us,us70003eed,2019-07-25T18:54:01.040Z,"South Sandwich Islands region",earthquake,12.1,2.1,0.091,38,reviewed,us,us

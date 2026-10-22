@@ -1,0 +1,11 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2017-11-17T22:34:19.450Z,29.8333,94.9838,8,6.4,mww,,13,3.355,0.76,us,us2000bqsn,2022-05-03T20:02:37.973Z,"156 km NNE of Shi Yomi, India",earthquake,7,1.7,0.043,52,reviewed,us,us
+2017-11-18T00:32:01.910Z,29.9311,94.8843,10,5.1,mb,,23,3.273,0.73,us,us2000bqtu,2022-08-07T21:21:18.996Z,"163 km NNE of Shi Yomi, India",earthquake,7.8,1.8,0.039,214,reviewed,us,us
+2017-11-18T02:13:40.430Z,30.063,95.1719,10,4.1,mb,,129,3.531,1.14,us,us2000bqva,2018-02-06T02:45:41.040Z,"186 km NNE of Shi Yomi, India",earthquake,12.1,2,0.139,14,reviewed,us,us
+2017-11-18T03:36:06.040Z,29.968,95.2211,10,4.2,mb,,129,3.567,0.95,us,us2000bqvi,2018-02-06T02:45:41.040Z,"179 km NNE of Shi Yomi, India",earthquake,6.7,1.9,0.132,16,reviewed,us,us
+2017-11-18T05:59:44.980Z,30.0082,95.0046,10,4.2,mb,,148,3.382,0.88,us,us2000buy0,2018-02-06T02:45:41.040Z,"174 km NNE of Shi Yomi, India",earthquake,6.3,2,0.128,17,reviewed,us,us
+2017-11-18T21:24:49.880Z,29.8332,95.0334,10,4.4,mb,,84,3.398,0.99,us,us2000br5p,2018-02-06T02:45:42.040Z,"158 km NNE of Shi Yomi, India",earthquake,9.9,1.9,0.105,26,reviewed,us,us
+2017-11-23T02:14:16.930Z,29.8244,95.2161,26.27,4.5,mb,,53,3.557,0.6,us,us2000btdi,2022-08-07T21:27:49.734Z,"165 km NNE of Shi Yomi, India",earthquake,8.6,5.6,0.071,58,reviewed,us,us
+2017-11-23T02:59:45.380Z,29.8252,95.2012,10,4.1,mb,,78,3.544,0.46,us,us1000bjt0,2018-02-14T02:01:11.040Z,"164 km NNE of Shi Yomi, India",earthquake,10.1,2,0.151,12,reviewed,us,us
+2017-11-23T07:13:47.230Z,29.9261,95.1799,10,4.7,mb,,53,3.529,0.74,us,us2000btfh,2018-02-14T02:01:12.040Z,"173 km NNE of Shi Yomi, India",earthquake,8.9,1.9,0.082,45,reviewed,us,us
+2017-12-10T21:37:05.140Z,29.9322,95.0733,24.12,4.5,mb,,72,3.436,0.79,us,us2000c2pc,2018-03-06T00:49:35.040Z,"169 km NNE of Shi Yomi, India",earthquake,7.8,4.6,0.09,36,reviewed,us,us

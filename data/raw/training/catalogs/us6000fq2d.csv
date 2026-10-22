@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2021-09-29T08:37:05.619Z,38.8893,135.4527,364,6.1,mww,,13,3.198,0.82,us,us6000fq2d,2025-12-22T22:24:41.001Z,"243 km NNW of Nanao, Japan",earthquake,7.2,1.9,0.05,38,reviewed,us,us

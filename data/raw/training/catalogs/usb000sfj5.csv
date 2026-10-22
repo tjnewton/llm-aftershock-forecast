@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2014-09-24T11:16:15.010Z,-23.8009,-66.6321,224,6.2,mww,,25,2.407,1.19,us,usb000sfj5,2022-07-27T02:48:35.363Z,"56 km NW of San Antonio de los Cobres, Argentina",earthquake,6.9,1.8,,,reviewed,us,us

@@ -1,0 +1,10 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2019-09-24T03:23:40.000Z,19.077,-67.2701,10,6,mw,25,193,0.6299,0.88,pr,pr2019267000,2025-12-22T18:17:22.342Z,"67 km NNW of San Antonio, Puerto Rico",earthquake,3.8,31.61,0.51,25,reviewed,pr,pr
+2019-09-24T03:32:41.200Z,19.0225,-67.2081,5,5.06,ml,204,,0.6459,0.57,pr,pr2019267004,2023-03-22T02:47:03.248Z,"59 km N of San Antonio, Puerto Rico",earthquake,3.27,31.61,0.18,19,reviewed,pr,pr
+2019-09-24T03:51:09.110Z,19.1271,-67.2315,6,4.4,ml,22,210,0.6705,0.46,pr,pr2019267002,2019-12-20T19:01:58.040Z,"71 km NNW of San Antonio, Puerto Rico",earthquake,1.76,1.21,0.28,15,reviewed,pr,pr
+2019-09-24T04:09:51.970Z,18.9628,-67.2188,21,4.27,md,23,199,0.5069,0.42,pr,pr2019267001,2019-12-20T19:01:59.040Z,"53 km NNW of San Antonio, Puerto Rico",earthquake,2.33,29.4,0.47,19,reviewed,pr,pr
+2019-09-25T00:12:09.810Z,19.086,-67.2033,12,4.84,md,27,208,0.6253,0.4,pr,pr2019268001,2019-12-20T19:02:22.040Z,"66 km N of San Antonio, Puerto Rico",earthquake,1.64,31.61,0.53,19,reviewed,pr,pr
+2019-09-25T01:05:10.330Z,19.0421,-67.1533,10,4.41,md,24,207,0.5761,0.71,pr,pr2019268002,2019-12-20T19:02:22.040Z,"61 km N of San Antonio, Puerto Rico",earthquake,2.22,31.61,0.17,16,reviewed,pr,pr
+2019-09-26T02:12:39.160Z,19.1278,-67.2475,8,4.2,ml,23,210,0.6742,0.34,pr,pr2019269002,2019-12-20T19:02:45.040Z,"72 km NNW of San Antonio, Puerto Rico",earthquake,1.59,31.61,0.35,20,reviewed,pr,pr
+2019-09-27T03:51:38.530Z,19.092,-67.2023,8,4.7,ml,23,209,0.6311,0.43,pr,pr2019270000,2019-12-20T19:03:09.040Z,"67 km N of San Antonio, Puerto Rico",earthquake,1.65,31.61,0.38,14,reviewed,pr,pr
+2019-10-02T11:08:11.680Z,19.235,-67.2761,25,4.08,md,17,242,0.785,0.46,pr,pr2019275013,2019-12-27T15:49:53.040Z,"84 km NNW of San Antonio, Puerto Rico",earthquake,1.98,29.21,0.23,12,reviewed,pr,pr

@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2015-03-15T23:17:16.910Z,-0.5409,122.3067,31,6.1,mww,,16,0.681,1.02,us,us10001mm0,2024-06-16T23:43:38.324Z,"70 km NW of Luwuk, Indonesia",earthquake,5.4,2.9,,,reviewed,us,us
+2015-03-17T10:31:43.240Z,-0.6065,122.3358,27.56,4.8,mb,,34,0.613,0.95,us,us10001n0c,2015-06-04T00:46:24.040Z,"63 km NW of Luwuk, Indonesia",earthquake,4.5,3.8,0.075,55,reviewed,us,us
+2015-03-17T10:56:21.530Z,-0.7261,122.33,31.18,4.4,mb,,50,0.541,1.23,us,us10001n0q,2015-06-04T00:46:24.040Z,"56 km WNW of Luwuk, Indonesia",earthquake,6.2,7.2,0.143,14,reviewed,us,us
+2015-03-18T01:22:18.820Z,-0.6991,122.3062,37.99,4.9,mb,,50,0.576,1.2,us,us10001nc9,2015-06-04T00:46:25.040Z,"60 km WNW of Luwuk, Indonesia",earthquake,3.2,7,0.082,47,reviewed,us,us
+2015-04-03T11:52:47.970Z,-0.6917,122.3171,40.99,4.3,mb,,50,0.572,1.08,us,us10001tjq,2015-06-16T01:00:24.040Z,"59 km WNW of Luwuk, Indonesia",earthquake,3.8,9.6,0.133,16,reviewed,us,us

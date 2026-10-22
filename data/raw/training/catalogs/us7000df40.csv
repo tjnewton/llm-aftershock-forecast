@@ -1,0 +1,38 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2021-03-03T10:16:09.755Z,39.7546,22.1757,8,6.3,mww,,17,0.423,0.55,us,us7000df40,2025-12-22T19:06:42.980Z,"9 km W of Týrnavos, Greece",earthquake,2.7,1.8,0.034,81,reviewed,us,us
+2021-03-03T10:20:45.759Z,39.7681,22.0881,10,4.8,mb,,47,0.455,0.5,us,us7000dh69,2021-05-13T22:41:58.040Z,"9 km E of Verdikoússa, Greece",earthquake,6.5,1.9,0.16,16,reviewed,us,us
+2021-03-03T10:21:35.074Z,39.5708,22.0342,10,4.9,mb,,84,0.596,0.51,us,us7000dh62,2025-12-22T19:04:23.882Z,"6 km SE of Oichalía, Greece",earthquake,4.1,1.8,0.102,33,reviewed,us,us
+2021-03-03T10:26:20.417Z,39.6446,22.2284,10,4.5,mb,,54,0.5,0.6,us,us7000dh5t,2021-05-13T22:42:00.040Z,"9 km ENE of Zárkos, Greece",earthquake,3.5,1.7,0.102,28,reviewed,us,us
+2021-03-03T10:34:08.332Z,39.7231,22.211,10,5,mb,,35,0.435,0.53,us,us7000df42,2025-12-22T19:04:24.564Z,"6 km WSW of Týrnavos, Greece",earthquake,5.7,1.8,0.053,114,reviewed,us,us
+2021-03-03T11:12:22.718Z,39.7084,22.0725,10,4.4,mb,,38,0.508,0.68,us,us7000df47,2021-05-13T22:42:04.040Z,"8 km NNE of Grizáno, Greece",earthquake,3.5,2,0.143,14,reviewed,us,us
+2021-03-03T11:19:03.048Z,39.7277,22.2743,10,4.5,mb,,42,0.409,0.85,us,us7000df4a,2021-05-13T22:42:06.040Z,"1 km SW of Týrnavos, Greece",earthquake,4.4,1.8,0.15,13,reviewed,us,us
+2021-03-03T11:35:09.683Z,39.6438,22.2258,10,4.3,mb,,44,0.501,0.74,us,us7000dh5w,2021-05-13T22:42:08.040Z,"9 km ENE of Zárkos, Greece",earthquake,4.4,1.8,0.202,8,reviewed,us,us
+2021-03-03T11:35:57.327Z,39.6609,22.2357,10,4.9,mwr,,30,0.483,0.5,us,us7000df4h,2025-12-22T18:53:59.654Z,"9 km SSW of Týrnavos, Greece",earthquake,4.9,1.8,0.056,31,reviewed,us,us
+2021-03-03T11:45:46.390Z,39.7259,22.2212,10,5.3,mww,,28,0.429,0.4,us,us7000df4l,2025-12-22T18:52:09.032Z,"5 km WSW of Týrnavos, Greece",earthquake,5.5,1.8,0.071,19,reviewed,us,us
+2021-03-03T11:49:03.840Z,39.7742,22.3586,10,4.9,mb,,33,0.343,0.59,us,us7000dh6e,2021-05-13T22:42:14.040Z,"Greece",earthquake,5.2,1.9,0.085,43,reviewed,us,us
+2021-03-03T12:02:38.067Z,39.7306,22.1797,10,4.3,mb,,68,0.441,0.84,us,us7000df4r,2021-05-13T22:42:15.040Z,"9 km W of Týrnavos, Greece",earthquake,5.9,1.9,0.202,7,reviewed,us,us
+2021-03-03T18:24:09.041Z,39.7227,22.1153,14.74,5.1,mww,,17,0.476,0.95,us,us7000df7z,2025-12-22T18:52:10.357Z,"11 km NNE of Grizáno, Greece",earthquake,4.3,3.2,0.053,34,reviewed,us,us
+2021-03-03T18:49:49.837Z,39.7259,22.0503,10,4.4,mb,,38,0.506,1.05,us,us7000df8a,2021-05-13T22:42:33.040Z,"8 km SE of Verdikoússa, Greece",earthquake,4.8,1.9,0.12,20,reviewed,us,us
+2021-03-03T21:00:56.106Z,39.7958,22.1868,13.05,4.3,mb,,35,0.385,0.56,us,us7000df98,2021-05-13T22:42:39.040Z,"10 km SSW of Tsarítsani, Greece",earthquake,5.2,5.2,0.093,33,reviewed,us,us
+2021-03-04T02:43:38.481Z,39.7362,22.1919,10,4.3,mb,,36,0.432,0.58,us,us7000dfbq,2021-05-13T22:42:57.040Z,"8 km W of Týrnavos, Greece",earthquake,5.7,1.9,0.113,23,reviewed,us,us
+2021-03-04T09:36:16.660Z,39.7457,22.1311,10,4.6,mwr,,36,0.451,0.62,us,us7000dfe8,2021-05-13T22:43:22.040Z,"13 km W of Týrnavos, Greece",earthquake,5.6,1.9,0.098,10,reviewed,us,us
+2021-03-04T18:38:19.386Z,39.7865,22.1157,10,5.8,mb,,19,0.427,0.91,us,us7000dfku,2025-12-22T18:52:11.489Z,"11 km E of Verdikoússa, Greece",earthquake,5.5,1.8,0.036,277,reviewed,us,us
+2021-03-04T18:45:27.370Z,39.7931,21.9916,10,4.5,mb,,88,0.492,0.64,us,us7000dhup,2021-05-13T22:45:29.040Z,"1 km NE of Verdikoússa, Greece",earthquake,2.9,1.9,0.271,4,reviewed,us,us
+2021-03-04T19:23:51.987Z,39.8812,21.9795,10,5.5,mb,,20,0.45,0.99,us,us7000dfld,2025-12-22T18:00:14.537Z,"7 km S of Kraniá Elassónas, Greece",earthquake,4.8,1.8,0.028,440,reviewed,us,us
+2021-03-04T19:31:32.531Z,39.802,22.0039,10,4.6,mb,,42,0.479,1.14,us,us7000dhtm,2021-05-13T22:45:32.040Z,"3 km NE of Verdikoússa, Greece",earthquake,4.7,1.9,0.157,12,reviewed,us,us
+2021-03-04T20:03:09.701Z,39.7751,22.1766,10,4.6,mb,,35,0.406,1.09,us,us7000dfm4,2021-05-13T22:45:36.040Z,"10 km WNW of Týrnavos, Greece",earthquake,5.5,1.9,0.243,5,reviewed,us,us
+2021-03-05T09:59:59.049Z,39.7964,22.0456,10,4.6,mb,,67,0.458,0.57,us,us7000dfxf,2021-05-21T19:46:44.040Z,"6 km ENE of Verdikoússa, Greece",earthquake,4.4,1.9,0.107,26,reviewed,us,us
+2021-03-05T10:01:13.794Z,39.8056,21.9612,10,4.5,mb,,60,0.503,0.57,us,us7000difk,2021-05-21T19:49:59.040Z,"2 km NNW of Verdikoússa, Greece",earthquake,2,1.9,0.092,35,reviewed,us,us
+2021-03-06T16:36:19.338Z,39.6816,22.2378,10,4.5,mb,,34,0.463,0.95,us,us7000dgjq,2021-05-21T19:47:32.040Z,"Greece",earthquake,5.5,1.9,0.135,16,reviewed,us,us
+2021-03-06T19:47:41.774Z,39.8399,22.0772,11.58,4.4,mb,,37,0.411,0.59,us,us7000dgl8,2021-05-21T19:47:40.040Z,"10 km NE of Verdikoússa, Greece",earthquake,5.6,5.1,0.091,35,reviewed,us,us
+2021-03-08T18:00:47.160Z,39.6448,22.2201,10,4.3,mb,,71,0.502,0.8,us,us7000dh4w,2021-05-21T19:48:32.040Z,"9 km ENE of Zárkos, Greece",earthquake,5.1,1.9,0.153,12,reviewed,us,us
+2021-03-08T18:34:22.111Z,39.7218,22.0665,10,4.4,mb,,37,1.599,0.64,us,us7000dh52,2021-05-21T19:48:33.040Z,"10 km N of Grizáno, Greece",earthquake,3.5,1.9,0.178,9,reviewed,us,us
+2021-03-11T14:19:40.293Z,39.6844,22.2651,10,4.5,mb,,93,0.452,1.03,us,us7000di5l,2021-05-21T19:49:32.040Z,"6 km SSW of Týrnavos, Greece",earthquake,4.9,1.9,0.15,13,reviewed,us,us
+2021-03-12T12:57:50.879Z,39.8931,22.0875,7,5.6,mww,,31,0.373,0.49,us,us7000dimf,2025-12-22T18:00:21.085Z,"8 km W of Elassóna, Greece",earthquake,4,1.8,0.043,53,reviewed,us,us
+2021-03-12T13:07:50.216Z,39.7312,22.0044,10,4.3,mb,,100,0.526,0.75,us,us7000dl0j,2021-05-26T22:06:16.040Z,"6 km SSE of Verdikoússa, Greece",earthquake,4.8,2,0.308,3,reviewed,us,us
+2021-03-12T15:00:20.595Z,39.7992,22.2098,10,4.2,mb,,50,0.372,1.12,us,us7000din5,2021-05-26T22:06:19.040Z,"8 km WSW of Argyropoúli, Greece",earthquake,5.7,1.9,0.159,11,reviewed,us,us
+2021-03-13T03:25:49.062Z,39.7916,22.0534,10,4.1,mb,,56,0.457,1.1,us,us7000dj0d,2021-05-26T22:06:31.040Z,"6 km E of Verdikoússa, Greece",earthquake,2.7,1.9,0.262,4,reviewed,us,us
+2021-03-13T15:09:13.845Z,39.864,22.1084,10,4.1,mb,,37,0.377,0.98,us,us7000dj40,2021-05-26T22:06:44.040Z,"7 km WSW of Elassóna, Greece",earthquake,5.1,2,0.185,8,reviewed,us,us
+2021-03-13T21:11:10.883Z,39.8545,22.0309,7.79,4.1,mb,,63,0.431,0.77,us,us7000dj5h,2021-05-26T22:06:51.040Z,"9 km NNE of Verdikoússa, Greece",earthquake,2.3,7.4,0.261,4,reviewed,us,us
+2021-03-15T15:43:38.385Z,39.7982,22.1514,10,4.9,mb,,36,0.4,0.6,us,us7000djjb,2022-08-09T04:17:42.077Z,"11 km SSW of Elassóna, Greece",earthquake,5.5,1.9,0.073,62,reviewed,us,us
+2021-03-21T17:15:54.669Z,39.7694,22.0889,10,4.3,mb,,45,0.453,1.1,us,us7000dlh1,2021-06-02T15:24:22.040Z,"9 km E of Verdikoússa, Greece",earthquake,4.8,1.9,0.137,15,reviewed,us,us

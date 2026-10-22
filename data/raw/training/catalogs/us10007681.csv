@@ -1,0 +1,8 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-11-08T04:55:45.900Z,-36.5776,-73.5603,20,6,mww,,54,0.342,0.82,us,us10007681,2022-05-03T19:46:46.393Z,"42 km WNW of Talcahuano, Chile",earthquake,4.1,1.8,,,reviewed,us,us
+2016-11-08T05:16:16.940Z,-36.5989,-73.5511,17.03,4.9,mwr,,151,0.325,0.77,us,us10007685,2017-02-02T02:21:03.040Z,"41 km WNW of Talcahuano, Chile",earthquake,6.1,5.5,,,reviewed,us,guc
+2016-11-08T05:44:41.650Z,-36.5913,-73.663,14.24,4.6,mwr,,123,0.41,0.71,us,us1000768d,2017-02-02T02:21:03.040Z,"51 km WNW of Talcahuano, Chile",earthquake,3.1,4.5,0.043,52,reviewed,us,us
+2016-11-08T07:08:02.600Z,-36.6001,-73.5462,17.72,4.9,mww,,111,0.321,1.11,us,us1000768w,2017-02-02T02:21:03.040Z,"40 km WNW of Talcahuano, Chile",earthquake,5.1,3.4,,,reviewed,us,us
+2016-11-08T07:13:09.000Z,-36.65,-73.572,10.4,4.6,mb,,,,0.91,us,us1000768x,2017-02-02T02:21:03.040Z,"41 km WNW of Talcahuano, Chile",earthquake,4.5,4.8,0.146,14,reviewed,guc,us
+2016-11-09T11:04:07.880Z,-36.483,-73.7047,10,4.6,mwr,,121,0.49,0.64,us,us100076g2,2017-02-02T02:21:05.040Z,"59 km WNW of Talcahuano, Chile",earthquake,5.8,1.9,,,reviewed,us,guc
+2016-11-09T12:21:29.820Z,-36.4906,-73.6018,10,4.8,mwr,,122,0.418,0.72,us,us100076g5,2017-02-02T02:21:05.040Z,"50 km WNW of Talcahuano, Chile",earthquake,4.9,1.9,,,reviewed,us,guc

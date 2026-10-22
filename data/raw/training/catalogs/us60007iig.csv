@@ -1,0 +1,15 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-01-28T19:32:55.673Z,18.8963,-80.6236,10,4.5,mb,,75,3.005,0.98,us,us60007ign,2020-04-11T18:21:03.040Z,"68 km SE of East End, Cayman Islands",earthquake,7.5,1.9,0.312,3,reviewed,us,us
+2020-01-28T21:55:16.450Z,18.9457,-80.7411,10,6.1,mww,,66,3.124,0.85,us,us60007iig,2025-12-22T19:05:26.671Z,"55 km SE of East End, Cayman Islands",earthquake,8.2,1.8,0.098,10,reviewed,us,us
+2020-01-28T21:58:57.470Z,18.9865,-80.9146,10,5.4,mb,,102,3.293,0.82,us,us70007k4v,2020-04-11T18:21:18.040Z,"40 km SSE of East End, Cayman Islands",earthquake,6,1.8,0.074,63,reviewed,us,us
+2020-01-28T22:16:09.903Z,18.9658,-80.6824,10,4.4,mb,,122,3.074,0.84,us,us60007ije,2020-04-11T18:21:04.040Z,"58 km SE of East End, Cayman Islands",earthquake,7.8,1.9,0.126,18,reviewed,us,us
+2020-01-28T22:58:21.207Z,19.0139,-80.6804,10,4.4,mb,,114,3.084,0.76,us,us60007ikn,2020-04-11T18:21:04.040Z,"55 km SE of East End, Cayman Islands",earthquake,9.3,1.9,0.061,77,reviewed,us,us
+2020-01-28T23:04:23.254Z,18.9496,-80.8063,10,4.4,mb,,153,3.185,0.78,us,us60007iku,2020-04-11T18:21:04.040Z,"50 km SE of East End, Cayman Islands",earthquake,9.9,1.9,0.06,81,reviewed,us,us
+2020-01-28T23:09:08.813Z,19.0286,-80.8407,12.39,4.5,mb,,101,3.235,0.74,us,us70007k50,2020-04-11T18:21:18.040Z,"41 km SE of East End, Cayman Islands",earthquake,7,3.1,0.106,26,reviewed,us,us
+2020-01-29T00:41:56.268Z,18.9211,-80.8777,10,4.5,mb,,69,3.245,0.92,us,us60007in9,2020-04-18T22:09:50.040Z,"48 km SSE of East End, Cayman Islands",earthquake,7.8,1.9,0.054,100,reviewed,us,us
+2020-01-29T01:18:09.494Z,18.9471,-80.7964,10,4.3,mb,,33,3.175,1.3,us,us60007int,2020-04-18T22:09:51.040Z,"51 km SE of East End, Cayman Islands",earthquake,5.9,1.8,0.109,24,reviewed,us,us
+2020-01-29T02:13:16.512Z,19.0246,-80.7573,10,4.5,mb,,32,3.157,0.76,us,us60007ipt,2020-04-18T22:09:51.040Z,"48 km SE of East End, Cayman Islands",earthquake,6.2,1.8,0.062,77,reviewed,us,us
+2020-01-29T02:50:21.719Z,19.02,-80.7182,10,4.2,mb,,69,3.12,1,us,us70007kvz,2020-04-18T22:10:28.040Z,"52 km SE of East End, Cayman Islands",earthquake,7.4,1.9,0.147,13,reviewed,us,us
+2020-01-29T04:37:30.384Z,19.0197,-80.7227,10,4.2,mb,,71,3.124,0.77,us,us60007isg,2020-04-18T22:09:51.040Z,"51 km SE of East End, Cayman Islands",earthquake,7,1.9,0.108,24,reviewed,us,us
+2020-01-29T05:16:46.482Z,19.038,-80.7512,13.65,4.3,mb,,128,3.155,0.79,us,us60007it9,2020-04-18T22:09:51.040Z,"48 km SE of East End, Cayman Islands",earthquake,9.6,4.6,0.067,64,reviewed,us,us
+2020-01-29T15:01:40.123Z,18.9655,-80.7131,10,4,mb,,72,3.103,1.13,us,us60007jkp,2020-04-18T22:09:54.040Z,"56 km SE of East End, Cayman Islands",earthquake,6.7,1.9,0.173,9,reviewed,us,us

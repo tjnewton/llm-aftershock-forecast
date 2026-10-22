@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2013-04-26T06:53:28.920Z,-28.681,-178.916,351,6.1,mww,386,16,,0.94,us,us2013plai,2022-05-12T18:16:04.728Z,"Kermadec Islands region",earthquake,,,,,reviewed,us,us

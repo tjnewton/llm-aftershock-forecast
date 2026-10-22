@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-04-15T14:11:26.430Z,13.4008,-92.367,22.41,6.1,mww,,63,1.293,1.39,us,us20005ih9,2022-05-03T17:44:16.910Z,"110 km SSW of Champerico, Guatemala",earthquake,5.3,3,,,reviewed,us,us
+2016-04-15T14:36:42.600Z,13.4943,-92.4609,10,4.6,mb,,132,1.265,1.95,us,us20005ihg,2022-08-02T20:57:57.204Z,"106 km SW of Champerico, Guatemala",earthquake,5,1.8,0.068,65,reviewed,us,us
+2016-04-15T20:39:09.790Z,13.5021,-92.3332,10,4.6,mb,,172,1.19,1.45,us,us20005irm,2016-06-27T23:01:43.040Z,"98 km SSW of Champerico, Guatemala",earthquake,6.7,1.9,0.081,45,reviewed,us,us

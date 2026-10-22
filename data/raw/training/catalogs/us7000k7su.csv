@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2023-06-11T09:54:44.886Z,42.5268,141.9005,121,6.2,mww,143,31,1.064,0.53,us,us7000k7su,2023-08-21T04:18:40.040Z,"20 km WSW of Biratori, Japan",earthquake,5.62,1.905,0.032,94,reviewed,us,us

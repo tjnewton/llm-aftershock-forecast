@@ -1,0 +1,19 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2024-07-04T16:00:18.332Z,48.7176,-129.0315,10,4.2,mb,21,155,0.796,1.37,us,us7000mx3h,2024-09-12T21:52:28.040Z,"233 km WSW of Tofino, Canada",earthquake,3.68,1.954,0.055,93,reviewed,us,us
+2024-07-04T16:15:08.888Z,48.6536,-129.0074,10,5.7,mww,84,76,0.733,1.02,us,us7000mx3m,2024-10-09T00:10:28.889Z,"233 km WSW of Tofino, Canada",earthquake,5.13,1.433,0.035,78,reviewed,us,us
+2024-07-04T17:43:18.003Z,48.6965,-129.0814,10,4.3,mwr,56,147,0.773,0.86,us,us7000mx40,2024-09-12T21:52:28.040Z,"238 km WSW of Tofino, Canada",earthquake,6.06,1.945,0.089,12,reviewed,us,us
+2024-07-04T18:31:25.054Z,48.7389,-129.0135,10,4.8,mww,105,142,0.818,0.62,us,us7000mx45,2024-09-12T21:52:28.040Z,"232 km WSW of Tofino, Canada",earthquake,8.17,1.926,0.056,31,reviewed,us,us
+2024-07-04T23:13:29.156Z,48.5197,-128.7902,10,4.3,mb,28,123,0.633,0.47,us,us7000mx5b,2024-09-12T21:52:28.040Z,"223 km WSW of Tofino, Canada",earthquake,3.75,1.91,0.05,114,reviewed,us,us
+2024-07-05T01:48:43.127Z,48.5998,-128.8591,10,4.4,mb,36,130,0.696,1.21,us,us7000mx5p,2024-09-12T21:52:28.040Z,"225 km WSW of Tofino, Canada",earthquake,5.63,1.835,0.101,28,reviewed,us,us
+2024-07-05T02:09:03.151Z,48.8228,-128.704,10,4.3,mb,44,193,1.857,0.96,us,us7000mx5q,2024-09-12T21:52:28.040Z,"207 km W of Tofino, Canada",earthquake,7.61,1.946,0.049,117,reviewed,us,us
+2024-07-05T09:05:11.122Z,48.6219,-128.7593,10,4,mb,54,130,0.736,0.63,us,us7000mx73,2024-09-12T21:52:29.040Z,"217 km WSW of Tofino, Canada",earthquake,5.13,1.983,0.054,94,reviewed,us,us
+2024-07-08T15:06:44.416Z,48.671,-128.9811,10,5.2,mww,123,100,0.752,0.67,us,us7000mxsp,2024-09-20T16:00:52.040Z,"231 km WSW of Tofino, Canada",earthquake,6.31,1.826,0.039,62,reviewed,us,us
+2024-07-08T17:05:53.842Z,48.6368,-128.8617,10,4.4,mwr,66,119,0.732,0.74,us,us7000mxuc,2024-09-20T16:00:52.040Z,"224 km WSW of Tofino, Canada",earthquake,4.61,1.809,0.058,29,reviewed,us,us
+2024-07-11T15:08:47.169Z,48.7877,-128.7103,10,6.4,mww,149,60,0.904,0.88,us,us7000mykj,2026-06-26T20:49:01.098Z,"209 km WSW of Tofino, Canada",earthquake,4.64,1.34,0.041,58,reviewed,us,us
+2024-07-11T15:17:35.633Z,48.8019,-128.7385,10,4.5,mb,40,102,0.913,0.97,us,us7000n0bt,2024-09-20T16:00:57.040Z,"210 km WSW of Tofino, Canada",earthquake,8.2,1.916,0.222,6,reviewed,us,us
+2024-07-11T15:35:41.801Z,48.932,-128.7769,10,4.2,mb,19,143,1.033,1.12,us,us7000myku,2024-09-20T16:00:54.040Z,"211 km W of Tofino, Canada",earthquake,4.55,1.948,0.186,8,reviewed,us,us
+2024-07-11T16:17:21.077Z,48.8878,-128.4827,10,5.2,mww,130,94,1.051,0.79,us,us7000mym7,2024-10-09T03:07:13.980Z,"190 km W of Tofino, Canada",earthquake,5.77,1.867,0.052,36,reviewed,us,us
+2024-07-11T17:34:26.968Z,48.7663,-128.693,10,4.7,mwr,189,99,0.887,0.88,us,us7000myms,2024-09-20T16:00:54.040Z,"208 km WSW of Tofino, Canada",earthquake,5.47,1.858,0.059,28,reviewed,us,us
+2024-07-12T08:20:27.083Z,48.8765,-128.7826,10,4.8,mww,120,111,0.978,0.81,us,us7000mysw,2024-09-20T16:00:54.040Z,"212 km W of Tofino, Canada",earthquake,6.14,1.878,0.059,28,reviewed,us,us
+2024-07-14T02:25:17.751Z,48.8962,-128.7941,10,4.4,mb,41,112,0.995,1.02,us,us7000mz51,2024-09-20T16:00:56.040Z,"213 km W of Tofino, Canada",earthquake,4.02,1.886,0.073,54,reviewed,us,us
+2024-08-02T08:19:25.081Z,48.6527,-128.7874,10,4.1,mb,67,120,0.76,1.21,us,us6000nhir,2024-10-11T19:39:08.040Z,"218 km WSW of Tofino, Canada",earthquake,5.66,1.943,0.069,58,reviewed,us,us

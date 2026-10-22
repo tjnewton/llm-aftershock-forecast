@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2018-03-24T19:58:33.380Z,-45.7783,96.0692,10,6,mww,,29,17.781,0.75,us,us1000d8ny,2022-05-03T18:50:27.118Z,"southeast Indian Ridge",earthquake,10.1,1.7,0.054,33,reviewed,us,us

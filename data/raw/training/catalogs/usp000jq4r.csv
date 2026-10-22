@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2012-08-10T18:37:43.090Z,52.633,-167.421,13,6.2,mww,857,44.9,,1.08,us,usp000jq4r,2022-05-03T15:45:51.693Z,"102 km ESE of Nikolski, Alaska",earthquake,,,,,reviewed,us,us

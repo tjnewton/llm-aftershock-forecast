@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-05-22T08:46:06.973Z,22.4152,-108.1275,10,6.1,mww,,151,2.097,0.7,us,us70009n5p,2025-12-22T18:34:35.709Z,"173 km ESE of La Playa, Mexico",earthquake,5.5,1.7,0.032,91,reviewed,us,us

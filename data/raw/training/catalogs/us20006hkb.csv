@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-07-25T19:38:45.560Z,-2.969,148.0345,14,6.4,mww,,12,1.136,0.73,us,us20006hkb,2022-05-03T17:56:05.851Z,"133 km SE of Lorengau, Papua New Guinea",earthquake,6.8,1.7,,,reviewed,us,us

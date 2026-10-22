@@ -1,0 +1,7 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2015-06-04T05:36:36.450Z,41.4473,141.9826,65.16,4.4,mb,,138,1.046,0.63,us,us20002pzd,2015-08-10T13:08:19.040Z,"66 km ENE of Mutsu, Japan",earthquake,4,8.5,0.162,11,reviewed,us,us
+2015-06-08T06:01:08.300Z,41.5615,142.0308,42,6.1,mww,,54,0.956,1.14,us,us20002mvq,2022-07-31T11:50:57.369Z,"74 km ENE of Mutsu, Japan",earthquake,6.8,1.9,,,reviewed,us,us
+2015-06-09T11:08:47.410Z,41.4379,142.0212,61.94,4.3,mb,,133,1.027,0.78,us,us10002k8p,2015-08-10T13:08:26.040Z,"69 km ENE of Mutsu, Japan",earthquake,5.9,8,0.119,20,reviewed,us,us
+2015-06-09T17:00:21.010Z,41.4678,141.9502,54.39,4.3,mb,,130,1.055,1.23,us,us20002nb1,2015-08-10T13:08:27.040Z,"64 km ENE of Mutsu, Japan",earthquake,2.6,8.5,0.138,16,reviewed,us,us
+2015-06-22T15:35:16.910Z,41.5201,142.0933,57.02,4.9,mb,,83,0.937,0.79,us,us10002kvz,2022-07-31T14:28:23.386Z,"77 km ENE of Mutsu, Japan",earthquake,6.9,5.9,0.037,232,reviewed,us,us
+2015-06-26T10:38:02.090Z,41.5272,142.0949,56.48,4.6,mwr,,130,0.932,1.06,us,us10002lup,2022-07-31T15:14:27.841Z,"78 km ENE of Mutsu, Japan",earthquake,7.2,5.9,0.068,21,reviewed,us,us

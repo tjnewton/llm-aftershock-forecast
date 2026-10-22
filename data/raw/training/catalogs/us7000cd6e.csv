@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-11-10T03:45:40.522Z,-19.7623,-177.4314,405.26,4,mb,,123,4.725,0.72,us,us7000cegy,2021-01-23T22:25:46.040Z,"277 km NW of Haveluloto, Tonga",earthquake,12.6,11.6,0.134,15,reviewed,us,us
+2020-11-11T00:48:44.122Z,-19.7177,-177.561,417,6,mww,,22,4.596,1.11,us,us7000cd6e,2025-12-22T18:47:57.229Z,"291 km WNW of Haveluloto, Tonga",earthquake,9.3,1.9,0.063,24,reviewed,us,us
+2020-12-05T18:59:08.675Z,-19.8126,-177.5601,396.28,4,mb,,95,4.637,0.9,us,us7000cpi4,2021-02-12T22:40:50.040Z,"286 km WNW of Haveluloto, Tonga",earthquake,15.7,13.4,0.164,10,reviewed,us,us

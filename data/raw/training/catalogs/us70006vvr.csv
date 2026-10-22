@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-01-07T19:11:35.665Z,-5.2046,151.2659,117,6,mww,,22,1.346,1.03,us,us70006vvr,2025-12-22T18:29:13.612Z,"130 km ENE of Kimbe, Papua New Guinea",earthquake,4.1,1.6,0.052,36,reviewed,us,us

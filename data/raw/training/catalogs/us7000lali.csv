@@ -1,0 +1,20 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2023-11-10T09:02:43.765Z,-3.825,151.2341,10,4.6,mb,26,85,0.996,0.41,us,us6000lnk9,2024-01-13T23:09:37.040Z,"111 km WNW of Rabaul, Papua New Guinea",earthquake,8.89,1.894,0.14,17,reviewed,us,us
+2023-11-12T05:07:08.208Z,-3.8762,151.1918,10.114,4.3,mb,15,88,1.019,0.71,us,us6000lnvd,2024-01-26T16:37:45.040Z,"113 km WNW of Rabaul, Papua New Guinea",earthquake,5.9,5.158,0.177,10,reviewed,us,us
+2023-11-12T05:54:40.017Z,-3.8247,151.1705,10,5.5,mww,101,64,1.056,0.7,us,us7000lafn,2024-01-26T16:37:56.040Z,"117 km WNW of Rabaul, Papua New Guinea",earthquake,7.59,1.802,0.071,19,reviewed,us,us
+2023-11-12T06:12:20.194Z,-3.8982,151.1122,7.77,5.1,mb,70,74,1.089,0.63,us,us7000laft,2024-01-26T16:37:56.040Z,"121 km WNW of Rabaul, Papua New Guinea",earthquake,7.85,4.375,0.07,66,reviewed,us,us
+2023-11-12T07:33:35.352Z,-3.9037,151.1521,9.001,4.8,mb,47,53,1.049,0.69,us,us6000lnvq,2024-01-26T16:37:45.040Z,"116 km WNW of Rabaul, Papua New Guinea",earthquake,5.8,4.024,0.095,35,reviewed,us,us
+2023-11-12T07:45:42.430Z,-3.8452,151.105,9.852,4.2,mb,15,85,1.111,0.58,us,us6000lnvr,2024-01-26T16:37:45.040Z,"123 km WNW of Rabaul, Papua New Guinea",earthquake,7.94,5.304,0.176,9,reviewed,us,us
+2023-11-12T07:48:38.589Z,-4.0271,151.0647,7.421,4.7,mb,36,81,1.108,0.88,us,us6000lnvn,2024-01-26T16:37:45.040Z,"123 km W of Rabaul, Papua New Guinea",earthquake,8.04,3.29,0.102,29,reviewed,us,us
+2023-11-12T09:48:42.508Z,-3.7633,151.0852,10,5.2,mww,76,59,1.157,0.8,us,us7000lagg,2024-01-26T16:37:57.040Z,"129 km WNW of Rabaul, Papua New Guinea",earthquake,7.1,1.285,0.075,17,reviewed,us,us
+2023-11-12T17:44:11.803Z,-3.7524,151.0702,10,4.3,mb,15,131,1.175,0.83,us,us6000lnwh,2024-01-26T16:37:46.040Z,"131 km WNW of Rabaul, Papua New Guinea",earthquake,8.71,1.928,0.188,8,reviewed,us,us
+2023-11-12T19:45:32.521Z,-3.8977,151.1155,10,4.5,mb,23,82,1.085,0.68,us,us6000lnwp,2024-01-26T16:37:47.040Z,"121 km WNW of Rabaul, Papua New Guinea",earthquake,9.38,1.903,0.128,18,reviewed,us,us
+2023-11-12T20:41:54.586Z,-3.7703,151.1857,10,4.7,mb,22,90,1.062,0.57,us,us6000lnwg,2024-01-26T16:37:46.040Z,"118 km WNW of Rabaul, Papua New Guinea",earthquake,4.59,1.9,0.174,10,reviewed,us,us
+2023-11-12T22:08:49.473Z,-3.8379,151.0624,7.698,4.6,mb,40,81,1.153,0.87,us,us6000lnwj,2024-01-26T16:37:46.040Z,"128 km WNW of Rabaul, Papua New Guinea",earthquake,5.32,4.27,0.104,28,reviewed,us,us
+2023-11-13T07:43:34.115Z,-3.8855,151.067,10,6.1,mww,120,50,1.135,0.58,us,us7000lali,2024-01-26T16:37:58.040Z,"126 km WNW of Rabaul, Papua New Guinea",earthquake,4.13,1.813,0.048,41,reviewed,us,us
+2023-11-13T16:39:35.755Z,-3.9828,151.012,10,4.9,mb,48,74,1.167,0.88,us,us7000lanw,2024-01-26T16:37:59.040Z,"130 km W of Rabaul, Papua New Guinea",earthquake,8.15,1.869,0.09,39,reviewed,us,us
+2023-11-13T22:15:45.087Z,-4.0489,150.9859,6.249,4.6,mb,39,70,1.183,0.7,us,us6000lp4v,2024-01-26T16:37:49.040Z,"131 km W of Rabaul, Papua New Guinea",earthquake,5.57,4.673,0.105,27,reviewed,us,us
+2023-11-14T05:00:24.734Z,-3.9751,151.0599,10,4.3,mb,28,78,1.122,0.47,us,us6000lp5k,2024-01-26T16:37:50.040Z,"124 km WNW of Rabaul, Papua New Guinea",earthquake,9.78,1.884,0.133,16,reviewed,us,us
+2023-11-14T05:53:45.300Z,-4.0043,151.0374,10,5.5,mww,84,47,1.139,0.5,us,usd00103xp,2024-01-26T16:38:00.040Z,"126 km W of Rabaul, Papua New Guinea",earthquake,7.8,1.85,0.083,14,reviewed,us,us
+2023-11-14T13:27:12.667Z,-3.9416,151.0171,10,5.1,mww,76,37,1.17,0.69,us,usd00103zg,2024-01-26T16:38:01.040Z,"130 km WNW of Rabaul, Papua New Guinea",earthquake,7.03,1.819,0.098,10,reviewed,us,us
+2023-11-14T13:29:38.148Z,-3.9184,150.9707,10,5.1,mb,90,51,1.221,0.63,us,usd00103zh,2024-01-26T16:38:01.040Z,"136 km WNW of Rabaul, Papua New Guinea",earthquake,7.63,1.811,0.063,82,reviewed,us,us

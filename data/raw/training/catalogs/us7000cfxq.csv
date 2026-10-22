@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-11-17T01:44:11.421Z,-2.6706,99.3227,19,6,mww,,23,3.436,0.58,us,us7000cfxq,2025-12-22T18:45:19.641Z,"222 km SSW of Padang, Indonesia",earthquake,7.2,1.7,0.051,37,reviewed,us,us

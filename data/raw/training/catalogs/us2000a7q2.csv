@@ -1,0 +1,3 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2017-08-13T03:08:10.560Z,-3.7682,101.6228,31,6.4,mww,,26,1.453,0.9,us,us2000a7q2,2022-08-07T14:38:00.682Z,"71 km W of Bengkulu, Indonesia",earthquake,5.8,1.7,0.057,30,reviewed,us,us
+2017-08-13T05:05:01.080Z,-3.8027,101.3993,35,4.3,mb,,201,1.648,0.38,us,us2000a92a,2017-11-14T01:42:05.040Z,"96 km W of Bengkulu, Indonesia",earthquake,6.2,2,0.16,11,reviewed,us,us

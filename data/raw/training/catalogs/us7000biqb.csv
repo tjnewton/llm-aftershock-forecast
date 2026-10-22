@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-09-06T01:16:58.935Z,-30.3388,-71.4912,30,6.3,mww,,32,0.356,1.09,us,us7000biqb,2025-12-22T18:44:01.097Z,"40 km NW of Ovalle, Chile",earthquake,5,1.8,0.042,54,reviewed,us,us
+2020-09-08T22:26:22.210Z,-30.3858,-71.6181,25.01,4.4,mb,,157,0.287,0.87,us,us7000bk2y,2020-11-17T19:44:57.040Z,"46 km WNW of Ovalle, Chile",earthquake,4.4,5.8,0.219,6,reviewed,us,us
+2020-09-17T01:33:17.034Z,-30.3165,-71.5753,35,4.8,mwr,,59,0.359,0.89,us,us7000bp82,2025-12-22T18:42:14.386Z,"46 km SSW of Coquimbo, Chile",earthquake,4.5,1.9,0.037,69,reviewed,us,us

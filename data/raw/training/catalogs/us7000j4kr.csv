@@ -1,0 +1,3 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2023-01-15T22:29:58.940Z,1.9837,97.9979,37,6.1,mww,138,32,0.796,0.52,us,us7000j4kr,2023-03-31T19:44:29.040Z,"40 km SE of Singkil, Indonesia",earthquake,6.09,1.851,0.039,63,reviewed,us,us
+2023-01-26T12:20:12.110Z,2.1104,97.8525,63.633,4.2,mb,30,88,0.848,0.41,us,us6000jlzy,2023-04-11T18:51:47.040Z,"20 km SSE of Singkil, Indonesia",earthquake,6.45,7.948,0.141,14,reviewed,us,us

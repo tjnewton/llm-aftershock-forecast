@@ -1,0 +1,10 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-01-06T16:25:05.973Z,11.9367,-87.1371,17,6.1,mww,,43,0.732,1.24,us,us7000g9nb,2022-04-21T08:02:25.242Z,"near the coast of Nicaragua",earthquake,4.9,1.7,0.034,81,reviewed,us,us
+2022-01-06T16:50:04.217Z,11.9074,-87.2452,10,4.7,mb,,155,1.004,0.9,us,us7000g9p3,2022-06-23T19:03:48.757Z,"near the coast of Nicaragua",earthquake,4.4,1.9,0.047,142,reviewed,us,us
+2022-01-07T09:57:02.226Z,11.8287,-87.1923,10,4.3,mb,,174,0.852,0.52,us,us7000g9vc,2022-03-12T22:19:14.040Z,"72 km S of Corinto, Nicaragua",earthquake,2.4,1.9,0.053,103,reviewed,us,us
+2022-01-07T17:04:13.894Z,11.948,-87.1714,10,5.1,mb,,44,0.736,1.09,us,us7000g9ze,2022-08-06T14:59:07.576Z,"59 km S of Corinto, Nicaragua",earthquake,3.8,1.7,0.028,419,reviewed,us,us
+2022-01-08T11:28:03.895Z,11.952,-87.1719,43.65,4.4,mb,,134,0.733,0.42,us,us7000ga68,2022-03-19T22:07:28.040Z,"58 km S of Corinto, Nicaragua",earthquake,6,9.3,0.055,97,reviewed,us,us
+2022-01-09T17:10:30.404Z,11.9548,-87.1542,43.79,4.9,mb,,53,0.723,1.01,us,us7000gadx,2022-03-19T22:07:32.040Z,"58 km S of Corinto, Nicaragua",earthquake,5.1,5.8,0.029,384,reviewed,us,us
+2022-01-10T20:01:36.640Z,11.9298,-87.1545,45.4,4.4,mb,,167,0.745,0.83,us,us7000ganj,2022-03-19T22:07:37.040Z,"61 km S of Corinto, Nicaragua",earthquake,4.3,8.3,0.081,44,reviewed,us,us
+2022-01-11T23:49:33.450Z,11.9678,-87.1331,41.03,4.3,mb,,166,0.702,1.11,us,us7000gd9r,2022-03-19T22:07:49.040Z,"57 km S of Corinto, Nicaragua",earthquake,6.7,9.8,0.09,35,reviewed,us,us
+2022-01-24T16:15:43.378Z,11.999,-87.0752,35.98,4.4,mb,,184,0.651,0.31,us,us7000gel8,2022-04-09T20:18:58.040Z,"53 km SSW of León, Nicaragua",earthquake,5.2,11,0.107,28,reviewed,us,us

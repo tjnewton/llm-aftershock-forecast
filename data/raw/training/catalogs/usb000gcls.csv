@@ -1,0 +1,9 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2013-04-13T21:23:13.490Z,50.175,157.077,150,4.5,mb,32,159.7,,1.24,us,usb000g6h0,2014-11-07T01:50:33.639Z,"87 km SE of Severo-Kuril’sk, Russia",earthquake,,10.8,,25,reviewed,us,us
+2013-04-20T13:12:50.510Z,50.099,157.148,18,6.1,mww,539,51.9,,1.06,us,usb000gcls,2022-05-03T16:15:20.431Z,"96 km SE of Severo-Kuril’sk, Russia",earthquake,,,,,reviewed,us,us
+2013-04-20T13:18:09.290Z,50.059,157.268,12.6,5.3,mb,249,59.4,,0.96,us,usb000gcma,2014-11-07T01:50:36.774Z,"106 km SE of Severo-Kuril’sk, Russia",earthquake,,4.4,,193,reviewed,us,us
+2013-04-20T13:34:34.000Z,49.978,157.217,55.7,4.4,mb,41,136.2,,0.98,us,usb000gcm4,2014-11-07T01:50:36.791Z,"109 km SE of Severo-Kuril’sk, Russia",earthquake,,7.8,,21,reviewed,us,us
+2013-04-20T16:10:16.830Z,50.015,157.386,64.3,4.1,mb,15,138.6,,0.85,us,usp000k0br,2014-11-07T01:50:36.820Z,"115 km SE of Severo-Kuril’sk, Russia",earthquake,,9.9,,1,reviewed,us,us
+2013-04-21T12:49:03.380Z,50.109,157.183,51.8,4.5,mb,37,133,,1.11,us,us2013pgdr,2014-11-07T01:50:37.217Z,"98 km SE of Severo-Kuril’sk, Russia",earthquake,,8.5,,18,reviewed,us,us
+2013-04-22T13:16:17.450Z,50.005,157.408,41.9,5.1,mb,305,98,,0.59,us,usb000gdhn,2014-11-07T01:50:37.725Z,"117 km SE of Severo-Kuril’sk, Russia",earthquake,,3.5,,227,reviewed,us,us
+2013-05-10T05:29:23.380Z,49.942,157.283,37.9,4.4,mb,44,133,,0.46,us,usc000gsq5,2014-11-07T01:50:46.007Z,"115 km SE of Severo-Kuril’sk, Russia",earthquake,,5.6,,27,reviewed,us,us

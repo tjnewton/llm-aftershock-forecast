@@ -1,0 +1,7 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-02-17T17:26:02.210Z,0.8597,129.0605,9,6,mww,,22,1.695,1,us,us200050wc,2022-05-03T17:41:07.017Z,"151 km SE of Tobelo, Indonesia",earthquake,6,1.7,,,reviewed,us,us
+2016-02-17T18:01:47.400Z,0.7992,129.1201,10,4.1,mb,,167,1.753,0.76,us,us10004r2v,2016-04-26T23:28:25.040Z,"160 km SE of Tobelo, Indonesia",earthquake,11.6,2,0.198,7,reviewed,us,us
+2016-02-17T21:34:41.040Z,0.7609,129.1475,10,4.5,mb,,110,1.78,1,us,us10004r38,2016-04-26T23:28:26.040Z,"165 km SE of Tobelo, Indonesia",earthquake,9,1.9,0.113,23,reviewed,us,us
+2016-02-17T22:09:17.360Z,0.9737,129.1699,10,4,mb,,180,1.814,1.02,us,us10004r30,2016-04-26T23:28:26.040Z,"153 km ESE of Tobelo, Indonesia",earthquake,12.6,2,0.149,12,reviewed,us,us
+2016-02-17T22:36:52.230Z,0.7247,129.0797,10,4.1,mb,,123,1.713,0.41,us,us10004r34,2016-04-26T23:28:26.040Z,"162 km SE of Tobelo, Indonesia",earthquake,5.8,1.8,0.145,13,reviewed,us,us
+2016-02-18T01:10:34.820Z,0.8047,129.0385,10,4.1,mb,,127,1.672,0.53,us,us10004rqj,2016-04-26T23:28:26.040Z,"153 km SE of Tobelo, Indonesia",earthquake,9.3,1.9,0.185,8,reviewed,us,us

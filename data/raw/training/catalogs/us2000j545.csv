@@ -1,0 +1,16 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2019-01-15T17:04:59.470Z,-3.2362,146.597,10,4.8,mb,,69,1.412,0.98,us,us2000j45h,2019-04-05T21:40:58.040Z,"152 km SSW of Lorengau, Papua New Guinea",earthquake,7.6,1.9,0.13,18,reviewed,us,us
+2019-01-16T18:29:25.100Z,-3.1504,146.4245,10,4.5,mb,,96,1.447,1.2,us,us2000j4lk,2019-04-05T21:40:59.040Z,"155 km SW of Lorengau, Papua New Guinea",earthquake,8.3,1.9,0.14,15,reviewed,us,us
+2019-01-17T15:06:35.650Z,-3.2307,146.3889,10,6.2,mww,,40,1.531,1.01,us,us2000j545,2025-12-22T17:53:35.075Z,"164 km SW of Lorengau, Papua New Guinea",earthquake,6.2,1.7,0.047,43,reviewed,us,us
+2019-01-17T15:14:19.900Z,-3.1497,146.356,10,5.1,mb,,50,1.492,1.17,us,us2000j54b,2025-12-22T18:01:47.916Z,"159 km SW of Lorengau, Papua New Guinea",earthquake,8.6,1.8,0.054,115,reviewed,us,us
+2019-01-17T15:17:18.900Z,-3.0558,146.2531,10,4.4,mb,,148,1.499,1.31,us,us2000jbw7,2019-04-05T21:41:03.040Z,"159 km SW of Lorengau, Papua New Guinea",earthquake,14.3,2,0.162,11,reviewed,us,us
+2019-01-17T15:29:17.520Z,-3.1029,146.4315,10,4.9,mb,,74,1.407,1.27,us,us2000j54g,2019-04-05T21:40:59.040Z,"150 km SW of Lorengau, Papua New Guinea",earthquake,7.2,1.9,0.08,53,reviewed,us,us
+2019-01-17T15:33:49.380Z,-3.2566,146.5611,10,4.6,mb,,66,1.449,0.66,us,us2000j54r,2019-04-05T21:40:59.040Z,"156 km SSW of Lorengau, Papua New Guinea",earthquake,7.2,1.9,0.145,15,reviewed,us,us
+2019-01-17T15:48:28.570Z,-3.0649,146.4442,10,5.1,mb,,51,1.37,0.82,us,us2000j54u,2025-12-22T18:01:49.658Z,"146 km SW of Lorengau, Papua New Guinea",earthquake,6,1.8,0.059,93,reviewed,us,us
+2019-01-17T15:52:02.740Z,-3.1482,146.593,10,4.5,mb,,69,1.342,1.14,us,us2000jbvu,2019-04-05T21:41:03.040Z,"144 km SSW of Lorengau, Papua New Guinea",earthquake,9.9,1.9,0.128,18,reviewed,us,us
+2019-01-17T16:15:57.820Z,-3.0945,146.4441,10,4.6,mb,,128,1.392,0.43,us,us2000j568,2019-04-05T21:40:59.040Z,"149 km SW of Lorengau, Papua New Guinea",earthquake,9.7,1.9,0.114,24,reviewed,us,us
+2019-01-17T16:53:15.730Z,-3.1956,146.5021,10,5.7,mww,,16,1.433,0.92,us,us2000j56c,2025-12-22T18:01:47.109Z,"154 km SSW of Lorengau, Papua New Guinea",earthquake,6.3,1.8,0.05,38,reviewed,us,us
+2019-01-17T17:12:16.280Z,-3.122,146.5755,10,4.6,mb,,73,1.331,0.86,us,us2000j56i,2019-04-05T21:41:00.040Z,"Bismarck Sea",earthquake,10.5,1.9,0.14,15,reviewed,us,us
+2019-01-17T23:20:39.150Z,-3.2244,146.6042,15.86,4.4,mb,,156,1.398,0.33,us,us2000jbw5,2019-04-05T21:41:03.040Z,"151 km SSW of Lorengau, Papua New Guinea",earthquake,10.7,7,0.189,8,reviewed,us,us
+2019-01-19T09:43:51.660Z,-3.2011,146.4364,10,4.3,mb,,83,1.478,0.76,us,us2000jbzk,2019-04-05T21:41:04.040Z,"158 km SW of Lorengau, Papua New Guinea",earthquake,5.9,1.9,0.143,14,reviewed,us,us
+2019-02-12T09:45:49.840Z,-3.0908,146.2844,10,5,mb,,35,1.5,1.07,us,us2000jgkf,2025-12-22T17:53:49.055Z,"160 km SW of Lorengau, Papua New Guinea",earthquake,7.6,1.9,0.081,49,reviewed,us,us

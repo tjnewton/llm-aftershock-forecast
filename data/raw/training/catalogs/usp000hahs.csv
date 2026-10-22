@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2010-04-05T10:05:44.630Z,-0.183,125.009,25,6.2,mww,287,37.8,,0.98,us,usp000hahs,2022-05-02T21:50:25.960Z,"164 km S of Tondano, Indonesia",earthquake,,,,,reviewed,us,us
+2010-04-05T12:11:07.520Z,-0.15,125.089,68.7,5.1,mwc,110,28.3,,1.22,us,usp000hajn,2025-12-22T15:45:59.290Z,"162 km S of Tondano, Indonesia",earthquake,,6.3,,,reviewed,us,gcmt
+2010-04-05T14:40:17.200Z,-0.206,125.042,72.3,5,mwc,124,34.1,,1.19,us,usp000hakc,2025-12-22T15:46:00.418Z,"167 km S of Tondano, Indonesia",earthquake,,5.9,,,reviewed,us,gcmt
+2010-04-05T20:25:56.740Z,-0.253,125.156,69.7,4.5,mb,44,90.6,,1.1,us,usp000hamw,2014-11-07T01:41:12.672Z,"174 km S of Tondano, Indonesia",earthquake,,8.4,,15,reviewed,us,us

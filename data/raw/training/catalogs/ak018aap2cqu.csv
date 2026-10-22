@@ -1,0 +1,27 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2018-08-12T14:58:53.503Z,69.5762,-145.291,15.8,6.4,mw,,,,1.31,ak,ak018aap2cqu,2023-08-16T13:36:41.277Z,"89 km SW of Kaktovik, Alaska",earthquake,,0.2,,,reviewed,ak,ak
+2018-08-12T15:01:04.135Z,69.4927,-144.6134,3.7,4.9,ml,,,,0.44,ak,ak018aapbgq5,2023-08-16T13:36:48.154Z,"80 km SSW of Kaktovik, Alaska",earthquake,,0.1,,,reviewed,ak,ak
+2018-08-12T15:04:07.533Z,69.5978,-145.2066,0.1,4.1,ml,,,,0.72,ak,ak018aapc44x,2023-08-16T13:36:49.924Z,"85 km SW of Kaktovik, Alaska",earthquake,,0.1,,,reviewed,ak,ak
+2018-08-12T15:04:48.990Z,69.5696,-145.0944,9.9,4.2,ml,,,,0.65,ak,ak018aapc7c3,2023-08-16T13:36:52.021Z,"84 km SW of Kaktovik, Alaska",earthquake,,0.1,,,reviewed,ak,ak
+2018-08-12T15:14:19.893Z,69.5599,-144.7766,13.4,5,ml,,,,0.82,ak,ak018aapea91,2023-08-16T13:37:05.776Z,"77 km SW of Kaktovik, Alaska",earthquake,,0.2,,,reviewed,ak,ak
+2018-08-12T15:18:37.084Z,69.499,-144.7393,10.2,4.8,ml,,,,0.87,ak,ak018aapf6fw,2023-08-16T13:37:07.851Z,"82 km SSW of Kaktovik, Alaska",earthquake,,0.2,,,reviewed,ak,ak
+2018-08-12T15:34:49.001Z,69.5393,-144.6993,14.9,4.4,ml,,,,0.82,ak,ak018aapimtg,2023-08-16T13:37:28.236Z,"77 km SSW of Kaktovik, Alaska",earthquake,,0.2,,,reviewed,ak,ak
+2018-08-12T16:02:08.714Z,69.5669,-144.9583,18.4,5.3,mw,,,,0.72,ak,ak018aapx4ef,2023-08-16T13:38:02.001Z,"81 km SW of Kaktovik, Alaska",earthquake,,0.2,,,reviewed,ak,ak
+2018-08-12T16:44:38.884Z,69.4706,-144.5926,2.6,4.1,ml,,,,0.79,ak,ak018aaq66sw,2023-08-16T13:39:15.831Z,"82 km SSW of Kaktovik, Alaska",earthquake,,0.1,,,reviewed,ak,ak
+2018-08-12T16:53:12.261Z,69.5829,-145.1313,20.1,4,ml,,,,0.62,ak,ak018aaq826y,2023-08-16T13:39:17.886Z,"84 km SW of Kaktovik, Alaska",earthquake,,0.1,,,reviewed,ak,ak
+2018-08-12T17:30:43.974Z,69.563,-144.8944,9,4,ml,,,,0.98,ak,ak018aaqomrx,2023-08-16T13:39:51.781Z,"80 km SW of Kaktovik, Alaska",earthquake,,0.1,,,reviewed,ak,ak
+2018-08-12T17:54:24.732Z,69.539,-144.9492,13.3,4,ml,,,,0.79,ak,ak018aaqtqh5,2023-08-16T13:40:08.525Z,"83 km SW of Kaktovik, Alaska",earthquake,,0.1,,,reviewed,ak,ak
+2018-08-12T18:36:43.191Z,69.5517,-144.7315,17.8,5.1,ml,,,,0.73,ak,ak018aarbcm7,2023-08-16T13:40:50.317Z,"77 km SSW of Kaktovik, Alaska",earthquake,,0.3,,,reviewed,ak,ak
+2018-08-12T22:00:16.773Z,69.5444,-144.5456,16.2,4.5,ml,,,,0.68,ak,ak018aathb7x,2023-08-16T13:44:52.273Z,"74 km SSW of Kaktovik, Alaska",earthquake,,0.2,,,reviewed,ak,ak
+2018-08-13T09:56:58.702Z,69.5355,-144.7871,7.3,4.5,ml,,,,0.69,ak,ak018ac9m46m,2023-08-16T14:01:52.409Z,"80 km SSW of Kaktovik, Alaska",earthquake,,0,,,reviewed,ak,ak
+2018-08-13T11:05:12.707Z,69.5344,-144.6331,15.6,4.4,ml,,,,0.71,ak,ak018acahybq,2023-08-16T14:03:03.557Z,"77 km SSW of Kaktovik, Alaska",earthquake,,0.2,,,reviewed,ak,ak
+2018-08-13T13:35:43.900Z,69.6505,-145.3279,22.7,4.3,ml,,,,0.87,ak,ak018acbvbfa,2023-08-16T14:06:07.681Z,"84 km SW of Kaktovik, Alaska",earthquake,,0.1,,,reviewed,ak,ak
+2018-08-13T19:36:08.766Z,69.5469,-144.459,17.3,4.9,mw,,,,0.96,ak,ak018acfg224,2023-08-16T14:15:06.520Z,"72 km SSW of Kaktovik, Alaska",earthquake,,0.2,,,reviewed,ak,ak
+2018-08-14T16:53:10.284Z,69.5672,-144.7703,13.7,4.5,ml,,,,0.81,ak,ak018ae1ar10,2023-08-16T14:30:56.969Z,"76 km SW of Kaktovik, Alaska",earthquake,,0.1,,,reviewed,ak,ak
+2018-08-18T04:52:57.329Z,69.6389,-145.2582,15.7,4.1,ml,,,,0.86,ak,ak018akgatno,2023-08-16T15:34:35.451Z,"83 km SW of Kaktovik, Alaska",earthquake,,0.1,,,reviewed,ak,ak
+2018-08-19T13:32:23.558Z,69.581,-144.9148,18.5,4.4,ml,,,,0.63,ak,ak018am92po3,2023-08-16T15:51:14.246Z,"78 km SW of Kaktovik, Alaska",earthquake,,0.1,,,reviewed,ak,ak
+2018-08-19T19:30:07.506Z,69.6396,-145.4517,21.1,4.2,ml,,,,0.81,ak,ak018amcmumm,2023-08-16T15:53:21.396Z,"89 km SW of Kaktovik, Alaska",earthquake,,0.1,,,reviewed,ak,ak
+2018-08-20T09:33:47.983Z,69.578,-145.199,9.8,4.5,ml,,,,1.47,ak,ak018anu8lce,2023-08-16T15:58:41.423Z,"86 km SW of Kaktovik, Alaska",earthquake,,0.2,,,reviewed,ak,ak
+2018-08-28T11:13:21.700Z,69.5602,-144.8964,18.2,4.1,ml,,,,0.8,ak,ak018b13lw5m,2023-08-16T17:10:11.167Z,"80 km SW of Kaktovik, Alaska",earthquake,,0.1,,,reviewed,ak,ak
+2018-09-01T06:41:19.711Z,69.5759,-144.9367,19.1,4.5,mw,,,,1.04,ak,ak018b7my403,2023-08-16T17:27:31.492Z,"79 km SW of Kaktovik, Alaska",earthquake,,0.2,,,reviewed,ak,ak
+2018-09-06T04:05:11.212Z,69.6233,-145.3775,17.3,4,mw,,,,1.22,ak,ak018bfv88tt,2023-08-16T17:51:09.754Z,"88 km SW of Kaktovik, Alaska",earthquake,,0.1,,,reviewed,ak,ak

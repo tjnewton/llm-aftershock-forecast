@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2023-12-20T12:11:21.484Z,-15.8585,-72.5207,93,6.2,mww,184,70,3.253,0.79,us,us7000lkb1,2024-02-27T22:57:02.040Z,"11 km E of Iray, Peru",earthquake,8.73,1.939,0.04,60,reviewed,us,us

@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-11-25T22:56:04.101Z,-61.913,154.9182,10,5.9,mww,,45,7.733,0.57,us,us7000cjr0,2025-12-22T18:45:53.688Z,"Balleny Islands region",earthquake,9,1.7,0.098,10,reviewed,us,us
+2020-12-01T20:52:57.066Z,-61.9496,154.7341,10,6,mww,,29,7.795,0.85,us,us7000clt8,2025-12-22T18:46:20.655Z,"Balleny Islands region",earthquake,9.5,1.7,0.083,14,reviewed,us,us
+2020-12-06T12:11:49.621Z,-61.919,154.7473,10,4.8,mb,,90,15.844,0.5,us,us7000cnmp,2025-12-22T17:59:31.179Z,"Balleny Islands region",earthquake,13.8,1.9,0.107,27,reviewed,us,us

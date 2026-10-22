@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2024-01-18T22:12:21.755Z,-18.9103,-175.4225,209,6.4,mww,121,22,1.372,0.7,us,us6000m4js,2024-03-29T17:37:53.040Z,"148 km NW of Fangale’ounga, Tonga",earthquake,9.77,1.878,0.038,66,reviewed,us,us

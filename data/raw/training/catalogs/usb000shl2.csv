@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2014-10-01T03:38:51.760Z,-6.0706,149.5329,42,6,mww,,19,3.217,0.61,us,usb000shl2,2024-06-16T23:47:26.894Z,"15 km N of Kandrian, Papua New Guinea",earthquake,4.8,1.7,,,reviewed,us,us

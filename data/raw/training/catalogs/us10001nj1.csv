@@ -1,0 +1,24 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2015-03-18T18:27:29.500Z,-36.1167,-73.5219,13,6.2,mww,,34,0.828,0.77,us,us10001nj1,2022-05-03T18:41:28.955Z,"75 km NW of Tomé, Chile",earthquake,6.3,1.7,,,reviewed,us,us
+2015-03-18T18:40:04.520Z,-36.0512,-73.3799,14.27,4.5,mb,,146,0.84,0.83,us,us10001ptn,2015-06-04T00:46:26.040Z,"73 km NNW of Tomé, Chile",earthquake,7.9,5.7,0.204,7,reviewed,us,us
+2015-03-18T19:07:49.100Z,-36.0507,-73.6406,10,5.4,mww,,106,0.933,0.82,us,us10001njq,2025-12-22T17:05:05.038Z,"87 km NW of Tomé, Chile",earthquake,3.5,1.8,,,reviewed,us,us
+2015-03-18T19:11:36.080Z,-36.1702,-73.6739,24.52,4.5,mb,,152,0.851,1.38,us,us10001ptk,2015-06-04T00:46:26.040Z,"79 km NW of Talcahuano, Chile",earthquake,6.8,6.2,0.312,5,reviewed,us,us
+2015-03-18T20:09:09.000Z,-36.043,-73.759,27.8,4.8,mb,,,,1.46,us,us10001nkl,2015-06-04T00:46:26.040Z,"95 km NW of Talcahuano, Chile",earthquake,8.2,4.8,0.077,52,reviewed,guc,us
+2015-03-18T21:56:39.800Z,-36.0506,-73.6265,6.03,4.2,mb,,141,0.928,0.7,us,us10001nnj,2015-06-04T00:46:26.040Z,"87 km NW of Tomé, Chile",earthquake,5.4,5.2,0.187,8,reviewed,us,us
+2015-03-18T22:01:56.740Z,-36.0786,-73.72,17.51,4.7,mb,,146,0.946,0.77,us,us10001nme,2015-06-04T00:46:26.040Z,"89 km NW of Talcahuano, Chile",earthquake,7.2,4.4,0.096,33,reviewed,us,us
+2015-03-19T01:32:28.410Z,-36.0854,-73.3573,26.14,4.5,mb,,116,0.802,0.73,us,us10001q60,2015-06-09T21:29:57.040Z,"69 km NNW of Tomé, Chile",earthquake,5.7,5,0.118,21,reviewed,us,us
+2015-03-19T01:33:05.360Z,-36.094,-73.5667,4,5,mww,,88,0.866,0.48,us,us10001np8,2022-07-28T03:02:49.372Z,"79 km NW of Tomé, Chile",earthquake,4.9,1,,,reviewed,us,us
+2015-03-20T21:47:22.560Z,-36.1138,-73.5791,25.69,4.1,mb,,118,0.854,1.5,us,us10001q8v,2015-06-09T21:29:59.040Z,"79 km NW of Tomé, Chile",earthquake,3.4,7.8,0.234,5,reviewed,us,us
+2015-03-21T08:56:35.000Z,-36.234,-73.63,35.3,4.3,mwr,,,,1.44,us,us10001pcw,2015-06-09T21:30:00.040Z,"71 km NW of Talcahuano, Chile",earthquake,7.4,5.8,0.086,13,reviewed,guc,us
+2015-03-21T10:38:02.000Z,-36.232,-73.727,32.9,4.7,mb,,,,1.57,us,us10001pdh,2022-07-28T03:25:10.133Z,"77 km NW of Talcahuano, Chile",earthquake,6.5,4.4,0.082,45,reviewed,guc,us
+2015-03-21T11:14:03.530Z,-36.2727,-73.6119,40.43,4.7,mb,,146,0.74,0.94,us,us10001pdy,2022-07-28T03:26:58.670Z,"66 km NW of Talcahuano, Chile",earthquake,7.2,6.3,0.076,53,reviewed,us,us
+2015-03-25T14:17:03.180Z,-36.1532,-73.5032,18.63,4.5,mb,,152,0.789,1.16,us,us10001sa3,2015-06-09T21:30:06.040Z,"71 km NW of Tomé, Chile",earthquake,8.3,1.7,0.156,12,reviewed,us,us
+2015-03-25T14:23:45.880Z,-36.2258,-73.6223,21.06,4.3,mb,,128,0.781,0.84,us,us10001sa4,2015-06-09T21:30:06.040Z,"71 km NW of Talcahuano, Chile",earthquake,4.5,6.7,0.202,7,reviewed,us,us
+2015-03-25T14:28:01.860Z,-36.2704,-73.6374,22.63,4.3,mb,,87,0.755,1.36,us,us10001sad,2015-06-09T21:30:06.040Z,"68 km NW of Talcahuano, Chile",earthquake,7.1,6.3,0.148,13,reviewed,us,us
+2015-03-25T14:35:15.370Z,-36.316,-73.5929,25.4,4.2,mb,,161,0.697,0.99,us,us10001sah,2015-06-09T21:30:06.040Z,"62 km NW of Talcahuano, Chile",earthquake,9.1,4.2,0.304,3,reviewed,us,us
+2015-03-25T14:41:54.400Z,-36.1843,-73.5893,22.67,4.4,mb,,152,0.799,0.97,us,us10001sae,2015-06-09T21:30:06.040Z,"73 km NW of Talcahuano, Chile",earthquake,5.5,7,0.178,9,reviewed,us,us
+2015-03-25T14:58:36.080Z,-36.208,-73.7181,28.83,4.4,mb,,120,0.844,0.57,us,us20002a87,2015-06-09T21:30:06.040Z,"78 km NW of Talcahuano, Chile",earthquake,5.5,8.1,0.268,4,reviewed,us,us
+2015-03-25T15:55:34.000Z,-36.294,-73.687,43.5,4,ml,,,,1.09,us,us10001sa0,2015-06-09T21:30:07.040Z,"69 km NW of Talcahuano, Chile",earthquake,8.8,9.6,,,reviewed,guc,guc
+2015-03-25T18:43:14.000Z,-36.221,-73.617,42.6,4.8,mb,,,,1.7,us,us10001qnu,2022-07-28T04:22:29.015Z,"71 km NW of Talcahuano, Chile",earthquake,5.7,4.7,0.076,53,reviewed,guc,us
+2015-03-25T20:30:18.000Z,-36.237,-73.715,41.1,4.5,mb,,,,0.8,us,us10001sa6,2015-06-09T21:30:07.040Z,"76 km NW of Talcahuano, Chile",earthquake,9.6,8,0.271,4,reviewed,guc,us
+2015-04-03T18:31:10.050Z,-36.0117,-73.4359,15.61,4.5,mwr,,143,0.893,0.69,us,us10001tn5,2015-06-16T01:00:25.040Z,"79 km NNW of Tomé, Chile",earthquake,6.7,3.9,0.075,17,reviewed,us,us

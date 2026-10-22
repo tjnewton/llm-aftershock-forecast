@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2014-09-25T17:51:17.606Z,61.9449,-151.816,108.9,6.2,ml,,,,1.02,ak,ak014cbigci8,2023-07-24T17:11:18.169Z,"22 km WSW of Skwentna, Alaska",earthquake,,0.4,,,reviewed,ak,ak

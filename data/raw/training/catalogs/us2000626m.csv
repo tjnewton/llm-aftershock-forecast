@@ -1,0 +1,3 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-06-05T16:25:33.540Z,-4.587,125.6264,429.62,6.3,mww,,17,5.308,1.13,us,us2000626m,2022-05-03T19:28:15.018Z,"Banda Sea",earthquake,8.7,3.7,,,reviewed,us,us
+2016-06-09T09:02:08.990Z,-4.611,125.6012,442.46,4.1,mb,,155,6.842,0.75,us,us200064c0,2016-08-18T00:36:36.040Z,"Banda Sea",earthquake,18.2,5.9,0.166,10,reviewed,us,us

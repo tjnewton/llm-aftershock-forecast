@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-01-16T12:52:08.025Z,-6.4492,154.8224,379,6.1,mww,,20,3.469,0.66,us,us7000gcfv,2022-04-01T17:40:13.040Z,"74 km WSW of Panguna, Papua New Guinea",earthquake,8.8,2,0.042,54,reviewed,us,us

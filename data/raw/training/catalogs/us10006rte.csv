@@ -1,0 +1,42 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-09-22T10:21:57.680Z,34.4083,141.8116,10,4.7,mb,,123,2.105,0.85,us,us10006rky,2016-12-12T23:01:36.040Z,"159 km ESE of Katsuura, Japan",earthquake,4,1.9,0.13,18,reviewed,us,us
+2016-09-22T15:56:05.650Z,34.4727,141.8318,10,5.3,mww,,75,1.5,1.15,us,us10006rp0,2016-12-12T23:01:37.040Z,"157 km ESE of ?hara, Japan",earthquake,5.5,1.8,,,reviewed,us,us
+2016-09-22T15:57:06.940Z,34.3707,141.7588,19.17,5.3,mww,,112,1.512,1.28,us,us10006rp5,2025-12-22T17:20:01.086Z,"157 km ESE of Katsuura, Japan",earthquake,3.9,2.2,,,reviewed,us,us
+2016-09-22T16:00:46.020Z,34.4304,141.7961,18.44,5,mb,,122,2.108,0.87,us,us10006u4m,2016-12-12T23:01:37.040Z,"157 km ESE of Katsuura, Japan",earthquake,3.6,4.6,0.067,72,reviewed,us,us
+2016-09-22T16:11:44.620Z,34.4588,141.7716,10,4,mb,,169,2.11,1.05,us,us10006rpa,2016-12-12T23:01:37.040Z,"153 km SE of ?hara, Japan",earthquake,4.1,2,0.259,4,reviewed,us,us
+2016-09-22T16:20:34.420Z,34.4869,141.7121,16.6,4.7,mb,,128,2.09,0.85,us,us10006rpd,2016-12-12T23:01:37.040Z,"147 km SE of ?hara, Japan",earthquake,6.4,4.6,0.097,32,reviewed,us,us
+2016-09-22T20:28:45.910Z,34.4432,141.7431,10,4.5,mb,,169,2.082,0.76,us,us10006u4x,2016-12-12T23:01:37.040Z,"152 km ESE of Katsuura, Japan",earthquake,3.3,1.9,0.163,11,reviewed,us,us
+2016-09-23T00:14:34.700Z,34.4619,141.6368,10,6.2,mww,,17,1.376,0.83,us,us10006rte,2022-05-03T18:55:17.930Z,"142 km ESE of Katsuura, Japan",earthquake,6,1.7,,,reviewed,us,us
+2016-09-23T00:21:01.710Z,34.4899,141.6638,10.61,4.9,mb,,106,2.062,0.97,us,us10006une,2016-12-14T03:17:42.040Z,"143 km ESE of Katsuura, Japan",earthquake,6.9,4.6,0.097,33,reviewed,us,us
+2016-09-23T00:26:08.660Z,34.4826,141.6924,10,4.8,mb,,103,2.075,1.03,us,us10006unu,2016-12-14T03:17:42.040Z,"146 km ESE of Katsuura, Japan",earthquake,4.3,1.9,0.077,52,reviewed,us,us
+2016-09-23T00:30:23.030Z,34.4351,141.6552,10,4.7,mb,,122,2.021,0.44,us,us10006rtk,2016-12-14T03:17:42.040Z,"145 km ESE of Katsuura, Japan",earthquake,6.5,1.8,0.061,82,reviewed,us,us
+2016-09-23T00:42:35.150Z,34.5021,141.7528,10,4.9,mb,,123,2.125,0.6,us,us10006rtm,2016-12-14T03:17:42.040Z,"149 km SE of ?hara, Japan",earthquake,7.2,1.9,0.059,90,reviewed,us,us
+2016-09-23T01:52:12.540Z,34.6382,141.7336,10,4.5,mb,,157,2.027,1.03,us,us10006rtt,2016-12-14T03:17:43.040Z,"139 km ESE of ?hara, Japan",earthquake,8.6,1.9,0.139,15,reviewed,us,us
+2016-09-23T02:40:21.610Z,34.5102,141.6546,10,4.3,mb,,157,2.069,0.36,us,us10006unj,2016-12-14T03:17:43.040Z,"141 km ESE of Katsuura, Japan",earthquake,7.4,1.8,0.148,13,reviewed,us,us
+2016-09-23T03:37:03.430Z,34.4685,141.87,10,4.6,mb,,129,2.18,0.88,us,us10006ruu,2016-12-14T03:17:43.040Z,"160 km ESE of ?hara, Japan",earthquake,3.2,1.9,0.107,26,reviewed,us,us
+2016-09-23T05:34:31.480Z,34.5214,141.7965,10,5.2,mww,,136,1.449,0.85,us,us10006rvp,2025-12-22T17:32:39.537Z,"151 km ESE of ?hara, Japan",earthquake,7.5,1.9,,,reviewed,us,us
+2016-09-23T06:21:39.710Z,34.4557,141.8586,10,4.2,mb,,155,2.165,0.96,us,us10006up8,2016-12-14T03:17:43.040Z,"160 km ESE of ?hara, Japan",earthquake,9,1.9,0.215,6,reviewed,us,us
+2016-09-23T06:46:01.440Z,34.5256,141.687,10,4.7,mb,,136,2.095,0.68,us,us10006rwn,2016-12-14T03:17:43.040Z,"142 km SE of ?hara, Japan",earthquake,4.6,1.7,0.09,38,reviewed,us,us
+2016-09-23T06:49:52.810Z,34.4322,141.8436,10,4.4,mb,,150,2.14,0.75,us,us10006unx,2016-12-14T03:17:43.040Z,"off the east coast of Honshu, Japan",earthquake,8.7,1.9,0.17,10,reviewed,us,us
+2016-09-23T07:31:57.710Z,34.5675,141.5325,10,4.4,mb,,142,1.988,0.6,us,us10006uny,2016-12-14T03:17:43.040Z,"128 km ESE of Katsuura, Japan",earthquake,7.1,1.9,0.19,8,reviewed,us,us
+2016-09-23T11:04:53.300Z,34.4337,141.5355,10,4.6,mb,,123,1.945,0.81,us,us10006rxy,2016-12-14T03:17:44.040Z,"136 km SE of Katsuura, Japan",earthquake,7.2,1.9,0.054,101,reviewed,us,us
+2016-09-23T12:04:51.220Z,34.5504,141.7975,10,4.9,mb,,118,2.129,0.99,us,us10006rzc,2016-12-14T03:17:44.040Z,"149 km ESE of ?hara, Japan",earthquake,3,1.8,0.072,60,reviewed,us,us
+2016-09-23T13:58:06.020Z,34.4612,141.7858,10,4.7,mb,,144,2.121,0.94,us,us10006s02,2016-12-14T03:17:44.040Z,"154 km SE of ?hara, Japan",earthquake,4.5,1.9,0.106,27,reviewed,us,us
+2016-09-23T15:02:20.600Z,34.5459,141.7733,10,4.3,mb,,130,2.12,0.65,us,us10006upt,2016-12-14T03:17:44.040Z,"off the east coast of Honshu, Japan",earthquake,7.3,1.9,0.178,9,reviewed,us,us
+2016-09-23T20:12:35.250Z,34.5462,141.7863,23.68,4.4,mb,,169,2.127,0.81,us,us10006upr,2016-12-14T03:17:44.040Z,"149 km ESE of ?hara, Japan",earthquake,8.4,7.6,0.17,10,reviewed,us,us
+2016-09-23T20:26:24.340Z,34.5454,141.7751,18.28,4.6,mb,,141,2.122,1.07,us,us10006s3q,2016-12-14T03:17:44.040Z,"148 km ESE of ?hara, Japan",earthquake,7.8,5.6,0.116,24,reviewed,us,us
+2016-09-24T10:20:45.010Z,34.4902,141.8166,10,4.9,mb,,120,1.48,0.83,us,us10006sal,2016-12-14T03:17:46.040Z,"154 km ESE of ?hara, Japan",earthquake,6.9,1.9,0.056,99,reviewed,us,us
+2016-09-24T10:31:45.730Z,34.5106,141.8471,10,4.4,mb,,170,2.185,0.95,us,us10006sar,2016-12-14T03:17:46.040Z,"156 km ESE of ?hara, Japan",earthquake,7.9,1.9,0.203,7,reviewed,us,us
+2016-09-24T10:52:07.190Z,34.5403,141.5769,10,4.9,mb,,126,1.289,0.69,us,us10006saw,2016-12-14T03:17:46.040Z,"133 km ESE of Katsuura, Japan",earthquake,6.1,1.4,0.044,165,reviewed,us,us
+2016-09-25T18:00:55.700Z,34.5688,141.8332,10,4.6,mb,,170,2.133,0.67,us,us10006skl,2016-12-14T03:17:49.040Z,"151 km ESE of ?hara, Japan",earthquake,8,1.9,0.164,11,reviewed,us,us
+2016-09-26T00:09:26.550Z,34.4965,141.7804,10,4.5,mb,,181,2.139,0.55,us,us20007c4y,2016-12-14T03:17:49.040Z,"151 km ESE of ?hara, Japan",earthquake,7.1,1.5,0.22,6,reviewed,us,us
+2016-09-26T01:45:13.880Z,34.5005,141.795,10,4.5,mb,,170,2.151,0.46,us,us20007c51,2016-12-14T03:17:50.040Z,"152 km ESE of ?hara, Japan",earthquake,7.2,1.9,0.157,12,reviewed,us,us
+2016-09-26T21:29:18.020Z,34.571,141.7034,10,4.5,mb,,138,2.066,0.86,us,us10006syy,2016-12-14T03:17:51.040Z,"141 km ESE of ?hara, Japan",earthquake,4.6,1.9,0.128,18,reviewed,us,us
+2016-09-27T19:22:24.960Z,34.6211,141.7212,21,4.6,mb,,128,2.035,0.86,us,us10006tc0,2016-12-14T03:17:53.040Z,"139 km ESE of ?hara, Japan",earthquake,6,5.8,0.078,49,reviewed,us,us
+2016-09-29T23:21:01.710Z,34.523,141.792,10,5.1,mww,,111,2.148,0.69,us,us10006tze,2016-12-14T03:17:57.040Z,"151 km ESE of ?hara, Japan",earthquake,4.7,1.8,,,reviewed,us,us
+2016-09-29T23:29:26.060Z,34.4068,141.7757,22.33,4.5,mb,,145,2.081,0.82,us,us20007di6,2016-12-14T03:17:57.040Z,"156 km ESE of Katsuura, Japan",earthquake,8.2,7.5,0.271,4,reviewed,us,us
+2016-10-01T11:03:48.080Z,34.6601,141.6823,25.26,4.6,mb,,128,1.984,0.78,us,us10006ud8,2017-01-03T21:10:40.040Z,"134 km ESE of ?hara, Japan",earthquake,5.7,5.7,0.112,24,reviewed,us,us
+2016-10-04T12:17:44.440Z,34.6178,141.4504,16.41,4.7,mb,,102,1.159,1.03,us,us10006uy4,2017-01-03T21:10:44.040Z,"119 km ESE of Katsuura, Japan",earthquake,3.5,4.6,0.071,60,reviewed,us,us
+2016-10-09T16:36:47.810Z,34.5857,141.8364,10,4.5,mb,,144,2.121,0.84,us,us20007e5b,2017-01-07T00:20:47.040Z,"150 km ESE of ?hara, Japan",earthquake,6.1,1.9,0.181,9,reviewed,us,us
+2016-10-11T01:24:39.650Z,34.5812,141.5074,4.92,4.4,mb,,135,1.966,0.83,us,us20007f2q,2017-01-07T00:20:49.040Z,"125 km ESE of Katsuura, Japan",earthquake,4.9,3.5,0.162,11,reviewed,us,us
+2016-10-13T20:37:09.870Z,34.4658,141.7967,10,4.3,mb,,141,2.13,0.66,us,us20007fdl,2017-01-07T00:20:53.040Z,"154 km SE of ?hara, Japan",earthquake,7.5,1.9,0.178,9,reviewed,us,us

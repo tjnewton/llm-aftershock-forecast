@@ -1,0 +1,11 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2018-08-28T07:08:11.360Z,-10.773,124.1871,14,6.2,mww,,74,1.014,1.4,us,us1000gii0,2022-05-03T15:27:51.979Z,"92 km SE of Kupang, Indonesia",earthquake,8.9,1.8,0.053,34,reviewed,us,us
+2018-08-28T07:13:32.150Z,-10.631,124.1363,8.18,5.7,mww,,82,0.879,1.21,us,us1000giie,2022-05-03T19:28:35.894Z,"77 km SE of Kupang, Indonesia",earthquake,7.3,3.4,0.089,12,reviewed,us,us
+2018-08-28T08:40:55.530Z,-10.674,124.3738,10,4.5,mb,,112,0.919,1.03,us,us2000h998,2018-11-07T18:37:10.040Z,"90 km S of Soe, Indonesia",earthquake,6.5,1.9,0.164,11,reviewed,us,us
+2018-08-28T08:43:14.380Z,-10.7748,124.3034,10,4.4,mb,,104,1.013,1.42,us,us2000h98y,2018-11-07T18:37:10.040Z,"101 km S of Soe, Indonesia",earthquake,2.8,1.9,0.135,16,reviewed,us,us
+2018-08-28T11:03:56.640Z,-10.8386,124.2837,10,4.4,mb,,68,1.076,1.06,us,us2000h992,2018-11-07T18:37:10.040Z,"104 km SE of Kupang, Indonesia",earthquake,7.4,1.9,0.154,12,reviewed,us,us
+2018-08-28T11:55:45.260Z,-10.871,124.2173,10,5,mww,,62,1.109,1,us,us1000gijz,2025-12-22T17:50:24.268Z,"102 km SE of Kupang, Indonesia",earthquake,5.8,1.7,0.069,20,reviewed,us,us
+2018-08-28T13:22:38.360Z,-10.781,124.2671,10,4.6,mb,,114,1.019,0.77,us,us2000h99b,2018-11-07T18:37:10.040Z,"98 km SE of Kupang, Indonesia",earthquake,7.7,1.7,0.193,8,reviewed,us,us
+2018-08-31T21:53:35.140Z,-10.8152,124.2802,10,5.1,mww,,92,1.053,0.78,us,us2000h69g,2025-12-22T17:50:29.412Z,"102 km SE of Kupang, Indonesia",earthquake,5.4,1.8,0.063,24,reviewed,us,us
+2018-08-31T22:12:57.660Z,-10.687,124.3931,10,4.4,mb,,111,0.934,0.97,us,us2000haf0,2018-11-07T18:37:12.040Z,"92 km S of Soe, Indonesia",earthquake,6.2,1.6,0.219,6,reviewed,us,us
+2018-09-01T01:07:59.120Z,-10.7558,124.3621,10,4,mb,,112,0.998,1.23,us,us2000hafw,2018-11-07T18:37:12.040Z,"99 km S of Soe, Indonesia",earthquake,7.1,2,0.26,4,reviewed,us,us

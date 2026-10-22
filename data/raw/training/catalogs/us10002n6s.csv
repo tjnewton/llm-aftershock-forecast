@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2015-07-03T06:43:21.540Z,10.1691,125.8907,32,6.1,mww,,19,3.095,1.03,us,us10002n6s,2024-09-10T08:00:16.142Z,"23 km NW of Santa Monica, Philippines",earthquake,7.2,1.8,,,reviewed,us,us

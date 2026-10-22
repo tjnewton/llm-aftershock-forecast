@@ -1,0 +1,7 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-06-21T20:54:34.410Z,33.0203,69.4639,4,6,mww,206,15,1.557,0.83,us,us7000hj3u,2023-02-01T23:54:11.900Z,"55 km SW of Kh?st, Afghanistan",earthquake,6.65,1.667,0.098,10,reviewed,us,us
+2022-06-21T21:50:24.948Z,32.9999,69.5099,10,4.5,mb,91,46,1.585,0.65,us,us7000hj4i,2022-08-28T03:19:52.040Z,"52 km W of Miran Shah, Pakistan",earthquake,7.9,1.8,0.065,68,reviewed,us,us
+2022-06-24T01:43:29.039Z,33.0083,69.5438,10,4.2,mb,39,73,1.584,0.84,us,us7000hjt5,2022-08-28T03:20:50.040Z,"49 km W of Miran Shah, Pakistan",earthquake,5.4,1.9,0.112,24,reviewed,us,us
+2022-07-18T12:22:44.372Z,33.0608,69.4864,10,5.2,mww,113,67,1.522,0.54,us,us6000i3el,2022-09-27T16:56:59.040Z,"50 km SW of Kh?st, Afghanistan",earthquake,7.12,1.854,0.093,11,reviewed,us,us
+2022-07-18T19:23:14.084Z,33.0329,69.4451,10,4.3,mb,43,96,1.54,0.57,us,us6000i3ie,2022-09-27T16:57:00.040Z,"55 km SW of Kh?st, Afghanistan",earthquake,9.5,1.9,0.104,26,reviewed,us,us
+2022-07-19T01:09:59.630Z,32.9587,69.5038,10,4.1,mb,42,96,1.624,0.85,us,us6000i3kp,2022-09-27T16:57:01.040Z,"53 km W of Miran Shah, Pakistan",earthquake,8,1.9,0.131,16,reviewed,us,us

@@ -1,0 +1,8 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2012-06-10T12:44:16.590Z,36.42,28.88,35,6,mww,529,40.6,,,us,usp000jmkj,2022-05-03T15:42:27.624Z,"28 km SW of Ölüdeniz, Turkey",earthquake,,,,,reviewed,ath,us
+2012-06-10T12:49:36.590Z,36.41,28.91,39,4.8,mb,135,40.6,,,us,usp000jmkk,2014-11-07T01:48:03.048Z,"27 km SW of Ölüdeniz, Turkey",earthquake,,,,50,reviewed,ath,us
+2012-06-10T18:28:33.000Z,36.46,28.93,39,4.5,ml,39,53,,,us,usp000jmkw,2014-11-07T01:48:03.103Z,"22 km WSW of Ölüdeniz, Turkey",earthquake,,,,,reviewed,ath,isk
+2012-06-12T21:58:11.930Z,36.448,28.924,20.8,4.4,mb,45,112,,,us,usp000jmpp,2015-03-24T01:30:26.719Z,"23 km SW of Ölüdeniz, Turkey",earthquake,,,,8,reviewed,isk,us
+2012-06-13T08:59:07.500Z,36.431,28.876,37.2,4.1,mb,70,92.2,,,us,usp000jmq3,2014-11-07T01:48:04.375Z,"28 km WSW of Ölüdeniz, Turkey",earthquake,,,,7,reviewed,ath,us
+2012-06-14T16:46:06.760Z,36.389,29.055,19.5,4.4,mb,154,89.9,,,us,usp000jmrv,2015-03-24T01:30:29.535Z,"21 km SSW of Ölüdeniz, Turkey",earthquake,,,,39,reviewed,isk,us
+2012-06-25T13:05:28.000Z,36.439,28.941,26.4,5,mw,202,40.6,,,us,usp000jn7f,2022-05-03T15:43:00.602Z,"23 km SW of Ölüdeniz, Turkey",earthquake,,,,,reviewed,isk,csem

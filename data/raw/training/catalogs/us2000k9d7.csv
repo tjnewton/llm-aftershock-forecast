@@ -1,0 +1,10 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2019-04-02T00:59:19.930Z,52.0755,178.1196,10,4.7,mb,,127,2.546,0.73,us,us2000k8y2,2019-06-18T15:50:02.040Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,7.9,1.9,0.028,375,reviewed,us,us
+2019-04-02T21:35:30.049Z,52.1702,178.0709,7.98,6.4,mww,,19,1.94,0.55,us,us2000k9d7,2025-12-22T18:07:05.625Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,6.4,2.5,0.031,101,reviewed,us,us
+2019-04-02T21:39:41.113Z,51.896,178.1044,10,5.2,mb,,140,2.594,0.71,us,us2000k9e2,2021-03-18T22:34:49.467Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,4.3,1.9,0.08,52,reviewed,us,us
+2019-04-02T21:45:45.460Z,51.9158,178.0878,10,4.6,mb,,132,2.578,0.56,us,us700034fz,2019-06-18T15:50:06.040Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,10.6,1.9,0.12,21,reviewed,us,us
+2019-04-02T21:46:24.543Z,51.9029,178.0254,10,4.7,mb,,184,2.546,0.77,us,us2000k9dj,2019-06-18T15:50:06.040Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,5.4,2,0.092,36,reviewed,us,us
+2019-04-02T23:13:38.570Z,52.1582,178.2042,10,4.2,mb,,190,2.574,1.1,us,us2000k9eg,2019-06-18T15:50:07.040Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,9.6,2,0.079,45,reviewed,us,us
+2019-04-02T23:28:51.254Z,51.9334,178.0496,10,4.6,mb,,200,2.549,0.51,us,us2000k9eq,2019-06-18T15:50:07.040Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,10,2,0.048,127,reviewed,us,us
+2019-04-03T02:51:16.440Z,51.9475,177.9633,10,4.1,mb,,197,2.023,0.89,us,us2000k9gq,2019-06-18T15:50:09.040Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,7.2,2,0.068,60,reviewed,us,us
+2019-04-14T15:30:36.913Z,52.1156,178.0861,10,5.2,mww,,40,1.945,0.79,us,us700035yu,2025-12-22T18:07:51.134Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,3,1.8,0.052,35,reviewed,us,us

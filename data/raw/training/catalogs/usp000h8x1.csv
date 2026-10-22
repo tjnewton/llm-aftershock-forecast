@@ -1,0 +1,11 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2010-03-08T02:32:34.710Z,38.864,39.986,12,6.1,mwc,379,22,,0.76,us,usp000h8x1,2022-07-16T05:39:41.488Z,"10 km SSW of Karakoçan, Turkey",earthquake,,,,,reviewed,us,us
+2010-03-08T03:20:24.940Z,38.87,40.232,5,4.4,mb,19,87,,,us,usp000h8x3,2014-11-07T01:40:57.214Z,"19 km ESE of Karakoçan, Turkey",earthquake,,,,5,reviewed,isk,us
+2010-03-08T07:47:41.960Z,38.709,40.051,10,5.6,mwc,250,28.1,,1.08,us,usp000h8xh,2022-05-02T21:43:39.850Z,"11 km E of Palu, Turkey",earthquake,,,,,reviewed,us,gcmt
+2010-03-08T08:11:21.000Z,38.736,40.076,5.1,4.6,mb,36,62.5,,,us,usp000h8xn,2014-11-07T01:40:57.323Z,"14 km ENE of Palu, Turkey",earthquake,,,,4,reviewed,isk,us
+2010-03-08T09:00:46.400Z,38.761,40.062,5,4.9,mwc,83,52.3,,,us,usp000h8xr,2016-11-10T02:25:23.556Z,"14 km ENE of Palu, Turkey",earthquake,,,,,reviewed,isk,gcmt
+2010-03-08T10:14:23.480Z,38.828,40.119,5,5.2,mb,136,26.1,,,us,usp000h8xy,2014-11-07T01:40:57.415Z,"15 km SSE of Karakoçan, Turkey",earthquake,,,,63,reviewed,isk,us
+2010-03-08T11:12:10.790Z,38.776,40.143,5,5.1,mwc,150,26.2,,,us,usp000h8y1,2022-07-16T05:46:04.944Z,"21 km ENE of Palu, Turkey",earthquake,,,,,reviewed,isk,gcmt
+2010-03-08T15:04:54.010Z,38.677,40.05,10,4.9,mwc,62,65.1,,1.27,us,usp000h8yh,2016-11-10T02:25:25.579Z,"11 km E of Palu, Turkey",earthquake,,,,,reviewed,us,gcmt
+2010-03-09T06:14:57.000Z,38.741,40.136,5,4.1,mb,10,85.8,,,us,usp000h900,2014-11-07T01:40:57.794Z,"19 km ENE of Palu, Turkey",earthquake,,,,1,reviewed,isk,us
+2010-03-24T14:11:31.000Z,38.821,40.138,4.5,5.1,mwc,161,41.8,,,us,usp000h9xv,2022-07-16T08:47:27.559Z,"17 km SSE of Karakoçan, Turkey",earthquake,,,,,reviewed,isk,gcmt

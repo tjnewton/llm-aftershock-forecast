@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2024-11-17T12:16:29.874Z,29.0424,131.3968,8,6.1,mww,134,32,2.591,0.9,us,us7000nsa3,2025-01-26T16:30:37.040Z,"156 km SSE of Koshima, Japan",earthquake,6.25,1.822,0.041,56,reviewed,us,us

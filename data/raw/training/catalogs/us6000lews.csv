@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2023-10-11T20:04:58.206Z,-52.0446,139.6131,10,6.3,mww,112,35,10.516,0.95,us,us6000lews,2023-12-16T22:13:07.040Z,"west of Macquarie Island",earthquake,5.49,1.743,0.052,35,reviewed,us,us

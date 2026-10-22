@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2012-05-14T10:00:40.230Z,-17.678,-69.591,105.9,6.2,mww,681,17.1,,0.88,us,usp000jkdy,2025-03-10T00:44:08.648Z,"40 km ENE of Palca, Peru",earthquake,,,,,reviewed,us,us

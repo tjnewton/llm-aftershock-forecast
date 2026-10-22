@@ -1,0 +1,3 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-04-01T19:24:55.370Z,-3.3585,144.887,6,6.2,mww,,37,2.8,1.42,us,us20005e01,2022-08-02T16:39:12.206Z,"119 km NE of Angoram, Papua New Guinea",earthquake,6.5,1.8,,,reviewed,us,us
+2016-04-02T04:53:24.840Z,-3.326,145.1035,9.98,4.4,mb,,101,2.594,0.78,us,us20005gdg,2016-06-17T21:44:55.040Z,"141 km NE of Angoram, Papua New Guinea",earthquake,6.8,5.5,0.138,15,reviewed,us,us

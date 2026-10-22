@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2024-03-27T01:28:17.689Z,-21.0715,173.7373,10,6.4,mww,81,43,5.247,0.79,us,us7000m86i,2024-06-01T21:55:47.040Z,"Vanuatu region",earthquake,9.36,1.74,0.043,53,reviewed,us,us

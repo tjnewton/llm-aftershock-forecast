@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-10-15T08:03:38.150Z,-4.2735,150.3606,442,6.3,mww,,18,1.661,0.98,us,us20007ebu,2022-05-03T18:01:53.743Z,"143 km N of Kimbe, Papua New Guinea",earthquake,9.2,1.9,,,reviewed,us,us

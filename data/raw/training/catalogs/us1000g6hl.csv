@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2018-08-10T18:12:07.020Z,48.4593,154.939,27,6,mww,,20,5.14,0.83,us,us1000g6hl,2022-05-03T19:26:47.170Z,"261 km SSW of Severo-Kuril’sk, Russia",earthquake,7.9,1.7,0.068,21,reviewed,us,us

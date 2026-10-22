@@ -1,0 +1,9 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2021-12-04T15:25:59.418Z,29.255,129.4268,10,4.4,mb,,58,2.415,0.71,us,us6000gak9,2022-02-12T23:06:56.040Z,"98 km N of Naze, Japan",earthquake,4.6,1.5,0.123,19,reviewed,us,us
+2021-12-04T20:14:21.336Z,29.3327,129.4431,10,4.4,mb,,91,2.338,0.62,us,us6000g92l,2022-02-12T23:05:54.040Z,"107 km N of Naze, Japan",earthquake,5.1,1.9,0.1,29,reviewed,us,us
+2021-12-05T02:14:24.831Z,29.2845,129.501,10,5.1,mb,,83,2.364,0.88,us,us6000g96i,2025-12-22T22:21:27.441Z,"101 km N of Naze, Japan",earthquake,6.7,1.8,0.044,170,reviewed,us,us
+2021-12-05T04:06:27.087Z,29.296,129.3159,10,4.4,mb,,108,2.414,0.9,us,us6000gawk,2022-02-12T23:07:18.040Z,"104 km N of Naze, Japan",earthquake,7.7,1.9,0.149,15,reviewed,us,us
+2021-12-06T20:04:40.133Z,29.2723,129.3868,10,4.6,mb,,106,2.412,0.95,us,us6000gb63,2022-02-12T23:07:28.040Z,"100 km N of Naze, Japan",earthquake,8.2,1.8,0.114,23,reviewed,us,us
+2021-12-07T02:13:34.677Z,29.3666,129.4524,10,4.9,mww,,76,2.303,0.5,us,us6000g9xr,2022-02-12T23:06:18.040Z,"110 km N of Naze, Japan",earthquake,6.5,1.8,0.083,14,reviewed,us,us
+2021-12-09T02:05:07.684Z,29.4132,129.3846,7,6,mww,,19,2.283,0.66,us,us6000gaq5,2025-12-22T22:22:08.717Z,"116 km N of Naze, Japan",earthquake,5.8,1.7,0.055,32,reviewed,us,us
+2021-12-13T01:53:04.861Z,29.3318,129.3985,10,4.2,mb,,115,2.353,1.21,us,us6000gcu6,2022-02-24T21:01:56.040Z,"107 km N of Naze, Japan",earthquake,8.8,1.9,0.215,7,reviewed,us,us

@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2011-05-15T13:08:13.060Z,0.569,-25.647,10,6.1,mww,163,44.4,,1.24,us,usp000j1n3,2022-04-08T21:48:39.304Z,"central Mid-Atlantic Ridge",earthquake,,,,,reviewed,us,us

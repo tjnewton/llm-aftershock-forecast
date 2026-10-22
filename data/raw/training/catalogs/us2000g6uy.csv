@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2018-07-17T07:02:53.020Z,-11.5936,166.432,37.96,6,mww,,43,6.726,0.88,us,us2000g6uy,2022-08-08T06:07:05.802Z,"118 km SE of Lata, Solomon Islands",earthquake,8.6,4.1,0.053,34,reviewed,us,us

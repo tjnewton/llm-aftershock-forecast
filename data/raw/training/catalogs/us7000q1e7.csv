@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-05-25T10:49:59.192Z,-22.8374,-175.8016,48,6,mww,216,22,6.661,0.75,us,us7000q1e7,2025-08-13T15:14:32.040Z,"187 km SSW of ‘Ohonua, Tonga",earthquake,9.61,1.858,0.069,20,reviewed,us,us

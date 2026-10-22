@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2010-03-26T14:52:07.230Z,-27.953,-70.821,42,6.3,mwb,387,21.1,,0.9,us,usp000ha0a,2022-07-16T09:03:58.208Z,"69 km N of Vallenar, Chile",earthquake,,,,,reviewed,us,us

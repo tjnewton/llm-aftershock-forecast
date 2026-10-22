@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2023-02-25T13:27:43.704Z,42.8258,145.0212,55,6,mww,146,32,1.6,0.69,us,us6000jrjl,2024-10-09T15:52:44.990Z,"Hokkaido, Japan region",earthquake,7.61,1.905,0.052,35,reviewed,us,us

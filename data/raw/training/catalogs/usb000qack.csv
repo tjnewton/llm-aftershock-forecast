@@ -1,0 +1,20 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2014-05-05T11:08:43.420Z,19.6557,99.6696,6,6.1,mww,,18,1.081,0.56,us,usb000qack,2025-05-05T04:37:15.642Z,"32 km SSW of Chiang Rai, Thailand",earthquake,,1.7,,,reviewed,us,us
+2014-05-05T11:19:36.410Z,19.6647,99.6675,10,4.6,mb,,92,1.087,0.78,us,usb000r4ay,2014-07-27T21:51:22.000Z,"32 km SSW of Chiang Rai, Thailand",earthquake,,1.9,0.114,23,reviewed,us,us
+2014-05-05T11:22:18.650Z,19.6347,99.7028,10,4.3,mb,,84,1.086,0.58,us,usb000r4az,2014-07-27T21:51:22.000Z,"33 km SSW of Chiang Rai, Thailand",earthquake,,1.9,0.169,10,reviewed,us,us
+2014-05-05T12:20:59.590Z,19.6733,99.7106,10,4.1,mb,,90,1.12,0.55,us,usb000r4bw,2014-07-27T21:51:22.000Z,"29 km SSW of Chiang Rai, Thailand",earthquake,,1.9,0.158,11,reviewed,us,us
+2014-05-05T13:34:29.510Z,19.6713,99.674,10,4.4,mb,,70,1.096,0.62,us,usb000qagm,2014-07-27T21:51:23.000Z,"31 km SSW of Chiang Rai, Thailand",earthquake,,1.9,0.179,9,reviewed,us,us
+2014-05-05T16:07:26.190Z,19.5734,99.5475,10,4,mb,,74,0.946,0.74,us,usb000r4bb,2014-07-27T21:51:23.000Z,"37 km NW of Mae Chai, Thailand",earthquake,,1.9,0.367,3,reviewed,us,us
+2014-05-05T19:12:05.320Z,19.7518,99.677,10,4.1,mb,,69,1.161,0.56,us,usb000r4bg,2014-07-27T21:51:23.000Z,"23 km SW of Chiang Rai, Thailand",earthquake,,1.9,0.174,12,reviewed,us,us
+2014-05-05T20:05:24.170Z,19.6258,99.5304,10,4.2,mb,,74,0.979,0.78,us,usb000qb2s,2014-07-27T21:51:23.000Z,"42 km NW of Mae Chai, Thailand",earthquake,,1.9,0.147,15,reviewed,us,us
+2014-05-05T21:17:03.470Z,19.7666,99.6121,10,4.4,mb,,69,1.138,1.32,us,usb000qb7j,2022-07-26T14:29:24.582Z,"27 km SW of Chiang Rai, Thailand",earthquake,,1.9,0.135,16,reviewed,us,us
+2014-05-05T23:04:55.920Z,19.6331,99.5995,10,4.3,mb,,45,1.023,1.14,us,usb000r4br,2014-07-27T21:51:24.000Z,"38 km NW of Mae Chai, Thailand",earthquake,,1.9,0.138,15,reviewed,us,us
+2014-05-06T00:50:16.270Z,19.7013,99.6272,10,5,mb,,26,1.093,0.93,us,usb000qbj3,2022-05-03T16:49:49.158Z,"31 km SW of Chiang Rai, Thailand",earthquake,,1.8,0.059,90,reviewed,us,us
+2014-05-06T00:58:20.540Z,19.6185,99.4702,10,5,mb,,24,0.941,1.19,us,usb000qbj8,2022-07-26T14:31:26.693Z,"42 km SE of Fang, Thailand",earthquake,,1.7,0.051,124,reviewed,us,us
+2014-05-06T12:42:13.380Z,19.595,99.5403,10,4.3,mb,,60,0.959,1.1,us,usb000r5ci,2014-07-27T21:51:25.000Z,"39 km NW of Mae Chai, Thailand",earthquake,,1.9,0.218,6,reviewed,us,us
+2014-05-06T13:47:04.020Z,19.6651,99.5005,11.56,4.2,mb,,70,0.996,1.01,us,usb000r5cl,2014-07-27T21:51:25.000Z,"40 km SE of Fang, Thailand",earthquake,,6.1,0.304,3,reviewed,us,us
+2014-05-06T14:50:14.150Z,19.6832,99.5271,10,4.6,mb,,49,1.024,0.64,us,usb000qc0x,2022-07-26T14:33:23.226Z,"40 km SW of Chiang Rai, Thailand",earthquake,,1.9,0.141,15,reviewed,us,us
+2014-05-06T20:52:28.270Z,19.6291,99.5605,10,4.2,mb,,70,0.998,1.06,us,usb000r5d4,2014-07-27T21:51:26.000Z,"41 km NW of Mae Chai, Thailand",earthquake,,1.9,0.176,9,reviewed,us,us
+2014-05-07T09:38:58.200Z,19.6549,99.5832,10,4.5,mb,,91,1.031,0.91,us,usb000r5e5,2014-08-06T00:55:26.000Z,"38 km SW of Chiang Rai, Thailand",earthquake,,1.9,0.144,14,reviewed,us,us
+2014-05-08T20:43:36.820Z,19.7197,99.6905,10,4.1,mb,,70,1.143,0.95,us,usb000r6gh,2014-08-06T00:55:27.000Z,"25 km SW of Chiang Rai, Thailand",earthquake,,1.9,0.214,6,reviewed,us,us
+2014-05-12T11:05:30.290Z,19.6666,99.7099,10,4.3,mb,,71,1.114,0.83,us,usb000qix3,2014-08-06T00:55:33.000Z,"29 km SSW of Chiang Rai, Thailand",earthquake,,1.9,0.129,17,reviewed,us,us

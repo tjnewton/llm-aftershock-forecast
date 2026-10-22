@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2014-10-08T02:40:53.110Z,23.8441,-108.3311,10,6.1,mww,,50,1.868,0.32,us,usb000sjt0,2022-07-27T04:25:54.911Z,"96 km SSW of Altata, Mexico",earthquake,5.4,1.8,,,reviewed,us,us

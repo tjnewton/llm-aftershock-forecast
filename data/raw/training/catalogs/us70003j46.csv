@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2019-05-09T22:43:23.033Z,31.8013,131.8869,22,5.6,mww,,24,1.572,0.73,us,us70003j3g,2025-12-22T18:09:22.075Z,"46 km ESE of Miyazaki, Japan",earthquake,6.1,1.8,0.057,30,reviewed,us,us
+2019-05-09T23:48:42.779Z,31.7772,131.8483,22,6.2,mww,,17,1.575,0.67,us,us70003j46,2025-12-22T18:01:02.170Z,"43 km ESE of Miyazaki, Japan",earthquake,5,1.8,0.055,32,reviewed,us,us
+2019-05-10T00:07:34.725Z,31.6869,131.7848,10,5.1,mb,,59,1.626,0.6,us,us70003j4s,2019-08-01T17:15:08.040Z,"40 km ENE of Nichinan, Japan",earthquake,6.2,1.8,0.031,339,reviewed,us,us
+2019-05-10T11:40:32.697Z,31.7411,131.7783,10,4.9,mb,,71,1.576,0.98,us,us70003j8n,2025-12-22T18:09:24.385Z,"39 km ESE of Miyazaki, Japan",earthquake,7.1,1.9,0.038,222,reviewed,us,us
+2019-05-19T01:59:51.308Z,31.6524,131.8515,35,4.5,mb,,254,1.684,0.96,us,us60003t3s,2019-08-07T22:03:29.040Z,"46 km E of Nichinan, Japan",earthquake,2.8,2,0.204,7,reviewed,us,us

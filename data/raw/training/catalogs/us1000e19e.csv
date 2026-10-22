@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2018-05-02T22:56:09.280Z,36.947,71.5641,99.32,4.5,mb,,101,0.81,0.69,us,us1000dwat,2018-07-27T20:20:32.040Z,"25 km N of Ishqoshim, Tajikistan",earthquake,6.8,3.9,0.074,53,reviewed,us,us
+2018-05-09T10:41:45.910Z,36.9942,71.3822,116,6.2,mww,,17,0.578,1.1,us,us1000e19e,2022-08-08T03:18:07.452Z,"36 km NW of Ishqoshim, Tajikistan",earthquake,6.4,1.8,0.05,39,reviewed,us,us
+2018-05-23T23:49:36.510Z,37.0567,71.3439,108.43,4.2,mb,,72,0.535,0.67,us,us1000eb0i,2018-08-21T21:23:49.040Z,"43 km NNW of Ishqoshim, Tajikistan",earthquake,3.8,5,0.159,11,reviewed,us,us

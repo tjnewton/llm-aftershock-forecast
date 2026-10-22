@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2018-09-08T07:16:49.620Z,7.2377,126.4779,10,6.2,mww,,30,0.907,0.92,us,us2000haxi,2025-05-05T20:24:08.559Z,"7 km WNW of Manay, Philippines",earthquake,6.1,1.8,0.043,52,reviewed,us,us

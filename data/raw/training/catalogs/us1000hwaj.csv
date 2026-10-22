@@ -1,0 +1,18 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2018-11-25T01:19:06.590Z,13.1429,-81.2054,10,4.6,mb,,31,3.163,0.74,us,us1000hw9h,2019-02-02T20:02:29.040Z,"30 km SE of Mountain, Colombia",earthquake,5.7,1.9,0.044,155,reviewed,us,us
+2018-11-25T03:40:50.810Z,13.1817,-81.0931,10,6,mww,,25,0.326,0.94,us,us1000hwaj,2022-05-03T19:39:47.110Z,"36 km SE of Mountain, Colombia",earthquake,6.4,1.8,0.045,47,reviewed,us,us
+2018-11-25T05:16:15.110Z,13.0359,-81.1559,10,4.3,mb,,44,4.057,0.74,us,us1000hwax,2019-02-02T20:02:30.040Z,"43 km SSE of Mountain, Colombia",earthquake,2.9,2,0.188,8,reviewed,us,us
+2018-11-25T05:28:35.440Z,13.0394,-81.1389,10,4.2,mb,,49,3.198,1.14,us,us1000hwaz,2019-02-02T20:02:30.040Z,"43 km SE of Mountain, Colombia",earthquake,5.1,1.9,0.098,29,reviewed,us,us
+2018-11-25T10:45:17.380Z,13.1278,-81.1577,10,4.4,mb,,38,3.204,0.68,us,us1000hwcf,2019-02-02T20:02:30.040Z,"34 km SE of Mountain, Colombia",earthquake,4.5,1.8,0.067,64,reviewed,us,us
+2018-11-25T12:28:21.860Z,13.1016,-81.0905,10,4.2,mb,,67,3.259,1.38,us,us1000hybi,2019-02-02T20:02:32.040Z,"41 km SE of Mountain, Colombia",earthquake,4.3,2,0.216,6,reviewed,us,us
+2018-11-25T15:45:59.010Z,13.0623,-81.2039,10,4.9,mb,,28,3.142,0.51,us,us1000hwdk,2022-05-03T19:39:52.507Z,"38 km SSE of Mountain, Colombia",earthquake,6.8,1.9,0.032,311,reviewed,us,us
+2018-11-25T20:56:36.490Z,13.1647,-81.046,10,5.7,mww,,30,3.318,1.07,us,us1000hwg8,2022-05-03T20:03:51.283Z,"41 km ESE of Mountain, Colombia",earthquake,2.4,1.8,0.057,30,reviewed,us,us
+2018-11-25T21:29:42.440Z,13.1052,-81.1825,10,4.3,mb,,49,0.321,0.87,us,us1000hyc3,2019-02-02T20:02:33.040Z,"35 km SE of Mountain, Colombia",earthquake,3.3,2,0.154,12,reviewed,us,us
+2018-11-25T22:09:53.650Z,13.054,-81.2056,10,5,mb,,127,0.355,0.69,us,us1000hyc5,2019-02-02T20:02:33.040Z,"38 km SSE of Mountain, Colombia",earthquake,2.8,1.9,0.171,11,reviewed,us,us
+2018-11-26T01:57:06.680Z,13.157,-81.2516,10,4.4,mb,,80,0.243,0.81,us,us1000hwjt,2019-02-09T19:02:09.040Z,"26 km SSE of Mountain, Colombia",earthquake,7.8,1.3,0.107,25,reviewed,us,us
+2018-11-26T03:43:05.400Z,13.2022,-81.0372,10,4.7,mb,,46,0.361,0.89,us,us1000hwjz,2019-02-09T19:02:09.040Z,"40 km ESE of Mountain, Colombia",earthquake,5.4,1.8,0.045,147,reviewed,us,us
+2018-11-26T06:36:12.830Z,13.0679,-81.2105,10,4.4,mwr,,26,3.138,0.74,us,us1000hwku,2019-02-09T19:02:09.040Z,"37 km SSE of Mountain, Colombia",earthquake,7.1,1.9,0.098,10,reviewed,us,us
+2018-11-26T09:13:13.610Z,13.1173,-81.0402,10,4.6,mb,,37,3.311,1.38,us,us1000hwlf,2022-05-03T19:40:04.631Z,"44 km SE of Mountain, Colombia",earthquake,5,1.8,0.045,145,reviewed,us,us
+2018-11-27T01:17:44.810Z,13.1525,-81.0207,10,4.5,mb,,28,3.339,0.85,us,us1000hww7,2019-02-09T19:02:10.040Z,"44 km ESE of Mountain, Colombia",earthquake,5,1.9,0.046,140,reviewed,us,us
+2018-11-27T04:51:13.330Z,13.145,-81.1133,10,4.3,mb,,38,3.25,0.81,us,us1000hye4,2019-02-09T19:02:12.040Z,"36 km SE of Mountain, Colombia",earthquake,7.7,2,0.143,14,reviewed,us,us
+2018-12-16T04:42:31.670Z,13.1604,-81.2007,10,4.2,mb,,53,0.266,1.04,us,us2000ivvl,2019-02-16T22:29:10.040Z,"29 km SE of Mountain, Colombia",earthquake,5.2,1.9,0.236,5,reviewed,us,us

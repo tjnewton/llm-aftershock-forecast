@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-01-12T08:32:49.944Z,18.5019,-103.3631,39,6.2,mww,84,90,0.901,1.38,us,us6000pjig,2026-06-12T15:24:31.551Z,"18 km SE of Aquila, Mexico",earthquake,6.47,1.934,0.032,96,reviewed,us,us
+2025-01-12T09:18:25.533Z,18.4932,-103.3341,35,4.8,mb,57,183,2.299,0.59,us,us6000pjiy,2025-03-20T20:55:12.040Z,"21 km ESE of Aquila, Mexico",earthquake,10.83,1.936,0.047,140,reviewed,us,us
+2025-01-12T10:46:30.862Z,18.5027,-103.4487,35,4.9,mb,78,176,2.389,0.89,us,us6000pjjf,2025-03-20T20:55:13.040Z,"12 km SSE of Aquila, Mexico",earthquake,10.51,1.939,0.034,276,reviewed,us,us
+2025-01-12T10:53:38.446Z,18.4658,-103.3885,35,4.4,mb,34,190,0.925,0.95,us,us6000plu2,2025-03-20T20:55:43.040Z,"19 km SE of Aquila, Mexico",earthquake,5.8,1.985,0.073,54,reviewed,us,us
+2025-01-19T04:32:33.495Z,18.5889,-103.4309,48.162,4.3,mb,28,231,0.796,1.05,us,us7000p9uv,2025-03-29T22:12:47.040Z,"7 km E of Aquila, Mexico",earthquake,8.31,10.58,0.125,18,reviewed,us,us

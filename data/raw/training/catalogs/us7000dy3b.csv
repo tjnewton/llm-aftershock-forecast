@@ -1,0 +1,8 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2021-04-28T02:21:26.212Z,26.7813,92.4565,34,6,mww,,11,1.324,0.79,us,us7000dy3b,2025-12-22T18:57:22.181Z,"8 km NNW of Dhekiajuli, India",earthquake,6.6,1.7,0.066,22,reviewed,us,us
+2021-04-28T02:33:01.489Z,26.7489,92.5136,35,5,mb,,77,1.317,0.74,us,us7000dy3r,2025-12-22T18:57:23.383Z,"6 km NE of Dhekiajuli, India",earthquake,7.8,1.9,0.063,80,reviewed,us,us
+2021-04-28T02:43:20.811Z,26.8262,92.5371,35,4.4,mb,,129,1.395,0.89,us,us7000e0c4,2021-07-07T18:36:50.040Z,"13 km W of Rang?p?ra, India",earthquake,9.1,2,0.123,19,reviewed,us,us
+2021-04-28T10:33:27.953Z,26.7662,92.5133,35,4.2,mb,,181,1.332,0.54,us,us7000e0d3,2021-07-07T18:37:06.040Z,"7 km NNE of Dhekiajuli, India",earthquake,10.5,2,0.215,7,reviewed,us,us
+2021-04-28T19:50:53.770Z,26.7477,92.4849,38.21,4.8,mb,,83,1.304,0.56,us,us7000dybj,2025-12-22T18:57:27.071Z,"4 km N of Dhekiajuli, India",earthquake,7.6,5.6,0.044,157,reviewed,us,us
+2021-05-15T03:03:56.663Z,26.753,92.4736,43.8,4.4,mb,,94,1.305,0.62,us,us7000e3ar,2021-07-24T21:07:04.040Z,"5 km N of Dhekiajuli, India",earthquake,8,7.9,0.134,18,reviewed,us,us
+2021-05-18T12:03:01.251Z,26.6713,92.4258,49.81,4.4,mb,,81,1.213,0.4,us,us7000e42g,2021-07-24T21:07:56.040Z,"6 km SW of Dhekiajuli, India",earthquake,3.6,7.4,0.061,77,reviewed,us,us

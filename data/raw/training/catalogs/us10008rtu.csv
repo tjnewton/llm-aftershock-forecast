@@ -1,0 +1,17 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2017-05-12T10:41:26.710Z,12.9187,-90.0611,16,6.2,mww,,22,1.111,1.03,us,us10008rtu,2022-05-03T18:59:20.278Z,"78 km SSW of Acajutla, El Salvador",earthquake,5.4,1.6,0.031,100,reviewed,us,us
+2017-05-12T10:51:08.070Z,12.9651,-90.1303,17.2,5.2,mww,,29,1.131,0.79,us,us10008rtx,2017-08-01T23:02:31.040Z,"76 km SSW of Acajutla, El Salvador",earthquake,5.8,1.6,0.059,28,reviewed,us,us
+2017-05-12T15:22:33.290Z,12.9549,-90.0831,10,4.6,mb,,136,1.102,1.44,us,us10008rvv,2017-08-01T23:02:31.040Z,"75 km SSW of Acajutla, El Salvador",earthquake,2.9,1.9,0.058,89,reviewed,us,us
+2017-05-13T04:46:31.720Z,12.793,-90.1524,10,4.2,mb,,196,1.262,0.72,us,us10008wfh,2017-08-01T23:02:32.040Z,"95 km SSW of Acajutla, El Salvador",earthquake,7.9,2,0.137,15,reviewed,us,us
+2017-05-13T11:26:15.620Z,12.9216,-90.0756,10,5,mb,,135,1.119,1.43,us,us10008s59,2025-12-22T17:23:59.595Z,"78 km SSW of Acajutla, El Salvador",earthquake,7.4,1.9,0.04,202,reviewed,us,us
+2017-05-13T12:09:54.770Z,12.8945,-90.0279,10,4.3,mb,,187,1.105,0.69,us,us10008wfs,2017-08-01T23:02:33.040Z,"80 km SSW of Acajutla, El Salvador",earthquake,4.2,2,0.125,18,reviewed,us,us
+2017-05-13T13:28:58.360Z,12.8963,-90.1751,10,4.7,mb,,185,1.208,1.28,us,us10008s65,2017-08-01T23:02:33.040Z,"85 km SSW of Acajutla, El Salvador",earthquake,4.8,1.8,0.062,80,reviewed,us,us
+2017-05-13T22:57:49.450Z,12.8939,-90.1104,10,4.5,mb,,157,1.163,1.04,us,us10008s95,2017-08-01T23:02:33.040Z,"83 km SSW of Acajutla, El Salvador",earthquake,7.4,1.9,0.069,61,reviewed,us,us
+2017-05-13T23:33:16.650Z,12.9028,-90.1072,10,4.4,mb,,172,1.155,0.98,us,us10008s9e,2017-08-01T23:02:33.040Z,"82 km SSW of Acajutla, El Salvador",earthquake,8.1,2,0.078,47,reviewed,us,us
+2017-05-14T04:29:02.130Z,12.8974,-90.1247,10,4.6,mb,,110,1.171,1.37,us,us10008sau,2017-08-05T03:32:06.040Z,"83 km SSW of Acajutla, El Salvador",earthquake,7,1.8,0.036,227,reviewed,us,us
+2017-05-14T21:36:42.680Z,12.9765,-90.0467,10,4.7,mb,,145,1.062,0.97,us,us10008sgc,2017-08-05T03:32:07.040Z,"72 km SSW of Acajutla, El Salvador",earthquake,6.5,1.9,0.039,197,reviewed,us,us
+2017-05-16T04:03:48.160Z,12.8999,-90.1432,10,5.2,mww,,120,3.019,0.61,us,us10008sng,2025-12-22T17:24:01.800Z,"83 km SSW of Acajutla, El Salvador",earthquake,8.1,1.9,0.073,18,reviewed,us,us
+2017-05-22T21:53:55.400Z,12.7406,-90.1727,10,4.2,mb,,168,1.313,1.38,us,us10008vjc,2017-08-10T01:33:58.040Z,"101 km SSW of Acajutla, El Salvador",earthquake,8.1,2,0.113,22,reviewed,us,us
+2017-05-26T15:23:34.130Z,12.778,-90.1791,10,5.3,mww,,90,1.291,1.17,us,us10008vh6,2025-12-22T17:24:12.021Z,"97 km SSW of Acajutla, El Salvador",earthquake,6.8,1.8,0.045,48,reviewed,us,us
+2017-05-27T12:58:41.760Z,12.8173,-90.0726,10,4.1,mb,,185,1.19,0.94,us,us10008vsq,2017-08-10T01:34:04.040Z,"89 km SSW of Acajutla, El Salvador",earthquake,7.4,2,0.165,10,reviewed,us,us
+2017-05-27T20:04:07.630Z,12.9518,-90.0919,10,4.4,mb,,166,1.111,0.81,us,us10008vtm,2017-08-10T01:34:04.040Z,"76 km SSW of Acajutla, El Salvador",earthquake,3.4,1.9,0.072,56,reviewed,us,us

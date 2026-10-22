@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-11-30T22:54:34.601Z,48.2521,140.7971,589,6.4,mww,,26,1.854,0.94,us,us7000clbu,2025-12-22T18:46:18.242Z,"88 km SSE of Sovetskaya Gavan’, Russia",earthquake,6,1.9,0.04,60,reviewed,us,us

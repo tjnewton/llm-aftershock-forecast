@@ -1,0 +1,43 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2021-11-14T12:07:03.595Z,27.7158,56.0743,9,6,mwb,,32,2.761,0.75,us,us7000fu0x,2025-12-22T22:20:04.457Z,"62 km NNW of Bandar Abbas, Iran",earthquake,7.3,1.8,0.031,98,reviewed,us,us
+2021-11-14T12:08:38.812Z,27.7266,56.0716,10,6.4,mwb,,52,2.772,0.9,us,us7000fu12,2025-12-22T22:20:05.597Z,"63 km NNW of Bandar Abbas, Iran",earthquake,7.4,1.8,0.029,118,reviewed,us,us
+2021-11-14T12:23:46.714Z,27.5823,56.0395,10,4.4,mb,,52,2.63,0.59,us,us7000fv87,2022-01-22T20:52:06.040Z,"49 km NNW of Bandar Abbas, Iran",earthquake,9.1,1.9,0.093,35,reviewed,us,us
+2021-11-14T12:40:51.537Z,27.6758,56.0278,10,4.4,mb,,60,2.724,0.65,us,us7000fu1n,2022-01-22T20:51:51.040Z,"59 km NNW of Bandar Abbas, Iran",earthquake,9.1,1.9,0.09,36,reviewed,us,us
+2021-11-14T12:52:37.880Z,27.528,56.2921,10,4.2,mb,,89,2.573,0.5,us,us7000fu1r,2022-01-22T20:51:51.040Z,"37 km N of Bandar Abbas, Iran",earthquake,4.9,1.9,0.101,27,reviewed,us,us
+2021-11-14T13:01:10.167Z,27.6797,56.0652,10,4.4,mb,,118,2.726,0.22,us,us7000fv7k,2022-01-22T20:52:05.040Z,"58 km NNW of Bandar Abbas, Iran",earthquake,12.5,1.9,0.127,18,reviewed,us,us
+2021-11-14T13:05:49.124Z,27.7261,56.204,10,4.4,mb,,81,2.769,0.66,us,us7000fv7a,2022-01-22T20:52:05.040Z,"60 km N of Bandar Abbas, Iran",earthquake,9.8,1.9,0.105,28,reviewed,us,us
+2021-11-14T13:13:43.013Z,27.6145,56.1613,10,4.5,mb,,81,2.658,0.49,us,us7000fv7m,2022-01-22T20:52:05.040Z,"48 km NNW of Bandar Abbas, Iran",earthquake,10.4,1.9,0.091,37,reviewed,us,us
+2021-11-14T13:45:00.799Z,27.5187,56.2302,10,4.1,mb,,70,2.563,0.95,us,us7000fu2a,2022-01-22T20:51:51.040Z,"37 km N of Bandar Abbas, Iran",earthquake,9.3,1.9,0.112,22,reviewed,us,us
+2021-11-14T13:51:41.924Z,27.7176,56.2945,10,4,mb,,114,2.762,0.25,us,us7000fv8b,2022-01-22T20:52:06.040Z,"58 km N of Bandar Abbas, Iran",earthquake,9.3,1.9,0.149,12,reviewed,us,us
+2021-11-14T14:02:56.522Z,27.7003,55.9879,10,4.8,mb,,46,2.75,0.67,us,us7000fu2c,2022-01-22T20:51:51.040Z,"63 km NNW of Bandar Abbas, Iran",earthquake,8,1.8,0.051,125,reviewed,us,us
+2021-11-14T14:24:13.866Z,27.6548,56.2813,10,4.2,mb,,127,2.699,0.95,us,us7000fv7d,2022-01-22T20:52:05.040Z,"51 km N of Bandar Abbas, Iran",earthquake,9.6,1.8,0.121,19,reviewed,us,us
+2021-11-14T14:39:33.994Z,27.6456,56.3559,10,4.4,mb,,121,2.692,0.35,us,us7000fv8c,2022-01-22T20:52:06.040Z,"51 km N of Bandar Abbas, Iran",earthquake,9.3,1.9,0.17,11,reviewed,us,us
+2021-11-14T15:12:07.627Z,27.6574,56.1168,10,4.5,mb,,62,2.702,0.46,us,us7000fu2k,2022-01-22T20:51:51.040Z,"54 km NNW of Bandar Abbas, Iran",earthquake,8.3,1.8,0.069,64,reviewed,us,us
+2021-11-14T15:22:18.962Z,27.6415,56.0867,10,4.6,mb,,61,2.687,0.53,us,us7000fu2l,2022-08-06T19:36:18.299Z,"53 km NNW of Bandar Abbas, Iran",earthquake,5.5,1.8,0.062,80,reviewed,us,us
+2021-11-14T15:59:11.832Z,27.6388,55.9951,10,4.4,mb,,112,2.689,0.58,us,us7000fv7g,2022-01-22T20:52:05.040Z,"57 km NNW of Bandar Abbas, Iran",earthquake,9.4,1.9,0.103,27,reviewed,us,us
+2021-11-14T16:10:07.997Z,27.4901,56.2629,10,4.1,mb,,85,2.534,0.29,us,us7000fv7h,2022-01-22T20:52:05.040Z,"33 km N of Bandar Abbas, Iran",earthquake,9.8,1.6,0.151,13,reviewed,us,us
+2021-11-14T16:19:57.776Z,27.6406,56.1044,10,4.7,mb,,62,2.685,0.53,us,us7000fu2u,2022-01-22T20:51:51.040Z,"53 km NNW of Bandar Abbas, Iran",earthquake,4.7,1.8,0.056,100,reviewed,us,us
+2021-11-14T21:33:34.757Z,27.7176,56.2546,10,4.3,mb,,132,2.761,0.9,us,us7000fv82,2022-01-22T20:52:06.040Z,"58 km N of Bandar Abbas, Iran",earthquake,9.1,2,0.154,12,reviewed,us,us
+2021-11-14T22:48:54.065Z,27.6268,56.0383,10,4.5,mb,,115,2.674,0.67,us,us7000fv85,2022-01-22T20:52:06.040Z,"54 km NNW of Bandar Abbas, Iran",earthquake,7.2,1.9,0.163,11,reviewed,us,us
+2021-11-15T02:02:36.676Z,27.6625,56.0431,10,4.6,mb,,61,2.71,0.93,us,us7000fu5f,2022-01-22T20:51:52.040Z,"57 km NNW of Bandar Abbas, Iran",earthquake,7.4,1.8,0.065,71,reviewed,us,us
+2021-11-15T02:53:43.233Z,27.6366,56.0484,10,4.2,mb,,137,2.683,0.74,us,us7000fu5m,2022-01-22T20:51:52.040Z,"54 km NNW of Bandar Abbas, Iran",earthquake,10.3,1.9,0.128,17,reviewed,us,us
+2021-11-15T03:04:38.502Z,27.6686,55.9639,10,4.2,mb,,133,2.72,1.03,us,us7000fvgb,2022-01-22T20:52:07.040Z,"61 km NNW of Bandar Abbas, Iran",earthquake,7.8,1.9,0.153,12,reviewed,us,us
+2021-11-15T03:14:35.297Z,27.5018,56.0706,10,4.2,mb,,95,2.548,0.77,us,us7000fu5r,2022-01-22T20:51:52.040Z,"40 km NNW of Bandar Abbas, Iran",earthquake,8.5,1.9,0.103,26,reviewed,us,us
+2021-11-15T13:36:11.506Z,27.7069,56.0307,10,5.2,mb,,60,2.754,0.51,us,us7000fuaz,2025-12-22T22:20:13.819Z,"62 km NNW of Bandar Abbas, Iran",earthquake,6.3,1.8,0.041,200,reviewed,us,us
+2021-11-15T16:42:43.345Z,27.6644,56.0463,10,4.4,mb,,61,2.711,0.43,us,us7000fubv,2022-01-22T20:51:54.040Z,"57 km NNW of Bandar Abbas, Iran",earthquake,8.8,1.9,0.104,30,reviewed,us,us
+2021-11-15T18:05:37.787Z,27.6784,56.1235,10,4.4,mb,,62,2.722,1.01,us,us7000fudm,2022-01-22T20:51:54.040Z,"56 km NNW of Bandar Abbas, Iran",earthquake,8.2,1.9,0.083,42,reviewed,us,us
+2021-11-16T05:12:13.850Z,27.6766,56.0208,10,4.5,mb,,87,2.725,0.6,us,us7000fuhb,2022-01-22T20:51:55.040Z,"60 km NNW of Bandar Abbas, Iran",earthquake,7.1,1.8,0.087,39,reviewed,us,us
+2021-11-16T10:37:29.841Z,27.7778,56.0412,10,4.1,mb,,71,2.824,0.47,us,us7000fvid,2022-01-22T20:52:09.040Z,"69 km NNW of Bandar Abbas, Iran",earthquake,6.8,1.9,0.107,24,reviewed,us,us
+2021-11-16T19:27:41.206Z,27.6779,55.9361,10,4.3,mb,,59,2.732,0.94,us,us7000fvik,2022-01-22T20:52:09.040Z,"64 km NNW of Bandar Abbas, Iran",earthquake,8,1.9,0.067,73,reviewed,us,us
+2021-11-17T01:59:39.151Z,27.6726,56.1636,10,4.3,mb,,127,2.716,0.58,us,us7000fw7q,2022-01-22T20:52:09.040Z,"55 km NNW of Bandar Abbas, Iran",earthquake,3.6,1.9,0.119,20,reviewed,us,us
+2021-11-17T02:51:33.264Z,27.6969,55.9527,10,4,mb,,135,2.749,0.5,us,us7000fw8c,2022-01-22T20:52:10.040Z,"65 km NNW of Bandar Abbas, Iran",earthquake,10.1,2,0.3,3,reviewed,us,us
+2021-11-18T16:10:41.694Z,27.6808,55.9991,10,4.4,mb,,60,2.73,0.66,us,us7000fv4g,2022-01-22T20:52:02.040Z,"61 km NNW of Bandar Abbas, Iran",earthquake,5.1,1.7,0.071,63,reviewed,us,us
+2021-11-19T18:52:08.652Z,27.7406,56.0937,10,4.2,mb,,39,2.785,0.74,us,us7000fvjk,2022-01-29T22:55:01.040Z,"64 km NNW of Bandar Abbas, Iran",earthquake,6.5,1.9,0.097,30,reviewed,us,us
+2021-11-20T18:44:25.804Z,27.6863,56.0947,10,4.1,mb,,61,2.731,0.47,us,us7000fvsz,2022-01-29T22:55:10.040Z,"southern Iran",earthquake,8.9,1.9,0.103,31,reviewed,us,us
+2021-11-23T16:49:17.603Z,27.73,56.0517,10,4.5,mb,,75,2.776,0.35,us,us7000fxaf,2022-01-29T22:56:07.040Z,"64 km NNW of Bandar Abbas, Iran",earthquake,5,1.9,0.157,14,reviewed,us,us
+2021-11-26T05:57:39.626Z,27.7213,56.0741,10,4.3,mb,,67,2.767,0.37,us,us6000g87u,2022-02-05T23:03:42.040Z,"southern Iran",earthquake,4.6,1.9,0.116,21,reviewed,us,us
+2021-11-28T17:14:43.551Z,27.706,56.0408,10,4.2,mb,,68,2.753,0.78,us,us6000g8gs,2022-02-05T23:03:51.040Z,"62 km NNW of Bandar Abbas, Iran",earthquake,5.3,1.9,0.083,42,reviewed,us,us
+2021-11-30T03:47:47.672Z,27.8245,56.0317,10,4.1,mb,,90,2.871,0.83,us,us6000g8s6,2022-02-05T23:03:58.040Z,"74 km NNW of Bandar Abbas, Iran",earthquake,5.5,2,0.214,6,reviewed,us,us
+2021-12-01T01:42:32.753Z,27.6346,56.0251,10,4.1,mb,,128,2.683,0.8,us,us6000ga0l,2022-02-05T23:04:02.040Z,"55 km NNW of Bandar Abbas, Iran",earthquake,9.7,1.9,0.146,13,reviewed,us,us
+2021-12-07T23:07:18.794Z,27.7371,56.1076,10,4.1,mb,,138,2.781,0.29,us,us6000gb8d,2022-02-12T23:07:33.040Z,"63 km NNW of Bandar Abbas, Iran",earthquake,11.1,1.9,0.158,11,reviewed,us,us
+2021-12-10T17:33:31.604Z,27.6582,56.1216,10,4.6,mb,,46,2.702,0.72,us,us6000gb96,2022-02-24T20:59:41.040Z,"54 km NNW of Bandar Abbas, Iran",earthquake,6,1.8,0.05,128,reviewed,us,us

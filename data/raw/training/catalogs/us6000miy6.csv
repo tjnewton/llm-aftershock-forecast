@@ -1,0 +1,8 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2024-03-14T20:00:06.954Z,29.7656,-42.7949,10,5.2,mww,241,57,16.412,0.64,us,us6000mixv,2024-05-18T21:22:57.040Z,"northern Mid-Atlantic Ridge",earthquake,9.92,1.84,0.06,27,reviewed,us,us
+2024-03-14T21:02:03.461Z,29.7125,-42.8607,10,4.6,mb,23,117,22.169,0.38,us,us6000mjzt,2024-05-18T21:24:05.040Z,"northern Mid-Atlantic Ridge",earthquake,9.26,1.845,0.146,14,reviewed,us,us
+2024-03-14T21:10:24.786Z,29.7971,-42.6608,10,6.2,mww,189,54,16.297,0.59,us,us6000miy6,2024-05-18T21:22:58.040Z,"northern Mid-Atlantic Ridge",earthquake,9.43,1.776,0.037,71,reviewed,us,us
+2024-03-14T21:29:12.936Z,29.6206,-42.6288,10,5.4,mww,102,68,16.372,0.52,us,us6000miya,2024-05-18T21:22:58.040Z,"northern Mid-Atlantic Ridge",earthquake,9.88,1.76,0.054,33,reviewed,us,us
+2024-03-14T21:50:13.793Z,29.6243,-42.6841,10,4.9,mb,70,77,19.064,0.62,us,us6000miyc,2024-05-18T21:22:58.040Z,"northern Mid-Atlantic Ridge",earthquake,11.64,1.859,0.053,114,reviewed,us,us
+2024-03-14T21:54:21.321Z,29.602,-42.6056,10,4.9,mb,80,149,25.067,0.59,us,us6000miyf,2024-05-18T21:22:59.040Z,"northern Mid-Atlantic Ridge",earthquake,12.22,1.875,0.061,84,reviewed,us,us
+2024-03-14T22:00:10.899Z,29.9323,-42.7933,10,4.5,mb,25,152,30.275,0.66,us,us6000mjzm,2024-05-18T21:24:04.040Z,"northern Mid-Atlantic Ridge",earthquake,13.43,1.917,0.109,25,reviewed,us,us

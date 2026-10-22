@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2015-12-19T02:10:53.360Z,-18.3819,169.3857,10,6,mww,,22,3.125,0.87,us,us1000489i,2022-08-02T00:01:14.882Z,"128 km N of Isangel, Vanuatu",earthquake,6.8,1.7,,,reviewed,us,us
+2015-12-19T02:41:38.860Z,-18.2976,169.2346,10,4.3,mb,,193,3.101,0.75,us,us100048vl,2016-03-12T02:29:16.040Z,"115 km ESE of Port-Vila, Vanuatu",earthquake,11.5,2,0.533,1,reviewed,us,us
+2015-12-19T02:43:40.900Z,-18.2511,169.2844,10,4.7,mb,,87,3.167,0.92,us,us1000489q,2016-03-12T02:29:16.040Z,"117 km ESE of Port-Vila, Vanuatu",earthquake,6.7,1.8,0.138,21,reviewed,us,us
+2015-12-19T02:54:46.210Z,-18.5015,169.3056,10,4.6,mb,,116,2.985,1.43,us,us100048uj,2016-03-12T02:29:17.040Z,"115 km N of Isangel, Vanuatu",earthquake,7.8,1.9,0.172,10,reviewed,us,us

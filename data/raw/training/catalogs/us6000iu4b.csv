@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-10-16T12:48:21.665Z,4.3584,-87.5675,15,6.3,mww,158,80,5.689,0.38,us,us6000iu4b,2022-12-31T23:03:34.040Z,"off the coast of Central America",earthquake,7.01,1.856,0.039,63,reviewed,us,us
+2022-10-16T22:36:39.283Z,4.2095,-87.6316,10,4.3,mb,37,116,5.529,0.8,us,us6000iu6u,2022-12-31T23:03:35.040Z,"off the coast of Central America",earthquake,8.62,1.754,0.137,15,reviewed,us,us
+2022-10-18T01:24:45.869Z,4.5128,-87.4089,10,4.6,mb,49,161,6.196,0.73,us,us6000iug9,2022-12-31T23:03:37.040Z,"off the coast of Central America",earthquake,9.4,1.922,0.111,24,reviewed,us,us

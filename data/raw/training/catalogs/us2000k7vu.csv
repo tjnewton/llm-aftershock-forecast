@@ -1,0 +1,8 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2019-03-31T07:04:04.795Z,-1.9446,-80.8101,18,6.2,mww,,36,1.635,0.83,us,us2000k7vu,2025-12-22T18:56:28.127Z,"31 km N of Santa Elena, Ecuador",earthquake,6.8,1.8,0.034,81,reviewed,us,us
+2019-03-31T07:08:51.586Z,-2.0009,-80.9989,10,4.9,mb,,98,1.8,0.76,us,us2000k7w1,2019-06-08T20:51:26.040Z,"24 km NNW of Salinas, Ecuador",earthquake,3.9,1.9,0.056,100,reviewed,us,us
+2019-03-31T07:12:14.557Z,-2.0272,-80.8818,10,4.4,mb,,98,1.68,0.67,us,us2000kcen,2019-06-08T20:51:38.040Z,"22 km NNE of Salinas, Ecuador",earthquake,4.5,1.9,0.149,14,reviewed,us,us
+2019-03-31T07:27:13.353Z,-1.9695,-80.7188,10,5.1,mb,,106,1.541,0.66,us,us2000k7w6,2019-06-08T20:51:26.040Z,"32 km NNE of Santa Elena, Ecuador",earthquake,5.1,1.6,0.034,286,reviewed,us,us
+2019-03-31T07:28:50.636Z,-1.9363,-80.7342,18.62,5.5,mww,,36,1.566,0.81,us,us2000k7w8,2025-12-22T18:00:37.446Z,"34 km NNE of Santa Elena, Ecuador",earthquake,3.5,3.2,0.066,22,reviewed,us,us
+2019-03-31T08:54:18.339Z,-1.9238,-80.816,10,4.4,mb,,97,1.648,0.43,us,us2000kcet,2019-06-08T20:51:38.040Z,"33 km N of Santa Elena, Ecuador",earthquake,5.9,1.9,0.203,7,reviewed,us,us
+2019-03-31T14:09:10.860Z,-2.0306,-80.8862,10,4.9,mb,,107,1.684,0.71,us,us2000k80e,2025-12-22T18:06:54.680Z,"21 km NNE of Salinas, Ecuador",earthquake,5.8,1.7,0.031,336,reviewed,us,us

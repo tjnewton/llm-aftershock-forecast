@@ -1,0 +1,3 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2019-04-22T09:11:12.013Z,14.9538,120.5149,21.84,6.1,mww,,20,0.94,1.01,us,us70003a63,2025-12-22T17:54:14.919Z,"3 km WSW of San Francisco, Philippines",earthquake,6.3,3.7,0.035,77,reviewed,us,us
+2019-04-23T18:02:59.630Z,14.9087,120.6064,50.08,4.7,mb,,118,0.863,0.65,us,us70003av0,2019-07-13T18:42:35.040Z,"3 km S of Lubao, Philippines",earthquake,8.3,7.5,0.046,144,reviewed,us,us

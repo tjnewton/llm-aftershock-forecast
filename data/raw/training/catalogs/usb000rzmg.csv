@@ -1,0 +1,14 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2014-08-03T08:30:13.570Z,27.1891,103.4086,12,6.2,mww,,13,2.143,1,us,usb000rzmg,2022-07-26T21:20:34.640Z,"33 km WSW of Zhaotong, China",earthquake,,1.7,,,reviewed,us,us
+2014-08-03T10:12:44.560Z,27.1037,103.5176,10,4.3,mb,,116,2.092,1.43,us,usb000s2wg,2014-10-29T19:52:58.000Z,"30 km SW of Zhaotong, China",earthquake,,1.9,0.201,7,reviewed,us,us
+2014-08-03T10:34:03.070Z,27.1625,103.3621,10,4.5,mb,,86,2.106,1,us,usb000s2w4,2014-10-29T19:52:58.000Z,"39 km WSW of Zhaotong, China",earthquake,,1.9,0.156,12,reviewed,us,us
+2014-08-03T11:46:33.860Z,27.0826,103.5382,10,4.4,mb,,125,2.078,0.73,us,usb000s2w6,2014-10-29T19:52:58.000Z,"31 km SW of Zhaotong, China",earthquake,,1.9,0.169,10,reviewed,us,us
+2014-08-03T13:47:09.950Z,27.2425,103.3889,10,4.6,mb,,104,2.189,1.4,us,usb000rznf,2014-10-29T19:52:58.000Z,"33 km WSW of Zhaotong, China",earthquake,,1.9,0.146,17,reviewed,us,us
+2014-08-03T14:28:31.600Z,27.1502,103.4774,10,4.7,mb,,86,2.124,0.94,us,usb000rznh,2014-10-29T19:52:58.000Z,"30 km SW of Zhaotong, China",earthquake,,1.9,0.094,39,reviewed,us,us
+2014-08-03T15:08:31.970Z,27.1281,103.4039,10,4.3,mb,,119,2.083,0.58,us,usb000s2wf,2014-10-29T19:52:58.000Z,"37 km SW of Zhaotong, China",earthquake,,1.9,0.376,4,reviewed,us,us
+2014-08-03T19:30:32.290Z,27.1612,103.4425,10,4.6,mb,,65,2.125,0.8,us,usb000rzp2,2014-10-29T19:52:59.000Z,"32 km WSW of Zhaotong, China",earthquake,,1.9,0.112,24,reviewed,us,us
+2014-08-03T23:06:11.160Z,27.2216,103.3272,10,4.3,mb,,85,2.155,1.18,us,usb000s2ws,2014-10-29T19:52:59.000Z,"39 km WSW of Zhaotong, China",earthquake,,1.9,0.142,14,reviewed,us,us
+2014-08-08T06:39:30.010Z,27.1939,103.3072,10,4.6,mb,,131,2.124,1.2,us,usb000s4u0,2014-11-07T21:47:35.000Z,"42 km WSW of Zhaotong, China",earthquake,,1.9,0.182,11,reviewed,us,us
+2014-08-10T04:39:13.090Z,27.1479,103.4239,10,4.1,mb,,86,2.107,1.04,us,usb000s4zl,2014-11-07T21:47:37.000Z,"34 km WSW of Zhaotong, China",earthquake,,1.8,0.198,9,reviewed,us,us
+2014-08-13T12:16:31.730Z,27.1294,103.5083,30.05,4.1,mb,,108,2.113,0.84,us,usb000s685,2014-11-15T04:07:07.000Z,"29 km SW of Zhaotong, China",earthquake,,6.7,0.184,10,reviewed,us,us
+2014-08-23T02:29:13.610Z,27.0989,103.5564,10,4.6,mb,,107,2.099,0.84,us,usc000s9wr,2014-11-22T02:06:27.000Z,"28 km SSW of Zhaotong, China",earthquake,7.3,1.9,0.193,8,reviewed,us,us

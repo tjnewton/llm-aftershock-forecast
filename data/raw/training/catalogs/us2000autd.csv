@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2017-09-26T04:20:00.260Z,-23.5815,-176.8371,96,6.4,mww,,14,7.846,0.98,us,us2000autd,2022-08-07T18:39:59.536Z,"south of the Fiji Islands",earthquake,8.2,1.8,0.046,46,reviewed,us,us

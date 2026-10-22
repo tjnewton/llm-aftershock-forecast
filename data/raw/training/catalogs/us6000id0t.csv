@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-08-23T14:31:39.374Z,-5.0926,103.079,45.258,6.2,mww,115,42,0.738,0.72,us,us6000id0t,2023-06-19T04:44:31.103Z,"119 km S of Pagar Alam, Indonesia",earthquake,5.19,3.158,0.046,46,reviewed,us,us
+2022-08-24T02:41:30.529Z,-5.2295,102.9363,57.472,4.7,mb,39,175,0.864,0.45,us,us7000i1xc,2022-11-01T15:13:59.040Z,"137 km SSW of Pagar Alam, Indonesia",earthquake,8.1,7.215,0.129,18,reviewed,us,us
+2022-09-04T08:52:13.492Z,-5.0652,102.8928,55.021,5.1,mb,99,35,0.703,0.55,us,us7000i531,2022-11-15T19:06:04.040Z,"121 km SSW of Pagar Alam, Indonesia",earthquake,6.03,5.87,0.053,114,reviewed,us,us

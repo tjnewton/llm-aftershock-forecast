@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2024-06-23T03:57:58.918Z,10.6921,-62.6868,77,6,mww,124,36,1.753,1.09,us,us7000mu1p,2026-06-25T14:35:53.926Z,"20 km NE of Yaguaraparo, Venezuela",earthquake,8.23,1.891,0.035,78,reviewed,us,us

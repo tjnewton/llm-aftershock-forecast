@@ -1,0 +1,13 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-07-22T20:07:19.194Z,33.1438,86.8637,10,6.3,mww,,14,5.168,0.88,us,us6000b26j,2025-12-22T18:38:35.515Z,"western Xizang",earthquake,2.8,1.7,0.071,19,reviewed,us,us
+2020-07-22T20:13:48.618Z,33.1896,86.8557,10,4.2,mb,,98,5.214,0.8,us,us6000b5y0,2020-10-03T17:32:30.040Z,"western Xizang",earthquake,10.3,1.7,0.167,10,reviewed,us,us
+2020-07-22T20:14:44.728Z,33.2088,86.773,10,5,mb,,59,5.103,0.87,us,us6000b5xr,2020-10-03T17:32:30.040Z,"western Xizang",earthquake,6.8,1.8,0.094,36,reviewed,us,us
+2020-07-22T20:17:55.276Z,33.1168,86.7663,10,4.3,mb,,93,5.047,0.6,us,us6000b5xs,2020-10-03T17:32:30.040Z,"western Xizang",earthquake,6.8,1.9,0.147,13,reviewed,us,us
+2020-07-22T20:20:05.364Z,33.1501,86.8946,10,4.4,mb,,138,4.989,0.85,us,us6000b5xt,2020-10-03T17:32:30.040Z,"western Xizang",earthquake,10,1.4,0.155,12,reviewed,us,us
+2020-07-22T22:28:33.320Z,33.187,86.7446,10,4.5,mb,,52,5.107,0.57,us,us6000b2aa,2020-10-03T17:32:15.040Z,"western Xizang",earthquake,5.3,1.9,0.07,59,reviewed,us,us
+2020-07-23T06:48:41.845Z,33.2056,87.0518,10,4.2,mb,,94,4.93,0.31,us,us6000b2h5,2020-10-03T17:32:17.040Z,"western Xizang",earthquake,5.2,1.9,0.132,16,reviewed,us,us
+2020-07-23T10:50:09.085Z,33.1508,86.8235,10,5.1,mww,,51,5.175,0.8,us,us6000b2l7,2025-12-22T18:38:37.638Z,"western Xizang",earthquake,8,1.8,0.083,14,reviewed,us,us
+2020-07-24T03:39:40.607Z,33.1468,86.8128,10,4.4,mb,,96,5.171,0.78,us,us6000b35t,2020-10-03T17:32:19.040Z,"western Xizang",earthquake,8,1.9,0.115,22,reviewed,us,us
+2020-07-28T14:38:18.583Z,33.2057,86.8606,10,4.3,mb,,95,5.047,0.95,us,us6000b5cw,2020-10-03T17:32:29.040Z,"western Xizang",earthquake,9,1.9,0.129,17,reviewed,us,us
+2020-07-31T11:20:10.217Z,33.0674,86.7387,10,4.7,mb,,70,5.092,0.65,us,us6000b7e2,2020-10-10T17:11:05.040Z,"western Xizang",earthquake,8.3,1.1,0.047,137,reviewed,us,us
+2020-08-04T02:59:45.849Z,33.0351,86.8848,10,4.6,mb,,61,4.918,0.51,us,us6000b8yq,2020-10-10T17:11:12.040Z,"western Xizang",earthquake,8.2,1.8,0.059,85,reviewed,us,us

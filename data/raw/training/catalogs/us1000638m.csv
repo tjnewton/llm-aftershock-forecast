@@ -1,0 +1,18 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-07-13T11:56:58.280Z,-28.0101,-176.4143,10,5.9,mww,,74,1.813,1.13,us,us1000638j,2022-05-03T18:53:19.987Z,"Kermadec Islands region",earthquake,4.6,1.7,,,reviewed,us,us
+2016-07-13T12:06:37.660Z,-28.0057,-176.4155,10,4.8,mb,,96,1.815,1.09,us,us20006fu4,2016-09-08T01:50:30.040Z,"Kermadec Islands region",earthquake,6.5,1.8,0.109,26,reviewed,us,us
+2016-07-13T12:11:12.830Z,-28.0052,-176.443,12,6.3,mww,,40,1.797,1.01,us,us1000638m,2022-05-03T17:54:47.535Z,"Kermadec Islands region",earthquake,7.9,1.7,,,reviewed,us,us
+2016-07-13T12:18:33.390Z,-28.109,-176.5308,10,5.9,mwc,,50,1.67,0.79,us,us1000638n,2022-05-03T17:54:49.127Z,"Kermadec Islands region",earthquake,8.4,1.7,,,reviewed,us,gcmt
+2016-07-13T13:00:30.830Z,-28.0354,-176.5234,10,4.7,mb,,97,1.725,0.41,us,us20006fui,2016-09-08T01:50:30.040Z,"Kermadec Islands region",earthquake,6.9,1.8,0.166,11,reviewed,us,us
+2016-07-13T13:04:25.480Z,-27.9244,-176.5252,10,5.8,mww,,51,1.804,0.71,us,us10006391,2022-05-03T17:57:13.592Z,"Kermadec Islands region",earthquake,8.2,1.8,,,reviewed,us,us
+2016-07-13T13:09:30.030Z,-27.871,-176.2998,10,4.7,mb,,128,1.981,0.86,us,us20006fu2,2016-09-08T01:50:30.040Z,"Kermadec Islands region",earthquake,7.8,1.9,0.195,8,reviewed,us,us
+2016-07-13T13:16:40.570Z,-28.0793,-176.4624,10,5.1,mb,,74,1.735,0.64,us,us10006398,2016-09-08T01:50:30.040Z,"Kermadec Islands region",earthquake,8.5,1.8,0.089,41,reviewed,us,us
+2016-07-13T13:32:06.870Z,-28.0134,-176.6137,10,5,mb,,86,1.686,0.52,us,us1000639f,2016-09-08T01:50:30.040Z,"Kermadec Islands region",earthquake,9.6,1.5,0.12,22,reviewed,us,us
+2016-07-13T14:24:22.790Z,-27.9036,-176.4292,10,4.9,mb,,85,1.877,0.64,us,us1000639i,2016-09-08T01:50:30.040Z,"Kermadec Islands region",earthquake,9.9,1.9,0.1,31,reviewed,us,us
+2016-07-14T02:05:50.290Z,-28.1654,-176.2705,10,5,mb,,155,1.811,0.96,us,us20006g40,2016-09-08T01:50:31.040Z,"Kermadec Islands region",earthquake,9.4,1.7,0.123,21,reviewed,us,us
+2016-07-14T02:24:02.360Z,-27.8958,-176.3468,10,5.1,mb,,60,1.934,0.91,us,us20006ehq,2025-12-22T17:32:01.721Z,"Kermadec Islands region",earthquake,8.6,1.8,0.06,89,reviewed,us,us
+2016-07-15T10:16:54.990Z,-28.176,-176.3523,10,5.6,mwb,,44,1.747,0.95,us,us20006ewt,2025-12-22T17:32:25.947Z,"Kermadec Islands region",earthquake,8.8,1.7,0.068,21,reviewed,us,us
+2016-07-18T06:47:38.590Z,-27.9363,-176.5564,10,4.5,mb,,180,44.567,0.26,us,us20006gqi,2016-09-17T01:27:49.040Z,"Kermadec Islands region",earthquake,15,2,0.192,8,reviewed,us,us
+2016-07-18T20:44:59.660Z,-28.0557,-176.4188,32.24,4.5,mb,,127,1.779,0.35,us,us20006gr8,2016-09-17T01:27:50.040Z,"Kermadec Islands region",earthquake,10.8,4.4,0.136,16,reviewed,us,us
+2016-08-01T08:01:28.180Z,-28.0607,-176.4056,35,4.9,mb,,82,1.784,0.75,us,us1000695h,2016-10-19T04:52:04.040Z,"Kermadec Islands region",earthquake,8.5,1.9,0.082,47,reviewed,us,us
+2016-08-02T10:12:49.410Z,-27.7841,-176.301,10,4.5,mb,,137,2.042,1.21,us,us100069f2,2016-10-19T04:52:11.040Z,"Kermadec Islands region",earthquake,13.3,1.9,0.145,14,reviewed,us,us

@@ -1,0 +1,12 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2011-11-14T04:05:11.390Z,-0.949,126.91,17,6.3,mww,274,27.9,,1.04,us,usp000jav0,2024-06-17T18:22:43.925Z,"199 km SSW of Ternate, Indonesia",earthquake,,,,,reviewed,us,us
+2011-11-14T04:25:47.910Z,-1.018,126.905,43.4,4.3,mb,16,105.4,,0.95,us,usp000jav1,2014-11-07T01:46:21.036Z,"206 km SSW of Ternate, Indonesia",earthquake,,12.7,,2,reviewed,us,us
+2011-11-14T07:49:12.780Z,-1.028,126.926,35,4.6,mb,23,88.6,,1.08,us,usp000java,2014-11-07T01:46:21.127Z,"207 km SSW of Ternate, Indonesia",earthquake,,14.8,,6,reviewed,us,us
+2011-11-14T14:30:35.110Z,-1.112,126.909,35.4,4,mb,12,107.4,,1.33,us,usp000javm,2014-11-07T01:46:21.171Z,"216 km SSW of Sofifi, Indonesia",earthquake,,16.2,,1,reviewed,us,us
+2011-11-15T18:27:03.620Z,-0.864,127.002,10,4.9,mb,106,67.7,,1.09,us,usp000jawu,2014-11-07T01:46:21.430Z,"187 km SSW of Sofifi, Indonesia",earthquake,,,,57,reviewed,us,us
+2011-11-15T23:38:56.700Z,-1.009,126.806,54.1,4.1,mb,13,107.9,,1.1,us,usp000jax3,2014-11-07T01:46:21.487Z,"209 km SSW of Ternate, Indonesia",earthquake,,14.3,,2,reviewed,us,us
+2011-11-16T10:42:27.080Z,-0.904,127.015,10,4,mb,16,90.1,,0.78,us,usp000jay0,2014-11-07T01:46:21.687Z,"Halmahera, Indonesia",earthquake,,,,1,reviewed,us,us
+2011-11-21T13:09:41.080Z,-1,126.823,20.3,4.3,mb,11,127.9,,1.06,us,usp000jb77,2014-11-07T01:46:23.558Z,"207 km SSW of Ternate, Indonesia",earthquake,,61.8,,2,reviewed,us,us
+2011-11-29T07:38:17.590Z,-1.002,126.854,41.4,4.9,mb,79,54.9,,1.09,us,usp000jbk6,2014-11-07T01:46:25.743Z,"206 km SSW of Ternate, Indonesia",earthquake,,7.6,,36,reviewed,us,us
+2011-12-06T18:16:42.860Z,-1.087,126.852,38.5,4.6,mb,56,87.8,,0.95,us,usp000jbwb,2014-11-07T01:46:31.557Z,"215 km SSW of Ternate, Indonesia",earthquake,,8.4,,20,reviewed,us,us
+2011-12-09T19:48:39.050Z,-0.863,126.907,37.4,5,mb,38,90,,1.09,us,usp000jc0c,2014-11-07T01:46:32.552Z,"190 km SSW of Ternate, Indonesia",earthquake,,12.3,,15,reviewed,us,us

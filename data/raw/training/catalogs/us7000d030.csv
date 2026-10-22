@@ -1,0 +1,9 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2021-01-14T06:35:50.028Z,-2.9809,118.894,18,5.7,mww,,33,2.193,0.83,us,us6000d882,2025-12-22T17:59:48.941Z,"33 km S of Mamuju, Indonesia",earthquake,5.8,1.7,0.053,34,reviewed,us,us
+2021-01-14T06:38:37.148Z,-3.0171,118.9502,10,5.2,mb,,69,2.138,0.37,us,us7000d2dv,2021-03-20T21:25:35.040Z,"37 km S of Mamuju, Indonesia",earthquake,7,1.9,0.098,35,reviewed,us,us
+2021-01-14T18:28:18.093Z,-2.9717,118.8899,18,6.2,mww,,28,2.203,1.12,us,us7000d030,2025-12-22T18:48:23.045Z,"32 km S of Mamuju, Indonesia",earthquake,3.5,1.7,0.066,22,reviewed,us,us
+2021-01-15T00:25:24.818Z,-2.9923,118.8817,10,4.3,mb,,129,2.188,0.42,us,us7000d2f9,2021-03-27T21:06:01.040Z,"34 km S of Mamuju, Indonesia",earthquake,7.5,1.2,0.168,10,reviewed,us,us
+2021-01-15T23:32:52.269Z,-2.9335,118.9545,10,4.9,mb,,65,2.214,0.63,us,us7000d0im,2021-03-27T21:04:43.040Z,"28 km SSE of Mamuju, Indonesia",earthquake,5.8,1,0.084,44,reviewed,us,us
+2021-01-21T11:55:35.262Z,-2.9966,118.9163,10,4.2,mb,,128,2.17,0.8,us,us6000dcv9,2021-03-27T21:04:16.040Z,"35 km S of Mamuju, Indonesia",earthquake,6.1,1.9,0.215,6,reviewed,us,us
+2021-01-31T12:13:10.524Z,-3.0174,118.9466,10,4.4,mb,,128,2.139,0.46,us,us6000ddeg,2021-04-16T19:02:37.040Z,"37 km S of Mamuju, Indonesia",earthquake,4.3,1.9,0.135,16,reviewed,us,us
+2021-02-03T08:25:38.571Z,-3.0035,118.9307,10,4.9,mb,,33,2.158,0.46,us,us6000de4n,2022-08-09T02:43:41.416Z,"36 km S of Mamuju, Indonesia",earthquake,6.2,1.8,0.08,49,reviewed,us,us

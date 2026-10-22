@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2014-11-22T13:08:18.420Z,36.6408,137.8875,9,6.2,mww,,19,0.271,0.98,us,usb000syza,2022-08-07T04:46:03.314Z,"6 km SSE of Hakuba, Japan",earthquake,5.3,1.7,,,reviewed,us,us
+2014-11-22T13:37:48.890Z,36.6804,137.9236,7.1,4.6,mb,,103,0.262,1.29,us,usb000syzb,2015-02-18T03:30:53.040Z,"5 km ESE of Hakuba, Japan",earthquake,3.9,5.5,0.244,6,reviewed,us,us
+2014-11-22T13:54:58.740Z,36.8175,137.8689,7.47,4.6,mb,,53,0.382,1.08,us,usc000t40l,2015-02-18T03:30:53.040Z,"13 km N of Hakuba, Japan",earthquake,4.3,7.1,0.244,6,reviewed,us,us
+2014-11-23T03:46:38.280Z,36.6657,137.9627,10,4.3,mb,,53,0.228,1.08,us,usb000sz6y,2015-02-18T03:30:54.040Z,"9 km ESE of Hakuba, Japan",earthquake,3.6,1.9,0.239,14,reviewed,us,us
+2014-11-24T21:26:57.220Z,36.7696,138.0384,8.58,4.5,mb,,53,0.26,1.04,us,usc000t4kf,2015-02-18T03:30:58.040Z,"17 km ENE of Hakuba, Japan",earthquake,3.4,2.6,0.113,24,reviewed,us,us

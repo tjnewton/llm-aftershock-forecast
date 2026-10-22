@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2019-07-15T08:21:34.171Z,-5.9707,149.4881,42,6.3,mww,,20,3.198,0.88,us,us70004kfs,2025-12-22T18:13:39.841Z,"26 km NNW of Kandrian, Papua New Guinea",earthquake,8.2,1.9,0.038,67,reviewed,us,us
+2019-07-15T13:45:13.455Z,-5.9349,149.5751,60.27,4.3,mb,,121,3.106,1.1,us,us60004uuc,2019-09-28T20:00:42.040Z,"30 km N of Kandrian, Papua New Guinea",earthquake,11.4,5.4,0.153,12,reviewed,us,us
+2019-07-15T15:31:19.685Z,-6.0055,149.6691,65.9,4.2,mb,,97,3.069,0.33,us,us60004uuh,2019-09-28T20:00:42.040Z,"25 km NNE of Kandrian, Papua New Guinea",earthquake,10.5,8.3,0.141,14,reviewed,us,us
+2019-07-20T20:43:44.349Z,-5.9945,149.5002,49,5.6,mww,,15,3.201,1.09,us,us70004psn,2025-12-22T17:55:30.162Z,"24 km NNW of Kandrian, Papua New Guinea",earthquake,7,1.9,0.062,25,reviewed,us,us

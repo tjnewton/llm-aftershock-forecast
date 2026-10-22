@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-09-14T07:25:00.070Z,-9.329,159.1673,14,6,mww,,15,0.777,1.24,us,us10006pfn,2022-05-03T18:01:03.041Z,"72 km NW of Malango, Solomon Islands",earthquake,6.5,1.7,,,reviewed,us,us

@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2017-01-08T23:47:14.420Z,74.3859,-92.4156,31,6,mww,,17,0.732,0.78,us,us10007s20,2022-05-03T18:57:00.852Z,"Devon Island, Nunavut, Canada",earthquake,6.5,1.8,,,reviewed,us,us
+2017-01-09T17:55:35.380Z,74.3294,-92.2486,18,5.2,mb,,,,1.03,us,us10007s51,2022-05-03T18:57:07.746Z,"Devon Island, Nunavut, Canada",earthquake,6.2,1.8,0.026,488,reviewed,ott,us
+2017-01-09T19:43:46.110Z,74.3239,-92.24,18,4.2,mb,,,,1.26,us,us10007s5u,2017-04-01T00:26:06.040Z,"Devon Island, Nunavut, Canada",earthquake,10.3,2,0.057,87,reviewed,ott,us

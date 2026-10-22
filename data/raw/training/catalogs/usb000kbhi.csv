@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2013-10-12T02:10:27.290Z,10.9048,-62.315,63,6,mww,,29,1.381,1.06,us,usb000kbhi,2022-07-25T23:29:34.031Z,"36 km N of Güiria, Venezuela",earthquake,,1.7,,,reviewed,us,us

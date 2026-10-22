@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-07-17T05:01:13.351Z,11.6984,95.0094,10,4.8,mb,,106,2.219,0.43,us,us7000aq5i,2020-09-26T16:58:33.040Z,"246 km E of Port Blair, India",earthquake,7.7,1.9,0.077,52,reviewed,us,us
+2020-07-17T05:37:17.788Z,11.8654,95.0388,10,4.6,mb,,95,2.257,0.42,us,us7000aq5q,2020-09-26T16:58:33.040Z,"250 km E of Port Blair, India",earthquake,7.9,1.9,0.12,21,reviewed,us,us
+2020-07-17T13:29:04.589Z,11.8395,94.9771,10,5.1,mww,,59,2.194,0.71,us,us7000aqal,2025-12-22T18:38:11.920Z,"243 km E of Port Blair, India",earthquake,6.7,1.9,0.093,11,reviewed,us,us
+2020-07-17T14:03:40.437Z,11.8485,94.9362,10,6.1,mww,,61,2.155,0.84,us,us7000aqaw,2025-12-22T18:38:12.579Z,"239 km E of Port Blair, India",earthquake,6.1,1.8,0.043,53,reviewed,us,us
+2020-07-17T14:43:17.244Z,11.8485,94.8316,10,5,mww,,130,2.053,0.92,us,us7000aqc9,2025-12-22T18:38:13.377Z,"228 km E of Port Blair, India",earthquake,7.8,1.9,0.098,10,reviewed,us,us

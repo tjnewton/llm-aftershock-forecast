@@ -1,0 +1,3 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2023-06-18T20:30:21.227Z,23.1671,-108.6922,4,6.4,mww,101,100,1.261,0.73,us,us7000k9f0,2023-08-26T20:54:15.040Z,"Gulf of California",earthquake,5.68,1.597,0.033,88,reviewed,us,us
+2023-06-19T08:55:08.984Z,23.1118,-108.5169,10,5.2,mww,277,84,1.43,0.68,us,us7000k9ja,2023-08-26T20:54:14.040Z,"118 km E of La Playa, Mexico",earthquake,6.16,1.846,0.045,48,reviewed,us,us

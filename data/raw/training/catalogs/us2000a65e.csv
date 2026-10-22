@@ -1,0 +1,9 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2017-08-08T23:27:53.080Z,44.3023,82.8317,20,6.3,mww,,20,2.52,0.89,us,us2000a65e,2022-08-07T14:15:02.762Z,"102 km NNW of Xinyuan, China",earthquake,5.9,1.8,0.053,34,reviewed,us,us
+2017-08-08T23:39:18.590Z,44.3249,82.742,10,5.2,mb,,56,2.489,0.95,us,us2000a65g,2017-10-25T00:38:03.040Z,"105 km SSE of Druzhba, Kazakhstan",earthquake,7.6,1.8,0.093,38,reviewed,us,us
+2017-08-08T23:44:31.400Z,44.359,82.7899,10,5.3,mb,,31,2.46,0.72,us,us2000a65m,2022-08-07T14:16:37.432Z,"102 km SSE of Druzhba, Kazakhstan",earthquake,3.2,1.8,0.043,179,reviewed,us,us
+2017-08-09T00:22:37.160Z,44.3734,82.8213,10,4.5,mb,,62,2.449,0.8,us,us2000a664,2017-10-25T00:38:03.040Z,"101 km SSE of Druzhba, Kazakhstan",earthquake,7.3,1.8,0.065,69,reviewed,us,us
+2017-08-09T00:40:20.870Z,44.2188,82.893,10,4.4,mb,,168,2.609,0.64,us,us2000a66f,2017-10-25T00:38:04.040Z,"92 km NNW of Xinyuan, China",earthquake,8.8,1.9,0.101,28,reviewed,us,us
+2017-08-09T05:22:42.620Z,44.3241,82.839,24.55,4.7,mb,,76,2.499,1.07,us,us2000a68v,2017-10-25T00:38:04.040Z,"105 km NNW of Xinyuan, China",earthquake,6.2,5.4,0.061,82,reviewed,us,us
+2017-08-09T15:47:51.960Z,44.3838,82.7029,10,4.4,mb,,111,2.427,0.85,us,us2000a6eh,2022-08-07T14:19:46.825Z,"98 km S of Druzhba, Kazakhstan",earthquake,8.3,1.9,0.189,8,reviewed,us,us
+2017-08-18T09:19:28.980Z,44.3165,82.824,43.99,4.6,mb,,81,2.505,0.98,us,us2000a9bd,2017-11-14T01:42:13.040Z,"104 km NNW of Xinyuan, China",earthquake,9.2,7.4,0.141,15,reviewed,us,us

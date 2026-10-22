@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-12-23T18:11:47.762Z,6.2544,133.6362,11,6.1,mww,,34,1.561,0.99,us,us6000d29t,2025-12-22T18:47:17.607Z,"90 km SW of Angaur State, Palau",earthquake,6.2,1.7,0.033,86,reviewed,us,us

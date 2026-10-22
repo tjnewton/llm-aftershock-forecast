@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-11-13T02:24:01.222Z,-37.553,-73.7598,22.155,5.7,mwr,71,100,0.923,0.79,us,us7000ipe2,2023-01-28T19:58:11.040Z,"Near the coast of Bio-Bio, Chile",earthquake,5.36,4.292,0.068,21,reviewed,us,us
+2022-11-13T02:24:57.830Z,-37.4652,-73.6757,18,6.2,mww,104,94,0.814,0.89,us,us7000ipe4,2023-01-28T19:58:11.040Z,"Near the coast of Bio-Bio, Chile",earthquake,6.67,1.743,0.069,20,reviewed,us,us
+2022-11-13T03:00:44.045Z,-37.4453,-73.7118,17.502,4.9,mww,56,100,0.811,0.63,us,us7000ipec,2023-01-28T19:58:11.040Z,"Near the coast of Bio-Bio, Chile",earthquake,5.79,3.622,0.098,10,reviewed,us,us
+2022-11-13T15:25:59.993Z,-37.5022,-73.8571,25.145,4.3,mb,20,160,0.922,0.29,us,us7000ipgz,2023-01-28T19:58:12.040Z,"21 km WNW of Lebu, Chile",earthquake,6.57,11.25,0.533,2,reviewed,us,us

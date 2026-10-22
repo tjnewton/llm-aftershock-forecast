@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2014-07-19T14:14:01.850Z,11.7448,57.6382,10,6,mww,,51,3.652,1.21,us,usb000ruks,2022-05-03T17:42:40.993Z,"Owen Fracture Zone region",earthquake,,1.8,,,reviewed,us,us

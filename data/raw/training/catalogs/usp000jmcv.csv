@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2012-06-05T19:31:33.750Z,34.943,141.132,15,6.1,mww,687,10.8,,0.68,us,usp000jmcv,2022-05-03T17:05:30.540Z,"75 km ESE of ?hara, Japan",earthquake,,,,,reviewed,us,us

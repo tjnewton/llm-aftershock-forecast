@@ -1,0 +1,3 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-10-25T16:10:01.710Z,-15.3889,-174.8281,10,5.8,mww,,65,3.298,1.07,us,us20007gmi,2022-05-03T18:02:24.621Z,"127 km WNW of Hihifo, Tonga",earthquake,9.3,1.8,,,reviewed,us,us
+2016-10-26T05:19:49.930Z,-15.4371,-174.8622,10,6.1,mww,,43,3.349,1.47,us,us20007gsh,2022-05-03T18:02:30.824Z,"127 km WNW of Hihifo, Tonga",earthquake,7.6,1.7,,,reviewed,us,us

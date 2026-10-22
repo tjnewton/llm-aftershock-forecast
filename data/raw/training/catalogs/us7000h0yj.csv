@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-04-09T20:52:38.456Z,-16.3146,166.8601,17,6.3,mww,,18,0.923,0.61,us,us7000h0yj,2022-06-20T22:07:36.040Z,"63 km WSW of Norsup, Vanuatu",earthquake,6.4,1.7,0.044,49,reviewed,us,us

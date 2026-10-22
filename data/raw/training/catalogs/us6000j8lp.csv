@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2022-12-11T14:31:29.051Z,17.1801,-100.53,18,6,mww,179,119,1.913,0.75,us,us6000j8lp,2023-11-21T04:50:20.904Z,"7 km W of Corral Falso, Mexico",earthquake,6.68,1.672,0.043,53,reviewed,us,us

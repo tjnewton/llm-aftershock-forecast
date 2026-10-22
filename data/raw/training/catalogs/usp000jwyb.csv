@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2012-12-14T10:36:01.590Z,31.095,-119.66,13,6.3,mww,760,20.9,,1.29,us,usp000jwyb,2022-08-08T22:41:13.593Z,"279 km SSW of Avalon, California",earthquake,,,,,reviewed,us,us

@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2012-12-17T09:16:30.900Z,-0.649,123.807,44.2,6.1,mww,424,24.6,,0.84,us,usp000jx2e,2022-05-03T16:01:22.587Z,"118 km ENE of Luwuk, Indonesia",earthquake,,3.3,,,reviewed,us,us

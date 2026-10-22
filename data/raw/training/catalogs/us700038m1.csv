@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2019-04-15T23:41:50.016Z,-51.3422,139.1491,10,5,mb,,222,10.1,0.44,us,us70003bea,2019-06-20T19:03:48.040Z,"western Indian-Antarctic Ridge",earthquake,14.7,2,0.179,10,reviewed,us,us
+2019-04-18T14:46:01.733Z,-51.127,139.321,10,6.3,mww,,44,9.863,1.39,us,us700038m1,2025-12-22T18:19:22.028Z,"western Indian-Antarctic Ridge",earthquake,10.1,1.8,0.049,40,reviewed,us,us
+2019-04-18T14:58:26.022Z,-51.118,139.2302,10,4.5,mb,,152,13.424,1.42,us,us70003cib,2019-06-26T20:54:51.040Z,"western Indian-Antarctic Ridge",earthquake,11.6,2,0.135,16,reviewed,us,us

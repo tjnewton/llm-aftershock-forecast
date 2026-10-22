@@ -1,0 +1,8 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-01-27T05:02:01.704Z,-10.0929,161.0606,21,6.3,mww,,18,8.012,0.98,us,us60007gyx,2025-12-22T18:29:07.676Z,"102 km WNW of Kirakira, Solomon Islands",earthquake,5.2,1.8,0.043,51,reviewed,us,us
+2020-01-28T00:36:48.350Z,-10.1427,161.039,6.44,4.6,mb,,96,1.283,0.37,us,us70007k3m,2020-04-11T18:21:16.040Z,"102 km WNW of Kirakira, Solomon Islands",earthquake,11.9,6,0.173,10,reviewed,us,us
+2020-01-29T08:16:31.273Z,-10.1459,160.8229,10,4.4,mb,,80,1.112,0.67,us,us70007kw0,2020-04-18T22:10:28.040Z,"124 km SE of Honiara, Solomon Islands",earthquake,7.1,1.9,0.162,11,reviewed,us,us
+2020-01-30T13:15:26.410Z,-10.0493,160.8367,26.14,4.8,mb,,64,1.066,0.92,us,us60007k1v,2020-04-18T22:09:56.040Z,"118 km SE of Honiara, Solomon Islands",earthquake,6,5.9,0.087,41,reviewed,us,us
+2020-01-30T17:58:07.984Z,-9.9763,160.9575,10,5,mb,,72,1.129,0.87,us,us60007k8x,2022-08-08T18:11:21.893Z,"118 km WNW of Kirakira, Solomon Islands",earthquake,8,1.9,0.073,59,reviewed,us,us
+2020-02-11T15:24:55.394Z,-10.2863,161.1527,55.81,4.3,mb,,128,1.455,0.34,us,us70007sfl,2020-04-25T22:19:53.040Z,"86 km WNW of Kirakira, Solomon Islands",earthquake,11.5,8.5,0.122,22,reviewed,us,us
+2020-02-14T23:19:56.449Z,-10.0114,161.0932,36.92,4.1,mb,,100,1.264,0.73,us,us70007tqz,2020-05-02T22:10:29.040Z,"103 km WNW of Kirakira, Solomon Islands",earthquake,9.4,7.8,0.135,15,reviewed,us,us

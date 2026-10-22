@@ -1,0 +1,12 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2016-06-07T19:15:15.330Z,1.2789,126.3712,31,6.3,mww,,10,1.115,1.1,us,us200062l9,2022-08-03T01:10:04.660Z,"125 km WNW of Ternate, Indonesia",earthquake,5.3,1.8,,,reviewed,us,us
+2016-06-07T19:41:19.920Z,1.4136,126.4899,40.49,4.6,mb,,62,1.084,1.38,us,us20006445,2016-08-18T00:36:34.040Z,"121 km NW of Ternate, Indonesia",earthquake,4.5,7.4,0.087,40,reviewed,us,us
+2016-06-07T20:20:35.490Z,1.2512,126.2934,34.42,4.1,mb,,146,1.174,1.12,us,us20006448,2016-08-18T00:36:34.040Z,"131 km WNW of Ternate, Indonesia",earthquake,9.3,8.4,0.261,4,reviewed,us,us
+2016-06-07T20:45:16.460Z,1.2757,126.4103,42.07,4.7,mb,,72,1.079,0.81,us,us200062mc,2016-08-18T00:36:34.040Z,"120 km WNW of Ternate, Indonesia",earthquake,6.9,7,0.057,92,reviewed,us,us
+2016-06-08T01:06:41.180Z,1.3038,126.4548,44.36,4.2,mb,,131,1.053,0.85,us,us2000649d,2016-08-18T00:36:34.040Z,"117 km WNW of Ternate, Indonesia",earthquake,8.7,5.2,0.146,13,reviewed,us,us
+2016-06-08T06:25:49.260Z,1.4283,126.5759,33.5,4.3,mb,,161,1.024,0.86,us,us2000649k,2016-08-18T00:36:34.040Z,"114 km NW of Ternate, Indonesia",earthquake,10.1,7.9,0.168,10,reviewed,us,us
+2016-06-08T23:43:11.470Z,1.4575,126.4783,25.38,4.3,mb,,140,1.119,0.68,us,us200064a1,2016-08-18T00:36:35.040Z,"124 km NW of Ternate, Indonesia",earthquake,7.5,5.5,0.122,19,reviewed,us,us
+2016-06-10T08:24:46.420Z,1.2611,126.405,44.57,4.5,mb,,95,1.077,0.76,us,us200063fn,2016-08-25T01:22:49.040Z,"120 km WNW of Ternate, Indonesia",earthquake,8.1,5.3,0.118,21,reviewed,us,us
+2016-06-24T00:07:12.700Z,1.454,126.4777,20.5,4.7,mb,,93,1.117,0.97,us,us200066d5,2016-08-31T03:08:13.040Z,"124 km NW of Ternate, Indonesia",earthquake,7.3,5.1,0.071,60,reviewed,us,us
+2016-06-24T14:43:32.500Z,1.4482,126.4031,66.4,4.4,mb,,93,1.174,0.87,us,us200066ix,2016-08-31T03:08:13.040Z,"131 km WNW of Ternate, Indonesia",earthquake,8.5,3.9,0.103,27,reviewed,us,us
+2016-06-25T16:02:13.460Z,1.4935,126.4524,61.7,4.3,mb,,161,1.161,0.92,us,us10005ym9,2016-08-31T03:08:15.040Z,"129 km NW of Ternate, Indonesia",earthquake,9.1,9.5,0.153,12,reviewed,us,us

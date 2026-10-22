@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2014-07-29T13:27:40.080Z,-3.422,146.769,9.77,6,mww,,14,5.436,0.86,us,usb000ry9u,2022-05-03T16:57:42.886Z,"163 km SSW of Lorengau, Papua New Guinea",earthquake,,2.9,,,reviewed,us,us
+2014-07-29T13:32:56.250Z,-3.365,146.6087,10,4.7,mb,,145,20.348,0.6,us,usb000s1e2,2014-10-25T01:49:42.000Z,"164 km SSW of Lorengau, Papua New Guinea",earthquake,,1.9,0.225,7,reviewed,us,us
+2014-07-29T17:35:29.290Z,-3.5687,146.8504,36.54,4.1,mb,,217,5.806,0.5,us,usb000s1eb,2014-10-25T01:49:43.000Z,"176 km SSW of Lorengau, Papua New Guinea",earthquake,,16.7,0.185,8,reviewed,us,us

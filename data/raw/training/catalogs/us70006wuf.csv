@@ -1,0 +1,13 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2020-01-09T08:17:58.226Z,62.1071,170.9823,10,4,mb,,96,6.279,0.92,us,us70006wua,2020-04-02T21:27:56.040Z,"Chukotskiy Avtonomnyy Okrug, Russia",earthquake,8.6,1.9,0.111,22,reviewed,us,us
+2020-01-09T08:38:08.278Z,62.358,171.0611,10,6.4,mww,,21,6.048,0.77,us,us70006wuf,2025-12-22T17:56:41.359Z,"Chukotskiy Avtonomnyy Okrug, Russia",earthquake,6.9,1.5,0.052,36,reviewed,us,us
+2020-01-09T08:47:01.414Z,62.284,171.1101,10,4.6,mb,,160,6.126,1.13,us,us70006wum,2020-04-02T21:27:56.040Z,"Chukotskiy Avtonomnyy Okrug, Russia",earthquake,10.5,2,0.114,23,reviewed,us,us
+2020-01-09T08:52:26.892Z,62.1734,170.9883,10,4.3,mb,,60,6.216,0.86,us,us60007d1d,2020-04-02T21:27:27.040Z,"Chukotskiy Avtonomnyy Okrug, Russia",earthquake,9.7,1.9,0.218,6,reviewed,us,us
+2020-01-09T09:00:49.568Z,62.2866,170.627,10,4.2,mb,,168,6.062,1.22,us,us70006wup,2020-04-02T21:27:56.040Z,"Chukotskiy Avtonomnyy Okrug, Russia",earthquake,9.3,1.9,0.072,54,reviewed,us,us
+2020-01-09T09:56:47.680Z,62.2438,170.9805,10,4.8,mb,,45,6.147,0.87,us,us70006wuz,2025-12-22T18:25:54.242Z,"Chukotskiy Avtonomnyy Okrug, Russia",earthquake,7.8,1.8,0.027,416,reviewed,us,us
+2020-01-09T10:11:11.245Z,62.2323,171.0177,10,4.9,mb,,40,6.163,0.94,us,us70006wv3,2025-12-22T18:25:55.370Z,"Chukotskiy Avtonomnyy Okrug, Russia",earthquake,7.2,1.8,0.026,451,reviewed,us,us
+2020-01-09T10:47:19.774Z,62.2202,170.9074,10,4.7,mb,,47,6.161,1.15,us,us70006wvi,2025-12-22T18:25:56.506Z,"Chukotskiy Avtonomnyy Okrug, Russia",earthquake,7.7,1.8,0.031,321,reviewed,us,us
+2020-01-09T16:06:49.724Z,62.2726,170.7954,10,4.3,mb,,49,6.096,0.76,us,us70006wyc,2020-04-02T21:27:58.040Z,"Chukotskiy Avtonomnyy Okrug, Russia",earthquake,6.5,1.7,0.05,117,reviewed,us,us
+2020-01-10T04:50:33.388Z,62.3404,170.7592,10,4.3,mb,,95,6.026,1.06,us,us70006xep,2020-04-02T21:28:06.040Z,"Chukotskiy Avtonomnyy Okrug, Russia",earthquake,7.9,1.6,0.072,55,reviewed,us,us
+2020-01-10T12:10:31.790Z,62.1597,170.8107,10,4.2,mb,,175,6.207,0.9,us,us70006xij,2020-04-02T21:28:09.040Z,"Chukotskiy Avtonomnyy Okrug, Russia",earthquake,7.4,1.9,0.081,42,reviewed,us,us
+2020-01-17T19:22:13.426Z,62.3211,171.2002,10,4.1,mb,,143,6.102,1,us,us600079ea,2020-04-08T19:39:33.040Z,"Chukotskiy Avtonomnyy Okrug, Russia",earthquake,6.3,1.9,0.062,72,reviewed,us,us

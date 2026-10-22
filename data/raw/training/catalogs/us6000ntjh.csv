@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2024-09-21T21:24:28.737Z,-31.8909,-66.887,141,6,mww,340,41,1.57,0.84,us,us6000ntjh,2024-11-23T23:26:40.040Z,"95 km NNW of Villa General Roca, Argentina",earthquake,8.32,1.904,0.05,38,reviewed,us,us
+2024-09-22T01:32:23.849Z,-31.9018,-66.9285,151.731,4.1,mb,32,62,1.538,1.07,us,us6000ntkt,2024-11-23T23:26:41.040Z,"95 km NNW of Villa General Roca, Argentina",earthquake,6.31,9.897,0.166,10,reviewed,us,us
+2024-09-24T02:48:48.868Z,-31.9801,-66.9581,150.159,4.2,mb,43,60,1.533,0.77,us,us6000nu0b,2024-12-06T19:30:13.040Z,"89 km NNW of Villa General Roca, Argentina",earthquake,5.18,7.441,0.152,12,reviewed,us,us
