@@ -155,7 +155,15 @@ def _(dataset, mo, summary):
             mo.md(f"""## Who forecasts as well as USGS?
 Average score difference from the official USGS forecast on {_which}; negative is better than
 USGS, and the interval shows the uncertainty (block bootstrap)."""),
-            _tab.rename(columns={"forecaster": "Forecaster"}).set_index("Forecaster"),
+            mo.ui.table(
+                _tab.rename(columns={"forecaster": "Forecaster"}),
+                selection=None,
+                show_column_summaries=False,
+                show_data_types=False,
+                show_download=False,
+                show_search=False,
+                page_size=20,
+            ),
         ]
     )
     return
@@ -269,7 +277,14 @@ def _(mo, view):
     mo.vstack(
         [
             mo.md("**Score at each forecast time** (lower is better; 0 would be perfect)"),
-            _tab,
+            mo.ui.table(
+                _tab.reset_index() if not view.empty else _tab,
+                selection=None,
+                show_column_summaries=False,
+                show_data_types=False,
+                show_download=False,
+                show_search=False,
+            ),
         ]
     )
     return
