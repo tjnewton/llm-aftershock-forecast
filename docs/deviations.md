@@ -21,3 +21,6 @@ Each entry: UTC time, change, reason, expected effect on the registered analyses
   84b02c81f7870231aa321fc49cb0e06d1b7013de017cbb5b202bd8336e8b1079, hashed 00:05:19Z. No new
   M>=6 sequence with an OAF product appeared after 2026-10-14. Effect: none on registered
   analyses; prospective record only.
+  The tag was created before a rebase onto a Windows status commit, so it points to
+  781d2c8, a twin of main's 44ae96f with identical files (calls.jsonl SHA-256 as above); tag
+  rules forbid moving it.
