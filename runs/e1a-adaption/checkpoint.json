@@ -1,0 +1,7 @@
+{
+ "bytes": 63358416,
+ "file": "best.tar.zst",
+ "format": "tar + zstd: PEFT LoRA adapter_model.safetensors, tokenizer, template",
+ "run_id": "fabc976f-5ad9-44bf-85f9-08eeae45ae33",
+ "sha256": "50a9b4c264eb6604aa6e2975b0a25415930484460da851583f2cca69a35b2e7f"
+}

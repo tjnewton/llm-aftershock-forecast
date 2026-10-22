@@ -41,7 +41,7 @@ notes: Long (about 30 s per request, several hours). If an E1a task becomes read
   runs, finish this task first.
 
 ## T04 e1a-adapted
-status: hold
+status: ready
 prepare: uv run laf adaption download --run e1a (checks SHA-256 against runs/e1a-adaption/checkpoint.json once that file exists; otherwise records it); extract data/interim/e1a-adaption/best.tar.zst into a new empty data/interim/e1a-adaption/adapter/; convert exactly as for E1 with --outfile <models dir>/gpt-oss-20b-e1a-lora-f16.gguf
 server: registered gpt-oss-20b command with --alias laf/gpt-oss-20b-e1a --lora <models dir>/gpt-oss-20b-e1a-lora-f16.gguf
 run: uv run python -m laf.llamacpp --snapshot 20261021T1027Z --model gpt-oss-20b-e1a --block dev (report status counts only), then uv run python -m laf.llamacpp --snapshot 20261021T1027Z --model gpt-oss-20b-e1a --block e1, then uv run python -m laf.llamacpp --snapshot 20261021T2300Z --model gpt-oss-20b-e1a --block e3all
