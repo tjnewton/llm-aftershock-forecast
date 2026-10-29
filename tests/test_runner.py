@@ -103,6 +103,13 @@ def test_check_budget_against_the_monthly_cap(monkeypatch, tmp_path):
     assert runner.check_budget(2.0, tmp_path) == 8.0  # at the cap: allowed
     with pytest.raises(SystemExit, match="spend guard"):
         runner.check_budget(2.01, tmp_path)
+    for bad in ("nan", "inf", "-1"):
+        monkeypatch.setenv(CAP, bad)
+        with pytest.raises(SystemExit, match="finite"):
+            runner.check_budget(0.0, tmp_path)
+    monkeypatch.setenv(CAP, "10")
+    with pytest.raises(SystemExit, match="finite"):
+        runner.check_budget(float("nan"), tmp_path)
     monkeypatch.setattr(runner, "env_value", lambda var: "")  # unset, and .env never read
     with pytest.raises(SystemExit, match=CAP):
         runner.check_budget(0.0, tmp_path)
@@ -133,3 +140,16 @@ def test_every_paid_path_checks_the_budget_before_any_request(monkeypatch, tmp_p
     ):
         with pytest.raises(Refused):
             call()
+
+
+def test_probe_and_live_claim_their_output_folder_before_paying(monkeypatch, tmp_path):
+    from laf import live, probe
+
+    for mod in (probe, live):
+        monkeypatch.setattr(mod, "check_budget", lambda *a, **k: 0.0)
+    (tmp_path / "p").mkdir()
+    (tmp_path / "l").mkdir()
+    with pytest.raises(FileExistsError):
+        probe.run_probe(None, pd.DataFrame(), tmp_path / "p")  # client None: never reached
+    with pytest.raises(FileExistsError):
+        live.run_live(None, [], tmp_path / "l")

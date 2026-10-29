@@ -6,6 +6,7 @@ after the scoring code is tagged `scoring-v1` (prereg section 12).
 
 import hashlib
 import json
+import math
 import statistics
 import subprocess
 from datetime import UTC, datetime
@@ -182,11 +183,17 @@ def month_spend_usd(month: str, runs: Path = RUNS) -> float:
 
 def check_budget(estimate_usd: float, runs: Path = RUNS) -> float:
     """Refuse a paid run unless this UTC month's spend plus `estimate_usd` stays within the cap
-    in LAF_CLAUDE_MONTHLY_CAP_USD (environment or .env). Returns the month's spend so far."""
+    in LAF_CLAUDE_MONTHLY_CAP_USD (environment or .env). Returns the month's spend so far.
+    A check, not a reservation: two paid runs started at once could both pass. Runs start one
+    at a time by hand; a lock file is needed once the live workflow runs beside them."""
     raw = env_value(CAP_VAR)
     if not raw:
         raise SystemExit(f"{CAP_VAR} not set (environment or .env): refusing to spend")
     cap = float(raw)
+    if not (math.isfinite(cap) and cap >= 0 and math.isfinite(estimate_usd) and estimate_usd >= 0):
+        raise SystemExit(
+            f"spend guard: cap {raw!r} and estimate {estimate_usd} must be finite, >= 0"
+        )
     month = datetime.now(UTC).strftime("%Y-%m")
     spent = month_spend_usd(month, runs)
     if spent + estimate_usd > cap:

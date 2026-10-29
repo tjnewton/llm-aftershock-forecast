@@ -60,6 +60,7 @@ def baseline(seq: dict, generic_median_30d: int) -> dict:
 
 def run_probe(client, sequences: pd.DataFrame, out: Path, estimate_usd: float = 1.0) -> int:
     check_budget(estimate_usd)
+    out.mkdir(parents=True, exist_ok=False)  # before any paid call
     seqs = [
         s
         for s in sequences.to_dict("records")
@@ -83,7 +84,6 @@ def run_probe(client, sequences: pd.DataFrame, out: Path, estimate_usd: float = 
             pool.map(call, jobs),
             key=lambda r: (r["sequence_id"], r["model_requested"], r["sample"]),
         )
-    out.mkdir(parents=True, exist_ok=False)
     (out / "calls.jsonl").write_text(
         "".join(json.dumps(r, sort_keys=True) + "\n" for r in recs), encoding="utf-8", newline="\n"
     )
