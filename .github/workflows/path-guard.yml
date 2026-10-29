@@ -1,0 +1,53 @@
+name: path-guard
+# Brakes from docs/factory.md: code reaches src/, tests/, notebooks/, prompts/ and config/ only
+# through pull requests; frozen paths, raw data and the manifest need the frozen-override label.
+on:
+  push:
+    branches: [post-submission]
+  pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+permissions:
+  contents: read
+  pull-requests: read
+jobs:
+  push:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: commits pushed outside a merged pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.event.after }}
+        run: |
+          shas=$(git rev-list "$AFTER" --not "$BEFORE" 2>/dev/null || echo "$AFTER")
+          direct=""
+          for sha in $shas; do
+            merged=$(gh api "repos/$REPO/commits/$sha/pulls" --jq 'map(select(.merged_at != null)) | length')
+            if [ "$merged" = "0" ]; then direct="$direct $sha"; fi
+          done
+          python3 src/laf/path_guard.py push $direct
+  pull-request:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: frozen paths, raw data and manifest
+        env:
+          BASE: ${{ github.event.pull_request.base.ref }}
+          OVERRIDE: ${{ contains(github.event.pull_request.labels.*.name, 'frozen-override') && '--override' || '' }}
+        run: |
+          # rules from the base branch, so a pull request cannot loosen its own check
+          git show "origin/$BASE:src/laf/path_guard.py" > "$RUNNER_TEMP/guard.py" 2>/dev/null \
+            || cp src/laf/path_guard.py "$RUNNER_TEMP/guard.py"
+          git show "origin/$BASE:.github/frozen-paths.txt" > "$RUNNER_TEMP/frozen.txt" 2>/dev/null \
+            || cp .github/frozen-paths.txt "$RUNNER_TEMP/frozen.txt"
+          python3 "$RUNNER_TEMP/guard.py" pr --frozen "$RUNNER_TEMP/frozen.txt" \
+            "$(git merge-base "origin/$BASE" HEAD)" HEAD $OVERRIDE
