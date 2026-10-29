@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2019-01-08T12:39:30.950Z,30.5872,131.0441,35,6.3,mww,,26,2.534,0.83,us,us2000j1d4,2025-12-22T18:01:25.751Z,"16 km SSE of Nishinoomote, Japan",earthquake,6,1.8,0.051,37,reviewed,us,us
-2019-01-08T15:22:20.770Z,30.6182,130.9653,37.56,4.3,mb,,123,2.5,1.07,us,us2000j8c3,2019-04-02T20:53:15.040Z,"13 km SSW of Nishinoomote, Japan",earthquake,8.6,10.6,0.148,13,reviewed,us,us
-2019-01-25T21:22:46.690Z,30.3857,131.1241,35,4.8,mb,,109,2.739,0.53,us,us2000j8zv,2019-04-12T17:15:09.040Z,"40 km SSE of Nishinoomote, Japan",earthquake,3.6,2,0.045,149,reviewed,us,us

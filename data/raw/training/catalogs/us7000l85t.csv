@@ -1,5 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2023-11-01T21:04:48.023Z,-10.0561,123.7541,51,6.1,mww,258,13,6.023,0.88,us,us7000l85t,2024-01-10T06:01:35.040Z,"20 km NE of Kupang, Indonesia",earthquake,2.65,1.839,0.054,33,reviewed,us,us
-2023-11-11T20:07:29.749Z,-10.1256,123.6626,35,4.6,mb,28,81,0.7,0.63,us,us7000ladv,2024-01-13T23:11:38.040Z,"7 km NE of Kupang, Indonesia",earthquake,6.39,1.9,0.125,19,reviewed,us,us
-2023-11-12T02:06:16.184Z,-9.9173,123.699,42.657,5.2,mww,95,50,0.583,0.86,us,us7000laer,2024-01-26T16:37:56.040Z,"29 km NNE of Kupang, Indonesia",earthquake,7.03,4.284,0.089,12,reviewed,us,us
-2023-11-16T11:24:07.060Z,-9.9467,123.7764,10,4.6,mb,36,77,6.024,0.62,us,us6000lnsh,2024-01-26T16:37:44.040Z,"30 km NE of Kupang, Indonesia",earthquake,8.42,1.847,0.111,24,reviewed,us,us

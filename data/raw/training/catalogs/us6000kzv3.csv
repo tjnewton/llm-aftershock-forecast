@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2023-08-14T13:51:53.761Z,13.347,147.5297,8,6.1,mww,188,23,2.528,0.58,us,us6000kzv3,2025-07-29T17:45:11.191Z,"Mariana Islands region",earthquake,6.96,1.434,0.052,36,reviewed,us,us
-2023-09-10T05:52:09.310Z,13.438,147.5797,10,4.2,mb,9,149,2.488,0.41,us,us7000kvrh,2023-11-18T22:29:34.040Z,"270 km SE of San Jose Village, Northern Mariana Islands",earthquake,8.61,1.958,0.237,5,reviewed,us,us

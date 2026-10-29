@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2022-04-13T03:00:56.312Z,-4.4297,152.0242,149,6.1,mww,,15,0.274,0.78,us,us7000h1lv,2022-06-20T22:08:01.040Z,"28 km WSW of Kokopo, Papua New Guinea",earthquake,7.2,1.7,0.044,49,reviewed,us,us
-2022-04-20T21:58:39.370Z,-4.4561,152.0054,149.59,4.8,mb,,89,0.306,0.84,us,us7000h6ha,2022-06-26T01:20:15.040Z,"New Britain region, Papua New Guinea",earthquake,9.6,5.4,0.125,23,reviewed,us,us

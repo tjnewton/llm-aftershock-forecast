@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2022-10-10T16:09:33.666Z,-4.8159,153.5304,92.499,5,mb,59,95,1.497,0.61,us,us6000isic,2022-12-17T22:53:50.040Z,"New Ireland region, Papua New Guinea",earthquake,8.45,6.55,0.054,114,reviewed,us,us
-2022-10-13T22:20:20.620Z,-4.812,153.5906,72,6.4,mww,129,20,1.55,0.65,us,us6000itgv,2022-12-17T22:54:03.040Z,"155 km ESE of Kokopo, Papua New Guinea",earthquake,5.07,1.754,0.049,40,reviewed,us,us
-2022-10-17T11:44:22.830Z,-5.0776,153.4975,63.553,4.6,mb,51,72,1.595,0.42,us,us6000iua2,2022-12-31T23:03:36.040Z,"158 km ESE of Kokopo, Papua New Guinea",earthquake,7.94,5.844,0.073,56,reviewed,us,us

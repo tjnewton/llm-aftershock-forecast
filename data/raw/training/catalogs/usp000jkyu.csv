@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2012-05-26T21:48:10.120Z,26.91,140.055,487.4,6,mwc,513,12.9,,0.95,us,usp000jkyu,2022-05-03T15:40:48.139Z,"Bonin Islands, Japan region",earthquake,,3.5,,,reviewed,us,us

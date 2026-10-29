@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2020-06-13T21:08:30.503Z,18.9317,145.1116,622,6.2,mww,,8,3.727,0.95,us,us6000abgq,2025-12-22T18:36:19.322Z,"Pagan region, Northern Mariana Islands",earthquake,8.8,1.9,0.037,71,reviewed,us,us
-2020-06-13T21:30:00.476Z,18.9759,145.1039,600.4,4.1,mb,,39,3.771,0.66,us,us6000aesj,2020-08-22T19:15:00.040Z,"Pagan region, Northern Mariana Islands",earthquake,11.4,7.2,0.064,67,reviewed,us,us
-2020-06-13T21:41:56.298Z,18.9096,145.2571,608.78,4.2,mb,,38,3.683,0.75,us,us6000aesl,2020-08-22T19:15:00.040Z,"Pagan region, Northern Mariana Islands",earthquake,11.3,7.4,0.061,74,reviewed,us,us

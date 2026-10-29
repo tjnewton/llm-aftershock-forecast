@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2013-10-06T21:33:19.800Z,-36.7267,-97.4761,10.28,6.2,mww,,41,20.626,1.33,us,usb000k7s0,2022-05-03T16:29:02.287Z,"West Chile Rise",earthquake,,1.7,,,reviewed,us,us

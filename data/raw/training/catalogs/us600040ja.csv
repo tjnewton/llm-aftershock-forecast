@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2019-06-14T00:19:12.401Z,-30.0557,-72.0819,11,6.4,mww,,30,0.727,0.87,us,us600040ja,2025-12-22T18:10:59.748Z,"72 km W of Coquimbo, Chile",earthquake,4.1,1.6,0.035,80,reviewed,us,us
-2019-06-14T00:24:13.783Z,-30.1153,-72.3196,10,4.8,mb,,173,0.812,0.73,us,us600040je,2019-09-06T14:25:03.040Z,"96 km W of Coquimbo, Chile",earthquake,5.2,2,0.279,4,reviewed,us,us
-2019-06-14T01:38:26.020Z,-30.1295,-72.1342,10,4.5,mwr,,93,0.693,0.86,us,us600040jr,2022-08-08T14:10:09.067Z,"79 km WSW of Coquimbo, Chile",earthquake,5,1.9,0.061,26,reviewed,us,us
-2019-06-14T04:21:23.025Z,-30.0507,-72.0911,12.04,4.4,mwr,,142,0.735,0.99,us,us600040l3,2019-09-06T14:25:04.040Z,"73 km W of Coquimbo, Chile",earthquake,4,3.3,0.036,75,reviewed,us,us
-2019-06-15T10:37:14.889Z,-29.9529,-72.0789,10,4.4,mwr,,149,0.73,0.65,us,us6000413v,2019-09-06T14:25:09.040Z,"71 km W of Coquimbo, Chile",earthquake,4.2,1.9,0.038,65,reviewed,us,us

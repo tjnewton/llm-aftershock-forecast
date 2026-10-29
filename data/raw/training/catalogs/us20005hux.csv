@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2016-04-13T18:21:52.730Z,7.7917,122.0231,17,6,mww,,19,3.598,0.93,us,us20005hux,2022-05-03T18:51:03.806Z,"15 km NW of Siocon, Philippines",earthquake,3.3,1.6,,,reviewed,us,us

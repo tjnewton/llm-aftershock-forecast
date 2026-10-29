@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2022-01-28T11:14:09.293Z,5.4966,-82.5844,8,6,mww,,57,3.277,0.46,us,us7000gfti,2022-08-21T19:47:32.328Z,"281 km SW of Arenas, Panama",earthquake,5.5,1.6,0.031,102,reviewed,us,us

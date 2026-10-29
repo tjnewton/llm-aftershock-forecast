@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2014-12-10T21:03:39.260Z,25.5403,122.4503,256,6.1,mww,,10,1.031,0.77,us,usc000t5bu,2022-07-27T10:12:31.893Z,"77 km NE of Jiufen, Taiwan",earthquake,5.3,1.8,,,reviewed,us,us

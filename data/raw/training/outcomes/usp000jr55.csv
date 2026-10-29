@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2012-08-30T13:43:25.170Z,71.441,-10.605,14,6.8,mww,622,40,,1.11,us,usp000jr55,2022-05-03T15:48:45.877Z,"89 km NW of Olonkinbyen, Svalbard and Jan Mayen",earthquake,,,,,reviewed,us,us

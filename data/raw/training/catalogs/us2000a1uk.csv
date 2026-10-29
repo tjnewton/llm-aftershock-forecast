@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2017-07-27T17:53:24.610Z,13.396,-49.3259,10,6,mww,,29,8.86,0.87,us,us2000a1uk,2022-08-07T13:05:53.991Z,"North Atlantic Ocean",earthquake,7.6,1.7,0.078,16,reviewed,us,us
-2017-08-02T00:16:12.150Z,13.4905,-49.344,10,5.3,mww,,59,8.94,0.82,us,us2000a3h2,2025-12-22T17:33:49.325Z,"North Atlantic Ocean",earthquake,8.4,1.8,0.071,19,reviewed,us,us

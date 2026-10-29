@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2015-06-10T13:52:09.770Z,-22.4,-68.4323,124,6,mww,,20,0.49,1.13,us,us20002nkt,2022-07-31T12:15:02.300Z,"50 km E of Calama, Chile",earthquake,6.5,1.8,,,reviewed,us,us

@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2019-04-06T21:55:01.660Z,-6.8285,125.0416,539,6.3,mww,,20,3.007,0.93,us,us2000kbi1,2025-12-22T18:07:17.241Z,"197 km N of Likisá, Timor Leste",earthquake,8.8,1.9,0.034,84,reviewed,us,us
-2019-04-06T22:19:30.371Z,-6.8145,124.9983,548.99,4.8,mb,,40,3.01,0.55,us,us2000kbj5,2019-06-18T15:50:38.040Z,"199 km N of Likisá, Timor Leste",earthquake,9.9,7.4,0.056,97,reviewed,us,us

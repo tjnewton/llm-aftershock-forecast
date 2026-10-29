@@ -1,5 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2011-11-17T01:57:05.730Z,-1.702,-81.546,26.6,6,mww,499,37.6,,0.74,us,usp000jayv,2024-06-17T18:25:40.839Z,"87 km NW of Salinas, Ecuador",earthquake,,6.1,,,reviewed,us,us
-2011-11-19T06:51:39.510Z,-1.615,-81.524,46.2,4.7,mb,42,108.9,,1.07,us,usp000jb3m,2014-11-07T01:46:22.820Z,"91 km NW of Salinas, Ecuador",earthquake,,7.8,,19,reviewed,us,us
-2011-11-22T11:05:42.760Z,-1.644,-81.562,37.7,4.2,mb,24,89.3,,0.62,us,usp000jb8u,2014-11-07T01:46:23.769Z,"92 km NW of Salinas, Ecuador",earthquake,,10.2,,7,reviewed,us,us
-2011-11-26T06:37:25.210Z,-1.615,-81.648,42.6,4.5,mb,48,83.9,,1.03,us,usp000jbdt,2014-11-07T01:46:24.859Z,"101 km NW of Salinas, Ecuador",earthquake,,11.5,,25,reviewed,us,us

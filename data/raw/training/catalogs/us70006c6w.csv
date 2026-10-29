@@ -1,9 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2019-11-23T12:11:15.564Z,1.6436,132.8148,5,6.2,mww,,25,4.567,0.94,us,us70006c6w,2025-12-22T18:22:12.799Z,"241 km SE of Tobi Village, Palau",earthquake,6.5,1.7,0.042,54,reviewed,us,us
-2019-11-23T12:16:54.403Z,1.5321,132.8235,10,4.9,mb,,75,4.458,0.59,us,us70006ehp,2020-02-14T22:02:27.040Z,"249 km SE of Tobi Village, Palau",earthquake,9.1,1.2,0.169,14,reviewed,us,us
-2019-11-23T12:18:13.563Z,1.6523,132.7107,10,5.1,mb,,102,4.564,0.89,us,us70006c73,2020-02-14T22:02:14.040Z,"231 km SE of Tobi Village, Palau",earthquake,10,1.8,0.091,39,reviewed,us,us
-2019-11-23T12:26:58.667Z,1.646,132.8677,10,4.5,mb,,100,4.576,0.53,us,us70006c79,2020-02-14T22:02:15.040Z,"245 km SE of Tobi Village, Palau",earthquake,10,1.9,0.116,22,reviewed,us,us
-2019-11-24T19:47:04.061Z,1.5851,132.7854,10,4.4,mb,,150,5.477,0.94,us,us70006ci9,2020-02-14T22:02:18.040Z,"242 km SE of Tobi Village, Palau",earthquake,12.2,1.9,0.134,16,reviewed,us,us
-2019-11-24T22:05:13.261Z,1.6357,132.8506,10,5.1,mww,,24,4.564,0.86,us,us70006cjh,2025-12-22T18:22:21.167Z,"244 km SE of Tobi Village, Palau",earthquake,8.1,1.7,0.068,21,reviewed,us,us
-2019-11-24T23:38:14.750Z,1.5783,132.9043,10,4.8,mww,,80,4.515,0.81,us,us70006cka,2020-02-14T22:02:19.040Z,"253 km SE of Tobi Village, Palau",earthquake,8.1,1.7,0.083,14,reviewed,us,us
-2019-11-25T01:58:29.628Z,1.6697,132.9068,10,4.5,mb,,95,4.605,0.78,us,us70006fk3,2020-02-14T22:02:31.040Z,"247 km SE of Tobi Village, Palau",earthquake,10.4,1.9,0.109,25,reviewed,us,us

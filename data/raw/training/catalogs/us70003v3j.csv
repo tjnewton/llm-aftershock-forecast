@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2019-06-04T04:39:16.961Z,29.0665,139.289,422,6.4,mww,,21,3.224,0.85,us,us70003v3j,2025-12-22T19:02:59.324Z,"Izu Islands, Japan region",earthquake,8.4,1.9,0.036,75,reviewed,us,us

@@ -1,8 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2014-04-24T03:10:10.150Z,49.6388,-127.7316,10,6.5,mww,,,,0.85,us,usb000px6r,2022-08-06T23:23:06.892Z,"107 km WSW of Vernon, Canada",earthquake,,1.7,,,reviewed,pgc,us
-2014-04-24T03:23:33.950Z,49.4739,-127.6726,10,4.3,mb,,,,1.2,us,usb000qqtk,2014-07-14T20:11:12.000Z,"112 km WSW of Vernon, Canada",earthquake,,1.9,0.266,4,reviewed,pgc,us
-2014-04-24T03:40:56.820Z,49.5441,-127.7877,10,4.7,mwr,,,,1.05,us,usb000px7e,2022-08-07T00:06:09.110Z,"115 km WSW of Vernon, Canada",earthquake,,1.9,,,reviewed,pgc,pgc
-2014-04-24T03:44:17.080Z,49.61,-127.826,10,4.8,mwr,,,,0.98,us,usb000px7j,2022-08-07T00:06:59.849Z,"115 km WSW of Vernon, Canada",earthquake,,1.9,,,reviewed,pgc,pgc
-2014-04-24T05:16:17.910Z,49.6074,-127.7845,10,4.4,mwr,,,,1.59,us,usb000px8m,2022-08-06T23:23:58.034Z,"112 km WSW of Vernon, Canada",earthquake,,1.9,,,reviewed,pgc,pgc
-2014-04-24T08:09:55.710Z,49.55,-127.782,10,4,mwr,,,,1.26,us,usb000pxb6,2014-07-14T20:11:14.000Z,"115 km WSW of Vernon, Canada",earthquake,,1.7,,,reviewed,pgc,pgc
-2014-04-24T12:06:56.000Z,49.632,-127.841,10,4.1,mwr,,,,1.53,us,usb000pxic,2022-08-06T23:24:48.400Z,"115 km WSW of Vernon, Canada",earthquake,,2,,,reviewed,pgc,pgc

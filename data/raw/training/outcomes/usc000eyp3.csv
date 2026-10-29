@@ -1,9 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2013-01-30T20:15:43.340Z,-28.094,-70.653,45,6.8,mww,596,19.3,,1.07,us,usc000eyp3,2022-08-06T13:27:12.882Z,"54 km N of Vallenar, Chile",earthquake,,,,,reviewed,us,us
-2013-01-30T20:40:40.000Z,-28.093,-70.615,55.4,4.7,ml,47,114.2,,,us,usc000f56a,2014-11-07T01:49:54.817Z,"55 km NNE of Vallenar, Chile",earthquake,,,,,reviewed,guc,guc
-2013-01-30T23:15:54.000Z,-28.163,-70.608,43.3,4.2,ml,15,171.6,,,us,usp000jyws,2014-11-07T01:49:54.893Z,"48 km NNE of Vallenar, Chile",earthquake,,,,,reviewed,guc,guc
-2013-01-31T00:04:17.000Z,-28.09,-70.832,40.4,4.5,ml,25,175.7,,,us,usp000jywx,2014-11-07T01:49:54.919Z,"54 km N of Vallenar, Chile",earthquake,,,,,reviewed,guc,guc
-2013-01-31T04:15:55.000Z,-28.027,-70.804,44.1,4.6,mb,74,80.2,,,us,usc000ez14,2014-11-07T01:49:55.093Z,"61 km N of Vallenar, Chile",earthquake,,,,21,reviewed,guc,us
-2013-01-31T05:10:52.000Z,-28.084,-70.813,44.2,4.6,mb,40,114.2,,,us,usc000ez1s,2014-11-07T01:49:55.137Z,"54 km N of Vallenar, Chile",earthquake,,,,8,reviewed,guc,us
-2013-01-31T05:30:18.000Z,-28.065,-70.809,52.4,4,ml,14,180.9,,,us,us2013lbbh,2014-11-07T01:49:55.183Z,"56 km N of Vallenar, Chile",earthquake,,,,,reviewed,guc,guc
-2013-03-23T14:37:13.000Z,-28.044,-71.168,53.3,4.5,ml,13,194.2,,,us,us2013ncax,2014-11-07T01:50:22.605Z,"71 km NW of Vallenar, Chile",earthquake,,,,,reviewed,guc,guc

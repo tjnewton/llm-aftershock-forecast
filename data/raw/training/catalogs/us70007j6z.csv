@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2020-02-05T18:12:37.734Z,-6.0817,113.0778,592.42,6.2,mww,,31,5.479,1.04,us,us70007j6z,2025-12-22T18:27:49.258Z,"113 km NNE of Bangkalan, Indonesia",earthquake,8.3,4.2,0.041,58,reviewed,us,us
-2020-02-05T18:34:38.219Z,-6.2187,113.1164,592.59,4.5,mb,,63,2.461,0.82,us,us70007pfr,2020-04-25T22:19:33.040Z,"100 km NNE of Bangkalan, Indonesia",earthquake,12.1,7.8,0.106,26,reviewed,us,us

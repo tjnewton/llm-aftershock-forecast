@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2016-04-13T13:55:17.800Z,23.0944,94.8654,136,6.9,mww,,14,3.001,1.03,us,us20005hqz,2022-05-03T18:51:09.920Z,"76 km SE of Mawlaik, Myanmar",earthquake,7.1,1.8,,,reviewed,us,us
-2016-05-01T07:08:41.920Z,22.6224,94.7197,79.46,4.2,mb,,115,2.843,0.95,us,us10005gbx,2016-07-19T20:03:08.040Z,"71 km NW of Monywa, Myanmar",earthquake,8.9,9,0.136,15,reviewed,us,us

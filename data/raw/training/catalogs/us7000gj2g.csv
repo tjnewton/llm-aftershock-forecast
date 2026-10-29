@@ -1,7 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2022-02-08T11:59:25.311Z,-0.417,-19.8913,10,6.2,mww,,35,9.28,0.41,us,us7000gj2g,2022-08-06T11:12:45.386Z,"central Mid-Atlantic Ridge",earthquake,8.2,1.8,0.062,25,reviewed,us,us
-2022-02-11T06:47:55.238Z,-0.4878,-19.9836,10,4.8,mb,,47,9.279,0.46,us,us7000gjxy,2022-04-19T17:39:52.040Z,"central Mid-Atlantic Ridge",earthquake,6,1.8,0.07,63,reviewed,us,us
-2022-02-11T10:14:33.987Z,-0.472,-19.9228,10,4.7,mb,,54,9.255,0.44,us,us7000gjyl,2022-04-19T17:39:52.040Z,"central Mid-Atlantic Ridge",earthquake,4.8,1.9,0.074,56,reviewed,us,us
-2022-02-12T14:27:57.084Z,-0.4424,-19.7758,10,5,mb,,44,9.192,1.06,us,us7000gkab,2022-04-30T14:18:02.040Z,"central Mid-Atlantic Ridge",earthquake,9.5,1.8,0.058,96,reviewed,us,us
-2022-02-12T20:48:54.019Z,-0.4912,-19.9859,10,5.5,mww,,40,9.118,0.43,us,us7000gkcm,2022-04-30T14:18:03.040Z,"central Mid-Atlantic Ridge",earthquake,4.2,1.8,0.098,10,reviewed,us,us
-2022-03-02T04:41:08.268Z,-0.4706,-19.7894,10,5.4,mww,,55,9.177,0.31,us,us6000h1an,2022-05-07T21:32:42.040Z,"central Mid-Atlantic Ridge",earthquake,8.1,1.4,0.098,10,reviewed,us,us

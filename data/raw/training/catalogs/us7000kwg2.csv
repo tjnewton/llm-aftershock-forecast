@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2023-09-18T13:21:23.535Z,26.5312,125.2312,176,6.3,mww,165,21,2.324,0.84,us,us7000kwg2,2023-12-02T23:01:07.040Z,"191 km N of Hirara, Japan",earthquake,6.96,1.844,0.044,49,reviewed,us,us

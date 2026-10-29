@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2023-07-14T09:29:00.404Z,14.9004,-93.9011,34,6.3,mww,358,83,2.186,0.64,us,us7000kfnc,2023-09-16T19:16:15.040Z,"Offshore Chiapas, Mexico",earthquake,5.25,1.821,0.033,89,reviewed,us,us
-2023-07-14T16:33:12.055Z,14.8727,-94.1187,35,5,mww,52,156,1.199,0.94,us,us7000kfsa,2023-09-16T19:16:15.040Z,"off the coast of Chiapas, Mexico",earthquake,5.24,1.922,0.05,38,reviewed,us,us
-2023-07-26T02:02:42.565Z,14.821,-94.0692,35,4.7,mb,73,83,1.202,0.64,us,us6000kvkf,2023-09-30T21:36:31.040Z,"118 km SW of El Palmarcito, Mexico",earthquake,1.83,1.883,0.032,304,reviewed,us,us
-2023-07-28T10:44:12.913Z,14.8219,-94.1053,35,4.1,mb,45,171,1.226,0.55,us,us6000kw75,2023-09-30T21:36:32.040Z,"121 km SW of El Palmarcito, Mexico",earthquake,3.62,1.951,0.087,37,reviewed,us,us
-2023-08-05T20:57:20.812Z,14.7548,-94.0551,10,4.5,mb,53,136,1.797,0.65,us,us6000kzwd,2023-10-07T21:39:02.040Z,"122 km SW of El Palmarcito, Mexico",earthquake,9.4,1.908,0.089,37,reviewed,us,us

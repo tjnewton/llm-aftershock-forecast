@@ -1,5 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2016-10-27T20:32:55.790Z,-33.7771,-72.5321,12.57,6,mww,,78,0.774,1.05,us,us100072gn,2022-05-03T18:55:52.592Z,"88 km WSW of San Antonio, Chile",earthquake,4.2,2.7,,,reviewed,us,us
-2016-10-27T22:09:29.680Z,-33.7657,-72.6211,14.62,4.3,mwr,,101,0.846,0.82,us,us100072he,2017-01-20T00:31:10.040Z,"96 km W of San Antonio, Chile",earthquake,4.5,5.3,0.043,53,reviewed,us,us
-2016-10-29T22:01:39.300Z,-33.8433,-72.5856,10,5.2,mww,,79,0.83,0.9,us,us100072zy,2025-12-22T17:19:19.152Z,"94 km WSW of San Antonio, Chile",earthquake,4.1,1.7,,,reviewed,us,us
-2016-10-31T11:15:47.160Z,-33.7597,-72.5112,9.36,4.9,mww,,121,0.754,1.06,us,us1000738c,2025-12-22T17:19:26.074Z,"85 km WSW of San Antonio, Chile",earthquake,4.4,3,,,reviewed,us,us

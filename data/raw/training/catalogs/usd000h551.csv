@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2022-04-04T16:06:57.662Z,-17.4723,167.8625,31,6,mww,,32,2.11,0.82,us,usd000h551,2022-06-11T20:21:22.040Z,"56 km WNW of Port-Vila, Vanuatu",earthquake,6.9,1.8,0.046,45,reviewed,us,us

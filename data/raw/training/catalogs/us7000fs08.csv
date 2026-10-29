@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2021-11-06T14:37:36.731Z,-0.0451,124.2812,34,6,mww,,20,1.805,1.11,us,us7000fs08,2025-12-22T22:19:42.088Z,"150 km ESE of Gorontalo, Indonesia",earthquake,3.1,1.8,0.06,27,reviewed,us,us
-2021-11-10T01:49:48.941Z,-0.0906,124.372,73.79,4.1,mb,,53,1.858,0.36,us,us7000fuce,2022-01-15T20:51:52.040Z,"161 km ESE of Gorontalo, Indonesia",earthquake,6.5,12.6,0.214,6,reviewed,us,us
-2021-11-22T12:33:04.765Z,-0.1089,124.3522,73.9,4.2,mb,,56,1.832,0.72,us,us7000fw6n,2022-01-29T22:55:21.040Z,"160 km ESE of Gorontalo, Indonesia",earthquake,6.1,9.9,0.16,11,reviewed,us,us

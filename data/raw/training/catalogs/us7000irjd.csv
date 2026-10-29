@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2022-11-22T16:39:05.789Z,30.7936,-116.3907,10,6.2,mww,164,61,0.494,0.75,us,us7000irjd,2023-03-30T07:15:48.466Z,"28 km SW of Las Brisas, Mexico",earthquake,4.14,1.745,0.029,118,reviewed,us,us
-2022-11-22T21:00:56.508Z,30.9783,-116.4784,10,4.5,mb,35,128,0.724,0.74,us,us7000irm7,2023-01-30T06:01:01.040Z,"30 km W of Las Brisas, Mexico",earthquake,2.44,1.804,0.115,22,reviewed,us,us
-2022-11-24T06:25:38.401Z,30.9238,-116.4862,10,4.3,mb,93,187,0.761,0.7,us,us7000is09,2023-01-30T06:01:28.040Z,"31 km W of Las Brisas, Mexico",earthquake,4.49,1.95,0.099,29,reviewed,us,us
-2022-11-26T14:40:15.950Z,30.7774,-116.4095,10,4.3,mb,30,259,0.814,1.02,us,us7000iskd,2023-02-05T23:24:02.040Z,"31 km SW of Las Brisas, Mexico",earthquake,4.16,1.958,0.137,17,reviewed,us,us
-2022-12-10T08:23:30.239Z,30.8464,-116.3895,10,4.4,mb,55,201,0.518,1.23,us,us6000j8dw,2023-02-18T22:04:01.040Z,"24 km WSW of Las Brisas, Mexico",earthquake,4.37,1.951,0.139,15,reviewed,us,us

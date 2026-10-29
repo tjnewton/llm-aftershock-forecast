@@ -1,7 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2016-01-14T03:25:33.640Z,41.9723,142.781,46,6.7,mww,,22,0.281,0.98,us,us10004ebx,2025-04-06T15:04:28.717Z,"52 km SE of Shizunai-furukawach?, Japan",earthquake,6.2,1.9,,,reviewed,us,us
-2016-02-03T15:35:58.420Z,41.8902,142.2881,67.34,4.3,mb,,109,0.66,1.23,us,us20004wtm,2016-04-14T22:51:42.040Z,"49 km S of Shizunai-furukawach?, Japan",earthquake,4.1,2.3,0.129,17,reviewed,us,us
-2016-02-23T09:17:46.420Z,42.0053,142.5799,67.7,4.2,mb,,100,0.43,1.38,us,us10004sxb,2016-05-03T23:44:18.040Z,"40 km SSE of Shizunai-furukawach?, Japan",earthquake,6.4,3,0.136,15,reviewed,us,us
-2016-02-28T02:06:26.770Z,41.8653,142.2577,60.86,4.3,mwr,,119,0.687,0.72,us,us10004t8w,2016-05-06T23:34:17.040Z,"52 km S of Shizunai-furukawach?, Japan",earthquake,4.2,7.4,0.093,11,reviewed,us,us
-2016-02-28T05:08:48.440Z,41.9295,142.2795,66.42,4.2,mb,,114,0.66,0.47,us,us10004t9p,2016-05-06T23:34:17.040Z,"45 km S of Shizunai-furukawach?, Japan",earthquake,4.6,5.4,0.153,12,reviewed,us,us
-2016-03-13T02:07:37.420Z,42.0204,142.5316,58.47,4.6,mb,,98,0.466,0.86,us,us10004x4i,2016-05-21T00:05:28.040Z,"37 km SSE of Shizunai-furukawach?, Japan",earthquake,6.8,6.3,0.066,68,reviewed,us,us

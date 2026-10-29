@@ -1,5 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2019-07-04T04:30:44.424Z,51.2369,-130.5005,10,6.2,mww,,70,1.143,1.01,us,us700049sf,2025-12-22T18:12:39.891Z,"250 km WNW of Port McNeill, Canada",earthquake,6.6,1.8,0.026,143,reviewed,us,us
-2019-07-05T12:51:38.635Z,51.4142,-130.5286,10,4.7,mwr,,140,0.973,0.75,us,us70004b04,2019-09-26T14:30:19.040Z,"258 km WNW of Port McNeill, Canada",earthquake,5.9,1.9,0.098,10,reviewed,us,us
-2019-07-05T12:58:27.988Z,51.3441,-130.5744,9,5.6,mww,,69,1.026,0.72,us,us70004b08,2025-12-22T18:12:45.862Z,"258 km WNW of Port McNeill, Canada",earthquake,5.6,1.8,0.042,55,reviewed,us,us
-2019-07-05T13:02:16.544Z,51.2999,-130.6153,10,4.6,mb,,111,1.058,0.97,us,us70004b0c,2019-09-26T14:30:20.040Z,"260 km WNW of Port McNeill, Canada",earthquake,7.1,1.9,0.091,36,reviewed,us,us

@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2021-11-10T15:45:13.652Z,23.5935,126.4474,12,6.6,mww,,15,3.259,0.8,us,us7000fszl,2025-12-22T22:19:52.176Z,"177 km SE of Hirara, Japan",earthquake,6.2,1.7,0.033,90,reviewed,us,us
-2021-11-11T01:12:07.741Z,23.6694,126.2411,10,4.5,mb,,118,3.057,0.88,us,us7000fum3,2022-01-15T20:51:54.040Z,"157 km SE of Hirara, Japan",earthquake,4,1.9,0.171,10,reviewed,us,us
-2021-11-11T04:21:18.205Z,23.7499,126.3122,10,4.6,mb,,93,3.548,0.74,us,us7000fuld,2022-01-15T20:51:53.040Z,"155 km SE of Hirara, Japan",earthquake,9.5,1.9,0.194,10,reviewed,us,us
-2021-11-11T20:53:22.277Z,23.3279,126.3314,10,5,mb,,82,3.243,0.83,us,us7000ftc7,2022-01-15T20:51:50.040Z,"194 km SSE of Hirara, Japan",earthquake,7,1.8,0.046,151,reviewed,us,us
-2021-12-25T04:14:52.848Z,23.7057,126.2808,10,4.2,mb,,139,3.6,0.89,us,us7000g9kt,2022-03-05T23:11:01.040Z,"157 km SE of Hirara, Japan",earthquake,5.8,1.9,0.264,5,reviewed,us,us

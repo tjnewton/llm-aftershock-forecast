@@ -1,8 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2012-06-29T21:07:33.860Z,43.433,84.7,18,6.3,mww,526,21.5,,0.94,us,usp000jncx,2024-06-17T19:38:12.744Z,"117 km E of Xinyuan, China",earthquake,,,,,reviewed,us,us
-2012-06-29T22:11:12.320Z,43.443,84.789,10,4,mb,17,76.8,,1.03,us,usp000jnd1,2014-11-07T01:48:10.409Z,"124 km E of Xinyuan, China",earthquake,,,,4,reviewed,us,us
-2012-06-29T22:30:09.900Z,43.488,84.741,10,4.1,mb,28,66.4,,0.83,us,usp000jnd2,2014-11-07T01:48:10.411Z,"120 km E of Xinyuan, China",earthquake,,,,9,reviewed,us,us
-2012-06-30T00:46:49.010Z,43.442,84.896,10,4.5,mb,87,64.1,,1.03,us,usp000jnda,2014-11-07T01:48:10.475Z,"132 km SW of Shihezi, China",earthquake,,,,24,reviewed,us,us
-2012-06-30T07:35:57.290Z,43.389,84.638,13.6,4.6,mb,78,64.2,,0.81,us,usp000jnds,2014-11-07T01:48:10.554Z,"112 km E of Xinyuan, China",earthquake,,10.5,,23,reviewed,us,us
-2012-06-30T10:08:58.560Z,43.543,84.686,10,4.6,mb,25,88.8,,0.95,us,usp000jndw,2014-11-07T01:48:10.567Z,"116 km E of Xinyuan, China",earthquake,,,,6,reviewed,us,us
-2012-07-01T21:48:13.790Z,43.456,84.756,38.6,4.2,mb,59,64,,0.85,us,usp000jnfp,2014-11-07T01:48:14.017Z,"121 km E of Xinyuan, China",earthquake,,4.9,,13,reviewed,us,us

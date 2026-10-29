@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2012-11-02T18:17:32.730Z,9.219,126.161,37,6.1,mww,527,11.5,,1.04,us,usp000juy1,2024-06-17T20:32:17.090Z,"2 km NW of Tigao, Philippines",earthquake,,,,,reviewed,us,us
-2012-11-02T22:13:23.030Z,9.177,126.233,52.2,4.2,mb,44,71.2,,0.59,us,usp000juyb,2014-11-07T01:49:17.445Z,"6 km E of Mabahin, Philippines",earthquake,,8.3,,18,reviewed,us,us
-2012-11-10T09:24:01.390Z,9.028,126.184,136.4,4.5,mb,57,103.2,,0.69,us,usp000jvae,2014-11-07T01:49:20.041Z,"3 km NNE of Gamut, Philippines",earthquake,,7,,24,reviewed,us,us

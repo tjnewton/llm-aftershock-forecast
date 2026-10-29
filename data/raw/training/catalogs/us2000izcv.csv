@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2018-12-31T02:35:37.670Z,54.4266,-161.5131,31,6,mww,,44,0.92,1.14,us,us2000izcv,2023-08-18T13:57:18.062Z,"87 km SE of King Cove, Alaska",earthquake,4.2,1.8,0.033,89,reviewed,us,us

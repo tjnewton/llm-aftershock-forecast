@@ -1,5 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2018-01-19T16:17:44.720Z,26.6862,-111.0785,10,6.3,mww,,109,1.214,1.45,us,us2000cl83,2023-04-01T14:47:14.196Z,"79 km NNE of Loreto, Mexico",earthquake,5.7,1.8,0.035,79,reviewed,us,us
-2018-01-19T16:48:28.010Z,26.6067,-111.1312,10,4.5,mb,,146,1.218,1.47,us,us2000cl8x,2018-04-10T01:11:47.040Z,"69 km NNE of Loreto, Mexico",earthquake,7.4,1.9,0.058,87,reviewed,us,us
-2018-01-20T13:48:54.420Z,26.6362,-111.0263,10,4.5,mb,,141,1.28,1.42,us,us2000clsy,2022-08-07T23:16:46.683Z,"76 km NNE of Loreto, Mexico",earthquake,5.2,1.9,0.088,38,reviewed,us,us
-2018-01-26T19:54:18.110Z,26.7086,-111.0119,14.69,4.4,mb,,133,1.254,1.16,us,us2000cq0x,2018-04-20T07:05:27.040Z,"84 km NNE of Loreto, Mexico",earthquake,3.2,5,0.07,58,reviewed,us,us

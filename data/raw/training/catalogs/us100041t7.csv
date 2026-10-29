@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2015-11-27T21:00:22.920Z,-24.828,-70.6009,34,6.2,mww,,44,0.269,1.2,us,us100041t7,2022-05-03T19:17:55.475Z,"65 km N of Taltal, Chile",earthquake,5.6,1.7,,,reviewed,us,us
-2015-11-27T21:45:13.000Z,-24.74,-70.547,38.9,4.7,mwr,,,,1.46,us,us100041th,2016-02-25T22:32:57.040Z,"74 km N of Taltal, Chile",earthquake,6.6,4.9,0.04,59,reviewed,guc,us

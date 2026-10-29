@@ -1,5 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2021-05-21T22:13:18.379Z,-16.6009,-177.3725,10,6.5,mww,,44,4.518,0.96,us,us7000e579,2025-12-22T19:00:49.160Z,"265 km SSE of Alo, Wallis and Futuna",earthquake,7.3,1.4,0.061,26,reviewed,us,us
-2021-05-21T22:33:14.106Z,-16.6312,-177.3434,10,4.5,mb,,116,2.428,1.09,us,us6000ef42,2021-07-31T22:08:16.040Z,"Fiji region",earthquake,8.9,1.9,0.204,7,reviewed,us,us
-2021-05-22T04:09:48.849Z,-16.5579,-177.2112,10,4.7,mb,,116,2.403,1.01,us,us6000ef69,2025-12-22T19:01:59.708Z,"266 km SSE of Alo, Wallis and Futuna",earthquake,9.8,1.7,0.275,7,reviewed,us,us
-2021-05-22T05:59:09.396Z,-16.6504,-177.6454,10,4.5,mb,,191,2.374,0.79,us,us6000ef6g,2021-07-31T22:08:26.040Z,"263 km S of Alo, Wallis and Futuna",earthquake,10.1,1.8,0.242,5,reviewed,us,us

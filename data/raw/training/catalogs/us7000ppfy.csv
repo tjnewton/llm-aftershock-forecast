@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2025-03-28T19:45:14.663Z,31.1041,131.5547,34.124,4.7,mb,141,77,1.026,0.97,us,us7000png7,2025-06-06T21:12:26.040Z,"51 km SE of Kushima, Japan",earthquake,3.25,4.39,0.054,113,reviewed,us,us
-2025-04-02T14:03:57.825Z,30.9792,131.522,29,6.1,mww,266,87,1.057,0.62,us,us7000ppfy,2025-06-09T13:38:49.040Z,"56 km ENE of Nishinoomote, Japan",earthquake,5.23,1.847,0.051,37,reviewed,us,us
-2025-04-02T14:13:32.278Z,31.0289,131.5181,35,4.4,mb,41,131,1.03,0.91,us,us6000q5fj,2025-06-09T13:38:45.040Z,"57 km SSE of Kushima, Japan",earthquake,6.04,1.928,0.117,21,reviewed,us,us
-2025-04-02T21:42:52.551Z,31.1332,131.3969,35,4.6,mb,88,138,0.891,0.46,us,us6000q3jg,2025-06-09T13:38:38.040Z,"41 km SSE of Kushima, Japan",earthquake,6.3,1.909,0.064,73,reviewed,us,us
-2025-04-13T20:38:06.314Z,31.0533,131.5339,27.249,4.5,mb,55,130,1.031,0.89,us,us6000q5u6,2025-06-14T18:26:42.040Z,"55 km SSE of Kushima, Japan",earthquake,5.95,6.028,0.081,45,reviewed,us,us

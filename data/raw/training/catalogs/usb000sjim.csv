@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2014-10-07T13:49:39.720Z,23.3834,100.4702,8.51,6.1,mww,,23,2.7,0.8,us,usb000sjim,2022-07-27T04:20:20.159Z,"125 km SW of Jianshui, China",earthquake,6.3,3.1,,,reviewed,us,us
-2014-10-07T14:38:52.830Z,23.3609,100.5503,16.14,4.2,mb,,76,2.659,0.91,us,usb000sjj0,2014-12-23T01:42:06.040Z,"122 km SW of Jianshui, China",earthquake,7.5,5,0.159,19,reviewed,us,us
-2014-10-07T19:01:15.320Z,23.3384,100.5155,15.15,4.2,mb,,76,2.698,0.76,us,usb000sjmi,2014-12-23T01:42:07.040Z,"126 km SW of Jianshui, China",earthquake,4.7,5.4,0.16,15,reviewed,us,us
-2014-10-08T09:01:50.570Z,23.2846,100.4191,15.11,4.1,mb,,89,2.8,0.43,us,usb000snh8,2015-01-06T23:49:47.040Z,"137 km SW of Jianshui, China",earthquake,7.6,5.7,0.234,7,reviewed,us,us
-2014-10-11T06:05:14.930Z,23.4364,100.5024,15.58,4.7,mb,,63,2.643,0.73,us,usb000skzt,2015-01-06T23:49:50.040Z,"118 km SW of Jianshui, China",earthquake,6.4,4.4,0.088,43,reviewed,us,us

@@ -1,5 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2012-12-11T06:18:27.330Z,0.533,126.231,30,6,mww,445,35,,0.74,us,usp000jwu3,2022-05-03T16:01:07.396Z,"Molucca Sea",earthquake,,,,,reviewed,us,us
-2012-12-15T16:30:10.640Z,0.478,126.344,12.1,4.4,mb,25,162.9,,1,us,usp000jwzz,2014-11-07T01:49:36.753Z,"120 km WSW of Ternate, Indonesia",earthquake,,19.5,,6,reviewed,us,us
-2012-12-20T21:47:29.760Z,0.562,126.217,27.5,5.4,mwc,255,29.6,,1.01,us,usp000jx70,2022-05-03T16:01:38.452Z,"Molucca Sea",earthquake,,8,,,reviewed,us,gcmt
-2012-12-28T05:21:11.440Z,0.541,126.172,46,4.7,mb,83,44.9,,1.16,us,usp000jxgn,2014-11-07T01:49:40.364Z,"137 km WSW of Ternate, Indonesia",earthquake,,8.3,,38,reviewed,us,us

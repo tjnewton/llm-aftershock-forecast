@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2016-08-24T10:34:54.580Z,20.9228,94.569,82,6.8,mww,,17,1.802,1.05,us,us10006gbf,2023-12-18T16:33:59.409Z,"26 km W of Chauk, Myanmar",earthquake,5.9,1.9,,,reviewed,us,us
-2016-08-24T10:57:16.300Z,20.9317,94.6688,93.15,4.5,mb,,172,1.724,0.77,us,us20006v9y,2016-11-19T04:58:38.040Z,"15 km WNW of Chauk, Myanmar",earthquake,8.4,8.7,0.145,14,reviewed,us,us

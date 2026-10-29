@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2020-07-06T22:54:47.538Z,-5.6023,110.6893,533.76,6.6,mww,,14,1.458,1.16,us,us7000aj3w,2025-12-22T18:37:40.781Z,"Java Sea",earthquake,8.7,2.7,0.056,31,reviewed,us,us

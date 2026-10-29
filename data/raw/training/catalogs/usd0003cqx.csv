@@ -1,7 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2014-04-10T23:27:45.600Z,12.4029,-86.3783,13,6.1,mww,,31,1.254,0.96,us,usd0003cqx,2022-08-06T23:06:52.177Z,"16 km SW of Valle San Francisco, Nicaragua",earthquake,,1,,,reviewed,us,us
-2014-04-10T23:35:03.440Z,12.3318,-86.3708,10,4.6,mb,,137,1.224,1.57,us,usb000qprz,2014-07-01T02:37:55.000Z,"19 km N of Ciudad Sandino, Nicaragua",earthquake,,1.7,0.146,14,reviewed,us,us
-2014-04-10T23:37:24.050Z,12.3566,-86.316,10,4.6,mb,,179,1.181,1.3,us,usb000qprv,2014-07-01T02:37:55.000Z,"18 km SSW of Valle San Francisco, Nicaragua",earthquake,,2,0.172,13,reviewed,us,us
-2014-04-14T04:12:25.430Z,12.4531,-86.2187,10,4.4,mb,,176,1.129,0.97,us,usc000pjii,2014-07-01T02:38:07.000Z,"9 km SE of Valle San Francisco, Nicaragua",earthquake,,1.9,0.062,80,reviewed,us,us
-2014-04-14T06:12:32.920Z,12.3482,-86.2878,10,4.3,mb,,140,1.152,1.15,us,usb000qq3k,2014-07-01T02:38:07.000Z,"18 km S of Valle San Francisco, Nicaragua",earthquake,,1.9,0.16,12,reviewed,us,us
-2014-05-01T13:25:28.240Z,12.5039,-86.2694,9.27,4.8,mb,,51,0.54,1.1,us,usb000q6ap,2014-07-27T21:51:14.000Z,"2 km SE of Valle San Francisco, Nicaragua",earthquake,,5.4,0.391,2,reviewed,us,us

@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2017-09-19T18:14:38.090Z,18.5499,-98.4887,48,7.1,mww,,23,0.984,1.14,us,us2000ar20,2026-10-01T18:43:58.193Z,"1 km S of Matzaco, Mexico",earthquake,4.5,1.8,0.048,41,reviewed,us,us

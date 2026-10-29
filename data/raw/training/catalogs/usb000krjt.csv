@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2013-11-02T15:52:46.110Z,-23.6357,-112.5956,9.98,6,mww,,35,4.558,0.81,us,usb000krjt,2022-05-03T16:35:14.590Z,"Easter Island region",earthquake,,1.6,,,reviewed,us,us
-2013-11-03T06:53:51.350Z,-23.6608,-112.6856,10,4.8,mb,,54,35.942,0.64,us,usb000krya,2014-01-10T10:03:44.000Z,"Easter Island region",earthquake,,1.8,0.051,,reviewed,us,us

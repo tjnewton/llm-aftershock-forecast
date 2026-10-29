@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2016-03-19T11:26:33.230Z,17.996,-60.7019,26,6,mww,,27,1.082,1.16,us,us20005azy,2022-08-07T10:22:44.018Z,"126 km ENE of Codrington, Antigua and Barbuda",earthquake,6.4,1.7,,,reviewed,us,us

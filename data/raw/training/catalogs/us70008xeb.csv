@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2020-04-16T08:04:37.829Z,16.9591,-85.6851,12,6.1,mww,,30,3.342,0.97,us,us70008xeb,2025-12-22T18:32:42.180Z,"59 km NNE of Savannah Bight, Honduras",earthquake,6.2,1.8,0.035,77,reviewed,us,us

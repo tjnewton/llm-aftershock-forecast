@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2016-07-25T17:26:50.210Z,-26.1067,-70.5111,72,6.1,mww,,25,0.088,0.68,us,us20006hi2,2022-05-03T18:53:34.484Z,"54 km WNW of Diego de Almagro, Chile",earthquake,4.9,1.7,,,reviewed,us,us

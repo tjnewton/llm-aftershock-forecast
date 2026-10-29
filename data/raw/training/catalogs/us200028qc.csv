@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2015-04-24T03:36:42.400Z,-42.0602,173.0066,48,6.1,mww,,22,0.307,0.93,us,us200028qc,2022-07-31T00:58:26.614Z,"73 km S of Wakefield, New Zealand",earthquake,3.7,1.8,,,reviewed,us,us
-2015-04-24T14:35:24.680Z,-42.1779,173.1051,68.89,4.2,mb,,65,0.4,0.48,us,us200028um,2015-07-03T00:23:38.040Z,"86 km S of Wakefield, New Zealand",earthquake,2.9,9.7,0.236,5,reviewed,us,us

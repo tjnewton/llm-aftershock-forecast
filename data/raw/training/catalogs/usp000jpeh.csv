@@ -1,5 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2012-07-25T11:20:27.030Z,-9.694,159.727,20,6.4,mww,220,14.8,,1.02,us,usp000jpeh,2024-06-17T19:49:19.566Z,"1 km E of Malango, Solomon Islands",earthquake,,,,,reviewed,us,us
-2012-07-25T12:35:46.580Z,-9.7,159.765,30,4.5,mb,24,102.2,,0.92,us,usp000jpem,2014-11-07T01:48:23.825Z,"5 km E of Malango, Solomon Islands",earthquake,,7.7,,1,reviewed,us,us
-2012-07-25T20:01:35.780Z,-9.795,159.826,22.8,4.8,mb,23,128.5,,0.94,us,usp000jpex,2014-11-07T01:48:23.896Z,"Solomon Islands",earthquake,,10.4,,2,reviewed,us,us
-2012-07-25T21:43:28.950Z,-9.725,159.699,26,5,mb,129,31.7,,0.91,us,usp000jpf0,2015-03-24T02:39:03.580Z,"3 km SSW of Malango, Solomon Islands",earthquake,,6.6,,70,reviewed,us,us

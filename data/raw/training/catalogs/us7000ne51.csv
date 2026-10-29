@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2024-09-15T21:39:52.692Z,51.7148,-130.6856,7.303,4,mb,22,188,0.66,1,us,us7000ng8w,2024-11-21T22:58:58.040Z,"281 km WNW of Port McNeill, Canada",earthquake,4.76,5.465,0.086,36,reviewed,us,us
-2024-09-15T22:22:48.018Z,51.6088,-130.6121,3.766,6.5,mww,172,40,0.775,0.58,us,us7000ne51,2024-11-21T22:58:58.040Z,"271 km WNW of Port McNeill, Canada",earthquake,4.9,3.358,0.025,150,reviewed,us,us
-2024-09-15T23:26:47.109Z,51.5327,-130.6439,10,4,mb,15,207,0.835,0.96,us,us7000ng8y,2024-11-21T22:58:58.040Z,"270 km WNW of Port McNeill, Canada",earthquake,5.72,1.935,0.118,19,reviewed,us,us
-2024-09-16T01:43:25.165Z,51.3877,-130.8549,10,4.7,mwr,82,151,0.931,0.73,us,us7000ne5y,2024-11-23T23:27:10.040Z,"279 km WNW of Port McNeill, Canada",earthquake,3.9,1.869,0.078,16,reviewed,us,us
-2024-09-18T12:02:13.020Z,51.6202,-130.5559,10,4.2,mwr,32,183,0.782,0.88,us,us6000nsvf,2024-11-23T23:25:52.040Z,"268 km WNW of Port McNeill, Canada",earthquake,7.71,1.996,0.052,36,reviewed,us,us

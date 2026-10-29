@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2010-10-08T05:43:08.070Z,2.831,128.217,120,6.2,mwc,348,19.8,,0.96,us,usp000hmsx,2022-07-18T21:38:49.062Z,"124 km N of Tobelo, Indonesia",earthquake,,,,,reviewed,us,gcmt
-2010-10-29T06:19:21.580Z,2.784,128.294,76,5.2,mb,128,77.5,,0.95,us,usp000hnr7,2014-11-07T01:42:46.814Z,"120 km NNE of Tobelo, Indonesia",earthquake,,5.9,,75,reviewed,us,us

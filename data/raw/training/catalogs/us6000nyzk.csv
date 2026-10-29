@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2024-10-16T07:46:32.516Z,38.3115,38.8059,10,6,mww,138,39,0.399,0.8,us,us6000nyzk,2024-12-26T23:03:59.040Z,"19 km W of Doğanyol, Turkey",earthquake,4.08,1.773,0.042,55,reviewed,us,us
-2024-11-09T17:11:26.815Z,38.2678,38.859,10,4.1,mb,27,118,1.705,0.64,us,us7000nqwi,2025-01-24T19:51:28.040Z,"15 km WSW of Doğanyol, Turkey",earthquake,5.13,1.924,0.184,8,reviewed,us,us

@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2014-02-26T21:13:40.110Z,53.6047,-171.821,265,6.1,mww,,30,1.845,1.15,us,usc000myqq,2023-08-18T16:05:32.630Z,"210 km WNW of Nikolski, Alaska",earthquake,,1.8,,,reviewed,us,us

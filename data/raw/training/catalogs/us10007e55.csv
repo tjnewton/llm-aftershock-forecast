@@ -1,7 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2016-12-01T19:14:19.610Z,-15.2243,-70.9485,16.45,4.5,mb,,143,2.741,1.11,us,us10007e3n,2017-02-23T00:11:55.040Z,"12 km SSW of Ocuviri, Peru",earthquake,8.8,5.9,0.171,10,reviewed,us,us
-2016-12-01T22:40:26.610Z,-15.3122,-70.827,12,6.2,mww,,43,2.455,1.11,us,us10007e55,2022-05-03T18:03:30.429Z,"22 km SW of Vilavila, Peru",earthquake,6.2,1.7,,,reviewed,us,us
-2016-12-02T03:04:58.310Z,-15.1851,-70.8202,10,4.8,mb,,140,2.714,1.06,us,us10007e6r,2022-05-03T18:03:31.709Z,"12 km SE of Ocuviri, Peru",earthquake,2.4,1.8,0.065,73,reviewed,us,us
-2016-12-02T11:49:57.380Z,-15.3456,-70.9966,10,4.4,mwr,,120,2.663,1.27,us,us20007zhn,2017-03-03T07:05:58.040Z,"27 km SSW of Ocuviri, Peru",earthquake,3.9,1.9,0.083,14,reviewed,us,us
-2016-12-03T05:52:18.490Z,-15.3,-70.9666,10,4.3,mb,,127,2.686,0.79,us,us10007ej4,2017-03-03T07:06:00.040Z,"21 km SSW of Ocuviri, Peru",earthquake,5.2,2,0.239,5,reviewed,us,us
-2016-12-04T19:21:34.850Z,-15.2721,-70.8565,10,4.3,mb,,146,2.656,1.36,us,us10007eue,2017-03-03T07:06:02.040Z,"18 km SSE of Ocuviri, Peru",earthquake,8,2,0.177,9,reviewed,us,us

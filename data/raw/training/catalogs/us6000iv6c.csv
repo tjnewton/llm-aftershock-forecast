@@ -1,7 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2022-10-20T11:57:12.575Z,7.6901,-82.3342,20,6.7,mww,145,37,1.151,1.02,us,us6000iv6c,2022-12-31T23:03:41.040Z,"60 km SSW of Boca Chica, Panama",earthquake,4.36,1.731,0.033,90,reviewed,us,us
-2022-10-20T13:04:38.881Z,7.4997,-82.4048,10,4.5,mb,22,165,1.281,1.03,us,us6000iv6q,2022-12-31T23:03:41.040Z,"78 km SE of Burica, Panama",earthquake,7.31,1.932,0.241,5,reviewed,us,us
-2022-10-21T08:19:24.141Z,7.6381,-82.3911,10,4.5,mb,29,153,1.185,0.61,us,us6000ivgg,2022-12-31T23:03:45.040Z,"67 km SSW of Boca Chica, Panama",earthquake,4.49,1.891,0.192,8,reviewed,us,us
-2022-10-21T19:44:44.649Z,7.5254,-82.1634,10,4.6,mb,81,139,1.363,1.03,us,us6000ivln,2022-12-31T23:03:48.040Z,"77 km S of Boca Chica, Panama",earthquake,4.72,1.824,0.08,52,reviewed,us,us
-2022-10-23T01:09:00.804Z,7.4731,-82.4818,10,4.4,mb,40,157,1.248,0.89,us,us6000ivuk,2023-01-03T15:23:33.040Z,"south of Panama",earthquake,4.54,1.469,0.13,17,reviewed,us,us
-2022-10-23T19:46:38.129Z,7.4584,-82.5613,10,4,mb,24,158,1.208,0.92,us,us6000ivyj,2023-01-03T15:23:35.040Z,"72 km SSE of Burica, Panama",earthquake,6.7,1.96,0.367,2,reviewed,us,us

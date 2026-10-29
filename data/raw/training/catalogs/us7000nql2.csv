@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2024-11-08T11:38:00.376Z,-46.7807,-75.6402,10,6.3,mww,85,52,2.139,0.71,us,us7000nql2,2025-01-24T19:51:23.040Z,"239 km WNW of Cochrane, Chile",earthquake,4.83,1.816,0.039,62,reviewed,us,us
-2024-11-08T11:45:32.143Z,-46.8186,-75.8743,10,4.9,mb,26,141,2.287,1.13,us,us7000nqlq,2025-01-24T19:51:23.040Z,"255 km WNW of Cochrane, Chile",earthquake,7.58,1.922,0.149,14,reviewed,us,us
-2024-11-28T18:14:55.741Z,-46.6474,-75.3959,10,4.3,mwr,38,141,1.993,0.51,us,us7000nut1,2025-02-02T00:53:09.040Z,"225 km WNW of Cochrane, Chile",earthquake,5.8,1.911,0.089,12,reviewed,us,us

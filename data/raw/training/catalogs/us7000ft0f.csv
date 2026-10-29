@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2021-11-10T17:46:40.379Z,-4.3244,134.1805,10,6,mww,,22,2.38,0.85,us,us7000ft0f,2025-12-22T22:24:26.514Z,"181 km SW of Nabire, Indonesia",earthquake,6.1,1.7,0.049,40,reviewed,us,us
-2021-11-10T18:05:45.304Z,-4.3231,134.3304,10,4.1,mb,,108,2.502,0.76,us,us7000fud8,2022-01-15T20:51:53.040Z,"168 km SW of Nabire, Indonesia",earthquake,8,2,0.261,4,reviewed,us,us

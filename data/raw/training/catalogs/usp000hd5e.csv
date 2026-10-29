@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2010-05-25T10:09:05.780Z,35.336,-35.924,10,6.3,mwc,385,31.7,,1.2,us,usp000hd5e,2022-05-02T21:57:08.619Z,"northern Mid-Atlantic Ridge",earthquake,,,,,reviewed,us,us
-2010-05-28T03:23:31.340Z,35.28,-35.678,10,4.4,mb,46,87.9,,0.81,us,usp000hd99,2014-11-07T01:41:33.560Z,"northern Mid-Atlantic Ridge",earthquake,,,,28,reviewed,us,us

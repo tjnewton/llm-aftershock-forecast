@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2013-10-31T23:03:59.720Z,-30.2921,-71.5215,27,6.6,mww,,31,0.636,1.28,us,usb000kqnc,2022-08-08T19:35:49.254Z,"41 km SSW of Coquimbo, Chile",earthquake,,1.7,,,reviewed,us,us
-2013-11-01T02:45:59.000Z,-30.333,-71.428,50.2,4.6,mb,,,,1.05,us,usb000kyec,2014-01-10T10:03:40.000Z,"36 km NW of Ovalle, Chile",earthquake,,5.8,0.548,,reviewed,guc,us
-2013-12-26T08:12:35.560Z,-30.5631,-71.8188,37.14,4.2,mb,,153,0.963,1.19,us,usc000lypj,2014-02-28T08:44:08.000Z,"59 km W of Ovalle, Chile",earthquake,,9.9,0.304,,reviewed,us,us

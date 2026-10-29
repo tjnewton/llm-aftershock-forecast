@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2023-04-03T03:06:57.235Z,52.7227,158.4935,101,6.5,mww,323,12,0.316,0.72,us,us6000k1mn,2023-06-13T03:13:19.040Z,"23 km SSE of Vilyuchinsk, Russia",earthquake,7.61,1.611,0.063,24,reviewed,us,us
-2023-04-10T21:53:42.954Z,52.7196,158.6248,108.023,4,mb,21,126,0.305,1.17,us,us6000k53j,2023-06-17T21:36:58.040Z,"27 km SSE of Vilyuchinsk, Russia",earthquake,9.91,4.271,0.156,11,reviewed,us,us
-2023-04-11T11:39:19.331Z,52.7915,158.276,114.206,4.9,mb,186,77,0.324,0.6,us,us6000k3h7,2023-06-17T21:36:46.040Z,"17 km SSW of Vilyuchinsk, Russia",earthquake,3.89,4.46,0.025,513,reviewed,us,us
-2023-04-15T11:35:42.857Z,52.833,158.2064,107.17,4.2,mb,121,87,0.329,0.55,us,us6000k4nq,2023-06-17T21:36:56.040Z,"14 km SSW of Paratunka, Russia",earthquake,5.01,4.78,0.053,103,reviewed,us,us
-2023-04-21T15:22:45.784Z,52.8586,158.1425,107.538,4.2,mb,47,112,0.349,0.73,us,us6000k650,2023-07-03T02:46:47.040Z,"13 km SW of Paratunka, Russia",earthquake,6.82,4.954,0.086,38,reviewed,us,us

@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2020-01-07T06:05:19.759Z,2.3481,96.3575,17,6.3,mww,,33,1.599,0.97,us,us70006vkq,2025-12-22T18:25:42.484Z,"14 km S of Sinabang, Indonesia",earthquake,4.3,1.7,0.043,53,reviewed,us,us
-2020-01-07T07:04:41.097Z,2.2388,96.254,10,4.3,mb,,205,1.614,0.39,us,us70006vl6,2020-03-21T17:13:21.040Z,"30 km SSW of Sinabang, Indonesia",earthquake,5.2,1.9,0.161,11,reviewed,us,us
-2020-01-22T03:58:44.156Z,2.2436,96.2926,10,4.9,mb,,88,1.586,0.64,us,us60007clh,2020-04-11T18:20:37.040Z,"27 km SSW of Sinabang, Indonesia",earthquake,7.9,1.2,0.081,48,reviewed,us,us

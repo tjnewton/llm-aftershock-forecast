@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2023-04-19T09:06:03.150Z,-5.9496,149.635,40,6.3,mww,178,36,3.065,0.98,us,us6000k5gu,2023-07-03T02:47:09.040Z,"30 km NNE of Kandrian, Papua New Guinea",earthquake,4.62,1.943,0.043,53,reviewed,us,us
-2023-04-27T16:31:17.837Z,-5.809,149.7373,123.344,4.4,mb,17,123,2.903,1.26,us,us7000jxtw,2023-07-11T01:45:37.040Z,"New Britain region, Papua New Guinea",earthquake,6.63,9.414,0.19,9,reviewed,us,us

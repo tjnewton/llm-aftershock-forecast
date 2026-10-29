@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2025-06-28T08:32:20.957Z,-60.9793,-38.9672,10,6.6,mww,135,52,6.844,0.63,us,us7000q9b5,2025-09-04T20:40:01.040Z,"Scotia Sea",earthquake,8.19,1.855,0.068,21,reviewed,us,us
-2025-06-28T13:32:15.049Z,-61.0363,-38.7333,10,4.2,mb,13,130,6.877,0.78,us,us7000qblj,2025-09-04T20:40:06.040Z,"Scotia Sea",earthquake,8.11,1.879,0.176,11,reviewed,us,us
-2025-06-30T12:12:51.336Z,-60.9682,-38.5297,10,5.1,mb,57,56,6.792,0.6,us,us7000q9qv,2025-09-04T20:40:02.040Z,"Scotia Sea",earthquake,7.13,1.831,0.082,48,reviewed,us,us
-2025-06-30T14:35:09.807Z,-60.9903,-38.9367,10,4.8,mb,39,53,6.852,0.59,us,us7000q9ru,2025-09-04T20:40:02.040Z,"Scotia Sea",earthquake,11.39,1.825,0.119,22,reviewed,us,us
-2025-07-24T12:02:49.127Z,-60.9605,-38.8132,10,4.9,mb,32,70,6.81,0.96,us,us6000qukx,2025-10-11T20:57:06.040Z,"Scotia Sea",earthquake,10.43,1.909,0.102,30,reviewed,us,us

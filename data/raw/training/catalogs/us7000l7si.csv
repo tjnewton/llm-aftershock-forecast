@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2023-10-31T12:33:43.732Z,-28.7431,-71.5573,34,6.6,mww,169,32,0.685,0.52,us,us7000l7si,2024-01-10T06:01:24.040Z,"80 km WSW of Vallenar, Chile",earthquake,4.65,1.868,0.069,20,reviewed,us,us
-2023-11-10T15:27:38.638Z,-28.7082,-71.593,42.348,4.7,mwr,44,99,0.679,0.95,us,us7000la3e,2024-01-13T23:11:10.040Z,"82 km W of Vallenar, Chile",earthquake,5.82,4.62,0.037,69,reviewed,us,us
-2023-11-26T23:06:13.746Z,-28.422,-71.4392,24.67,4.5,mwr,56,118,0.388,0.57,us,us6000lqxj,2024-02-06T21:53:52.040Z,"68 km WNW of Vallenar, Chile",earthquake,4.5,3.864,0.036,73,reviewed,us,us

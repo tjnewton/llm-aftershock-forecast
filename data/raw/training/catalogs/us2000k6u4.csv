@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2019-03-28T22:06:49.401Z,50.4951,159.943,9,6.2,mww,,17,2.656,0.81,us,us2000k6u4,2025-12-22T18:06:49.477Z,"266 km ESE of Ozernovskiy, Russia",earthquake,5.3,1.6,0.039,64,reviewed,us,us
-2019-03-28T22:16:53.890Z,50.6327,159.7876,10,4.4,mb,,176,2.496,1.15,us,us2000kac6,2019-06-08T20:51:36.040Z,"249 km ESE of Ozernovskiy, Russia",earthquake,13.8,2,0.117,21,reviewed,us,us
-2019-03-29T01:29:35.761Z,50.4687,159.8356,10,4.3,mb,,231,2.662,0.37,us,us2000k6w9,2019-06-08T20:51:21.040Z,"260 km ESE of Ozernovskiy, Russia",earthquake,13.6,2,0.086,38,reviewed,us,us

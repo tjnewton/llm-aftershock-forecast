@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2018-11-04T07:55:29.280Z,7.7599,123.867,600.71,6,mww,,22,1.831,0.6,us,us2000i6mv,2022-08-08T09:49:28.479Z,"10 km SSE of Sapad, Philippines",earthquake,8.9,3.3,0.036,74,reviewed,us,us

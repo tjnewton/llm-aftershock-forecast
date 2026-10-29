@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2016-01-14T03:25:28.270Z,-19.7597,-63.3288,582.56,6.1,mww,,16,5.492,1.04,us,us10004ebw,2022-08-02T05:07:21.575Z,"14 km WNW of Charagua, Bolivia",earthquake,7.9,4.6,,,reviewed,us,us

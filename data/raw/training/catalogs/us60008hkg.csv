@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2020-03-18T03:13:45.742Z,-13.1364,167.0277,176,6.1,mww,,23,2.303,0.8,us,us60008hkg,2025-12-22T18:31:15.038Z,"99 km NW of Sola, Vanuatu",earthquake,8.5,1.8,0.043,51,reviewed,us,us

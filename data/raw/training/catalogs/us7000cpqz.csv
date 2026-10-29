@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2020-12-10T13:19:58.682Z,24.7818,122.0243,71,6.1,mww,,18,0.515,0.76,us,us7000cpqz,2025-12-22T18:46:47.048Z,"27 km E of Yilan, Taiwan",earthquake,3.8,1.6,0.061,26,reviewed,us,us
-2020-12-14T18:45:33.064Z,24.7133,122.0494,70.97,4.4,mb,,82,0.564,0.72,us,us7000cs41,2021-02-20T16:12:41.040Z,"30 km E of Yilan, Taiwan",earthquake,5.4,6.9,0.203,7,reviewed,us,us

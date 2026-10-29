@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2013-02-01T18:23:06.350Z,42.782,142.748,138.9,4.5,mb,224,44.6,,0.75,us,usc000ezq1,2014-11-07T01:49:58.498Z,"40 km WSW of Obihiro, Japan",earthquake,,,,145,reviewed,us,us
-2013-02-02T14:17:35.130Z,42.77,143.092,107,6.9,mww,686,28,,0.86,us,usc000f03a,2022-07-24T17:12:49.696Z,"18 km SSW of Obihiro, Japan",earthquake,,,,,reviewed,us,us

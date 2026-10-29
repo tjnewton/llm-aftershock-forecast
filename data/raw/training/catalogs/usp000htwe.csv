@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2011-01-31T06:03:27.300Z,-22.009,-175.622,76,6,mww,437,29.4,,0.92,us,usp000htwe,2022-07-19T03:16:58.014Z,"101 km SSW of Vaini, Tonga",earthquake,,,,,reviewed,us,us

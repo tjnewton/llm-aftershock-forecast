@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2019-08-17T08:40:08.240Z,-11.5277,166.3077,71.25,4.6,mb,,67,3.992,0.56,us,us600056d6,2019-11-02T15:26:11.040Z,"104 km SSE of Lata, Solomon Islands",earthquake,8.6,5.8,0.098,31,reviewed,us,us
-2019-08-20T13:03:52.633Z,-11.3683,166.2912,37,6,mww,,42,4.15,0.99,us,us600057ee,2025-12-22T18:17:59.531Z,"Santa Cruz Islands",earthquake,7.7,1.9,0.066,22,reviewed,us,us

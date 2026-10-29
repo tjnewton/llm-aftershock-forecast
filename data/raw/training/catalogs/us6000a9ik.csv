@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2020-06-04T04:46:18.258Z,-15.6577,-13.0274,10,4.7,mb,,87,7.016,0.55,us,us6000a9vh,2020-08-18T17:58:48.040Z,"southern Mid-Atlantic Ridge",earthquake,10.3,1.8,0.13,18,reviewed,us,us
-2020-06-10T19:58:50.008Z,-15.8069,-13.0363,10,6,mww,,29,7.017,1.24,us,us6000a9ik,2025-12-22T18:41:12.767Z,"southern Mid-Atlantic Ridge",earthquake,8.9,1.8,0.057,30,reviewed,us,us

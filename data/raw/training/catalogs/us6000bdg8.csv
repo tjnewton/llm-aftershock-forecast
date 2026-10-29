@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2020-08-12T17:13:16.180Z,-7.3327,39.8126,17.55,6,mww,,26,5.245,0.99,us,us6000bdg8,2025-12-22T19:05:09.946Z,"66 km NNE of Kilindoni, Tanzania",earthquake,9.5,2.9,0.047,43,reviewed,us,us
-2020-08-13T14:54:54.766Z,-7.3547,39.8115,10,5.1,mww,,83,5.266,1.07,us,us6000be26,2025-12-22T18:40:25.827Z,"64 km NNE of Kilindoni, Tanzania",earthquake,9.9,1.9,0.086,13,reviewed,us,us

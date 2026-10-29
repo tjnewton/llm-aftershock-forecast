@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2010-03-14T00:57:44.700Z,-1.692,128.135,53,6.4,mwb,407,38.3,,1.12,us,usp000h9br,2022-05-02T21:47:01.111Z,"202 km NNW of Amahai, Indonesia",earthquake,,,,,reviewed,us,us
-2010-04-03T03:40:49.860Z,-1.647,128.215,70.5,5,mwc,83,35.9,,0.95,us,usp000ha9p,2025-12-22T15:18:05.002Z,"202 km NNW of Amahai, Indonesia",earthquake,,5.6,,,reviewed,us,gcmt

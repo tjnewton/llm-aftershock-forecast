@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2017-10-06T07:59:32.880Z,37.5033,144.0201,9,6.2,mww,,32,2.588,0.88,us,us2000b1v8,2022-05-03T19:00:56.520Z,"259 km ESE of Ishinomaki, Japan",earthquake,4.5,1.7,0.053,34,reviewed,us,us
-2017-10-06T13:23:43.760Z,37.501,144.0061,10,4.7,mb,,148,2.578,0.85,us,us2000b1yj,2018-01-03T01:54:48.040Z,"258 km ESE of Ishinomaki, Japan",earthquake,9.8,1.9,0.123,20,reviewed,us,us
-2017-10-06T17:08:00.930Z,37.3358,143.9048,10,4.6,mb,,148,2.53,0.89,us,us2000b24c,2018-01-03T01:54:48.040Z,"257 km E of Namie, Japan",earthquake,7.2,1.9,0.088,39,reviewed,us,us

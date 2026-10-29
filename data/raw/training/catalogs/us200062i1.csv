@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2016-06-01T12:25:00.320Z,18.4813,-105.3,10,4.9,mb,,111,1.423,0.82,us,us20005zlb,2025-12-22T17:15:07.264Z,"103 km SW of Barra de Navidad, Mexico",earthquake,6.8,1.9,0.03,350,reviewed,us,us
-2016-06-01T19:32:57.250Z,18.4282,-105.0923,10,4.1,mb,,257,1.284,0.89,us,us10006071,2016-08-10T22:30:31.040Z,"96 km SSW of Barra de Navidad, Mexico",earthquake,6.5,2,0.111,22,reviewed,us,us
-2016-06-02T15:53:33.260Z,18.3203,-105.4307,8.63,4,mb,,212,1.611,1.32,us,us1000607j,2016-08-10T22:30:33.040Z,"125 km SW of Barra de Navidad, Mexico",earthquake,10.9,11.7,0.068,58,reviewed,us,us
-2016-06-07T10:51:37.720Z,18.3637,-105.1731,10,6.3,mww,,56,1.383,1,us,us200062i1,2022-05-03T17:49:51.223Z,"106 km SSW of Barra de Navidad, Mexico",earthquake,5.5,1.7,,,reviewed,us,us
-2016-06-07T10:58:00.050Z,18.5036,-105.2031,10,5.5,mwc,,131,1.332,0.95,us,us200062i7,2022-05-03T17:49:52.380Z,"95 km SW of Barra de Navidad, Mexico",earthquake,6.5,1.9,,,reviewed,us,gcmt

@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2018-11-01T22:19:51.690Z,-19.5827,-69.2656,102,6.2,mww,,17,0.108,1.15,us,us2000i5mj,2022-05-03T19:37:18.108Z,"115 km NE of Iquique, Chile",earthquake,5.4,1.8,0.048,41,reviewed,us,us
-2018-11-06T08:31:01.050Z,-19.7194,-69.4141,86.57,4.7,mb,,59,0.213,0.77,us,us2000i7cy,2022-08-08T09:58:17.860Z,"94 km NE of Iquique, Chile",earthquake,6.1,5.2,0.05,121,reviewed,us,us
-2018-11-27T17:22:43.620Z,-19.4184,-69.1604,106.24,4.5,mb,,84,0.25,1.45,us,us1000hx2l,2019-02-09T19:02:10.040Z,"136 km NE of Iquique, Chile",earthquake,5.9,5.1,0.086,40,reviewed,us,us

@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2019-04-01T18:39:05.857Z,-18.2058,65.3656,10,6,mww,,65,9.535,1.17,us,us2000k8ri,2025-12-22T18:07:01.730Z,"262 km NE of Port Mathurin, Mauritius",earthquake,8.1,1.8,0.06,27,reviewed,us,us

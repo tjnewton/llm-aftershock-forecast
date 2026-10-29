@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2013-10-04T17:26:13.620Z,-38.6062,78.3693,12.72,6.4,mww,,26,20.977,1.14,us,usb000k6nk,2022-05-03T16:28:51.048Z,"Mid-Indian Ridge",earthquake,,2.8,,,reviewed,us,us
-2013-10-04T18:50:00.600Z,-38.6694,78.2439,14.99,4.3,mb,,151,49.214,0.71,us,usb000kacb,2013-12-19T02:51:35.000Z,"Mid-Indian Ridge",earthquake,,6.1,0.266,,reviewed,us,us

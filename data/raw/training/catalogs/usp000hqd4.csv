@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2010-12-01T16:01:27.440Z,-15.888,-178.956,15.2,6.1,mwc,259,31.7,,0.98,us,usp000hqd4,2022-05-02T22:28:09.310Z,"189 km ENE of Labasa, Fiji",earthquake,,2.1,,,reviewed,us,us

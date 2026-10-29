@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2023-09-28T14:40:25.892Z,-15.5866,167.741,125,6.1,mww,101,25,5.93,0.57,us,us6000lbdi,2023-12-09T22:00:40.040Z,"62 km E of Luganville, Vanuatu",earthquake,4.19,1.883,0.038,67,reviewed,us,us
-2023-10-19T01:08:11.057Z,-15.5068,167.5657,142.849,4.3,mb,19,204,5.907,0.68,us,us7000l5zm,2023-12-26T21:24:57.040Z,"43 km E of Luganville, Vanuatu",earthquake,14.55,4.877,0.16,11,reviewed,us,us

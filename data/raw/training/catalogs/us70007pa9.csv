@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2020-02-13T10:33:44.406Z,45.6161,148.959,143,7,mww,,25,4.501,0.83,us,us70007pa9,2025-12-22T18:29:00.530Z,"95 km ENE of Kuril’sk, Russia",earthquake,7.3,1.9,0.027,131,reviewed,us,us
-2020-02-23T12:57:08.416Z,45.7216,148.381,168.39,4.9,mww,,101,4.084,0.62,us,us70007v6u,2025-12-22T18:29:59.786Z,"67 km NE of Kuril’sk, Russia",earthquake,9.3,7,0.089,12,reviewed,us,us
-2020-02-29T00:27:27.158Z,45.5799,148.4346,124.21,4.1,mb,,192,4.169,0.54,us,us60008acs,2020-05-19T22:14:29.040Z,"58 km NE of Kuril’sk, Russia",earthquake,12.9,10.7,0.068,60,reviewed,us,us

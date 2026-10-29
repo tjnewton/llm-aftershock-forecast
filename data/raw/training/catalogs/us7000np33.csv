@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2024-10-30T20:15:20.095Z,43.5842,-127.6418,10,6,mww,107,69,2.612,0.75,us,us7000np33,2026-10-16T14:01:55.047Z,"267 km W of Bandon, Oregon",earthquake,7.88,1.809,0.036,73,reviewed,us,us

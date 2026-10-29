@@ -1,8 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2019-05-25T22:00:02.073Z,13.5543,-89.4489,90.38,4,mb,,164,0.843,0.79,us,us70003ttc,2019-08-13T14:30:51.040Z,"15 km WNW of La Libertad, El Salvador",earthquake,6.1,10.6,0.134,15,reviewed,us,us
-2019-05-30T09:03:32.337Z,13.1994,-89.3056,57.92,6.6,mww,,22,1.193,0.83,us,us70003t2n,2025-12-22T18:54:47.868Z,"32 km S of La Libertad, El Salvador",earthquake,1.7,5.5,0.073,18,reviewed,us,us
-2019-05-30T10:21:20.263Z,13.1411,-89.346,51.76,4.2,mb,,152,1.25,0.76,us,us70003t62,2019-08-24T21:17:37.040Z,"38 km S of La Libertad, El Salvador",earthquake,7.4,14.2,0.067,63,reviewed,us,us
-2019-05-30T11:07:03.088Z,13.0856,-89.4044,35.87,4.2,mb,,154,1.306,1.39,us,us70003t6d,2019-08-24T21:17:37.040Z,"45 km SSW of La Libertad, El Salvador",earthquake,6.7,6.3,0.125,18,reviewed,us,us
-2019-05-30T22:36:18.946Z,13.1313,-89.3549,70.19,4.2,mb,,179,1.26,1.27,us,us70003tg9,2019-08-24T21:17:38.040Z,"39 km S of La Libertad, El Salvador",earthquake,8.4,9.8,0.074,51,reviewed,us,us
-2019-06-01T01:44:17.800Z,13.053,-89.3427,56.84,4.5,mb,,169,1.338,1.18,us,us70003u0r,2019-08-24T21:17:42.040Z,"48 km S of La Libertad, El Salvador",earthquake,7.2,8.8,0.041,173,reviewed,us,us
-2019-06-02T20:01:17.294Z,13.0737,-89.5109,51.86,4.3,mb,,170,1.325,1.3,us,us70003ule,2019-08-24T21:17:50.040Z,"50 km SSW of La Libertad, El Salvador",earthquake,7.8,13,0.107,25,reviewed,us,us

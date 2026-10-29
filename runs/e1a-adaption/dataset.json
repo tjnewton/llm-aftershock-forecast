@@ -1,7 +1,0 @@
-{
- "dataset_id": "6051c25b-c9dd-4c69-a8a8-0826f9dfc4ce",
- "file": "data/processed/training/e1a_train.jsonl",
- "file_sha256": "3ee98483493babcb9f70fc09827aa2a156de16c4fb3bad7c7b53975512543cce",
- "row_count": 9030,
- "status": "succeeded"
-}

@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2016-01-11T17:08:03.920Z,44.4761,141.0867,238.81,6.2,mww,,33,1.139,0.96,us,us10004djn,2022-08-07T08:48:04.480Z,"74 km NW of Rumoi, Japan",earthquake,6.9,4.1,,,reviewed,us,us

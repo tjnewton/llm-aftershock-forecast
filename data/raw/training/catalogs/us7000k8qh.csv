@@ -1,9 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2023-06-09T18:28:45.450Z,-23.652,-177.1714,10.538,4.7,mb,21,115,3.069,0.88,us,us7000k8pm,2023-08-12T17:15:24.040Z,"south of the Fiji Islands",earthquake,12.5,4.129,0.12,21,reviewed,us,us
-2023-06-09T23:32:02.844Z,-23.6738,-177.1376,9.812,4.6,mb,48,73,3.068,0.67,us,us7000k8pl,2023-08-12T17:15:24.040Z,"south of the Fiji Islands",earthquake,5.28,3.94,0.085,41,reviewed,us,us
-2023-06-15T18:06:28.572Z,-22.9936,-177.1067,179,7.2,mww,146,21,2.532,0.89,us,us7000k8qh,2023-08-21T04:19:00.040Z,"274 km SW of Houma, Tonga",earthquake,8.63,1.854,0.054,33,reviewed,us,us
-2023-06-17T23:40:06.737Z,-22.961,-177.0474,152.596,4.4,mb,27,121,2.47,0.64,us,us7000kamb,2023-08-21T04:19:47.040Z,"267 km SW of Houma, Tonga",earthquake,9.7,6.705,0.139,15,reviewed,us,us
-2023-06-29T16:15:21.354Z,-23.7921,-176.8962,121.039,4.6,mb,117,69,3.043,0.86,us,us6000knwm,2023-09-08T14:18:28.040Z,"south of the Fiji Islands",earthquake,10.56,4.89,0.051,122,reviewed,us,us
-2023-07-01T06:34:01.917Z,-23.0884,-176.9566,184.075,4.1,mb,13,120,2.507,0.22,us,us7000kelr,2023-09-08T14:18:42.040Z,"272 km SW of Houma, Tonga",earthquake,16.49,11.416,0.185,9,reviewed,us,us
-2023-07-05T21:05:58.780Z,-23.761,-177.5361,146.565,4.3,mb,26,115,3.362,0.4,us,us7000kfew,2023-09-09T21:55:15.040Z,"south of the Fiji Islands",earthquake,13.33,7.139,0.137,15,reviewed,us,us
-2023-07-11T10:00:05.839Z,-22.2707,-176.9263,10,4.4,mb,9,124,1.941,0.61,us,us7000kgu5,2023-09-16T19:16:21.040Z,"207 km SW of Houma, Tonga",earthquake,10.98,1.926,0.24,6,reviewed,us,us

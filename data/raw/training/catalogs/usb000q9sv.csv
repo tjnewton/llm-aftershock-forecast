@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2014-05-04T20:18:24.680Z,34.9118,139.4186,153,6,mww,,15,1.813,0.95,us,usb000q9sv,2025-09-04T14:53:19.180Z,"31 km ESE of It?, Japan",earthquake,,1.8,,,reviewed,us,us

@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2025-04-22T10:17:11.888Z,4.5538,127.831,104,6.2,mww,242,23,2.351,0.85,us,us7000pu62,2025-06-27T00:34:49.040Z,"271 km SE of Pondaguitan, Philippines",earthquake,7.17,1.867,0.043,52,reviewed,us,us

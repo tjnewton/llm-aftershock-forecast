@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2023-06-15T02:19:23.272Z,13.7629,120.7203,112,6.2,mww,146,22,8.189,0.64,us,us7000k8jz,2024-05-13T02:01:00.086Z,"Mindoro, Philippines",earthquake,7.51,1.81,0.034,84,reviewed,us,us
-2023-06-15T04:38:26.741Z,13.8105,120.6781,104.351,4.3,mb,18,143,32.082,0.27,us,us7000kabl,2023-08-21T04:19:38.040Z,"4 km SW of Hukay, Philippines",earthquake,16.61,9.934,0.188,9,reviewed,us,us
-2023-06-23T19:12:00.691Z,13.6877,120.6296,148.544,4.5,mb,102,98,9.091,0.79,us,us7000kapj,2023-08-26T20:54:28.040Z,"15 km S of Calatagan, Philippines",earthquake,10.82,7.092,0.059,90,reviewed,us,us

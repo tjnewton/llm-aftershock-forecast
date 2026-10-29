@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2011-09-18T12:40:51.830Z,27.73,88.155,50,6.9,mww,383,13,,0.96,us,usp000j88b,2025-03-03T10:37:14.677Z,"43 km NW of Mangan, India",earthquake,,,,,reviewed,us,us
-2011-09-18T13:12:00.350Z,27.52,88.583,40.1,4.8,mb,57,96.5,,1.14,us,usp000j88d,2015-03-24T01:56:34.208Z,"6 km E of Mangan, India",earthquake,,6.9,,13,reviewed,us,us
-2011-09-18T13:54:19.630Z,27.353,88.452,28.2,4.7,mb,58,107,,1.34,us,usp000j88g,2015-03-24T01:46:36.489Z,"14 km NNW of Singtam, India",earthquake,,14.9,,18,reviewed,us,us

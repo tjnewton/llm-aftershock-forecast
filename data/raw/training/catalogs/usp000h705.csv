@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2010-02-06T04:44:58.400Z,46.836,152.731,30,6,mwc,339,22.7,,0.92,us,usp000h705,2022-05-02T21:36:38.725Z,"Kuril Islands",earthquake,,,,,reviewed,us,us
-2010-02-18T23:49:44.070Z,46.704,152.577,67.7,5.3,mwc,374,71.3,,0.76,us,usp000h7en,2025-12-22T16:10:03.996Z,"Kuril Islands",earthquake,,4.1,,,reviewed,us,gcmt
-2010-03-06T02:40:09.010Z,46.898,152.847,78.2,4.7,mb,93,107.1,,0.74,us,usp000h8t5,2014-11-07T01:40:56.388Z,"Kuril Islands",earthquake,,6.9,,30,reviewed,us,us

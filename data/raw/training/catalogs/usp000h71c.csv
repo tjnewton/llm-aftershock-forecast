@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2010-02-07T06:10:00.230Z,23.488,123.615,21,6.3,mwc,394,24.2,,1.12,us,usp000h71c,2022-07-16T02:04:33.190Z,"109 km SSW of Ishigaki, Japan",earthquake,,,,,reviewed,us,us
-2010-02-07T20:08:36.650Z,23.351,123.57,21.5,4.2,mwr,29,124.9,,0.6,us,usp000h725,2014-11-07T01:40:40.956Z,"125 km SSW of Ishigaki, Japan",earthquake,,12.2,,,reviewed,us,nied

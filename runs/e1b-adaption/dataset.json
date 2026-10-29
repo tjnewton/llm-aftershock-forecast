@@ -1,7 +1,0 @@
-{
- "dataset_id": "95e0007a-5d5a-49ca-acd0-db9a12482cb4",
- "file": "data/processed/training/e1b_pairs.jsonl",
- "file_sha256": "4b4467623d4ffb4c916ec779327ce81bda3f5e2c330b6a733c6a240da9373da9",
- "row_count": 15450,
- "status": "succeeded"
-}

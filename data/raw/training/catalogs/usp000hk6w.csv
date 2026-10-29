@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2010-09-04T08:52:04.100Z,-17.368,-173.999,69,6.1,mwb,371,21.2,,0.83,us,usp000hk6w,2022-07-18T19:33:03.218Z,"141 km N of Neiafu, Tonga",earthquake,,,,,reviewed,us,us
-2010-09-05T18:17:06.440Z,-17.276,-174.123,10,4.7,mb,19,78.8,,1.33,us,usp000hkaa,2014-11-07T01:42:24.294Z,"150 km SSW of Hihifo, Tonga",earthquake,,,,3,reviewed,us,us

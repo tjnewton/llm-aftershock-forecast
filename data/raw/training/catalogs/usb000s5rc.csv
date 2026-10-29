@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2014-08-23T22:32:23.320Z,-32.6953,-71.4416,32,6.4,mww,,30,0.454,0.88,us,usb000s5rc,2022-08-07T01:17:37.386Z,"23 km WNW of Hacienda La Calera, Chile",earthquake,4.9,1.7,,,reviewed,us,us

@@ -1,7 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2012-08-18T07:45:01.000Z,-1.359,120.147,10,4.4,mb,27,118.4,,1.32,us,usp000jqex,2014-11-07T01:48:35.374Z,"58 km SSE of Palu, Indonesia",earthquake,,,,10,reviewed,us,us
-2012-08-18T09:41:52.450Z,-1.315,120.096,10,6.3,mww,359,15.6,,1.24,us,usp000jqf3,2024-06-17T20:01:21.285Z,"51 km SSE of Palu, Indonesia",earthquake,,,,,reviewed,us,us
-2012-08-18T13:47:50.950Z,-1.332,120.205,10,4.3,mb,25,100.7,,1.25,us,usp000jqf7,2014-11-07T01:48:35.544Z,"59 km SE of Palu, Indonesia",earthquake,,,,1,reviewed,us,us
-2012-08-18T15:19:08.480Z,-1.149,120.281,10,4.7,mb,31,115.5,,1.76,us,usp000jqfb,2014-11-07T01:48:35.557Z,"52 km ESE of Palu, Indonesia",earthquake,,,,9,reviewed,us,us
-2012-08-24T07:42:38.260Z,-1.268,120.265,35,4.6,mb,21,117.7,,1.08,us,usp000jqnw,2014-11-07T01:48:36.832Z,"56 km WNW of Poso, Indonesia",earthquake,,,,6,reviewed,us,us
-2012-09-12T22:33:03.920Z,-1.386,120.264,10,4.3,mb,29,109.2,,0.87,us,usp000js7z,2014-11-07T01:48:51.052Z,"54 km W of Poso, Indonesia",earthquake,,,,5,reviewed,us,us

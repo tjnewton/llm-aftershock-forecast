@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2014-05-15T10:16:42.020Z,9.3832,122.0604,15.46,6.3,mww,,15,4.172,0.97,us,usb000qniy,2024-06-16T23:47:21.948Z,"51 km WSW of Alim, Philippines",earthquake,,2.9,,,reviewed,us,us
-2014-05-15T11:50:41.230Z,9.3695,122.0413,10,4.6,mb,,131,6.652,0.72,us,usc000ragd,2022-07-26T18:38:02.642Z,"53 km WSW of Alim, Philippines",earthquake,,1.9,0.273,4,reviewed,us,us
-2014-05-15T17:51:10.210Z,9.2249,122.1121,10,4.2,mb,,75,6.644,0.54,us,usc000rags,2014-08-09T02:53:44.000Z,"55 km SW of Alim, Philippines",earthquake,,1.9,0.187,8,reviewed,us,us
-2014-05-15T18:56:10.800Z,9.3603,122.0437,10,4.7,mb,,60,4.174,0.84,us,usb000qp8x,2014-08-09T02:53:44.000Z,"53 km WSW of Alim, Philippines",earthquake,,1.8,0.091,41,reviewed,us,us
-2014-05-22T15:05:46.300Z,9.2221,122.1423,12.04,4.3,mb,,110,4.018,1.28,us,usc000rddi,2014-08-23T08:36:43.000Z,"53 km SW of Alim, Philippines",earthquake,,5.8,0.201,7,reviewed,us,us

@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2012-11-12T20:42:14.620Z,57.792,-142.855,9,6.3,mww,821,59.7,,0.82,us,usp000jvfa,2022-05-03T15:57:27.732Z,"266 km SW of Yakutat, Alaska",earthquake,,,,,reviewed,us,us
-2012-11-12T22:18:47.220Z,57.584,-142.833,11.4,4.1,mb,114,127.5,,,us,usp000jvfv,2018-07-07T02:36:10.955Z,"283 km SW of Yakutat, Alaska",earthquake,,,,4,reviewed,aeic,us
-2012-11-12T22:20:54.940Z,57.601,-142.777,10,4.4,mb,184,127.2,,,us,usp000jvfw,2018-07-07T02:36:11.372Z,"280 km SW of Yakutat, Alaska",earthquake,,,,62,reviewed,aeic,us

@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2014-03-15T08:59:21.860Z,-14.0848,-76.3113,20,6.1,mww,,71,2.147,1.04,us,usc000ncbl,2022-07-26T09:36:14.825Z,"24 km SSW of Paracas, Peru",earthquake,,1.7,,,reviewed,us,us

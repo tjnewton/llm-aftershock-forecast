@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2014-02-02T09:26:37.820Z,-32.9076,-177.8806,44.26,6.5,mww,,22,3.651,1.28,us,usc000mfm0,2022-05-03T16:43:31.077Z,"south of the Kermadec Islands",earthquake,,3.6,,,reviewed,us,us

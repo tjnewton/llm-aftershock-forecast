@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2016-08-04T14:15:12.930Z,-22.3343,-66.0078,270,6.2,mww,,20,2.097,1.03,us,us10006a1d,2022-05-03T17:56:55.795Z,"49 km WSW of La Quiaca, Argentina",earthquake,7.5,1.9,,,reviewed,us,us
-2016-08-12T08:27:21.900Z,-22.5344,-66.1068,253.96,4.3,mb,,69,1.957,0.76,us,us10006d8q,2016-11-15T02:21:46.040Z,"46 km WNW of Abra Pampa, Argentina",earthquake,9.6,10.5,0.109,24,reviewed,us,us

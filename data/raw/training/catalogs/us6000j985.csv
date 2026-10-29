@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2022-12-14T18:40:26.898Z,51.6079,178.5971,73,6.3,mww,248,31,0.345,1.2,us,us6000j985,2024-11-29T00:31:36.885Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,6.02,1.792,0.045,47,reviewed,us,us

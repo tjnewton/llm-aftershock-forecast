@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2023-11-22T02:48:51.641Z,1.7827,127.1887,102,6,mww,132,23,1.02,0.72,us,us6000lpyx,2024-02-01T15:13:42.040Z,"91 km W of Tobelo, Indonesia",earthquake,7.55,1.842,0.046,46,reviewed,us,us

@@ -1,2 +1,0 @@
-https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000tjl2&format=geojson
-https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2026-08-10T12%3A34%3A28.828&endtime=2026-08-13T15%3A36%3A22.364&latitude=4.8869&longitude=-76.3222&maxradiuskm=125.4&mindepth=0.000&maxdepth=1000.000&limit=20000&orderby=time-asc

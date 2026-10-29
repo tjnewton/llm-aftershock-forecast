@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2023-04-03T14:59:41.845Z,0.8388,98.835,84,6.1,mww,145,38,1.341,0.85,us,us6000k1qa,2024-10-09T15:34:59.556Z,"77 km SW of Padangsidempuan, Indonesia",earthquake,5.56,1.521,0.062,25,reviewed,us,us

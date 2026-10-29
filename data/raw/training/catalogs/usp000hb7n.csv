@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2010-04-11T22:08:12.790Z,36.965,-3.542,609.8,6.3,mwc,588,14,,,us,usp000hb7n,2022-07-16T10:31:34.741Z,"1 km S of Nigüelas, Spain",earthquake,,,,,reviewed,mdd,us

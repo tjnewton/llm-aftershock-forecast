@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2025-03-12T05:42:11.676Z,6.9701,92.5548,23,6,mww,139,41,4.659,1,us,us6000py97,2025-05-17T19:19:56.040Z,"Nicobar Islands, India region",earthquake,7.33,1.798,0.062,25,reviewed,us,us
-2025-03-12T10:02:21.672Z,6.9012,92.4701,10,4.8,mb,63,139,4.732,0.67,us,us6000pyak,2025-05-17T19:19:56.040Z,"Nicobar Islands, India region",earthquake,6.68,1.834,0.078,50,reviewed,us,us
-2025-04-01T09:34:44.713Z,6.8308,92.4856,10,4.1,mb,16,144,4.714,0.32,us,us6000q5eb,2025-06-06T21:12:23.040Z,"Nicobar Islands, India region",earthquake,11.13,1.949,0.212,6,reviewed,us,us

@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2016-09-14T01:58:31.570Z,7.3736,-76.1686,18,6,mww,,32,3.112,1.18,us,us10006pdp,2022-05-03T17:59:10.554Z,"32 km ENE of Mutatá, Colombia",earthquake,6.6,1.8,,,reviewed,us,us
-2016-09-14T05:29:21.410Z,7.3659,-76.1177,10,4.1,mb,,87,3.076,0.63,us,us10006rdb,2016-12-07T02:56:14.040Z,"37 km ENE of Mutatá, Colombia",earthquake,7.3,2,0.234,6,reviewed,us,us
-2016-09-14T06:46:58.900Z,7.358,-76.1468,10,4.9,mb,,83,3.086,1.07,us,us10006pfi,2017-05-15T04:16:37.778Z,"34 km ENE of Mutatá, Colombia",earthquake,5.5,1.8,0.04,197,reviewed,us,us
-2016-09-14T12:02:51.430Z,7.3321,-76.1716,10,4.7,mwr,,52,3.08,0.87,us,us10006pgh,2017-06-28T03:01:49.820Z,"30 km ENE of Mutatá, Colombia",earthquake,7.2,1.9,,,reviewed,us,rsnc
-2016-09-14T15:59:34.140Z,7.3934,-76.2278,10,4.8,mb,,83,3.162,1.49,us,us10006pht,2016-12-07T02:56:15.040Z,"28 km NE of Mutatá, Colombia",earthquake,6.9,1.9,0.059,88,reviewed,us,us

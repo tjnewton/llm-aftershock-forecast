@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2012-08-02T09:38:30.850Z,-8.414,-74.259,144.6,6.1,mww,698,18.4,,0.8,us,usp000jps8,2022-05-03T15:44:59.881Z,"30 km E of San Fernando, Peru",earthquake,,3,,,reviewed,us,us

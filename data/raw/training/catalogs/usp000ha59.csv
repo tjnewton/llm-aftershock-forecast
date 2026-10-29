@@ -1,8 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2010-03-27T17:19:59.950Z,13.556,92.914,17.9,4.1,mb,21,111.3,,0.47,us,usp000ha1d,2014-11-07T01:41:06.001Z,"206 km N of Bamboo Flat, India",earthquake,,17.4,,3,reviewed,us,us
-2010-03-30T16:54:46.730Z,13.667,92.831,34,6.6,mwc,413,16.7,,0.86,us,usp000ha59,2022-07-16T09:18:20.862Z,"217 km N of Bamboo Flat, India",earthquake,,7,,,reviewed,us,us
-2010-03-30T17:14:44.820Z,13.555,92.741,35,4.4,mb,14,140.4,,0.81,us,usp000ha5a,2014-11-07T01:41:06.605Z,"205 km N of Bamboo Flat, India",earthquake,,,,4,reviewed,us,us
-2010-03-30T20:33:35.930Z,13.653,92.739,23,4.4,mb,33,86.1,,1.02,us,usp000ha5f,2014-11-07T01:41:06.627Z,"216 km N of Bamboo Flat, India",earthquake,,,,11,reviewed,us,us
-2010-03-31T07:21:14.560Z,13.608,92.627,35,4,mb,26,86.6,,0.82,us,usp000ha61,2014-11-07T01:41:06.704Z,"211 km N of Bamboo Flat, India",earthquake,,,,1,reviewed,us,us
-2010-04-01T07:19:59.850Z,13.613,92.915,35,4.9,mb,29,103.9,,0.9,us,usp000ha6m,2014-11-07T01:41:08.717Z,"212 km N of Bamboo Flat, India",earthquake,,,,5,reviewed,us,us
-2010-04-24T22:50:26.970Z,13.676,92.843,35,4.2,mb,23,150.5,,0.74,us,usp000hbv7,2014-11-07T01:41:19.063Z,"219 km N of Bamboo Flat, India",earthquake,,,,3,reviewed,us,us

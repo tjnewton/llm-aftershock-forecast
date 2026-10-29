@@ -1,9 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2019-02-22T10:17:23.770Z,-2.1862,-77.0505,145,7.5,mww,,15,2.045,1.12,us,us2000jlfv,2025-12-22T18:03:48.343Z,"115 km ESE of Palora, Ecuador",earthquake,6.2,1.8,0.026,144,reviewed,us,us
-2019-02-23T02:40:07.780Z,-2.1529,-77.4034,135.12,4.2,mb,,146,2.595,0.87,us,us1000javt,2019-05-11T17:40:34.040Z,"79 km SE of Palora, Ecuador",earthquake,11.9,10.2,0.187,8,reviewed,us,us
-2019-03-14T09:02:07.762Z,-2.355,-77.0225,113.78,4.5,mb,,71,2.235,1.1,us,us1000jfe1,2019-06-01T21:24:14.040Z,"121 km E of Macas, Ecuador",earthquake,5.2,8.8,0.085,40,reviewed,us,us
-2019-03-20T16:23:22.850Z,-2.7612,-77.3293,32.28,5.1,mb,,45,1.948,0.85,us,us1000jjan,2025-12-22T18:56:36.794Z,"99 km ESE of Sucúa, Ecuador",earthquake,6.2,3.9,0.028,405,reviewed,us,us
-2019-03-25T14:03:27.780Z,-2.3052,-76.5475,141.51,4.4,mb,,66,2.499,0.74,us,us1000jla5,2019-06-06T18:54:27.040Z,"129 km N of Alianza Cristiana, Peru",earthquake,7.5,7.6,0.101,28,reviewed,us,us
-2019-03-28T15:39:56.360Z,-2.8442,-76.6752,107.18,4.6,mb,,76,2.606,0.89,us,us2000k6ki,2019-06-08T20:51:20.040Z,"74 km NNW of Alianza Cristiana, Peru",earthquake,7.2,5.2,0.041,178,reviewed,us,us
-2019-04-03T13:21:43.830Z,-2.1776,-77.1632,139.6,4.3,mb,,82,1.961,0.93,us,us2000k9m8,2019-06-18T15:50:12.040Z,"103 km ESE of Palora, Ecuador",earthquake,9.4,10,0.128,17,reviewed,us,us
-2019-04-13T03:43:56.820Z,-1.386,-77.7347,175.49,4.8,mb,,124,1.764,0.84,us,us7000359x,2019-06-20T19:03:29.040Z,"31 km ENE of Puyo, Ecuador",earthquake,8.5,7.2,0.026,464,reviewed,us,us

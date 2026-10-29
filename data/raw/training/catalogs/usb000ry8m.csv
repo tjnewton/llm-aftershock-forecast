@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2014-07-29T10:46:14.700Z,17.6818,-95.6533,107,6.3,mww,,43,0.94,1.54,us,usb000ry8m,2024-12-03T20:22:50.730Z,"2 km SE of Santa Teresa, Mexico",earthquake,,1.7,,,reviewed,us,us
-2014-07-29T11:19:59.800Z,17.781,-95.659,106.5,4.3,mb,,,,1.04,us,usb000s039,2014-10-25T01:49:42.000Z,"9 km N of Santa Teresa, Mexico",earthquake,,7.4,0.217,6,reviewed,unm,us

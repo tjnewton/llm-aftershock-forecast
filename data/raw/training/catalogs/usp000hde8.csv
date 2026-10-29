@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2010-05-31T19:51:45.870Z,11.132,93.471,112,6.5,mwc,422,19.2,,1.09,us,usp000hde8,2022-07-16T14:38:14.176Z,"98 km SE of Port Blair, India",earthquake,,,,,reviewed,us,gcmt

@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2010-01-17T12:00:01.080Z,-57.664,-65.879,5,6.3,mwc,243,29,,0.89,us,usp000h68a,2022-07-16T00:27:27.811Z,"Drake Passage",earthquake,,,,,reviewed,us,us
-2010-01-20T10:44:19.770Z,-57.68,-65.817,10,4.5,mb,27,131.5,,0.84,us,usp000h6d1,2014-11-07T01:40:31.676Z,"Drake Passage",earthquake,,,,4,reviewed,us,us
-2010-01-20T19:07:38.720Z,-57.773,-65.809,10,5.1,mwc,83,50.8,,0.91,us,usp000h6dh,2025-12-22T15:17:55.399Z,"Drake Passage",earthquake,,,,,reviewed,us,gcmt

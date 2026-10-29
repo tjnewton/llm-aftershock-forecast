@@ -1,8 +1,0 @@
-Earthquakes of magnitude ${catalog_floor} and above inside the region, from 7 days before the
-mainshock up to the issue time, from the ANSS Comprehensive Earthquake Catalog (ComCat).
-t_days is the time after the mainshock in days (negative = before it); dist_km is the distance
-from the mainshock epicentre. Magnitudes are as reported (types vary). ${truncation_note}
-
-```csv
-${catalog_csv}
-```

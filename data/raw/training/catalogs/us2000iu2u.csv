@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2018-12-16T09:42:37.200Z,-3.9226,140.2323,61.97,6.1,mww,,14,7.364,0.93,us,us2000iu2u,2022-05-03T19:41:55.194Z,"153 km SSW of Abepura, Indonesia",earthquake,3,3.8,0.045,48,reviewed,us,us

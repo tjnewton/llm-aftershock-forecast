@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2021-10-15T02:44:59.320Z,-8.8783,158.4642,33,6.4,mww,,20,1.566,0.98,us,us6000furk,2025-12-22T22:17:45.000Z,"148 km WSW of Buala, Solomon Islands",earthquake,6.5,1.8,0.048,42,reviewed,us,us
-2021-10-19T13:59:03.874Z,-8.862,158.4373,17.51,4.4,mb,,87,1.597,0.43,us,us6000fws3,2021-12-25T22:59:00.040Z,"149 km WSW of Buala, Solomon Islands",earthquake,9.4,5,0.117,24,reviewed,us,us
-2021-10-31T02:55:44.987Z,-8.9141,158.4643,32.43,4.7,mb,,62,1.554,0.58,us,us7000fq7f,2022-01-14T17:58:46.040Z,"150 km SW of Buala, Solomon Islands",earthquake,6.3,2.3,0.117,24,reviewed,us,us

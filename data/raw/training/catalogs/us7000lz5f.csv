@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2024-02-14T11:40:22.125Z,11.0047,138.5725,14,6,mww,143,56,6.667,0.68,us,us7000lz5f,2024-04-24T14:42:02.040Z,"171 km NNE of Colonia, Micronesia",earthquake,9.99,1.869,0.04,59,reviewed,us,us
-2024-02-14T12:07:24.009Z,11.0744,138.6639,10,4.5,mb,25,71,6.557,0.37,us,us7000m072,2024-04-24T14:42:05.040Z,"182 km NNE of Colonia, Micronesia",earthquake,11.74,1.913,0.128,18,reviewed,us,us
-2024-02-14T12:24:44.253Z,11.13,138.5377,10,4.7,mb,73,55,6.65,0.36,us,us7000lz5n,2024-04-24T14:42:02.040Z,"184 km NNE of Colonia, Micronesia",earthquake,10.02,1.885,0.072,59,reviewed,us,us

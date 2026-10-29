@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2017-01-10T06:13:48.140Z,4.4782,122.6171,627.17,7.3,mww,,18,3.813,1.05,us,us10007s9c,2022-05-03T19:43:16.287Z,"189 km SSE of Tabiauan, Philippines",earthquake,8.5,3,,,reviewed,us,us
-2017-01-10T06:25:44.460Z,4.3318,122.6301,623.72,5.1,mb,,26,3.693,0.7,us,us10007vjz,2017-04-01T00:26:07.040Z,"204 km SSE of Tabiauan, Philippines",earthquake,9.7,8.6,0.074,60,reviewed,us,us
-2017-01-14T05:53:14.160Z,4.4846,122.0853,638.46,4.2,mb,,134,3.595,0.9,us,us10007w77,2017-04-01T00:26:12.040Z,"172 km S of Tabiauan, Philippines",earthquake,10.7,10.6,0.115,21,reviewed,us,us

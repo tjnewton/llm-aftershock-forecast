@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2022-04-19T01:23:07.057Z,7.2852,126.9533,19,6.1,mww,,42,1.38,0.96,us,us7000h373,2025-07-29T08:12:33.333Z,"41 km E of Santiago, Philippines",earthquake,6.8,1.7,0.045,47,reviewed,us,us
-2022-04-19T01:54:53.683Z,7.2241,127.0517,10,4.6,mb,,124,1.469,0.63,us,us6000hflm,2022-06-26T01:19:29.040Z,"53 km E of Santiago, Philippines",earthquake,7.7,1.8,0.146,14,reviewed,us,us
-2022-04-19T02:26:33.092Z,7.2534,127.0949,10,4.6,mb,,75,1.515,0.83,us,us7000h3al,2022-06-26T01:19:30.040Z,"57 km E of Santiago, Philippines",earthquake,5.8,1.8,0.091,36,reviewed,us,us
-2022-04-19T03:02:44.248Z,7.1525,127.081,10,4.4,mb,,94,1.492,0.94,us,us6000hfls,2022-06-26T01:19:31.040Z,"58 km ESE of Santiago, Philippines",earthquake,9.1,0.9,0.179,16,reviewed,us,us
-2022-04-22T15:49:27.100Z,7.2364,126.9592,51.89,4.3,mb,,127,1.379,1.01,us,us6000hfp4,2022-06-26T01:20:57.040Z,"43 km E of Santiago, Philippines",earthquake,8.3,7.7,0.126,18,reviewed,us,us

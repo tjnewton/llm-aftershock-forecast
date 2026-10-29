@@ -1,7 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2017-11-13T02:28:23.680Z,9.5147,-84.4865,19.36,6.5,mww,,37,0.225,1.25,us,us2000bmhe,2026-02-10T18:31:43.966Z,"18 km W of Parrita, Costa Rica",earthquake,5,2.6,0.05,38,reviewed,us,us
-2017-11-13T02:32:30.820Z,9.4449,-84.5477,10,5.3,mb,,140,0.242,0.97,us,us2000bsxm,2018-02-06T02:45:30.040Z,"20 km SSE of Jacó, Costa Rica",earthquake,4.8,1.9,0.063,84,reviewed,us,us
-2017-11-13T08:25:58.730Z,9.4806,-84.5304,18.51,4.4,mb,,166,0.221,0.68,us,us2000bmiq,2018-02-06T02:45:31.040Z,"18 km SE of Jacó, Costa Rica",earthquake,5.7,6.6,0.094,33,reviewed,us,us
-2017-11-14T16:06:06.090Z,9.4494,-84.5597,24.87,4.5,mb,,147,0.233,0.9,us,us2000bti0,2018-02-06T02:45:34.040Z,"19 km SSE of Jacó, Costa Rica",earthquake,5.1,4.2,0.091,36,reviewed,us,us
-2017-11-22T13:26:13.680Z,9.4958,-84.6377,15.86,4.2,mwr,,172,0.166,0.78,us,us2000bstt,2018-02-14T02:01:10.040Z,"13 km S of Jacó, Costa Rica",earthquake,2.5,5.2,0.066,22,reviewed,us,us
-2017-11-28T00:00:00.290Z,9.4813,-84.5864,14.35,4.3,mb,,156,0.193,0.7,us,us1000bmdz,2022-08-07T22:05:30.556Z,"15 km SSE of Jacó, Costa Rica",earthquake,2.6,3.7,0.188,8,reviewed,us,us

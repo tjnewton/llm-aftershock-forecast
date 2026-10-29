@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2024-06-24T08:03:37.383Z,-14.6255,167.2426,149,6.3,mww,209,32,6.532,0.46,us,us7000mu8s,2024-10-08T23:22:11.860Z,"49 km NNE of Port-Olry, Vanuatu",earthquake,6.07,1.925,0.033,90,reviewed,us,us

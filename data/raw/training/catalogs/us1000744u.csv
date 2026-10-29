@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2016-11-04T16:20:44.440Z,-35.0945,-71.0457,90,6.3,mww,,34,0.371,1.06,us,us1000744u,2022-05-03T19:46:34.554Z,"21 km SE of Curicó, Chile",earthquake,6.1,1.8,,,reviewed,us,us

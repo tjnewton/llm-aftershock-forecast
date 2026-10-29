@@ -1,5 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2017-10-10T06:32:21.170Z,-18.5715,-69.7526,85,6.3,mww,,23,0.33,1.39,us,us2000b3dm,2022-08-07T19:42:36.967Z,"58 km E of Arica, Chile",earthquake,6,1.8,0.054,33,reviewed,us,us
-2017-10-10T07:04:46.580Z,-18.5947,-69.7449,90.6,4.4,mb,,76,0.342,1.24,us,us2000b3e9,2018-01-09T02:14:53.040Z,"59 km ESE of Arica, Chile",earthquake,6,4,0.098,30,reviewed,us,us
-2017-10-10T07:21:43.110Z,-18.5806,-69.7773,94.19,4.8,mwr,,100,0.353,0.85,us,us2000b3eu,2018-01-09T02:14:53.040Z,"56 km ESE of Arica, Chile",earthquake,6.3,5.1,,,reviewed,us,guc
-2017-10-12T13:45:12.760Z,-18.6048,-69.871,102.3,4.1,mb,,80,0.433,0.91,us,us1000aqph,2018-01-09T02:14:57.040Z,"47 km ESE of Arica, Chile",earthquake,7.5,7.9,0.198,7,reviewed,us,us

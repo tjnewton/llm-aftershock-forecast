@@ -1,5 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2023-05-21T15:45:13.303Z,-10.2725,161.4437,82.297,6.1,mww,105,17,1.691,0.89,us,us6000kdnw,2023-07-29T22:00:26.040Z,"55 km WNW of Kirakira, Solomon Islands",earthquake,8.26,4.38,0.075,17,reviewed,us,us
-2023-05-24T01:07:59.733Z,-10.1822,161.2848,69.37,4.5,mb,20,138,10.707,0.47,us,us7000k576,2023-07-29T22:00:46.040Z,"75 km WNW of Kirakira, Solomon Islands",earthquake,14.36,7.195,0.14,15,reviewed,us,us
-2023-05-31T19:11:11.995Z,-10.2264,161.3677,92.654,4.3,mb,25,136,1.604,0.82,us,us7000k6uc,2023-08-05T22:07:59.040Z,"65 km WNW of Kirakira, Solomon Islands",earthquake,10.69,8.469,0.133,16,reviewed,us,us
-2023-06-10T20:16:50.064Z,-10.2452,161.4585,84.094,4.3,mb,24,105,1.691,0.67,us,us7000k8xv,2023-08-12T17:15:27.040Z,"55 km WNW of Kirakira, Solomon Islands",earthquake,9.57,5.594,0.137,15,reviewed,us,us

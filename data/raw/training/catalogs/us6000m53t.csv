@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2024-01-20T22:09:39.708Z,-39.93,46.1966,10,6.2,mww,102,18,7.701,0.62,us,us6000m53t,2024-03-29T17:37:55.040Z,"Southwest Indian Ridge",earthquake,8.37,1.776,0.075,17,reviewed,us,us

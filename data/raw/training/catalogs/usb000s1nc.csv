@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2014-08-10T03:43:17.240Z,41.1585,142.1309,41,6.1,mww,,24,2.978,0.7,us,usb000s1nc,2022-07-26T21:54:17.052Z,"78 km E of Mutsu, Japan",earthquake,,1.8,,,reviewed,us,us
-2014-08-20T02:57:17.880Z,41.0806,142.2608,60.81,4.6,mb,,134,1.15,0.5,us,usb000s4gn,2014-11-22T02:06:23.000Z,"85 km ENE of Misawa, Japan",earthquake,7.6,7.3,0.12,25,reviewed,us,us

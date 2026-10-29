@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2014-11-07T03:33:55.280Z,-5.9873,148.2315,53.19,6.6,mww,,13,3.557,0.91,us,usc000sv94,2022-07-27T06:46:23.749Z,"76 km NE of Finschhafen, Papua New Guinea",earthquake,6.2,3.1,,,reviewed,us,us
-2014-11-13T02:31:59.270Z,-6.1405,148.1932,59.9,4.9,mb,,26,3.4,0.63,us,usc000swtr,2015-02-12T01:42:38.040Z,"60 km NE of Finschhafen, Papua New Guinea",earthquake,8.7,5.2,0.098,37,reviewed,us,us

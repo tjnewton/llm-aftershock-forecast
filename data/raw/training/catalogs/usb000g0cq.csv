@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2013-04-05T13:00:02.130Z,42.736,131.003,563.3,6.3,mww,680,16.5,,0.86,us,usb000g0cq,2022-05-03T17:26:07.665Z,"13 km NNW of Zarubino, Russia",earthquake,,2.5,,,reviewed,us,us
-2013-04-06T00:29:55.090Z,42.726,130.976,562.8,5.8,mww,654,24.8,,0.78,us,usb000g128,2022-05-03T16:13:24.028Z,"13 km NW of Zarubino, Russia",earthquake,,2.1,,,reviewed,us,us

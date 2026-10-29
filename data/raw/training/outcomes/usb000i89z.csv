@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2013-07-07T18:35:30.740Z,-3.917,153.927,385.5,7.3,mww,117,24,,0.88,us,usb000i89z,2022-05-03T16:22:52.308Z,"190 km ENE of Kokopo, Papua New Guinea",earthquake,,4,,,reviewed,us,us
-2013-07-23T13:12:19.540Z,-4.4398,153.112,39.91,4,mb,,268,0.977,1.29,us,usc000irh0,2015-06-22T20:10:51.568Z,"94 km E of Kokopo, Papua New Guinea",earthquake,11.9,13.9,0.298,,reviewed,us,us

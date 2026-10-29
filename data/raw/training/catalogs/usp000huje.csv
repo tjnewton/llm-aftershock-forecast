@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2011-02-15T13:33:53.180Z,-2.497,121.483,16.2,6.1,mww,255,16,,1.33,us,usp000huje,2022-07-19T04:26:22.001Z,"146 km SSE of Poso, Indonesia",earthquake,,5.6,,,reviewed,us,us
-2011-02-15T23:02:12.220Z,-2.456,121.576,29.8,4.7,mb,13,114,,1.09,us,usp000huk5,2014-11-07T01:43:40.624Z,"148 km SE of Poso, Indonesia",earthquake,,10.3,,5,reviewed,us,us
-2011-02-16T16:39:52.440Z,-2.474,121.67,43.2,4.5,mb,46,47.4,,0.98,us,usp000hum0,2014-11-07T01:43:40.722Z,"156 km SE of Poso, Indonesia",earthquake,,6.7,,15,reviewed,us,us

@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2022-09-23T22:53:27.870Z,-41.3788,-75.5767,20,6.1,mww,233,49,1.582,0.6,us,us7000iam0,2022-12-02T19:49:24.851Z,"156 km WNW of Ancud, Chile",earthquake,6.71,1.763,0.044,49,reviewed,us,us

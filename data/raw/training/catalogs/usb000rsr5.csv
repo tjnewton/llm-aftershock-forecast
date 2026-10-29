@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2014-07-14T07:59:57.290Z,5.7144,126.4776,20,6.3,mww,,44,1.615,1.07,us,usb000rsr5,2022-08-07T00:44:04.310Z,"78 km SSE of Pondaguitan, Philippines",earthquake,,1.7,,,reviewed,us,us
-2014-07-14T08:40:54.080Z,5.6338,126.5093,35,4.9,mb,,72,1.699,1.09,us,usb000rsri,2014-10-10T08:02:17.000Z,"88 km SSE of Pondaguitan, Philippines",earthquake,,1.9,0.07,63,reviewed,us,us
-2014-07-14T18:01:12.940Z,5.4911,126.4373,35,4.6,mb,,108,1.785,0.7,us,usb000rsv5,2014-10-10T08:02:18.000Z,"100 km ESE of Caburan, Philippines",earthquake,,2,0.095,33,reviewed,us,us
-2014-07-26T07:10:29.550Z,5.6277,126.585,74.58,4.5,mb,,128,1.747,0.78,us,usb000s0rm,2014-10-25T01:49:38.000Z,"92 km SSE of Pondaguitan, Philippines",earthquake,,5,0.118,23,reviewed,us,us
-2014-07-27T17:04:50.660Z,5.6245,126.4496,73.51,4.4,mb,,95,1.676,1.48,us,usb000s16z,2014-10-25T01:49:40.000Z,"86 km SSE of Pondaguitan, Philippines",earthquake,,9.4,0.17,11,reviewed,us,us

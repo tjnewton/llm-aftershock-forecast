@@ -1,9 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2020-01-28T19:10:24.918Z,19.4193,-78.756,14.86,7.7,mww,,26,1.657,0.75,us,us60007idc,2025-12-22T18:27:19.786Z,"123 km NNW of Lucea, Jamaica",earthquake,6,2.9,0.022,199,reviewed,us,us
-2020-01-28T20:29:03.154Z,19.0567,-80.1746,10,4.1,mb,,104,2.636,0.98,us,us60007ih1,2020-04-11T18:21:03.040Z,"102 km ESE of East End, Cayman Islands",earthquake,4.5,2,0.213,6,reviewed,us,us
-2020-01-28T20:39:45.233Z,19.321,-79.123,10,4.7,mb,,35,1.857,1.16,us,us60007ig2,2020-04-11T18:21:03.040Z,"138 km NW of Lucea, Jamaica",earthquake,6.4,1.8,0.036,239,reviewed,us,us
-2020-01-28T22:45:00.775Z,19.0301,-80.078,10,4.4,mb,,105,2.541,0.68,us,us60007ik6,2020-04-11T18:21:04.040Z,"113 km ESE of East End, Cayman Islands",earthquake,8.7,1.9,0.085,40,reviewed,us,us
-2020-01-29T14:14:43.415Z,19.2214,-79.7733,10,4.1,mb,,100,2.341,0.87,us,us60007j36,2020-04-18T22:09:52.040Z,"141 km E of East End, Cayman Islands",earthquake,6,2,0.145,13,reviewed,us,us
-2020-01-29T14:53:14.550Z,19.3791,-78.6607,10,4.9,mww,,58,1.566,0.61,us,us60007j3t,2020-06-14T08:26:09.622Z,"114 km NNW of Lucea, Jamaica",earthquake,6,1.9,0.089,12,reviewed,us,us
-2020-02-02T05:55:07.899Z,19.1884,-80.0254,10,4.4,mb,,65,2.547,0.74,us,us60007mkr,2022-08-08T18:15:27.424Z,"115 km E of East End, Cayman Islands",earthquake,7.6,2,0.061,78,reviewed,us,us
-2020-02-08T09:38:40.449Z,19.3243,-78.9408,10,4,mb,,73,1.723,0.88,us,us70007lgh,2022-08-08T18:21:19.493Z,"126 km NW of Lucea, Jamaica",earthquake,5.3,2,0.259,4,reviewed,us,us

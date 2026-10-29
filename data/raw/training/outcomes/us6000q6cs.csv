@@ -1,5 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2025-04-16T01:42:59.524Z,-47.8089,99.613,10,6.6,mww,127,43,19.39,0.77,us,us6000q6cs,2025-09-16T20:58:39.056Z,"southeast Indian Ridge",earthquake,10.5,1.788,0.093,11,reviewed,us,us
-2025-04-16T02:00:56.227Z,-47.7261,99.6442,10,4.5,mb,14,99,29.245,0.26,us,us7000pw5x,2025-06-27T00:34:54.040Z,"southeast Indian Ridge",earthquake,17.21,1.256,0.205,7,reviewed,us,us
-2025-04-16T02:25:57.732Z,-47.9451,99.8259,10,5.2,mb,46,63,19.225,0.92,us,us6000q6d3,2025-06-27T00:34:09.040Z,"southeast Indian Ridge",earthquake,10.85,1.868,0.091,40,reviewed,us,us
-2025-04-18T14:19:04.346Z,-47.875,99.5837,10,4.4,mb,17,149,19.33,0.57,us,us7000pwnx,2025-06-27T00:35:02.040Z,"southeast Indian Ridge",earthquake,16.92,1.948,0.138,15,reviewed,us,us

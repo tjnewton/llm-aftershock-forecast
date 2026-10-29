@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2014-06-29T05:56:31.720Z,24.3877,142.6278,48,6.2,mww,,11,2.726,0.66,us,usc000rnfx,2022-05-03T16:55:35.507Z,"Volcano Islands, Japan region",earthquake,,1.8,,,reviewed,us,us

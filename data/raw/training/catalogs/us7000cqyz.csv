@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2020-12-14T15:20:49.542Z,-21.8063,-68.7079,114,6,mww,,34,0.496,0.71,us,us7000cqyz,2025-12-22T18:46:57.766Z,"75 km NNE of Calama, Chile",earthquake,5.6,1.8,0.045,47,reviewed,us,us

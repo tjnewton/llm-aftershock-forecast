@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2012-06-17T20:32:20.590Z,38.919,141.831,36,6.3,mww,627,22.9,,0.94,us,usp000jmwc,2024-06-16T05:53:21.244Z,"19 km SSE of ?funato, Japan",earthquake,,,,,reviewed,us,us
-2012-06-24T01:29:14.700Z,38.856,141.954,41,4.8,mb,229,93.4,,0.74,us,usp000jn5m,2014-11-07T01:48:08.370Z,"31 km SE of ?funato, Japan",earthquake,,4.9,,132,reviewed,us,us
-2012-06-26T13:42:51.910Z,38.975,141.909,57.9,4.6,mb,35,130.5,,0.7,us,usp000jn8n,2014-11-07T01:48:09.275Z,"19 km ESE of ?funato, Japan",earthquake,,6.9,,5,reviewed,us,us

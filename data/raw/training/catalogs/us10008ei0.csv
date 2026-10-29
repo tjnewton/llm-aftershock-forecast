@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2017-04-05T06:09:12.200Z,35.7755,60.4363,13,6.1,mww,,43,2.029,1.07,us,us10008ei0,2022-05-03T19:41:10.926Z,"61 km NNW of Torbat-e J?m, Iran",earthquake,4.9,1.7,0.05,38,reviewed,us,us
-2017-04-05T07:47:30.040Z,35.8653,60.4061,10,4.8,mb,,80,2.108,1.05,us,us10008eij,2017-06-23T07:26:32.040Z,"71 km NNW of Torbat-e J?m, Iran",earthquake,7.2,1.9,0.08,48,reviewed,us,us
-2017-04-05T20:07:25.820Z,35.7971,60.4318,10,5.1,mb,,40,2.824,0.93,us,us10008er2,2022-05-03T18:15:27.077Z,"63 km NNW of Torbat-e J?m, Iran",earthquake,7.3,1.8,0.038,224,reviewed,us,us
-2017-04-07T13:11:35.330Z,35.8421,60.6151,10,4.2,mb,,153,2.889,1.03,us,us10008fgy,2017-06-23T07:26:34.040Z,"66 km N of Torbat-e J?m, Iran",earthquake,7.3,2,0.176,9,reviewed,us,us
-2017-05-02T21:12:11.090Z,35.8339,60.5704,10,5.1,mb,,53,1.991,0.6,us,us10008nl9,2022-05-03T18:25:49.282Z,"65 km N of Torbat-e J?m, Iran",earthquake,6.5,1.8,0.047,147,reviewed,us,us

@@ -1,5 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2025-03-25T01:43:11.796Z,-46.7305,165.8632,21,6.7,mww,250,31,0.799,0.54,us,us7000pmem,2025-05-29T17:36:32.040Z,"170 km WSW of Riverton, New Zealand",earthquake,7.97,1.783,0.045,48,reviewed,us,us
-2025-03-25T02:05:48.401Z,-46.8195,165.585,10,4.3,mb,16,133,1,0.49,us,us7000pmey,2025-05-29T17:36:32.040Z,"193 km WSW of Riverton, New Zealand",earthquake,7.08,1.92,0.201,7,reviewed,us,us
-2025-03-25T02:56:27.725Z,-46.6837,165.7542,10,5.4,mww,112,64,0.824,0.75,us,us7000pmfb,2025-05-29T17:36:32.040Z,"177 km W of Riverton, New Zealand",earthquake,7.74,1.756,0.069,20,reviewed,us,us
-2025-03-25T04:15:35.140Z,-46.729,165.5278,10,4.3,mb,22,99,0.976,0.88,us,us7000pmfn,2025-05-29T17:36:32.040Z,"195 km WSW of Riverton, New Zealand",earthquake,4.93,1.841,0.148,13,reviewed,us,us

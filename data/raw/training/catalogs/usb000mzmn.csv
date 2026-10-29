@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2014-03-02T20:11:23.430Z,27.4312,127.3674,119,6.5,mww,,17,1.001,0.97,us,usb000mzmn,2022-07-26T08:24:32.938Z,"109 km NW of Nago, Japan",earthquake,,1.8,,,reviewed,us,us

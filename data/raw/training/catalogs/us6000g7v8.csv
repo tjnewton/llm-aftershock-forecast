@@ -1,9 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2021-11-29T15:36:37.696Z,-3.5282,151.2321,10,4.6,mb,,103,1.139,0.29,us,us6000g8r5,2022-02-05T23:03:55.040Z,"116 km SSE of Kavieng, Papua New Guinea",earthquake,7.8,1.9,0.315,3,reviewed,us,us
-2021-11-30T10:36:18.077Z,-3.5226,151.1847,10,6.3,mww,,27,1.181,0.53,us,us6000g7v8,2025-12-22T22:21:07.381Z,"113 km SSE of Kavieng, Papua New Guinea",earthquake,6.6,1.8,0.05,38,reviewed,us,us
-2021-11-30T10:37:35.539Z,-3.6249,151.3524,10,6.1,mww,,68,0.985,0.59,us,us6000g8te,2025-12-22T22:22:13.155Z,"110 km NW of Rabaul, Papua New Guinea",earthquake,8.1,1.8,0.093,11,reviewed,us,us
-2021-11-30T10:45:23.599Z,-3.342,151.0172,10,4.5,mb,,89,1.421,0.54,us,us6000g8tg,2022-02-05T23:04:01.040Z,"88 km SSE of Kavieng, Papua New Guinea",earthquake,6.9,1.9,0.181,10,reviewed,us,us
-2021-11-30T11:14:07.723Z,-3.6227,151.1093,10,5,mb,,50,1.194,0.52,us,us6000g7vl,2022-02-05T23:03:30.040Z,"121 km SSE of Kavieng, Papua New Guinea",earthquake,6.4,1.7,0.077,56,reviewed,us,us
-2021-11-30T12:14:34.031Z,-3.5578,151.4221,10,5.8,mww,,27,0.942,0.56,us,us6000g7w4,2025-12-22T22:21:08.631Z,"108 km NW of Rabaul, Papua New Guinea",earthquake,6.3,1.8,0.075,17,reviewed,us,us
-2021-11-30T13:46:52.254Z,-3.5118,151.1148,10,4.9,mb,,38,1.245,0.49,us,us6000g7wc,2025-12-22T22:21:10.816Z,"109 km SSE of Kavieng, Papua New Guinea",earthquake,8.7,1.9,0.114,27,reviewed,us,us
-2021-12-01T04:50:41.143Z,-3.5869,151.1776,10,4.6,mb,,95,1.152,0.86,us,us6000ga0h,2022-02-05T23:04:02.040Z,"119 km SSE of Kavieng, Papua New Guinea",earthquake,5.2,1.9,0.137,16,reviewed,us,us

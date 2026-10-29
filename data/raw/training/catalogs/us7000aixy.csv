@@ -1,8 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2020-07-06T18:16:18.418Z,12.0809,140.2476,10,6.2,mww,,19,4.749,0.95,us,us7000aixy,2025-12-22T18:37:37.633Z,"257 km N of Fais, Micronesia",earthquake,7.5,1.7,0.058,29,reviewed,us,us
-2020-07-06T18:55:29.384Z,12.2107,140.3215,10,5,mb,,42,4.64,1.1,us,us7000aiz6,2020-09-11T22:14:21.040Z,"271 km N of Fais, Micronesia",earthquake,9.7,1.8,0.044,166,reviewed,us,us
-2020-07-07T01:20:54.778Z,12.1983,140.2649,10,4.7,mb,,68,4.696,0.43,us,us7000aj71,2020-09-11T22:14:23.040Z,"270 km N of Fais, Micronesia",earthquake,12.2,1.9,0.059,88,reviewed,us,us
-2020-07-07T03:43:22.696Z,12.0524,140.2354,10,4.6,mb,,108,4.77,0.61,us,us7000andn,2020-09-11T22:14:24.040Z,"State of Yap, Federated States of Micronesia",earthquake,10.2,1.8,0.101,29,reviewed,us,us
-2020-07-13T06:22:31.699Z,12.0386,140.2108,10,5,mww,,55,4.797,0.81,us,us7000amlk,2025-12-22T18:37:58.650Z,"253 km N of Fais, Micronesia",earthquake,10.1,1.9,0.08,15,reviewed,us,us
-2020-07-14T14:58:38.233Z,12.1473,140.3097,10,4.6,mb,,48,4.67,0.46,us,us7000ashg,2020-09-19T20:58:34.040Z,"264 km N of Fais, Micronesia",earthquake,12.5,1.9,0.081,45,reviewed,us,us
-2020-07-28T23:31:50.350Z,12.0718,140.1899,10,4.6,mb,,76,14.501,0.95,us,us6000b8sj,2020-10-03T17:32:36.040Z,"257 km N of Fais, Micronesia",earthquake,12.2,1.9,0.125,19,reviewed,us,us

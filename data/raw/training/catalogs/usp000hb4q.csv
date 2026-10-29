@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2010-04-10T16:54:24.250Z,-20.114,-176.223,273.2,6,mwb,354,21.9,,0.75,us,usp000hb4q,2022-05-02T21:53:56.637Z,"155 km NW of Nuku‘alofa, Tonga",earthquake,,,,,reviewed,us,us

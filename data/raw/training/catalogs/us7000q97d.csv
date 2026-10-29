@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2025-06-27T23:07:10.371Z,5.2888,126.0425,99.77,6,mww,131,19,0.787,0.99,us,us7000q97d,2025-09-04T20:40:00.040Z,"65 km E of Sarangani, Philippines",earthquake,6.55,4.615,0.038,68,reviewed,us,us
-2025-06-27T23:41:43.694Z,5.4211,126.0271,83.491,4.9,mb,85,41,0.875,1.02,us,us7000q98g,2025-09-04T20:40:00.040Z,"62 km E of Sarangani, Philippines",earthquake,6.72,6.576,0.045,159,reviewed,us,us
-2025-07-06T00:52:54.739Z,5.3262,125.9846,100.462,4.3,mb,15,151,0.775,0.7,us,us7000qd8c,2025-09-12T16:23:09.040Z,"58 km E of Sarangani, Philippines",earthquake,9.15,6.49,0.177,9,reviewed,us,us

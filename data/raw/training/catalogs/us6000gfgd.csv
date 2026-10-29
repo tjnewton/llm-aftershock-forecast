@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2021-12-25T10:03:23.721Z,-18.0239,-179.2981,608.57,4.5,mb,,72,8.304,0.91,us,us6000gf77,2022-03-05T23:10:39.040Z,"146 km E of Levuka, Fiji",earthquake,12.2,6.6,0.039,195,reviewed,us,us
-2021-12-26T15:42:57.107Z,-18.1104,-179.352,639.16,6.1,mww,,33,2.497,0.87,us,us6000gfgd,2025-12-22T22:24:24.851Z,"141 km E of Levuka, Fiji",earthquake,8.7,2.7,0.046,45,reviewed,us,us

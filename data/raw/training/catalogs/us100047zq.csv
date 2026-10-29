@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2015-12-17T19:49:53.050Z,15.8015,-93.633,85,6.6,mww,,35,0.41,1.37,us,us100047zq,2022-05-03T19:18:19.005Z,"4 km W of Manuel Ávila Camacho (Ponte Duro), Mexico",earthquake,4.9,1.8,,,reviewed,us,us
-2015-12-18T21:25:58.900Z,15.606,-93.818,89.1,4.1,mb,,,,1.24,us,us100048th,2016-03-12T02:29:16.040Z,"33 km SW of Manuel Ávila Camacho (Ponte Duro), Mexico",earthquake,6.5,5.2,0.214,6,reviewed,unm,us
-2015-12-19T05:04:26.000Z,15.639,-93.7099,85.3,4.4,mb,,,,1.33,us,us100048uq,2016-03-12T02:29:17.040Z,"22 km SW of Manuel Ávila Camacho (Ponte Duro), Mexico",earthquake,5.3,5.2,0.161,11,reviewed,unm,us
-2015-12-20T16:31:52.260Z,15.728,-93.7038,80.45,4.3,mb,,147,0.467,1.03,us,us100048h8,2016-03-12T02:29:19.040Z,"15 km SW of Manuel Ávila Camacho (Ponte Duro), Mexico",earthquake,5.7,7.7,0.066,64,reviewed,us,us
-2016-01-02T17:17:38.630Z,15.7366,-93.7541,89.57,4.4,mb,,147,0.516,0.82,us,us20004x66,2016-03-28T22:09:33.040Z,"17 km SSW of Doctor Belisario Domínguez (La Barra), Mexico",earthquake,6.1,7.8,0.31,3,reviewed,us,us

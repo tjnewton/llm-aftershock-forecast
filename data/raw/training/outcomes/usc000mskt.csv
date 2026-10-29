@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2014-02-18T09:27:13.120Z,14.6682,-58.9272,14.83,6.5,mww,,30,1.635,0.94,us,usc000mskt,2022-08-06T21:52:09.318Z,"171 km NNE of Greenland, Barbados",earthquake,,2.6,,,reviewed,us,us

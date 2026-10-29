@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2014-01-13T04:01:03.240Z,19.0428,-66.8096,20,6.4,mww,,21,0.572,1.22,us,usc000m1w9,2023-04-15T18:01:54.188Z,"61 km N of Hatillo, Puerto Rico",earthquake,,1.7,,,reviewed,us,us
-2014-01-14T12:08:50.100Z,19.1289,-66.9182,42,4.2,Md,28,270,0.67463478,0.4,pr,pr14014006,2022-07-26T05:22:14.770Z,"70 km N of Isabela, Puerto Rico",earthquake,1.5,5.8,0,16,reviewed,pr,pr

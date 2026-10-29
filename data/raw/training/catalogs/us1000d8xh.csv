@@ -1,9 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2018-03-25T20:14:47.690Z,-6.6343,129.8172,169,6.4,mww,,13,1.988,1.09,us,us1000d8xh,2022-05-03T19:09:10.039Z,"Banda Sea",earthquake,6.5,0.7,0.033,87,reviewed,us,us
-2018-03-28T16:35:27.820Z,-6.7391,129.8645,159.62,4,mb,,88,1.884,1.3,us,us2000dv26,2018-06-22T21:32:13.040Z,"Banda Sea",earthquake,10.3,6.7,0.163,10,reviewed,us,us
-2018-03-30T20:06:03.150Z,-6.6252,130.1082,168.53,4.4,mb,,90,1.792,1.22,us,us1000dblv,2018-06-22T21:32:16.040Z,"Banda Sea",earthquake,8.7,9.9,0.179,9,reviewed,us,us
-2018-04-02T08:08:49.270Z,-6.6754,129.7502,151.24,4.4,mb,,82,2.011,0.5,us,us2000dxkf,2018-06-30T01:11:24.040Z,"Banda Sea",earthquake,6,7.4,0.076,50,reviewed,us,us
-2018-04-02T16:20:23.800Z,-6.6652,129.9189,183.09,4,mb,,88,1.893,1.32,us,us2000dxkv,2018-06-30T01:11:24.040Z,"Banda Sea",earthquake,10.5,10.9,0.195,7,reviewed,us,us
-2018-04-11T16:11:13.670Z,-6.6839,129.6664,154.67,4.4,mb,,85,2.07,1.18,us,us2000dy2z,2018-07-07T02:25:18.040Z,"Banda Sea",earthquake,8.5,8.3,0.11,24,reviewed,us,us
-2018-04-14T18:13:59.870Z,-6.6011,129.723,177.09,4.5,mb,,85,2.08,0.79,us,us1000dnmv,2018-07-07T02:25:23.040Z,"Banda Sea",earthquake,7.5,20.1,0.27,4,reviewed,us,us
-2018-04-18T09:25:46.950Z,-6.6286,129.7525,161.69,4.9,mww,,31,2.04,0.88,us,us2000e21u,2025-12-22T17:46:41.830Z,"Banda Sea",earthquake,4.8,4.6,0.089,12,reviewed,us,us

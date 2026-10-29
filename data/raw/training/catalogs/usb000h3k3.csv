@@ -1,7 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2013-05-21T05:59:31.780Z,-22.282,-176.305,90.4,4.6,mb,37,79,,1.18,us,usp000k0v3,2014-11-07T01:50:52.460Z,"167 km SW of Vaini, Tonga",earthquake,,7.4,,57,reviewed,us,us
-2013-05-23T17:19:04.750Z,-23.009,-177.232,173.7,7.4,mww,626,16,,0.85,us,usb000h3k3,2022-05-03T16:21:12.895Z,"292 km SW of Vaini, Tonga",earthquake,,3.2,,,reviewed,us,us
-2013-05-26T18:14:03.390Z,-23.357,-176.962,132.7,4.6,mb,45,70.4,,1.2,us,usb000h6qp,2014-11-07T01:50:54.516Z,"south of the Fiji Islands",earthquake,,15.4,,31,reviewed,us,us
-2013-06-01T01:34:14.620Z,-23.061,-177.185,185.4,5.5,mb,167,46.4,,0.82,us,usb000hb56,2025-12-22T16:27:20.390Z,"292 km SW of Vaini, Tonga",earthquake,,,,85,reviewed,us,us
-2013-06-07T09:09:47.400Z,-22.995,-177.203,175.4,4.8,mb,198,33,,0.76,us,usc000hi18,2025-12-22T16:41:34.830Z,"289 km SW of Vaini, Tonga",earthquake,,4.4,,148,reviewed,us,us
-2013-06-19T15:12:29.390Z,-23.044,-177.187,101.5,4.5,mb,16,134.8,,0.92,us,us2013rqdl,2014-11-07T01:51:06.041Z,"291 km SW of Vaini, Tonga",earthquake,,15.4,,7,reviewed,us,us

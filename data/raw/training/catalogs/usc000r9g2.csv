@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2014-05-31T11:53:46.470Z,18.7876,-107.469,5,6.2,mww,,69,3.574,0.64,us,usc000r9g2,2022-07-26T16:02:58.143Z,"250 km WSW of La Cruz de Loreto, Mexico",earthquake,,1.5,,,reviewed,us,us

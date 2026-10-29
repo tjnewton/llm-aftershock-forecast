@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2010-06-30T07:22:27.690Z,16.396,-97.782,20,6.3,mwc,344,71.6,,0.92,us,usp000heqj,2024-04-11T12:43:47.969Z,"2 km ESE of San Agustín Chayuco, Mexico",earthquake,,,,,reviewed,us,gcmt
-2010-06-30T15:52:24.600Z,16.219,-97.967,8.8,4.1,md,4,187,,,us,usp000her4,2014-11-07T01:41:45.968Z,"3 km N of Collantes, Mexico",earthquake,,,,,reviewed,unm,unm
-2010-07-14T15:39:17.100Z,16.254,-97.877,7.7,4,md,4,183.7,,,us,usp000hf9n,2014-11-07T01:41:53.260Z,"6 km WSW of Jamiltepec, Mexico",earthquake,,,,,reviewed,unm,unm

@@ -1,5 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2019-04-23T05:37:53.147Z,11.7547,125.2013,56,6.4,mww,,15,4.67,1.07,us,us70003aj3,2025-12-22T18:08:30.512Z,"17 km ESE of Tutubigan, Philippines",earthquake,7,1.9,0.042,54,reviewed,us,us
-2019-04-23T06:41:13.032Z,11.7342,125.1708,56.61,4.8,mb,,104,4.751,0.6,us,us70003ak7,2019-07-13T18:42:34.040Z,"16 km SE of Tutubigan, Philippines",earthquake,10,7.2,0.06,86,reviewed,us,us
-2019-04-27T00:51:54.125Z,11.7034,125.1436,21.56,4.7,mb,,112,4.624,0.85,us,us70003cub,2019-07-13T18:42:42.040Z,"13 km E of San Sebastian, Philippines",earthquake,12,5.4,0.076,52,reviewed,us,us
-2019-05-08T03:01:08.020Z,11.6594,125.4688,76.41,4.6,mb,,111,5.042,0.42,us,us70003i6i,2025-12-22T18:09:14.333Z,"2 km ENE of Maypangdan, Philippines",earthquake,11.1,7.4,0.067,67,reviewed,us,us

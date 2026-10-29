@@ -1,5 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2022-12-20T10:34:24.770Z,40.525,-124.423,17.91,6.4,mw,38,214,0.0818,0.18,nc,nc73821036,2026-01-07T06:38:39.444Z,"15km WSW of Ferndale, CA",earthquake,0.67,0.4,,0,reviewed,nc,nc
-2022-12-20T10:39:02.360Z,40.5228333,-124.1881667,26.55,4.92,mw,35,60,0.06918,0.12,nc,nc73821046,2023-02-28T23:06:32.040Z,"7km WNW of Rio Dell, CA",earthquake,0.3,0.47,,3,reviewed,nc,nc
-2022-12-20T15:09:05.740Z,40.6005,-124.0688333,22.5,3.99,mw,33,31,0.05957,0.11,nc,nc73821636,2023-02-28T23:06:34.040Z,"6km NNE of Hydesville, CA",earthquake,0.29,0.39,,4,reviewed,nc,nc
-2022-12-20T22:06:34.380Z,40.5455,-124.3291667,19.74,4.35,mw,32,188,0.05465,0.17,nc,nc73822026,2023-02-28T23:06:36.040Z,"6km WSW of Ferndale, CA",earthquake,0.53,0.32,,4,reviewed,nc,nc

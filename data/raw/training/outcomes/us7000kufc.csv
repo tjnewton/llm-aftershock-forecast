@@ -1,9 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2023-09-08T22:11:01.405Z,31.058,-8.3847,19,6.8,mww,380,22,0.988,0.67,us,us7000kufc,2026-02-11T20:56:22.743Z,"Al Haouz, Morocco",earthquake,3.62,3.098,0.032,95,reviewed,us,us
-2023-09-08T22:30:44.243Z,31.0364,-8.3516,10,4.9,mb,75,72,0.957,0.61,us,us7000kufg,2023-11-17T19:47:51.040Z,"50 km WSW of Oukaïmedene, Morocco",earthquake,6.2,1.864,0.071,62,reviewed,us,us
-2023-09-10T08:00:01.027Z,31.0743,-8.4473,9.003,4.2,mb,22,187,1.043,0.49,us,us7000kus7,2023-11-18T22:29:32.040Z,"57 km WSW of Oukaïmedene, Morocco",earthquake,4.61,6.03,0.176,9,reviewed,us,us
-2023-09-12T00:25:38.290Z,31.022,-8.4543,10,4,ml,9,298,2.435,0.28,us,us7000kv7s,2023-11-18T22:29:33.040Z,"60 km WSW of Oukaïmedene, Morocco",earthquake,7.59,2.024,0.181,4,reviewed,us,us
-2023-09-13T15:45:04.786Z,30.921,-8.4843,10,4.2,mb,8,186,2.538,0.8,us,us6000ldaf,2023-11-18T22:29:31.040Z,"62 km NE of Taroudant, Morocco",earthquake,9.61,1.983,0.235,5,reviewed,us,us
-2023-09-14T05:53:16.342Z,31.0181,-8.3703,8.722,4.6,mb,45,114,0.971,0.69,us,us7000kvnm,2025-09-03T03:44:14.009Z,"52 km WSW of Oukaïmedene, Morocco",earthquake,6.21,4.297,0.095,33,reviewed,us,us
-2023-09-30T08:04:21.474Z,30.9522,-8.4088,10,4,mb,14,133,1,0.65,us,us6000lbw0,2023-12-09T22:00:42.040Z,"59 km WSW of Oukaïmedene, Morocco",earthquake,6.25,1.965,0.26,4,reviewed,us,us
-2023-10-30T04:20:22.060Z,31.0791,-8.4399,10,4.2,mb,21,140,1.037,0.59,us,us7000l7h7,2024-01-10T06:01:14.040Z,"56 km WSW of Oukaïmedene, Morocco",earthquake,6.94,1.933,0.216,6,reviewed,us,us

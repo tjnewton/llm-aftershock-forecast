@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2014-12-29T09:29:37.390Z,8.6341,121.5213,8,6.1,mww,,35,4.31,1.17,us,usc000taik,2022-07-27T11:49:45.072Z,"122 km NNW of Siocon, Philippines",earthquake,6.9,1.7,,,reviewed,us,us
-2014-12-30T00:46:58.370Z,8.6141,121.6092,10,4.4,mb,,116,4.603,0.72,us,usc000tfnp,2015-03-17T02:38:02.040Z,"115 km NNW of Siocon, Philippines",earthquake,9.7,1.9,0.155,12,reviewed,us,us

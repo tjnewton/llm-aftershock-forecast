@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2013-05-20T09:49:04.470Z,-44.866,-80.746,10,6.4,mww,180,73,,1.15,us,usb000gzlm,2022-05-03T16:19:01.849Z,"Off the coast of Aisen, Chile",earthquake,,,,,reviewed,us,us

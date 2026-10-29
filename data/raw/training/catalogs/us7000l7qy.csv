@@ -1,9 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2023-10-31T11:10:56.943Z,-17.5412,-179.0263,560,6.5,mww,113,27,2.793,0.71,us,us7000l7qy,2024-01-10T06:01:23.040Z,"185 km ENE of Levuka, Fiji",earthquake,10.25,1.963,0.052,36,reviewed,us,us
-2023-10-31T11:27:41.136Z,-17.531,-179.231,546.887,4.2,mb,30,109,2.599,0.58,us,us7000l8ne,2024-01-18T21:10:47.762Z,"165 km ENE of Levuka, Fiji",earthquake,15.17,4.172,0.101,27,reviewed,us,us
-2023-11-02T15:46:58.526Z,-17.5025,-178.93,536.671,4.5,mb,67,39,5.068,0.58,us,us7000l8bs,2024-01-10T06:01:41.040Z,"196 km ENE of Levuka, Fiji",earthquake,11.52,7.215,0.073,60,reviewed,us,us
-2023-11-02T18:11:49.781Z,-17.6702,-178.9298,545.512,4.7,mb,52,70,2.877,0.78,us,us7000l8ej,2024-01-18T21:12:12.379Z,"190 km ENE of Levuka, Fiji",earthquake,14.76,7.582,0.084,43,reviewed,us,us
-2023-11-08T21:12:45.806Z,-17.4574,-178.9528,559.493,4.3,mb,63,44,2.87,0.76,us,us7000laqt,2024-01-13T23:11:49.040Z,"195 km ENE of Levuka, Fiji",earthquake,13.12,7.134,0.087,38,reviewed,us,us
-2023-11-17T03:53:30.443Z,-17.4702,-178.8074,531.885,4,mb,16,182,5.012,0.57,us,us6000lq3i,2024-01-26T16:37:54.040Z,"209 km ENE of Levuka, Fiji",earthquake,19.12,14.775,0.173,12,reviewed,us,us
-2023-11-23T01:55:34.268Z,-17.7182,-178.7626,541.81,4.3,mb,48,62,4.802,0.69,us,us6000lq75,2024-02-01T15:13:42.040Z,"207 km E of Levuka, Fiji",earthquake,12.41,8.654,0.099,29,reviewed,us,us
-2023-11-23T18:54:27.343Z,-17.4846,-178.7267,540.929,4.2,mb,23,75,4.95,0.67,us,us7000ledm,2024-02-01T15:13:45.040Z,"217 km ENE of Levuka, Fiji",earthquake,13.72,7.791,0.158,12,reviewed,us,us

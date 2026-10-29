@@ -1,8 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2021-04-27T02:12:50.107Z,-3.3809,145.5346,10,5.6,mww,,17,2.261,0.72,us,us7000dxqs,2025-12-22T18:57:11.267Z,"179 km ENE of Angoram, Papua New Guinea",earthquake,7.2,1.7,0.068,21,reviewed,us,us
-2021-04-27T08:05:31.717Z,-3.407,145.5171,10,6.1,mww,,31,2.29,1.06,us,us7000dxsy,2025-12-22T18:57:12.566Z,"176 km ENE of Angoram, Papua New Guinea",earthquake,7.3,1.8,0.063,24,reviewed,us,us
-2021-04-27T08:13:24.976Z,-3.4684,145.6917,10,5.1,mb,,100,2.191,1.19,us,us7000e02j,2021-07-07T18:36:02.040Z,"192 km ENE of Angoram, Papua New Guinea",earthquake,6.4,1.9,0.057,103,reviewed,us,us
-2021-04-27T08:48:23.447Z,-3.5253,145.625,10,4.4,mb,,130,2.278,0.71,us,us7000e02a,2021-07-07T18:36:03.040Z,"183 km ENE of Angoram, Papua New Guinea",earthquake,12.5,1.9,0.17,10,reviewed,us,us
-2021-04-27T09:56:57.134Z,-3.334,145.5852,10,4.2,mb,,75,2.192,0.39,us,us7000e02f,2021-07-07T18:36:05.040Z,"186 km ENE of Angoram, Papua New Guinea",earthquake,8.1,2,0.147,13,reviewed,us,us
-2021-04-27T10:40:49.550Z,-3.3975,145.5371,10,5.3,mww,,34,2.268,0.47,us,us7000dxu1,2025-12-22T18:00:40.676Z,"179 km ENE of Angoram, Papua New Guinea",earthquake,4.3,1.8,0.098,10,reviewed,us,us
-2021-04-27T11:04:24.573Z,-3.3953,145.6685,10,5.5,mww,,20,2.163,0.65,us,us7000dxu4,2025-12-22T18:57:14.888Z,"192 km ENE of Angoram, Papua New Guinea",earthquake,8.3,1.8,0.055,32,reviewed,us,us

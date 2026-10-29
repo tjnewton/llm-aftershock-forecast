@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2021-12-19T16:28:22.616Z,-16.3139,178.5777,10,6.2,mww,,45,1.509,0.64,us,us6000gdma,2025-12-22T22:23:12.415Z,"85 km W of Labasa, Fiji",earthquake,7.6,1.8,0.041,57,reviewed,us,us

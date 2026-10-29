@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2012-09-14T04:51:47.070Z,-3.319,100.594,19,6.2,mww,549,14.9,,0.95,us,usp000jsa4,2022-05-03T16:24:44.063Z,"165 km SSW of Sungai Penuh, Indonesia",earthquake,,,,,reviewed,us,us

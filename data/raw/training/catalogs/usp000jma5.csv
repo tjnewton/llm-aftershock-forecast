@@ -1,5 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2012-06-04T00:45:15.290Z,5.305,-82.629,7,6.3,mww,587,37,,1.07,us,usp000jma4,2022-05-03T15:41:40.666Z,"south of Panama",earthquake,,,,,reviewed,us,us
-2012-06-04T03:15:24.750Z,5.508,-82.563,7,6.3,mww,580,31.5,,1.2,us,usp000jma5,2022-05-03T15:41:41.845Z,"278 km SW of Arenas, Panama",earthquake,,,,,reviewed,us,us
-2012-06-04T04:12:14.900Z,5.449,-82.481,10,4.6,mb,31,147.3,,0.92,us,usp000jma9,2014-11-07T01:48:00.463Z,"277 km SW of Arenas, Panama",earthquake,,,,21,reviewed,us,us
-2012-06-04T08:33:15.240Z,5.461,-82.495,10,4.5,mb,30,102.3,,1.15,us,usp000jmaj,2014-11-07T01:48:00.542Z,"277 km SW of Arenas, Panama",earthquake,,,,19,reviewed,us,us

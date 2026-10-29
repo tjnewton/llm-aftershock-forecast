@@ -24,13 +24,23 @@ jobs:
           BEFORE: ${{ github.event.before }}
           AFTER: ${{ github.event.after }}
         run: |
+          zero=0000000000000000000000000000000000000000
+          if [ "$BEFORE" != "$zero" ] && ! git merge-base --is-ancestor "$BEFORE" "$AFTER"; then
+            echo "::error::non-fast-forward push (history rewritten)"; exit 1
+          fi
+          # rules as they stood before this push, so a push cannot loosen its own check
+          src=$([ "$BEFORE" = "$zero" ] && echo "$AFTER" || echo "$BEFORE")
+          git show "$src:src/laf/path_guard.py" > "$RUNNER_TEMP/guard.py" 2>/dev/null \
+            || cp src/laf/path_guard.py "$RUNNER_TEMP/guard.py"
+          git show "$src:.github/frozen-paths.txt" > "$RUNNER_TEMP/frozen.txt" 2>/dev/null \
+            || cp .github/frozen-paths.txt "$RUNNER_TEMP/frozen.txt"
           shas=$(git rev-list "$AFTER" --not "$BEFORE" 2>/dev/null || echo "$AFTER")
           direct=""
           for sha in $shas; do
             merged=$(gh api "repos/$REPO/commits/$sha/pulls" --jq 'map(select(.merged_at != null)) | length')
             if [ "$merged" = "0" ]; then direct="$direct $sha"; fi
           done
-          python3 src/laf/path_guard.py push $direct
+          python3 "$RUNNER_TEMP/guard.py" push --frozen "$RUNNER_TEMP/frozen.txt" $direct
   pull-request:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest

@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2018-08-28T22:35:13.410Z,16.8044,146.8395,55,6.4,mww,,15,1.854,0.94,us,us1000gj78,2022-05-03T19:29:29.221Z,"211 km NNE of Saipan, Northern Mariana Islands",earthquake,7.8,1.9,0.05,39,reviewed,us,us

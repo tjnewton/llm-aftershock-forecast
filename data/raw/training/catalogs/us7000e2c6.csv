@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2021-05-12T06:17:06.629Z,13.2677,-90.3766,22,5.6,mww,,70,0.98,1.34,us,us7000e2bd,2025-12-22T19:06:35.686Z,"69 km WSW of Acajutla, El Salvador",earthquake,4.9,1.8,0.041,56,reviewed,us,us
-2021-05-12T08:45:44.539Z,13.2742,-90.2266,22,6,mww,,53,0.845,1.16,us,us7000e2c6,2025-12-22T19:06:34.596Z,"55 km SW of Acajutla, El Salvador",earthquake,3.8,1.8,0.05,39,reviewed,us,us

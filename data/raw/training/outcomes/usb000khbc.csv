@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2013-10-19T17:54:54.700Z,26.0913,-110.3209,9.45,6.6,mww,,44,1.98,1.1,us,usb000khbc,2022-08-06T18:28:09.459Z,"98 km SW of Etchoropo, Mexico",earthquake,,3,,,reviewed,us,us
-2013-10-19T23:32:32.230Z,26.31,-110.3484,10.14,4.1,mb,,183,2.751,0.84,us,usb000khfy,2013-12-30T23:41:14.000Z,"83 km SW of Etchoropo, Mexico",earthquake,,1.9,0.072,,reviewed,us,us

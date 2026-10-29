@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2017-11-07T21:26:38.480Z,-4.2433,143.4846,110.57,6.5,mww,,10,4.449,0.97,us,us2000bk15,2022-05-03T19:44:02.012Z,"67 km WSW of Angoram, Papua New Guinea",earthquake,7.2,3.3,0.044,50,reviewed,us,us

@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2023-12-22T17:36:32.014Z,-52.0879,27.9516,10,6.1,mww,284,19,16.565,0.8,us,us7000lkxb,2024-02-27T22:57:04.040Z,"south of Africa",earthquake,9.31,1.668,0.065,23,reviewed,us,us

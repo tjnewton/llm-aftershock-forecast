@@ -1,7 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2014-03-10T05:18:13.430Z,40.8286667,-125.1338333,16.441,6.8,mw,112,229,0.6568,0.15,nc,nc72182046,2022-09-24T19:42:07.982Z,"77 km WNW of Indianola, California",earthquake,0.64,1.88,,5,reviewed,nc,nc
-2014-03-10T05:27:40.690Z,40.6583,-125.201,10,4.3,ml,,231,0.904,1.24,us,usc000n68h,2014-05-15T02:24:03.000Z,"79 km W of Ferndale, California",earthquake,,2,0.053,48,reviewed,us,us
-2014-03-10T05:51:10.900Z,40.6211667,-125.3605,18.726,4.35,ml,73,241,0.873,0.15,nc,nc72182106,2022-08-06T22:14:33.129Z,"92 km W of Ferndale, California",earthquake,0.99,3.08,0.168,60,reviewed,nc,nc
-2014-03-10T10:28:18.520Z,40.7778333,-125.1915,18.883,4.47,mw,89,231,0.8279,0.21,nc,nc72182306,2022-08-06T22:16:09.013Z,"81 km WNW of Ferndale, California",earthquake,0.97,2.71,,4,reviewed,nc,nc
-2014-03-16T03:46:09.720Z,40.8585,-125.0218333,24.12,4.01,mw,38,257,0.6459,0.17,nc,nc72186031,2022-08-06T22:24:31.211Z,"69 km WNW of Indianola, California",earthquake,0.99,12.48,,10,reviewed,nc,nc
-2014-03-18T10:33:59.280Z,40.6863333,-125.3328333,22.999,4.41,mw,29,271,0.7865,0.17,nc,nc72187346,2022-08-06T22:28:52.124Z,"91 km W of Ferndale, California",earthquake,2.35,8.92,,9,reviewed,nc,nc

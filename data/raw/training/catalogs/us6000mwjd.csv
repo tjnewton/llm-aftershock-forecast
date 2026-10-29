@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2024-05-05T18:33:11.021Z,-3.3167,130.9618,16,6.1,mww,101,28,1.344,0.6,us,us6000mwjd,2024-11-10T00:12:54.992Z,"154 km WSW of Fakfak, Indonesia",earthquake,5.17,1.722,0.039,63,reviewed,us,us
-2024-05-05T20:37:11.921Z,-3.3053,130.9364,10,5.5,mww,94,33,1.365,0.63,us,us6000mwkd,2024-07-15T03:57:48.040Z,"157 km WSW of Fakfak, Indonesia",earthquake,6.1,1.825,0.063,24,reviewed,us,us
-2024-05-06T01:03:52.751Z,-3.4156,131.0652,10,4.6,mb,44,69,1.281,0.68,us,us6000mwlj,2024-07-20T22:20:00.040Z,"147 km WSW of Fakfak, Indonesia",earthquake,4.91,1.627,0.098,31,reviewed,us,us
-2024-05-06T01:21:06.438Z,-3.3818,131.0706,10,4,mb,16,100,1.263,0.84,us,us6000myaa,2024-07-20T22:20:00.040Z,"145 km WSW of Fakfak, Indonesia",earthquake,6.78,1.897,0.164,10,reviewed,us,us
-2024-05-06T05:10:52.873Z,-3.2428,131.0326,10,4.5,mb,19,103,1.256,0.34,us,us6000myah,2024-07-20T22:20:00.040Z,"145 km WSW of Fakfak, Indonesia",earthquake,8.3,1.887,0.131,17,reviewed,us,us

@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2021-10-10T21:48:36.560Z,18.820333333333,-155.52716666667,35.06,6.21,ml,54,278,,0.12,hv,hv72748782,2025-12-22T22:17:37.603Z,"27 km SSE of Naalehu, Hawaii",earthquake,0.52,0.93,0.1539847077467,25,reviewed,hv,hv
-2021-10-10T21:53:08.410Z,18.868,-155.542,35.99,4.26,ml,48,268,,0.11,hv,hv72748787,2021-12-18T19:58:49.040Z,"22 km S of Naalehu, Hawaii",earthquake,0.54,0.89,0.068047055972481,5,reviewed,hv,hv

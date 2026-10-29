@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2020-11-22T00:54:56.794Z,-34.5978,-73.0596,22,6.1,mww,,16,1.016,0.59,us,us6000crcq,2025-12-22T18:47:57.973Z,"100 km NW of Constitución, Chile",earthquake,4.6,1.8,0.034,83,reviewed,us,us
-2020-11-22T07:26:32.893Z,-34.6072,-73.096,20.43,4.3,mwr,,70,1.04,0.84,us,us6000crf0,2021-02-03T17:50:12.040Z,"101 km NW of Constitución, Chile",earthquake,3.7,3.8,0.037,71,reviewed,us,us

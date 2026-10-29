@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2022-09-02T22:39:51.520Z,-5.6524,148.7121,125,6.1,mww,161,17,3.733,0.84,us,us7000i4st,2022-11-06T04:35:47.040Z,"110 km WNW of Kandrian, Papua New Guinea",earthquake,7.77,1.872,0.045,48,reviewed,us,us

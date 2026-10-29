@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2019-01-26T03:51:37.870Z,-7.0089,156.3207,355,6.2,mww,,13,4.326,1.21,us,us2000j92w,2025-12-22T18:09:40.166Z,"116 km SE of Kieta, Papua New Guinea",earthquake,8.3,1.9,0.048,41,reviewed,us,us
-2019-02-07T07:46:35.540Z,-6.968,156.4378,165.28,4.4,mb,,188,5.069,0.45,us,us2000jnc8,2019-04-25T15:31:49.040Z,"122 km SE of Kieta, Papua New Guinea",earthquake,13.4,7.2,0.13,17,reviewed,us,us

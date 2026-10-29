@@ -1,5 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2012-01-09T04:07:14.670Z,-10.617,165.16,28,6.4,mww,592,16.4,,0.88,us,usp000jd8k,2022-05-03T16:35:42.625Z,"70 km W of Lata, Solomon Islands",earthquake,,,,,reviewed,us,us
-2012-01-09T17:45:32.380Z,-10.516,165.105,35,5,mb,82,66.2,,1.07,us,usp000jd9b,2025-12-22T16:11:07.135Z,"79 km WNW of Lata, Solomon Islands",earthquake,,,,34,reviewed,us,us
-2012-01-13T06:49:24.180Z,-10.52,165.262,35,5,mb,43,44,,1.27,us,usp000jde6,2014-11-07T01:46:46.783Z,"62 km WNW of Lata, Solomon Islands",earthquake,,,,21,reviewed,us,us
-2012-01-14T09:30:29.430Z,-10.55,165.192,35,4.8,mb,84,28.4,,0.84,us,usp000jdfz,2014-11-07T01:46:47.066Z,"68 km WNW of Lata, Solomon Islands",earthquake,,,,40,reviewed,us,us

@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2013-05-18T05:47:59.500Z,37.739,141.471,39,6,mww,436,14,,0.77,us,usb000gy67,2022-07-25T02:27:36.432Z,"50 km NE of Namie, Japan",earthquake,,,,,reviewed,us,us
-2013-05-24T08:33:17.790Z,37.705,141.516,48,4.9,mb,225,90,,0.67,us,usb000h4w9,2022-07-25T03:00:55.121Z,"51 km ENE of Namie, Japan",earthquake,,3.5,,172,reviewed,us,us

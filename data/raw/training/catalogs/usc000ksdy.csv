@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2013-10-31T12:02:08.720Z,23.5904,121.4366,10,6.3,mww,,15,0.234,1.29,us,usc000ksdy,2022-09-24T16:30:16.680Z,"46 km SSW of Hualien City, Taiwan",earthquake,,1.7,,,reviewed,us,us
-2013-10-31T15:47:28.820Z,23.6207,121.4809,10,4.7,mwr,,53,0.282,1.32,us,usc000kshy,2014-01-10T10:03:39.000Z,"41 km SSW of Hualien City, Taiwan",earthquake,,1.9,0.08,,reviewed,us,us
-2013-10-31T19:27:13.370Z,23.6184,121.4909,12.19,4.4,mb,,101,0.286,0.82,us,usb000kydq,2014-01-10T10:03:39.000Z,"41 km SSW of Hualien City, Taiwan",earthquake,,1.1,0.241,,reviewed,us,us
-2013-10-31T23:52:25.210Z,23.6783,121.4684,10,4.4,mb,,73,0.325,0.87,us,usb000kqpf,2014-01-10T10:03:40.000Z,"35 km SSW of Hualien City, Taiwan",earthquake,,1.9,0.13,,reviewed,us,us
-2013-11-03T03:43:14.210Z,23.6608,121.4925,6.1,4.5,mb,,99,0.321,0.47,us,usb000krvc,2014-01-10T10:03:44.000Z,"36 km SSW of Hualien City, Taiwan",earthquake,,4.9,0.157,,reviewed,us,us

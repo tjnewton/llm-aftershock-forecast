@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2020-10-08T07:35:32.524Z,-6.0942,146.1738,106,6.3,mww,,13,3.431,0.75,us,us6000c6mu,2025-12-22T18:43:28.384Z,"40 km ENE of Kainantu, Papua New Guinea",earthquake,6.4,1.9,0.055,32,reviewed,us,us
-2020-10-08T23:14:34.684Z,-6.1814,146.3259,96.06,5.1,mb,,43,3.307,0.81,us,us6000c6w6,2020-12-19T17:22:40.040Z,"52 km ENE of Kainantu, Papua New Guinea",earthquake,8.5,5.9,0.067,72,reviewed,us,us
-2020-10-21T17:38:57.391Z,-6.166,146.1574,109.24,4.4,mb,,81,3.367,0.75,us,us6000caud,2022-08-09T01:05:51.964Z,"35 km ENE of Kainantu, Papua New Guinea",earthquake,10.2,8.3,0.097,31,reviewed,us,us
-2020-11-01T16:24:53.820Z,-6.1387,146.2554,102.35,4.5,mb,,44,3.366,0.98,us,us7000c8zc,2021-01-18T23:01:57.040Z,"eastern New Guinea region, Papua New Guinea",earthquake,7.9,6.9,0.088,38,reviewed,us,us
-2020-11-04T12:58:46.564Z,-6.091,146.1131,94.96,4.1,mb,,90,3.451,0.41,us,us7000ccis,2021-01-23T22:25:39.040Z,"35 km NE of Kainantu, Papua New Guinea",earthquake,7.7,6.2,0.112,22,reviewed,us,us

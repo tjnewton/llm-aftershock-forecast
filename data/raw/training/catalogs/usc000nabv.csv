@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2014-03-13T17:06:50.770Z,33.6842,131.8249,79,6.3,mww,,12,0.969,1.28,us,usc000nabv,2022-07-26T09:28:34.691Z,"32 km SSW of Hikari, Japan",earthquake,,1.8,,,reviewed,us,us
-2014-03-22T11:05:39.270Z,33.6617,131.8645,85.66,4.6,mb,,52,0.984,1.05,us,usc000nkyw,2022-07-26T10:18:57.667Z,"33 km SSW of Hikari, Japan",earthquake,,6.4,0.063,81,reviewed,us,us

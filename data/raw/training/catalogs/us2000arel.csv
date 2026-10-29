@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2017-09-20T01:43:25.980Z,-50.7087,162.6317,8,6.1,mww,,56,4.407,0.88,us,us2000arel,2022-08-07T18:02:51.831Z,"Auckland Islands, New Zealand region",earthquake,4.3,1.7,0.065,23,reviewed,us,us

@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2015-06-04T23:15:43.910Z,5.9867,116.5409,10,6,mww,,20,6.431,1.03,us,us20002m5s,2024-05-23T16:44:30.547Z,"14 km WNW of Ranau, Malaysia",earthquake,5.1,1.6,,,reviewed,us,us
-2015-06-23T09:32:30.950Z,6.1277,116.5537,15.32,4.5,mb,,108,6.529,0.43,us,us10002l8v,2022-07-31T14:43:47.127Z,"22 km NNW of Ranau, Malaysia",earthquake,12.6,3,0.135,16,reviewed,us,us

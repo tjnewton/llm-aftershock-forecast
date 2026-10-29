@@ -1,5 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2023-08-17T17:04:48.770Z,4.3463,-73.6199,10,6.1,mww,111,64,0.857,0.87,us,us7000kp2i,2026-08-21T18:29:57.904Z,"10 km E of El Calvario, Colombia",earthquake,9,1.789,0.063,24,reviewed,us,us
-2023-08-17T17:17:17.698Z,4.258,-73.5289,10,5.6,mww,101,77,0.982,0.61,us,us7000kp2j,2026-08-21T18:35:01.904Z,"3 km E of Restrepo, Colombia",earthquake,6.61,1.776,0.089,12,reviewed,us,us
-2023-08-17T17:40:16.241Z,4.2285,-73.6849,10,4.9,mb,95,70,0.882,1.04,us,us7000kp2s,2023-10-27T21:39:03.040Z,"11 km NW of Villavicencio, Colombia",earthquake,5.82,1.804,0.068,67,reviewed,us,us
-2023-08-18T01:15:26.559Z,4.3633,-73.485,10,5,mb,80,69,0.961,0.81,us,us7000kp5l,2026-08-21T18:37:55.512Z,"10 km N of Cumaral, Colombia",earthquake,5.32,1.826,0.034,279,reviewed,us,us

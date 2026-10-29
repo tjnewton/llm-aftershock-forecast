@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2014-05-14T20:56:13.210Z,6.4507,144.9238,10,6.1,mww,,38,7.093,0.81,us,usb000qn2z,2022-05-03T16:51:16.727Z,"State of Yap, Federated States of Micronesia",earthquake,,1.7,,,reviewed,us,us
-2014-05-15T08:16:34.440Z,6.4264,144.9363,11,6.3,mww,,10,7.118,1.18,us,usb000qngw,2022-05-03T16:51:17.512Z,"State of Yap, Federated States of Micronesia",earthquake,,1.7,,,reviewed,us,us

@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2015-07-01T19:35:21.460Z,-10.9911,162.5558,12,6,mww,,24,2.995,0.77,us,us10002mw0,2022-05-03T19:02:58.666Z,"91 km SE of Kirakira, Solomon Islands",earthquake,7.7,1.7,,,reviewed,us,us

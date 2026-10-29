@@ -1,5 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2015-05-29T07:00:09.634Z,56.594,-156.4301,72.6,6.8,mw,,,,0.85,ak,ak0156uj8rk3,2023-07-26T18:35:56.724Z,"117 km SSE of Ugashik, Alaska",earthquake,,0.8,,,reviewed,ak,ak
-2015-05-30T04:40:06.574Z,56.4755,-156.4606,75.4,4.9,mb,,,,0.83,ak,ak0156w58dn5,2023-07-26T18:41:33.669Z,"121 km E of Chignik, Alaska",earthquake,,1.2,,,reviewed,ak,ak
-2015-06-09T09:26:19.966Z,56.6484,-156.4584,70.9,4.1,ml,,,,1.14,ak,ak0157cri1m4,2023-07-26T19:15:29.992Z,"111 km SSE of Ugashik, Alaska",earthquake,,3,,,reviewed,ak,ak
-2015-06-13T01:14:57.219Z,56.5127,-156.473,76.5,5.2,mb,,,,0.99,ak,ak0157j8th15,2023-07-26T19:24:40.112Z,"121 km E of Chignik, Alaska",earthquake,,1.9,,,reviewed,ak,ak

@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2010-08-04T07:15:33.510Z,-5.486,146.822,220,6.5,mwc,403,11.1,,0.97,us,usp000hhfk,2022-07-18T17:37:57.958Z,"118 km ESE of Madang, Papua New Guinea",earthquake,,,,,reviewed,us,gcmt
-2010-08-05T08:45:29.210Z,-5.641,146.63,111.3,4.9,mb,53,47.8,,0.91,us,usp000hhk8,2022-07-18T17:53:24.351Z,"104 km ESE of Madang, Papua New Guinea",earthquake,,8.3,,25,reviewed,us,us

@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2022-09-11T13:24:29.569Z,-21.4122,169.7881,35,4.2,mb,11,98,2.48,0.51,us,us7000i9a2,2022-11-19T23:03:34.040Z,"198 km E of Tadine, New Caledonia",earthquake,9.77,1.989,0.265,6,reviewed,us,us
-2022-09-14T11:04:06.558Z,-21.1909,170.2666,137,7,mww,192,45,2.977,0.65,us,us7000i7ya,2024-04-11T17:02:21.950Z,"209 km SSE of Isangel, Vanuatu",earthquake,7.64,1.934,0.047,43,reviewed,us,us
-2022-09-17T08:32:48.860Z,-21.1653,170.1157,147.692,4.3,mb,26,119,2.867,0.68,us,us7000i8sy,2022-11-26T20:57:32.040Z,"199 km SSE of Isangel, Vanuatu",earthquake,10.73,8.353,0.116,21,reviewed,us,us

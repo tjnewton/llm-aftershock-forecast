@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2017-08-18T02:59:25.640Z,-1.112,-13.6605,35,6.6,mww,,24,6.811,0.74,us,us2000a98r,2022-08-07T15:02:26.574Z,"north of Ascension Island",earthquake,8.6,1.9,0.06,27,reviewed,us,us
-2017-09-06T23:54:07.410Z,-1.1914,-13.7386,10,4.3,mb,,137,6.634,0.53,us,us2000aru9,2017-12-07T20:00:18.040Z,"north of Ascension Island",earthquake,9.4,2,0.265,4,reviewed,us,us

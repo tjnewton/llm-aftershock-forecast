@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2023-05-26T10:03:24.100Z,35.5294,140.5281,42,6.1,mww,259,51,2.102,0.57,us,us7000k46f,2023-07-29T22:00:40.040Z,"12 km SE of Narutō, Japan",earthquake,7.42,1.932,0.038,66,reviewed,us,us
-2023-05-26T11:07:39.640Z,35.5159,140.606,40.543,4.2,mb,40,128,2.156,0.56,us,us7000k46j,2023-07-29T22:00:40.040Z,"18 km SE of Yokoshiba, Japan",earthquake,7.88,7.76,0.118,20,reviewed,us,us
-2023-05-26T12:01:50.681Z,35.5823,140.7136,30.409,4.6,mb,68,101,2.244,0.65,us,us7000k46v,2023-07-29T22:00:40.040Z,"15 km SSE of Asahi, Japan",earthquake,7.49,5.378,0.084,44,reviewed,us,us

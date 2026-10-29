@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2017-12-03T11:19:05.440Z,-0.47,-80.3101,17,6.1,mww,,47,1.763,1.04,us,us1000bkjh,2022-05-03T18:42:02.735Z,"18 km NE of Bahía de Caráquez, Ecuador",earthquake,5.6,1.7,0.045,48,reviewed,us,us

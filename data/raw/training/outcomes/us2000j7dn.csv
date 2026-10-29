@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2019-01-22T19:01:43.580Z,-43.1219,42.3568,13,6.7,mww,,17,7.527,0.72,us,us2000j7dn,2025-12-22T18:03:00.422Z,"Prince Edward Islands region",earthquake,4.9,1.7,0.04,61,reviewed,us,us
-2019-03-07T12:59:42.543Z,-43.1075,42.1486,10,4.6,mb,,99,15.791,0.7,us,us1000jgjt,2019-05-24T21:21:38.040Z,"Prince Edward Islands region",earthquake,13,1.9,0.141,15,reviewed,us,us

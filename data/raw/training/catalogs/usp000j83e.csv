@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2011-09-15T19:31:04.080Z,-21.611,-179.528,644.6,7.3,mww,646,22.2,,1.06,us,usp000j83e,2022-04-08T22:04:57.338Z,"Fiji region",earthquake,,,,,reviewed,us,us
-2011-09-25T02:03:01.150Z,-21.674,-179.283,592.8,4.7,mb,33,84.4,,1.17,us,usp000j8h6,2014-11-07T01:45:57.016Z,"Fiji region",earthquake,,12.3,,19,reviewed,us,us
-2011-09-25T05:34:56.620Z,-22.533,-179.886,584.8,4.2,mb,19,122,,0.49,us,usp000j8hg,2014-11-07T01:45:57.052Z,"south of the Fiji Islands",earthquake,,10,,11,reviewed,us,us

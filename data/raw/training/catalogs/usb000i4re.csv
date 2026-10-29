@@ -1,7 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2013-07-02T07:37:02.610Z,4.645,96.665,13,6.1,mww,334,21,,0.65,us,usb000i4re,2022-07-25T17:42:52.495Z,"61 km S of Bireun, Indonesia",earthquake,,,,,reviewed,us,us
-2013-07-02T07:51:45.990Z,4.648,96.745,10,4.5,mb,14,180,,0.91,us,usp000k1n2,2014-11-07T01:51:11.741Z,"61 km S of Bireun, Indonesia",earthquake,,,,5,reviewed,us,us
-2013-07-02T07:59:33.630Z,4.65,96.525,10,4.3,mb,15,118,,0.6,us,usp000k1n3,2014-11-07T01:51:11.746Z,"64 km SSW of Bireun, Indonesia",earthquake,,,,6,reviewed,us,us
-2013-07-02T13:55:37.600Z,4.664,96.65,10,5.5,mwb,160,24.9,,1.06,us,usb000i4td,2022-05-03T16:22:44.875Z,"59 km S of Bireun, Indonesia",earthquake,,,,,reviewed,us,us
-2013-07-02T15:36:43.390Z,4.65,96.705,10,5.3,mwr,154,40,,0.98,us,usb000i4vu,2025-12-22T16:41:11.530Z,"61 km S of Bireun, Indonesia",earthquake,,,,,reviewed,us,us
-2013-07-02T15:40:51.080Z,4.647,96.746,18.3,4.4,mb,14,179.7,,1.14,us,usp000k1nb,2014-11-07T01:51:12.265Z,"61 km S of Bireun, Indonesia",earthquake,,12.3,,2,reviewed,us,us

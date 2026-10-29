@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2017-08-31T17:06:55.750Z,-1.159,99.6881,43.14,6.3,mww,,20,2,1.13,us,us2000adjh,2022-08-07T16:08:04.011Z,"76 km SW of Pariaman, Indonesia",earthquake,6.5,3.3,0.056,31,reviewed,us,us

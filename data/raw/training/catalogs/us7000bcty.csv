@@ -1,9 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2020-08-25T19:02:58.437Z,-5.5579,151.8638,23,6,mww,,16,1.259,0.72,us,us7000bctq,2025-12-22T18:42:34.590Z,"141 km SSW of Kokopo, Papua New Guinea",earthquake,5.8,1.8,0.055,32,reviewed,us,us
-2020-08-25T19:04:41.328Z,-5.5708,151.804,10,5.5,mb,,41,1.28,0.84,us,us7000bed1,2025-12-22T18:41:11.277Z,"145 km SSW of Kokopo, Papua New Guinea",earthquake,8.1,1.8,0.053,122,reviewed,us,us
-2020-08-25T19:07:18.933Z,-5.5786,152.0573,10,5,mb,,89,1.272,0.87,us,us7000bed2,2020-10-31T19:06:35.040Z,"138 km S of Kokopo, Papua New Guinea",earthquake,6.7,1.8,0.07,67,reviewed,us,us
-2020-08-25T19:08:52.908Z,-5.5454,151.8365,22,6.2,mww,,18,1.25,0.73,us,us7000bcty,2025-12-22T18:41:03.109Z,"141 km SSW of Kokopo, Papua New Guinea",earthquake,5.5,1.7,0.047,43,reviewed,us,us
-2020-08-25T20:02:55.179Z,-5.5625,151.9682,35.18,5.1,mww,,31,1.255,0.82,us,us7000bcvz,2025-12-22T18:41:03.847Z,"138 km SSW of Kokopo, Papua New Guinea",earthquake,6.4,5.1,0.098,10,reviewed,us,us
-2020-08-25T20:21:39.613Z,-5.6655,151.9034,10,4.7,mb,,62,1.361,1.07,us,us7000bcws,2020-10-31T19:06:28.040Z,"151 km SSW of Kokopo, Papua New Guinea",earthquake,6.1,1.8,0.059,95,reviewed,us,us
-2020-08-27T05:00:19.766Z,-5.545,151.769,35,5,mb,,51,1.401,0.66,us,us7000bdj7,2025-12-22T18:41:06.035Z,"143 km SSW of Kokopo, Papua New Guinea",earthquake,3.9,1.9,0.033,298,reviewed,us,us
-2020-08-27T22:28:15.607Z,-5.3632,151.9071,59.37,4.3,mb,,82,1.192,1.01,us,us7000bggi,2020-11-07T18:48:47.040Z,"119 km SSW of Kokopo, Papua New Guinea",earthquake,9.4,7.5,0.09,35,reviewed,us,us

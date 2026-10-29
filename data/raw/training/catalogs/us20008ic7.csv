@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2017-02-07T22:03:56.390Z,25.1912,63.2644,29.07,6.3,mww,,28,4.655,0.76,us,us20008ic7,2022-05-03T19:52:26.476Z,"22 km WSW of Pasni, Pakistan",earthquake,7.5,3.3,,,reviewed,us,us
-2017-02-08T11:02:37.540Z,25.1444,63.3102,10,5.2,mb,,66,4.675,0.8,us,us20008ig4,2022-05-03T18:11:03.461Z,"20 km SW of Pasni, Pakistan",earthquake,7,1.7,0.045,164,reviewed,us,us

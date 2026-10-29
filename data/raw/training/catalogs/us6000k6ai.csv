@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2023-04-22T08:21:42.086Z,-5.2356,125.5934,9.543,4.4,mb,22,72,4.354,0.38,us,us6000k6aj,2024-01-18T19:50:40.071Z,"Banda Sea",earthquake,7.78,4.328,0.134,16,reviewed,us,us
-2023-04-22T08:23:42.033Z,-5.2611,125.585,4,6.2,mww,163,37,4.366,0.57,us,us6000k6ai,2023-07-03T02:46:42.040Z,"Banda Sea",earthquake,6.72,1.838,0.052,35,reviewed,us,us
-2023-04-22T08:28:59.682Z,-5.2695,125.5677,10,5,mb,27,63,4.384,0.94,us,us7000jwm9,2024-01-18T19:50:41.673Z,"Banda Sea",earthquake,7.48,1.872,0.151,14,reviewed,us,us
-2023-04-22T09:15:53.309Z,-5.3494,125.6371,13.712,5.5,mww,97,38,4.33,0.52,us,us6000k6c4,2023-07-03T02:46:41.040Z,"Banda Sea",earthquake,7.16,4.171,0.052,35,reviewed,us,us
-2023-04-22T10:00:55.544Z,-5.3643,125.401,9.754,4,mb,16,102,4.505,0.46,us,us7000jwlw,2023-07-03T02:46:41.040Z,"Banda Sea",earthquake,8.82,4.56,0.232,10,reviewed,us,us

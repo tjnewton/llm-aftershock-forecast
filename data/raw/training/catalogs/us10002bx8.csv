@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2015-05-24T14:38:59.510Z,-19.3933,-175.9627,10,6.2,mww,,60,5.711,0.99,us,us10002bx8,2022-05-03T18:27:17.149Z,"175 km WNW of Pangai, Tonga",earthquake,7.6,1.7,,,reviewed,us,us

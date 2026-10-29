@@ -1,7 +1,0 @@
-model,arm,info,effort,max_tokens,non_monotone,ok
-allenai/Olmo-3.1-32B-Instruct,direct,I1,none,0.0,0.4396825396825397,0.5603174603174603
-claude-haiku-5-5,direct,I1,high,0.0,0.030303030303030304,0.9696969696969697
-claude-opus-5-5,direct,I1,high,0.0,0.0,1.0
-claude-sonnet-5-5,direct,I0,high,0.0,0.0,1.0
-claude-sonnet-5-5,direct,I1,high,0.0,0.0,1.0
-openai/gpt-oss-20b,direct,I1,medium,0.004761904761904762,0.0031746031746031746,0.9920634920634921

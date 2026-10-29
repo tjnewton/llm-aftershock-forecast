@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2022-02-22T06:12:50.740Z,-22.6664,-66.2663,251,6,mww,,33,1.787,0.42,us,us7000gmw3,2022-05-04T13:39:39.040Z,"58 km W of Abra Pampa, Argentina",earthquake,7.4,1.9,0.036,74,reviewed,us,us

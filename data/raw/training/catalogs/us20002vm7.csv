@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2015-07-07T05:10:28.120Z,43.9097,147.9748,49,6.3,mww,,33,3.887,1.26,us,us20002vm7,2022-07-31T17:11:45.997Z,"101 km E of Shikotan, Russia",earthquake,7.3,1.9,,,reviewed,us,us
-2015-07-11T11:27:00.200Z,43.8887,148.0107,40.56,5.2,mwb,,60,3.915,0.77,us,us20002wsa,2025-12-22T17:34:37.006Z,"104 km E of Shikotan, Russia",earthquake,7.8,4.3,0.089,12,reviewed,us,us

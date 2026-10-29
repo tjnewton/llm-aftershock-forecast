@@ -1,9 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2015-02-19T13:18:32.810Z,-16.4311,168.1483,10,6.4,mww,,33,1.335,1.02,us,usc000trf9,2022-05-03T18:22:31.721Z,"Vanuatu",earthquake,6.2,1.7,,,reviewed,us,us
-2015-02-19T13:23:17.300Z,-16.4536,168.109,10,5.2,mb,,205,1.326,0.8,us,usc000tsrf,2015-05-12T20:29:33.040Z,"83 km ESE of Lakatoro, Vanuatu",earthquake,9.8,2,0.166,12,reviewed,us,us
-2015-02-19T13:38:27.810Z,-16.4378,168.1927,10,4.9,mb,,111,1.369,0.75,us,usc000trfj,2015-05-12T20:29:33.040Z,"91 km ESE of Lakatoro, Vanuatu",earthquake,11,1.9,0.141,18,reviewed,us,us
-2015-02-19T14:32:41.570Z,-16.513,168.0905,10,5.4,mb,,38,1.36,1.2,us,usc000trgm,2020-07-10T19:20:32.117Z,"85 km ESE of Lakatoro, Vanuatu",earthquake,6.5,1.8,0.056,113,reviewed,us,us
-2015-02-19T17:41:55.580Z,-16.2646,168.1963,10,4.3,mb,,147,1.254,0.86,us,usc000tsr1,2015-05-12T20:29:33.040Z,"85 km ESE of Lakatoro, Vanuatu",earthquake,10.9,2,0.217,6,reviewed,us,us
-2015-02-19T19:54:48.740Z,-16.3811,168.0387,10,4.7,mb,,81,1.228,0.82,us,usc000tsr2,2015-05-12T20:29:33.040Z,"73 km ESE of Lakatoro, Vanuatu",earthquake,5.6,1.8,0.11,25,reviewed,us,us
-2015-02-19T19:56:35.590Z,-16.3938,168.0953,24.56,5.1,mb,,70,1.273,0.9,us,usc000trl8,2015-05-12T20:29:33.040Z,"79 km ESE of Lakatoro, Vanuatu",earthquake,4.5,5.2,0.065,83,reviewed,us,us
-2015-02-20T02:47:32.720Z,-16.3975,168.0916,10,4.7,mb,,81,1.274,0.66,us,usc000tssn,2015-05-12T20:29:34.040Z,"79 km ESE of Lakatoro, Vanuatu",earthquake,8.7,1.9,0.106,28,reviewed,us,us

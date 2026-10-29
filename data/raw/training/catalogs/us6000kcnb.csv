@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2023-05-17T23:01:59.919Z,15.1066,-90.8052,252,6.4,mww,349,37,1.556,0.86,us,us6000kcnb,2024-06-12T03:06:12.807Z,"8 km SE of Canillá, Guatemala",earthquake,6.92,1.674,0.024,174,reviewed,us,us

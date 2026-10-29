@@ -1,5 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2012-08-12T10:47:06.450Z,35.661,82.518,13,6.2,mww,471,14.5,,0.86,us,usp000jq7p,2024-06-17T19:55:48.504Z,"281 km SE of Hotan, China",earthquake,,,,,reviewed,us,us
-2012-08-14T20:32:57.370Z,35.624,82.505,6.3,4.7,mb,153,29.4,,0.88,us,usp000jqag,2014-11-07T01:48:34.464Z,"283 km SE of Hotan, China",earthquake,,10.3,,59,reviewed,us,us
-2012-08-14T22:51:27.810Z,35.666,82.664,10,4,mb,19,140,,1.28,us,usp000jqak,2014-11-07T01:48:34.485Z,"292 km SE of Hotan, China",earthquake,,,,4,reviewed,us,us
-2012-08-19T06:36:19.940Z,35.827,82.501,10,4.6,mb,21,121.1,,0.94,us,usp000jqgb,2014-11-07T01:48:35.747Z,"270 km ESE of Hotan, China",earthquake,,,,1,reviewed,us,us

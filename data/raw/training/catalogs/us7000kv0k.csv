@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2023-09-11T12:51:33.104Z,1.1246,127.4888,151,6,mww,128,22,0.371,0.89,us,us7000kv0k,2026-07-26T14:51:52.656Z,"38 km NNE of Ternate, Indonesia",earthquake,7.81,1.893,0.045,47,reviewed,us,us

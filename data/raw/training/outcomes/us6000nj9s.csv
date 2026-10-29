@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2024-08-10T03:28:32.681Z,47.223,144.7915,402.166,6.5,mww,157,17,1.405,0.75,us,us6000nj9s,2024-10-24T17:57:54.040Z,"151 km E of Dolinsk, Russia",earthquake,7.67,3.081,0.053,34,reviewed,us,us

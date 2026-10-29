@@ -1,8 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2019-11-24T00:54:01.053Z,51.3808,-175.5115,20,6.3,mww,,22,0.658,0.95,us,us70006cb6,2025-12-22T18:22:15.332Z,"95 km SE of Adak, Alaska",earthquake,3.9,1.8,0.031,99,reviewed,us,us
-2019-11-24T00:55:43.489Z,51.3415,-175.5028,25.66,4.5,ml,,319,0.696,0.37,us,us70006f4p,2020-02-14T22:02:30.040Z,"98 km SE of Adak, Alaska",earthquake,6.8,11.5,0.148,6,reviewed,us,us
-2019-11-24T00:56:33.414Z,51.2652,-175.4843,10,4,ml,,260,0.772,0.39,us,us70006f4q,2020-02-14T22:02:30.040Z,"Andreanof Islands, Aleutian Islands, Alaska",earthquake,2.9,1.9,0.128,8,reviewed,us,us
-2019-11-24T01:03:29.606Z,51.2786,-175.4414,10,4.2,mb,,209,0.769,0.91,us,us70006cby,2020-02-14T22:02:16.040Z,"105 km SE of Adak, Alaska",earthquake,3,1.9,0.128,17,reviewed,us,us
-2019-11-24T09:53:13.050Z,51.4624,-175.4016,35,4,mb,,187,0.617,0.64,us,us70006eit,2020-02-14T22:02:28.040Z,"96 km ESE of Adak, Alaska",earthquake,4.2,2,0.106,24,reviewed,us,us
-2019-11-24T16:21:06.727Z,51.3097,-175.4954,10,4.2,mb,,123,0.728,0.83,us,us70006chb,2020-02-14T22:02:18.040Z,"100 km SE of Adak, Alaska",earthquake,4.8,1.8,0.055,92,reviewed,us,us
-2019-12-05T16:15:47.741Z,51.3399,-175.5852,44.87,4,mb,,143,0.68,0.86,us,us60006pu7,2020-02-29T19:52:42.040Z,"93 km SE of Adak, Alaska",earthquake,4.7,8.8,0.07,55,reviewed,us,us

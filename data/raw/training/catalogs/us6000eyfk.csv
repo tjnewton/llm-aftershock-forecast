@@ -1,7 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2021-07-20T10:07:16.654Z,13.8005,120.8029,78.71,4.6,mb,,116,8.933,0.47,us,us6000ezem,2021-09-25T21:08:18.040Z,"11 km ESE of Hukay, Philippines",earthquake,10.3,8.7,0.105,28,reviewed,us,us
-2021-07-23T20:48:57.357Z,13.7047,120.7259,110,6.7,mww,,12,8.139,0.98,us,us6000eyfk,2025-12-22T19:04:48.334Z,"15 km S of Hukay, Philippines",earthquake,7.2,1.8,0.051,37,reviewed,us,us
-2021-07-23T20:57:18.713Z,13.7977,120.7434,120.58,5.8,mww,,19,8.203,0.84,us,us6000eyfn,2025-12-22T19:04:49.278Z,"6 km SE of Hukay, Philippines",earthquake,6.5,3,0.089,12,reviewed,us,us
-2021-07-24T09:43:35.089Z,13.7582,120.9719,121.88,4.5,mb,,111,16.126,0.45,us,us6000f0d1,2021-10-03T05:23:39.040Z,"3 km E of Mabini, Philippines",earthquake,11.5,8,0.087,43,reviewed,us,us
-2021-08-03T16:20:17.057Z,13.4827,120.8529,91.53,4.7,mb,,110,8.572,0.77,us,us6000f1wl,2021-10-14T01:06:24.040Z,"3 km E of Odala, Philippines",earthquake,10.4,8,0.054,106,reviewed,us,us
-2021-08-13T15:08:31.218Z,13.7016,120.7817,121,5.9,mww,,26,9.071,1.09,us,us6000f5na,2025-12-22T22:13:35.897Z,"10 km WNW of Tingloy, Philippines",earthquake,9.7,1.9,0.034,84,reviewed,us,us

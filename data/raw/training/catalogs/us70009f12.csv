@@ -1,5 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2020-05-12T22:41:12.177Z,-12.0665,166.6485,107,6.6,mww,,12,3.403,1.12,us,us70009f12,2025-12-22T18:35:32.511Z,"175 km SSE of Lata, Solomon Islands",earthquake,7.5,1.8,0.05,39,reviewed,us,us
-2020-05-12T23:50:06.445Z,-11.9289,166.7258,116.83,4.4,mb,,193,3.527,0.84,us,us70009kvk,2020-07-29T22:14:41.040Z,"167 km SE of Lata, Solomon Islands",earthquake,10.1,11.5,0.155,12,reviewed,us,us
-2020-05-19T10:11:41.801Z,-12.1142,166.9501,204.51,4.3,mb,,140,3.322,0.75,us,us6000a01p,2020-08-02T00:28:15.040Z,"198 km SE of Lata, Solomon Islands",earthquake,15.5,10.5,0.154,12,reviewed,us,us
-2020-06-02T02:59:56.918Z,-11.7315,166.6524,169.01,4.4,mb,,146,3.732,0.81,us,us6000a8nn,2020-08-15T20:20:03.040Z,"145 km SE of Lata, Solomon Islands",earthquake,10.7,8.1,0.13,17,reviewed,us,us

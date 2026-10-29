@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2018-10-30T02:13:39.480Z,-39.057,174.9584,225.48,6.1,mww,,21,0.549,0.87,us,us1000hiup,2022-05-03T19:57:31.338Z,"62 km E of Waitara, New Zealand",earthquake,6.4,3.1,0.043,53,reviewed,us,us

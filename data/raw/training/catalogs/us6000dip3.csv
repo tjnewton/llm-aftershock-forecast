@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2021-02-18T15:30:47.991Z,-14.8373,-176.7574,3.7,6.1,mww,,52,1.421,0.74,us,us6000dip3,2025-12-22T18:50:42.138Z,"157 km ESE of Alo, Wallis and Futuna",earthquake,6.9,1.4,0.063,24,reviewed,us,us

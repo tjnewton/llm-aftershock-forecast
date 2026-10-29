@@ -1,8 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2020-03-31T23:52:30.781Z,44.4646,-115.1175,12.06,6.5,mww,,31,0.885,0.66,us,us70008jr5,2026-08-20T18:46:41.123Z,"Stanley, Idaho",earthquake,8.5,3.8,0.021,212,reviewed,us,us
-2020-04-01T00:27:41.034Z,44.3232,-115.1673,10,4.8,mww,,39,0.935,0.81,us,us70008js1,2023-10-10T22:15:53.751Z,"21 km WNW of Stanley, Idaho",earthquake,2.9,1.8,0.11,8,reviewed,us,us
-2020-04-01T02:09:04.810Z,44.3437,-115.167,6.51,4.4,mwr,,37,0.951,0.75,us,us70008jtv,2020-06-21T00:54:27.040Z,"23 km NW of Stanley, Idaho",earthquake,3.2,5.1,0.039,62,reviewed,us,us
-2020-04-01T02:23:26.699Z,44.3232,-115.1185,13.89,4,mwr,,48,0.915,0.46,us,us70008juh,2020-06-21T00:54:27.040Z,"18 km NW of Stanley, Idaho",earthquake,1.2,10.2,,21,reviewed,us,slm
-2020-04-03T20:21:45.800Z,44.3263,-115.1512,10,4,mwr,,64,0.931,1.12,us,us70008mzy,2020-06-21T00:54:52.040Z,"20 km NW of Stanley, Idaho",earthquake,3.5,1.8,0.05,38,reviewed,us,us
-2020-04-11T17:57:38.911Z,44.3243,-115.1417,10,4.1,mwr,,28,0.299,0.59,us,us70008u2r,2020-06-30T14:02:58.040Z,"20 km NW of Stanley, Idaho",earthquake,2.5,1.9,0.036,76,reviewed,us,us
-2020-04-21T05:58:01.548Z,44.4179,-115.1849,10,4.1,mwr,,47,0.354,0.5,us,us700090vm,2020-07-09T14:31:39.040Z,"29 km NW of Stanley, Idaho",earthquake,2.5,2,0.032,96,reviewed,us,us

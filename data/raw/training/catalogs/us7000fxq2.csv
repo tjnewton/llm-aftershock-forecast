@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2021-11-28T10:52:14.579Z,-4.4667,-76.8126,126,7.5,mww,,40,4.951,0.61,us,us7000fxq2,2025-12-22T22:21:01.900Z,"43 km NNW of Barranca, Peru",earthquake,4.9,1.9,0.033,87,reviewed,us,us
-2021-12-13T13:28:45.519Z,-4.3694,-75.7891,98.98,4.5,mb,,150,9.269,1.22,us,us6000gbvm,2022-02-24T21:00:32.040Z,"northern Peru",earthquake,13.5,5.8,0.128,21,reviewed,us,us
-2021-12-19T08:32:25.987Z,-4.7063,-77.7356,73,4.1,mb,,123,2.594,0.84,us,us6000gdk5,2022-03-01T16:37:52.040Z,"115 km N of Yambrasbamba, Peru",earthquake,7.4,12.6,0.145,13,reviewed,us,us

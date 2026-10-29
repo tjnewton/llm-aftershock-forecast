@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2013-08-13T15:43:15.200Z,5.7732,-78.1999,12,6.7,mww,,22,3.741,0.84,us,usb000j275,2022-07-25T20:25:40.315Z,"101 km WSW of Bahía Solano, Colombia",earthquake,,1.7,,,reviewed,us,us
-2013-08-13T15:51:26.150Z,5.6728,-77.9933,10,4.9,mb,,152,3.923,0.94,us,usb000j7rb,2013-10-19T02:41:41.000Z,"near the west coast of Colombia",earthquake,,1.9,0.251,,reviewed,us,us
-2013-09-09T16:36:26.800Z,5.6991,-78.4518,25.06,4.5,mb,,63,3.708,1.2,us,usc000jwwv,2013-11-15T03:20:30.000Z,"129 km WSW of Bahía Solano, Colombia",earthquake,,5.4,0.272,,reviewed,us,us

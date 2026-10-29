@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2012-11-15T09:20:21.910Z,18.346,-100.382,53,6.1,mww,576,45.2,,1.18,us,usp000jvmk,2022-05-03T15:58:10.529Z,"8 km N of San José Poliutla, Mexico",earthquake,,,,,reviewed,us,us

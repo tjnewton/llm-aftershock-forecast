@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2013-10-24T19:25:10.930Z,-58.153,-12.7964,22.87,6.7,mww,,53,13.711,0.99,us,usc000kmfw,2022-05-03T16:31:22.816Z,"east of the South Sandwich Islands",earthquake,,2.3,,,reviewed,us,us

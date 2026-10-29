@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2021-11-09T02:53:49.853Z,11.155,-86.6938,17,5.9,mww,,28,1.079,0.91,us,us7000fsjc,2025-12-22T22:24:43.836Z,"72 km SSW of Masachapa, Nicaragua",earthquake,5.4,1.7,0.035,78,reviewed,us,us
-2021-11-09T06:24:20.708Z,11.138,-86.5678,20.62,5.7,mb,,87,1.027,0.59,us,us7000fsku,2025-12-22T22:24:45.524Z,"72 km S of Masachapa, Nicaragua",earthquake,5,4.2,0.023,656,reviewed,us,us
-2021-11-09T06:25:14.907Z,11.2198,-86.5255,20,6.3,mww,,89,0.962,0.68,us,us7000fskw,2025-12-22T22:15:20.188Z,"62 km S of Masachapa, Nicaragua",earthquake,6.6,1.9,0.032,94,reviewed,us,us
-2021-11-09T11:13:02.016Z,11.0436,-86.5091,35,4.8,mb,,135,0.979,0.56,us,us7000fsp1,2022-01-15T20:51:43.040Z,"near the coast of Nicaragua",earthquake,3.8,2,0.028,409,reviewed,us,us
-2021-12-05T00:47:07.217Z,11.2057,-86.5728,48.47,4.8,mb,,72,0.989,0.62,us,us6000g95x,2022-02-12T23:05:56.040Z,"64 km S of Masachapa, Nicaragua",earthquake,5.2,5.7,0.05,125,reviewed,us,us

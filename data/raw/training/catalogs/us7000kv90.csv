@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2023-09-11T17:30:11.743Z,19.1729,121.1431,37.809,4.9,mb,83,80,4.135,0.88,us,us7000kvye,2023-11-18T22:29:35.040Z,"62 km N of Namuac, Philippines",earthquake,9.13,5.093,0.048,135,reviewed,us,us
-2023-09-12T11:03:17.243Z,19.2355,121.2293,31.11,6.2,mww,275,21,4.083,0.51,us,us7000kv90,2023-11-18T22:29:33.040Z,"69 km N of Namuac, Philippines",earthquake,7.65,3.219,0.062,25,reviewed,us,us
-2023-09-17T02:58:11.429Z,19.1513,121.1799,35,4.5,mb,44,86,3.649,1.08,us,us7000kw9u,2023-12-02T23:01:06.040Z,"59 km N of Namuac, Philippines",earthquake,7.98,1.699,0.102,29,reviewed,us,us
-2023-10-04T03:35:10.800Z,19.2007,121.2365,27,5.7,mww,143,46,3.602,0.6,us,us6000lcpc,2023-12-14T21:26:52.040Z,"Babuyan Islands region, Philippines",earthquake,7.39,1.739,0.046,45,reviewed,us,us
-2023-10-04T03:42:17.069Z,19.0726,121.3128,34.131,4.3,mb,20,130,3.733,0.7,us,us6000leb6,2023-12-14T21:26:56.040Z,"53 km NNE of Namuac, Philippines",earthquake,11.21,5.44,0.188,8,reviewed,us,us

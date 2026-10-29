@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2024-12-13T23:38:18.234Z,-35.33,-70.7256,109,6.4,mww,93,61,0.538,0.71,us,us7000nyqr,2025-08-08T12:19:38.293Z,"56 km ESE of Molina, Chile",earthquake,6.16,1.878,0.032,94,reviewed,us,us

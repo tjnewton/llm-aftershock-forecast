@@ -1,8 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2021-10-02T06:29:17.897Z,-21.1265,174.8958,527,7.3,mww,,32,4.493,0.67,us,us6000fr0b,2025-12-22T22:14:54.698Z,"Vanuatu region",earthquake,9.7,1.9,0.039,64,reviewed,us,us
-2021-10-02T06:45:24.520Z,-21.5682,174.6855,526.45,4.7,mb,,133,4.953,0.46,us,us6000fr0v,2021-12-10T21:14:03.040Z,"Vanuatu region",earthquake,8.3,10.8,0.099,31,reviewed,us,us
-2021-10-02T07:14:49.813Z,-21.0959,175.3321,565.9,4.3,mb,,83,4.207,1.01,us,us6000fr1l,2021-12-10T21:14:03.040Z,"south of the Fiji Islands",earthquake,12.2,9.3,0.068,61,reviewed,us,us
-2021-10-02T11:01:19.943Z,-21.2444,174.4467,516.74,4.1,mb,,135,4.867,0.54,us,us6000fsm3,2021-12-10T21:14:18.040Z,"Vanuatu region",earthquake,10.8,12.5,0.117,22,reviewed,us,us
-2021-10-02T14:48:36.102Z,-21.214,174.5152,526.46,4.3,mb,,96,4.8,0.6,us,us6000fsm7,2021-12-10T21:14:18.040Z,"Vanuatu region",earthquake,10.5,11.2,0.102,28,reviewed,us,us
-2021-10-09T10:58:31.956Z,-21.1889,174.5221,535,6.9,mww,,31,4.778,0.64,us,us6000ft9g,2025-12-22T22:17:36.329Z,"Vanuatu region",earthquake,9.7,1.9,0.05,38,reviewed,us,us
-2021-10-12T06:04:10.667Z,-21.3891,174.4475,519.47,5.4,mww,,42,4.969,0.46,us,us6000ftx1,2025-12-22T22:22:41.203Z,"Vanuatu region",earthquake,10.3,7.2,0.078,16,reviewed,us,us

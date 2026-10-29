@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2021-09-20T20:25:26.525Z,46.3926,152.4879,35,6.1,mww,,14,6.717,1.18,us,us7000fczf,2025-12-22T22:16:37.630Z,"Kuril Islands",earthquake,7.5,1.8,0.037,70,reviewed,us,us

@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2019-11-20T04:27:05.252Z,13.8859,-93.2068,15,6.3,mww,,56,1.365,0.79,us,us70006a6q,2025-12-22T18:49:14.676Z,"125 km SW of Puerto Madero, Mexico",earthquake,4.4,1.5,0.032,96,reviewed,us,us
-2019-11-20T11:30:55.920Z,13.8884,-93.1553,10,5.3,mww,,87,1.33,0.75,us,us70006ad6,2025-12-22T18:22:03.291Z,"121 km SW of Puerto Madero, Mexico",earthquake,5,1.7,0.041,57,reviewed,us,us
-2019-11-20T11:50:59.766Z,13.8264,-93.1679,10,4.1,mb,,182,1.386,0.79,us,us60006phs,2020-02-14T22:02:03.040Z,"127 km SW of Puerto Madero, Mexico",earthquake,6.1,2,0.303,3,reviewed,us,us

@@ -1,7 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2016-12-08T05:15:04.600Z,43.8229,86.3451,17.55,6,mww,,25,4.123,0.82,us,us20007z2r,2022-05-03T18:04:17.698Z,"58 km SSE of Shihezi, China",earthquake,7.4,2.9,,,reviewed,us,us
-2016-12-08T09:02:39.430Z,43.8027,86.4827,10,4.4,mb,,93,4.206,1.46,us,us20007z45,2017-03-03T07:06:08.040Z,"66 km SSE of Shihezi, China",earthquake,9.8,1.9,0.178,9,reviewed,us,us
-2016-12-08T11:30:31.890Z,43.9045,86.3852,10,4.5,mb,,91,4.083,1.28,us,us20007z4w,2017-03-03T07:06:08.040Z,"52 km SSE of Shihezi, China",earthquake,9,1.9,0.145,14,reviewed,us,us
-2016-12-08T15:23:16.350Z,43.8627,86.3671,24.45,4.9,mb,,53,4.105,1.13,us,us20007z6z,2017-03-03T07:06:08.040Z,"55 km SSE of Shihezi, China",earthquake,7.5,5.4,0.062,82,reviewed,us,us
-2016-12-08T15:57:56.900Z,43.8451,86.1932,36.88,4.7,mb,,54,4.033,0.75,us,us20007z74,2017-03-03T07:06:08.040Z,"52 km SSE of Shihezi, China",earthquake,7.7,6.9,0.057,94,reviewed,us,us
-2017-01-02T08:55:29.870Z,43.8508,86.2733,35,4.6,mb,,48,4.067,0.82,us,us10007p6t,2017-03-27T23:53:18.040Z,"53 km SSE of Shihezi, China",earthquake,4.9,2,0.068,64,reviewed,us,us

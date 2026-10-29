@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2018-12-19T01:37:40.500Z,-36.1378,-101.0723,10,6.3,mww,,25,11.408,1.16,us,us2000iuya,2022-05-03T19:42:03.901Z,"southeast of Easter Island",earthquake,5.6,1.7,0.057,30,reviewed,us,us

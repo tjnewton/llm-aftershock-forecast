@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2012-04-11T22:55:10.250Z,18.229,-102.689,20,6.5,mwb,599,54.1,,0.98,us,usp000jhpj,2022-05-03T15:36:02.702Z,"41 km NW of El Habillal, Mexico",earthquake,,,,,reviewed,us,us

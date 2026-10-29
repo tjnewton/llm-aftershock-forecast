@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2011-07-16T19:59:12.890Z,54.787,-161.29,36,6.1,mww,720,47.6,,1.36,us,usp000j51f,2022-04-08T21:55:19.902Z,"72 km ESE of King Cove, Alaska",earthquake,,,,,reviewed,us,us
-2011-07-22T09:43:11.080Z,54.901,-161.337,35,5.1,mwc,236,132.5,,1.26,us,usp000j5an,2022-04-08T21:55:28.519Z,"65 km ESE of King Cove, Alaska",earthquake,,,,,reviewed,us,gcmt
-2011-07-22T20:31:13.560Z,54.833,-161.141,53.8,4,mb,79,143.5,,1.17,us,usp000j5bg,2018-07-06T23:43:45.107Z,"69 km SW of Sand Point, Alaska",earthquake,,4.5,,3,reviewed,us,us
-2011-07-23T06:28:34.630Z,54.695,-161.148,22.8,5.7,mwc,518,36.6,,,us,usp000j5c4,2022-04-08T21:57:48.825Z,"82 km SSW of Sand Point, Alaska",earthquake,,,,,reviewed,aeic,gcmt
-2011-07-23T16:13:39.680Z,54.761,-161.196,33.4,4.2,mb,96,93.1,,,us,usp000j5cm,2018-07-06T23:43:53.452Z,"78 km SW of Sand Point, Alaska",earthquake,,,,2,reviewed,aeic,us

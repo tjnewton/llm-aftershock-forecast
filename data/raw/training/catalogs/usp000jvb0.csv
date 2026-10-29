@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2012-11-10T14:57:50.740Z,-8.866,-75.071,129,6,mww,524,23.3,,0.8,us,usp000jvb0,2024-06-17T20:35:23.552Z,"16 km ESE of San Alejandro, Peru",earthquake,,,,,reviewed,us,us

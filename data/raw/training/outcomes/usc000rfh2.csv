@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2014-06-14T11:10:59.850Z,-10.1229,91.0921,4,6.5,mww,,23,5.998,0.85,us,usc000rfh2,2022-05-03T16:54:39.775Z,"South Indian Ocean",earthquake,,1.6,,,reviewed,us,us
-2014-06-14T15:27:26.740Z,-10.2061,91.1007,10,4.5,mb,,203,13.126,0.75,us,usc000rmng,2014-09-12T15:47:59.000Z,"South Indian Ocean",earthquake,,2,0.221,9,reviewed,us,us

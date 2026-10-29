@@ -1,7 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2016-10-21T05:07:22.990Z,35.3743,133.8092,5.63,6.2,mww,,23,0.68,0.75,us,us20007fta,2023-02-08T23:44:57.663Z,"6 km S of Kurayoshi, Japan",earthquake,4.3,3.3,,,reviewed,us,us
-2016-10-21T05:30:07.340Z,35.5001,133.5914,10,4.1,mb,,103,0.632,0.57,us,us1000773m,2017-01-20T00:30:59.040Z,"21 km WNW of Kurayoshi, Japan",earthquake,5.3,2,0.261,4,reviewed,us,us
-2016-10-21T05:33:58.790Z,35.3563,133.8545,10,4,mb,,67,0.702,0.73,us,us1000773r,2017-01-20T00:30:59.040Z,"9 km SSE of Kurayoshi, Japan",earthquake,3.8,2,0.299,3,reviewed,us,us
-2016-10-21T05:46:22.110Z,35.3851,133.9076,10,4,mb,,91,0.754,0.78,us,us1000773y,2017-01-20T00:30:59.040Z,"9 km ESE of Kurayoshi, Japan",earthquake,4.7,2,0.3,3,reviewed,us,us
-2016-10-21T05:53:18.150Z,35.366,133.8022,10,4.6,mb,,65,0.67,0.67,us,us20007ftj,2017-01-20T00:30:59.040Z,"7 km S of Kurayoshi, Japan",earthquake,1.5,1.9,0.102,29,reviewed,us,us
-2016-10-29T04:43:39.370Z,35.3705,133.7508,10,4.2,mb,,64,0.638,0.74,us,us100072wp,2017-01-24T02:02:08.040Z,"9 km SW of Kurayoshi, Japan",earthquake,4.3,1.9,0.2,7,reviewed,us,us

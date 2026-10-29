@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2024-10-01T09:28:05.313Z,-5.9828,124.8988,576,6.1,mww,213,23,3.73,0.5,us,us7000nhex,2024-12-14T14:50:55.040Z,"260 km ESE of Baubau, Indonesia",earthquake,9.16,1.954,0.04,61,reviewed,us,us

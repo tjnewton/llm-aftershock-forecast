@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2023-05-21T14:56:48.208Z,-43.3991,39.3035,28,6.8,mww,82,33,9.411,0.96,us,us6000kdmq,2023-07-29T22:00:26.040Z,"Prince Edward Islands region",earthquake,9.75,1.845,0.071,19,reviewed,us,us
-2023-05-21T16:36:49.510Z,-43.2325,39.3316,10,4.7,mb,21,54,9.459,0.65,us,us7000k48b,2023-07-29T22:00:41.040Z,"Prince Edward Islands region",earthquake,11.94,1.855,0.138,16,reviewed,us,us
-2023-05-21T17:23:20.311Z,-43.8739,39.3827,10,5.1,mb,73,39,9.181,0.89,us,us6000kdpx,2024-01-18T19:59:01.072Z,"Prince Edward Islands region",earthquake,10.36,1.734,0.083,47,reviewed,us,us
-2023-05-21T20:01:37.187Z,-43.8428,39.3149,10,4.4,mb,13,114,18.474,0.61,us,us7000k48i,2023-07-29T22:00:41.040Z,"Prince Edward Islands region",earthquake,12.97,1.94,0.169,10,reviewed,us,us
-2023-05-26T21:33:47.334Z,-43.1776,39.1764,10,5,mb,71,24,9.585,0.59,us,us7000k4cn,2023-07-29T22:00:43.040Z,"Prince Edward Islands region",earthquake,3.17,1.824,0.068,69,reviewed,us,us

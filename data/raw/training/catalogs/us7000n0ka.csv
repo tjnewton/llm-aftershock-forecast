@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2024-07-21T02:53:48.910Z,14.6445,-89.9316,272,6.2,mww,138,29,0.56,1.04,us,us7000n0ka,2024-10-08T16:17:55.257Z,"6 km E of Jalapa, Guatemala",earthquake,7.64,1.867,0.025,155,reviewed,us,us

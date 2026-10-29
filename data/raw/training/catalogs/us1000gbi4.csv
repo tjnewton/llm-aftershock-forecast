@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2018-08-17T15:35:01.890Z,-7.3718,119.8017,529,6.5,mww,,23,2.719,0.98,us,us1000gbi4,2022-05-03T20:03:34.899Z,"124 km N of Labuan Bajo, Indonesia",earthquake,8.8,1.9,0.045,48,reviewed,us,us

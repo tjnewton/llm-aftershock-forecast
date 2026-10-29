@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2014-07-20T18:32:47.790Z,44.6419,148.7838,61,6.2,mww,,16,4.468,1.07,us,usb000ruu6,2022-07-26T20:04:21.103Z,"96 km SE of Kuril’sk, Russia",earthquake,,1.8,,,reviewed,us,us

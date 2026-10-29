@@ -1,7 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2010-02-22T07:00:51.320Z,-23.626,-176.036,15,6,mwc,251,53.2,,0.81,us,usp000h7j9,2022-05-02T22:37:41.740Z,"277 km SSW of ‘Ohonua, Tonga",earthquake,,,,,reviewed,us,us
-2010-02-22T07:24:45.680Z,-23.738,-175.917,35,5.6,mwc,131,51.7,,0.85,us,usp000h7jb,2022-05-02T22:32:50.238Z,"284 km SSW of ‘Ohonua, Tonga",earthquake,,,,,reviewed,us,gcmt
-2010-02-22T08:42:39.500Z,-23.66,-175.915,35,5.5,mwc,90,76.3,,0.73,us,usp000h7je,2025-12-22T15:44:34.303Z,"276 km SSW of ‘Ohonua, Tonga",earthquake,,,,,reviewed,us,gcmt
-2010-02-22T18:43:50.950Z,-23.687,-175.88,30.8,5,mwc,62,110.9,,1.01,us,usp000h7k0,2025-12-22T15:44:37.766Z,"277 km SSW of ‘Ohonua, Tonga",earthquake,,4.1,,,reviewed,us,gcmt
-2010-02-23T05:55:40.750Z,-23.698,-175.903,35,4.8,mb,34,83.6,,1.1,us,usp000h7ke,2014-11-07T01:40:44.368Z,"279 km SSW of ‘Ohonua, Tonga",earthquake,,,,7,reviewed,us,us
-2010-02-23T17:54:12.290Z,-23.644,-176.016,30,4.5,mb,12,209.6,,1.29,us,usp000h7me,2014-11-07T01:40:44.595Z,"278 km SSW of ‘Ohonua, Tonga",earthquake,,0,,4,reviewed,us,us

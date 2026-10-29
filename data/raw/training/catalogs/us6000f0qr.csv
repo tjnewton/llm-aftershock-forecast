@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2021-07-30T17:10:19.554Z,-4.9149,-80.6156,34,6.2,mww,,18,3.121,0.81,us,us6000f0qr,2025-12-22T22:12:45.291Z,"7 km E of Sullana, Peru",earthquake,3.5,1.7,0.041,58,reviewed,us,us
-2021-07-30T20:14:09.676Z,-4.8975,-80.6482,39.42,4.5,mb,,96,3.156,0.72,us,us6000f2qt,2021-10-14T01:08:08.040Z,"4 km E of Sullana, Peru",earthquake,8.8,5.8,0.069,63,reviewed,us,us
-2021-08-01T07:07:14.692Z,-4.9081,-80.6564,35,4.3,mb,,65,4.677,0.46,us,us6000f168,2022-08-09T06:20:43.907Z,"3 km E of Sullana, Peru",earthquake,4.2,2,0.122,19,reviewed,us,us
-2021-08-16T06:50:04.368Z,-4.9599,-80.6521,62.99,4.6,mb,,102,4.721,0.56,us,us6000f6ux,2021-10-29T14:46:20.040Z,"7 km SSE of Sullana, Peru",earthquake,3.8,7.4,0.033,273,reviewed,us,us
-2021-08-17T18:59:39.576Z,-4.8526,-80.4082,73.56,4.5,mb,,142,3.025,0.49,us,us6000f7mz,2021-10-29T14:46:25.040Z,"10 km NW of Tambo Grande, Peru",earthquake,5.1,7.9,0.057,94,reviewed,us,us

@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2017-04-15T08:19:43.390Z,-23.2653,-67.7225,155,6.3,mww,,24,1.273,1.14,us,us10008hu2,2022-05-03T18:58:06.274Z,"62 km SE of San Pedro de Atacama, Chile",earthquake,6.5,1.9,0.035,78,reviewed,us,us

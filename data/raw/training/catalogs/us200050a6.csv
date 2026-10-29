@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2016-02-15T15:02:32.890Z,-20.9981,-175.4788,10,6,mww,,47,5.558,0.65,us,us200050a6,2022-08-02T10:05:33.379Z,"32 km WNW of Haveluloto, Tonga",earthquake,8.9,1.8,,,reviewed,us,us
-2016-02-16T14:14:11.880Z,-20.8594,-175.4591,10,4.5,mb,,119,5.497,1.17,us,us10004r1i,2016-04-26T23:28:23.040Z,"40 km NW of Nuku‘alofa, Tonga",earthquake,7.9,1.9,0.191,8,reviewed,us,us

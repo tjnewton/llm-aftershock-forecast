@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2019-11-05T23:17:26.588Z,-13.7988,167.7494,19,6,mww,,38,1.721,0.9,us,us700063rx,2025-12-22T18:27:48.078Z,"23 km ENE of Sola, Vanuatu",earthquake,9.2,1.8,0.065,23,reviewed,us,us
-2019-11-05T23:34:15.763Z,-13.6814,167.7218,10,5,mb,,59,1.825,0.95,us,us700063s8,2025-12-22T18:20:52.421Z,"28 km NE of Sola, Vanuatu",earthquake,7.8,0.8,0.049,133,reviewed,us,us
-2019-11-06T00:39:09.303Z,-13.7208,167.8086,10,6,mww,,36,1.813,1.07,us,us700063sp,2025-12-22T18:20:53.623Z,"Vanuatu",earthquake,8,1.7,0.061,26,reviewed,us,us
-2019-11-17T16:38:49.189Z,-13.6642,167.7843,10,4.9,mb,,66,1.859,1.03,us,us7000696d,2025-12-22T18:21:51.332Z,"34 km NE of Sola, Vanuatu",earthquake,7.4,1.9,0.069,71,reviewed,us,us
-2019-11-27T16:43:53.204Z,-13.8571,167.8618,10,4.3,mb,,240,1.704,0.93,us,us60006pcx,2020-02-19T18:57:55.040Z,"33 km E of Sola, Vanuatu",earthquake,5.9,2,0.188,8,reviewed,us,us

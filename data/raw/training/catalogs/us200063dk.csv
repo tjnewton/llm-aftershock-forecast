@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2016-06-10T04:17:44.840Z,-8.6757,160.559,30.4,6.2,mww,,13,0.969,1.02,us,us200063dk,2022-08-03T01:20:58.712Z,"18 km WNW of Auki, Solomon Islands",earthquake,6.7,3.4,,,reviewed,us,us
-2016-06-13T10:17:05.340Z,-8.5454,160.4813,43.99,4.8,mb,,98,1.032,1.41,us,us2000642a,2022-08-03T01:39:03.906Z,"34 km NW of Auki, Solomon Islands",earthquake,5.9,5.6,0.066,71,reviewed,us,us
-2016-06-15T16:35:13.180Z,-8.7172,160.7217,35,4.2,mb,,140,1.048,1.29,us,us200065rj,2016-08-25T01:22:57.040Z,"6 km NNE of Auki, Solomon Islands",earthquake,9.8,2,0.167,10,reviewed,us,us

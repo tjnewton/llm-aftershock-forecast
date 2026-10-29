@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2014-09-25T09:13:50.000Z,-9.4618,156.4122,4,6.1,mww,,21,3.488,1.25,us,usb000sftz,2022-05-03T17:03:02.333Z,"157 km SSW of Gizo, Solomon Islands",earthquake,7.1,1.7,,,reviewed,us,us

@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2021-04-10T09:30:43.306Z,4.1322,124.6443,300,6.1,mww,,19,3.062,0.98,us,us6000e0k5,2025-12-22T18:56:06.355Z,"167 km SSW of Sarangani, Philippines",earthquake,7.2,1.9,0.036,73,reviewed,us,us

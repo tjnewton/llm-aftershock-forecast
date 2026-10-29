@@ -1,5 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2010-12-23T12:24:21.330Z,52.927,171.091,24.7,4.8,mb,165,110.2,,0.98,us,usp000hrpj,2018-07-06T22:28:48.205Z,"141 km W of Attu Station, Alaska",earthquake,,5,,91,reviewed,us,us
-2010-12-23T14:00:32.330Z,53.127,171.161,18,6.4,mwc,559,31.1,,0.91,us,usp000hrpy,2022-05-02T22:29:51.766Z,"139 km WNW of Attu Station, Alaska",earthquake,,,,,reviewed,us,gcmt
-2010-12-24T00:39:22.830Z,52.881,171.094,23.2,5,mwc,266,49,,0.83,us,usp000hrrt,2025-12-22T15:56:05.381Z,"140 km W of Attu Station, Alaska",earthquake,,3.1,,,reviewed,us,gcmt
-2010-12-30T06:56:33.060Z,53.113,171.428,10,5.3,mwb,323,65.4,,,us,usp000hs9q,2025-12-22T15:56:33.538Z,"121 km WNW of Attu Station, Alaska",earthquake,,,,,reviewed,aeic,us

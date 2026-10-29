@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2022-12-28T16:34:19.271Z,-21.2566,171.3773,4,6.1,mww,221,23,3.891,0.56,us,us7000j0n4,2024-01-18T19:06:40.959Z,"289 km SE of Isangel, Vanuatu",earthquake,7.23,1.746,0.047,44,reviewed,us,us

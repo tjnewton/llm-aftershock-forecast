@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2023-02-17T09:37:34.656Z,-6.6176,132.106,39.742,6.1,mww,177,32,3.022,0.56,us,us6000jpl7,2024-10-09T15:30:05.894Z,"130 km SSW of Tual, Indonesia",earthquake,6.77,6.347,0.047,44,reviewed,us,us

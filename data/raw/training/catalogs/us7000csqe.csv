@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2020-12-20T17:23:22.668Z,40.8667,142.5814,35,6.3,mww,,33,1.153,1.07,us,us7000csqe,2025-12-22T17:59:35.633Z,"100 km ENE of Hachinohe, Japan",earthquake,6.8,1.9,0.041,57,reviewed,us,us

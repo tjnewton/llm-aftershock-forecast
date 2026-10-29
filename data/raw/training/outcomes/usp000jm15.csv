@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2012-05-28T05:07:23.450Z,-28.043,-63.094,586.9,6.7,mww,548,21.3,,0.82,us,usp000jm15,2022-05-03T15:40:59.561Z,"35 km ESE of Suncho Corral, Argentina",earthquake,,,,,reviewed,us,us
-2012-05-28T11:50:55.150Z,-28.094,-63.079,580.6,4.9,mb,440,22.3,,0.79,us,usp000jm1j,2022-05-03T15:41:00.816Z,"38 km ESE of Suncho Corral, Argentina",earthquake,,2.7,,273,reviewed,us,us

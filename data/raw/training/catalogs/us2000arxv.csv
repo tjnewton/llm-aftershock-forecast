@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2017-09-20T16:37:16.360Z,37.9814,144.6601,11,6.1,mww,,18,3.062,0.78,us,us2000arxv,2022-05-03T18:37:19.819Z,"282 km ESE of Kamaishi, Japan",earthquake,6.9,1.5,0.047,44,reviewed,us,us
-2017-09-21T23:43:04.370Z,38.0777,144.5693,10,4.4,mb,,163,2.994,0.62,us,us2000awq8,2017-12-19T01:54:11.040Z,"270 km ESE of Kamaishi, Japan",earthquake,3.4,1.9,0.118,21,reviewed,us,us

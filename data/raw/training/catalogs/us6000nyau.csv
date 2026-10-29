@@ -1,9 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2024-10-08T20:25:44.530Z,10.4321,-86.291,10,4.5,mwr,103,203,0.946,0.62,us,us6000nxe5,2024-12-23T15:46:07.040Z,"51 km WNW of Tamarindo, Costa Rica",earthquake,6.97,1.951,0.098,10,reviewed,us,us
-2024-10-11T20:40:28.688Z,10.396,-86.2408,15.048,4.6,mb,90,191,1.014,1.09,us,us6000ny6e,2024-12-23T15:46:56.040Z,"45 km WNW of Tamarindo, Costa Rica",earthquake,6.18,5.817,0.054,102,reviewed,us,us
-2024-10-12T17:43:44.516Z,10.4967,-86.1497,16,6.2,mww,221,32,0.889,0.84,us,us6000nyau,2025-02-18T21:22:42.038Z,"40 km WNW of Tamarindo, Costa Rica",earthquake,5.62,1.477,0.03,110,reviewed,us,us
-2024-10-12T18:12:08.526Z,10.4847,-86.0786,43.897,4.7,mb,109,144,0.831,0.57,us,us6000nyb0,2024-12-23T15:47:10.040Z,"33 km NW of Tamarindo, Costa Rica",earthquake,5.9,8.372,0.049,128,reviewed,us,us
-2024-10-13T22:05:36.349Z,10.4931,-86.1153,18.809,4.3,mb,33,184,0.86,0.67,us,us6000nyhn,2024-12-23T15:47:28.040Z,"36 km NW of Tamarindo, Costa Rica",earthquake,8.04,8.575,0.142,14,reviewed,us,us
-2024-10-15T00:10:49.978Z,10.3705,-86.3117,10,4.7,mb,91,178,1.087,0.99,us,us6000nyqq,2024-12-26T23:03:57.040Z,"52 km W of Tamarindo, Costa Rica",earthquake,4.09,1.324,0.065,71,reviewed,us,us
-2024-10-28T03:01:12.023Z,10.545,-86.0988,10,4.3,mwr,88,136,1.156,0.73,us,us7000nnk5,2025-01-16T18:44:04.040Z,"39 km NW of Tamarindo, Costa Rica",earthquake,6.1,1.914,0.08,15,reviewed,us,us
-2024-11-02T18:08:51.383Z,10.4459,-86.2062,10,4.3,mwr,84,183,0.878,0.69,us,us7000npkh,2025-01-16T18:47:18.040Z,"43 km WNW of Tamarindo, Costa Rica",earthquake,4.45,1.936,0.078,16,reviewed,us,us

@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2010-05-19T10:30:10.400Z,-54.8,-135.252,10,6,mwc,90,35.2,,1.28,us,usp000hcxv,2022-05-02T22:35:59.356Z,"Pacific-Antarctic Ridge",earthquake,,,,,reviewed,us,gcmt
-2010-05-19T10:51:03.080Z,-54.843,-135.398,10,6,mwc,97,37.9,,1.44,us,usp000hcxy,2022-05-02T21:56:26.486Z,"Pacific-Antarctic Ridge",earthquake,,,,,reviewed,us,gcmt

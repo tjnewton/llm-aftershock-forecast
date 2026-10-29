@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2019-05-06T21:19:37.983Z,-6.9746,146.4494,146,7.1,mww,,16,2.514,1.02,us,us70003hqb,2025-12-22T17:54:41.705Z,"32 km NW of Bulolo, Papua New Guinea",earthquake,6.6,1.6,0.032,93,reviewed,us,us

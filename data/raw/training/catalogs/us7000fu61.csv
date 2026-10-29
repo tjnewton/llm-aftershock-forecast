@@ -1,8 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2021-11-14T21:58:55.467Z,-37.5796,51.1794,10,5.1,mww,,45,8.858,0.76,us,us7000fu43,2025-12-22T22:20:08.069Z,"South Indian Ocean",earthquake,8.9,1.7,0.093,11,reviewed,us,us
-2021-11-14T22:08:02.320Z,-37.6598,51.3141,10,4.8,mb,,70,17.956,0.88,us,us7000fv8a,2022-01-22T20:52:06.040Z,"South Indian Ocean",earthquake,12.1,1.8,0.154,17,reviewed,us,us
-2021-11-15T04:23:30.468Z,-37.5124,51.2613,10,6,mww,,19,8.922,0.88,us,us7000fu61,2025-12-22T22:20:09.132Z,"South Indian Ocean",earthquake,8,1.2,0.05,39,reviewed,us,us
-2021-11-15T04:40:01.236Z,-37.6443,51.2595,10,4.4,mb,,86,8.79,0.74,us,us7000fvgd,2022-01-22T20:52:07.040Z,"South Indian Ocean",earthquake,14.1,1.9,0.203,7,reviewed,us,us
-2021-11-15T04:52:36.095Z,-37.6221,51.3821,10,4.7,mb,,50,8.808,0.84,us,us7000fu8r,2022-01-22T20:51:53.040Z,"South Indian Ocean",earthquake,10,1.8,0.079,49,reviewed,us,us
-2021-11-15T06:12:59.889Z,-37.6062,51.1316,10,4.4,mb,,61,8.834,0.33,us,us7000fu7r,2022-01-22T20:51:53.040Z,"South Indian Ocean",earthquake,6.8,1.9,0.117,21,reviewed,us,us
-2021-11-15T07:13:32.121Z,-37.5498,51.1517,10,5,mb,,52,8.889,0.38,us,us7000fvgn,2022-01-22T20:52:08.040Z,"South Indian Ocean",earthquake,9.7,1.8,0.133,19,reviewed,us,us

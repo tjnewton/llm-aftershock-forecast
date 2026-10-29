@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2019-09-19T07:06:33.291Z,-6.0708,111.8422,610,6.1,mww,,19,1.698,0.97,us,us60005kta,2025-12-22T18:17:02.566Z,"81 km NNE of Lasem, Indonesia",earthquake,8.8,2,0.038,66,reviewed,us,us
-2019-09-19T07:32:01.582Z,-6.0586,111.8877,617.56,5.9,mww,,19,1.742,0.87,us,us60005ku0,2025-12-22T17:55:34.926Z,"85 km NE of Lasem, Indonesia",earthquake,9.3,3.7,0.048,41,reviewed,us,us
-2019-09-19T07:32:58.793Z,-6.0534,111.8968,636.41,5.6,mb,,25,1.752,0.69,us,us60005kuc,2025-12-22T19:05:01.182Z,"86 km NE of Lasem, Indonesia",earthquake,9.9,6.7,0.066,82,reviewed,us,us

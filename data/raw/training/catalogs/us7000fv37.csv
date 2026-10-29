@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2021-11-18T14:08:04.800Z,-5.3122,153.7074,34,6.2,mww,,17,1.899,1.12,us,us7000fv37,2025-12-22T22:20:25.969Z,"192 km SE of Kokopo, Papua New Guinea",earthquake,7.1,1.8,0.093,11,reviewed,us,us

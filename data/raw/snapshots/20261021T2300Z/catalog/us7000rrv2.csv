@@ -1,9 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2026-01-24T21:25:38.988Z,51.9223,-176.0693,61.185,5.3,mww,123,75,0.103,0.8,us,us7000rrv2,2026-10-17T21:35:49.418Z,"39 km E of Adak, Alaska",earthquake,5.63,2.753,0.047,44,reviewed,us,us
-2026-01-26T07:11:31.775Z,51.7176,-176.0057,50.754,3.2,ml,24,199,0.274,0.5,us,us6000s4vw,2026-04-21T16:27:52.040Z,"46 km ESE of Adak, Alaska",earthquake,9.59,17.416,0.091,16,reviewed,us,us
-2026-02-01T12:43:08.296Z,51.8631,-176.0392,61.756,5.1,mb,112,108,0.142,0.79,us,us6000s5ul,2026-04-23T20:43:19.040Z,"40 km E of Adak, Alaska",earthquake,6.21,3.407,0.028,398,reviewed,us,us
-2026-02-13T03:19:43.743Z,51.8274,-175.9863,61.635,3.9,mb,47,139,0.164,0.79,us,us6000s8pl,2026-07-01T23:56:53.614Z,"44 km E of Adak, Alaska",earthquake,7.29,5.74,0.088,35,reviewed,us,us
-2026-02-17T16:35:25.777Z,51.9812,-176.1193,145.13,3.7,mb,53,157,0.036,0.33,us,us6000sa4f,2026-07-09T17:52:21.298Z,"37 km ENE of Adak, Alaska",earthquake,12.5,4.609,0.115,20,reviewed,us,us
-2026-02-17T23:17:00.774Z,51.7835,-175.9552,59.611,4,mb,51,180,0.204,0.67,us,us6000s9w6,2026-07-09T17:00:33.366Z,"47 km ESE of Adak, Alaska",earthquake,5.24,3.343,0.1,27,reviewed,us,us
-2026-03-15T06:37:45.571Z,51.8028,-175.9992,77.94,3.4,ml,22,190,0.19,0.26,us,us6000sgrp,2026-08-03T17:53:51.777Z,"44 km E of Adak, Alaska",earthquake,7.79,6.788,0.085,18,reviewed,us,us
-2026-04-07T00:55:59.011Z,52.035,-175.7553,152.672,4,mb,51,165,0.116,0.29,us,us6000sn5f,2026-09-23T18:21:11.125Z,"63 km ENE of Adak, Alaska",earthquake,9.69,3.955,0.118,19,reviewed,us,us

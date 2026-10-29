@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2016-09-08T21:46:20.100Z,-54.6136,158.7126,10,6.1,mww,,45,0.182,0.81,us,us10006n6r,2022-05-03T18:54:58.370Z,"Macquarie Island region",earthquake,7.3,1.6,,,reviewed,us,us
-2016-09-09T04:17:53.460Z,-54.5063,158.9826,10,4.5,mb,,60,0.017,0.64,us,us10006nmr,2016-12-07T02:56:07.040Z,"Macquarie Island region",earthquake,9.2,1.8,0.118,21,reviewed,us,us

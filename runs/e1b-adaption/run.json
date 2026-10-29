@@ -1,7 +1,0 @@
-{
- "dataset_id": "95e0007a-5d5a-49ca-acd0-db9a12482cb4",
- "hyperparams": null,
- "max_iterations": 1,
- "model": "openai/gpt-oss-20b",
- "run_id": "fd871302-f245-4e72-b467-ab7000dab15f"
-}

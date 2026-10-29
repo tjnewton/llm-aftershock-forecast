@@ -1,7 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2017-04-18T17:08:43.050Z,-18.0922,-178.2939,634.93,4.6,mb,,79,3.495,0.98,us,us10008iqg,2017-07-11T01:48:36.040Z,"Fiji region",earthquake,10.4,5.1,0.034,256,reviewed,us,us
-2017-04-18T17:11:00.810Z,-18.0426,-178.2235,633.73,4.4,mb,,69,3.558,0.82,us,us10008ipk,2017-07-11T01:48:36.040Z,"260 km E of Levuka, Fiji",earthquake,11.3,8.7,0.043,155,reviewed,us,us
-2017-04-18T17:11:47.030Z,-18.0877,-178.369,628,6,mww,,37,3.423,1.1,us,us10008iph,2022-05-03T18:30:17.830Z,"245 km E of Levuka, Fiji",earthquake,8.2,1.8,0.071,19,reviewed,us,us
-2017-04-18T17:43:35.870Z,-18.0144,-178.2195,639.4,4.3,mb,,115,3.559,0.74,us,us10008n3a,2017-07-11T01:48:36.040Z,"260 km E of Levuka, Fiji",earthquake,7.3,11.5,0.094,32,reviewed,us,us
-2017-04-18T18:23:59.380Z,-18.0812,-178.3538,639.1,4.5,mb,,51,3.437,1.01,us,us10008iqx,2017-07-11T01:48:36.040Z,"246 km E of Levuka, Fiji",earthquake,11,8,0.041,171,reviewed,us,us
-2017-04-22T19:07:35.000Z,-18.0884,-178.3713,581.57,4.2,mb,,115,3.421,0.91,us,us10008n6t,2017-07-11T01:48:41.040Z,"244 km E of Levuka, Fiji",earthquake,13.1,8.6,0.152,12,reviewed,us,us

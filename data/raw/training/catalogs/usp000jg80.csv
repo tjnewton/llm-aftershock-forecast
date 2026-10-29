@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2012-03-14T12:05:04.520Z,35.687,140.695,10,6,mwc,476,20.2,,0.74,us,usp000jg80,2025-09-04T09:23:14.136Z,"5 km SE of Asahi, Japan",earthquake,,,,,reviewed,us,gcmt
-2012-03-14T13:29:52.390Z,35.725,140.873,8.8,4.7,mb,34,111.6,,1.12,us,usp000jg82,2014-11-07T01:47:14.806Z,"3 km ESE of Hasaki, Japan",earthquake,,20,,3,reviewed,us,us
-2012-03-16T23:18:20.750Z,35.747,140.878,35,4.7,mb,54,111.6,,0.78,us,usp000jgc4,2014-11-07T01:47:15.971Z,"4 km ENE of Hasaki, Japan",earthquake,,,,14,reviewed,us,us

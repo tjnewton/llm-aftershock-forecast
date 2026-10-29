@@ -1,4 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2016-04-06T14:45:29.620Z,-8.2036,107.3857,29,6.1,mww,,31,1.39,1.44,us,us20005fv5,2022-08-07T10:47:57.249Z,"111 km S of Banjar, Indonesia",earthquake,5.3,1.7,,,reviewed,us,us
-2016-04-06T15:04:02.140Z,-8.2767,107.2761,35,4.3,mb,,96,1.482,1.19,us,us20005ia7,2016-06-17T21:45:47.040Z,"120 km S of Banjar, Indonesia",earthquake,4.5,2,0.125,18,reviewed,us,us
-2016-04-06T15:14:57.840Z,-8.1118,107.3401,42.08,4.6,mb,,95,2.883,1.27,us,us20005ia8,2016-06-17T21:45:48.040Z,"101 km S of Banjar, Indonesia",earthquake,9,3.8,0.132,17,reviewed,us,us

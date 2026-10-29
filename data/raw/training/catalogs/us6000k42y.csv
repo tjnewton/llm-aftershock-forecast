@@ -1,2 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2023-04-13T15:54:53.808Z,49.215,-129.6178,7,6,mww,228,54,1.719,0.65,us,us6000k42y,2024-01-18T19:46:49.152Z,"237 km SW of Port McNeill, Canada",earthquake,5.71,1.776,0.032,96,reviewed,us,us

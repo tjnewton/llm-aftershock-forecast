@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2023-03-30T17:33:08.544Z,-35.6663,-73.4965,26,6.3,mww,151,52,1.107,0.56,us,us6000k0xf,2024-10-09T15:58:16.860Z,"105 km WSW of Constitución, Chile",earthquake,5.64,1.828,0.043,51,reviewed,us,us
-2023-03-30T18:26:36.661Z,-35.8611,-73.4676,25.526,4.3,mb,30,146,0.913,0.76,us,us6000k0xp,2023-06-03T22:06:08.040Z,"95 km WNW of Quirihue, Chile",earthquake,6.58,5.667,0.217,6,reviewed,us,us
-2023-03-30T19:55:02.918Z,-35.7016,-73.5558,10,4.2,mb,27,199,1.085,0.83,us,us6000k0ye,2023-06-03T22:06:09.040Z,"111 km WSW of Constitución, Chile",earthquake,4.08,1.916,0.374,2,reviewed,us,us
-2023-03-30T22:03:23.564Z,-35.7216,-73.5253,10,4.4,mwr,36,114,1.059,0.76,us,us6000k0zq,2023-06-03T22:06:09.040Z,"108 km NW of Quirihue, Chile",earthquake,4.25,1.935,0.045,47,reviewed,us,us
-2023-04-05T23:24:43.321Z,-35.8336,-73.5659,10,4.2,mb,27,195,0.961,0.72,us,us6000k297,2023-06-13T03:12:46.040Z,"102 km NNW of Tomé, Chile",earthquake,6.27,1.896,0.235,5,reviewed,us,us

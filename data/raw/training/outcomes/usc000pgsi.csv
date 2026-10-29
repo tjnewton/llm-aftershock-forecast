@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2014-04-11T20:29:12.970Z,11.642,-85.8779,135,6.6,mww,,20,0.761,1.35,us,usc000pgsi,2022-07-26T12:56:30.901Z,"15 km N of Belén, Nicaragua",earthquake,,1.7,,,reviewed,us,us
-2014-05-10T12:44:54.760Z,11.7323,-86.2424,150.77,4,mb,,132,1.071,0.66,us,usc000r8k0,2014-08-06T00:55:29.000Z,"3 km WSW of Santa Teresa, Nicaragua",earthquake,,7.2,0.182,8,reviewed,us,us

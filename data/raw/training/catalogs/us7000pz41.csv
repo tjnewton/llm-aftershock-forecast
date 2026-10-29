@@ -1,3 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2025-05-14T04:15:40.513Z,-18.7126,-175.3343,260,6.4,mww,262,30,5.518,0.7,us,us7000pz41,2025-07-25T17:06:14.040Z,"142 km W of Neiafu, Tonga",earthquake,10.42,1.918,0.047,43,reviewed,us,us
-2025-06-04T22:11:56.501Z,-18.8773,-175.5661,197.862,4.6,mb,48,87,5.339,0.64,us,us6000qi0g,2025-08-20T16:08:55.040Z,"162 km NW of Fangale’ounga, Tonga",earthquake,13.84,7.527,0.085,41,reviewed,us,us

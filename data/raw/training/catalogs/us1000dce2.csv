@@ -1,5 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2018-04-02T13:40:34.840Z,-20.6588,-63.0058,559,6.8,mww,,16,5.32,0.99,us,us1000dce2,2022-05-03T19:08:58.878Z,"38 km SE of Boyuibe, Bolivia",earthquake,6.7,1.9,0.047,43,reviewed,us,us
-2018-04-02T13:49:02.670Z,-20.6609,-63.2242,570.14,5,mb,,130,5.074,0.42,us,us2000dxl4,2018-06-30T01:11:24.040Z,"26 km SSE of Boyuibe, Bolivia",earthquake,10.2,8.5,0.563,4,reviewed,us,us
-2018-04-02T13:57:25.900Z,-20.6192,-63.2854,567.46,4.6,mb,,43,5.06,0.54,us,us2000dxkr,2018-06-30T01:11:24.040Z,"20 km S of Boyuibe, Bolivia",earthquake,14.3,8.4,0.272,4,reviewed,us,us
-2018-04-02T15:00:31.790Z,-20.6923,-63.036,560.73,4.5,mb,,58,5.033,0.76,us,us1000dch5,2022-08-08T01:48:50.702Z,"38 km SE of Boyuibe, Bolivia",earthquake,13.2,7.1,0.034,250,reviewed,us,us

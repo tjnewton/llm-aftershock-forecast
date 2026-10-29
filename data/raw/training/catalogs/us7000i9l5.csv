@@ -1,6 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2022-09-20T18:22:33.543Z,55.4812,166.2384,10,4.4,mb,150,62,5.085,0.66,us,us7000i9le,2022-11-26T20:57:46.040Z,"249 km ESE of Ust’-Kamchatsk Staryy, Russia",earthquake,8.34,1.849,0.047,137,reviewed,us,us
-2022-09-20T18:23:42.896Z,55.5042,166.3282,10,6,mww,267,52,5.141,0.62,us,us7000i9l5,2022-11-26T20:57:46.040Z,"254 km ESE of Ust’-Kamchatsk Staryy, Russia",earthquake,8.72,1.768,0.03,105,reviewed,us,us
-2022-09-20T18:28:41.057Z,55.6234,166.1279,10,4.5,mb,24,90,5.093,0.81,us,us6000inp3,2022-11-26T20:57:20.040Z,"237 km ESE of Ust’-Kamchatsk Staryy, Russia",earthquake,7.6,1.819,0.163,11,reviewed,us,us
-2022-09-20T18:56:13.360Z,55.4069,166.2035,10,4.3,mb,67,77,5.035,0.57,us,us6000innu,2022-11-26T20:57:20.040Z,"250 km ESE of Ust’-Kamchatsk Staryy, Russia",earthquake,10.21,1.862,0.078,51,reviewed,us,us
-2022-09-21T02:32:08.166Z,55.4899,166.2193,10,4,mb,30,92,5.079,0.66,us,us6000inzc,2022-11-26T20:57:21.040Z,"248 km ESE of Ust’-Kamchatsk Staryy, Russia",earthquake,13.42,1.896,0.126,17,reviewed,us,us

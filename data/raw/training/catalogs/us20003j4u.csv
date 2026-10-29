@@ -1,8 +1,0 @@
-time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
-2015-09-13T07:40:36.570Z,24.9056,-109.6985,10,5.3,mwc,,102,0.973,1.4,us,us20003j4l,2025-12-22T17:23:55.392Z,"100 km SW of Topolobampo, Mexico",earthquake,3.8,1.7,,,reviewed,us,gcmt
-2015-09-13T07:57:33.460Z,24.8094,-109.5138,10,5.6,mww,,117,1.185,1.25,us,us20003j4t,2022-05-03T18:28:54.477Z,"99 km SSW of Topolobampo, Mexico",earthquake,8.1,2,,,reviewed,us,us
-2015-09-13T08:14:08.560Z,24.913,-109.6226,10,6.7,mww,,123,1.256,0.65,us,us20003j4u,2022-08-07T08:15:45.108Z,"95 km SW of Topolobampo, Mexico",earthquake,6.6,2,,,reviewed,us,us
-2015-09-13T08:27:12.440Z,24.9529,-109.7119,10,5.2,mb,,56,1.006,0.92,us,us20003j54,2015-12-12T00:42:50.040Z,"Gulf of California",earthquake,4.3,1.8,0.042,189,reviewed,us,us
-2015-09-13T12:37:20.450Z,24.8355,-109.3874,10,4.2,mb,,85,1.112,1.02,us,us20003nye,2015-12-12T00:42:50.040Z,"91 km SSW of Topolobampo, Mexico",earthquake,7,2,0.064,68,reviewed,us,us
-2015-09-13T15:04:54.450Z,24.9039,-109.3154,10,4.9,mb,,83,1.206,0.84,us,us20003j5w,2025-12-22T17:09:27.141Z,"81 km SSW of Topolobampo, Mexico",earthquake,5.8,1.8,0.04,197,reviewed,us,us
-2015-09-14T01:12:10.890Z,24.6694,-109.3617,10,4,mb,,154,1.031,1.38,us,us20003j8e,2015-12-12T00:42:51.040Z,"107 km SSW of Topolobampo, Mexico",earthquake,5.7,2,0.06,75,reviewed,us,us
