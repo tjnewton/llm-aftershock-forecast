@@ -32,9 +32,10 @@ def test_raw_data_is_immutable_and_the_manifest_append_only():
         assert G.push_violations([(s, "data/raw/oaf/x.json")], True, PATTERNS)
         assert G.pr_violations([(s, "data/raw/oaf/x.json")], True, PATTERNS, override=True)
     assert G.pr_violations([("A", "data/raw/oaf/new.json")], True, PATTERNS, False) == []
-    assert G.manifest_append_only("a\nb\n", "a\nb\nc\n")
-    assert not G.manifest_append_only("a\nb\n", "a\nc\n")
-    assert not G.manifest_append_only("a\nb\n", "a\n")
+    assert G.manifest_append_only(b"a\nb\n", b"a\nb\nc\n")
+    assert not G.manifest_append_only(b"a\nb\n", b"a\nc\n")
+    assert not G.manifest_append_only(b"a\nb\n", b"a\n")
+    assert not G.manifest_append_only(b"a\nb\n", b"a\r\nb\r\n")
     assert G.push_violations([("M", "data/manifest.jsonl")], False, PATTERNS)
     assert G.pr_violations([("M", "data/manifest.jsonl")], False, PATTERNS, override=True)
 
@@ -82,4 +83,7 @@ def test_pr_command_on_a_real_repository(tmp_path, monkeypatch):
     git("commit", "-qm", "odd name")
     (tmp_path / "data/raw/tab\tname.csv").write_text("y\n")
     git("commit", "-qam", "edit odd name")
+    assert G.main(["pr", "--frozen", str(frozen), "HEAD~1", "HEAD"]) == 1
+    (tmp_path / "data/manifest.jsonl").write_bytes(b"a\r\nb\r\n")  # only line endings rewritten
+    git("commit", "-qam", "crlf manifest")
     assert G.main(["pr", "--frozen", str(frozen), "HEAD~1", "HEAD"]) == 1

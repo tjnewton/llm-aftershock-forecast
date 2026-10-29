@@ -27,7 +27,7 @@ def frozen_patterns(path: Path) -> list[str]:
     return [x for x in lines if x and not x.startswith("#")]
 
 
-def manifest_append_only(old: str, new: str) -> bool:
+def manifest_append_only(old: bytes, new: bytes) -> bool:
     return new.startswith(old)
 
 
@@ -82,9 +82,9 @@ def _parent(sha: str) -> str:
 
 
 def _manifest_ok(a: str, b: str) -> bool:
-    def show(rev: str) -> str:
-        r = subprocess.run(["git", "show", f"{rev}:{MANIFEST}"], capture_output=True, text=True)
-        return r.stdout if r.returncode == 0 else ""
+    def show(rev: str) -> bytes:  # bytes: text mode would turn a CRLF rewrite into a match
+        r = subprocess.run(["git", "show", f"{rev}:{MANIFEST}"], capture_output=True)
+        return r.stdout if r.returncode == 0 else b""
 
     return manifest_append_only(show(a), show(b))
 

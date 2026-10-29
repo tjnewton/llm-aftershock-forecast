@@ -4,7 +4,9 @@ name: path-guard
 on:
   push:
     branches: [post-submission]
-  pull_request:
+  # pull_request_target runs this file as it is on the base branch, so a pull request cannot
+  # edit the check that judges it; only base-branch code runs, the PR's commits are only diffed
+  pull_request_target:
     types: [opened, synchronize, reopened, labeled, unlabeled]
 permissions:
   contents: read
@@ -42,22 +44,21 @@ jobs:
           done
           python3 "$RUNNER_TEMP/guard.py" push --frozen "$RUNNER_TEMP/frozen.txt" $direct
   pull-request:
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request_target'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4  # the base branch: trusted rules and guard code
         with:
           fetch-depth: 0
-          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
       - name: frozen paths, raw data and manifest
         env:
-          BASE: ${{ github.event.pull_request.base.ref }}
+          PR: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           OVERRIDE: ${{ contains(github.event.pull_request.labels.*.name, 'frozen-override') && '--override' || '' }}
         run: |
-          # rules from the base branch, so a pull request cannot loosen its own check
-          git show "origin/$BASE:src/laf/path_guard.py" > "$RUNNER_TEMP/guard.py" 2>/dev/null \
-            || cp src/laf/path_guard.py "$RUNNER_TEMP/guard.py"
-          git show "origin/$BASE:.github/frozen-paths.txt" > "$RUNNER_TEMP/frozen.txt" 2>/dev/null \
-            || cp .github/frozen-paths.txt "$RUNNER_TEMP/frozen.txt"
-          python3 "$RUNNER_TEMP/guard.py" pr --frozen "$RUNNER_TEMP/frozen.txt" \
-            "$(git merge-base "origin/$BASE" HEAD)" HEAD $OVERRIDE
+          # the PR's commits as objects only: never checked out, never executed
+          git fetch --no-tags -q https://github.com/${{ github.repository }}.git "+refs/pull/$PR/head:refs/pr/head"
+          [ "$(git rev-parse refs/pr/head)" = "$HEAD_SHA" ] || { echo "::error::PR head moved; re-run"; exit 1; }
+          python3 src/laf/path_guard.py pr --frozen .github/frozen-paths.txt \
+            "$(git merge-base HEAD "$HEAD_SHA")" "$HEAD_SHA" $OVERRIDE
