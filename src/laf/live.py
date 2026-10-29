@@ -122,7 +122,9 @@ def provisional_scores(
     from laf.oaf import Circle
     from laf.schemas import validate
     from laf.scoring import quantile_score
+    from laf.splits import require_outcomes
 
+    require_outcomes([seq.id])
     t = build_tables(data_dir, snapshot, [seq])
     end_ms = snapshot_ms(snapshot)
     ov = t["oaf_versions"]

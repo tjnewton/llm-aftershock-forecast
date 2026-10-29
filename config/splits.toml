@@ -1,0 +1,19 @@
+# Data splits (docs/adr/0013-data-splits.md). Outcomes of a sequence (event counts in forecast
+# windows after the issue time) may be counted or scored only if it is development, or once the
+# tag prereg-v2 exists. Every sequence id not listed here is confirmatory (default deny).
+
+# sequence configs whose ids are development
+sequence_configs = ["config/sequences.toml", "config/sequences_e3.toml"]
+
+# folders whose file stems are development sequence ids (adaptation pool and its outcomes),
+# pinned by count and SHA-256 of the sorted stems joined by "\n", so a file added later cannot
+# turn a confirmatory sequence into a development one
+[[id_dir]]
+path = "data/raw/training/catalogs"
+n = 1505
+sha256 = "62a2834d5c09dfbbeb4a176a58558723062bbfa13b1006245d7241f5da3da4ba"
+
+[[id_dir]]
+path = "data/raw/training/outcomes"
+n = 515
+sha256 = "1c6dddc8267f174fb3449ec3b0626a16b76b3933d0c8e440f8627c38c4b0e6ca"

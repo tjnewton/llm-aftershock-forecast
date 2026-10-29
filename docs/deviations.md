@@ -62,3 +62,9 @@ Each entry: UTC time, change, reason, expected effect on the registered analyses
   U+0085/U+2028/U+2029 left raw inside JSON strings. Reason: the E1b e3all run could not be
   finalized (4 U+2028 in model text). Effect: none on registered analyses; no other tracked JSONL
   file contains these characters, so every existing record reads identically.
+- 2026-10-29 (post-submission). Snooping guard for the Seismica phase (docs/adr/0013-data-splits.md,
+  `laf.splits`): `analysis.cells` and `analysis.recount` (frozen at `scoring-v1`) now refuse
+  sequences outside the development set until the tag `prereg-v2` exists, and `cells` refuses
+  tables whose counts were sealed. Reason: no confirmatory outcome may be scored before the
+  second preregistration. Effect: none on registered or E3 results; every sequence they use is
+  development, and the functions return the same frames.

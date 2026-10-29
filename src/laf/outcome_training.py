@@ -20,6 +20,7 @@ import numpy as np
 
 from laf.catalog import read_comcat_csv
 from laf.scoring import quantile_score
+from laf.splits import require_outcomes
 from laf.training import QKEYS, RAW
 
 KS = (0.5, 0.7, 1.0, 1.4, 2.0)
@@ -57,6 +58,8 @@ def outcomes(data_dir, items) -> dict[tuple[str, str], int]:
     """N(M>=5) in each training window from the outcome catalogs (mainshock excluded)."""
     from laf.usgs import read_raw
 
+    items = list(items)
+    require_outcomes({it.sequence_id for it in items})
     cats, out = {}, {}
     for it in items:
         if it.sequence_id not in cats:

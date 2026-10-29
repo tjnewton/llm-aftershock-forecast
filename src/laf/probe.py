@@ -32,6 +32,9 @@ def render_probe(seq: dict) -> str:
 
 def truth(seq: dict, catalog: pd.DataFrame) -> dict:
     """Largest aftershock and N(M>=5) within the stated radius of the epicentre, first 30 days."""
+    from laf.splits import require_outcomes
+
+    require_outcomes([seq["sequence_id"]])
     c = catalog[catalog["sequence_id"] == seq["sequence_id"]]
     d = haversine_km(seq["lat"], seq["lon"], c["latitude"], c["longitude"])
     t0 = seq["origin_ms"]
