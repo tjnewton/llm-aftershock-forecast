@@ -1,3 +1,6 @@
+# pre-commit and commit-msg hooks: `uv run pre-commit install` installs both (default_install_hook_types)
+default_install_hook_types: [pre-commit, commit-msg]
+default_stages: [pre-commit]
 repos:
   - repo: local
     hooks:
@@ -29,3 +32,20 @@ repos:
         language: system
         pass_filenames: false
         always_run: true
+      - id: commit-identity
+        name: author and committer are Tyler Newton (noreply email)
+        entry: bash -c 'id="Tyler Newton <54011699+tjnewton@users.noreply.github.com>"; for v in GIT_AUTHOR_IDENT GIT_COMMITTER_IDENT; do case "$(git var $v)" in "$id "*) ;; *) echo "$v is $(git var $v), not $id"; exit 1;; esac; done'
+        language: system
+        pass_filenames: false
+        always_run: true
+      - id: no-commit-to-frozen-branch
+        name: no commits on main or gh-pages
+        entry: bash -c 'b=$(git symbolic-ref --short -q HEAD); case "$b" in main|gh-pages) echo "no commits on $b"; exit 1;; esac'
+        language: system
+        pass_filenames: false
+        always_run: true
+      - id: no-attribution
+        name: no co-author or generated-with lines in the message
+        entry: bash -c '! grep -qiE "^co-authored-by:|generated with" "$1"' --
+        language: system
+        stages: [commit-msg]
