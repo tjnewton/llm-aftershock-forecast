@@ -4,9 +4,14 @@ name: path-guard
 on:
   push:
     branches: [post-submission]
-  # pull_request_target runs this file as it is on the base branch, so a pull request cannot
-  # edit the check that judges it; only base-branch code runs, the PR's commits are only diffed
+  # pull_request_target runs this file from the default branch (main), so a pull request cannot
+  # edit the check that judges it; only trusted code runs, the PR's commits are only diffed.
+  # Until main carries this file (it is frozen during hackathon judging), pull_request runs the
+  # same job as an accident brake: guard code and rules still come from the base commit, but a
+  # pull request that edits this workflow file could skip it. Remove pull_request once main has it.
   pull_request_target:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+  pull_request:
     types: [opened, synchronize, reopened, labeled, unlabeled]
 permissions:
   contents: read
@@ -44,11 +49,12 @@ jobs:
           done
           python3 "$RUNNER_TEMP/guard.py" push --frozen "$RUNNER_TEMP/frozen.txt" $direct
   pull-request:
-    if: github.event_name == 'pull_request_target'
+    if: github.event_name == 'pull_request_target' || github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4  # the base branch: trusted rules and guard code
+      - uses: actions/checkout@v4  # the PR's base commit: trusted rules and guard code
         with:
+          ref: ${{ github.event.pull_request.base.sha }}
           fetch-depth: 0
           persist-credentials: false
       - name: frozen paths, raw data and manifest
