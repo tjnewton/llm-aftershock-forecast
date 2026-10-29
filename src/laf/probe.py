@@ -12,6 +12,7 @@ import pandas as pd
 from laf.catalog import haversine_km
 from laf.prompts import PROMPT_DIR, schema
 from laf.providers import MODELS, anthropic_params, call_anthropic
+from laf.runner import check_budget
 
 DAY_MS = 86_400_000
 K = 3
@@ -60,7 +61,9 @@ def baseline(seq: dict, generic_median_30d: int) -> dict:
     return {"largest": seq["mag"] - BATH_DELTA, "n_m5": generic_median_30d}
 
 
-def run_probe(client, sequences: pd.DataFrame, out: Path) -> int:
+def run_probe(client, sequences: pd.DataFrame, out: Path, estimate_usd: float = 1.0) -> int:
+    check_budget(estimate_usd)
+    out.mkdir(parents=True, exist_ok=False)  # before any paid call
     seqs = [
         s
         for s in sequences.to_dict("records")
@@ -84,7 +87,6 @@ def run_probe(client, sequences: pd.DataFrame, out: Path) -> int:
             pool.map(call, jobs),
             key=lambda r: (r["sequence_id"], r["model_requested"], r["sample"]),
         )
-    out.mkdir(parents=True, exist_ok=False)
     (out / "calls.jsonl").write_text(
         "".join(json.dumps(r, sort_keys=True) + "\n" for r in recs), encoding="utf-8", newline="\n"
     )

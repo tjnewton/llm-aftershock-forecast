@@ -14,6 +14,7 @@ from laf.oaf import parse_forecast_lenient
 from laf.prompts import render, schema
 from laf.providers import MODELS, anthropic_params, call_anthropic, cost_usd
 from laf.registry import Sequence
+from laf.runner import check_budget
 from laf.tables import (
     DAY_MS,
     FORESHOCK_LOOKBACK_MS,
@@ -80,6 +81,8 @@ def live_items(data_dir: Path, snapshot: str, seq: Sequence, now_ms: int, strict
 
 def run_live(client, items: list[Item], out: Path) -> tuple[str, float]:
     """60 synchronous calls; writes canonical items.jsonl and calls.jsonl; returns the SHA-256."""
+    check_budget(BUDGET_USD)
+    out.mkdir(parents=True, exist_ok=False)  # before any paid call
     jobs = []
     for item in items:
         for model in MODELS:
@@ -99,7 +102,6 @@ def run_live(client, items: list[Item], out: Path) -> tuple[str, float]:
         recs = list(pool.map(call, jobs))
     recs.sort(key=lambda r: (r["item_id"], r["model_requested"], r["arm"], r["sample"]))
     spent = sum(cost_usd(r["model_requested"], r["usage"]) for r in recs if r.get("usage"))
-    out.mkdir(parents=True, exist_ok=False)
     (out / "items.jsonl").write_text(
         "".join(i.model_dump_json() + "\n" for i in items), encoding="utf-8", newline="\n"
     )

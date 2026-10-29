@@ -14,6 +14,7 @@ import pandas as pd
 from laf.items import Item, build_items
 from laf.prompts import Arm, Info, render, schema
 from laf.providers import MODELS, anthropic_params, call_anthropic, client, cost_usd
+from laf.runner import check_budget
 
 PILOT_ITEMS = ("us6000rtdt@28d", "us6000sri7@28d")  # largest dev catalogs (90, 95 rows)
 SMOKE_SCHEMA = {
@@ -39,6 +40,7 @@ def load_items(data_dir: Path, snapshot: str) -> list[Item]:
 
 def smoke(out: Path, budget_usd: float = 1.0) -> float:
     """One tiny structured-output call per model at effort high, plus a count_tokens check."""
+    check_budget(budget_usd)
     c, spent = client(), 0.0
     for model in MODELS:
         params = anthropic_params(
@@ -67,6 +69,7 @@ def smoke(out: Path, budget_usd: float = 1.0) -> float:
 def pilot(out: Path, items: list[Item], budget_usd: float = 3.0, k: int = 2) -> float:
     """Dev items x arms x models x k at effort high (p1, I1); stops at the budget."""
     by_id = {i.item_id: i for i in items}
+    check_budget(budget_usd)
     c, spent = client(), 0.0
     for model in MODELS:
         for item_id in PILOT_ITEMS:

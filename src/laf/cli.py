@@ -36,7 +36,7 @@ def main(argv: list[str] | None = None) -> None:
     it = sub.add_parser("items", help="write data/processed/<snapshot>/items.jsonl")
     it.add_argument("--snapshot", required=True)
     sub.add_parser("prompts-hash", help="write prompts/HASHES.json (SHA-256 per template)")
-    sub.add_parser("spend", help="total recorded API spend from runs/*/calls.jsonl")
+    sub.add_parser("spend", help="recorded API spend per UTC month and in total (runs/**)")
     bs = sub.add_parser(
         "batch-status", help="processing status and counts of a batch id (no results)"
     )
@@ -591,19 +591,16 @@ def main(argv: list[str] | None = None) -> None:
         )
         print(f"wrote {PROMPT_DIR / 'HASHES.json'}")
     elif a.cmd == "spend":
-        import json
+        from collections import defaultdict
 
-        from laf.providers import cost_usd
+        from laf.runner import spend_records
 
-        total = 0.0
-        for path in sorted(Path("runs").glob("*/calls.jsonl")):
-            recs = [
-                json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line
-            ]
-            usd = sum(cost_usd(r["model_requested"], r["usage"]) for r in recs if r.get("usage"))
-            total += usd
-            print(f"{path}: {len(recs)} calls, ${usd:.4f}")
-        print(f"total ${total:.4f}")
+        by_month: defaultdict[str, float] = defaultdict(float)
+        for month, usd in spend_records():
+            by_month[month] += usd
+        for month in sorted(by_month):
+            print(f"{month}: ${by_month[month]:.4f}")
+        print(f"total ${sum(by_month.values()):.4f}")
     elif a.cmd == "batch-status":
         from laf.providers import client
 
