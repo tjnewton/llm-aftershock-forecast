@@ -16,15 +16,45 @@ magnitude:
 - **Official, ETAS refit, RJ-MLE, generic RJ, params arm:** the full distribution the model
   defines. For official products this comes from the published fractiles (197 or 399 levels), as
   a step CDF.
-- **Direct arm (nine quantiles only):** two reconstructions, both reported:
-  1. **Monotone interpolation of the CDF.** Set F(q_k) = tau_k at the nine levels. Interpolate
-     with a monotone cubic (PCHIP) on the log(n + 1) scale between them. Add a geometric tail
-     beyond the 0.975 quantile and below the 0.025 quantile, set to match the outer
-     inter-quantile spacing. Ties (equal quantiles) become point masses.
-  2. **Negative binomial** fitted to the nine quantiles by minimum quantile score. This is the
-     exploratory NB of ADR 0001, now used for every forecaster.
+- **Direct arm (nine quantiles only), implemented in `laf.countdist`:**
+  1. **Latent-PCHIP (default).** A continuous latent Y has F_Y(n) = F_N(n) at every integer
+     n. The tau-quantile of Y lies in (q - 1, q); knots go inside that interval, with tied
+     quantiles spread evenly. F_Y is interpolated with PCHIP on z = log(y + 1). Below the first
+     knot F_Y rises linearly from 0 at y = -1. Above the last knot it has a power-law tail,
+     1 - F decaying as exp(-lam (z - z_K)), with lam from the last segment's slope. Every
+     input quantile is reproduced exactly (tested on random quantile sets). An option uses the
+     survival function of the fitted negative binomial for the tail instead (`tail="nb"`).
+  2. **Negative binomial** fitted by least squares between tau and the NB CDF midway between
+     q - 1 and q. This is a sensitivity analysis only (see validation).
+- **Forecasts given as simulated histograms** (the ETAS refit, 10,000 catalogs) put zero
+  probability on some observed counts. They are smoothed by taking their 399 fractiles
+  (0.0025 steps) and applying the same reconstruction.
 - A floor of 1e-6 on p(n) before any log, reported in the methods, so that one impossible count
   does not dominate a mean. How often the floor binds is reported.
+
+## Validation on development data (`laf countdist-check`, 2026-10-29)
+Log score of N(M>=5) on primary cells. The "full" score uses each forecaster's whole
+distribution: 197 or 399 official fractiles, or the smoothed ETAS histogram. The "9q" score
+uses only its nine quantiles, through the latent-PCHIP method.
+
+| Set | Forecaster | Cells | Mean LS full | 9q - full: mean | median | MAE | corr |
+|---|---|---|---|---|---|---|---|
+| Registered (large sequences) | official | 96 | 1.988 | -0.267 | -0.007 | 0.408 | 0.926 |
+| Registered | ETAS refit | 132 | 2.210 | -0.261 | +0.008 | 0.451 | 0.895 |
+| E3 (mostly M5-6, small counts) | official | 536 | 0.206 | -0.006 | +0.004 | 0.039 | 0.958 |
+| E3 | ETAS refit | 536 | 0.176 | +0.006 | +0.005 | 0.025 | 0.987 |
+
+- Smoothing the raw ETAS histogram removes the zero-probability penalties. The mean LS on the
+  registered set drops from 2.679 to 2.210, because the 1e-6 floor bound in 11 cells.
+- Among nine-quantile reconstructions, latent-PCHIP with the power tail has the lowest MAE and
+  the highest correlation with the full score. The NB-shaped tail is no better on average. A
+  pure NB fit is clearly worse (MAE 0.15-0.52).
+- Synthetic checks: on Poisson and NB forecasts the nine-quantile reconstruction loses at most
+  about 0.05 nats of expected log score (it never beats the truth, as a proper score must).
+- **Representation effect.** Where counts are large, the score depends on how the forecast is
+  represented: about a quarter of a nat on the registered set, as large as the differences
+  between forecasters. Comparing a nine-quantile forecaster (the LLM direct arm) with
+  full-distribution forecasters (official, ETAS) would mix that effect into the contrast.
 
 ## Decision: scores and tests
 - **Log score** LS = -log p(n_obs) per cell. This is the primary score for the paper, with the
@@ -60,9 +90,14 @@ magnitude:
 ## Open decisions (Tyler)
 1. Primary score for the paper: log score of the count distribution (recommended), with the
    quantile score as robustness, or the reverse.
-2. Direct-arm reconstruction used for the primary analysis: PCHIP with geometric tails
-   (recommended; no parametric form imposed) or NB.
+2. **Representation-matched scoring (recommended):** score every forecaster through its nine
+   quantiles with the same latent-PCHIP reconstruction for the primary comparison, and report
+   full-distribution scores of the official and ETAS forecasts as a sensitivity analysis.
+   This removes the representation effect from forecaster contrasts.
 3. Whether to add M>=3 targets to the prompts.
 
 ## Changelog
 - 2026-10-29: first version.
+- 2026-10-29: `laf.countdist` implemented (latent-PCHIP, NB tail and NB fit, log score, N-test,
+  PIT) and validated on the development snapshots; the geometric tail of the first draft was
+  replaced by the power-law tail. Results: results/countdist_check_<snapshot>.csv.
