@@ -26,6 +26,7 @@ from laf.generic_rj import MagComp
 from laf.items import Item
 from laf.schemas import validate
 from laf.scoring import CENTRAL, brier, log_score_binary, pit_cdf, pit_rank, quantile_score
+from laf.splits import require_outcome_table, require_outcomes
 
 WINDOW_KEY = {"1 Day": "day", "1 Week": "week", "1 Month": "month"}
 PRIMARY_SETTLING_DAYS = 21
@@ -45,6 +46,7 @@ def load_items(processed: Path) -> dict[str, Item]:
 def cells(tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
     """Scored cells with outcomes at M>=4, M>=5 and M>=6 and settling flags."""
     oc = tables["observed_counts"]
+    require_outcome_table(oc)  # docs/adr/0013-data-splits.md
     wide = oc.pivot_table(
         index=["issue_id", "sequence_id", "window"], columns="magnitude", values="count"
     ).reset_index()
@@ -376,6 +378,7 @@ def recount(
     from laf.catalog import count_in_window
     from laf.oaf import Circle
 
+    require_outcomes(cell_df["sequence_id"].unique())
     cat = tables["catalog"]
     out = cell_df.copy()
     for col, m in (("y4", 4.0), ("y5", 5.0), ("y6", 6.0)):

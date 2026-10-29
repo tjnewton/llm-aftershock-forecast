@@ -25,6 +25,7 @@ from laf.catalog import count_in_window, haversine_km, read_comcat_csv, wells_co
 from laf.generic_rj import REFERENCE_REL, generic_rj, mag_comp
 from laf.oaf import Circle, Forecast, oaf_versions, parse_forecast_lenient
 from laf.registry import Sequence
+from laf.splits import seal_counts
 from laf.usgs import read_raw
 
 DAY_MS = 86_400_000
@@ -341,7 +342,9 @@ def build_tables(data_dir: Path, snapshot: str, seqs: list[Sequence]) -> dict[st
             rows["issue_times"][-1]["n_hindsight_m4"] = int(
                 (visible["from_hindsight"] & (visible["mag"] >= 4.0 - 1e-6)).sum()
             )
-    return {k: pd.DataFrame(v) for k, v in rows.items()}
+    out = {k: pd.DataFrame(v) for k, v in rows.items()}
+    out["observed_counts"] = seal_counts(out["observed_counts"])
+    return out
 
 
 def write_tables(tables: dict[str, pd.DataFrame], out_dir: Path) -> None:
