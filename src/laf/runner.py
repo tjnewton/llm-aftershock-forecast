@@ -8,15 +8,16 @@ import hashlib
 import json
 import statistics
 import subprocess
+from datetime import UTC, datetime
 from pathlib import Path
 
 from laf.items import Item
 from laf.prompts import PROMPT_DIR, render, schema
-from laf.providers import API_BASE_URL, PRICES, anthropic_params, cost_usd
+from laf.providers import API_BASE_URL, PRICES, anthropic_params, cost_usd, env_value
 
 RUNS = Path("runs")
 MAX_TOKENS_BATCH = 32_000
-SPEND_CAP_USD = 195.0  # harness guard below the ~$200 limit Tyler set on 2026-10-21 (was 140)
+CAP_VAR = "LAF_CLAUDE_MONTHLY_CAP_USD"  # per calendar month (UTC); value kept out of the repo
 SCORED_ROLES = ("test-post", "test-pre", "ambiguous")
 BLOCKS: dict[str, dict] = {
     "core": {
@@ -144,26 +145,55 @@ def estimate_usd(reqs: list[dict], pilot: Path = RUNS / "pilot") -> float:
     return total
 
 
-def spent_usd(runs: Path = RUNS) -> float:
-    """Recorded spend: synchronous calls, collected batch results (half price) and the
-    estimates of submitted batches not yet collected, in every run folder (nested ones too)."""
-    total = 0.0
+def spend_records(runs: Path = RUNS) -> list[tuple[str, float]]:
+    """(UTC month "YYYY-MM", USD) for every recorded spend in every run folder (nested too):
+    synchronous calls by `started_utc`; collected batch results (half price) and estimates of
+    submitted, uncollected batches by the batch's `created_at`."""
+    out = []
     for path in runs.glob("**/batch.json"):
+        rec = json.loads(path.read_text(encoding="utf-8"))
         if not (path.parent / "results.jsonl").exists():
-            total += json.loads(path.read_text(encoding="utf-8")).get("estimate_usd", 0.0)
+            out.append((rec["created_at"][:7], rec.get("estimate_usd", 0.0)))
     for path in runs.glob("**/calls.jsonl"):
-        total += sum(
-            cost_usd(r["model_requested"], r["usage"])
+        out += [
+            (r["started_utc"][:7], cost_usd(r["model_requested"], r["usage"]))
             for r in _jsonl(path)
             if r.get("usage") and r.get("model_requested") in PRICES
-        )
+        ]
     for path in runs.glob("**/results.jsonl"):
-        total += sum(
-            cost_usd(r["model"], r["usage"], batch=True)
-            for r in _jsonl(path)
-            if r.get("usage") and r.get("model") in PRICES  # local models are free
+        rows = [r for r in _jsonl(path) if r.get("usage") and r.get("model") in PRICES]
+        if not rows:  # local models are free
+            continue
+        batch = path.parent / "batch.json"
+        if not batch.exists():
+            raise SystemExit(f"{path}: priced results without batch.json, cannot date the spend")
+        month = json.loads(batch.read_text(encoding="utf-8"))["created_at"][:7]
+        out += [(month, cost_usd(r["model"], r["usage"], batch=True)) for r in rows]
+    return out
+
+
+def spent_usd(runs: Path = RUNS) -> float:
+    return sum(usd for _, usd in spend_records(runs))
+
+
+def month_spend_usd(month: str, runs: Path = RUNS) -> float:
+    return sum(usd for m, usd in spend_records(runs) if m == month)
+
+
+def check_budget(estimate_usd: float, runs: Path = RUNS) -> float:
+    """Refuse a paid run unless this UTC month's spend plus `estimate_usd` stays within the cap
+    in LAF_CLAUDE_MONTHLY_CAP_USD (environment or .env). Returns the month's spend so far."""
+    raw = env_value(CAP_VAR)
+    if not raw:
+        raise SystemExit(f"{CAP_VAR} not set (environment or .env): refusing to spend")
+    cap = float(raw)
+    month = datetime.now(UTC).strftime("%Y-%m")
+    spent = month_spend_usd(month, runs)
+    if spent + estimate_usd > cap:
+        raise SystemExit(
+            f"spend guard: ${spent:.2f} spent in {month} + ${estimate_usd:.2f} > monthly cap"
         )
-    return total
+    return spent
 
 
 def _git(*args: str) -> str:
@@ -179,9 +209,7 @@ def submit(client, name: str, reqs: list[dict], snapshot: str, *, estimate: floa
     out = RUNS / name
     if (out / "batch.json").exists():
         raise SystemExit(f"{out}/batch.json exists: run already submitted")
-    spent = spent_usd()
-    if spent + estimate > SPEND_CAP_USD:
-        raise SystemExit(f"spend guard: ${spent:.2f} spent + ${estimate:.2f} > ${SPEND_CAP_USD}")
+    spent = check_budget(estimate)
     out.mkdir(parents=True, exist_ok=True)
     ledger = []
     for r in reqs:
@@ -198,7 +226,8 @@ def submit(client, name: str, reqs: list[dict], snapshot: str, *, estimate: floa
         "created_at": str(batch.created_at),
         "n_requests": len(reqs),
         "estimate_usd": round(estimate, 2),
-        "spent_before_usd": round(spent, 2),
+        "spent_before_usd": round(spent_usd(), 2),
+        "spent_month_before_usd": round(spent, 2),
         "snapshot": snapshot,
         "git_sha": _git("rev-parse", "HEAD"),
         "git_dirty": bool(_git("status", "--porcelain", "--untracked-files=no")),

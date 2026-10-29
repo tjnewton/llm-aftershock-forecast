@@ -21,8 +21,11 @@ analysis's `runs/*/` glob; changes after `prereg-v1` go in `docs/deviations.md`.
 ## Guardrails
 - Never post to Slack or any chat.
 - Commits use the email 54011699+tjnewton@users.noreply.github.com, never another address.
-- No API spend without explicit approval; ~$200 total cap (guard $195); use only `ANTHROPIC_API_KEY` from env/.env.
-  Never read or print `.env`.
+- No API spend without explicit approval, every time. Claude spend has a per-calendar-month (UTC)
+  cap, enforced by `laf.runner.check_budget` from `LAF_CLAUDE_MONTHLY_CAP_USD` (env or .env; unset
+  means no paid run); use only `ANTHROPIC_API_KEY` from env/.env. Never read or print `.env`.
+- Data splits (docs/adr/0013-data-splits.md): development data may be scored freely; confirmatory
+  data is never scored against outcomes before the `prereg-v2` tag (`laf.splits` enforces it).
 - Scored Claude calls: no `temperature`/`top_p`/`top_k`, no tools, no prefill, no `fallbacks`,
   explicit `output_config.effort` and JSON schema. Log `response.model` and `usage`.
 - The client pins `https://api.anthropic.com`; this machine exports `ANTHROPIC_BASE_URL` for a

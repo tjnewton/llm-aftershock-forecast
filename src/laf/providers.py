@@ -21,14 +21,20 @@ PRICES = {
 }
 
 
+def env_value(var: str, env_file: Path = Path(".env")) -> str:
+    """`var` from the environment, else from the untracked .env; "" when unset."""
+    value = os.environ.get(var, "")
+    if not value and env_file.exists():
+        for line in env_file.read_text(encoding="utf-8").splitlines():
+            name, _, v = line.partition("=")
+            if name.strip() == var:
+                value = v.strip().strip('"').strip("'")
+    return value
+
+
 def api_key(env_file: Path = Path(".env")) -> str:
     """ANTHROPIC_API_KEY from the environment or .env. Never falls back to other credentials."""
-    key = os.environ.get("ANTHROPIC_API_KEY", "")
-    if not key and env_file.exists():
-        for line in env_file.read_text(encoding="utf-8").splitlines():
-            name, _, value = line.partition("=")
-            if name.strip() == "ANTHROPIC_API_KEY":
-                key = value.strip().strip('"').strip("'")
+    key = env_value("ANTHROPIC_API_KEY", env_file)
     if not key:
         raise SystemExit("ANTHROPIC_API_KEY not set (environment or .env)")
     return key

@@ -12,6 +12,7 @@ import pandas as pd
 from laf.catalog import haversine_km
 from laf.prompts import PROMPT_DIR, schema
 from laf.providers import MODELS, anthropic_params, call_anthropic
+from laf.runner import check_budget
 
 DAY_MS = 86_400_000
 K = 3
@@ -57,7 +58,8 @@ def baseline(seq: dict, generic_median_30d: int) -> dict:
     return {"largest": seq["mag"] - BATH_DELTA, "n_m5": generic_median_30d}
 
 
-def run_probe(client, sequences: pd.DataFrame, out: Path) -> int:
+def run_probe(client, sequences: pd.DataFrame, out: Path, estimate_usd: float = 1.0) -> int:
+    check_budget(estimate_usd)
     seqs = [
         s
         for s in sequences.to_dict("records")
