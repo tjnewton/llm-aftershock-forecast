@@ -9,6 +9,7 @@ from laf import splits
 from laf.items import build_items
 from laf.live import provisional_scores
 from laf.outcome_training import outcomes
+from laf.probe import truth
 from laf.registry import Sequence
 
 P = Path("data/processed/20261021T1027Z")
@@ -73,9 +74,47 @@ def test_every_other_outcome_counter_refuses_a_confirmatory_sequence(locked, tmp
         provisional_scores(tmp_path, "20261029T0000Z", seq, tmp_path, 0)
     with pytest.raises(SystemExit, match=NEW):
         outcomes(tmp_path, [SimpleNamespace(sequence_id=NEW, item_id="x", windows=[])])
+    with pytest.raises(SystemExit, match=NEW):
+        truth({"sequence_id": NEW}, pd.DataFrame())
+
+
+def test_an_added_file_cannot_make_a_sequence_development(tmp_path, monkeypatch):
+    for d in ("a", "cfg"):
+        (tmp_path / d).mkdir()
+    (tmp_path / "a" / "ak1.csv").write_text("")
+    seqs = tmp_path / "cfg" / "s.toml"
+    seqs.write_text('[[sequence]]\nid = "us1"\n')
+    cfg = tmp_path / "cfg" / "splits.toml"
+    pin = "4cd4b1a6c3eb2e26a1ee3a5cfa78ab13e2e3e7ef1ac64b1be0fd17abc68c6d5c"  # wrong on purpose
+    cfg.write_text(
+        f'sequence_configs = ["{seqs}"]\n'
+        f'[[id_dir]]\npath = "{tmp_path / "a"}"\nn = 1\nsha256 = "{pin}"\n'
+    )
+    with pytest.raises(SystemExit, match="inventory"):
+        splits.development_ids.__wrapped__(cfg)
 
 
 def test_the_tag_unseals(monkeypatch):
     monkeypatch.setattr(splits, "unsealed", lambda: True)
     assert splits.sealed([NEW]) == []
     splits.require_outcomes([NEW])
+
+
+def test_build_tables_never_counts_a_sealed_window(locked, monkeypatch):
+    from laf import tables as T
+    from laf.registry import load_sequences
+
+    seq = next(s for s in load_sequences(Path("config/sequences.toml")) if s.id == COLOMBIA)
+    monkeypatch.setattr(splits, "development_ids", lambda: frozenset())
+    calls = []
+    real = T.count_in_window
+
+    def spy(cat, circle, t0, t1, m):
+        calls.append((t0, t1))
+        return real(cat, circle, t0, t1, m)
+
+    monkeypatch.setattr(T, "count_in_window", spy)
+    t = T.build_tables(Path("data"), "20261021T1027Z", [seq])
+    issue_ms = set(t["issue_times"]["issue_ms"])
+    assert t["observed_counts"]["count"].isna().all()
+    assert calls and all(t1 in issue_ms for _, t1 in calls)  # only pre-cutoff counts

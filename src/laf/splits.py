@@ -6,6 +6,7 @@ scores outcomes calls `require_outcomes` first. A sequence id not listed as deve
 config/splits.toml is confirmatory.
 """
 
+import hashlib
 import subprocess
 import tomllib
 from collections.abc import Iterable
@@ -24,8 +25,12 @@ def development_ids(config: Path = CONFIG) -> frozenset[str]:
     ids: set[str] = set()
     for p in cfg["sequence_configs"]:
         ids |= {s["id"] for s in tomllib.loads(Path(p).read_text(encoding="utf-8"))["sequence"]}
-    for d in cfg["id_dirs"]:
-        ids |= {f.name.split(".")[0] for f in Path(d).iterdir() if f.is_file()}
+    for d in cfg["id_dir"]:
+        stems = sorted(f.name.split(".")[0] for f in Path(d["path"]).iterdir() if f.is_file())
+        digest = hashlib.sha256("\n".join(stems).encode("utf-8")).hexdigest()
+        if (len(stems), digest) != (d["n"], d["sha256"]):
+            raise SystemExit(f"{d['path']}: inventory differs from config/splits.toml")
+        ids |= set(stems)
     return frozenset(ids)
 
 

@@ -25,7 +25,7 @@ from laf.catalog import count_in_window, haversine_km, read_comcat_csv, wells_co
 from laf.generic_rj import REFERENCE_REL, generic_rj, mag_comp
 from laf.oaf import Circle, Forecast, oaf_versions, parse_forecast_lenient
 from laf.registry import Sequence
-from laf.splits import seal_counts
+from laf.splits import seal_counts, sealed
 from laf.usgs import read_raw
 
 DAY_MS = 86_400_000
@@ -131,6 +131,7 @@ def build_tables(data_dir: Path, snapshot: str, seqs: list[Sequence]) -> dict[st
             "issue_catalogs",
         )
     }
+    hidden = set(sealed([s.id for s in seqs]))  # outcomes not counted (docs/adr/0013)
     for seq in seqs:
         event = json.loads(read_raw(data_dir, f"{snap}/event/{seq.id}.geojson.gz"))
         props = event["properties"]
@@ -297,7 +298,9 @@ def build_tables(data_dir: Path, snapshot: str, seqs: list[Sequence]) -> dict[st
                             "magnitude": m,
                             "time_start_ms": t0,
                             "time_end_ms": t1,
-                            "count": count_in_window(cat, scoring, t0, t1, m),
+                            "count": None
+                            if seq.id in hidden
+                            else count_in_window(cat, scoring, t0, t1, m),
                             "closed": t1 <= catalog_end_ms,
                             "days_since_close": (catalog_end_ms - t1) / DAY_MS,
                         }
