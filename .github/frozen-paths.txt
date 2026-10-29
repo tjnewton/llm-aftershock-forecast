@@ -1,0 +1,22 @@
+# Paths a pull request may change only with the label `frozen-override` (docs/factory.md, Brakes).
+# fnmatch patterns ("*" also matches "/"). Changes to frozen files are logged in docs/deviations.md.
+# Raw data (modify or delete under data/raw/) and non-append changes to data/manifest.jsonl are
+# checked in code (src/laf/path_guard.py).
+
+# registered analysis (tags prereg-v1, scoring-v1)
+docs/preregistration.md
+prompts/*
+config/sequences.toml
+src/laf/scoring.py
+src/laf/forecast.py
+src/laf/analysis.py
+notebooks/analysis.py
+# items hashed in run records (batch.json items_sha256)
+data/processed/20261021T1027Z/items.jsonl
+data/processed/20261021T2300Z/items.jsonl
+# the brakes themselves
+.github/frozen-paths.txt
+.github/workflows/path-guard.yml
+src/laf/path_guard.py
+src/laf/splits.py
+config/splits.toml
