@@ -1,8 +1,10 @@
 """CI path guard (docs/factory.md, Brakes). Standard library only: the workflow runs the copy of
 this file from the base branch, so a pull request cannot loosen its own check.
 
-    python path_guard.py push SHA...                    commits pushed outside a merged PR
+    python path_guard.py push --frozen F SHA...         commits pushed outside a merged PR
     python path_guard.py pr --frozen F BASE HEAD [--override]
+
+The override label waives only the frozen-path rule; raw data and the manifest always hold.
 """
 
 import argparse
@@ -36,27 +38,30 @@ def _data_violations(changes: list[Change], manifest_ok: bool) -> list[str]:
     return out
 
 
-def push_violations(changes: list[Change], manifest_ok: bool) -> list[str]:
-    """A direct push: code paths go through pull requests; raw data and manifest rules hold."""
+def _frozen(changes: list[Change], patterns: list[str], why: str) -> list[str]:
+    return [
+        f"{s} {p}: frozen path ({why})"
+        for s, p in changes
+        if any(fnmatch.fnmatch(p, pat) for pat in patterns)
+    ]
+
+
+def push_violations(changes: list[Change], manifest_ok: bool, patterns: list[str]) -> list[str]:
+    """A direct push: code and frozen paths go through pull requests; data rules hold."""
     code = [
         f"{s} {p}: code changes go through a pull request"
         for s, p in changes
         if p.startswith(CODE_PREFIXES) and not p.startswith(GENERATED)
     ]
-    return code + _data_violations(changes, manifest_ok)
+    frozen = _frozen(changes, patterns, "pull request with label frozen-override")
+    return code + frozen + _data_violations(changes, manifest_ok)
 
 
 def pr_violations(
     changes: list[Change], manifest_ok: bool, patterns: list[str], override: bool
 ) -> list[str]:
-    """A pull request: frozen paths, raw data and the manifest need the override label."""
-    if override:
-        return []
-    frozen = [
-        f"{s} {p}: frozen path (label frozen-override)"
-        for s, p in changes
-        if any(fnmatch.fnmatch(p, pat) for pat in patterns)
-    ]
+    """A pull request: frozen paths need the override label; data rules always hold."""
+    frozen = [] if override else _frozen(changes, patterns, "label frozen-override")
     return frozen + _data_violations(changes, manifest_ok)
 
 
@@ -65,8 +70,9 @@ def _git(*args: str) -> str:
 
 
 def _changes(a: str, b: str) -> list[Change]:
-    out = _git("diff", "--name-status", "--no-renames", a, b)
-    return [(s[0], p) for s, p in (line.split("\t", 1) for line in out.splitlines() if line)]
+    # -z: paths unquoted (tabs, non-ASCII), as alternating status and path fields
+    f = _git("diff", "--name-status", "--no-renames", "-z", a, b).split("\0")
+    return [(f[i][0], f[i + 1]) for i in range(0, len(f) - 1, 2)]
 
 
 def _parent(sha: str) -> str:
@@ -92,13 +98,15 @@ def main(argv: list[str] | None = None) -> int:
     pr.add_argument("base")
     pr.add_argument("head")
     pr.add_argument("--override", action="store_true")
-    pr.add_argument("--frozen", type=Path, default=Path(".github/frozen-paths.txt"))
+    for s in (pu, pr):
+        s.add_argument("--frozen", type=Path, default=Path(".github/frozen-paths.txt"))
     a = p.parse_args(argv)
     found = []
     if a.cmd == "push":
+        patterns = frozen_patterns(a.frozen)
         for sha in a.shas:
             parent = _parent(sha)
-            v = push_violations(_changes(parent, sha), _manifest_ok(parent, sha))
+            v = push_violations(_changes(parent, sha), _manifest_ok(parent, sha), patterns)
             found += [f"{sha[:9]} {x}" for x in v]
     else:
         changes = _changes(a.base, a.head)
