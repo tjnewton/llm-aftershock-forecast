@@ -14,7 +14,6 @@ from laf.oaf import parse_forecast_lenient
 from laf.prompts import render, schema
 from laf.providers import MODELS, anthropic_params, call_anthropic, cost_usd
 from laf.registry import Sequence
-from laf.splits import require_outcomes
 from laf.tables import (
     DAY_MS,
     FORESHOCK_LOOKBACK_MS,
@@ -123,6 +122,7 @@ def provisional_scores(
     from laf.oaf import Circle
     from laf.schemas import validate
     from laf.scoring import quantile_score
+    from laf.splits import require_outcomes
 
     require_outcomes([seq.id])
     t = build_tables(data_dir, snapshot, [seq])
