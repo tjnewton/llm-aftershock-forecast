@@ -100,8 +100,11 @@ Sonnet -0.039):
 | Opus | 0.38 | 0.68 | 0.88 | 0.95 |
 | Sonnet | 0.12 | 0.20 | 0.31 | 0.39 |
 
-The open models are far from the official forecast on E3: gpt-oss-20b +0.35 nats and
-Olmo-3.1-32B +0.66.
+Invalid samples get the worst score of any valid forecast in the cell (prereg section 7);
+`--valid-only` is the sensitivity variant. Opus and Sonnet rarely answer invalidly, so their
+numbers barely move. Haiku goes from +0.029 (valid only) to +0.066. The open models are far
+from the official forecast on E3: gpt-oss-20b +0.35 nats, and Olmo-3.1-32B +0.94 (+0.66 valid
+only; 277 of its 630 answers are non-monotone).
 
 **Reading.**
 - Equivalence at a margin of 0.05 nats needs about 100 sequences.

@@ -19,31 +19,54 @@ from laf.countdist import from_quantiles, log_score
 Z90 = 1.6448536269514722  # one-sided 95% = two-sided 90%
 
 
-def cell_differences(proc: Path, run_dirs: list[Path], reference: str = "official") -> pd.DataFrame:
+def cell_differences(
+    proc: Path, run_dirs: list[Path], reference: str = "official", valid_only: bool = False
+) -> pd.DataFrame:
     """dLS per (model, sequence, cell) for direct-arm I1 answers: the mean over an answer's
-    valid samples minus the reference forecaster, on primary cells where it exists."""
+    samples minus the reference forecaster, on primary cells where it exists. Invalid samples
+    get the worst score of any valid forecast in the cell (prereg section 7, as in
+    `analysis.score_all`); transport errors are left out. `valid_only` is the sensitivity
+    variant that drops invalid samples."""
     tables, items = A.load_tables(proc), A.load_items(proc)
     cells = A.cells(tables)  # refuses confirmatory sequences (docs/adr/0013)
     cells = cells[cells["primary"] & (cells["role"] != "dev")]
     base = A.baselines(tables, items, cells)
     y5 = {(c["issue_id"], c["window"]): int(c["y5"]) for c in cells.to_dict("records")}
     seq = {(c["issue_id"], c["window"]): c["sequence_id"] for c in cells.to_dict("records")}
+    scores: dict[tuple, list[float]] = {}  # every valid forecast's score per cell, for the worst
+    for (name, iid, win), fc in base.items():
+        k = (iid, win)
+        if k in y5 and name not in ("etas_analyst", "etas_hindsight"):
+            scores.setdefault(k, []).append(log_score(from_quantiles(fc.m5).cdf, y5[k])[0])
     ref = {
         k[1:]: log_score(from_quantiles(fc.m5).cdf, y5[k[1:]])[0]
         for k, fc in base.items()
         if k[0] == reference and k[1:] in y5
     }
-    rows = []
+    samples = []
     for d in run_dirs:
         for s in A.llm_samples([d], items):
             key = (s["issue_id"], s["window"])
             # the confirmatory estimand: direct-arm answers with the catalog (I1)
-            if key not in ref or s["forecast"] is None or (s["arm"], s["info"]) != ("direct", "I1"):
+            if key not in ref or (s["arm"], s["info"]) != ("direct", "I1"):
                 continue
-            ls = log_score(from_quantiles(s["forecast"].m5).cdf, y5[key])[0]
-            rows.append(
-                {"model": s["model"], "sequence_id": seq[key], "cell": key, "d": ls - ref[key]}
+            if s["status"] == "transport_error":
+                continue
+            ls = (
+                None
+                if s["forecast"] is None
+                else log_score(from_quantiles(s["forecast"].m5).cdf, y5[key])[0]
             )
+            if ls is not None:
+                scores[key].append(ls)
+            samples.append((s["model"], key, ls))
+    rows = []
+    for model, key, ls in samples:
+        if ls is None:
+            if valid_only:
+                continue
+            ls = max(scores[key])
+        rows.append({"model": model, "sequence_id": seq[key], "cell": key, "d": ls - ref[key]})
     df = pd.DataFrame(rows)
     return df.groupby(["model", "sequence_id", "cell"])["d"].mean().reset_index()
 

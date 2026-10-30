@@ -111,6 +111,7 @@ def main(argv: list[str] | None = None) -> None:
     pw.add_argument("--snapshot", required=True)
     pw.add_argument("--runs", type=Path, default=Path("runs/e3"), help="folder of LLM run folders")
     pw.add_argument("--reference", default="official", help="official or naive")
+    pw.add_argument("--valid-only", action="store_true", help="sensitivity: drop invalid samples")
     hs = sub.add_parser(
         "hindsight", help="baselines on the as-of vs today's catalog, development cells (ADR 0016)"
     )
@@ -383,7 +384,9 @@ def main(argv: list[str] | None = None) -> None:
         from laf.power import cell_differences, power_table, sequence_effects
 
         runs = sorted(d for d in a.runs.iterdir() if (d / "results.jsonl").exists())
-        cells = cell_differences(a.data_dir / "processed" / a.snapshot, runs, a.reference)
+        cells = cell_differences(
+            a.data_dir / "processed" / a.snapshot, runs, a.reference, a.valid_only
+        )
         equivalence = a.reference != "naive"
         tables = []
         for model, g in cells.groupby("model"):
@@ -398,7 +401,8 @@ def main(argv: list[str] | None = None) -> None:
             t = power_table(eff, ns, margins if equivalence else (None,), true_diff=truth)
             tables.append(t.assign(model=model, reference=a.reference))
         out = pd.concat(tables) if tables else pd.DataFrame()
-        path = Path("results") / f"power_{a.reference}_{a.snapshot}.csv"
+        tag = "_validonly" if a.valid_only else ""
+        path = Path("results") / f"power_{a.reference}{tag}_{a.snapshot}.csv"
         out.to_csv(path, index=False)
         if len(out):
             print(out.pivot_table(index=["model", "n_sequences"], columns="margin", values="power",
