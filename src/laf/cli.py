@@ -46,7 +46,7 @@ def main(argv: list[str] | None = None) -> None:
     rn.add_argument(
         "--block",
         required=True,
-        choices=("core", "i0", "sonnet-low", "e3", "e3pre", "e3i0", "d2", "d2-medium"),
+        choices=("core", "i0", "sonnet-low", "e3", "e3pre", "e3i0", "d2", "d2-medium", "d2-46"),
     )
     rn.add_argument("--model", required=True)
     rn.add_argument("--name", help="run name under runs/ (default <block>-<model>)")
