@@ -105,6 +105,13 @@ def main(argv: list[str] | None = None) -> None:
     cb.add_argument("--snapshot", required=True)
     cb.add_argument("--runs", type=Path, default=Path("runs"), help="runs/ or runs/e3")
     sub.add_parser("replicates", help="adapted-model replicate summary -> results/replicates.csv")
+    pw = sub.add_parser(
+        "power", help="power of the confirmatory tests from development runs (ADR 0018)"
+    )
+    pw.add_argument("--snapshot", required=True)
+    pw.add_argument("--runs", type=Path, default=Path("runs/e3"), help="folder of LLM run folders")
+    pw.add_argument("--reference", default="official", help="official or naive")
+    pw.add_argument("--valid-only", action="store_true", help="sensitivity: drop invalid samples")
     hs = sub.add_parser(
         "hindsight", help="baselines on the as-of vs today's catalog, development cells (ADR 0016)"
     )
@@ -371,6 +378,36 @@ def main(argv: list[str] | None = None) -> None:
         Path("results").mkdir(exist_ok=True)
         tab.to_csv(f"results/combined_{a.snapshot}.csv", index=False, lineterminator="\n")
         print(tab[tab["sequence"] == "pooled"].round(3).to_string(index=False))
+    elif a.cmd == "power":
+        import pandas as pd
+
+        from laf.power import cell_differences, power_table, sequence_effects
+
+        runs = sorted(d for d in a.runs.iterdir() if (d / "results.jsonl").exists())
+        cells = cell_differences(
+            a.data_dir / "processed" / a.snapshot, runs, a.reference, a.valid_only
+        )
+        equivalence = a.reference != "naive"
+        tables = []
+        for model, g in cells.groupby("model"):
+            eff = sequence_effects(g).to_numpy()
+            print(f"{model}: {len(g)} cells, {len(eff)} sequences, mean dLS {g['d'].mean():+.3f}, "
+                  f"between-sequence SD {eff.std(ddof=1):.3f}")  # fmt: skip
+            if len(eff) < 5:
+                continue
+            ns, margins = (20, 40, 60, 100, 150, 194), (0.02, 0.03, 0.05, 0.1)
+            # equivalence at a true difference of 0; superiority at the development estimate
+            truth = 0.0 if equivalence else float(eff.mean())
+            t = power_table(eff, ns, margins if equivalence else (None,), true_diff=truth)
+            tables.append(t.assign(model=model, reference=a.reference))
+        out = pd.concat(tables) if tables else pd.DataFrame()
+        tag = "_validonly" if a.valid_only else ""
+        path = Path("results") / f"power_{a.reference}{tag}_{a.snapshot}.csv"
+        out.to_csv(path, index=False)
+        if len(out):
+            print(out.pivot_table(index=["model", "n_sequences"], columns="margin", values="power",
+                                  dropna=False).round(2).to_string())  # fmt: skip
+        print(f"-> {path}")
     elif a.cmd == "hindsight":
         from laf import analysis as A
         from laf.hindsight import compare, summary
