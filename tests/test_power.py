@@ -55,3 +55,12 @@ def test_d2_cell_differences_label_models_and_average_samples(monkeypatch):
         ("m high v2A", ("b", "day")): pytest.approx(-0.2),
         ("m high v2B", ("a", "day")): pytest.approx(1.0),
     }
+
+
+def test_stricter_level_lowers_power():
+    import numpy as np
+
+    from laf.power import Z90, Z95
+
+    e = np.random.default_rng(1).normal(0.01, 0.1, 40)
+    assert power(e, 60, 0.05, z=Z95) < power(e, 60, 0.05, z=Z90)

@@ -17,6 +17,7 @@ from laf import analysis as A
 from laf.countdist import from_quantiles, log_score
 
 Z90 = 1.6448536269514722  # one-sided 95% = two-sided 90%
+Z95 = 1.959963984540054  # one-sided 97.5%
 
 
 def cell_differences(
@@ -97,9 +98,11 @@ def power(
     true_diff: float = 0.0,
     sims: int = 20_000,
     seed: int = 20261030,
+    z: float = Z90,
 ) -> float:
     """Share of simulated studies of n sequences that conclude equivalence (margin given) or
-    superiority (margin None: the one-sided 95% upper bound below 0)."""
+    superiority (margin None: the one-sided upper bound below 0). `z` sets the level: Z90 for
+    5% per side (the default), Z95 for 2.5% (the first Holm step of two tests)."""
     rng = np.random.default_rng(seed)
     e = np.asarray(effects, dtype=float)
     e = e - e.mean() + true_diff
@@ -107,8 +110,8 @@ def power(
     mean = draw.mean(axis=1)
     se = draw.std(axis=1, ddof=1) / np.sqrt(n)
     if margin is None:
-        return float(np.mean(mean + Z90 * se < 0))
-    return float(np.mean((mean - Z90 * se > -margin) & (mean + Z90 * se < margin)))
+        return float(np.mean(mean + z * se < 0))
+    return float(np.mean((mean - z * se > -margin) & (mean + z * se < margin)))
 
 
 def power_table(
