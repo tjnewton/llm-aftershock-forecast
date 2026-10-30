@@ -32,3 +32,26 @@ def test_invalid_answers_get_the_worst_score_in_the_cell():
     valid = cell_differences(proc, run, valid_only=True)
     assert len(penalized) >= len(valid)  # cells with only invalid answers stay in
     assert penalized["d"].mean() > valid["d"].mean()
+
+
+def test_d2_cell_differences_label_models_and_average_samples(monkeypatch):
+    from pathlib import Path
+
+    import pandas as pd
+    import pytest
+
+    from laf import d2, power
+
+    df = pd.DataFrame({
+        "model": ["m"] * 4, "effort": ["high"] * 4, "variant": ["v2A"] * 3 + ["v2B"],
+        "item_id": ["a", "a", "b", "a"], "window": ["day"] * 4, "sequence_id": ["s"] * 4,
+        "status": ["ok", "ok", "ok", "ok"], "d5": [0.1, 0.3, -0.2, 1.0],
+    })  # fmt: skip
+    monkeypatch.setattr(d2, "analyze", lambda proc, runs: (df, None))
+    cells = power.d2_cell_differences(Path("x"), [])
+    got = {(r.model, r.cell): r.d for r in cells.itertuples()}
+    assert got == {
+        ("m high v2A", ("a", "day")): pytest.approx(0.2),
+        ("m high v2A", ("b", "day")): pytest.approx(-0.2),
+        ("m high v2B", ("a", "day")): pytest.approx(1.0),
+    }

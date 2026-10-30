@@ -93,3 +93,17 @@ Robustness (M>=5, cells where every variant answered validly):
   robustness variant is enough. C is informative but not needed as a confirmatory arm.
 - Effort `high` stays.
 - M3 targets are a secondary analysis on the California candidates.
+
+### The 4.6 models (2026-10-30)
+D2 items, prompt v2A, 3 samples each, at the study settings of ADR 0014 decision 5 (block
+`d2-46`, runs/d2/d2-46-*). All 594 answers were valid; cost $11.12. Mean dLS against the
+official forecast (positive = worse), as in the summary table:
+
+| Model | Effort | d5 | d4 |
+|---|---|---|---|
+| Opus 4.6 | adaptive, medium | +0.043 | +0.086 |
+| Sonnet 4.6 | adaptive, low | +0.151 | +0.326 |
+| Opus 5.5 (for comparison) | high | +0.003 | -0.038 |
+
+Both 4.6 models forecast worse than Opus 5.5, Sonnet 4.6 by a wide margin. This matches their
+weaker response to the observed aftershock count in the D1 probes. Power: ADR 0018.
