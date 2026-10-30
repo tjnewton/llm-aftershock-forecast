@@ -22,3 +22,5 @@ T08 failed 2026-10-22T22:34Z 5dc8e1b e3all finalize: json.decoder.JSONDecodeErro
 worker stopped 2026-10-22T22:34Z
 T08 done 2026-10-22T22:54Z e54def7 849 of 849 succeeded (dev 72, e1 147, e3all 630); e3all finalized after reader fix 2405c23, no new requests; adapter gpt-oss-20b-e1b-lora-f16.gguf sha256 36c390c55be682bc5ad4729e9724abab2274df9b092a3330c4e3a4d9b26ff6d2
 worker stopped 2026-10-29T19:59Z
+T09 running 2026-10-30T13:45Z
+T09 done 2026-10-30T13:51Z live-watch started detached, uv pid 13660 (laf.exe 32780, python 26532); first poll logged
