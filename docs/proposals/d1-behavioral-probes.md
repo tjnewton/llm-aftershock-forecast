@@ -199,8 +199,12 @@ Week window, log10 of the mean count, mean over the 18 base sequences [95% boots
   for the models against 1.0 for RJ, Opus 5.5 being closest.
 - **Spread:** M3 forecasts are narrower than RJ's (median log(1 + q97.5) - log(1 + q2.5): Opus
   4.6 1.7, Sonnet 4.6 1.6, Opus 5.5 1.9, against 2.2).
-- **The E[log(1 + N)] check** (`stat = elog1p` in the summary): it keeps the same order on the
-  magnitude and count probes; every model is below RJ, and the 4.6 models are lowest.
+- **The E[log(1 + N)] check** (`stat = elog1p` in the summary): on the magnitude and count
+  probes (week, M3 to M5) every model stays below RJ. The order among the models does not
+  hold: the differences shrink to 0.1 or less and change sign by target. For example, at M5
+  Opus 5.5's magnitude slope (0.105) is below the 4.6 models' (0.12). This statistic
+  compresses small counts. So the check confirms the gap to RJ, but not the ranking of the
+  models.
 
 What it means for the confirmatory study: the 4.6 models are expected to forecast worse than
 Opus 5.5, mainly on sequences much more or less productive than the generic model. D2 for the
