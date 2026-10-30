@@ -43,10 +43,45 @@ power at a true difference of 0. E3 (39 sequences, all with an official forecast
 input. E3 uses M>=5 targets only, so a power analysis for M>=3 targets also needs the E3
 sequences rescored at M3 (development data, allowed).
 
+## First look on development data (2026-10-30, exploratory)
+**Spread.** E3 post-cutoff sequences (18 sequences, 203 primary cells with an official forecast).
+dLS = LS(Claude direct answer, the mean over its samples) - LS(official), both scored through
+nine quantiles (ADR 0015):
+
+| Model | Mean dLS | Between-sequence SD | Within-sequence SD |
+|---|---|---|---|
+| Opus 5.5 | +0.011 | 0.106 | 0.071 |
+| Sonnet 5.5 | +0.038 | 0.034 | 0.069 |
+| Haiku 5.5 | +0.029 | 0.058 | 0.075 |
+
+With the standard error of the mean about SD_between / sqrt(N), 80% TOST power at a true
+difference of 0 needs a margin of about 2.9 SD_between / sqrt(N). Taking SD_between = 0.1 gives
+about 0.05 nats at N = 40, 0.03 at N = 100 and 0.02 at N = 194. These numbers are rough: E3 cells
+are mostly small sequences with zero counts.
+
+**Margin anchors** (mean per cell, primary cells with an official forecast):
+
+| Anchor | Registered (6 seq., 96 cells) | E3 (39 seq., 536 cells) |
+|---|---|---|
+| Expected count x2 (NB fitted to the official quantiles, mean doubled) | +0.300 | +0.063 |
+| Expected count x0.5 | +0.202 | -0.021 |
+| Generic RJ - official | +0.184 | -0.013 |
+| ETAS refit - official | -0.044 | -0.018 |
+
+**Reading.** The anchors scale with how much a cell can tell apart: large sequences give
+tenths of a nat, small ones hundredths. A single margin in nats would be loose for small
+sequences and tight for large ones. Options to settle with Tyler, after a proper simulation
+(bootstrap of sequence effects, the candidate set's size mix, M3 targets):
+1. margins by mainshock-magnitude stratum;
+2. a relative margin, dS divided by the cell's factor-of-2 penalty;
+3. the primary test on the stratum where cells carry information (M>=6 or M3 targets), with
+   the rest descriptive.
+
 ## Open decisions (Tyler)
 1. The margin anchor and its value (after the development-data numbers exist).
 2. Target power and sequence count, which set the prospective stopping rule (ADR 0017).
 3. Whether the hierarchical model is confirmatory or a robustness check.
 
 ## Changelog
+- 2026-10-30: first look at spread and margin anchors on development data.
 - 2026-10-29: first version.
