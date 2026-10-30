@@ -105,6 +105,11 @@ def main(argv: list[str] | None = None) -> None:
     cb.add_argument("--snapshot", required=True)
     cb.add_argument("--runs", type=Path, default=Path("runs"), help="runs/ or runs/e3")
     sub.add_parser("replicates", help="adapted-model replicate summary -> results/replicates.csv")
+    cd = sub.add_parser(
+        "countdist-check",
+        help="log score from 9 quantiles vs full distributions, development cells (ADR 0015)",
+    )
+    cd.add_argument("--snapshot", required=True)
     sub.add_parser("outcome-training", help="E1b preference pairs and the ETAS recalibration fit")
     e3s = sub.add_parser("e3", help="E3 exploratory tables -> results/e3_*.csv (no API calls)")
     e3s.add_argument("--snapshot", required=True)
@@ -362,6 +367,57 @@ def main(argv: list[str] | None = None) -> None:
         Path("results").mkdir(exist_ok=True)
         tab.to_csv(f"results/combined_{a.snapshot}.csv", index=False, lineterminator="\n")
         print(tab[tab["sequence"] == "pooled"].round(3).to_string(index=False))
+    elif a.cmd == "countdist-check":
+        import numpy as np
+        import pandas as pd
+
+        from laf import analysis as A
+        from laf.countdist import from_cdf_array, from_quantiles, log_score, nb_from_quantiles
+
+        fine = np.round(np.arange(1, 400) * 0.0025, 4)
+        proc = a.data_dir / "processed" / a.snapshot
+        tables, items = A.load_tables(proc), A.load_items(proc)
+        cell_df = A.cells(tables)  # refuses confirmatory sequences (docs/adr/0013)
+        cell_df = cell_df[(cell_df["role"] != "dev") & cell_df["primary"]]
+        ys = {(c["issue_id"], c["window"]): int(c["y5"]) for c in cell_df.to_dict("records")}
+        rows = []
+        for (name, iid, win), fc in A.baselines(tables, items, cell_df).items():
+            if name not in ("official", "etas") or (iid, win) not in ys:
+                continue
+            if name == "official" and fc.fractiles_m5 is not None:
+                levels, counts = fc.fractiles_m5
+                full = from_quantiles(counts, levels).cdf
+                raw = full
+            elif fc.cdf_m5 is not None:  # simulated histogram: also smoothed via 399 fractiles
+                raw = from_cdf_array(fc.cdf_m5)
+                counts = [int(np.searchsorted(fc.cdf_m5, t - 1e-12)) for t in fine]
+                full = from_quantiles(counts, fine).cdf
+            else:
+                continue
+            y = ys[(iid, win)]
+            rows.append(
+                {
+                    "forecaster": name, "issue_id": iid, "window": win, "y5": y,
+                    "ls_raw": log_score(raw, y)[0], "ls_full": log_score(full, y)[0],
+                    "ls_q9_power": log_score(from_quantiles(fc.m5).cdf, y)[0],
+                    "ls_q9_nbtail": log_score(from_quantiles(fc.m5, tail="nb").cdf, y)[0],
+                    "ls_q9_nb": log_score(nb_from_quantiles(fc.m5), y)[0],
+                }
+            )  # fmt: skip
+        df = pd.DataFrame(rows)
+        out = Path("results") / f"countdist_check_{a.snapshot}.csv"
+        df.to_csv(out, index=False)
+        for name, g in df.groupby("forecaster"):
+            raw_mean, full_mean = g["ls_raw"].mean(), g["ls_full"].mean()
+            print(f"{name}: {len(g)} cells, mean LS raw {raw_mean:.3f}, full {full_mean:.3f}")
+            for v in ("ls_q9_power", "ls_q9_nbtail", "ls_q9_nb"):
+                d = g[v] - g["ls_full"]
+                corr = np.corrcoef(g[v], g["ls_full"])[0, 1]
+                print(
+                    f"  {v} - full: mean {d.mean():+.3f}, median {d.median():+.3f}, "
+                    f"MAE {d.abs().mean():.3f}, corr {corr:.3f}"
+                )
+        print(f"-> {out}")
     elif a.cmd == "replicates":
         import pandas as pd
 
