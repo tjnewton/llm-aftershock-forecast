@@ -34,13 +34,15 @@ catalog probe uses synthetic catalogs with a controlled productivity.
 |---|---|---|---|---|
 | P1 magnitude | mainshock magnitude, by Δ | place, issue time, windows, region radius | Δ = -1, -0.5, 0, +0.5, +1 | none (I0) |
 | P2 elapsed time | issue time after the mainshock (windows start at the issue) | magnitude | 1 h, 6 h, 1 d, 3 d, 10 d, 30 d | none (I0) |
-| P3 productivity | synthetic catalog up to day 3, drawn from the region's generic RJ model with productivity times ρ | magnitude, issue time | ρ = 0 (empty list), 0.1, 0.3, 1, 3, 10 | synthetic list (I1) |
-| P4 time pattern (optional) | the same synthetic events (ρ = 3) with Omori-decaying times or times spread evenly over the 3 days | count, magnitudes | decaying, even | synthetic list (I1) |
+| P3 productivity | synthetic catalog up to day 3 with exactly N events at M3 or larger | magnitude, issue time | N = 0 (empty list), 1, 3, 10, 30, 100 | synthetic list (I1) |
+| P4 time pattern (optional) | the same 10 synthetic events with Omori-decaying times or times spread evenly over the 3 days | count, magnitudes | decaying, even | synthetic list (I1) |
 
-- Synthetic catalogs: a seeded Poisson draw from the RJ rate, magnitudes from
-  Gutenberg-Richter with the region's b, distances and depths drawn around the mainshock. Each
+- Synthetic catalogs: the count N is fixed, not drawn, so every level has the count it names
+  (a Poisson draw at low productivity is often empty). Given N, the times are a seeded draw
+  from the region's generic Omori-Utsu density over the 3 days, magnitudes from
+  Gutenberg-Richter with the region's b, and distances and depths around the mainshock. Each
   catalog is written once and committed, so the items can be rebuilt exactly.
-- P3 at ρ = 0 against P2 at 3 days separates "no aftershocks were recorded" from "no list was
+- P3 at N = 0 against P2 at 3 days separates "no aftershocks were recorded" from "no list was
   given".
 - k = 2 samples per item, as a check on within-condition noise (D2 found it small).
 
@@ -51,9 +53,10 @@ locally at no cost:
 
 | Probe | LLM measure | Reference |
 |---|---|---|
-| P1 | slope of log10 mean count on Δ, per target magnitude and window; the same for P(M6+) | generic RJ: slope = b (about 1.0) |
+| P1 | slope of log10 mean count on Δ, per target magnitude and window | generic RJ: slope = b (about 1.0) |
+| P1 | P(M6+) at each Δ and window | generic RJ P(M6+) at the same Δ (it saturates as the expected count grows, so its slope is not b) |
 | P2 | implied Omori p: fit of log mean count against the RJ window integral, c fixed at the generic value | generic RJ p of the region |
-| P3 | elasticity: slope of log mean forecast on log of the realized synthetic count (ρ > 0) | Bayesian RJ update on the same catalog (below) and the generating model |
+| P3 | elasticity: slope of log mean forecast on log N (N >= 1); N = 0 reported on its own | Bayesian RJ update on the same catalogs (below) |
 | P4 | ratio of the even-pattern forecast to the decaying one | Bayesian RJ update on each catalog |
 | all | M3:M4:M5 ratios (implied b); spread, log(1 + 97.5% quantile) - log(1 + 2.5% quantile) | the same spread of the RJ reference |
 
@@ -91,7 +94,7 @@ the 4.6 models without reasoning, while the 5.5 models reason.
 - **Calls per model:** P1 180, P2 216, P3 216, P4 72; 684 in total (612 without P4).
 - **Tokens per call:**
   - Basis: D2 means were 2,071 input tokens; output 1,317 for Opus 5.5 and 1,165 for Sonnet 5.5.
-  - Assumed here: 2,500 input and 1,500 output. I0 prompts are shorter, and P3 at ρ = 10 is
+  - Assumed here: 2,500 input and 1,500 output. I0 prompts are shorter, and P3 at N = 100 is
     longer.
   - The 4.6 models use the older tokenizer (about 30% fewer tokens for the same text). Their
     thinking length at `high` is unknown, so the estimate keeps the 5.5 output length.
