@@ -418,7 +418,19 @@ def main(argv: list[str] | None = None) -> None:
             print(f"{len(items)} probe items -> {path}")
             return
         if a.action == "analyze":  # no API calls
-            runs = sorted(p.parent for p in Path("runs/d1").glob("d1-*/results.jsonl"))
+            import hashlib
+            import json
+
+            if not path.exists() or path.read_text(encoding="utf-8") != d1.items_jsonl(items):
+                raise SystemExit(f"{path} missing or stale: run `laf d1 build`")
+            sha = hashlib.sha256(path.read_bytes()).hexdigest()
+            runs = []  # only answers to exactly these items
+            for p in sorted(Path("runs/d1").glob("d1-*/results.jsonl")):
+                rec = json.loads((p.parent / "batch.json").read_text(encoding="utf-8"))
+                if rec["snapshot"] == a.snapshot and rec["items_sha256"] == sha:
+                    runs.append(p.parent)
+                else:
+                    print(f"skipped {p.parent}: other snapshot or items")
             st = d1.answer_stats(items, tables["sequences"], runs)
             summary = d1.summarize(st, tables["sequences"])
             for name, t in (("stats", st), ("summary", summary)):
