@@ -44,3 +44,28 @@ def test_step_logs_detections_once_and_keeps_polling_after_errors(tmp_path, monk
 
     W.step(tmp_path, tmp_path, state, broken)
     assert "error" in _log(tmp_path)[-1]
+
+
+def test_late_share_bounds_and_monotonicity():
+    import numpy as np
+
+    from laf.live_watch import late_share
+
+    lags = [5.0]
+    assert late_share(np.array([-60.0]), lags, 600, 30) == 1.0  # window opened before publication
+    assert late_share(np.array([7200.0]), lags, 600, 30) == 0.0
+    slack = np.linspace(-300, 3000, 50)
+    shares = [late_share(slack, lags, p, 60) for p in (120, 300, 600)]
+    assert shares == sorted(shares)
+
+
+def test_index_lags_skip_failed_detections(tmp_path):
+    from laf.live_watch import index_lags_s
+
+    log = tmp_path / "log.jsonl"
+    log.write_text(
+        '{"kind": "poll"}\n'
+        '{"kind": "detection", "index_ms": 7000, "update_ms": 2000}\n'
+        '{"kind": "detection", "event_id": "x", "error": "HTTPError: 503"}\n'
+    )
+    assert index_lags_s(log) == [5.0]

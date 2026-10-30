@@ -44,10 +44,51 @@ archived OAF versions from development sequences, then run on the live feed for 
 measure the latency distribution and failure modes. Report the share of items that would have
 been late.
 
+## Dry-run results (living)
+- **Replay of archived versions** (`laf live-late --snapshot 20261021T1027Z 20261021T2300Z
+  20261029T2000Z`, timing columns only; `results/live_late_share.csv`):
+  - Across 13,437 OAF versions in 240 sequences, the first window opens a median 12 minutes
+    after the version is published. In 30.4% of versions it opens before publication, so an
+    item on the version's own windows (a matched item) is late whatever the pipeline does.
+  - Share of matched items that would be late:
+
+    | Poll interval | 0.5 min to hash | 2 min | 5 min |
+    |---|---|---|---|
+    | 2 min | 0.378 | 0.398 | 0.433 |
+    | 5 min | 0.397 | 0.415 | 0.457 |
+    | 10 min | 0.431 | 0.452 | 0.498 |
+
+  - The ComCat index lag comes from the live dry run (8 detections so far): about 5 s, but
+    20 minutes once.
+- **Live feed (Windows, from 2026-10-30):** first live detection us7000tu3j (M5.0), seen 438 s
+  after publication; items built in 9.6 s; the strict item had 88 minutes to spare and the
+  matched item would have been 12 minutes late. The latency distribution needs a longer run.
+- **Model latency** (D1 pilot, synchronous, adaptive thinking at effort high): Opus 4.6 120 s,
+  Sonnet 4.6 259 s (cut off at 16,000 tokens). The settings finally chosen in ADR 0014 set the
+  live forecast time.
+
+## Decisions (Tyler, 2026-10-30)
+1. **Strict items are primary.** Their windows open at the next full hour at least 30 minutes
+   after detection, so every item can be hashed before its window opens. The primary live
+   contrast is the LLM against the baselines run by this pipeline (ETAS refit, RJ-MLE, generic
+   RJ, the rule of thumb) on the same strict windows and the same catalog.
+2. **Matched items are secondary.** Only matched items hashed before their first window are
+   compared with the official forecast. Late ones are excluded and listed (as above), and the
+   analysis reports whether on-time and late versions differ in magnitude and time since the
+   mainshock. The confirmatory comparison with the official forecast stays in the
+   retrospective arm.
+3. **Poll every 10 minutes.** Scheduled GitHub Actions runs can be delayed by 10 minutes or
+   more, and faster polling lowers the matched late share by only about 3 points.
+4. **Strict window rule kept for now** (next full hour at least 30 minutes after detection).
+   Once the live forecast time is measured with the final model settings, rounding to the next
+   10 minutes instead may shrink the offset from the official windows (now 30 to 90 minutes).
+
 ## Open decisions (Tyler)
 1. Prospective duration: until the power analysis's sequence count or 6 months, whichever comes
    first (already decided). The count comes from ADR 0018.
 2. Which models run live (ADR 0014).
+3. The strict window rounding (decision 4), after the forecast time is measured.
 
 ## Changelog
+- 2026-10-30: dry-run results so far; decisions 1-4 (Tyler).
 - 2026-10-29: first version.
