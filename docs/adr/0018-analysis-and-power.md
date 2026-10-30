@@ -118,12 +118,37 @@ only; 277 of its 630 answers are non-monotone).
   and power is not monotone in N below about 40.
 - These numbers are for M>=5 targets. M3 targets add information per cell.
 
+## Power with the confirmatory models (D2 for the 4.6 models, 2026-10-30)
+`laf power --from-d2 --runs runs/d2 --snapshot 20261021T2300Z` uses the D2 items (18 E3
+post-cutoff sequences, prompt v2, M3 catalog). Valid answers only; all 594 4.6 answers were
+valid. Output: results/power_official_d2_20261021T2300Z.csv. The models ran at their study
+settings (ADR 0014 decision 5).
+
+| Model (v2A) | Mean dLS5 per sequence | Between-sequence SD | Equivalence at 0.05, N = 100 | Official better, N = 100 |
+|---|---|---|---|---|
+| Opus 4.6 (adaptive, medium) | +0.033 | 0.062 | 0.87 | 1.00 |
+| Sonnet 4.6 (adaptive, low) | +0.144 | 0.113 | 0.00 | 1.00 |
+| Opus 5.5 (registered) | +0.010 | 0.113 | 0.94 | 0.17 |
+| Sonnet 5.5 (registered) | +0.008 | 0.020 | 1.00 | 0.97 |
+
+- **How to read the columns:** both take the development estimate as the true difference. "Official better"
+  is the power of the one-sided test that the official forecast scores better (95% lower
+  bound of mean dLS above 0). The CSV holds the equivalence power at a true difference of 0
+  for every margin, as in the table above.
+- **Opus 4.6:** likely both within a 0.05 margin and detectably worse than the official
+  forecast. The two conclusions are compatible; the paper should report both.
+- **Sonnet 4.6:** clearly worse. Equivalence fails at any N, consistent with its weak
+  updating in the D1 probes.
+- **Caveat:** 18 small sequences. The confirmatory set includes large sequences, where D1
+  suggests the 4.6 models' under-updating costs more.
+
 ## Open decisions (Tyler)
 1. The margin anchor and its value (after the development-data numbers exist).
 2. Target power and sequence count, which set the prospective stopping rule (ADR 0017).
 3. Whether the hierarchical model is confirmatory or a robustness check.
 
 ## Changelog
+- 2026-10-30: power with the 4.6 models from their D2 runs (`laf power --from-d2`).
 - 2026-10-30: power simulation (`laf.power`) on E3.
 - 2026-10-30: first look at spread and margin anchors on development data.
 - 2026-10-29: first version.

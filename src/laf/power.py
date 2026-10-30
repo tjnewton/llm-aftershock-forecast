@@ -71,6 +71,21 @@ def cell_differences(
     return df.groupby(["model", "sequence_id", "cell"])["d"].mean().reset_index()
 
 
+def d2_cell_differences(proc: Path, run_dirs: list[Path]) -> pd.DataFrame:
+    """dLS5 per (model, sequence, cell) from D2-style runs (`laf.d2.analyze`: v2 prompts, M3
+    targets), with the model labelled by effort and prompt variant. Valid answers only, as
+    `--valid-only` (D2 had almost no invalid answers)."""
+    from laf.d2 import analyze
+
+    df, _ = analyze(proc, run_dirs)
+    ok = df[df["status"] == "ok"]
+    ok = ok.assign(
+        model=ok["model"] + " " + ok["effort"] + " " + ok["variant"],
+        cell=pd.Series(list(zip(ok["item_id"], ok["window"], strict=True)), index=ok.index),
+    )
+    return ok.groupby(["model", "sequence_id", "cell"])["d5"].mean().rename("d").reset_index()
+
+
 def sequence_effects(cells: pd.DataFrame) -> pd.Series:
     return cells.groupby("sequence_id")["d"].mean()
 

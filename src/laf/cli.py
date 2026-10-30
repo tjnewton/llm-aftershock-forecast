@@ -138,6 +138,9 @@ def main(argv: list[str] | None = None) -> None:
     pw.add_argument("--runs", type=Path, default=Path("runs/e3"), help="folder of LLM run folders")
     pw.add_argument("--reference", default="official", help="official or naive")
     pw.add_argument("--valid-only", action="store_true", help="sensitivity: drop invalid samples")
+    pw.add_argument(
+        "--from-d2", action="store_true", help="D2-style runs (v2 prompts; --runs runs/d2)"
+    )
     hs = sub.add_parser(
         "hindsight", help="baselines on the as-of vs today's catalog, development cells (ADR 0016)"
     )
@@ -524,11 +527,16 @@ def main(argv: list[str] | None = None) -> None:
     elif a.cmd == "power":
         import pandas as pd
 
-        from laf.power import cell_differences, power_table, sequence_effects
+        from laf.power import cell_differences, d2_cell_differences, power_table, sequence_effects
 
         runs = sorted(d for d in a.runs.iterdir() if (d / "results.jsonl").exists())
-        cells = cell_differences(
-            a.data_dir / "processed" / a.snapshot, runs, a.reference, a.valid_only
+        proc = a.data_dir / "processed" / a.snapshot
+        if a.from_d2 and a.reference != "official":
+            raise SystemExit("--from-d2 scores against the official forecast only")
+        cells = (
+            d2_cell_differences(proc, runs)
+            if a.from_d2
+            else cell_differences(proc, runs, a.reference, a.valid_only)
         )
         equivalence = a.reference != "naive"
         tables = []
@@ -544,7 +552,7 @@ def main(argv: list[str] | None = None) -> None:
             t = power_table(eff, ns, margins if equivalence else (None,), true_diff=truth)
             tables.append(t.assign(model=model, reference=a.reference))
         out = pd.concat(tables) if tables else pd.DataFrame()
-        tag = "_validonly" if a.valid_only else ""
+        tag = "_d2" if a.from_d2 else "_validonly" if a.valid_only else ""
         path = Path("results") / f"power_{a.reference}{tag}_{a.snapshot}.csv"
         out.to_csv(path, index=False)
         if len(out):
