@@ -118,7 +118,7 @@ def main(argv: list[str] | None = None) -> None:
     d1p.add_argument("--model", choices=("claude-opus-4-6", "claude-sonnet-4-6", "claude-opus-5-5"))
     d1p.add_argument("--dry-run", action="store_true", help="count requests and estimate cost")
     d1p.add_argument(
-        "--settings", action="store_true", help="pilot: the thinking and effort settings batch"
+        "--settings", choices=("grid", "sonnet-low"), help="pilot: a thinking and effort batch"
     )
     lw = sub.add_parser(
         "live-watch", help="dry run of the live detector (ComCat polls; no model calls)"
@@ -424,15 +424,16 @@ def main(argv: list[str] | None = None) -> None:
         if a.action == "pilot" and a.settings:
             from laf import runner
 
-            reqs = d1.settings_requests(items)
+            reqs = d1.settings_requests(items, a.settings)
+            name = "d1/pilot-settings" if a.settings == "grid" else f"d1/pilot-{a.settings}"
             bound = sum(d1.bound_usd(r["params"], batch=True) for r in reqs)
             print(f"settings pilot: {len(reqs)} requests, worst case ${bound:.2f} (batch)")
             if not a.dry_run:
                 batch = runner.submit(
-                    client(), "d1/pilot-settings", reqs, a.snapshot, estimate=bound,
+                    client(), name, reqs, a.snapshot, estimate=bound,
                     items_file="items_d1.jsonl", prompt_set="v2",
                 )  # fmt: skip
-                print("batch", batch, "-> laf status / laf collect d1/pilot-settings")
+                print("batch", batch, f"-> laf status / laf collect {name}")
             return
         if a.action == "pilot":
             if a.dry_run:
@@ -448,7 +449,7 @@ def main(argv: list[str] | None = None) -> None:
         reqs = d1.expand(items, a.model)
         est = d1.estimate_usd(
             reqs,
-            Path("runs/d1/pilot/calls.jsonl"),
+            [Path("runs/d1/pilot-settings"), Path("runs/d1/pilot-sonnet-low")],
             Path("runs/d2/d2-claude-opus-5-5/results.jsonl"),
         )
         name = f"d1/d1-{a.model}"
