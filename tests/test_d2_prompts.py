@@ -123,3 +123,10 @@ def test_d2_loader_validates_m3(tmp_path):
     st = {(r["custom_id"], r["window"]): r["status"] for r in samples([tmp_path])}
     assert st[("0", "day")] == "ok" and st[("1", "day")] == "non_monotone"
     assert st[("2", "day")] == "ok"  # registered requests ignore the M3 field
+
+
+def test_registered_loader_validates_v2_answers_with_m3(tmp_path):
+    from laf.analysis import _targets
+
+    assert _targets({"paraphrase": "v2B"}) == TARGETS_V2
+    assert "m3_count_quantiles" not in _targets({"paraphrase": "p1"})

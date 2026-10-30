@@ -77,3 +77,7 @@ Each entry: UTC time, change, reason, expected effect on the registered analyses
   Items for these runs are built at catalog floor 3.0 (items_m3.jsonl) and the runs go to
   runs/e3/d2-*. The registered prompts, prompts/HASHES.json and every registered items.jsonl
   are unchanged (tested). Effect: none on registered analyses.
+- 2026-10-30 (Seismica phase). `analysis.llm_samples` (frozen at `scoring-v1`) validates v2 (D2)
+  answers with their M3 quantiles; registered requests (p1, p2) keep the original targets.
+  D2 runs go to runs/d2/, outside the registered `runs/*/` glob and runs/e3/. Effect: none on
+  registered or E3 results.

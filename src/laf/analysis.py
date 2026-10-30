@@ -24,7 +24,8 @@ from laf.forecast import (
 )
 from laf.generic_rj import MagComp
 from laf.items import Item
-from laf.schemas import validate
+from laf.prompts import V2
+from laf.schemas import TARGETS, TARGETS_V2, validate
 from laf.scoring import CENTRAL, brier, log_score_binary, pit_cdf, pit_rank, quantile_score
 from laf.splits import require_outcome_table, require_outcomes
 
@@ -143,6 +144,11 @@ def _jsonl(path: Path) -> list[dict]:
     return [json.loads(x) for x in path.read_text(encoding="utf-8").split("\n") if x.strip()]
 
 
+def _targets(meta: dict) -> tuple[str, ...]:
+    """v2 (D2) requests also carry M3 quantiles; registered requests keep their targets."""
+    return TARGETS_V2 if meta.get("paraphrase") in V2 else TARGETS
+
+
 def llm_samples(run_dirs: list[Path], items: dict[str, Item]) -> list[dict]:
     """One record per sample x window: meta, status, warnings and the forecast (None if
     invalid). Errored or expired batch requests are transport_error."""
@@ -155,7 +161,9 @@ def llm_samples(run_dirs: list[Path], items: dict[str, Item]) -> list[dict]:
             if res["result"] != "succeeded":
                 status, parsed, warn = "transport_error", None, []
             else:
-                status, parsed, warn = validate(m["arm"], res.get("text"), res.get("stop_reason"))
+                status, parsed, warn = validate(
+                    m["arm"], res.get("text"), res.get("stop_reason"), _targets(m)
+                )
             for w in item.windows:
                 fc = None
                 if parsed is not None:
