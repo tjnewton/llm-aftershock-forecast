@@ -48,8 +48,16 @@ catalog probe uses synthetic catalogs with a controlled productivity.
 
 ## Measures and references
 Each forecast becomes a count distribution through its nine quantiles (latent PCHIP,
-ADR 0015). The reference is what the statistical models do with the same input, computed
-locally at no cost:
+ADR 0015). For the probe statistics, the upper tail beyond the 97.5% quantile is
+negative-binomial shaped (`laf.countdist.from_quantiles(..., tail="nb")`). The default
+power tail can have an infinite mean: eight zero quantiles and a 97.5% quantile of 2 give a
+tail exponent of about 0.97, below the 1 a finite mean needs. The negative-binomial tail
+decays geometrically, so every mean is finite. As a check, the same slopes are computed from
+E[log(1 + N)] under the default power tail, which is finite for any tail exponent above 0.
+Scoring elsewhere keeps the default tail.
+
+The reference is what the statistical models do with the same input, computed locally at no
+cost:
 
 | Probe | LLM measure | Reference |
 |---|---|---|
