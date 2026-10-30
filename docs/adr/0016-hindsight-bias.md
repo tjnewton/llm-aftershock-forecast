@@ -90,9 +90,9 @@ subset (I1 prompts rebuilt from today's catalog) needs API spend and waits for a
   took the mainshock from today's catalog. Fixed on 2026-10-30: the mainshock's own history (its
   event document) is now used whenever the catalog holds no other event. The committed E3 tables
   stay as built, because the E3 prompts were made from them. A rebuild would change only those
-  mainshock rows (for example M5.2 today, M5.1 as it was at the issue time). The other three
-  sequences (us6000s7qf, us6000sr43, us7000thwt) need their histories fetched before B1 covers
-  them.
+  mainshock rows (for example M5.2 today, M5.1 as it was at the issue time). Of the other
+  three, us6000sr43 is now covered by histories fetched for an overlapping candidate sequence.
+  us6000s7qf and us7000thwt still need their histories fetched before B1 covers them.
 
 ## Changelog
 - 2026-10-30: mainshock-only sequences get an as-of catalog (`laf tables` fix); E3 data-gap
