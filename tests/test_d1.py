@@ -29,6 +29,10 @@ def test_probe_items_cover_the_design_once(probe):
     reqs = d1.expand(list(items.values()), "claude-opus-4-6")
     assert len(reqs) == len(items) * d1.K == len({r["custom_id"] for r in reqs})
     assert all(r["params"]["thinking"] == {"type": "adaptive"} for r in reqs)
+    assert {r["params"]["output_config"]["effort"] for r in reqs} == {"medium"}
+    assert {r["meta"]["effort"] for r in reqs} == {"medium"}
+    assert d1.study_setting("claude-opus-4-6") == "adaptive-medium"
+    assert d1.study_setting("claude-opus-5-5") == "registered"
     for i in items.values():
         assert [(w.start_ms, (w.end_ms - w.start_ms) // DAY_MS) for w in i.windows] == [
             (i.issue_ms, 1), (i.issue_ms, 7), (i.issue_ms, 30)

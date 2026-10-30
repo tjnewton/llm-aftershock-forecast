@@ -3,8 +3,9 @@
 Scored-run settings (docs/PLAN.md 4.5): no `thinking` (adaptive default), no sampling params,
 no tools, no assistant prefill, no server-side refusal fallbacks; effort and JSON schema in
 `output_config`. The SDK's own retries are disabled so every retry is ours and logged.
-The 4.6 models run without thinking when the field is omitted, so their requests ask for
-adaptive thinking explicitly (ADR 0014); the 5.5 requests stay as registered.
+The 4.6 models run without thinking when the field is omitted; their thinking and effort for
+the study's new runs are set per model in STUDY_SETTINGS (ADR 0014 decision 5). The 5.5
+requests stay as registered.
 """
 
 import os
@@ -23,7 +24,16 @@ PRICES = {
     "claude-opus-4-6": (5.00, 25.00, 0.50, 6.25),
     "claude-sonnet-4-6": (3.00, 15.00, 0.30, 3.75),
 }
-EXPLICIT_THINKING = ("claude-opus-4-6", "claude-sonnet-4-6")
+# ADR 0014 decision 5 (Tyler, 2026-10-30), chosen by the D1 settings pilot: (adaptive
+# thinking, effort). Models not listed keep the registered request (no `thinking`, effort high).
+STUDY_SETTINGS = {
+    "claude-opus-4-6": (True, "medium"),
+    "claude-sonnet-4-6": (True, "low"),
+}
+
+
+def study_effort(model: str) -> str:
+    return STUDY_SETTINGS.get(model, (False, "high"))[1]
 
 
 def env_value(var: str, env_file: Path = Path(".env")) -> str:
@@ -64,7 +74,7 @@ def anthropic_params(
         "messages": [{"role": "user", "content": user}],
         "output_config": {"effort": effort, "format": {"type": "json_schema", "schema": schema}},
     }
-    if model in EXPLICIT_THINKING:
+    if STUDY_SETTINGS.get(model, (False,))[0]:
         params["thinking"] = {"type": "adaptive"}
     return params
 
