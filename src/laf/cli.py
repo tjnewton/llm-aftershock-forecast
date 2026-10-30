@@ -393,10 +393,14 @@ def main(argv: list[str] | None = None) -> None:
         from laf.d2 import analyze, robustness
 
         runs = sorted(d for d in a.runs.iterdir() if (d / "results.jsonl").exists())
+        if not runs:
+            raise SystemExit(f"no collected D2 runs (results.jsonl) under {a.runs}")
         df, summary = analyze(a.data_dir / "processed" / a.snapshot, runs)
         rob = robustness(df)
         for name, t in (("samples", df), ("summary", summary), ("robustness", rob)):
-            t.to_csv(Path("results") / f"d2_{name}_{a.snapshot}.csv", index=False)
+            t.to_csv(
+                Path("results") / f"d2_{name}_{a.snapshot}.csv", index=False, lineterminator="\n"
+            )
         print(summary.round(3).to_string(index=False))
         print(rob.round(3).to_string(index=False))
     elif a.cmd == "live-watch":
