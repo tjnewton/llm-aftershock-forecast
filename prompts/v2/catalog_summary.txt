@@ -1,0 +1,14 @@
+A summary of the earthquakes of magnitude 3.0 and above inside the region, from 7 days before
+the mainshock up to the issue time, from the ANSS Comprehensive Earthquake Catalog (ComCat).
+Days are whole days after the mainshock (negative = before it); magnitudes are as reported
+(types vary).
+
+Counts per day:
+${daily_counts}
+
+The ${n_largest} largest of these earthquakes (t_days is the time after the mainshock in days;
+dist_km is the distance from the mainshock epicentre):
+
+```csv
+${largest_csv}
+```

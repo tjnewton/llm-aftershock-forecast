@@ -13,7 +13,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 from laf.items import Item
-from laf.prompts import PROMPT_DIR, render, schema
+from laf.prompts import PROMPT_DIR, render, schema_for
 from laf.providers import API_BASE_URL, PRICES, anthropic_params, cost_usd, env_value
 
 RUNS = Path("runs")
@@ -70,6 +70,26 @@ BLOCKS: dict[str, dict] = {
         "k": 3,
         "effort": "high",
     },
+    # D2 prompt robustness (docs/proposals/d2-prompt-robustness.md), development items only:
+    # v2 prompts ask for M3 quantiles and show the catalog from M3.0 (items built at floor 3)
+    "d2": {
+        "roles": ("test-post",),
+        "arms": ("direct",),
+        "infos": ("I1",),
+        "paras": ("v2A", "v2B", "v2C"),
+        "k": 3,
+        "effort": "high",
+        "floor": 3.0,
+    },
+    "d2-medium": {
+        "roles": ("test-post",),
+        "arms": ("direct",),
+        "infos": ("I1",),
+        "paras": ("v2A",),
+        "k": 3,
+        "effort": "medium",
+        "floor": 3.0,
+    },
 }
 CHARS_PER_TOKEN = 1.25  # below the pilot prompts' minimum (1.28; median 1.36): overestimates
 
@@ -100,7 +120,7 @@ def expand(items: list[Item], block: str, model: str) -> list[dict]:
                         model,
                         system,
                         user,
-                        schema(arm),
+                        schema_for(arm, para),
                         effort=spec["effort"],
                         max_tokens=MAX_TOKENS_BATCH,
                     )
@@ -211,7 +231,16 @@ def _sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def submit(client, name: str, reqs: list[dict], snapshot: str, *, estimate: float) -> str:
+def submit(
+    client,
+    name: str,
+    reqs: list[dict],
+    snapshot: str,
+    *,
+    estimate: float,
+    items_file: str = "items.jsonl",
+    prompt_set: str = "",
+) -> str:
     """Write the request ledger, submit one batch, record its id. Never resubmits a run."""
     out = RUNS / name
     if (out / "batch.json").exists():
@@ -238,8 +267,9 @@ def submit(client, name: str, reqs: list[dict], snapshot: str, *, estimate: floa
         "snapshot": snapshot,
         "git_sha": _git("rev-parse", "HEAD"),
         "git_dirty": bool(_git("status", "--porcelain", "--untracked-files=no")),
-        "prompt_hashes_sha256": _sha256(PROMPT_DIR / "HASHES.json"),
-        "items_sha256": _sha256(Path("data/processed") / snapshot / "items.jsonl"),
+        "prompt_hashes_sha256": _sha256(PROMPT_DIR / prompt_set / "HASHES.json"),
+        "items_file": items_file,
+        "items_sha256": _sha256(Path("data/processed") / snapshot / items_file),
         "base_url": API_BASE_URL,
     }
     (out / "batch.json").write_text(

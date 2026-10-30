@@ -68,3 +68,16 @@ Each entry: UTC time, change, reason, expected effect on the registered analyses
   tables whose counts were sealed. Reason: no confirmatory outcome may be scored before the
   second preregistration. Effect: none on registered or E3 results; every sequence they use is
   development, and the functions return the same frames.
+- 2026-10-30 (Seismica phase, exploratory). D2 prompt robustness on development items
+  (docs/proposals/d2-prompt-robustness.md, approved by Tyler). A new prompt set, prompts/v2/
+  with its own HASHES.json:
+  - A and B are the p1 and p2 wording plus M3 quantiles, with the catalog from M3.0;
+  - C is A with the catalog given as daily counts and the 20 largest events.
+
+  Items for these runs are built at catalog floor 3.0 (items_m3.jsonl) and the runs go to
+  runs/e3/d2-*. The registered prompts, prompts/HASHES.json and every registered items.jsonl
+  are unchanged (tested). Effect: none on registered analyses.
+- 2026-10-30 (Seismica phase). `analysis.llm_samples` (frozen at `scoring-v1`) validates v2 (D2)
+  answers with their M3 quantiles; registered requests (p1, p2) keep the original targets.
+  D2 runs go to runs/d2/, outside the registered `runs/*/` glob and runs/e3/. Effect: none on
+  registered or E3 results.
