@@ -23,12 +23,19 @@ def test_step_logs_detections_once_and_keeps_polling_after_errors(tmp_path, monk
     feed = json.dumps({"features": [{"id": "nc75458907"}]}).encode()
     pages = {"poll": feed, "event": json.dumps(DOC).encode()}
     get = lambda url: pages["poll"] if "updatedafter" in url else pages["event"]  # noqa: E731
-    built = {"items": 3, "items_sha256": "x", "newest_window_start_ms": 0}
+    newest = W.new_versions(DOC, set())[-1]["update_ms"]
+    built = {
+        "items_sha256": "x", "matched_update_ms": newest,
+        "matched_window_start_ms": 0, "strict_window_start_ms": 10**13,
+    }  # fmt: skip
     monkeypatch.setattr(W, "build_live_items", lambda *a, **k: built)
     state = W.step(tmp_path, tmp_path, {}, get)
     n = sum(r["kind"] == "detection" for r in _log(tmp_path))
     assert n == len(W.new_versions(DOC, set())) and "last_poll_ms" in state
-    assert all(r["backlog"] for r in _log(tmp_path) if r["kind"] == "detection")  # old versions
+    dets = [r for r in _log(tmp_path) if r["kind"] == "detection"]
+    assert all(r["backlog"] for r in dets)  # versions published before the watch began
+    assert [r["matched_margin_s"] is not None for r in dets].count(True) == 1  # newest only
+    assert all(r["superseded"] for r in dets if r["update_ms"] != newest)
     W.step(tmp_path, tmp_path, state, get)  # nothing new on the second poll
     assert sum(r["kind"] == "detection" for r in _log(tmp_path)) == n
 

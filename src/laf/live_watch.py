@@ -3,9 +3,11 @@ time each step of building the live items. It makes no model calls and scores no
 
 Every poll and every detected version is appended to `<out>/log.jsonl`. A detection records
 the version's ComCat index time and update time, when the poll saw it, how long fetching the
-sequence and building the items took, the items' SHA-256, and any error. `matched_margin_s` is
-the newest official window's start minus the hash time (negative: a matched item would be late;
-strict items, whose windows open after hashing, never are). Fetched raw data goes
+sequence and building the items took, the items' SHA-256, and any error. The items are the live
+ones (`laf.live.live_items`): matched to the newest valid OAF version, and strict, with windows
+opening at the next full hour. `matched_margin_s` is that version's first window start minus the
+hash time (negative: the matched item would be late); older versions found in the same poll are
+`superseded`; `strict_margin_s` should always be positive. Fetched raw data goes
 to a separate data directory (gitignored), never into data/raw. Outcomes stay sealed because
 `build_tables` seals every confirmatory sequence (docs/adr/0013).
 """
@@ -19,9 +21,8 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 from laf.generic_rj import REFERENCE_REL
-from laf.items import build_items
+from laf.live import live_items, next_full_hour
 from laf.registry import Sequence
-from laf.tables import build_tables
 from laf.usgs import FDSN, download, event_url, fetch_sequence, iso
 
 POLL_S = 600  # every 10 minutes
@@ -58,22 +59,21 @@ def _log(out: Path, rec: dict) -> None:
 
 
 def build_live_items(data_dir: Path, event_id: str, now_ms: int, get=download) -> dict:
-    """Fetch the sequence into a snapshot stamped now and build its items (sealed outcomes).
-    Returns the items' SHA-256 and count, and the window start of the newest valid version
-    (a matched item must be hashed before it to count as not late)."""
+    """Fetch the sequence into a snapshot stamped now and build the live items the arm would
+    forecast (`laf.live.live_items`): one matched to the newest valid OAF version and one strict,
+    whose windows open at the next full hour at least 30 minutes after now. Outcomes sealed."""
     snap = datetime.fromtimestamp(now_ms / 1000, UTC).strftime("%Y%m%dT%H%MZ")
     fetch_sequence(data_dir, snap, event_id, CATALOG_MIN_MAG, now_ms=now_ms, get=get)
     seq = Sequence(id=event_id, name=event_id, role="test-post", catalog_min_mag=CATALOG_MIN_MAG)
-    tables = build_tables(data_dir, snap, [seq])
-    items = build_items(tables)
+    strict_ms = next_full_hour(now_ms + 30 * 60_000)
+    items, newest_update_ms = live_items(data_dir, snap, seq, now_ms, strict_ms)
     body = "".join(i.model_dump_json() + "\n" for i in items)
-    ov = tables["oaf_versions"]
-    valid = ov[ov["valid"]] if "valid" in ov else ov.iloc[0:0]
-    newest_start = int(valid["time_start_ms"].max()) if len(valid) else None
+    matched = next(i for i in items if i.item_id.endswith("@live-matched"))
     return {
-        "items": len(items),
         "items_sha256": hashlib.sha256(body.encode("utf-8")).hexdigest(),
-        "newest_window_start_ms": newest_start,
+        "matched_update_ms": newest_update_ms,
+        "matched_window_start_ms": min(w.start_ms for w in matched.windows),
+        "strict_window_start_ms": strict_ms,
     }
 
 
@@ -101,16 +101,21 @@ def step(out: Path, data_dir: Path, state: dict, get=download) -> dict:
             mag = doc["properties"].get("mag")
             built = build_live_items(data_dir, event_id, t_poll, get)
             t1 = _now_ms()
-            start = built["newest_window_start_ms"]
             for v in vs:
+                # only the version the matched item is built from has a margin; an older or
+                # invalid version detected in the same poll is superseded, not on time
+                own = v["update_ms"] == built["matched_update_ms"]
                 _log(out, {
                     **det, **v, **built, "mag": mag,
                     "detect_latency_s": (t_poll - v["index_ms"]) / 1000,
                     # indexed before this poll's window: a sequence seen for the first time
                     "backlog": v["index_ms"] < since,
                     "build_s": (t1 - t0) / 1000,
-                    # matched item: hashed after its window opened? (strict items never are)
-                    "matched_margin_s": None if start is None else (start - t1) / 1000,
+                    "matched_margin_s": (
+                        (built["matched_window_start_ms"] - t1) / 1000 if own else None
+                    ),
+                    "strict_margin_s": (built["strict_window_start_ms"] - t1) / 1000,
+                    "superseded": not own,
                 })  # fmt: skip
             seen[event_id] = sorted(set(seen.get(event_id, [])) | {v["update_ms"] for v in vs})
         except Exception as e:
