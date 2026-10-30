@@ -1,9 +1,17 @@
 # Proposal: behavioral probes (D1)
 
-Status: **proposal, needs Tyler's approval.** It covers the probe design and the thinking setting
-of the 4.6 models (science decisions) and a paid batch. The prompts stay as they are (v2A from
-D2), so no frozen file changes. After approval the code (probe builders, runner block, analysis)
-goes through a pull request.
+Status: **approved by Tyler on 2026-10-30** (all four recommendations: explicit adaptive thinking
+on the 4.6 models, probes P1 to P4, Opus 4.6 and Sonnet 4.6 plus Opus 5.5, the pilot now and the
+batch after it). The prompts stay as they are (v2A from D2), so no frozen file changes. Code:
+`laf.d1` and `laf d1 build|pilot|run`.
+
+Implementation notes (no change to what is measured):
+- P1's Δ = 0 level is the P2 item at 1 day, and P4's decaying pattern is the P3 N = 10 item.
+  The prompts would be identical, so they are built once: 17 items per base sequence, 306 in
+  all, 612 calls per model (the cost estimate below assumed 684).
+- Synthetic catalogs start with the mainshock row, as real catalogs do. Their magnitudes are the
+  Gutenberg-Richter quantiles (i + 0.5) / N in random order, so the M4+ share does not vary by
+  chance between levels. Times are kept at least 86 s after the mainshock.
 
 ## Why
 Scores say how good a forecast is, but not how the model produced it. A referee will ask

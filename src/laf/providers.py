@@ -3,6 +3,8 @@
 Scored-run settings (docs/PLAN.md 4.5): no `thinking` (adaptive default), no sampling params,
 no tools, no assistant prefill, no server-side refusal fallbacks; effort and JSON schema in
 `output_config`. The SDK's own retries are disabled so every retry is ours and logged.
+The 4.6 models run without thinking when the field is omitted, so their requests ask for
+adaptive thinking explicitly (ADR 0014); the 5.5 requests stay as registered.
 """
 
 import os
@@ -18,7 +20,10 @@ PRICES = {
     "claude-opus-5-5": (4.00, 20.00, 0.20, 5.00),
     "claude-sonnet-5-5": (2.00, 10.00, 0.10, 2.50),
     "claude-haiku-5-5": (0.10, 0.50, 0.01, 0.125),
+    "claude-opus-4-6": (5.00, 25.00, 0.50, 6.25),
+    "claude-sonnet-4-6": (3.00, 15.00, 0.30, 3.75),
 }
+EXPLICIT_THINKING = ("claude-opus-4-6", "claude-sonnet-4-6")
 
 
 def env_value(var: str, env_file: Path = Path(".env")) -> str:
@@ -52,13 +57,16 @@ def client() -> anthropic.Anthropic:
 def anthropic_params(
     model: str, system: str, user: str, schema: dict, *, effort: str, max_tokens: int
 ) -> dict:
-    return {
+    params = {
         "model": model,
         "max_tokens": max_tokens,
         "system": system,
         "messages": [{"role": "user", "content": user}],
         "output_config": {"effort": effort, "format": {"type": "json_schema", "schema": schema}},
     }
+    if model in EXPLICIT_THINKING:
+        params["thinking"] = {"type": "adaptive"}
+    return params
 
 
 def cost_usd(model: str, usage: dict, *, batch: bool = False) -> float:

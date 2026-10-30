@@ -9,7 +9,8 @@ Oct 21-22, 2026). Plan: docs/PLAN.md. Rules that bind the analysis: docs/preregi
   for E3), `laf verify`, `laf prompts-hash`, `laf spend`
 - Scoring (no API): `laf figures`, `laf e1 --model M`, `laf e3`, `laf combined`, `laf replicates`,
   `laf literature`, `laf live-score`; local models: `python -m laf.llamacpp` (docstring)
-- Spends money, ask first every time: `laf smoke`, `laf pilot`, `laf run`, `laf live`, `laf probe`.
+- Spends money, ask first every time: `laf smoke`, `laf pilot`, `laf run`, `laf live`, `laf probe`,
+  `laf d1 pilot|run` (`laf d1 build` is free).
   Adaption launches (`laf adaption launch`) also need a yes.
 
 ## Layout

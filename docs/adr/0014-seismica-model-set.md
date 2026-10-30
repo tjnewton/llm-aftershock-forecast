@@ -67,7 +67,9 @@ Qwen and DeepSeek distills document no cutoff, so they are excluded.
   and gpt-5.1 (2027-04-01) are the safer choices. Open models never retire.
 - **Request differences.** Haiku 4.5 and Sonnet 4.5 take no `effort` parameter. Their thinking is
   a manual token budget, so the registered settings ("explicit effort") cannot be matched. That
-  argues for Opus 4.6 and Sonnet 4.6, which take the same request shape as the 5.5 models.
+  argues for Opus 4.6 and Sonnet 4.6, which take the same request fields as the 5.5 models.
+  One default differs: a request without `thinking` runs adaptive thinking on the 5.5 models
+  but no thinking on Opus 4.6 and Sonnet 4.6 (Claude API model migration notes). See decision 5.
 
 ## Decisions (Tyler, 2026-10-30)
 1. **Older-cutoff Claude models:** `claude-opus-4-6`, and `claude-sonnet-4-6` as a second model
@@ -87,8 +89,14 @@ Qwen and DeepSeek distills document no cutoff, so they are excluded.
    analysis. The registered hackathon analysis keeps its own rule.
 4. **Retiring models are dropped:** Opus 4.5, Sonnet 4.5, Haiku 4.5, gpt-5, o3 and gpt-4.1.
    Every confirmatory run happens after the freeze.
+5. **Thinking on the 4.6 models (Tyler, 2026-10-30):** their requests send
+   `thinking: {"type": "adaptive"}` explicitly, so they reason as the 5.5 models do by
+   default. The 5.5 requests stay as registered (no `thinking` field). Thinking off is a
+   possible sensitivity analysis, not planned. Implemented in `laf.providers.anthropic_params`;
+   first used by the D1 probes (docs/proposals/d1-behavioral-probes.md).
 
 ## Changelog
+- 2026-10-30: decision 5 (explicit adaptive thinking on the 4.6 models).
 - 2026-10-30: decisions 1-4 recorded; OpenAI facts for the chosen models re-checked.
 - 2026-10-29: first version with checked Claude facts; OpenAI and open-model facts from a
   research pass, to be re-checked before pinning.

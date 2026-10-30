@@ -15,6 +15,19 @@ def test_scored_params_have_only_the_allowed_controls():
         assert banned not in p
 
 
+def test_46_models_ask_for_adaptive_thinking_and_55_requests_are_unchanged():
+    # omitting `thinking` runs the 4.6 models without thinking (ADR 0014)
+    for model in ("claude-opus-4-6", "claude-sonnet-4-6"):
+        p = anthropic_params(model, "s", "u", {"type": "object"}, effort="high", max_tokens=99)
+        assert p["thinking"] == {"type": "adaptive"}
+        assert p["output_config"]["effort"] == "high"
+    p = anthropic_params("claude-sonnet-5-5", "s", "u", {}, effort="high", max_tokens=99)
+    assert "thinking" not in p
+    usage = {"input_tokens": 1_000_000, "output_tokens": 1_000_000}
+    assert cost_usd("claude-opus-4-6", usage, batch=True) == pytest.approx(15.0)
+    assert cost_usd("claude-sonnet-4-6", usage) == pytest.approx(18.0)
+
+
 def test_cost_uses_list_prices_and_batch_discount():
     usage = {"input_tokens": 1_000_000, "output_tokens": 1_000_000}
     assert cost_usd("claude-opus-5-5", usage) == pytest.approx(24.0)
