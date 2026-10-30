@@ -44,6 +44,45 @@ observation counts), so I can answer this directly.
   pooled results). M>=4 and M>=3 targets should show larger effects. This is exploratory and
   has no uncertainty yet.
 
+## Results on development data (`laf hindsight`, 2026-10-30)
+**Catalog backfill (outcome-blind).** Count the M>=4 events visible before each issue time, in
+the issue's circle, summed over issue times with full histories:
+
+| Set or sequence | Available then (as-of) | In today's catalog | Ratio |
+|---|---|---|---|
+| Registered snapshot, all | 4,557 | 9,761 | 2.1 |
+| Kamchatka | 1,495 | 4,505 | 3.0 |
+| Sarangani | 605 | 1,307 | 2.2 |
+| Flores Sea | 840 | 1,480 | 1.8 |
+| Offshore Chiapas | 515 | 869 | 1.7 |
+| E3 snapshot, all | 561 | 655 | 1.2 |
+
+98.7% of the events available then still exist today. The difference is events ComCat added
+later, not deletions. V0 (ADR 0011) confirms that the as-of catalogs match what USGS used.
+
+**Score inflation** (dS = S(today) - S(as-of); negative means hindsight looks better; primary
+cells with full histories; two-stage bootstrap over sequences and issue times, 10,000
+replicates):
+
+| Set | Forecaster | Cells (sequences) | dLS M>=5 [95% CI] | dQS M>=5 [95% CI] |
+|---|---|---|---|---|
+| Registered | ETAS refit | 132 (8) | -0.094 [-0.177, +0.009] | -0.015 [-0.025, -0.002] |
+| Registered | RJ-MLE | 132 (8) | +0.043 [-0.111, +0.351] | +0.003 [-0.017, +0.036] |
+| Registered | rule of thumb | 132 (8) | -0.152 [-0.566, +0.525] | -0.001 [-0.037, +0.059] |
+| E3 | ETAS refit | 425 (31) | -0.001 [-0.013, +0.008] | -0.000 [-0.002, +0.000] |
+| E3 | RJ-MLE | 425 (31) | 0 (the generic fallback in small sequences) | 0 |
+| E3 | rule of thumb | 425 (31) | +0.006 [0.000, +0.025] | +0.001 [-0.001, +0.005] |
+
+The values are from a 2,000-replicate run. The 10,000-replicate run of `laf hindsight` moves the interval ends by at most 0.003 and writes
+results/hindsight_summary_<snapshot>.csv.
+
+**Reading.** Revisions matter where catalogs are revised most: the large international
+sequences. On them, the ETAS refit scores about 0.09 nats better on today's catalog than on
+the one it would have had. That is as large as the representation effect of ADR 0015 and as
+the differences between forecasters, so a retrospective test on today's catalog flatters
+catalog-driven forecasters. The two simple baselines do not show a consistent sign. The LLM
+subset (I1 prompts rebuilt from today's catalog) needs API spend and waits for approval.
+
 ## Data gaps to fix
 - E3 snapshot `20261021T2300Z`: 44 of its 210 issue times have no histories. They come from
   eight sequences (aka2026nyxoap, tx2026ojlaky, us6000s7qf, us6000sr43, us7000rrjh, us7000s0nl,
@@ -53,5 +92,7 @@ observation counts), so I can answer this directly.
   as run and get a footnote.
 
 ## Changelog
+- 2026-10-30: `laf.hindsight` (RJ-MLE and the rule of thumb added; M>=4 log score) and the
+  results above; catalog backfill measured.
 - 2026-10-29: first version; E3 hindsight refit written
   (`data/processed/20261021T2300Z/etas_forecasts_hindsight.parquet`); first look above.
