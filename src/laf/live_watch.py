@@ -169,4 +169,8 @@ def late_share(slack_s, lag_s, poll_s: float, forecast_s: float, n: int = 200_00
 def index_lags_s(log: Path) -> list[float]:
     """ComCat index time minus OAF update time for every detection in a dry-run log."""
     rows = [json.loads(x) for x in log.read_text(encoding="utf-8").split("\n") if x.strip()]
-    return [(r["index_ms"] - r["update_ms"]) / 1000 for r in rows if r.get("kind") == "detection"]
+    return [
+        (r["index_ms"] - r["update_ms"]) / 1000
+        for r in rows
+        if r.get("kind") == "detection" and r.get("index_ms") and r.get("update_ms")
+    ]  # failed detections may lack the timestamps
