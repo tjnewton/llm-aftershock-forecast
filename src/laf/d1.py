@@ -26,7 +26,7 @@ from laf.forecast import poisson_mixture
 from laf.items import DAY_MS, N_LARGEST, CatalogRow, Item, WindowSpec, utc
 from laf.oaf import WindowLabel
 from laf.prompts import Info, render, schema_for
-from laf.providers import anthropic_params, call_anthropic, cost_usd
+from laf.providers import STUDY_SETTINGS, anthropic_params, call_anthropic, cost_usd, study_effort
 from laf.runner import CHARS_PER_TOKEN, MAX_TOKENS_BATCH, _jsonl, check_budget, request_id
 from laf.schemas import TARGETS_V2, validate
 
@@ -39,7 +39,6 @@ P3_DAYS = 3.0
 P4_N = 10
 FLOOR = 3.0
 K = 2
-EFFORT = "high"
 PARAPHRASE = "v2A"
 MODELS = ("claude-opus-4-6", "claude-sonnet-4-6", "claude-opus-5-5")
 PILOT_MODELS = ("claude-opus-4-6", "claude-sonnet-4-6")
@@ -157,8 +156,9 @@ def items_jsonl(items: list[Item]) -> str:
 def _params(item: Item, model: str, max_tokens: int) -> dict:
     system, user = render(item, "direct", info(item), PARAPHRASE)
     return anthropic_params(
-        model, system, user, schema_for("direct", PARAPHRASE), effort=EFFORT, max_tokens=max_tokens
-    )
+        model, system, user, schema_for("direct", PARAPHRASE),
+        effort=study_effort(model), max_tokens=max_tokens,
+    )  # fmt: skip
 
 
 def expand(items: list[Item], model: str, k: int = K) -> list[dict]:
@@ -169,7 +169,7 @@ def expand(items: list[Item], model: str, k: int = K) -> list[dict]:
             meta = {
                 "item_id": item.item_id, "arm": "direct", "info": info(item),
                 "paraphrase": PARAPHRASE, "sample": s, "block": "d1", "model": model,
-                "effort": EFFORT,
+                "effort": study_effort(model),
             }  # fmt: skip
             reqs.append({"custom_id": request_id(params, s), "meta": meta, "params": params})
     if len({r["custom_id"] for r in reqs}) != len(reqs):
@@ -208,7 +208,8 @@ def pilot(client, items: list[Item], out: Path, budget_usd: float = 0.5) -> floa
                 "direct", rec.get("text"), rec.get("stop_reason"), TARGETS_V2
             )
             row = {"item_id": item.item_id, "info": info(item), "paraphrase": PARAPHRASE,
-                   "effort": EFFORT, "status": status, "warnings": warn, **rec}  # fmt: skip
+                   "effort": study_effort(model), "status": status, "warnings": warn,
+                   **rec}  # fmt: skip
             with (out / "calls.jsonl").open("a", encoding="utf-8", newline="\n") as f:
                 f.write(json.dumps(row, sort_keys=True) + "\n")
     return spent
@@ -285,13 +286,26 @@ def settings_summary(run: Path) -> pd.DataFrame:
     )
 
 
-def estimate_usd(reqs: list[dict], pilot_calls: Path, d2_results: Path) -> float:
+def study_setting(model: str) -> str:
+    """The settings-pilot name of a model's study setting, e.g. "adaptive-medium"; "registered"
+    for models that keep the registered request (the 5.5 models, adaptive by default)."""
+    if model not in STUDY_SETTINGS:
+        return "registered"
+    thinking, effort = STUDY_SETTINGS[model]
+    return f"{'adaptive' if thinking else 'off'}-{effort}"
+
+
+def estimate_usd(reqs: list[dict], pilot_runs: list[Path], d2_results: Path) -> float:
     """Batch cost: input from the request length (an overestimate), output 1.25 times the mean
-    of the pilot (4.6 models) or of the D2 answers (Opus 5.5)."""
+    of the settings-pilot answers at the model's study setting (4.6 models) or of the D2
+    answers (Opus 5.5)."""
     out_tokens: dict[str, list[int]] = {}
-    for r in _jsonl(pilot_calls):
-        if r.get("usage"):
-            out_tokens.setdefault(r["model_requested"], []).append(r["usage"]["output_tokens"])
+    for run in pilot_runs:
+        meta = {r["custom_id"]: r for r in _jsonl(run / "requests.jsonl")}
+        for r in _jsonl(run / "results.jsonl"):
+            m = meta[r["custom_id"]]
+            if r.get("usage") and m["setting"] == study_setting(m["model"]):
+                out_tokens.setdefault(m["model"], []).append(r["usage"]["output_tokens"])
     for r in _jsonl(d2_results):
         if r.get("usage"):
             out_tokens.setdefault(r["model"], []).append(r["usage"]["output_tokens"])

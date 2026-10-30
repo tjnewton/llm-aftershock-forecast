@@ -89,14 +89,30 @@ Qwen and DeepSeek distills document no cutoff, so they are excluded.
    analysis. The registered hackathon analysis keeps its own rule.
 4. **Retiring models are dropped:** Opus 4.5, Sonnet 4.5, Haiku 4.5, gpt-5, o3 and gpt-4.1.
    Every confirmatory run happens after the freeze.
-5. **Thinking on the 4.6 models (Tyler, 2026-10-30):** their requests send
-   `thinking: {"type": "adaptive"}` explicitly, so they reason as the 5.5 models do by
-   default. The 5.5 requests stay as registered (no `thinking` field). Thinking off is a
-   possible sensitivity analysis, not planned. Implemented in `laf.providers.anthropic_params`;
-   first used by the D1 probes (docs/proposals/d1-behavioral-probes.md).
+5. **Thinking and effort on the 4.6 models (Tyler, 2026-10-30), chosen by the D1 settings
+   pilot** (development probe items, `runs/d1/pilot-settings`, `runs/d1/pilot-sonnet-low`):
+
+   | Model | Setting | Valid | Mean output tokens | Batch USD per call |
+   |---|---|---|---|---|
+   | Opus 4.6 | adaptive, high (cap 12k) | 1 of 3 | 9,818 | 0.129 |
+   | Opus 4.6 | **adaptive, medium** | 3 of 3 | 2,384 | 0.036 |
+   | Opus 4.6 | thinking off, high | 3 of 3 | 652 | 0.015 |
+   | Sonnet 4.6 | adaptive, high (cap 32k) | 0 of 3 | 32,000 | 0.244 |
+   | Sonnet 4.6 | adaptive, medium (cap 16k) | 0 of 3 | 16,000 | 0.124 |
+   | Sonnet 4.6 | **adaptive, low** (cap 16k) | 3 of 3 | 2,719 | 0.024 |
+   | Sonnet 4.6 | thinking off, high | 3 of 3 | 766 | 0.010 |
+
+   - Opus 4.6: `thinking: {"type": "adaptive"}`, effort `medium`. At `high` it often does not
+     finish within 12k tokens and costs four times as much.
+   - Sonnet 4.6: `thinking: {"type": "adaptive"}`, effort `low`. At `medium` and `high` it
+     never finished (all answers cut off at the cap with no text).
+   - Both 4.6 models reason, as the 5.5 models do by default, at different effort levels. The
+     paper reports the settings as chosen by this pre-freeze pilot. The 5.5 requests stay as
+     registered (no `thinking` field, effort `high`).
+   - Implemented as `laf.providers.STUDY_SETTINGS`; first used by the D1 probes.
 
 ## Changelog
-- 2026-10-30: decision 5 (explicit adaptive thinking on the 4.6 models).
+- 2026-10-30: decision 5 (thinking and effort on the 4.6 models, from the D1 settings pilot).
 - 2026-10-30: decisions 1-4 recorded; OpenAI facts for the chosen models re-checked.
 - 2026-10-29: first version with checked Claude facts; OpenAI and open-model facts from a
   research pass, to be re-checked before pinning.

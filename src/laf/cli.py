@@ -449,7 +449,7 @@ def main(argv: list[str] | None = None) -> None:
         reqs = d1.expand(items, a.model)
         est = d1.estimate_usd(
             reqs,
-            Path("runs/d1/pilot/calls.jsonl"),
+            [Path("runs/d1/pilot-settings"), Path("runs/d1/pilot-sonnet-low")],
             Path("runs/d2/d2-claude-opus-5-5/results.jsonl"),
         )
         name = f"d1/d1-{a.model}"
