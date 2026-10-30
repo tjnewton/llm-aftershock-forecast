@@ -14,8 +14,10 @@ be scored freely. This ADR says which data is which.
 - **Development data** (score freely, any number of times):
   - the 11 registered sequences (`config/sequences.toml`);
   - the 39 E3 sequences (`config/sequences_e3.toml`);
-  - the historical adaptation pool: every sequence in the E1/E1a training sets (2010-01-01 to
-    2025-07-01) and the E1 outcome catalogs (`data/raw/training/outcomes/`).
+  - the historical adaptation sequences whose outcomes were used: the 515 E1 outcome catalogs
+    (`data/raw/training/outcomes/`, 2010-01-01 to 2025-07-01). Sequences that appeared in the
+    E1/E1a training sets only as prompt input (no outcome seen) are not development
+    (decision 3 below).
 - **Confirmatory data** (never scored against outcomes before the `prereg-v2` tag): every other
   sequence. That covers the OAF sequences not yet scored and every sequence of the prospective
   live arm. Default deny: a sequence id the code does not know as development is confirmatory.
@@ -56,16 +58,23 @@ Of the 204 not yet used:
 The foreshock/aftershock rule of ADR 0006 has not yet been applied: candidates inside the circle
 of a larger event within 365 days are dropped.
 
-## Open decisions (Tyler)
-1. **Start date.** Is the confirmatory set the whole archive from 2024-11-14, or a later start?
-2. **Magnitude floor.** M>=5.0 as in E3, or lower (for example M>=4.0 in US networks), paired
-   with M3 targets where Mc allows (ADR 0015).
-3. **Overlap with the training pool.** Three M>=7 sequences from 2024-12 to 2025-03 are in the E1
-   outcome pool, so they are development by the rule above. One M6.0-6.5 sequence is in the E1a
-   inputs only (prompts and ETAS targets, no outcomes). My recommendation: treat outcome exposure
-   as disqualifying and input exposure as not, except for adapted models (rule above).
-4. **The October 2026 events.** There are 10, after the registered window ended on 2026-10-14.
-   They could join the retrospective confirmatory set or seed the prospective set.
+## Decisions (Tyler, 2026-10-30)
+1. **Start date:** the whole ComCat OAF archive, from 2024-11-14.
+2. **Magnitude:** the primary set is M>=5.0 mainshocks. M>=3 targets are scored wherever the
+   catalog is complete at M3 (ADR 0015). US-network mainshocks of M4.0-4.9 form a secondary set.
+   Asking forecasters for M3 counts is a prompt change, approved separately.
+3. **Training-pool overlap:** outcome exposure disqualifies, input exposure does not.
+   - The three candidates in the E1 outcome pool are development: nc75095651 (M7.0, Cape
+     Mendocino, 2024-12-05), us7000nzf3 (M7.3, Vanuatu, 2024-12-17) and us7000pn9s (M7.7,
+     Myanmar, 2025-03-28).
+   - us7000pllu (M6.2, south of Adak, 2025-03-21; E1a prompt input only) stays confirmatory.
+   - Adapted models are scored only on sequences after their training data ends (2025-07-01)
+     plus the buffer of ADR 0014.
+4. **October 2026 events** (10, after the registered window closed on 2026-10-14) join the
+   retrospective confirmatory set. Their windows had already opened, so they cannot be
+   prospective.
 
 ## Changelog
 - 2026-10-29: first version; candidate list fetched; guard specified in issue #2.
+- 2026-10-30: decisions 1-4 recorded; development set narrowed to outcome exposure
+  (`config/splits.toml` drops the training-catalog folder).

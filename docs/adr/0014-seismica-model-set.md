@@ -32,14 +32,14 @@ Claude, from the Models API (`models.list`, pinned client) and the docs pages
 The registered models' "post-cutoff" rule (prereg v1: origin from 2026-07-01) had no buffer. The
 rule above would move their clean set to 2026-10-01; I report both.
 
-OpenAI, from developers.openai.com model and deprecation pages (subagent research, to be
-re-checked before pinning):
+OpenAI, from developers.openai.com model and deprecation pages (the two chosen models
+re-checked on 2026-10-30; the others from a research pass):
 
 | Model ID | Knowledge cutoff | Removal from API |
 |---|---|---|
 | `gpt-6.1-sol` | 2026-04-30 | none listed |
 | `gpt-6-astra` | 2026-04-30 | none listed |
-| `gpt-5.1` | 2024-09-30 | 2027-04-01 |
+| `gpt-5.1` (snapshot `gpt-5.1-2025-11-13`; deprecated 2026-10-01) | 2024-09-30 | 2027-04-01 |
 | `gpt-4.1` | 2024-06-01 | 2027-01-14 |
 | `gpt-5`, `o3` | 2024-09-30, 2024-06-01 | 2026-12-11 |
 
@@ -69,20 +69,26 @@ Qwen and DeepSeek distills document no cutoff, so they are excluded.
   a manual token budget, so the registered settings ("explicit effort") cannot be matched. That
   argues for Opus 4.6 and Sonnet 4.6, which take the same request shape as the 5.5 models.
 
-## Open decisions (Tyler)
-1. Older-cutoff Claude models for A1. My recommendation: `claude-opus-4-6`, and possibly
-   `claude-sonnet-4-6` for a second size, at effort `high`.
-2. The other-vendor model. For the prospective arm and a same-cutoff comparison with Claude 5.5:
-   a current flagship (`gpt-6.1-sol` is the cheaper one). For A1: `gpt-5.1` (cutoff 2024-09,
-   served until 2027-04). Possibly both, with OpenAI spend tracked separately.
-3. Open models beyond gpt-oss-20b and Olmo-3.1-32B. Candidates: Gemma 4 31B and Phi-4.
-4. Whether the 3-month buffer also applies to the Claude 5.5 models. If it does, their clean
-   retrospective set starts 2026-10-01, and Colombia and Flores Sea are no longer clean; most
-   of their evidence would then come from the prospective arm.
-5. Whether to run models that retire before a plausible freeze outcome-blind (forecasts stored
-   and hashed, scored only after the freeze). That would depart from "model runs on
-   confirmatory items happen after the freeze, with frozen prompts".
+## Decisions (Tyler, 2026-10-30)
+1. **Older-cutoff Claude models:** `claude-opus-4-6`, and `claude-sonnet-4-6` as a second model
+   size, both at effort `high`.
+2. **Other vendor (OpenAI), with spend tracked separately from Claude:**
+   - `gpt-6.1-sol`: cutoff 2026-04-30; $2 / $10 per million tokens, half that in batch; effort
+     `low` through `max`; structured outputs; no retirement date listed. Used in the
+     prospective arm and the same-cutoff comparison with Claude 5.5.
+   - `gpt-5.1-2025-11-13`: cutoff 2024-09-30; $1.25 / $10; effort `none` to `high`;
+     structured outputs; removed from the API on 2027-04-01. Used in the older-cutoff
+     retrospective arm.
+
+   The OpenAI effort level that matches Claude's `high` is set in the D2 study before the
+   freeze.
+3. **Clean-period rule:** the 3-month buffer applies to every model in the paper, the Claude
+   5.5 models included (clean from 2026-10-01). The unbuffered rule is a sensitivity
+   analysis. The registered hackathon analysis keeps its own rule.
+4. **Retiring models are dropped:** Opus 4.5, Sonnet 4.5, Haiku 4.5, gpt-5, o3 and gpt-4.1.
+   Every confirmatory run happens after the freeze.
 
 ## Changelog
+- 2026-10-30: decisions 1-4 recorded; OpenAI facts for the chosen models re-checked.
 - 2026-10-29: first version with checked Claude facts; OpenAI and open-model facts from a
   research pass, to be re-checked before pinning.
