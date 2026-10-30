@@ -50,16 +50,17 @@ def test_pr_command_on_a_real_repository(tmp_path, monkeypatch):
         return subprocess.run(["git", "-C", str(tmp_path), *a], check=True, capture_output=True)
 
     git("init", "-q")
+    git("config", "core.autocrlf", "false")  # Windows defaults to true, hiding the CRLF edit
     git("config", "user.email", "t@example.invalid")
     git("config", "user.name", "t")
     (tmp_path / "data/raw").mkdir(parents=True)
     (tmp_path / "prompts").mkdir()
-    (tmp_path / "data/manifest.jsonl").write_text("a\n")
+    (tmp_path / "data/manifest.jsonl").write_bytes(b"a\n")  # LF on every platform
     (tmp_path / "data/raw/x.csv").write_text("1\n")
     (tmp_path / "prompts/p.txt").write_text("p\n")
     git("add", ".")
     git("commit", "-qm", "base")
-    (tmp_path / "data/manifest.jsonl").write_text("a\nb\n")
+    (tmp_path / "data/manifest.jsonl").write_bytes(b"a\nb\n")
     (tmp_path / "data/raw/y.csv").write_text("2\n")
     git("add", ".")
     git("commit", "-qm", "append data")
