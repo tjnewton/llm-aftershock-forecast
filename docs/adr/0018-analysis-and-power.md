@@ -77,11 +77,50 @@ sequences and tight for large ones. Options to settle with Tyler, after a proper
 3. the primary test on the stratum where cells carry information (M>=6 or M3 targets), with
    the rest descriptive.
 
+## Power simulation (`laf power`, development data, 2026-10-30)
+Inputs: E3 sequence effects, from direct-arm answers given the catalog (I1), scored through
+nine quantiles. A simulated study draws N sequence effects with replacement (centred and
+shifted to the true difference) and uses the normal-approximation 90% interval of the
+sequence-level mean. Output: results/power_<reference>_<snapshot>.csv.
+
+**Equivalence with the official forecast** (true difference 0; between-sequence SD over 39
+sequences: Opus 0.131, Sonnet 0.163):
+
+| N sequences | Opus, margin 0.03 | Opus, 0.05 | Sonnet, 0.03 | Sonnet, 0.05 |
+|---|---|---|---|---|
+| 60 | 0.28 | 0.80 | 0.00 | 0.68 |
+| 100 | 0.54 | 0.95 | 0.19 | 0.87 |
+| 194 | 0.87 | 1.00 | 0.69 | 0.98 |
+
+**Superiority over the rule of thumb**, at the development estimate (Opus -0.061 nats,
+Sonnet -0.039):
+
+| N sequences | 60 | 100 | 150 | 194 |
+|---|---|---|---|---|
+| Opus | 0.38 | 0.68 | 0.88 | 0.95 |
+| Sonnet | 0.12 | 0.20 | 0.31 | 0.39 |
+
+The open models are far from the official forecast on E3: gpt-oss-20b +0.35 nats and
+Olmo-3.1-32B +0.66.
+
+**Reading.**
+- Equivalence at a margin of 0.05 nats needs about 100 sequences.
+- At 0.03 nats it needs all 194 candidates, and more for Sonnet.
+- Superiority over the rule of thumb is within reach only for Opus, with most of the candidate set.
+- The prospective arm adds sequences slowly. The retrospective older-cutoff arm is clean on
+  all 194 candidates only for gpt-5.1, and on 26 for Opus 4.6.
+
+**Caveats.**
+- The effects are heavy-tailed, so with few sequences the normal approximation is optimistic,
+  and power is not monotone in N below about 40.
+- These numbers are for M>=5 targets. M3 targets add information per cell.
+
 ## Open decisions (Tyler)
 1. The margin anchor and its value (after the development-data numbers exist).
 2. Target power and sequence count, which set the prospective stopping rule (ADR 0017).
 3. Whether the hierarchical model is confirmatory or a robustness check.
 
 ## Changelog
+- 2026-10-30: power simulation (`laf.power`) on E3.
 - 2026-10-30: first look at spread and margin anchors on development data.
 - 2026-10-29: first version.
