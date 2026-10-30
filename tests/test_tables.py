@@ -142,3 +142,15 @@ def test_snapshot_id_fixes_the_catalog_end_time():
     from laf.cli import snapshot_ms
 
     assert snapshot_ms("20261009T1756Z") == ORIGIN - 6036  # 2026-10-09T17:56:00Z
+
+
+def test_a_sequence_without_aftershocks_gets_an_as_of_catalog_and_sealed_counts():
+    # us7000nvcm (candidate, Guam 2024-12-02): ComCat has no other event in its circle, so the
+    # as-of catalog is the mainshock as its event document showed it at each issue time.
+    # Outcome-blind: the snapshot is confirmatory, so its counts must come out sealed.
+    seq = Sequence(id="us7000nvcm", name="x", role="test-post", catalog_min_mag=3.0)
+    t = build_tables(Path("data"), "20261029T2000Z", [seq])
+    its = t["issue_times"]
+    assert (its["catalog_source"] == "asof").all() and (its["n_hindsight_m4"] == 0).all()
+    assert t["observed_counts"]["count"].isna().all()
+    assert not t["issue_catalogs"]["from_hindsight"].any()
