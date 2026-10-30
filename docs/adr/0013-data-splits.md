@@ -74,6 +74,22 @@ of a larger event within 365 days are dropped.
    retrospective confirmatory set. Their windows had already opened, so they cannot be
    prospective.
 
+## Known limitation: event matching uses today's mainshock
+`laf tables` rejects an OAF version when its `magMain` differs from the mainshock magnitude by
+more than 0.25, or its centre lies too far from the epicentre (ADR 0004). The comparison uses
+today's ComCat values.
+- In the candidate set this rejects 122 of 11,694 versions. 117 of the 119 magnitude
+  rejections match the magnitude as ComCat showed it when they were issued: these are later
+  revisions of 0.3-0.8 units, mostly in US-network M4-6 events.
+- Checking against the as-of mainshock instead recovers 112 versions but rejects 19 others,
+  because ComCat's index time lags the feed USGS uses. One of the 19 is a Colombia version in
+  the registered analysis.
+- The net gain is 13 of about 1,023 issue times, and the gained regions would need catalogs
+  refetched with a larger query circle.
+
+The rule stays as it is. The loss is about 1% of issue times; most are later versions of the
+same targets, and the median first-issue latency is unchanged.
+
 ## Changelog
 - 2026-10-29: first version; candidate list fetched; guard specified in issue #2.
 - 2026-10-30: decisions 1-4 recorded; development set narrowed to outcome exposure

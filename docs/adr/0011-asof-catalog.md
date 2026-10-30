@@ -77,6 +77,15 @@ version: 56 M>=3 events in today's catalog, 19 then.
   must refetch the affected events.
 
 ## Changelog
+- 2026-10-30, confirmatory candidates (snapshot 20261029T2000Z, 194 sequences, 1,010 issue times):
+  - histories fetched for 979 events;
+  - `laf tables` fixed for mainshock-only sequences (#16) and for events before the 7-day
+    lookback (#17); `n_hindsight_m4` = 0 for every issue time;
+  - V0 across 23,264 checkable counts: 99.05% exact as-of, against 96.85% on today's catalog.
+    By threshold, M3 96.2% (today's catalog 88.2%), M5 99.98%, M6 and M7 100%;
+  - all 222 misses are undercounts of 1-4 events (consistent with deleted events). They sit
+    mostly in M3 counts of five small US-network sequences (nc75305736, ci40925991, uu80127891,
+    nn00924954, nc75240492; 75-90% exact). That is relevant to M3 targets (ADR 0015).
 - built, with pacing at 1 request/s and 429 handling.
 - events without a history fall back to their current origin (`as_of_or_hindsight`), counted
   by `n_hindsight_m4`.
