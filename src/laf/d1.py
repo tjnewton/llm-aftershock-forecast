@@ -223,26 +223,36 @@ SETTINGS = {  # name: (adaptive thinking, effort, max_tokens for Opus 4.6, for S
     "adaptive-medium": (True, "medium", 12_000, 16_000),
     "off-high": (False, "high", 4_000, 4_000),
 }
+# (model, setting, adaptive thinking, effort, max_tokens) per request group
+GRIDS = {
+    "grid": [
+        (model, name, thinking, effort, cap)
+        for name, (thinking, effort, *caps) in SETTINGS.items()
+        for model, cap in zip(PILOT_MODELS, caps, strict=True)
+    ],
+    # follow-up check (Tyler, 2026-10-30): does Sonnet 4.6 finish with adaptive thinking at low?
+    "sonnet-low": [("claude-sonnet-4-6", "adaptive-low", True, "low", 16_000)],
+}
 
 
-def settings_requests(items: list[Item]) -> list[dict]:
+def settings_requests(items: list[Item], grid: str = "grid") -> list[dict]:
     seq = max(bases(items), key=lambda i: i.mainshock.mag).sequence_id
     chosen = [i for t in SETTINGS_TAGS for i in items if i.item_id == f"{seq}@d1-{t}"]
     reqs = []
     for item in chosen:
         system, user = render(item, "direct", info(item), PARAPHRASE)
-        for name, (thinking, effort, cap_opus, cap_sonnet) in SETTINGS.items():
-            for model, cap in zip(PILOT_MODELS, (cap_opus, cap_sonnet), strict=True):
-                params = anthropic_params(
-                    model, system, user, schema_for("direct", PARAPHRASE),
-                    effort=effort, max_tokens=cap,
-                )  # fmt: skip
-                if not thinking:
-                    params.pop("thinking")
-                meta = {"item_id": item.item_id, "arm": "direct", "info": info(item),
-                        "paraphrase": PARAPHRASE, "sample": 0, "block": "d1-settings",
-                        "model": model, "effort": effort, "setting": name}  # fmt: skip
-                reqs.append({"custom_id": request_id(params, 0), "meta": meta, "params": params})
+        for model, name, thinking, effort, cap in GRIDS[grid]:
+            params = anthropic_params(
+                model, system, user, schema_for("direct", PARAPHRASE),
+                effort=effort, max_tokens=cap,
+            )  # fmt: skip
+            params.pop("thinking", None)
+            if thinking:
+                params["thinking"] = {"type": "adaptive"}
+            meta = {"item_id": item.item_id, "arm": "direct", "info": info(item),
+                    "paraphrase": PARAPHRASE, "sample": 0, "block": "d1-settings",
+                    "model": model, "effort": effort, "setting": name}  # fmt: skip
+            reqs.append({"custom_id": request_id(params, 0), "meta": meta, "params": params})
     return reqs
 
 
