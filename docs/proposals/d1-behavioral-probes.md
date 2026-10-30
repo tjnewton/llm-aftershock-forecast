@@ -53,9 +53,19 @@ locally at no cost:
 |---|---|---|
 | P1 | slope of log10 mean count on Δ, per target magnitude and window; the same for P(M6+) | generic RJ: slope = b (about 1.0) |
 | P2 | implied Omori p: fit of log mean count against the RJ window integral, c fixed at the generic value | generic RJ p of the region |
-| P3 | elasticity: slope of log mean forecast on log of the realized synthetic count (ρ > 0) | RJ fit to the same catalog (`laf.forecast.fit_rj_mle`) and the generating model |
-| P4 | ratio of the even-pattern forecast to the decaying one | RJ fit to each catalog |
-| all | M3:M4:M5 ratios (implied b); spread, log(97.5% / 2.5% quantile) | RJ predictive spread |
+| P3 | elasticity: slope of log mean forecast on log of the realized synthetic count (ρ > 0) | Bayesian RJ update on the same catalog (below) and the generating model |
+| P4 | ratio of the even-pattern forecast to the decaying one | Bayesian RJ update on each catalog |
+| all | M3:M4:M5 ratios (implied b); spread, log(1 + 97.5% quantile) - log(1 + 2.5% quantile) | the same spread of the RJ reference |
+
+- **Bayesian RJ update (P3, P4).** The MLE fit in `laf.forecast.fit_rj_mle` needs at least 10
+  events at M5, so it is undefined on most synthetic catalogs. The reference is instead a grid
+  posterior: the region's generic prior on a, b and c at their generic values, p uniform on
+  [0.5, 2.0], and the Omori-Utsu point-process likelihood of the M3 events before the issue
+  (the synthetic catalogs are complete at M3 by construction). It is defined for any count,
+  including an empty list, where only the integral term remains. Through p it also responds
+  to the time pattern in P4; with p fixed, the posterior would depend on the count alone.
+- **Spread.** The 2.5% quantile is often 0 for these small counts (7,856 of 8,019 quantile
+  sets in the D2 Opus answers), so the spread uses log(1 + q) rather than log q.
 
 Intervals come from a bootstrap over the 18 base sequences. The results are exploratory and
 reported as such.
@@ -103,7 +113,8 @@ the 4.6 models without reasoning, while the 5.5 models reason.
 ## Code needed after approval
 - `laf.providers`: prices and the thinking setting for the 4.6 models. Not a frozen file.
 - `laf.d1`: probe item builders (perturbed mainshock, shifted issue time, synthetic catalogs),
-  a runner block, the analysis, and tests. It reuses `laf.forecast` (frozen) read-only.
+  the Bayesian RJ reference, a runner block, the analysis, and tests. It reuses `laf.forecast`
+  (frozen) read-only.
 
 ## Decisions requested
 1. Thinking on the 4.6 models: explicit adaptive (recommended) or off. The choice also applies
