@@ -151,41 +151,57 @@ the 4.6 models without reasoning, while the 5.5 models reason.
 4. Approve the spend: the pilot (under $0.50), then the batch (about $41, guard at 1.5 times
    the estimate after the pilot).
 
-## Results (Opus 4.6 and Sonnet 4.6; Opus 5.5 pending)
+## Results
 Exploratory, development probes, no outcomes. `laf d1 analyze --snapshot 20261021T2300Z` writes
 `results/d1_stats_20261021T2300Z.csv` (every answer) and `results/d1_summary_20261021T2300Z.csv`
-(every window, target and statistic). All 1,224 answers were valid (batch cost $29.57).
+(every window, target and statistic).
+- **Answers:** all 1,836 were valid. Batch cost: Opus 4.6 $16.80, Sonnet 4.6 $12.78, Opus 5.5
+  $11.96; the pilots cost $2.46.
 - **Settings:** Opus 4.6 ran adaptive thinking at medium effort and Sonnet 4.6 at low (ADR 0014
-  decision 5).
+  decision 5). Opus 5.5 kept the registered settings (adaptive by default, effort high).
 - **Infinite means:** no answer's negative-binomial tail fell back to one with an infinite mean.
 
 Week window, log10 of the mean count, mean over the 18 base sequences [95% bootstrap interval]:
 
-| Measure | Target | Opus 4.6 | Sonnet 4.6 | RJ reference |
-|---|---|---|---|---|
-| P1 slope per magnitude unit | M3 | 0.55 [0.43, 0.65] | 0.51 [0.41, 0.61] | 0.94 [0.91, 0.96] |
-| | M5 | 0.77 [0.67, 0.88] | 0.28 [0.17, 0.38] | 1.15 [1.08, 1.22] |
-| P2 implied Omori p | M3 | 0.77 [0.64, 0.89] | 0.79 [0.65, 0.93] | 0.89 [0.85, 0.93] |
-| P3 elasticity to the observed count | M3 | 0.73 [0.68, 0.78] | 0.75 [0.67, 0.84] | 0.93 [0.87, 0.99] |
-| | M5 | 0.37 [0.31, 0.42] | 0.44 [0.33, 0.57] | 1.23 [1.18, 1.27] |
-| P3 empty list minus no list | M3 | -0.34 [-0.49, -0.19] | +0.11 [-0.12, +0.33] | -1.12 [-1.24, -0.98] |
-| P4 even minus decaying times | M3 | +0.41 [+0.33, +0.50] | +0.21 [+0.10, +0.31] | +0.35 [+0.25, +0.45] |
+| Measure | Target | Opus 4.6 | Sonnet 4.6 | Opus 5.5 | RJ reference |
+|---|---|---|---|---|---|
+| P1 slope per magnitude unit | M3 | 0.55 [0.43, 0.65] | 0.51 [0.41, 0.61] | 0.70 [0.62, 0.77] | 0.94 [0.91, 0.96] |
+| | M5 | 0.77 [0.67, 0.88] | 0.28 [0.17, 0.38] | 0.98 [0.81, 1.10] | 1.15 [1.08, 1.22] |
+| P2 implied Omori p | M3 | 0.77 [0.64, 0.89] | 0.79 [0.65, 0.93] | 0.81 [0.70, 0.89] | 0.89 [0.85, 0.93] |
+| P3 elasticity to the observed count | M3 | 0.73 [0.68, 0.78] | 0.75 [0.67, 0.84] | 0.93 [0.85, 1.02] | 0.93 [0.87, 0.99] |
+| | M5 | 0.37 [0.31, 0.42] | 0.44 [0.33, 0.57] | 1.06 [1.00, 1.13] | 1.23 [1.18, 1.27] |
+| P3 empty list minus no list | M3 | -0.34 [-0.49, -0.19] | +0.11 [-0.12, +0.33] | -0.81 [-0.97, -0.62] | -1.12 [-1.24, -0.98] |
+| | M5 | -0.07 [-0.20, +0.06] | +1.02 [+0.65, +1.41] | -1.02 [-1.23, -0.77] | -0.77 [-1.13, -0.39] |
+| P4 even minus decaying times | M3 | +0.41 [+0.33, +0.50] | +0.21 [+0.10, +0.31] | +0.55 [+0.46, +0.64] | +0.35 [+0.25, +0.45] |
 
-- **Direction:** both models move the right way on every probe. Larger mainshocks get more
+- **Direction:** all three models move the right way on every probe. Larger mainshocks get more
   aftershocks, later windows fewer, and busier catalogs and undecayed time patterns higher
-  forecasts.
-- **Magnitude:** both respond about half as strongly as RJ. One magnitude unit multiplies
-  their M3 forecast by about 3.5 rather than about 9. Sonnet's M5 forecast barely scales at
-  all.
-- **Observed count:** forecasts follow it with an elasticity of 0.35 to 0.75 against RJ's 0.8
-  to 1.3 (all windows and targets). Productive sequences would be under-forecast, quiet ones over-forecast.
-- **Decay:** the implied Omori p (0.6 to 1.0) is slightly below RJ's (0.7 to 1.15), so the
-  rate falls a little more slowly than RJ's.
+  forecasts. Sonnet 4.6 with an empty catalog is the one exception (below).
+- **The 4.6 models respond about half as strongly as RJ:**
+  - One magnitude unit multiplies their M3 forecast by about 3.5 rather than about 9.
+  - Their elasticity to the observed count is 0.35 to 0.75 against RJ's 0.8 to 1.3 (all
+    windows and targets). Productive sequences would be under-forecast, quiet ones
+    over-forecast.
+- **Opus 5.5 is much closer to RJ:**
+  - Its elasticity to the observed count equals RJ's at M3 and is 1.06 at M5.
+  - Its magnitude slope is 0.70 to 0.98.
+  - It treats an empty catalog as strong evidence of low productivity, about as RJ does.
+  - This is consistent with Opus 5.5 tying the official forecast on the registered and D2 items.
+- **Decay:** every model's implied Omori p (about 0.6 to 1.0) is slightly below RJ's (0.7 to
+  1.15), so their rates fall a little more slowly.
 - **An empty catalog:** RJ treats it as strong evidence of low productivity (about 13 times
-  fewer M3 events than with no catalog). Opus lowers its forecast about 2-fold. Sonnet raises
-  it at M4 and M5 (by 2.7 to 11 times) and leaves it about the same at M3.
-- **Time pattern:** Opus responds about as RJ does, and Sonnet at half strength.
-- **Gutenberg-Richter:** the implied b between thresholds is 0.76 to 0.91 for the models
-  against 1.0 for RJ (median over cells).
-- **Spread:** M3 forecasts are narrower than RJ's (median log(1 + q97.5) - log(1 + q2.5): 1.7
-  and 1.6 against 2.2).
+  fewer M3 events than with no catalog). Opus 4.6 lowers its forecast about 2-fold and Opus
+  5.5 about 6-fold. Sonnet 4.6 raises it at M4 and M5 (by 2.7 to 11 times) and leaves it
+  about the same at M3.
+- **Time pattern:** the Opus models respond about as RJ does, or slightly more. Sonnet 4.6
+  responds at half strength.
+- **Gutenberg-Richter:** the implied b between thresholds (median over cells) is 0.76 to 0.97
+  for the models against 1.0 for RJ, Opus 5.5 being closest.
+- **Spread:** M3 forecasts are narrower than RJ's (median log(1 + q97.5) - log(1 + q2.5): Opus
+  4.6 1.7, Sonnet 4.6 1.6, Opus 5.5 1.9, against 2.2).
+- **The E[log(1 + N)] check** (`stat = elog1p` in the summary): it keeps the same order on the
+  magnitude and count probes; every model is below RJ, and the 4.6 models are lowest.
+
+What it means for the confirmatory study: the 4.6 models are expected to forecast worse than
+Opus 5.5, mainly on sequences much more or less productive than the generic model. D2 for the
+4.6 models (approved 2026-10-30) measures that on scored development items.
