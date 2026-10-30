@@ -139,3 +139,34 @@ def run(out: Path, data_dir: Path, repo_data: Path, polls: int | None = None) ->
         n += 1
         if polls is None or n < polls:
             time.sleep(POLL_S)
+
+
+def version_slack_s(versions):
+    """Seconds from each valid, non-duplicate OAF version's publication (`update_ms`) to its
+    first window start (`time_start_ms`); negative when the window opened first. Timing
+    columns only."""
+    import numpy as np
+
+    v = versions[versions["valid"] & ~versions["duplicate"].fillna(False).astype(bool)]
+    v = v.drop_duplicates(["sequence_id", "update_ms"])
+    return ((v["time_start_ms"] - v["update_ms"]) / 1000).to_numpy(dtype=float), np.unique(
+        v["sequence_id"]
+    ).size
+
+
+def late_share(slack_s, lag_s, poll_s: float, forecast_s: float, n: int = 200_000) -> float:
+    """Share of matched live items that would be late (docs/adr/0017): ComCat shows a version
+    after an index lag (resampled from the dry run), the detector sees it at the next poll
+    (uniform wait), and the hash follows after `forecast_s`; the item is late when that comes
+    after the version's first window start."""
+    import numpy as np
+
+    rng = np.random.default_rng(20261030)
+    s, lag = rng.choice(slack_s, n), rng.choice(lag_s, n)
+    return float(np.mean(lag + rng.uniform(0, poll_s, n) + forecast_s > s))
+
+
+def index_lags_s(log: Path) -> list[float]:
+    """ComCat index time minus OAF update time for every detection in a dry-run log."""
+    rows = [json.loads(x) for x in log.read_text(encoding="utf-8").split("\n") if x.strip()]
+    return [(r["index_ms"] - r["update_ms"]) / 1000 for r in rows if r.get("kind") == "detection"]

@@ -126,6 +126,11 @@ def main(argv: list[str] | None = None) -> None:
     lw.add_argument("--out", type=Path, default=Path("runs/live-dryrun"))
     lw.add_argument("--live-data", type=Path, default=Path("data/interim/live-dryrun"))
     lw.add_argument("--polls", type=int, help="stop after this many polls (default: run on)")
+    ll = sub.add_parser(
+        "live-late", help="share of matched live items that would be late (ADR 0017; no network)"
+    )
+    ll.add_argument("--snapshot", nargs="+", required=True, help="snapshots with OAF versions")
+    ll.add_argument("--log", type=Path, default=Path("runs/live-dryrun/log.jsonl"))
     pw = sub.add_parser(
         "power", help="power of the confirmatory tests from development runs (ADR 0018)"
     )
@@ -472,6 +477,28 @@ def main(argv: list[str] | None = None) -> None:
         from laf.live_watch import run
 
         run(a.out, a.live_data, a.data_dir, a.polls)
+    elif a.cmd == "live-late":
+        import pandas as pd
+
+        from laf.live_watch import index_lags_s, late_share, version_slack_s
+
+        cols = ["sequence_id", "update_ms", "time_start_ms", "valid", "duplicate"]
+        versions = pd.concat(
+            pd.read_parquet(a.data_dir / "processed" / s / "oaf_versions.parquet", columns=cols)
+            for s in a.snapshot
+        )
+        slack, n_seq = version_slack_s(versions)
+        lags = index_lags_s(a.log)
+        print(f"{len(slack)} OAF versions in {n_seq} sequences; {len(lags)} dry-run index lags")
+        print(f"first window opens before publication: {(slack < 0).mean():.3f}")
+        rows = [
+            {"poll_min": p, "forecast_min": f, "late": late_share(slack, lags, 60 * p, 60 * f)}
+            for p in (2, 5, 10)
+            for f in (0.5, 2, 5)
+        ]
+        tab = pd.DataFrame(rows)
+        tab.to_csv("results/live_late_share.csv", index=False, lineterminator="\n")
+        print(tab.pivot(index="poll_min", columns="forecast_min", values="late").round(3))
     elif a.cmd == "power":
         import pandas as pd
 
