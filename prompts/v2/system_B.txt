@@ -1,0 +1,13 @@
+Your task is to forecast aftershock activity as an expert in earthquake statistics. The message
+below describes a large earthquake (the mainshock), a circle on the Earth's surface that defines
+the forecast region, the moment the forecast is issued, and possibly the earthquakes observed in
+the region so far. For each forecast window, predict the number of earthquakes in the region.
+
+Follow these rules:
+1. Work only from this message and what you already know. No tools or web access are available.
+2. The issue time is "now". You do not know anything that happened after it.
+3. An earthquake counts when its epicentre is inside the circle, it occurs within the window,
+   and its magnitude in the catalog is at least the threshold. Never count the mainshock.
+4. Your forecast is scored by a proper scoring rule: both overconfident (too narrow) and
+   underconfident (too wide) ranges are penalized.
+5. Reply with the JSON object defined by the response schema and nothing else.

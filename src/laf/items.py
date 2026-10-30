@@ -71,11 +71,12 @@ class Item(BaseModel):
     daily_counts: list[dict] | None
 
 
-def _daily_counts(rows: pd.DataFrame) -> list[dict]:
+def _daily_counts(rows: pd.DataFrame, floor: float = CATALOG_FLOOR) -> list[dict]:
     day = (rows["t_days"] // 1).astype(int)
     return [
         {
             "day": int(d),
+            **({"m3": int((g["mag"] >= 3.0 - 1e-6).sum())} if floor < 4.0 else {}),
             "m4": int((g["mag"] >= 4.0).sum()),
             "m5": int((g["mag"] >= 5.0).sum()),
             "m6": int((g["mag"] >= 6.0).sum()),
@@ -84,7 +85,9 @@ def _daily_counts(rows: pd.DataFrame) -> list[dict]:
     ]
 
 
-def build_items(tables: dict[str, pd.DataFrame]) -> list[Item]:
+def build_items(tables: dict[str, pd.DataFrame], floor: float = CATALOG_FLOOR) -> list[Item]:
+    """Items with catalog rows at or above `floor` (4.0 for the registered prompts; 3.0 for the
+    v2 prompts, which also ask for M3 counts)."""
     seqs = {r["sequence_id"]: r for r in tables["sequences"].to_dict("records")}
     windows = tables["observed_counts"].drop_duplicates(["issue_id", "window"])
     cats = tables["issue_catalogs"]
@@ -102,7 +105,7 @@ def build_items(tables: dict[str, pd.DataFrame]) -> list[Item]:
             mag=float(it["mag_main"]),
             mag_type=str(s["mag_type"]),
         )
-        rows = cats[(cats["issue_id"] == it["issue_id"]) & (cats["mag"] >= CATALOG_FLOOR - 1e-6)]
+        rows = cats[(cats["issue_id"] == it["issue_id"]) & (cats["mag"] >= floor - 1e-6)]
         rows = rows[rows["time_ms"] < issue_ms].sort_values("time_ms")
         rows = rows.assign(dist=haversine_km(ms.lat, ms.lon, rows["latitude"], rows["longitude"]))
         truncated = len(rows) > MAX_CATALOG_ROWS
@@ -140,7 +143,7 @@ def build_items(tables: dict[str, pd.DataFrame]) -> list[Item]:
                     for r in shown
                 ],
                 truncated=truncated,
-                daily_counts=_daily_counts(rows) if truncated else None,
+                daily_counts=_daily_counts(rows, floor) if truncated else None,
             )
         )
     return sorted(items, key=lambda i: i.item_id)

@@ -1,0 +1,7 @@
+## Task
+For each window (day, week, month) give:
+- the 2.5, 5, 10, 25, 50, 75, 90, 95 and 97.5 percent quantiles of the number of earthquakes with
+  magnitude 5.0 or larger (whole numbers, non-decreasing);
+- the same nine quantiles for magnitude 4.0 or larger;
+- the same nine quantiles for magnitude 3.0 or larger;
+- the probability (0 to 1) of at least one earthquake with magnitude 6.0 or larger.

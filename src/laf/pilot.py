@@ -31,11 +31,11 @@ def _append(path: Path, record: dict) -> None:
         f.write(json.dumps(record, sort_keys=True) + "\n")
 
 
-def load_items(data_dir: Path, snapshot: str) -> list[Item]:
+def load_items(data_dir: Path, snapshot: str, floor: float = 4.0) -> list[Item]:
     tables = {
         p.stem: pd.read_parquet(p) for p in (data_dir / "processed" / snapshot).glob("*.parquet")
     }
-    return build_items(tables)
+    return build_items(tables, floor)
 
 
 def smoke(out: Path, budget_usd: float = 1.0) -> float:

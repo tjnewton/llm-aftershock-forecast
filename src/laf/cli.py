@@ -44,7 +44,9 @@ def main(argv: list[str] | None = None) -> None:
     rn = sub.add_parser("run", help="SPENDS MONEY: submit one design block as a Message Batch")
     rn.add_argument("--snapshot", required=True)
     rn.add_argument(
-        "--block", required=True, choices=("core", "i0", "sonnet-low", "e3", "e3pre", "e3i0")
+        "--block",
+        required=True,
+        choices=("core", "i0", "sonnet-low", "e3", "e3pre", "e3i0", "d2", "d2-medium"),
     )
     rn.add_argument("--model", required=True)
     rn.add_argument("--name", help="run name under runs/ (default <block>-<model>)")
@@ -693,10 +695,14 @@ def main(argv: list[str] | None = None) -> None:
 
         from laf.prompts import PROMPT_DIR, template_hashes
 
-        (PROMPT_DIR / "HASHES.json").write_text(
-            json.dumps(template_hashes(), indent=1) + "\n", encoding="utf-8", newline="\n"
-        )
-        print(f"wrote {PROMPT_DIR / 'HASHES.json'}")
+        for sub_dir in ("", "v2"):  # registered prompts, and the v2 (D2) prompts
+            path = PROMPT_DIR / sub_dir / "HASHES.json"
+            path.write_text(
+                json.dumps(template_hashes(sub_dir), indent=1) + "\n",
+                encoding="utf-8",
+                newline="\n",
+            )
+            print(f"wrote {path}")
     elif a.cmd == "spend":
         from collections import defaultdict
 
@@ -724,13 +730,28 @@ def main(argv: list[str] | None = None) -> None:
         else:
             from laf.pilot import load_items
 
-            reqs = runner.expand(load_items(a.data_dir, a.snapshot), a.block, a.model)
+            floor = runner.BLOCKS[a.block].get("floor", 4.0)
+            items = load_items(a.data_dir, a.snapshot, floor)
+            items_file, prompt_set = (
+                ("items.jsonl", "") if floor == 4.0 else ("items_m3.jsonl", "v2")
+            )
+            if floor != 4.0:  # the v2 items, written next to the registered ones and hashed
+                (a.data_dir / "processed" / a.snapshot / items_file).write_text(
+                    "".join(i.model_dump_json() + "\n" for i in items),
+                    encoding="utf-8",
+                    newline="\n",
+                )
+            reqs = runner.expand(items, a.block, a.model)
             est = runner.estimate_usd(reqs)
             name = a.name or f"{a.block}-{a.model}"
             print(f"{name}: {len(reqs)} requests, estimate ${est:.2f} (batch), "
                   f"spent so far ${runner.spent_usd():.2f}")  # fmt: skip
             if not a.dry_run:
-                print("batch", runner.submit(client(), name, reqs, a.snapshot, estimate=est))
+                batch = runner.submit(
+                    client(), name, reqs, a.snapshot, estimate=est,
+                    items_file=items_file, prompt_set=prompt_set,
+                )  # fmt: skip
+                print("batch", batch)
     elif a.cmd == "etas":
         import time
 
