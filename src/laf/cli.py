@@ -105,6 +105,12 @@ def main(argv: list[str] | None = None) -> None:
     cb.add_argument("--snapshot", required=True)
     cb.add_argument("--runs", type=Path, default=Path("runs"), help="runs/ or runs/e3")
     sub.add_parser("replicates", help="adapted-model replicate summary -> results/replicates.csv")
+    lw = sub.add_parser(
+        "live-watch", help="dry run of the live detector (ComCat polls; no model calls)"
+    )
+    lw.add_argument("--out", type=Path, default=Path("runs/live-dryrun"))
+    lw.add_argument("--live-data", type=Path, default=Path("data/interim/live-dryrun"))
+    lw.add_argument("--polls", type=int, help="stop after this many polls (default: run on)")
     pw = sub.add_parser(
         "power", help="power of the confirmatory tests from development runs (ADR 0018)"
     )
@@ -378,6 +384,10 @@ def main(argv: list[str] | None = None) -> None:
         Path("results").mkdir(exist_ok=True)
         tab.to_csv(f"results/combined_{a.snapshot}.csv", index=False, lineterminator="\n")
         print(tab[tab["sequence"] == "pooled"].round(3).to_string(index=False))
+    elif a.cmd == "live-watch":
+        from laf.live_watch import run
+
+        run(a.out, a.live_data, a.data_dir, a.polls)
     elif a.cmd == "power":
         import pandas as pd
 
