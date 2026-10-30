@@ -87,16 +87,18 @@ uses only its nine quantiles, through the latent-PCHIP method.
 - New prompts must ask for the M3 quantiles. That changes the prompts and needs Tyler's
   approval. It would be worked out on development items in D2 (prompt robustness).
 
-## Open decisions (Tyler)
-1. Primary score for the paper: log score of the count distribution (recommended), with the
-   quantile score as robustness, or the reverse.
-2. **Representation-matched scoring (recommended):** score every forecaster through its nine
-   quantiles with the same latent-PCHIP reconstruction for the primary comparison, and report
-   full-distribution scores of the official and ETAS forecasts as a sensitivity analysis.
-   This removes the representation effect from forecaster contrasts.
-3. Whether to add M>=3 targets to the prompts.
+## Decisions (Tyler, 2026-10-30)
+1. **Primary score:** log score of the count distribution. The registered log-scale quantile
+   score is a robustness check.
+2. **Representation-matched scoring:** in the primary comparison every forecaster is scored
+   through its nine quantiles with the same latent-PCHIP reconstruction. Full-distribution
+   scores of the official and ETAS forecasts are a sensitivity analysis.
+3. **M>=3 targets** are used where the catalog is complete (ADR 0013, decision 2). Asking the
+   forecasters for M3 quantiles is a prompt change, worked out on development items in D2 and
+   approved separately.
 
 ## Changelog
+- 2026-10-30: decisions 1-3 recorded.
 - 2026-10-29: first version.
 - 2026-10-29: `laf.countdist` implemented (latent-PCHIP, NB tail and NB fit, log score, N-test,
   PIT) and validated on the development snapshots; the geometric tail of the first draft was

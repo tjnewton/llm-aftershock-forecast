@@ -40,7 +40,8 @@ scored-call key exists in the factory's environment.
   repository. Pull requests from forks are ignored.
 - Codex reviews automatically and comments only. It never pushes or merges.
 - One review per head commit.
-- I merge.
+- Claude merges once CI and the path guard pass and Codex has reviewed the head commit
+  (a thumbs-up, or findings fixed and re-reviewed). Only I add `frozen-override`.
 
 ### Implementer (after hackathon judging ends)
 Issue-triggered workflows run only from the default branch, which stays frozen until judging
@@ -62,7 +63,7 @@ still through pull requests.
     (code reaches those paths through pull requests);
   - fails pull requests that touch frozen files or `prompts/` unless I add an override label.
 - Codex review on every pull request.
-- I review every pull request.
+- I review pull requests when I choose; merging waits for me only where `frozen-override` is needed.
 - Pull requests that change only docs or tests may get a lighter process after 10 clean merges.
   Scoring, analysis, prompts, data handling and the snooping guard never loosen.
 
