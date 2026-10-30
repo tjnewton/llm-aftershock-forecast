@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-10-05T10:52:09.874Z,15.8212,147.345,10,5,mb,99,80,1.607,0.71,us,us6000tzna,2026-10-28T13:41:40.040Z,"183 km ENE of Saipan, Northern Mariana Islands",earthquake,9.43,1.857,0.03,356,reviewed,us,us

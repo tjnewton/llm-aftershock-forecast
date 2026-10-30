@@ -1,0 +1,3 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-01-15T09:40:11.560Z,32.7935,-115.4555,15.5,3.41,ml,59,35,0.01388,0.26,ci,ci41158239,2026-04-18T14:46:48.040Z,"7 km WSW of Holtville, CA",earthquake,0.22,0.37,0.15896245731527,143,reviewed,ci,ci
+2026-01-15T09:54:39.470Z,32.790833333333,-115.45316666667,16.24,4.0911787112618,mw,60,35,0.01541,0.26,ci,ci41158263,2026-10-29T10:04:54.444Z,"7 km WSW of Holtville, CA",earthquake,0.21,0.49,,10,reviewed,ci,ci

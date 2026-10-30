@@ -1,0 +1,11 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-02-21T21:46:13.569Z,43.9836,-128.1954,10,3.5,ml,24,257,2.073,0.7,us,us7000rztq,2026-05-12T17:28:06.040Z,"off the coast of Oregon",earthquake,10.82,2.024,0.051,54,reviewed,us,us
+2026-03-16T07:44:30.591Z,43.6893,-128.3096,10,4.3,mb,75,179,2.247,0.53,us,us6000sgk0,2026-10-26T07:54:43.677Z,"off the coast of Oregon",earthquake,9.64,1.96,0.101,28,reviewed,us,us
+2026-03-28T22:52:57.678Z,43.5449,-127.7459,10,3.1,ml,38,268,1.944,0.62,us,us7000s8g3,2026-06-10T15:14:55.040Z,"274 km W of Bandon, Oregon",earthquake,9.01,2.024,0.045,64,reviewed,us,us
+2026-03-31T03:34:44.643Z,43.7835,-127.9237,10,3.3,mb,36,265,2.807,0.86,us,us6000snxk,2026-06-10T15:14:48.040Z,"293 km WNW of Bandon, Oregon",earthquake,7.5,2.014,0.198,6,reviewed,us,us
+2026-04-19T12:25:14.680Z,43.6505,-127.5982,10,3,ml,21,267,2.576,1.14,us,us6000srb4,2026-07-03T01:38:17.040Z,"265 km WNW of Bandon, Oregon",earthquake,8.68,2.022,0.038,92,reviewed,us,us
+2026-04-20T01:20:46.981Z,43.5934,-128.014,10,3.1,ml,49,247,2.881,0.72,us,us6000srgf,2026-07-03T01:38:27.040Z,"296 km W of Bandon, Oregon",earthquake,11.84,2.022,0.04,82,reviewed,us,us
+2026-05-13T10:43:58.069Z,43.7195,-127.5335,10,3.6,mb,42,190,1.724,0.59,us,us6000sxeg,2026-07-18T18:23:26.040Z,"261 km WNW of Bandon, Oregon",earthquake,7.61,1.992,0.25,4,reviewed,us,us
+2026-05-17T22:47:40.567Z,44.0833,-128.0091,10,3.8,mb,50,240,2.881,0.58,us,us6000szje,2026-07-25T22:12:57.040Z,"off the coast of Oregon",earthquake,4.55,2.014,0.18,8,reviewed,us,us
+2026-05-17T23:07:56.074Z,43.6876,-128.5184,10,4.1,mb,40,191,3.241,1.07,us,us6000syfl,2026-10-25T23:18:01.943Z,"off the coast of Oregon",earthquake,8.65,1.952,0.123,18,reviewed,us,us
+2026-06-10T07:57:43.831Z,43.8138,-127.4798,10,3.6,mb,24,263,2.485,0.71,us,us7000srzg,2026-08-15T17:27:10.040Z,"260 km WNW of Bandon, Oregon",earthquake,12.14,2.024,0.204,6,reviewed,us,us

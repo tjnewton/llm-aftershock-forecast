@@ -1,0 +1,10 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-09-27T07:01:41.497Z,38.9319,-115.3083,6,4.07,mwr,8,121,0.387,0.1758,nn,nn00924930,2026-10-11T11:22:49.287Z,"21 km W of Preston, Nevada",earthquake,,2.2271,,,reviewed,nn,nn
+2026-09-27T07:18:53.582Z,38.9253,-115.3111,6,3.3,mwr,7,201,0.391,0.1205,nn,nn00924939,2026-10-11T11:59:46.396Z,"21 km W of Preston, Nevada",earthquake,,2.8129,,,reviewed,nn,nn
+2026-09-27T08:54:07.495Z,38.9229,-115.2989,6,4.1,mwr,6,199,0.383,0.195,nn,nn00924954,2026-10-25T09:04:16.297Z,"20 km W of Preston, Nevada",earthquake,,4.3939,,,reviewed,nn,nn
+2026-09-28T05:53:11.730Z,38.896,-115.2938,0,3.3,ml,8,194,0.389,0.1453,nn,nn00924977,2026-10-21T19:16:36.067Z,"20 km W of Preston, Nevada",earthquake,,0,0,1,reviewed,nn,nn
+2026-09-29T09:50:11.265Z,38.9214,-115.2879,0,3.07,ml,8,188,0.375,0.1433,nn,nn00925017,2026-09-30T07:24:52.040Z,"19 km W of Preston, Nevada",earthquake,,0,0.33,2,reviewed,nn,nn
+2026-10-03T13:58:13.534Z,38.9375,-115.3439,4,3.25,mwr,7,205,0.413,0.1299,nn,nn00925220,2026-10-29T13:52:32.111Z,"24 km W of Preston, Nevada",earthquake,,2.664,,,reviewed,nn,nn
+2026-10-06T15:34:29.755Z,38.9946,-115.3385,5,3.45,mwr,7,214,0.398,0.1799,nn,nn00925363,2026-10-29T17:30:58.568Z,"25 km WNW of Preston, Nevada",earthquake,,3.6599,,,reviewed,nn,nn
+2026-10-06T20:16:51.387Z,38.9003,-115.2807,3.6175,3.3,ml,5,194,0.378,0.1251,nn,nn00925389,2026-10-13T16:28:25.544Z,"19 km W of Preston, Nevada",earthquake,,3.026,0,1,reviewed,nn,nn
+2026-10-15T22:55:34.180Z,38.9351,-115.2815,5.4126,3.41,ml,8,201,0.367,0.2111,nn,nn00925810,2026-10-16T22:58:39.548Z,"19 km W of Preston, Nevada",earthquake,,2.6834,0.26,2,reviewed,nn,nn

@@ -1,0 +1,11 @@
+{
+ "event_id": "us7000pllu",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-02-19T14%3A53%3A41&endtime=2025-06-19T14%3A53%3A41&latitude=51.1558&longitude=-176.0703&maxradiuskm=86.8&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 144,
+ "catalog_start_ms": 1739976821774,
+ "catalog_end_ms": 1750344821774,
+ "center_lat": 51.1558,
+ "center_lon": -176.0703,
+ "radius_km": 86.83879555763096,
+ "min_mag": 3.0
+}

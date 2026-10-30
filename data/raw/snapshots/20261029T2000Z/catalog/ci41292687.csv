@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-06-17T13:25:05.180Z,35.299166666667,-117.81233333333,7.62,3.55,ml,68,33,0.04187,0.16,ci,ci41488872,2026-08-31T21:48:29.040Z,"18 km WSW of Johannesburg, CA",earthquake,0.13,0.43,0.14474529003431,216,reviewed,ci,ci
+2026-07-02T03:29:42.830Z,35.306,-117.80616666667,7.43,3.26,ml,73,23,0.05033,0.15,ci,ci41285127,2026-09-19T21:50:24.040Z,"17 km WSW of Johannesburg, CA",earthquake,0.11,0.37,0.13678582020234,350,reviewed,ci,ci
+2026-07-05T06:36:48.100Z,35.300333333333,-117.80466666667,7.38,3.01,ml,67,33,0.04703,0.17,ci,ci41287111,2026-09-19T21:50:28.040Z,"17 km WSW of Johannesburg, CA",earthquake,0.13,0.41,0.18186855075037,181,reviewed,ci,ci
+2026-07-13T16:40:55.170Z,35.312166666667,-117.81483333333,7.55,4.3176267788869,mw,81,22,0.05134,0.15,ci,ci41292687,2026-10-26T16:54:35.435Z,"18 km WSW of Johannesburg, CA",earthquake,0.12,0.46,,7,reviewed,ci,ci
+2026-09-23T15:01:48.370Z,35.307,-117.80416666667,6.75,3.18,ml,53,55,0.05216,0.15,ci,ci41337695,2026-10-05T15:57:31.040Z,"17 km WSW of Johannesburg, CA",earthquake,0.13,0.37,0.14398008132521,192,reviewed,ci,ci

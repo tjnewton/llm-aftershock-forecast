@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-01-03T22:14:49.591Z,29.062,-97.833,7.0808,3.1,ml,25,78,0,0.1,tx,tx2025afjc,2025-07-02T20:21:44.969Z,"20 km ENE of Falls City, Texas",earthquake,0.61905751219589,0.40694843616002,0.2,27,reviewed,tx,tx
+2025-01-30T03:26:36.879Z,29.058,-97.846,6.8365,4.6,ml,21,79,0.1,0.1,tx,tx2025cbgl,2026-09-17T18:55:03.334Z,"18 km ENE of Falls City, Texas",earthquake,0.58443186122329,0.7409669558704,0.1,26,reviewed,tx,tx
+2025-01-31T03:59:06.720Z,29.065,-97.838,7.4145,3.5,ml,27,81,0,0.2,tx,tx2025cdcz,2025-07-02T20:17:57.052Z,"19 km ENE of Falls City, Texas",earthquake,0.74924140780518,1.0239055602275,0.2,10,reviewed,tx,tx

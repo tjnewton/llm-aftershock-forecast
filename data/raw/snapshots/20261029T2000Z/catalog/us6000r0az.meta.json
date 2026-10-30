@@ -1,0 +1,11 @@
+{
+ "event_id": "us6000r0az",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-07-14T09%3A23%3A45&endtime=2025-11-11T09%3A23%3A45&latitude=13.0630&longitude=145.8602&maxradiuskm=26.4&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 8,
+ "catalog_start_ms": 1752485025508,
+ "catalog_end_ms": 1762853025508,
+ "center_lat": 13.063,
+ "center_lon": 145.8602,
+ "radius_km": 26.387394675576846,
+ "min_mag": 3.0
+}

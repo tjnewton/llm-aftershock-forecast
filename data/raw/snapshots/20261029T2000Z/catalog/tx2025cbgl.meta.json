@@ -1,0 +1,11 @@
+{
+ "event_id": "tx2025cbgl",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2024-12-31T03%3A26%3A36&endtime=2025-04-30T03%3A26%3A36&latitude=29.0580&longitude=-97.8460&maxradiuskm=18.3&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 3,
+ "catalog_start_ms": 1735615596879,
+ "catalog_end_ms": 1745983596879,
+ "center_lat": 29.058,
+ "center_lon": -97.846,
+ "radius_km": 18.339031815904885,
+ "min_mag": 3.0
+}

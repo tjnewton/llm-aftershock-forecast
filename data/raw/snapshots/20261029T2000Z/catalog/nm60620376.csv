@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-04-23T17:59:04.210Z,36.054333333333,-89.8255,11.79,4,mw,89,46,0.06559,0.14,nm,nm60620376,2026-10-29T18:09:07.361Z,"1 km WNW of Cooter, Missouri",earthquake,0.18,0.28,,0,reviewed,nm,nm

@@ -1,0 +1,11 @@
+{
+ "event_id": "tx2025edml",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-01-29T19%3A33%3A24&endtime=2025-05-29T19%3A33%3A24&latitude=32.3700&longitude=-101.9260&maxradiuskm=18.8&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 3,
+ "catalog_start_ms": 1738179204297,
+ "catalog_end_ms": 1748547204297,
+ "center_lat": 32.37,
+ "center_lon": -101.926,
+ "radius_km": 18.7906023145211,
+ "min_mag": 3.0
+}

@@ -1,0 +1,11 @@
+{
+ "event_id": "ak2025xjbvhj",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-10-28T17%3A11%3A29&endtime=2026-02-25T17%3A11%3A29&latitude=61.5695&longitude=-150.7508&maxradiuskm=21.0&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 3,
+ "catalog_start_ms": 1761671489059,
+ "catalog_end_ms": 1772039489059,
+ "center_lat": 61.56951904296875,
+ "center_lon": -150.75079345703125,
+ "radius_km": 21.02269303580014,
+ "min_mag": 3.0
+}

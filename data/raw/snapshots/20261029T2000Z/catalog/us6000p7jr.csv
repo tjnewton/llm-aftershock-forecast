@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2024-11-25T08:24:36.722Z,47.5643,-128.8932,10,4.8,mww,190,146,0.388,0.45,us,us6000p7jr,2025-11-25T08:34:50.038Z,"283 km SW of Tofino, Canada",earthquake,4.68,1.749,0.05,38,reviewed,us,us

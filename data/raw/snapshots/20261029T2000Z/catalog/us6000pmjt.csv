@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2024-12-30T07:29:30.559Z,17.99,146.1167,128.936,4.4,mb,24,150,2.752,0.69,us,us6000pj6g,2025-03-08T22:39:16.040Z,"Alamagan region, Northern Mariana Islands",earthquake,13.05,11.681,0.127,20,reviewed,us,us
+2025-01-09T05:24:00.259Z,18.034,145.9342,183.187,4.3,mb,25,149,2.781,0.36,us,us6000plfx,2025-03-20T20:55:34.040Z,"Pagan region, Northern Mariana Islands",earthquake,14.43,5.134,0.119,20,reviewed,us,us
+2025-01-27T14:51:23.500Z,18.0413,146.0169,143.939,5.3,mww,139,27,2.793,0.99,us,us6000pmjt,2026-01-27T15:01:32.273Z,"Pagan region, Northern Mariana Islands",earthquake,8.78,4.305,0.066,22,reviewed,us,us
+2025-03-30T15:51:28.910Z,18.164,146.0662,10,4.3,mb,14,202,2.919,0.79,us,us6000q4y4,2025-06-06T21:12:22.040Z,"Pagan region, Northern Mariana Islands",earthquake,9.4,2,0.201,9,reviewed,us,us
+2025-04-22T08:19:13.455Z,17.8176,146.1368,109.138,4.3,mb,34,107,2.584,0.68,us,us7000py09,2025-06-27T00:35:11.040Z,"291 km N of Saipan, Northern Mariana Islands",earthquake,14.75,8.908,0.087,38,reviewed,us,us

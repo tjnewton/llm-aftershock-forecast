@@ -1,0 +1,3 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-05-28T13:34:13.998Z,12.7347,144.957,28,5.8,mww,222,45,0.854,0.95,us,us6000qgeq,2026-05-28T13:44:15.961Z,"63 km SSE of Inarajan Village, Guam",earthquake,7.44,1.877,0.063,24,reviewed,us,us
+2025-06-17T17:56:48.537Z,13.0012,145.0141,35,3.8,ml,5,217,0.602,0.49,us,us6000qkvn,2025-08-22T20:26:03.040Z,"41 km SE of Inarajan Village, Guam",earthquake,10.83,2.026,0.148,6,reviewed,us,us

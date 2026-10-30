@@ -1,0 +1,12 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-11-11T17:20:08.547Z,43.3843,-127.6203,10,3.1,ml,22,287,2.621,0.7,us,us6000rmsg,2026-01-29T22:05:34.040Z,"262 km W of Bandon, Oregon",earthquake,12.37,2.026,0.044,68,reviewed,us,us
+2025-11-12T08:38:31.510Z,43.9746,-128.2335,10,4.3,mb,93,115,3.034,0.84,us,us6000rmxh,2026-10-28T08:48:46.526Z,"off the coast of Oregon",earthquake,7.62,1.915,0.062,73,reviewed,us,us
+2025-11-30T07:32:15.132Z,43.681,-127.735,10,3,ml,29,281,2.673,0.88,us,us7000repz,2026-02-25T16:18:39.040Z,"276 km WNW of Bandon, Oregon",earthquake,12.39,2.02,0.04,84,reviewed,us,us
+2025-12-20T14:05:09.215Z,44.0197,-128.6624,10,4.3,mb,52,185,3.346,0.99,us,us6000rw71,2026-10-24T14:15:16.617Z,"off the coast of Oregon",earthquake,9.33,1.966,0.082,42,reviewed,us,us
+2025-12-21T09:57:17.768Z,43.8649,-127.6328,10,4.7,mww,56,194,2.597,1.1,us,us6000rwbc,2026-10-25T10:07:19.811Z,"273 km WNW of Bandon, Oregon",earthquake,8.59,1.992,0.058,29,reviewed,us,us
+2025-12-22T19:28:44.134Z,43.5849,-127.4161,10,3.9,mb,70,188,2.449,1.03,us,us7000rk6m,2026-03-19T13:56:12.040Z,"249 km W of Bandon, Oregon",earthquake,8.68,1.992,0.297,3,reviewed,us,us
+2026-01-16T03:25:53.034Z,43.6857,-128.0574,10,6,mww,109,143,2.907,1.28,us,us7000rq0d,2026-10-23T03:36:02.100Z,"off the coast of Oregon",earthquake,7.75,1.831,0.03,106,reviewed,us,us
+2026-01-16T06:35:03.556Z,43.6091,-127.8312,10,3.1,ml,26,283,2.747,0.77,us,us7000rq12,2026-04-18T14:46:54.040Z,"282 km W of Bandon, Oregon",earthquake,4.37,2.026,0.043,72,reviewed,us,us
+2026-01-20T06:29:50.250Z,43.489,-127.8908,10,3.4,mb,49,218,2.802,0.89,us,us7000rqrl,2026-04-18T14:47:27.040Z,"285 km W of Bandon, Oregon",earthquake,8.4,1.971,0.2,6,reviewed,us,us
+2026-01-26T23:13:56.053Z,43.6518,-127.611,10,3,ml,35,294,1.806,0.53,us,us6000s4lu,2026-04-21T16:27:50.040Z,"266 km WNW of Bandon, Oregon",earthquake,10.57,2.026,0.046,62,reviewed,us,us
+2026-02-02T10:58:48.741Z,44.5238,-128.8757,13.254,3.5,ml,69,281,2.482,0.57,us,us6000s60q,2026-04-23T20:43:20.040Z,"off the coast of Oregon",earthquake,15.67,12.48,0.046,62,reviewed,us,us

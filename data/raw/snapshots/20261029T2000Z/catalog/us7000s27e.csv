@@ -1,0 +1,7 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-03-05T11:30:08.102Z,32.0614,-93.4128,2.48,4.9,mwr,144,53,0.725,0.63,us,us7000s27e,2026-10-29T11:40:17.273Z,"2026 Red River Parish, Louisiana Earthquake",earthquake,2.69,4.425,0.044,50,reviewed,us,us
+2026-03-09T09:33:43.565Z,32.0463,-93.3671,5.627,3.1,mb_lg,15,88,0.05,0.67,us,us7000s34t,2026-05-22T21:58:42.040Z,"3 km W of Edgefield, Louisiana",earthquake,2.01,2.462,0.048,113,reviewed,us,us
+2026-03-09T09:34:20.147Z,32.0816,-93.3941,5.924,3.2,mb_lg,15,86,0.01,0.96,us,us7000s34w,2026-05-22T21:58:42.040Z,"6 km WNW of Edgefield, Louisiana",earthquake,1.82,2.091,0.064,64,reviewed,us,us
+2026-03-09T09:40:50.823Z,32.066,-93.3479,6.075,4.1,mb,11,88,0.046,0.57,us,us7000s34u,2026-05-22T21:58:42.040Z,"2 km NW of Edgefield, Louisiana",earthquake,2.59,2.916,0.08,42,reviewed,us,us
+2026-03-09T09:41:42.302Z,32.075,-93.3624,5,4.4,mwr,54,87,0.031,0.78,us,us7000s34v,2026-10-09T20:49:20.244Z,"3 km NW of Edgefield, Louisiana",earthquake,7.19,1.956,0.038,66,reviewed,us,us
+2026-03-09T09:44:36.164Z,32.0642,-93.3728,5,3,ml,6,200,0.032,0.61,us,us7000s8zk,2026-05-22T21:58:47.040Z,"4 km WNW of Edgefield, Louisiana",earthquake,2.29,1.753,0.128,8,reviewed,us,us

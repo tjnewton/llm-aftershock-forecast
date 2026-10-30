@@ -1,0 +1,11 @@
+{
+ "event_id": "us6000rpht",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-10-22T04%3A38%3A28&endtime=2026-02-19T04%3A38%3A28&latitude=23.8578&longitude=90.5404&maxradiuskm=31.8&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 4,
+ "catalog_start_ms": 1761107908942,
+ "catalog_end_ms": 1771475908942,
+ "center_lat": 23.8578,
+ "center_lon": 90.5404,
+ "radius_km": 31.835711207198077,
+ "min_mag": 3.0
+}

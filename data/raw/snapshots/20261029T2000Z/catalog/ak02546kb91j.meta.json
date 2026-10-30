@@ -1,0 +1,11 @@
+{
+ "event_id": "ak02546kb91j",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-03-02T04%3A04%3A36&endtime=2025-06-30T04%3A04%3A36&latitude=58.1204&longitude=-156.3782&maxradiuskm=33.8&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 5,
+ "catalog_start_ms": 1740888276944,
+ "catalog_end_ms": 1751256276944,
+ "center_lat": 58.1204,
+ "center_lon": -156.3782,
+ "radius_km": 33.78605344182536,
+ "min_mag": 3.0
+}

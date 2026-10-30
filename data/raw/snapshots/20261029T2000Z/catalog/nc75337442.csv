@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-04-02T08:41:25.520Z,37.115666666667,-122.1125,10.43,4.59,mw,173,67,0.03446,0.19,nc,nc75337442,2026-10-29T08:51:30.258Z,"1 km SE of Boulder Creek, CA",earthquake,0.16,0.32,,15,reviewed,nc,nc

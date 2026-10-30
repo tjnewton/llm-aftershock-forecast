@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-07-04T03:46:14.374Z,51.4575,179.7185,47.706,3.1,ml,18,169,0.273,0.55,us,us7000qcpr,2025-09-12T16:23:07.040Z,"256 km WSW of Adak, Alaska",earthquake,4.97,7.73,0.085,18,reviewed,us,us
+2025-07-15T06:34:01.572Z,51.1279,179.3277,20.536,3.1,ml,21,225,0.251,1.03,us,us6000qv67,2025-11-28T21:18:04.916Z,"292 km WSW of Adak, Alaska",earthquake,3.56,11.769,0.081,20,reviewed,us,us
+2025-07-21T19:07:19.999Z,51.2679,179.5187,49.643,5,mb,97,135,0.175,0.9,us,us6000qtzg,2026-07-21T19:17:28.137Z,"275 km WSW of Adak, Alaska",earthquake,5.54,6.596,0.025,519,reviewed,us,us
+2025-08-22T00:18:33.064Z,51.228,179.1883,41.151,4,mb,54,193,0.166,0.96,us,us6000r2x3,2025-11-12T16:25:36.040Z,"298 km WSW of Adak, Alaska",earthquake,6.67,9.62,0.081,43,reviewed,us,us
+2025-09-13T01:58:55.800Z,51.4762,179.634,72.5,4.5,mb,134,145,0.23,0.66,us,us7000qvw4,2025-12-03T03:58:17.040Z,"261 km W of Adak, Alaska",earthquake,5.58,5.548,0.049,121,reviewed,us,us

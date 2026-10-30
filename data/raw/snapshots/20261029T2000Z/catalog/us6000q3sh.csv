@@ -1,0 +1,7 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-03-09T07:26:16.797Z,14.101,146.8529,10,4.2,mb,24,155,1.524,0.96,us,us6000pzl9,2025-05-16T17:30:06.040Z,"163 km SE of San Jose Village, Northern Mariana Islands",earthquake,8.54,1.939,0.132,16,reviewed,us,us
+2025-04-03T18:42:57.501Z,14.1984,146.8857,10,5.1,mb,86,123,1.477,0.8,us,us6000q3sh,2026-04-03T18:53:03.057Z,"160 km ESE of San Jose Village, Northern Mariana Islands",earthquake,8.51,1.881,0.034,272,reviewed,us,us
+2025-04-17T16:02:03.077Z,14.0855,147.04,10,4.2,mb,10,118,1.662,1.03,us,us7000pwmb,2025-06-27T00:35:00.040Z,"181 km ESE of San Jose Village, Northern Mariana Islands",earthquake,6.58,1.958,0.263,4,reviewed,us,us
+2025-04-26T11:00:21.247Z,14.146,146.897,10,4.3,mb,30,157,1.521,0.75,us,us7000pyv4,2025-07-11T15:46:25.040Z,"164 km ESE of San Jose Village, Northern Mariana Islands",earthquake,8.31,1.917,0.125,18,reviewed,us,us
+2025-05-15T13:20:15.611Z,14.1216,147.171,10,4.4,mb,30,96,1.733,1.08,us,us6000qgpc,2025-07-25T17:06:13.040Z,"191 km ESE of San Jose Village, Northern Mariana Islands",earthquake,7.86,1.921,0.126,21,reviewed,us,us
+2025-05-18T23:43:28.583Z,14.0767,147.0095,10,4.4,mb,26,155,1.647,0.59,us,us6000qhg7,2025-07-25T17:06:13.040Z,"179 km ESE of San Jose Village, Northern Mariana Islands",earthquake,8.22,1.932,0.134,16,reviewed,us,us

@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-07-31T16:32:24.200Z,34.148,-117.4143333,5.26,4.3723843049394,mw,159,16,0.0458,0.23,ci,ci41249496,2026-07-31T16:42:30.765Z,"6 km NW of Rialto, CA",earthquake,0.12,0.31,,10,reviewed,ci,ci
+2025-07-31T16:36:50.790Z,34.1423333,-117.4101667,5.76,3.09,ml,143,20,0.04881,0.22,ci,ci41249512,2025-10-17T22:51:42.040Z,"5 km NW of Rialto, CA",earthquake,0.11,0.38,0.146,297,reviewed,ci,ci
+2025-08-05T23:54:37.030Z,34.1455,-117.4141667,6.66,3.48,mw,160,15,0.04825,0.2,ci,ci41254152,2026-01-07T00:23:53.541Z,"6 km NW of Rialto, CA",earthquake,0.1,0.28,,4,reviewed,ci,ci

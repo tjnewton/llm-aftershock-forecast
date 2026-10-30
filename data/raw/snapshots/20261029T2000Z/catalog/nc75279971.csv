@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-12-01T06:56:36.600Z,38.385333333333,-122.60633333333,4.76,3.25,mw,163,16,0.04275,0.15,nc,nc75272501,2026-02-25T16:18:40.040Z,"6 km WSW of Kenwood, CA",earthquake,0.1,0.29,,6,reviewed,nc,nc
+2025-12-01T08:06:34.270Z,38.391,-122.612,4.9,3.1,ml,151,18,0.04991,0.13,nc,nc75272546,2026-02-25T16:18:40.040Z,"6 km WSW of Kenwood, CA",earthquake,0.09,0.27,0.141,102,reviewed,nc,nc
+2025-12-14T23:30:43.210Z,38.373,-122.604,3.13,4.03,mw,181,16,,0.16,nc,nc75279971,2026-10-25T23:40:49.355Z,"6 km W of Glen Ellen, CA",earthquake,0.1,0.25,,48,reviewed,nc,nc
+2025-12-14T23:38:38.870Z,38.3775,-122.6045,4.64,3.08,mw,146,16,0.03365,0.12,nc,nc75279976,2026-03-10T22:18:42.040Z,"6 km SW of Kenwood, CA",earthquake,0.09,0.26,,4,reviewed,nc,nc
+2025-12-15T00:04:20.880Z,38.379333333333,-122.605,5.67,3.33,mw,159,16,,0.14,nc,nc75280001,2026-03-10T22:18:42.040Z,"6 km SW of Kenwood, CA",earthquake,0.1,0.24,,12,reviewed,nc,nc

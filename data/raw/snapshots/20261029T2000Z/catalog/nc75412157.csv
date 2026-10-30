@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-08-05T00:25:25.780Z,40.0265,-123.4445,7.87,3.99,mw,49,27,0.09454,0.22,nc,nc75411492,2026-10-17T22:26:38.040Z,"31 km NNW of Covelo, CA",earthquake,0.23,0.5,,17,reviewed,nc,nc
+2026-08-05T22:20:58.590Z,40.0245,-123.446,8.33,3.88,mw,48,27,0.09639,0.22,nc,nc75412167,2026-10-17T22:26:40.040Z,"31 km NNW of Covelo, CA",earthquake,0.22,0.51,,13,reviewed,nc,nc
+2026-08-05T22:21:57.390Z,40.022333333333,-123.44616666667,7.28,4.41,mw,51,28,0.09739,0.25,nc,nc75412157,2026-10-28T22:32:11.394Z,"31 km NNW of Covelo, CA",earthquake,0.26,0.53,,51,reviewed,nc,nc
+2026-08-08T15:33:22.230Z,40.0285,-123.4455,8.67,3.16,ml,43,27,0.0945,0.22,nc,nc75414027,2026-09-15T15:07:54.040Z,"31 km NNW of Covelo, CA",earthquake,0.28,0.56,0.255,39,reviewed,nc,nc

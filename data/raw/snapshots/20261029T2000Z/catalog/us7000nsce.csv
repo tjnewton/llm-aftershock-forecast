@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2024-11-04T22:01:42.236Z,15.1083,147.2253,10,4.5,mb,43,131,1.39,0.76,us,us6000p6t8,2025-01-24T19:51:07.040Z,"158 km E of Saipan, Northern Mariana Islands",earthquake,7.91,1.913,0.097,31,reviewed,us,us
+2024-11-18T02:18:49.956Z,15.097,147.1498,10,5.1,mb,56,82,1.318,0.76,us,us7000nsce,2025-11-18T02:28:59.188Z,"150 km E of Saipan, Northern Mariana Islands",earthquake,7.94,1.822,0.068,70,reviewed,us,us
+2024-12-02T23:06:51.275Z,15.0697,147.1017,10,4.6,mb,26,173,2.617,0.29,us,us7000nyiq,2025-02-15T18:31:15.040Z,"145 km E of Saipan, Northern Mariana Islands",earthquake,11.98,1.946,0.136,16,reviewed,us,us
+2025-01-10T04:06:32.327Z,14.8711,147.3008,10,4.4,mb,18,175,1.502,0.81,us,us6000plla,2025-03-20T20:55:37.040Z,"170 km ESE of Saipan, Northern Mariana Islands",earthquake,11.86,1.964,0.17,10,reviewed,us,us
+2025-02-08T09:39:41.762Z,14.9711,147.2806,10,4.4,mb,27,97,1.462,1.2,us,us7000pdsd,2025-04-26T14:47:10.040Z,"166 km E of Saipan, Northern Mariana Islands",earthquake,7.19,1.918,0.144,14,reviewed,us,us

@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-10-04T23:28:40.252Z,53.4336,-165.8828,52.524,3.7,mb,28,189,0.554,1.01,us,us6000rj7t,2025-12-19T22:50:45.040Z,"65 km SE of Unalaska, Alaska",earthquake,5.71,15.516,0.122,17,reviewed,us,us
+2025-10-17T15:48:49.564Z,53.688,-165.8432,85.097,5.1,mww,127,49,0.415,0.77,us,us6000rhss,2026-10-17T15:58:52.401Z,"49 km S of Akutan, Alaska",earthquake,5.69,2.864,0.047,43,reviewed,us,us
+2025-12-20T01:16:07.716Z,53.4673,-165.899,51.702,3.6,mb,44,163,0.523,1.19,us,us7000rplp,2026-03-19T13:56:06.040Z,"61 km SE of Unalaska, Alaska",earthquake,5.26,8.326,0.167,10,reviewed,us,us

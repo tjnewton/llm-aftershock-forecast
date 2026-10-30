@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-07-12T10:38:04.730Z,34.813166666667,-118.92583333333,13.09,4.1092288867032,mw,123,25,0.04811,0.31,ci,ci41291863,2026-10-25T10:48:07.995Z,"2 km ESE of Frazier Park, CA",earthquake,0.19,0.4,,17,reviewed,ci,ci

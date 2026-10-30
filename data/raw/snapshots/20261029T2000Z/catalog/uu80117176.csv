@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-09-10T23:57:47.450Z,40.480166666667,-109.70483333333,68.34,4.13,ml,25,105,0.1213,0.27,uu,uu80117176,2026-09-11T00:07:58.133Z,"10 km W of Maeser, Utah",earthquake,0.81,2.34,0.11738584777558,35,reviewed,uu,uu

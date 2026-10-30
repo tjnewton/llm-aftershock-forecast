@@ -1,0 +1,11 @@
+{
+ "event_id": "tx2026uacobs",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2026-09-11T08%3A04%3A54&endtime=2026-10-29T20%3A00%3A00&latitude=31.6660&longitude=-104.4270&maxradiuskm=15.0&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 8,
+ "catalog_start_ms": 1789113894794,
+ "catalog_end_ms": 1793304000000,
+ "center_lat": 31.666,
+ "center_lon": -104.427,
+ "radius_km": 15.0,
+ "min_mag": 3.0
+}

@@ -1,0 +1,7 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-07-05T15:28:34.082Z,52.0008,-173.3447,55.018,3.6,ml,41,195,0.539,0.36,us,us7000qcw8,2025-09-12T16:23:08.040Z,"62 km ESE of Atka, Alaska",earthquake,9.95,16.513,0.066,30,reviewed,us,us
+2025-07-11T06:08:07.649Z,52.0807,-173.4873,83.759,3.2,ml,19,192,0.423,0.46,us,us7000qdgf,2025-11-28T20:48:15.665Z,"50 km ESE of Atka, Alaska",earthquake,15.33,19.994,0.081,20,reviewed,us,us
+2025-07-16T14:21:52.330Z,52.1732,-173.3679,69.829,5,mww,306,72,0.453,0.77,us,us7000qd00,2026-07-16T14:32:01.977Z,"57 km E of Atka, Alaska",earthquake,6.26,3.816,0.069,20,reviewed,us,us
+2025-07-26T17:54:23.211Z,52.2406,-173.6562,11.667,3,ml,30,183,0.324,0.7,us,us6000qy5k,2025-10-11T20:57:39.040Z,"37 km E of Atka, Alaska",earthquake,5.53,6.861,0.077,22,reviewed,us,us
+2025-08-27T12:18:59.659Z,51.9959,-173.5063,59.039,3.4,ml,18,194,0.459,0.43,us,us6000rlsm,2025-11-19T21:59:39.040Z,"52 km ESE of Atka, Alaska",earthquake,9.01,11.754,0.091,16,reviewed,us,us
+2025-09-27T02:36:18.211Z,52.1301,-173.4568,10,3.4,ml,14,199,0.421,0.44,us,us6000rf86,2025-12-11T21:40:49.040Z,"51 km E of Atka, Alaska",earthquake,2.39,1.978,0.115,10,reviewed,us,us

@@ -1,0 +1,11 @@
+{
+ "event_id": "us7000subg",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2026-05-19T13%3A58%3A27&endtime=2026-09-16T13%3A58%3A27&latitude=51.2916&longitude=-179.5551&maxradiuskm=31.5&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 12,
+ "catalog_start_ms": 1779199107164,
+ "catalog_end_ms": 1789567107164,
+ "center_lat": 51.2916,
+ "center_lon": -179.5551,
+ "radius_km": 31.482734708515732,
+ "min_mag": 3.0
+}

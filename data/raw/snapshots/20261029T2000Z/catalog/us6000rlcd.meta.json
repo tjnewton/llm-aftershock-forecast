@@ -1,0 +1,11 @@
+{
+ "event_id": "us6000rlcd",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-10-05T07%3A37%3A22&endtime=2026-02-02T07%3A37%3A22&latitude=12.3924&longitude=143.1427&maxradiuskm=17.6&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 1,
+ "catalog_start_ms": 1759649842906,
+ "catalog_end_ms": 1770017842906,
+ "center_lat": 12.3924,
+ "center_lon": 143.1427,
+ "radius_km": 17.64553938026106,
+ "min_mag": 3.0
+}

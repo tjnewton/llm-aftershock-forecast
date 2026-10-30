@@ -1,0 +1,11 @@
+{
+ "event_id": "aka2026tuxgky",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2026-09-06T18%3A34%3A31&endtime=2026-10-29T20%3A00%3A00&latitude=58.8020&longitude=-153.6090&maxradiuskm=15.0&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 1,
+ "catalog_start_ms": 1788719671760,
+ "catalog_end_ms": 1793304000000,
+ "center_lat": 58.802,
+ "center_lon": -153.609,
+ "radius_km": 15.0,
+ "min_mag": 3.0
+}

@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-11-02T20:29:02.008Z,36.5461,67.3886,28,6.2,mww,118,46,2.47,0.86,us,us6000rl31,2026-10-26T16:46:50.599Z,"30 km SE of Mazār-e Sharīf, Afghanistan",earthquake,6.99,1.878,0.066,22,reviewed,us,us

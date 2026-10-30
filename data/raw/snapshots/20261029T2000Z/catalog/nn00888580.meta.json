@@ -1,0 +1,11 @@
+{
+ "event_id": "nn00888580",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2024-11-09T23%3A08%3A31&endtime=2025-03-09T23%3A08%3A31&latitude=39.1675&longitude=-119.0238&maxradiuskm=19.9&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 37,
+ "catalog_start_ms": 1731193711577,
+ "catalog_end_ms": 1741561711577,
+ "center_lat": 39.1675,
+ "center_lon": -119.0238,
+ "radius_km": 19.854802945387554,
+ "min_mag": 3.0
+}

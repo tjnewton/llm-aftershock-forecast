@@ -1,0 +1,11 @@
+{
+ "event_id": "us7000rez4",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-11-01T22%3A21%3A07&endtime=2026-03-01T22%3A21%3A07&latitude=51.6480&longitude=-173.4586&maxradiuskm=25.0&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 6,
+ "catalog_start_ms": 1762035667810,
+ "catalog_end_ms": 1772403667810,
+ "center_lat": 51.648,
+ "center_lon": -173.4586,
+ "radius_km": 25.041670905097774,
+ "min_mag": 3.0
+}

@@ -1,0 +1,7 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-11-27T20:48:48.560Z,36.796,-121.53766666667,8.02,3.72,mw,108,33,0.02988,0.17,nc,nc75270531,2026-02-25T16:18:35.040Z,"6 km S of San Juan Bautista, CA",earthquake,0.14,0.23,,7,reviewed,nc,nc
+2025-11-27T20:57:37.730Z,36.799,-121.54366666667,8.2,4.04,mw,121,29,0.02499,0.2,nc,nc75270551,2026-10-29T21:07:48.979Z,"5 km S of San Juan Bautista, CA",earthquake,0.15,0.23,,14,reviewed,nc,nc
+2025-11-28T15:40:01.270Z,36.846,-121.595,6.58,3.21,ml,95,46,0.01173,0.14,nc,nc75270991,2026-02-25T16:18:36.040Z,"5 km W of San Juan Bautista, CA",earthquake,0.16,0.32,0.167,95,reviewed,nc,nc
+2025-12-12T01:19:44.430Z,36.771833333333,-121.4995,6.76,3.11,ml,100,30,0.0347,0.18,nc,nc75278521,2026-03-10T22:18:37.040Z,"9 km SSE of San Juan Bautista, CA",earthquake,0.13,0.26,0.198,82,reviewed,nc,nc
+2025-12-21T20:40:49.290Z,36.790333333333,-121.408,7.05,3.29,ml,93,25,0.04053,0.1,nc,nc75284286,2026-03-19T13:56:10.040Z,"4 km WSW of Ridgemark, CA",earthquake,0.09,0.21,0.208,92,reviewed,nc,nc
+2026-02-11T11:34:54.720Z,36.782,-121.41,7.73,3.09,ml,103,31,0.03485,0.13,nc,nc75312122,2026-05-01T14:35:51.040Z,"5 km SW of Ridgemark, CA",earthquake,0.12,0.26,0.158,75,reviewed,nc,nc

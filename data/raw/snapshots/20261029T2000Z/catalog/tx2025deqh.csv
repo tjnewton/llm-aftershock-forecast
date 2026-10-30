@@ -1,0 +1,15 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-01-25T15:44:09.395Z,31.675,-104.305,6.8689,3,ml,17,66,0,0.1,tx,tx2025btbf,2025-04-08T22:01:00.040Z,"55 km S of Whites City, New Mexico",earthquake,0.71946794494406,0.61749233018372,0.2,30,reviewed,tx,tx
+2025-01-28T06:08:31.268Z,31.535,-104.161,6.0999,3,ml,41,72,0.1,0.2,tx,tx2025bxut,2025-04-08T22:01:02.040Z,"42 km NW of Toyah, Texas",earthquake,0.768052168758,0.7702911504884,0.1,30,reviewed,tx,tx
+2025-02-15T05:23:21.429Z,31.661,-104.18,6.0999,5,ml,18,61,0.1,0.1,tx,tx2025deqh,2026-07-17T16:49:02.675Z,"53 km NW of Toyah, Texas",earthquake,0.63410533157452,1.0110250127169,0.1,10,reviewed,tx,tx
+2025-02-15T05:25:28.896Z,31.672,-104.19,6.0999,3.8,ml,32,61,0.1,0.1,tx,tx2025deqk,2025-05-02T16:26:18.040Z,"54 km NW of Toyah, Texas",earthquake,0.60457699034153,0.73812235805646,0.2,17,reviewed,tx,tx
+2025-02-18T08:58:08.350Z,31.656,-104.296,6.3177,3.4,ml,35,68,0,0.1,tx,tx2025dkjx,2025-05-04T02:21:00.471Z,"58 km S of Whites City, New Mexico",earthquake,0.47877184817154,0.55022331444067,0.2,34,reviewed,tx,tx
+2025-03-02T22:32:18.943Z,31.718,-104.273,6.9202,4.2,ml,39,52,0,0.1,tx,tx2025ehit,2025-05-08T19:24:45.040Z,"51 km S of Whites City, New Mexico",earthquake,0.61789799116568,0.6673562062577,0.2,33,reviewed,tx,tx
+2025-03-06T23:26:38.867Z,31.641,-104.012,5.5872,3.1,ml,29,38,0,0.1,tx,tx2025eosp,2025-05-16T17:30:02.040Z,"39 km W of Mentone, Texas",earthquake,0.32653969710538,0.44760525236178,0.1,17,reviewed,tx,tx
+2025-04-05T01:22:27.560Z,31.655,-104.28,6.0999,3.1,ml,22,67,0.1,0.2,tx,tx2025gpwd,2025-06-09T13:38:41.040Z,"58 km S of Whites City, New Mexico",earthquake,0.81227090994254,1.2341955302483,0.2,25,reviewed,tx,tx
+2025-04-18T13:01:02.622Z,31.668,-104.332,6.2537,3.3,ml,33,68,0.1,0.1,tx,tx2025homq,2025-06-27T00:34:24.040Z,"56 km S of Whites City, New Mexico",earthquake,0.87898304921144,0.9990515983881,0.2,38,reviewed,tx,tx
+2025-04-20T16:18:14.493Z,31.673,-104.305,6.6125,3.1,ml,19,66,0,0.1,tx,tx2025hskf,2025-06-27T00:34:40.040Z,"56 km S of Whites City, New Mexico",earthquake,0.79977346664239,0.59840754461589,0.2,24,reviewed,tx,tx
+2025-05-03T03:34:56.636Z,31.634,-104.025,6.5741,3.4,ml,21,60,0,0.1,tx,tx2025ipeo,2025-07-12T16:30:43.040Z,"41 km W of Mentone, Texas",earthquake,0.55140278429795,0.39853745710055,0.2,26,reviewed,tx,tx
+2025-05-07T05:07:24.555Z,31.663,-104.337,6.4331,3.3,ml,36,68,0.1,0.1,tx,tx2025iwpw,2025-07-24T21:30:10.040Z,"56 km S of Whites City, New Mexico",earthquake,0.6842864935023,0.92171677868001,0.1,18,reviewed,tx,tx
+2025-05-08T19:28:50.220Z,31.665,-104.35,6.0999,3.4,ml,34,66,0.1,0.1,tx,tx2025iznv,2025-07-24T21:30:12.040Z,"56 km S of Whites City, New Mexico",earthquake,0.7494665641689,0.91247104368926,0.1,18,reviewed,tx,tx
+2025-05-09T00:19:21.815Z,31.67,-104.345,6.0999,3.4,ml,35,66,0.1,0.2,tx,tx2025izxa,2025-07-24T21:30:12.040Z,"56 km S of Whites City, New Mexico",earthquake,0.6771181447686,0.6816145401919,0.1,18,reviewed,tx,tx

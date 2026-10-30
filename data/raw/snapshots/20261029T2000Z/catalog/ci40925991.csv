@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-04-13T22:54:16.570Z,33.0346667,-116.5958333,13.95,3.31,ml,100,21,0.04621,0.21,ci,ci40925311,2025-06-14T18:26:42.040Z,"5 km S of Julian, CA",earthquake,0.12,0.29,0.151,270,reviewed,ci,ci
+2025-04-14T17:08:28.110Z,33.0358333,-116.5948333,14.29,5.21,mw,119,20,0.04508,0.21,ci,ci40925991,2026-06-25T23:16:04.675Z,"5 km S of Julian, CA",earthquake,0.12,0.3,,6,reviewed,ci,ci
+2025-04-14T18:23:42.060Z,33.0405,-116.5921667,12.57,3.95,ml,108,20,0.04062,0.22,ci,ci40926623,2026-03-18T21:48:38.116Z,"4 km SSE of Julian, CA",earthquake,0.12,0.36,0.146,285,reviewed,ci,ci

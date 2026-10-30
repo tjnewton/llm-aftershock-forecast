@@ -1,0 +1,11 @@
+{
+ "event_id": "us7000q103",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-04-23T02%3A30%3A40&endtime=2025-08-21T02%3A30%3A40&latitude=53.2659&longitude=-164.4101&maxradiuskm=32.1&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 8,
+ "catalog_start_ms": 1745375440264,
+ "catalog_end_ms": 1755743440264,
+ "center_lat": 53.2659,
+ "center_lon": -164.4101,
+ "radius_km": 32.08888088577164,
+ "min_mag": 3.0
+}

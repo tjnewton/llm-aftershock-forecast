@@ -1,0 +1,11 @@
+{
+ "event_id": "us7000nxcu",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2024-11-09T17%3A34%3A04&endtime=2025-03-09T17%3A34%3A04&latitude=54.1770&longitude=-162.4476&maxradiuskm=28.7&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 2,
+ "catalog_start_ms": 1731173644969,
+ "catalog_end_ms": 1741541644969,
+ "center_lat": 54.177,
+ "center_lon": -162.4476,
+ "radius_km": 28.745755129033583,
+ "min_mag": 3.0
+}

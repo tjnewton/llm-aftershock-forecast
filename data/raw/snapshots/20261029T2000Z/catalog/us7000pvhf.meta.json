@@ -1,0 +1,11 @@
+{
+ "event_id": "us7000pvhf",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-03-29T02%3A34%3A58&endtime=2025-07-27T02%3A34%3A58&latitude=52.2281&longitude=-168.5126&maxradiuskm=54.3&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 18,
+ "catalog_start_ms": 1743215698777,
+ "catalog_end_ms": 1753583698777,
+ "center_lat": 52.2281,
+ "center_lon": -168.5126,
+ "radius_km": 54.346688690316256,
+ "min_mag": 3.0
+}

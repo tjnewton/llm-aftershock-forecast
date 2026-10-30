@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-01-27T16:32:14.552Z,44.4068,-114.6681,9.19,4.2,mwr,72,35,0.327,0.77,us,us6000pmkg,2026-07-17T20:21:31.051Z,"26 km NW of Clayton, Idaho",earthquake,2.22,5.392,0.026,146,reviewed,us,us

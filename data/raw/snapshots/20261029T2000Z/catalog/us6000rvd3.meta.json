@@ -1,0 +1,11 @@
+{
+ "event_id": "us6000rvd3",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-11-16T23%3A35%3A25&endtime=2026-03-16T23%3A35%3A25&latitude=56.3789&longitude=-148.6739&maxradiuskm=31.3&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 9,
+ "catalog_start_ms": 1763336125281,
+ "catalog_end_ms": 1773704125281,
+ "center_lat": 56.3789,
+ "center_lon": -148.6739,
+ "radius_km": 31.26396856739501,
+ "min_mag": 3.0
+}

@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-10-06T18:34:31.760Z,58.802,-153.609,87.6,5.5,ml,121,67,0.1,0.5,ak,aka2026tuxgky,2026-10-28T18:44:37.444Z,"92 km NNW of Aleneva, Alaska",earthquake,3.3,1.9601,0.1,90,reviewed,ak,ak

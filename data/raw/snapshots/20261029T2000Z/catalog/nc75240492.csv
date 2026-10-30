@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-09-22T09:56:12.520Z,37.863,-122.254,7.58,4.29,mw,177,12,0.01187,0.13,nc,nc75240492,2026-09-22T10:06:19.799Z,"2 km ESE of Berkeley, CA",earthquake,0.09,0.16,,52,reviewed,nc,nc

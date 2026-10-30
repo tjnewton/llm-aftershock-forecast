@@ -1,0 +1,8 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2024-12-27T03:18:19.650Z,13.7034,145.2252,112.27,3.8,ml,3,232,0.365,0.09,us,us6000pimp,2025-03-08T22:39:15.040Z,"40 km ENE of Yigo Village, Guam",earthquake,41.47,43.94,0.148,6,reviewed,us,us
+2025-01-11T07:51:49.299Z,13.7311,145.0762,99.185,5,mb,166,73,0.246,0.56,us,us6000pjed,2026-01-11T08:02:01.549Z,"29 km NE of Yigo Village, Guam",earthquake,8.3,1.211,0.046,149,reviewed,us,us
+2025-01-27T06:50:58.844Z,13.5974,144.9378,136.128,4.2,mb,32,156,0.068,0.74,us,us7000pbhd,2025-04-08T22:01:04.040Z,"8 km NE of Yigo Village, Guam",earthquake,6.75,3.277,0.115,21,reviewed,us,us
+2025-02-02T11:36:12.029Z,13.846,144.8978,133.687,3.8,mb,7,193,0.257,0.52,us,us7000pcpy,2025-04-15T20:55:34.040Z,"34 km N of Yigo Village, Guam",earthquake,10.59,4.758,0.359,2,reviewed,us,us
+2025-02-10T11:40:07.482Z,13.7698,145.1601,116.437,4.5,mb,24,70,0.336,1.18,us,us7000pejm,2025-04-26T14:47:11.040Z,"39 km NE of Yigo Village, Guam",earthquake,9.44,5.437,0.156,15,reviewed,us,us
+2025-03-07T03:22:55.138Z,13.7682,145.1258,113.991,4.1,mb,15,192,0.307,0.47,us,us6000pyvb,2025-05-16T17:30:06.040Z,"36 km NE of Yigo Village, Guam",earthquake,14.54,6.517,0.214,7,reviewed,us,us
+2025-04-05T16:55:28.739Z,13.9,144.9813,120.676,4.1,mb,28,150,0.328,0.23,us,us6000q6j3,2025-06-09T13:38:47.040Z,"41 km NNE of Yigo Village, Guam",earthquake,14.53,6.84,0.114,21,reviewed,us,us

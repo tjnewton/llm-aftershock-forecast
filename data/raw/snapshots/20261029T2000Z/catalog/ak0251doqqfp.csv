@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-01-30T04:40:08.488Z,62.9564,-156.323,10.4,5.2,mww,,,,0.87,ak,ak0251doqqfp,2026-07-17T19:46:03.964Z,"13 km WSW of Takotna, Alaska",earthquake,,0.2,,,reviewed,ak,ak
+2025-01-30T07:00:34.159Z,62.954,-156.2141,9.6,3.2,ml,,,,0.86,ak,ak0251dqaikx,2025-04-15T20:55:24.040Z,"8 km WSW of Takotna, Alaska",earthquake,,0.2,,,reviewed,ak,ak
+2025-01-30T07:47:02.651Z,62.9465,-156.3128,9.6,3.1,ml,,,,0.83,ak,ak0251dqkiv2,2025-04-15T20:55:24.040Z,"13 km WSW of Takotna, Alaska",earthquake,,0.2,,,reviewed,ak,ak

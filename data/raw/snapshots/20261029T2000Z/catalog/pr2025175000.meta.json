@@ -1,0 +1,11 @@
+{
+ "event_id": "pr2025175000",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-05-25T02%3A45%3A43&endtime=2025-09-22T02%3A45%3A43&latitude=19.2245&longitude=-68.1103&maxradiuskm=37.1&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 36,
+ "catalog_start_ms": 1748141143620,
+ "catalog_end_ms": 1758509143620,
+ "center_lat": 19.2245,
+ "center_lon": -68.1103,
+ "radius_km": 37.10897572106099,
+ "min_mag": 3.0
+}

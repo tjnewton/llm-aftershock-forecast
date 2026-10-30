@@ -1,0 +1,11 @@
+{
+ "event_id": "ci41019687",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-06-11T09%3A55%3A42&endtime=2025-10-09T09%3A55%3A42&latitude=33.1608&longitude=-115.6367&maxradiuskm=21.7&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 4,
+ "catalog_start_ms": 1749635742860,
+ "catalog_end_ms": 1760003742860,
+ "center_lat": 33.1608333,
+ "center_lon": -115.6366667,
+ "radius_km": 21.70636153498721,
+ "min_mag": 3.0
+}

@@ -1,0 +1,11 @@
+{
+ "event_id": "ci41395584",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2026-01-12T08%3A38%3A33&endtime=2026-05-12T08%3A38%3A33&latitude=32.3880&longitude=-115.2478&maxradiuskm=18.0&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 6,
+ "catalog_start_ms": 1768207113450,
+ "catalog_end_ms": 1778575113450,
+ "center_lat": 32.388,
+ "center_lon": -115.247833333333,
+ "radius_km": 17.99939089384184,
+ "min_mag": 3.0
+}

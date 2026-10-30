@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-06-03T10:53:54.766Z,41.9394,-126.0698,10,5.7,mww,213,49,1.329,0.55,us,us7000sq93,2026-10-28T11:04:08.395Z,"143 km WSW of Pistol River, Oregon",earthquake,5.29,1.83,0.041,57,reviewed,us,us

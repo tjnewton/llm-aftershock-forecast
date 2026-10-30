@@ -1,0 +1,17 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-11-13T22:49:51.392Z,51.8995,178.0364,116.414,4.4,mb,55,98,0.298,0.53,us,us6000rn60,2026-02-10T15:55:09.040Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,8.17,4.21,0.052,107,reviewed,us,us
+2025-11-15T01:20:31.955Z,52.2528,179.0369,200.49,4.3,mb,49,107,0.414,0.94,us,us6000rne4,2026-02-10T15:55:10.040Z,"299 km W of Adak, Alaska",earthquake,9.3,10.982,0.077,48,reviewed,us,us
+2025-11-16T21:01:14.151Z,51.7553,178.5691,96.582,4.3,mb,78,162,0.177,0.55,us,us6000rnms,2026-02-10T15:55:11.040Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,10.33,4.648,0.086,38,reviewed,us,us
+2025-11-20T13:09:34.272Z,51.7841,178.3658,105.897,3.3,ml,22,167,0.187,0.38,us,us7000reyp,2026-02-20T16:07:42.040Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,6.15,5.155,0.091,22,reviewed,us,us
+2025-12-10T06:52:56.819Z,51.8878,177.9583,138.584,3,ml,17,170,0.348,0.32,us,us6000s7yk,2026-03-10T22:18:45.040Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,9.62,5.528,0.091,16,reviewed,us,us
+2025-12-13T10:51:00.036Z,52.1512,178.3529,108,5.5,mww,106,32,0.208,0.76,us,us6000rumi,2026-10-24T11:01:12.811Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,6.42,1.775,0.048,41,reviewed,us,us
+2025-12-13T10:59:53.933Z,51.7754,178.2568,116.093,3.4,ml,18,171,0.234,0.32,us,us7000rnbn,2026-03-10T22:18:49.040Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,7.97,5.261,0.085,18,reviewed,us,us
+2025-12-27T23:30:04.817Z,51.7746,178.341,124.965,3.5,ml,17,168,0.203,0.37,us,us7000s1ux,2026-04-01T22:49:11.040Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,7.11,3.919,0.097,14,reviewed,us,us
+2025-12-29T16:06:22.903Z,51.832,178.22,121.6,3.4,ml,22,168,0.2,0.5,ak,ak2025zpsxjy,2026-04-24T23:56:31.881Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,18.6,3.1437,0.2,18,reviewed,ak,ak
+2025-12-30T08:08:50.121Z,51.8969,178.568,98.161,3.7,mb,36,150,0.059,0.57,us,us7000rr5b,2026-04-07T23:00:22.473Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,9.7,9.228,0.119,20,reviewed,us,us
+2026-01-01T13:01:12.757Z,51.8289,178.4936,98.013,3.4,ml,23,158,0.113,0.74,us,us7000rlzc,2026-06-09T12:20:02.932Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,7.32,6.199,0.085,18,reviewed,us,us
+2026-02-03T11:31:10.928Z,51.7517,178.1112,132.715,3.7,mb,30,176,0.317,0.85,us,us6000s6hd,2026-04-23T20:43:23.040Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,9.13,4.752,0.152,11,reviewed,us,us
+2026-02-14T07:10:02.908Z,52.0072,178.388,116.711,4.9,mww,112,59,0.087,0.72,us,us6000s96i,2026-07-06T17:54:12.002Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,12.37,4.356,0.062,25,reviewed,us,us
+2026-02-14T07:22:28.755Z,51.8332,178.3186,112.8,3.5,mb,32,263,0.166,0.36,us,us7000s3hu,2026-05-06T17:53:52.040Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,7.22,4.625,0.165,9,reviewed,us,us
+2026-03-02T14:22:18.787Z,51.9809,178.2043,146.316,3.8,mb,79,192,0.228,0.7,us,us7000s1jw,2026-07-23T15:26:18.759Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,10.95,9.981,0.064,64,reviewed,us,us
+2026-03-07T23:27:12.478Z,51.9685,177.9775,155.988,3,ml,17,164,0.331,0.49,us,us7000s2wt,2026-07-27T16:06:08.267Z,"Rat Islands, Aleutian Islands, Alaska",earthquake,7.4,4.848,0.091,16,reviewed,us,us

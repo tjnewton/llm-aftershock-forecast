@@ -1,0 +1,11 @@
+{
+ "event_id": "us6000pfvi",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2024-11-27T09%3A30%3A54&endtime=2025-03-27T09%3A30%3A54&latitude=12.1603&longitude=143.9297&maxradiuskm=22.1&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 5,
+ "catalog_start_ms": 1732699854099,
+ "catalog_end_ms": 1743067854099,
+ "center_lat": 12.1603,
+ "center_lon": 143.9297,
+ "radius_km": 22.082755469773044,
+ "min_mag": 3.0
+}

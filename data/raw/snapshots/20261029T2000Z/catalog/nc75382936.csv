@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-06-24T15:10:40.760Z,39.362333333333,-123.22883333333,8.85,5.59,mw,87,42,0.06242,0.12,nc,nc75382936,2026-10-28T15:20:48.378Z,"11 km N of Redwood Valley, CA",earthquake,0.12,0.34,,20,reviewed,nc,nc

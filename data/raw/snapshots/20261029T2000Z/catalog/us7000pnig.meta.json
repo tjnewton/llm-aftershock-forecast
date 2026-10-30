@@ -1,0 +1,11 @@
+{
+ "event_id": "us7000pnig",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-02-27T02%3A11%3A07&endtime=2025-06-27T02%3A11%3A07&latitude=12.5449&longitude=147.8694&maxradiuskm=27.2&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 1,
+ "catalog_start_ms": 1740622267143,
+ "catalog_end_ms": 1750990267143,
+ "center_lat": 12.5449,
+ "center_lon": 147.8694,
+ "radius_km": 27.160154849784444,
+ "min_mag": 3.0
+}

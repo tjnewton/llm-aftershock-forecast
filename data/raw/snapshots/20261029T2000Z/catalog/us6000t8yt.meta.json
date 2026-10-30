@@ -1,0 +1,11 @@
+{
+ "event_id": "us6000t8yt",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2026-05-30T11%3A35%3A32&endtime=2026-09-27T11%3A35%3A32&latitude=43.3073&longitude=-127.1835&maxradiuskm=32.9&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 10,
+ "catalog_start_ms": 1780140932831,
+ "catalog_end_ms": 1790508932831,
+ "center_lat": 43.3073,
+ "center_lon": -127.1835,
+ "radius_km": 32.884739477678934,
+ "min_mag": 3.0
+}

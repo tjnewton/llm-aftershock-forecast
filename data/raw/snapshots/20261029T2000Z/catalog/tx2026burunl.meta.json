@@ -1,0 +1,11 @@
+{
+ "event_id": "tx2026burunl",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-12-27T10%3A22%3A37&endtime=2026-04-26T10%3A22%3A37&latitude=32.5630&longitude=-101.0920&maxradiuskm=15.4&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 1,
+ "catalog_start_ms": 1766830957516,
+ "catalog_end_ms": 1777198957516,
+ "center_lat": 32.563,
+ "center_lon": -101.092,
+ "radius_km": 15.421717950988949,
+ "min_mag": 3.0
+}

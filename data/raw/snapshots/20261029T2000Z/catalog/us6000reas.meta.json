@@ -1,0 +1,11 @@
+{
+ "event_id": "us6000reas",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-08-10T05%3A59%3A28&endtime=2025-12-08T05%3A59%3A28&latitude=42.4867&longitude=-126.4601&maxradiuskm=20.6&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 11,
+ "catalog_start_ms": 1754805568487,
+ "catalog_end_ms": 1765173568487,
+ "center_lat": 42.4867,
+ "center_lon": -126.4601,
+ "radius_km": 20.56254294085204,
+ "min_mag": 3.0
+}

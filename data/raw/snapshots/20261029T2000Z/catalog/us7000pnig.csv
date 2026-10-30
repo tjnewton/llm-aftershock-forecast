@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-03-29T02:11:07.143Z,12.5449,147.8694,10,5.2,mb,65,48,3.103,0.72,us,us7000pnig,2026-03-29T02:21:10.388Z,"Mariana Islands region",earthquake,7.34,1.572,0.063,82,reviewed,us,us

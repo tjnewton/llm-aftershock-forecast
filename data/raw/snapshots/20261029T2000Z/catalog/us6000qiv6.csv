@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-06-07T22:04:35.382Z,14.4865,144.311,10,4.9,mww,64,58,1.043,0.9,us,us6000qis7,2025-08-20T16:08:58.040Z,"120 km NNW of Asan-Maina Village, Guam",earthquake,5.05,1.842,0.103,9,reviewed,us,us
+2025-06-08T00:50:30.809Z,14.6129,144.2012,10,5.3,mww,106,79,1.206,0.87,us,us6000qiv6,2026-06-08T01:00:36.557Z,"137 km NNW of Piti Village, Guam",earthquake,9.87,1.861,0.059,28,reviewed,us,us
+2025-07-29T04:37:52.999Z,14.4811,144.1856,10,4.5,mb,37,79,1.107,0.46,us,us6000r0nt,2025-10-11T20:57:53.040Z,"125 km NNW of Piti Village, Guam",earthquake,6.21,1.89,0.106,26,reviewed,us,us

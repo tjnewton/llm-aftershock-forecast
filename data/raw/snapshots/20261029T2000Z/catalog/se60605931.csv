@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-05-10T13:04:20.360Z,35.545,-83.986833333333,25.36,4.1,mw,41,35,0.09554,0.2,se,se60605931,2026-08-07T01:38:12.919Z,"21 km SE of Greenback, Tennessee",earthquake,0.25,0.42,,0,reviewed,se,se

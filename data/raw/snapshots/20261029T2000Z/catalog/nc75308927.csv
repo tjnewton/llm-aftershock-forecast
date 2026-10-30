@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-02-05T12:49:30.330Z,40.405333333333,-125.538,10,4.68,mw,157,245,0.9133,0.34,nc,nc75308927,2026-10-29T12:59:39.867Z,"107 km W of Petrolia, CA",earthquake,1.29,31.61,,33,reviewed,nc,nc
+2026-03-01T21:23:26.360Z,40.424166666667,-125.41,10,3.17,ml,122,249,0.8138,0.21,nc,nc75320897,2026-05-15T22:02:36.040Z,"96 km W of Petrolia, CA",earthquake,1.57,31.61,0.18,27,reviewed,nc,nc
+2026-03-20T10:16:26.910Z,40.421666666667,-125.40916666667,10,3.63,mw,84,253,0.8136,0.38,nc,nc75330557,2026-06-04T18:37:53.040Z,"96 km W of Petrolia, CA",earthquake,1.21,31.61,,6,reviewed,nc,nc

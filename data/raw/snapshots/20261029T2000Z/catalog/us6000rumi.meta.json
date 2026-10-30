@@ -1,0 +1,11 @@
+{
+ "event_id": "us6000rumi",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-11-13T10%3A51%3A00&endtime=2026-03-13T10%3A51%3A00&latitude=52.1512&longitude=178.3529&maxradiuskm=53.0&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 16,
+ "catalog_start_ms": 1763031060036,
+ "catalog_end_ms": 1773399060036,
+ "center_lat": 52.1512,
+ "center_lon": 178.3529,
+ "radius_km": 53.029004540478155,
+ "min_mag": 3.0
+}

@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-01-27T15:22:56.847Z,43.0657,-70.5707,10.646,3.8,mwr,59,106,0.854,0.62,us,us6000pmk3,2026-05-29T19:49:19.714Z,"9 km SE of York Harbor, Maine",earthquake,1.95,4.496,0.047,43,reviewed,us,us

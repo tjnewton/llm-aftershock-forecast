@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-10-12T06:08:59.092Z,32.336,-101.07,5.2734,4.3,ml,21,55,0.2,0.1,tx,tx2025ubulqx,2026-10-12T06:19:01.945Z,"5 km WSW of Westbrook, Texas",earthquake,0.55913576955233,2.2336808834886,0.1,25,reviewed,tx,tx
+2025-10-19T20:40:47.654Z,32.339,-101.071,6.6162,3.2,ml,23,55,0.2,0.1,tx,tx2025uptlin,2026-01-09T15:38:41.040Z,"5 km WSW of Westbrook, Texas",earthquake,0.810146855054,2.5322107517344,0.1,51,reviewed,tx,tx
+2025-11-20T20:41:28.352Z,32.338,-101.076,7.0801,3.1,ml,44,43,0.2,0.1,tx,tx2025wwmsca,2026-02-20T16:07:32.040Z,"6 km WSW of Westbrook, Texas",earthquake,0.45643425335955,1.2149465560516,0.1,24,reviewed,tx,tx

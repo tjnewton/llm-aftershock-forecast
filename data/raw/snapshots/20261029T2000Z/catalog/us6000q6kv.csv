@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-04-16T18:13:56.354Z,11.7613,141.566,10,5,mb,79,68,3.699,0.86,us,us6000q6kv,2026-04-16T18:24:10.716Z,"248 km NNE of Fais, Micronesia",earthquake,8.79,1.87,0.055,105,reviewed,us,us

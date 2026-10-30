@@ -1,0 +1,11 @@
+{
+ "event_id": "us7000pbau",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-01-05T19%3A27%3A46&endtime=2025-05-05T19%3A27%3A46&latitude=53.3160&longitude=-163.9373&maxradiuskm=31.3&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 11,
+ "catalog_start_ms": 1736105266561,
+ "catalog_end_ms": 1746473266561,
+ "center_lat": 53.316,
+ "center_lon": -163.9373,
+ "radius_km": 31.28068043361394,
+ "min_mag": 3.0
+}

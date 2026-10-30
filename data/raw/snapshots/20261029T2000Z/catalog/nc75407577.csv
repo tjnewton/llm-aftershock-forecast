@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-07-29T02:40:06.740Z,38.777,-122.93566666667,5.92,4.24,mw,114,31,0.0484,0.09,nc,nc75407577,2026-10-28T02:50:20.322Z,"8 km ESE of Cloverdale, CA",earthquake,0.09,0.21,,19,reviewed,nc,nc
+2026-07-29T02:40:44.020Z,38.776333333333,-122.94916666667,7.76,3.05,md,42,95,0.04728,0.05,nc,nc75407567,2026-10-13T22:42:32.040Z,"7 km ESE of Cloverdale, CA",earthquake,0.49,0.4,0.307,26,reviewed,nc,nc
+2026-08-01T07:57:45.720Z,38.776666666667,-122.93966666667,6.69,3.67,mw,123,31,0.04796,0.1,nc,nc75409452,2026-10-17T22:26:30.040Z,"7 km ESE of Cloverdale, CA",earthquake,0.1,0.2,,7,reviewed,nc,nc
+2026-08-12T10:28:21.440Z,38.813835144043,-122.80633544922,2.789999961853,3.2,ml,87,23,0.01042,0.09,nc,nc75416672,2026-08-19T09:42:38.040Z,"6 km NW of The Geysers, CA",earthquake,0.12,0.189999998,0.19,20,automatic,nc,nc
+2026-08-12T10:30:10.120Z,38.812168121338,-122.80816650391,2.8900001049042,3.22,ml,79,22,0.01089,0.08,nc,nc75416682,2026-09-02T12:10:05.040Z,"6 km NW of The Geysers, CA",earthquake,0.13,0.189999998,0.16,14,automatic,nc,nc

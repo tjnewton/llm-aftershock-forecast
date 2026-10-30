@@ -1,0 +1,11 @@
+{
+ "event_id": "us7000nv43",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2024-10-31T10%3A33%3A40&endtime=2025-02-28T10%3A33%3A40&latitude=17.5037&longitude=145.8664&maxradiuskm=25.4&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 3,
+ "catalog_start_ms": 1730370820240,
+ "catalog_end_ms": 1740738820240,
+ "center_lat": 17.5037,
+ "center_lon": 145.8664,
+ "radius_km": 25.431856448437017,
+ "min_mag": 3.0
+}

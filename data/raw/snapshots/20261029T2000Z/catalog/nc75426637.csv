@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-08-29T02:41:11.610Z,40.45,-125.27233333333,10,4.74,mw,149,239,0.7061,0.28,nc,nc75426637,2026-10-24T02:51:16.059Z,"85 km W of Petrolia, CA",earthquake,0.67,31.61,,33,reviewed,nc,nc
+2026-09-29T11:36:39.240Z,40.4225,-125.41833333333,10,4.77,mw,152,241,0.8203,0.38,nc,nc75444322,2026-10-27T11:46:51.559Z,"97 km W of Petrolia, CA",earthquake,1.11,31.61,,39,reviewed,nc,nc
+2026-10-23T05:38:19.230Z,40.617832183838,-125.09383392334,10.359999656677,3.37,ml,63,264,0.5936,0.2,nc,nc75453736,2026-10-23T13:23:00.967Z,"70 km W of Ferndale, CA",earthquake,1.85,3.77999997,0.279,11,automatic,nc,nc

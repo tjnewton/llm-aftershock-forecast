@@ -1,0 +1,12 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-02-04T16:31:24.878Z,53.3918,-163.9506,36.34,4.4,mwr,74,162,1.194,0.58,us,us7000pb93,2025-04-15T20:55:32.040Z,"145 km SE of Akutan, Alaska",earthquake,4.53,8.31,0.073,18,reviewed,us,us
+2025-02-04T17:24:02.976Z,53.3312,-164.0017,29.133,3.8,mb,23,170,1.239,0.73,us,us7000pba5,2025-04-15T20:55:32.040Z,"147 km SE of Akutan, Alaska",earthquake,6.55,7.689,0.193,7,reviewed,us,us
+2025-02-04T18:30:37.252Z,53.2511,-163.783,10,3.4,ml,19,226,1.363,0.44,us,us7000pbak,2025-04-15T20:55:32.040Z,"164 km SE of Akutan, Alaska",earthquake,5.25,2.019,0.081,20,reviewed,us,us
+2025-02-04T19:27:46.561Z,53.316,-163.9373,10,5,mww,108,151,1.267,0.71,us,us7000pbau,2026-07-17T20:18:59.278Z,"151 km SE of Akutan, Alaska",earthquake,5.07,1.83,0.065,23,reviewed,us,us
+2025-02-04T19:32:26.180Z,53.31,-163.9454,10,4.6,mwr,82,170,1.271,0.62,us,us7000pbb1,2025-04-15T20:55:32.040Z,"151 km SE of Akutan, Alaska",earthquake,5.04,1.873,0.075,17,reviewed,us,us
+2025-02-04T20:19:10.095Z,53.2679,-163.9285,10,3,ml,25,230,1.314,0.48,us,us6000pwd6,2025-04-15T20:55:23.040Z,"155 km SE of Akutan, Alaska",earthquake,6.03,2.011,0.097,14,reviewed,us,us
+2025-02-04T20:33:03.147Z,53.3421,-163.9065,10,3.1,ml,28,207,1.25,0.52,us,us6000pwd7,2025-04-15T20:55:23.040Z,"151 km SE of Akutan, Alaska",earthquake,5.28,2.003,0.085,18,reviewed,us,us
+2025-03-04T19:55:32.564Z,53.2552,-164.311,10,3.1,ml,23,220,1.242,0.45,us,us6000q44b,2025-05-08T19:24:49.040Z,"137 km SE of Akutan, Alaska",earthquake,5.21,1.994,0.085,18,reviewed,us,us
+2025-03-04T22:16:57.559Z,53.3256,-164.3234,35,3.2,ml,35,217,1.189,0.64,us,us6000q44g,2025-05-08T19:24:50.040Z,"131 km SE of Akutan, Alaska",earthquake,5.07,2.017,0.085,18,reviewed,us,us
+2025-04-22T07:19:27.597Z,53.4419,-163.6739,35,3,ml,34,219,1.206,0.42,us,us7000pwy6,2025-06-27T00:35:04.040Z,"158 km S of False Pass, Alaska",earthquake,5.55,2.012,0.097,14,reviewed,us,us
+2025-05-03T17:40:36.157Z,53.2326,-164.2356,24.416,3.1,ml,27,221,1.237,0.56,us,us7000pxqb,2025-07-12T16:30:47.040Z,"142 km SE of Akutan, Alaska",earthquake,6.82,13.95,0.085,18,reviewed,us,us

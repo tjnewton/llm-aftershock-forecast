@@ -1,0 +1,11 @@
+{
+ "event_id": "ak025215oy3m",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-01-14T23%3A59%3A27&endtime=2025-05-14T23%3A59%3A27&latitude=55.6151&longitude=-154.9176&maxradiuskm=15.6&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 2,
+ "catalog_start_ms": 1736899167899,
+ "catalog_end_ms": 1747267167899,
+ "center_lat": 55.6151,
+ "center_lon": -154.9176,
+ "radius_km": 15.567391719908677,
+ "min_mag": 3.0
+}

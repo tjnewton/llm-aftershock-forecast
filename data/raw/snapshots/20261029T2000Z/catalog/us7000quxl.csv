@@ -1,0 +1,8 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-09-09T05:59:03.287Z,42.4523,-126.315,8.057,4.9,mb,72,162,1.463,1.3,us,us7000quxl,2026-09-09T06:09:17.610Z,"152 km WSW of Port Orford, Oregon",earthquake,7.38,5.166,0.048,135,reviewed,us,us
+2025-09-09T05:59:28.487Z,42.4867,-126.4601,10,5.1,mww,170,162,1.574,0.83,us,us6000reas,2026-09-09T06:09:34.927Z,"163 km W of Port Orford, Oregon",earthquake,7.55,1.882,0.052,36,reviewed,us,us
+2025-09-09T06:55:54.617Z,42.5355,-126.3243,10,3.3,mb,25,188,1.48,0.67,us,us7000quy1,2025-11-30T23:40:59.040Z,"151 km W of Port Orford, Oregon",earthquake,6.52,1.993,0.243,6,reviewed,us,us
+2025-09-09T08:05:20.915Z,42.4534,-126.5089,10,3,ml,25,240,1.607,0.4,us,us7000quyf,2025-11-30T23:41:00.040Z,"168 km WSW of Port Orford, Oregon",earthquake,8.05,2.012,0.034,114,reviewed,us,us
+2025-09-09T16:32:08.973Z,42.4293,-126.2798,10,4.6,mww,155,159,1.436,0.71,us,us6000rc9k,2025-11-30T23:41:08.040Z,"150 km WSW of Port Orford, Oregon",earthquake,6.23,1.923,0.071,19,reviewed,us,us
+2025-09-09T19:31:03.568Z,42.5029,-126.4682,10,4.4,mb,49,197,1.581,0.59,us,us7000qv3f,2025-11-30T23:41:10.040Z,"163 km W of Port Orford, Oregon",earthquake,7.53,1.432,0.063,74,reviewed,us,us
+2025-10-10T19:02:05.957Z,42.4131,-126.2183,16.612,3,ml,39,225,1.389,0.67,us,us6000rgeh,2026-01-01T23:11:08.040Z,"146 km WSW of Port Orford, Oregon",earthquake,6.73,8.288,0.033,120,reviewed,us,us

@@ -1,0 +1,11 @@
+{
+ "event_id": "us6000rd1w",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-08-27T06%3A45%3A28&endtime=2025-12-25T06%3A45%3A28&latitude=43.4524&longitude=-127.3203&maxradiuskm=28.7&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 14,
+ "catalog_start_ms": 1756277128067,
+ "catalog_end_ms": 1766645128067,
+ "center_lat": 43.4524,
+ "center_lon": -127.3203,
+ "radius_km": 28.683769981192928,
+ "min_mag": 3.0
+}

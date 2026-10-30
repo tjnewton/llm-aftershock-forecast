@@ -1,0 +1,11 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-09-09T04:08:01.584Z,42.36,-126.5618,10,5.7,mww,203,105,1.641,0.76,us,us7000quwy,2026-09-09T04:18:06.326Z,"174 km WSW of Port Orford, Oregon",earthquake,6.71,1.811,0.038,65,reviewed,us,us
+2025-09-09T04:15:08.992Z,42.3597,-126.5322,10,4.4,mb,42,173,1.62,0.8,us,us7000qux0,2025-11-30T23:40:55.040Z,"172 km WSW of Port Orford, Oregon",earthquake,8.1,1.944,0.134,16,reviewed,us,us
+2025-09-09T04:38:58.520Z,42.4339,-126.5642,10,3.3,mb,53,243,1.646,0.76,us,us7000qux5,2025-11-30T23:40:56.040Z,"173 km WSW of Port Orford, Oregon",earthquake,8.56,2.009,0.345,2,reviewed,us,us
+2025-09-09T08:05:20.915Z,42.4534,-126.5089,10,3,ml,25,240,1.607,0.4,us,us7000quyf,2025-11-30T23:41:00.040Z,"168 km WSW of Port Orford, Oregon",earthquake,8.05,2.012,0.034,114,reviewed,us,us
+2025-09-09T11:46:33.328Z,42.5358,-126.7505,10,3.2,ml,24,258,1.792,0.55,us,us7000quzk,2025-11-30T23:41:02.040Z,"186 km W of Port Orford, Oregon",earthquake,8.64,2.02,0.181,4,reviewed,us,us
+2025-09-09T11:47:08.620Z,42.3739,-126.7325,10,4.3,mb,107,159,1.768,0.8,us,us7000quzl,2026-09-09T11:57:12.255Z,"188 km WSW of Port Orford, Oregon",earthquake,7.41,1.932,0.07,58,reviewed,us,us
+2025-09-09T19:02:04.606Z,42.4438,-126.5855,10,4.9,mww,52,186,1.662,1.25,us,us7000qv38,2025-11-30T23:41:10.040Z,"174 km WSW of Port Orford, Oregon",earthquake,6.55,1.905,0.058,29,reviewed,us,us
+2025-09-09T19:03:43.427Z,42.3563,-126.9405,10,4.3,mb,31,274,1.922,0.53,us,us6000reb8,2026-09-09T19:13:54.125Z,"205 km WSW of Port Orford, Oregon",earthquake,9.88,2.015,0.126,18,reviewed,us,us
+2025-09-09T19:31:43.949Z,42.4522,-126.57,10,5.1,mww,52,171,1.652,0.71,us,us7000qv3g,2025-11-30T23:41:11.040Z,"173 km WSW of Port Orford, Oregon",earthquake,9.28,1.898,0.06,27,reviewed,us,us
+2025-09-14T13:25:12.273Z,42.3847,-126.7152,10,3,ml,24,249,1.756,0.71,us,us7000qw5u,2025-12-03T03:58:31.040Z,"186 km WSW of Port Orford, Oregon",earthquake,7.88,2.017,0.041,78,reviewed,us,us

@@ -1,0 +1,11 @@
+{
+ "event_id": "nc75202001",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-05-30T02%3A37%3A58&endtime=2025-09-27T02%3A37%3A58&latitude=37.3160&longitude=-117.9207&maxradiuskm=17.9&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 2,
+ "catalog_start_ms": 1748572678310,
+ "catalog_end_ms": 1758940678310,
+ "center_lat": 37.316,
+ "center_lon": -117.920666666667,
+ "radius_km": 17.943550352086106,
+ "min_mag": 3.0
+}

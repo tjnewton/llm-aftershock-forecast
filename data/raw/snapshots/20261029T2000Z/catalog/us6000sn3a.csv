@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-04-05T16:08:28.714Z,32.6637,-104.4111,5,3,ml,29,81,0.568,0.39,us,us6000smw7,2026-06-20T17:05:15.040Z,"11 km S of Atoka, New Mexico",earthquake,2.42,1.964,0.091,16,reviewed,us,us
+2026-04-06T20:01:35.706Z,32.6908,-104.424,5,4.4,mwr,64,34,0.533,0.51,us,us6000sn3a,2026-10-26T20:11:37.979Z,"9 km SSW of Atoka, New Mexico",earthquake,2.39,1.848,0.039,63,reviewed,us,us
+2026-04-14T05:07:04.037Z,32.6551,-104.3996,8.673,3.3,ml,43,81,0.255,0.52,us,us6000spwa,2026-06-24T16:34:37.040Z,"12 km S of Atoka, New Mexico",earthquake,2.63,1.176,0.059,38,reviewed,us,us
+2026-05-27T05:51:59.289Z,32.5812,-104.6175,3.461,3.1,ml,44,80,0.063,0.68,us,us7000sntg,2026-08-05T15:58:58.040Z,"27 km SSE of Hope, New Mexico",earthquake,3.58,6.115,0.077,22,reviewed,us,us
+2026-06-06T22:46:38.351Z,32.5464,-104.4584,6.61,3.1,ml,41,78,0.202,0.53,us,us7000sr5j,2026-08-15T17:27:03.040Z,"25 km WNW of La Huerta, New Mexico",earthquake,4.42,6.512,0.077,22,reviewed,us,us

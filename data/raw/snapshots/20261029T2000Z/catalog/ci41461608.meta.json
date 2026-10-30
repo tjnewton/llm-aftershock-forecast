@@ -1,0 +1,11 @@
+{
+ "event_id": "ci41461608",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2026-04-10T07%3A10%3A21&endtime=2026-08-08T07%3A10%3A21&latitude=32.9713&longitude=-115.5623&maxradiuskm=18.4&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 21,
+ "catalog_start_ms": 1775805021250,
+ "catalog_end_ms": 1786173021250,
+ "center_lat": 32.9713333333333,
+ "center_lon": -115.562333333333,
+ "radius_km": 18.377827340449485,
+ "min_mag": 3.0
+}

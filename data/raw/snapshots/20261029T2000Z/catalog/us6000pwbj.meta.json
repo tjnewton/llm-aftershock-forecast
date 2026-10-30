@@ -1,0 +1,11 @@
+{
+ "event_id": "us6000pwbj",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-01-30T20%3A02%3A13&endtime=2025-05-30T20%3A02%3A13&latitude=13.4753&longitude=145.5991&maxradiuskm=17.8&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 1,
+ "catalog_start_ms": 1738267333364,
+ "catalog_end_ms": 1748635333364,
+ "center_lat": 13.4753,
+ "center_lon": 145.5991,
+ "radius_km": 17.79395944262598,
+ "min_mag": 3.0
+}

@@ -1,0 +1,8 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2024-11-26T07:51:46.862Z,55.8519,-153.7451,6.4,3.3,ml,,,,0.4,ak,ak024f7jcxni,2025-02-02T00:51:53.040Z,"124 km SSE of Akhiok, Alaska",earthquake,,0.7,,,reviewed,ak,ak
+2024-12-19T04:35:57.111Z,56.0743,-154.0057,29.8,3.1,ml,,,,0.54,ak,ak024g9iu7o9,2025-02-27T17:30:49.040Z,"97 km S of Akhiok, Alaska",earthquake,,0.7,,,reviewed,ak,ak
+2024-12-22T03:56:03.086Z,55.9603,-153.9543,2,5.2,mww,,,,0.72,ak,ak024gegz77l,2025-12-22T04:06:13.976Z,"110 km S of Akhiok, Alaska",earthquake,,1.2,,,reviewed,ak,ak
+2024-12-22T04:08:49.344Z,55.9061,-153.8809,13.6,4.9,mb,,,,0.82,ak,ak024gehalss,2025-02-27T17:30:54.040Z,"117 km S of Akhiok, Alaska",earthquake,,2,,,reviewed,ak,ak
+2024-12-22T10:19:52.155Z,55.9043,-153.9196,21.3,3.8,ml,,,,0.71,ak,ak024gekxez0,2025-02-27T17:30:49.040Z,"116 km S of Akhiok, Alaska",earthquake,,2,,,reviewed,ak,ak
+2024-12-22T10:35:05.924Z,55.9399,-153.9496,29.4,3.6,ml,,,,0.55,ak,ak024gel0th6,2025-02-27T17:30:54.040Z,"112 km S of Akhiok, Alaska",earthquake,,1.3,,,reviewed,ak,ak
+2024-12-22T11:44:57.369Z,55.9537,-153.9737,27.4,5,mww,,,,0.65,ak,ak024gelo7o8,2025-02-27T17:30:55.040Z,"111 km S of Akhiok, Alaska",earthquake,,2.2,,,reviewed,ak,ak

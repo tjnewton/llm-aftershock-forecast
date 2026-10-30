@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-09-29T11:36:39.240Z,40.4225,-125.41833333333,10,4.77,mw,152,241,0.8203,0.38,nc,nc75444322,2026-10-27T11:46:51.559Z,"97 km W of Petrolia, CA",earthquake,1.11,31.61,,39,reviewed,nc,nc

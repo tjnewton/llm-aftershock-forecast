@@ -1,0 +1,11 @@
+{
+ "event_id": "ci40925991",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-03-15T17%3A08%3A28&endtime=2025-07-13T17%3A08%3A28&latitude=33.0358&longitude=-116.5948&maxradiuskm=16.0&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 3,
+ "catalog_start_ms": 1742058508110,
+ "catalog_end_ms": 1752426508110,
+ "center_lat": 33.0358333,
+ "center_lon": -116.5948333,
+ "radius_km": 15.962022242801446,
+ "min_mag": 3.0
+}

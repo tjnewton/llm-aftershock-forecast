@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2024-12-05T23:16:08.000Z,40.2241,-126.1616,8,4,mw,17,,,,ew,ew1733440590,2025-12-05T23:26:24.674Z,"165 km WSW of Ferndale, California",earthquake,7.307,5,0.2,17,automatic,ew,ew

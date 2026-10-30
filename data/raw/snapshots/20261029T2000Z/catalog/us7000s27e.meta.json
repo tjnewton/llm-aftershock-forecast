@@ -1,0 +1,11 @@
+{
+ "event_id": "us7000s27e",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2026-02-03T11%3A30%3A08&endtime=2026-06-03T11%3A30%3A08&latitude=32.0614&longitude=-93.4128&maxradiuskm=21.1&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 6,
+ "catalog_start_ms": 1770118208102,
+ "catalog_end_ms": 1780486208102,
+ "center_lat": 32.0614,
+ "center_lon": -93.4128,
+ "radius_km": 21.07828774715044,
+ "min_mag": 3.0
+}

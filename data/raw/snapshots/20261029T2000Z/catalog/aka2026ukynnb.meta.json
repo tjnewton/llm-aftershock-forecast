@@ -1,0 +1,11 @@
+{
+ "event_id": "aka2026ukynnb",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2026-09-15T11%3A07%3A01&endtime=2026-10-29T20%3A00%3A00&latitude=64.2200&longitude=-152.7460&maxradiuskm=17.2&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 2,
+ "catalog_start_ms": 1789470421800,
+ "catalog_end_ms": 1793304000000,
+ "center_lat": 64.22,
+ "center_lon": -152.746,
+ "radius_km": 17.16830106956961,
+ "min_mag": 3.0
+}

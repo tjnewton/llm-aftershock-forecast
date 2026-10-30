@@ -1,0 +1,11 @@
+{
+ "event_id": "ak0251doqqfp",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2024-12-31T04%3A40%3A08&endtime=2025-04-30T04%3A40%3A08&latitude=62.9564&longitude=-156.3230&maxradiuskm=20.8&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 3,
+ "catalog_start_ms": 1735620008488,
+ "catalog_end_ms": 1745988008488,
+ "center_lat": 62.9564,
+ "center_lon": -156.323,
+ "radius_km": 20.848159585162882,
+ "min_mag": 3.0
+}

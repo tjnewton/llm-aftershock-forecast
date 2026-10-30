@@ -1,0 +1,11 @@
+{
+ "event_id": "us6000quqk",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-06-24T19%3A22%3A39&endtime=2025-10-22T19%3A22%3A39&latitude=18.1939&longitude=145.6840&maxradiuskm=40.2&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 10,
+ "catalog_start_ms": 1750792959525,
+ "catalog_end_ms": 1761160959525,
+ "center_lat": 18.1939,
+ "center_lon": 145.684,
+ "radius_km": 40.16587034430879,
+ "min_mag": 3.0
+}

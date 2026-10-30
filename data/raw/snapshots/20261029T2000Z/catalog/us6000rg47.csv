@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-10-10T09:43:40.712Z,11.4783,141.6121,10,5.4,mww,70,69,3.809,0.68,us,us6000rg29,2026-10-10T09:53:54.758Z,"223 km NNE of Fais, Micronesia",earthquake,4.71,1.871,0.103,9,reviewed,us,us
+2025-10-10T11:25:36.189Z,11.6193,141.6188,10,4.8,mb,76,62,3.728,0.61,us,us6000rkmh,2026-01-01T23:11:15.040Z,"237 km NNE of Fais, Micronesia",earthquake,7.99,1.888,0.069,64,reviewed,us,us
+2025-10-10T11:48:00.739Z,11.5731,141.6391,10,5.1,mb,43,71,3.735,1.05,us,us6000rg47,2026-10-10T11:58:15.354Z,"234 km NNE of Fais, Micronesia",earthquake,11.23,1.888,0.052,120,reviewed,us,us
+2025-10-11T05:00:11.145Z,11.6672,141.4627,10,4.4,mb,18,132,3.834,1.33,us,us6000rkq0,2026-01-01T23:11:17.040Z,"234 km NNE of Fais, Micronesia",earthquake,14.64,1.942,0.178,9,reviewed,us,us

@@ -1,0 +1,11 @@
+{
+ "event_id": "us7000nrw7",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2024-10-16T00%3A11%3A57&endtime=2025-02-13T00%3A11%3A57&latitude=51.5497&longitude=-178.2559&maxradiuskm=22.5&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 6,
+ "catalog_start_ms": 1729037517919,
+ "catalog_end_ms": 1739405517919,
+ "center_lat": 51.5497,
+ "center_lon": -178.2559,
+ "radius_km": 22.462224110105964,
+ "min_mag": 3.0
+}

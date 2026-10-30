@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-04-29T15:06:13.025Z,37.1132,-115.3011,4,4.41,mwr,21,201,0.274,0.1427,nn,nn00916724,2026-10-28T15:16:14.806Z,"30 km SSW of Alamo, Nevada",earthquake,,6.5214,,,reviewed,nn,nn
+2026-04-29T15:33:17.241Z,37.1182,-115.2965,8.2558,3.2,ml,24,196,0.268,0.1436,nn,nn00916735,2026-07-11T20:00:09.040Z,"29 km SSW of Alamo, Nevada",earthquake,,5.3606,0.25,12,reviewed,nn,nn
+2026-04-30T07:44:59.773Z,37.09,-115.3096,7,3.65,mwr,18,198,0.298,0.2254,nn,nn00916840,2026-07-15T15:25:40.040Z,"33 km SSW of Alamo, Nevada",earthquake,,0,,,reviewed,nn,nn

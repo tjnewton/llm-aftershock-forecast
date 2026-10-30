@@ -1,0 +1,11 @@
+{
+ "event_id": "us7000nsce",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2024-10-19T02%3A18%3A49&endtime=2025-02-16T02%3A18%3A49&latitude=15.0970&longitude=147.1498&maxradiuskm=33.2&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 5,
+ "catalog_start_ms": 1729304329956,
+ "catalog_end_ms": 1739672329956,
+ "center_lat": 15.097,
+ "center_lon": 147.1498,
+ "radius_km": 33.15670197496624,
+ "min_mag": 3.0
+}

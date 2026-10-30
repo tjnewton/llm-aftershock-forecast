@@ -1,0 +1,3 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-08-31T08:36:43.908Z,40.5992,-126.9633,10,4.4,mb,128,164,1.988,0.55,us,us7000td35,2026-10-26T08:46:47.208Z,"228 km W of Ferndale, California",earthquake,7.84,1.9,0.054,101,reviewed,us,us
+2026-09-28T13:30:31.981Z,41.1006,-127.4623,10,3.2,ml,22,277,2.598,0.71,us,us6000ty59,2026-10-10T10:40:07.818Z,"275 km W of Ferndale, California",earthquake,4.94,2.024,0.038,92,reviewed,us,us

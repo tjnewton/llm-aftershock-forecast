@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-07-11T08:18:37.840Z,33.1601667,-115.6405,5.15,3.06,ml,60,48,0.02707,0.23,ci,ci41019463,2025-09-20T22:28:15.040Z,"12 km WNW of Calipatria, CA",earthquake,0.21,0.44,0.124,291,reviewed,ci,ci
+2025-07-11T08:22:37.150Z,33.1586667,-115.6365,10.56,3.35,ml,72,41,0.02565,0.23,ci,ci41019495,2025-09-20T22:28:15.040Z,"12 km WNW of Calipatria, CA",earthquake,0.19,0.47,0.124,275,reviewed,ci,ci
+2025-07-11T09:55:42.860Z,33.1608333,-115.6366667,11.21,4.34,mw,79,41,0.02421,0.25,ci,ci41019687,2026-07-11T10:05:48.228Z,"12 km WNW of Calipatria, CA",earthquake,0.2,0.47,,6,reviewed,ci,ci
+2025-08-05T01:50:24.900Z,33.2131667,-115.5678333,3.76,3.11,ml,63,46,0.05361,0.26,ci,ci41253160,2025-10-17T22:51:42.040Z,"5 km WSW of Niland, CA",earthquake,0.23,0.38,0.139,192,reviewed,ci,ci

@@ -1,0 +1,7 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-11-30T07:32:15.132Z,43.681,-127.735,10,3,ml,29,281,2.673,0.88,us,us7000repz,2026-02-25T16:18:39.040Z,"276 km WNW of Bandon, Oregon",earthquake,12.39,2.02,0.04,84,reviewed,us,us
+2025-12-21T09:57:17.768Z,43.8649,-127.6328,10,4.7,mww,56,194,2.597,1.1,us,us6000rwbc,2026-10-25T10:07:19.811Z,"273 km WNW of Bandon, Oregon",earthquake,8.59,1.992,0.058,29,reviewed,us,us
+2025-12-22T19:28:44.134Z,43.5849,-127.4161,10,3.9,mb,70,188,2.449,1.03,us,us7000rk6m,2026-03-19T13:56:12.040Z,"249 km W of Bandon, Oregon",earthquake,8.68,1.992,0.297,3,reviewed,us,us
+2026-01-16T06:35:03.556Z,43.6091,-127.8312,10,3.1,ml,26,283,2.747,0.77,us,us7000rq12,2026-04-18T14:46:54.040Z,"282 km W of Bandon, Oregon",earthquake,4.37,2.026,0.043,72,reviewed,us,us
+2026-01-26T23:13:56.053Z,43.6518,-127.611,10,3,ml,35,294,1.806,0.53,us,us6000s4lu,2026-04-21T16:27:50.040Z,"266 km WNW of Bandon, Oregon",earthquake,10.57,2.026,0.046,62,reviewed,us,us
+2026-02-25T08:01:06.911Z,43.9671,-127.3672,10,3.5,mb,47,263,1.511,0.84,us,us7000s3fu,2026-05-12T17:28:18.040Z,"255 km WNW of Barview, Oregon",earthquake,10.67,2.02,0.187,7,reviewed,us,us

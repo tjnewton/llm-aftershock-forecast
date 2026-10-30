@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-11-18T17:54:30.480Z,35.552833333333,-120.78783333333,4.92,4.11,mw,67,46,0.05361,0.09,nc,nc75265261,2026-10-27T18:04:40.869Z,"7 km W of Templeton, CA",earthquake,0.16,0.46,,23,reviewed,nc,nc
+2025-11-19T09:00:12.480Z,35.557333333333,-120.79116666667,4.93,3.19,ml,62,47,0.05625,0.09,nc,nc75265691,2026-02-20T16:07:30.040Z,"8 km W of Templeton, CA",earthquake,0.15,0.48,0.178,58,reviewed,nc,nc
+2025-12-12T23:30:31.390Z,35.5545,-120.79483333333,5.13,3.46,mw,73,48,0.05924,0.09,nc,nc75278896,2026-03-10T22:18:39.040Z,"8 km W of Templeton, CA",earthquake,0.13,0.4,,10,reviewed,nc,nc

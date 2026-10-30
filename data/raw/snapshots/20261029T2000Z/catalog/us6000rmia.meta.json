@@ -1,0 +1,11 @@
+{
+ "event_id": "us6000rmia",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-10-10T22%3A53%3A38&endtime=2026-02-07T22%3A53%3A38&latitude=13.7161&longitude=144.8924&maxradiuskm=25.4&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 5,
+ "catalog_start_ms": 1760136818316,
+ "catalog_end_ms": 1770504818316,
+ "center_lat": 13.7161,
+ "center_lon": 144.8924,
+ "radius_km": 25.442272765954062,
+ "min_mag": 3.0
+}

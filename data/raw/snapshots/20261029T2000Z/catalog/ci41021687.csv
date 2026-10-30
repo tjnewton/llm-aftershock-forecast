@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-07-13T12:27:55.190Z,36.1743333,-118.0321667,2.03,3.98,mw,45,52,0.08906,0.2,ci,ci41021687,2026-07-13T12:38:03.987Z,"12 km SSW of Olancha, CA",earthquake,0.18,0.48,,6,reviewed,ci,ci

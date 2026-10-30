@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-10-07T18:58:59.844Z,54.7132,-160.1727,9.603,3.3,ml,58,198,1.07,0.75,us,us6000u2cs,2026-10-29T21:07:35.040Z,"72 km SSE of Sand Point, Alaska",earthquake,3.38,7.938,0.066,30,reviewed,us,us
+2026-10-20T10:40:40.968Z,54.6088,-160.3291,35,5,mwr,120,120,1.305,1.04,us,us6000u3lf,2026-10-29T10:50:54.058Z,"81 km S of Sand Point, Alaska",earthquake,6.64,1.904,0.075,17,reviewed,us,us
+2026-10-21T14:55:10.071Z,54.551,-160.325,3.3,3.1,ml,32,235,1.1,0.7,ak,aka2026uwigqz,2026-10-24T00:53:58.162Z,"88 km S of Sand Point, Alaska",earthquake,5.8,2.6409,0.2,24,reviewed,ak,ak

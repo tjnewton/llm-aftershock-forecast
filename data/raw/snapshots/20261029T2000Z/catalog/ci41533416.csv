@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-08-21T17:26:17.660Z,36.0685,-117.84183333333,2.54,3.29,ml,53,30,0.0501,0.14,ci,ci41532240,2026-09-23T16:38:19.040Z,"10 km ENE of Coso Junction, CA",earthquake,0.12,0.18,0.16370112391164,238,reviewed,ci,ci
+2026-08-23T07:59:55.920Z,36.067166666667,-117.83866666667,2.83,3.9626478633798,mw,40,35,0.05199,0.18,ci,ci41533416,2026-10-25T08:10:05.707Z,"10 km ENE of Coso Junction, CA",earthquake,0.16,0.47,,10,reviewed,ci,ci
+2026-08-23T08:01:15.840Z,36.065833333333,-117.83933333333,2.55,3.36,ml,39,41,0.05315,0.19,ci,ci41533424,2026-09-03T06:39:57.040Z,"10 km ENE of Coso Junction, CA",earthquake,0.17,0.22,0.20010250870702,41,reviewed,ci,ci
+2026-08-23T09:16:58.750Z,36.0655,-117.84183333333,2.78,3.5077201994852,mw,40,35,0.05303,0.17,ci,ci41533752,2026-09-15T12:29:13.040Z,"10 km ENE of Coso Junction, CA",earthquake,0.15,0.46,,10,reviewed,ci,ci

@@ -1,0 +1,9 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-09-13T10:20:00.004Z,31.661,-104.432,6.0999,3.4,ml,66,69,0,0.3,tx,tx2026sawssd,2026-10-15T14:48:05.040Z,"57 km S of Whites City, New Mexico",earthquake,0.66892156883406,0.53783680508547,0.1,47,reviewed,tx,tx
+2026-09-20T04:23:40.180Z,31.668,-104.362,7.1765,3.2,ml,56,66,0.1,0.2,tx,tx2026sngzur,2026-10-04T05:24:30.040Z,"56 km S of Whites City, New Mexico",earthquake,0.52481954827668,0.64839966455497,0.1,35,reviewed,tx,tx
+2026-09-25T02:25:11.103Z,31.697,-104.536,4.5618,3,ml,37,69,0,0.2,tx,tx2026swhsch,2026-10-14T05:29:49.040Z,"55 km SSW of Whites City, New Mexico",earthquake,0.98570591898373,0.50599830523055,0.2,23,reviewed,tx,tx
+2026-09-30T08:50:13.448Z,31.624,-104.364,6.9714,3.3,ml,54,73,0.1,0.2,tx,tx2026tfzcgy,2026-10-20T14:18:00.040Z,"61 km S of Whites City, New Mexico",earthquake,0.80694137981447,0.70460056042853,0.2,41,reviewed,tx,tx
+2026-10-01T18:47:10.018Z,31.697,-104.549,4.7284,3.1,ml,41,68,0,0.2,tx,tx2026tiooka,2026-10-15T04:11:30.325Z,"55 km SSW of Whites City, New Mexico",earthquake,1.8298334209852,0.70084809403257,0.2,31,reviewed,tx,tx
+2026-10-08T02:21:27.461Z,31.659,-104.44,6.0999,3.6,ml,56,65,0,0.2,tx,tx2026tueaim,2026-10-28T01:55:00.430Z,"57 km S of Whites City, New Mexico",earthquake,0.70474835160398,0.39083271981479,0.1,30,reviewed,tx,tx
+2026-10-08T02:24:49.886Z,31.654,-104.439,6.2024,3,ml,62,65,0,0.2,tx,tx2026tuedbl,2026-10-28T01:48:51.040Z,"58 km S of Whites City, New Mexico",earthquake,1.018039496583,0.44749543086673,0.1,43,reviewed,tx,tx
+2026-10-11T08:04:54.794Z,31.666,-104.427,5.946,4,ml,57,66,0,0.2,tx,tx2026uacobs,2026-10-27T08:15:07.876Z,"56 km S of Whites City, New Mexico",earthquake,0.88302992230117,0.66657745835234,0.1,27,reviewed,tx,tx

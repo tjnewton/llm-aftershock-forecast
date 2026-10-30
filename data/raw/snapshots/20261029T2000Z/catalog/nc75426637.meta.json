@@ -1,0 +1,11 @@
+{
+ "event_id": "nc75426637",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2026-07-30T02%3A41%3A11&endtime=2026-10-29T20%3A00%3A00&latitude=40.4500&longitude=-125.2723&maxradiuskm=32.1&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 3,
+ "catalog_start_ms": 1785379271610,
+ "catalog_end_ms": 1793304000000,
+ "center_lat": 40.45,
+ "center_lon": -125.272333333333,
+ "radius_km": 32.14087920618003,
+ "min_mag": 3.0
+}

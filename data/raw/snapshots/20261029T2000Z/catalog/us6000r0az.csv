@@ -1,0 +1,9 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-08-10T05:08:31.223Z,12.9437,145.7441,10,4.5,mb,28,63,1.067,0.97,us,us7000qtt8,2025-10-25T13:40:37.040Z,"113 km SE of Yigo Village, Guam",earthquake,7.52,1.905,0.132,17,reviewed,us,us
+2025-08-10T05:31:50.206Z,12.9214,145.6851,10,4.4,mb,27,110,1.036,0.82,us,us7000qttk,2025-10-25T13:40:37.040Z,"108 km ESE of Inarajan Village, Guam",earthquake,8.9,1.904,0.134,16,reviewed,us,us
+2025-08-10T05:32:21.596Z,13.082,145.7357,10,4.6,mb,31,85,0.983,0.8,us,us7000qtv4,2025-10-25T13:40:37.040Z,"104 km ESE of Yigo Village, Guam",earthquake,5.34,1.906,0.116,22,reviewed,us,us
+2025-08-10T09:08:47.076Z,13.009,145.6741,10,4.5,mb,27,107,0.974,1.08,us,us7000qttm,2025-10-25T13:40:37.040Z,"103 km SE of Yigo Village, Guam",earthquake,7.32,1.903,0.121,20,reviewed,us,us
+2025-08-10T09:40:43.064Z,13.0447,145.6777,10,4.4,mb,24,105,0.956,0.88,us,us7000qtu7,2025-10-25T13:40:38.040Z,"101 km ESE of Yigo Village, Guam",earthquake,7.59,1.914,0.139,15,reviewed,us,us
+2025-08-10T22:54:21.597Z,12.9684,145.6685,10,4.9,mb,49,55,0.994,0.8,us,us6000qzpv,2025-10-25T13:40:39.040Z,"105 km SE of Yigo Village, Guam",earthquake,6.89,1.843,0.052,117,reviewed,us,us
+2025-08-11T17:57:12.774Z,12.9962,145.7424,10,4.2,mb,24,104,1.035,0.78,us,us7000qu4e,2025-10-25T13:40:41.040Z,"110 km ESE of Yigo Village, Guam",earthquake,4.33,1.922,0.166,10,reviewed,us,us
+2025-08-13T09:23:45.508Z,13.063,145.8602,10,5,mb,133,77,1.098,0.6,us,us6000r0az,2026-08-13T09:33:48.502Z,"117 km ESE of Yigo Village, Guam",earthquake,7.36,1.87,0.042,184,reviewed,us,us

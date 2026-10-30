@@ -1,0 +1,4 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-02-27T05:31:21.985Z,32.409,-102.059,7.5928,3.4,ml,31,53,0,0,tx,tx2025eaoq,2025-05-08T19:24:41.040Z,"34 km WSW of Ackerly, Texas",earthquake,0.76408161829081,1.003773623866,0.1,38,reviewed,tx,tx
+2025-02-28T19:33:24.297Z,32.37,-101.926,6.8115,4.8,ml,43,41,0,0,tx,tx2025edml,2026-07-17T17:19:47.974Z,"26 km SW of Ackerly, Texas",earthquake,0.48900832804111,1.4946286777463,0.2,45,reviewed,tx,tx
+2025-05-25T22:05:37.104Z,32.416,-102.044,7.3486,3.3,ml,29,44,0.1,0.1,tx,tx2025keue,2025-08-13T15:14:32.040Z,"33 km WSW of Ackerly, Texas",earthquake,0.50885593866067,0.93258782048754,0.1,48,reviewed,tx,tx

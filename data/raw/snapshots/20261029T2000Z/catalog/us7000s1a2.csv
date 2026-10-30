@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-03-01T18:59:27.730Z,40.1779,-98.3972,4.612,4.1,mwr,72,50,1.243,0.65,us,us7000s1a2,2026-10-28T04:03:49.309Z,"4 km E of Cowles, Nebraska",earthquake,2.71,4.271,0.058,29,reviewed,us,us

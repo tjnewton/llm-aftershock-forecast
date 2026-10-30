@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-01-22T14:49:20.850Z,40.9105,-110.8745,14.72,4.65,ml,41,71,0.09431,0.17,uu,uu80127891,2026-10-29T14:59:28.575Z,"40 km S of Evanston, Wyoming",earthquake,0.32,0.58,0.11614796247135,32,reviewed,uu,uu

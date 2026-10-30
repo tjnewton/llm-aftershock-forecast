@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-01-01T04:03:08.084Z,43.4026,-126.9331,10,3,ml,57,252,1.563,0.91,us,us6000pgw2,2025-03-17T21:33:59.040Z,"207 km W of Bandon, Oregon",earthquake,8.61,2.022,0.041,78,reviewed,us,us
+2025-01-25T05:36:41.391Z,43.3198,-126.786,10,4.7,mb,161,183,1.553,0.67,us,us6000pm9b,2026-01-25T05:46:49.941Z,"194 km W of Bandon, Oregon",earthquake,6.4,1.936,0.045,151,reviewed,us,us
+2025-03-06T02:46:07.091Z,43.4029,-126.9158,10,3.2,ml,100,240,1.554,0.84,us,us6000px55,2025-05-16T17:30:01.040Z,"206 km W of Bandon, Oregon",earthquake,5.35,2.011,0.032,126,reviewed,us,us
+2025-03-22T16:07:19.172Z,43.2599,-126.8089,10,3.1,ml,66,232,1.61,1.08,us,us7000pmvs,2025-05-29T17:36:33.040Z,"195 km W of Langlois, Oregon",earthquake,6.92,2.013,0.037,96,reviewed,us,us

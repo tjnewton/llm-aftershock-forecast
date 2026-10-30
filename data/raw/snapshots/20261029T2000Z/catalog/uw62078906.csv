@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-03-03T13:02:37.850Z,48.611166666667,-122.80516666667,15.81,4.5,ml,82,31,0.00635,0.18,uw,uw62078906,2026-07-17T19:54:18.774Z,"2025 Orcas Island, Washington",earthquake,0.14,0.22,0.2011245048673,204,reviewed,uw,uw

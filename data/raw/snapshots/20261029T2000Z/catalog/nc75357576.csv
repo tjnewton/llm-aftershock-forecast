@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-05-09T04:58:02.120Z,41.502666666667,-125.218,26.13,4.8,mw,31,240,0.8106,0.31,nc,nc75357576,2026-10-24T05:08:04.568Z,"89 km WSW of Crescent City, CA",earthquake,1.32,25.29,,16,reviewed,nc,nc

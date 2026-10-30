@@ -1,0 +1,11 @@
+{
+ "event_id": "aka2026msxacu",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2026-05-30T03%3A32%3A39&endtime=2026-09-27T03%3A32%3A39&latitude=60.2370&longitude=-145.9100&maxradiuskm=18.5&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 2,
+ "catalog_start_ms": 1780111959606,
+ "catalog_end_ms": 1790479959606,
+ "center_lat": 60.237,
+ "center_lon": -145.91,
+ "radius_km": 18.514615495555425,
+ "min_mag": 3.0
+}

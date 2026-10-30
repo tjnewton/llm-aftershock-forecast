@@ -1,0 +1,11 @@
+{
+ "event_id": "us7000nymn",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2024-11-09T00%3A39%3A50&endtime=2025-03-09T00%3A39%3A50&latitude=50.7143&longitude=-177.0971&maxradiuskm=41.2&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 153,
+ "catalog_start_ms": 1731112790242,
+ "catalog_end_ms": 1741480790242,
+ "center_lat": 50.7143,
+ "center_lon": -177.0971,
+ "radius_km": 41.1510279804702,
+ "min_mag": 3.0
+}

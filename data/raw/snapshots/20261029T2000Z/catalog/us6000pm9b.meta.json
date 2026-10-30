@@ -1,0 +1,11 @@
+{
+ "event_id": "us6000pm9b",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2024-12-26T05%3A36%3A41&endtime=2025-04-25T05%3A36%3A41&latitude=43.3198&longitude=-126.7860&maxradiuskm=24.2&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 4,
+ "catalog_start_ms": 1735191401391,
+ "catalog_end_ms": 1745559401391,
+ "center_lat": 43.3198,
+ "center_lon": -126.786,
+ "radius_km": 24.191252074979705,
+ "min_mag": 3.0
+}

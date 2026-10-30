@@ -1,0 +1,11 @@
+{
+ "event_id": "tx2025iqwk",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-04-04T01%3A47%3A05&endtime=2025-08-02T01%3A47%3A05&latitude=31.6470&longitude=-104.4580&maxradiuskm=24.7&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 31,
+ "catalog_start_ms": 1743731225553,
+ "catalog_end_ms": 1754099225553,
+ "center_lat": 31.647,
+ "center_lon": -104.458,
+ "radius_km": 24.74142087003335,
+ "min_mag": 3.0
+}

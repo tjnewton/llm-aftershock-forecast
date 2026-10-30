@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-08-22T10:19:13.746Z,35.2655,-107.5958,10,4,mwr,26,60,0.985,0.97,us,us6000tms8,2026-10-24T10:29:19.536Z,"8 km SSE of San Mateo, New Mexico",earthquake,4.1,2.011,0.06,27,reviewed,us,us

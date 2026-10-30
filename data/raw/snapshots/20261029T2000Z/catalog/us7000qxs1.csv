@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-09-22T03:59:10.135Z,11.9582,142.1961,35,5.1,mb,163,27,3.07,0.5,us,us7000qxs1,2026-09-22T04:09:18.552Z,"south of the Mariana Islands",earthquake,8.56,1.843,0.048,140,reviewed,us,us

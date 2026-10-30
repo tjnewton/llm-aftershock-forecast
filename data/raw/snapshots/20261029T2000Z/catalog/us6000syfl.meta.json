@@ -1,0 +1,11 @@
+{
+ "event_id": "us6000syfl",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2026-04-17T23%3A07%3A56&endtime=2026-08-15T23%3A07%3A56&latitude=43.6876&longitude=-128.5184&maxradiuskm=15.0&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 1,
+ "catalog_start_ms": 1776467276074,
+ "catalog_end_ms": 1786835276074,
+ "center_lat": 43.6876,
+ "center_lon": -128.5184,
+ "radius_km": 15.0,
+ "min_mag": 3.0
+}

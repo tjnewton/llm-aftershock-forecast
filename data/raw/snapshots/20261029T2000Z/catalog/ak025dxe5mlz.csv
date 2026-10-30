@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-10-30T17:33:14.566Z,59.6308,-150.2328,23.6,5.4,ml,,,,0.79,ak,ak025dxe5mlz,2026-10-22T17:43:17.580Z,"48 km ESE of Fox River, Alaska",earthquake,,0.3,,,reviewed,ak,ak
+2025-10-31T09:37:12.975Z,59.659,-150.3871,20.6,3.1,ml,,,,0.87,ak,ak025dywyd3o,2026-01-27T17:59:03.040Z,"39 km SE of Fox River, Alaska",earthquake,,0.3,,,automatic,ak,ak
+2025-10-31T18:26:01.544Z,59.6551,-150.3206,21.2,3.2,ml,,,,0.72,ak,ak025dz28vou,2026-01-27T17:59:03.040Z,"42 km ESE of Fox River, Alaska",earthquake,,0.5,,,reviewed,ak,ak
+2026-01-21T13:52:31.712Z,59.572,-150.25,24.3,3,ml,138,112,0.3,0.8,ak,ak2026bludaq,2026-04-18T14:47:41.040Z,"51 km SE of Fox River, Alaska",earthquake,2.2,1.84,0.2,94,reviewed,ak,ak

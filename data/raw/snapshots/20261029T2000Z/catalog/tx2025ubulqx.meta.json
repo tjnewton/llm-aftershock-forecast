@@ -1,0 +1,11 @@
+{
+ "event_id": "tx2025ubulqx",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-09-12T06%3A08%3A59&endtime=2026-01-10T06%3A08%3A59&latitude=32.3360&longitude=-101.0700&maxradiuskm=20.3&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 3,
+ "catalog_start_ms": 1757657339092,
+ "catalog_end_ms": 1768025339092,
+ "center_lat": 32.336,
+ "center_lon": -101.07,
+ "radius_km": 20.26414494443374,
+ "min_mag": 3.0
+}

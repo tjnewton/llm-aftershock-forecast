@@ -1,0 +1,7 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-01-27T16:39:47.370Z,32.541166666667,-115.2735,22.82,3.01,ml,43,44,0.1242,0.29,ci,ci41173727,2026-04-21T16:27:51.040Z,"8 km ESE of Puebla, B.C., MX",earthquake,0.32,0.83,0.23282220450314,54,reviewed,ci,ci
+2026-02-11T08:38:33.450Z,32.388,-115.24783333333,8.1,4.18,ml,38,50,0.05766,0.41,ci,ci41395584,2026-10-28T08:48:48.698Z,"6 km NW of Delta, B.C., MX",earthquake,0.5,1.92,0.14695944748965,339,reviewed,ci,ci
+2026-02-11T08:40:36.870Z,32.389833333333,-115.26766666667,3.3,3.64,ml,36,51,0.04327,0.35,ci,ci41395592,2026-07-02T19:53:11.509Z,"8 km WNW of Delta, B.C., MX",earthquake,0.43,0.76,0.15995560486772,28,reviewed,ci,ci
+2026-02-11T08:56:40.540Z,32.4045,-115.258,5.29,3.43,ml,36,51,0.04247,0.37,ci,ci41395624,2026-07-02T19:56:11.125Z,"8 km NW of Delta, B.C., MX",earthquake,0.55,1.19,0.15465675705805,15,reviewed,ci,ci
+2026-02-11T08:56:52.250Z,32.3985,-115.2625,4.35,3.87,ml,27,51,0.0416,0.32,ci,ci10222374,2026-07-02T19:59:04.537Z,"8 km NW of Delta, B.C., MX",earthquake,0.44,0.98,0.14771225538292,328,reviewed,ci,ci
+2026-02-11T09:14:56.120Z,32.362833333333,-115.25266666667,20.31,3.13,ml,37,51,0.07178,0.31,ci,ci41395664,2026-07-02T20:02:11.886Z,"6 km W of Delta, B.C., MX",earthquake,0.43,1.14,0.2041388366704,64,reviewed,ci,ci

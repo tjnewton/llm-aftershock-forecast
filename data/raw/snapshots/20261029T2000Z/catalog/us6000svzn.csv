@@ -1,0 +1,9 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-04-10T06:59:54.038Z,37.0017,-104.9539,6.784,3.4,mwr,23,82,0.182,0.53,us,us6000snvx,2026-06-24T16:34:29.040Z,"17 km SSW of Weston, Colorado",earthquake,3.87,6.196,0.063,24,reviewed,us,us
+2026-05-07T17:44:22.766Z,36.9854,-104.9526,1.965,4.1,mwr,69,81,0.192,1.06,us,us6000svzn,2026-10-29T17:54:34.516Z,"18 km SSW of Weston, Colorado",earthquake,4.07,3.582,0.052,35,reviewed,us,us
+2026-05-17T01:04:21.902Z,37.0371,-104.9776,3.222,3,ml,16,83,0.177,0.6,us,us6000syax,2026-07-25T22:12:50.040Z,"13 km SSE of Stonewall Gap, Colorado",earthquake,1.61,4.201,0.091,16,reviewed,us,us
+2026-06-20T17:32:12.046Z,37.0055,-104.9935,7.539,3.8,mwr,42,46,0.205,0.46,us,us7000suuz,2026-09-04T15:40:58.040Z,"16 km SSE of Stonewall Gap, Colorado",earthquake,4.38,6.2,0.071,19,reviewed,us,us
+2026-06-25T18:21:36.301Z,36.989,-104.9455,6.055,3.1,ml,14,85,0.166,0.42,us,us6000t88n,2026-09-15T23:40:31.040Z,"18 km SSW of Weston, Colorado",earthquake,1.66,3.495,0.115,10,reviewed,us,us
+2026-07-06T09:21:54.636Z,36.8248,-104.8322,4.416,3.8,ml,18,72,0.034,0.88,us,us6000tadn,2026-09-19T21:50:29.040Z,"34 km SSW of Segundo, Colorado",earthquake,1.22,2.452,0.097,14,reviewed,us,us
+2026-07-06T09:31:40.309Z,36.8351,-104.8286,5,3.7,ml,20,75,0.043,1.39,us,us6000tadr,2026-09-19T21:50:29.040Z,"32 km SSW of Segundo, Colorado",earthquake,2.21,1.325,0.097,14,reviewed,us,us
+2026-07-27T06:40:15.757Z,36.8475,-104.8455,5,3.4,mwr,28,85,0.048,0.45,us,us7000t3lr,2026-10-13T22:43:48.040Z,"31 km S of Weston, Colorado",earthquake,3.43,1.738,,9,reviewed,us,slm

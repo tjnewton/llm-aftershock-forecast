@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-03-10T04:32:27.300Z,38.356166666667,-111.0915,2.32,3.96,ml,38,76,0.2242,0.2,uu,uu80131546,2026-10-27T04:42:29.950Z,"29 km ENE of Torrey, Utah",earthquake,0.45,5.02,0.13145102927501,35,reviewed,uu,uu

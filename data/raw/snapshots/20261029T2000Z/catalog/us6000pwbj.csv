@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-03-01T20:02:13.364Z,13.4753,145.5991,65.557,5.3,mww,113,57,0.72,0.76,us,us6000pwbj,2026-03-01T20:12:26.525Z,"77 km E of Yigo Village, Guam",earthquake,6.85,6.048,0.069,20,reviewed,us,us

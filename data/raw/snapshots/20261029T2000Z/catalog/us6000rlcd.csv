@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-11-04T07:37:22.906Z,12.3924,143.1427,65,6,mww,136,30,2.06,0.91,us,us6000rlcd,2026-10-27T07:47:35.356Z,"191 km WSW of Merizo Village, Guam",earthquake,7.65,1.831,0.05,39,reviewed,us,us

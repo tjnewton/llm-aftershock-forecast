@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-01-26T10:22:37.516Z,32.563,-101.092,6.5186,4.3,ml,40,55,0.1,0.2,tx,tx2026burunl,2026-10-26T10:32:52.697Z,"23 km SW of Snyder, Texas",earthquake,0.79300395229298,1.5605420803163,0.1,21,reviewed,tx,tx

@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-05-27T02:57:32.582Z,12.8969,145.2843,10,5,mb,110,98,0.799,0.58,us,us7000q1pq,2026-05-27T03:07:44.804Z,"71 km SE of Inarajan Village, Guam",earthquake,6.84,1.827,0.06,90,reviewed,us,us
+2025-05-27T03:00:21.098Z,12.9499,145.3657,10,4.5,mb,13,170,0.799,0.82,us,us6000qjny,2025-08-13T15:14:29.040Z,"75 km ESE of Inarajan Village, Guam",earthquake,4.32,1.951,0.191,8,reviewed,us,us
+2025-05-27T05:24:05.193Z,12.9323,145.4073,10,4.4,mb,43,117,0.838,0.42,us,us7000q1s4,2025-08-13T15:14:34.040Z,"80 km ESE of Inarajan Village, Guam",earthquake,4.7,1.919,0.093,33,reviewed,us,us
+2025-05-27T21:26:17.738Z,13.0289,145.1814,37.03,4.5,mb,34,165,0.635,0.56,us,us6000qjns,2025-08-13T15:14:29.040Z,"54 km ESE of Inarajan Village, Guam",earthquake,8.71,8.281,0.11,24,reviewed,us,us
+2025-08-10T10:26:08.784Z,12.8559,145.4504,10,4.6,mb,50,102,0.923,0.53,us,us7000qttu,2025-10-25T13:40:38.040Z,"89 km ESE of Inarajan Village, Guam",earthquake,8.61,1.896,0.082,44,reviewed,us,us

@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-07-23T19:16:27.721Z,43.094,-126.3045,10,4.3,mwr,104,153,1.64,0.91,us,us7000t2ug,2026-10-29T19:26:40.830Z,"152 km W of Langlois, Oregon",earthquake,6.33,1.921,0.036,73,reviewed,us,us

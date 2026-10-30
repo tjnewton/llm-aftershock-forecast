@@ -1,0 +1,11 @@
+{
+ "event_id": "us6000rlky",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-10-06T03%3A21%3A23&endtime=2026-02-03T03%3A21%3A23&latitude=43.4404&longitude=-126.8241&maxradiuskm=30.8&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 6,
+ "catalog_start_ms": 1759720883087,
+ "catalog_end_ms": 1770088883087,
+ "center_lat": 43.4404,
+ "center_lon": -126.8241,
+ "radius_km": 30.835577080706248,
+ "min_mag": 3.0
+}

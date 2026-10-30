@@ -1,0 +1,11 @@
+{
+ "event_id": "nc75269596",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2025-10-27T14%3A16%3A42&endtime=2026-02-24T14%3A16%3A42&latitude=36.9973&longitude=-121.4757&maxradiuskm=18.3&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 2,
+ "catalog_start_ms": 1761574602430,
+ "catalog_end_ms": 1771942602430,
+ "center_lat": 36.9973333333333,
+ "center_lon": -121.475666666667,
+ "radius_km": 18.286117027951725,
+ "min_mag": 3.0
+}

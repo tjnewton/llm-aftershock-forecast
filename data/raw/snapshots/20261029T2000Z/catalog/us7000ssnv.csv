@@ -1,0 +1,15 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-05-24T09:03:23.206Z,53.0239,-167.4047,35,3.3,mb,14,170,0.493,0.75,us,us7000spcj,2026-09-04T18:40:25.954Z,"98 km E of Nikolski, Alaska",earthquake,3.63,1.984,0.153,10,reviewed,us,us
+2026-05-26T03:03:34.220Z,53.3975,-166.9336,2.019,3.3,ml,20,197,0.398,0.41,us,us6000t062,2026-08-05T15:58:56.040Z,"59 km SSW of Unalaska, Alaska",earthquake,2.17,1.547,0.097,14,reviewed,us,us
+2026-05-26T03:07:49.497Z,53.3967,-167.0241,3.552,3,ml,20,197,0.407,0.57,us,us6000t063,2026-08-05T15:58:56.040Z,"62 km SSW of Unalaska, Alaska",earthquake,2.69,1.818,0.1,13,reviewed,us,ak
+2026-05-26T03:07:56.377Z,53.3838,-166.9934,1.464,3.7,mb,23,194,0.416,0.58,us,us7000st8p,2026-08-05T15:58:56.040Z,"62 km SSW of Unalaska, Alaska",earthquake,4.02,3.874,0.251,4,reviewed,us,us
+2026-06-13T10:38:48.846Z,53.1891,-167.0647,52.769,5,mww,88,138,0.555,0.83,us,us7000ssnv,2026-10-24T10:48:53.495Z,"83 km SSW of Unalaska, Alaska",earthquake,4.46,5.324,0.061,26,reviewed,us,us
+2026-06-13T10:41:40.976Z,53.1709,-167.0572,35,3,ml,12,212,0.566,0.61,us,us7000st8f,2026-08-31T21:44:10.040Z,"85 km SSW of Unalaska, Alaska",earthquake,4.91,2.015,0.115,10,reviewed,us,us
+2026-06-13T10:58:08.861Z,53.1507,-167.0385,35,3.3,ml,20,205,0.585,0.76,us,us7000stah,2026-08-31T21:44:10.040Z,"87 km SSW of Unalaska, Alaska",earthquake,3.88,2.014,0.097,14,reviewed,us,us
+2026-06-14T20:13:03.885Z,53.0999,-166.9975,35,3.2,ml,28,206,0.631,0.59,us,us7000sthz,2026-08-31T21:45:21.040Z,"91 km SSW of Unalaska, Alaska",earthquake,4.03,2.009,0.091,16,reviewed,us,us
+2026-06-15T20:13:30.692Z,53.0439,-166.899,15.464,3.6,mb,41,200,0.711,0.57,us,us7000stb7,2026-08-31T21:46:24.040Z,"95 km SSW of Unalaska, Alaska",earthquake,4.12,9.439,0.144,12,reviewed,us,us
+2026-06-15T21:17:39.823Z,52.8539,-167.181,9.529,3.5,ml,25,217,0.711,0.61,us,us7000stb6,2026-08-31T21:46:27.040Z,"113 km E of Nikolski, Alaska",earthquake,2.98,8.607,0.085,18,reviewed,us,us
+2026-07-02T20:57:53.179Z,53.1017,-166.763,35,3.2,ml,18,214,0.696,0.77,us,us7000szdf,2026-09-19T21:50:33.040Z,"87 km S of Unalaska, Alaska",earthquake,2.76,2.011,0.085,18,reviewed,us,us
+2026-07-14T04:35:52.337Z,53.0474,-166.9344,35,3.2,ml,14,218,0.691,0.33,us,us7000t0hz,2026-09-29T22:05:28.040Z,"95 km SSW of Unalaska, Alaska",earthquake,2.71,2.011,0.105,12,reviewed,us,us
+2026-08-14T03:10:51.893Z,53.3866,-166.9823,10,3.5,mb,31,158,0.412,0.45,us,us6000tkx4,2026-09-07T23:01:20.040Z,"61 km SSW of Unalaska, Alaska",earthquake,1.35,1.909,0.15,11,reviewed,us,us
+2026-08-18T13:05:17.010Z,53.1166,-166.8622,26.788,3.4,ml,38,212,0.678,0.59,us,us6000tlq8,2026-09-08T19:13:57.040Z,"87 km SSW of Unalaska, Alaska",earthquake,4.14,4.948,0.091,16,reviewed,us,us

@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-10-28T12:01:11.490Z,39.500833333333,-122.95216666667,11.59,4.01,mw,87,25,0.01616,0.16,nc,nc75458907,2026-10-29T12:11:21.721Z,"10 km N of Lake Pillsbury, CA",earthquake,0.14,0.41,,13,reviewed,nc,nc

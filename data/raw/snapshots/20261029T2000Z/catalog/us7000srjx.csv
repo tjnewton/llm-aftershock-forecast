@@ -1,0 +1,6 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-06-08T18:00:27.517Z,22.791,-85.0919,26,6.1,mww,264,22,3.912,0.8,us,us7000srjx,2026-10-26T18:10:38.493Z,"99 km WNW of Mantua, Cuba",earthquake,5.92,1.501,0.03,107,reviewed,us,us
+2026-06-08T19:14:07.199Z,22.7951,-84.9831,10,3.5,ml,10,186,3.992,0.33,us,us7000srtu,2026-08-15T17:27:09.040Z,"90 km NW of Mantua, Cuba",earthquake,9.65,2.006,0.256,2,reviewed,us,us
+2026-06-08T22:31:57.779Z,22.8063,-85.0275,10,3.8,mb,27,128,3.967,0.7,us,us7000srmf,2026-08-15T17:27:07.040Z,"95 km NW of Mantua, Cuba",earthquake,8.81,2.001,0.255,4,reviewed,us,us
+2026-06-10T01:04:09.718Z,22.7622,-85.2058,14.44,4.4,mb,50,69,3.813,0.79,us,us7000srxq,2026-08-15T17:27:10.040Z,"108 km WNW of Mantua, Cuba",earthquake,7.64,5.059,0.095,32,reviewed,us,us
+2026-06-15T17:37:48.507Z,22.7338,-85.1182,17.252,4.9,mww,91,31,3.857,0.56,us,us7000st59,2026-08-31T21:46:15.040Z,"98 km WNW of Mantua, Cuba",earthquake,6.94,1.281,0.053,34,reviewed,us,us
