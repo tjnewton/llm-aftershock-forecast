@@ -88,8 +88,8 @@ def test_an_added_file_cannot_make_a_sequence_development(tmp_path, monkeypatch)
     cfg = tmp_path / "cfg" / "splits.toml"
     pin = "4cd4b1a6c3eb2e26a1ee3a5cfa78ab13e2e3e7ef1ac64b1be0fd17abc68c6d5c"  # wrong on purpose
     cfg.write_text(
-        f'sequence_configs = ["{seqs}"]\n'
-        f'[[id_dir]]\npath = "{tmp_path / "a"}"\nn = 1\nsha256 = "{pin}"\n'
+        f'sequence_configs = ["{seqs.as_posix()}"]\n'  # posix: "\\U" in a Windows path escapes
+        f'[[id_dir]]\npath = "{(tmp_path / "a").as_posix()}"\nn = 1\nsha256 = "{pin}"\n'
     )
     with pytest.raises(SystemExit, match="inventory"):
         splits.development_ids.__wrapped__(cfg)

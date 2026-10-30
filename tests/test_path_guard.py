@@ -78,10 +78,12 @@ def test_pr_command_on_a_real_repository(tmp_path, monkeypatch):
     assert G.main(["pr", "--frozen", str(frozen), "HEAD~1", "HEAD", "--override"]) == 0
     head = git("rev-parse", "HEAD").stdout.decode().strip()
     assert G.main(["push", "--frozen", str(frozen), head]) == 1
-    (tmp_path / "data/raw/tab\tname.csv").write_text("x\n")  # quoted by git without -z
+    # a non-ASCII name: git quotes it without -z (core.quotepath), and it is legal on Windows,
+    # unlike a tab
+    (tmp_path / "data/raw/na\u00efve.csv").write_text("x\n")
     git("add", ".")
     git("commit", "-qm", "odd name")
-    (tmp_path / "data/raw/tab\tname.csv").write_text("y\n")
+    (tmp_path / "data/raw/na\u00efve.csv").write_text("y\n")
     git("commit", "-qam", "edit odd name")
     assert G.main(["pr", "--frozen", str(frozen), "HEAD~1", "HEAD"]) == 1
     (tmp_path / "data/manifest.jsonl").write_bytes(b"a\r\nb\r\n")  # only line endings rewritten
