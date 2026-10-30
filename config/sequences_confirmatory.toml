@@ -1,0 +1,1172 @@
+# Confirmatory candidate set (docs/adr/0013-data-splits.md, decisions of 2026-10-30). It holds
+# every event with an OAF product in data/raw/confirmatory/oaf_2024-01-01_2026-10-29.csv (the
+# archive starts 2024-11-14) that is not development and not a foreshock or aftershock of a
+# larger event. Development means the two sequence configs and the E1 outcome pool. The
+# fore/aftershock rule is ADR 0006's; its context is these OAF events and ComCat M>=6 from
+# 2023-11-01 (data/raw/confirmatory/m6_2023-11-01_2026-10-29.csv). M>=5.0 mainshocks are the
+# primary set; US-network M4.0-4.9 mainshocks are secondary (selected at analysis time). Role
+# test-post is a placeholder so the registered code applies. Never scored before prereg-v2.
+
+[[sequence]]
+id = "nn00887532"
+name = "29 km SE of Mina, Nevada 2024-11-14"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000nrw7"
+name = "117 km WSW of Adak, Alaska 2024-11-15"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000nsce"
+name = "150 km E of Saipan, Northern Mariana Islands 2024-11-18"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000p6iz"
+name = "Pagan region, Northern Mariana Islands 2024-11-20"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000p6s7"
+name = "176 km SSW of Merizo Village, Guam 2024-11-21"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000p7jr"
+name = "283 km SW of Tofino, Canada 2024-11-25"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000nv43"
+name = "253 km N of Saipan, Northern Mariana Islands 2024-11-30"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000nvcm"
+name = "223 km ESE of Yigo Village, Guam 2024-12-02"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nc75094936"
+name = "145 km WNW of Petrolia, CA 2024-12-04"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "ew1733440590"
+name = "165 km WSW of Ferndale, California 2024-12-05"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000nx25"
+name = "225 km W of Bandon, Oregon 2024-12-08"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000nymn"
+name = "132 km SSW of Adak, Alaska 2024-12-09"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000nxcu"
+name = "97 km SE of False Pass, Alaska 2024-12-09"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nn00888580"
+name = "2024 Parker Butte, Nevada Earthquake 2024-12-09"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000ph8y"
+name = "88 km ESE of Yigo Village, Guam 2024-12-16"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nc75104216"
+name = "20 km NE of Redway, CA 2024-12-17"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000p0ix"
+name = "off the coast of Oregon 2024-12-21"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "ak024gegz77l"
+name = "110 km S of Akhiok, Alaska 2024-12-22"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000pfvi"
+name = "146 km SSW of Merizo Village, Guam 2024-12-27"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000pfvu"
+name = "Maug Islands region, Northern Mariana Islands 2024-12-27"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nc75111126"
+name = "4 km NW of Cobb, CA 2025-01-02"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000pjed"
+name = "29 km NE of Yigo Village, Guam 2025-01-11"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000pldf"
+name = "33 km WNW of Agat Village, Guam 2025-01-21"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000plew"
+name = "126 km S of Unalaska, Alaska 2025-01-21"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "ci41034376"
+name = "18 km W of Delta, B.C., MX 2025-01-23"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000pm9b"
+name = "194 km W of Bandon, Oregon 2025-01-25"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000pmgt"
+name = "86 km SSW of Unalaska, Alaska 2025-01-26"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000pmjt"
+name = "Pagan region, Northern Mariana Islands 2025-01-27"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000pmk3"
+name = "9 km SE of York Harbor, Maine 2025-01-27"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000pmkg"
+name = "26 km NW of Clayton, Idaho 2025-01-27"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000p9ue"
+name = "227 km SW of Tofino, Canada 2025-01-29"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "tx2025cbgl"
+name = "18 km ENE of Falls City, Texas 2025-01-30"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "ak0251doqqfp"
+name = "13 km WSW of Takotna, Alaska 2025-01-30"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000pbau"
+name = "151 km SE of Akutan, Alaska 2025-02-04"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "ak025215oy3m"
+name = "155 km SSW of Akhiok, Alaska 2025-02-13"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nc75133062"
+name = "10 km NNW of Avenal, CA 2025-02-14"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "tx2025deqh"
+name = "53 km NW of Toyah, Texas 2025-02-15"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "pr2025056002"
+name = "102 km NNE of Punta Cana, Dominican Republic 2025-02-25"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000pvws"
+name = "53 km NE of Adak, Alaska 2025-02-27"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "tx2025edml"
+name = "26 km SW of Ackerly, Texas 2025-02-28"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000pwbj"
+name = "77 km E of Yigo Village, Guam 2025-03-01"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "uw62078906"
+name = "2025 Orcas Island, Washington 2025-03-03"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000pwn3"
+name = "174 km ESE of Yigo Village, Guam 2025-03-03"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nc75149826"
+name = "9 km NNE of Lake Pillsbury, CA 2025-03-17"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000pllu"
+name = "88 km SSE of Adak, Alaska 2025-03-21"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000pnig"
+name = "Mariana Islands region 2025-03-29"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "ak02546kb91j"
+name = "59 km E of Egegik, Alaska 2025-04-01"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000q3sh"
+name = "160 km ESE of San Jose Village, Northern Mariana Islands 2025-04-03"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000q48f"
+name = "Mariana Islands region 2025-04-05"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000q4hk"
+name = "42 km S of San Jose Village, Northern Mariana Islands 2025-04-07"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "ci40925991"
+name = "5 km S of Julian, CA 2025-04-14"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000q6kv"
+name = "248 km NNE of Fais, Micronesia 2025-04-16"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000pvhf"
+name = "82 km SSE of Nikolski, Alaska 2025-04-28"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "tx2025iqwk"
+name = "59 km S of Whites City, New Mexico 2025-05-04"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "se60605931"
+name = "21 km SE of Greenback, Tennessee 2025-05-10"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000q0qi"
+name = "off the coast of Oregon 2025-05-22"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000q103"
+name = "132 km SE of Akutan, Alaska 2025-05-23"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000q1hq"
+name = "166 km SSW of Merizo Village, Guam 2025-05-26"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000q1pq"
+name = "71 km SE of Inarajan Village, Guam 2025-05-27"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000qgeq"
+name = "63 km SSE of Inarajan Village, Guam 2025-05-28"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nn00898573"
+name = "40 km SSW of Caliente, Nevada 2025-06-06"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000qiv6"
+name = "137 km NNW of Piti Village, Guam 2025-06-08"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000qiz0"
+name = "24 km E of Clayton, Idaho 2025-06-08"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000q89a"
+name = "34 km NNW of Dededo Village, Guam 2025-06-23"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "pr2025175000"
+name = "77 km NNE of Punta Cana, Dominican Republic 2025-06-24"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000q9an"
+name = "162 km S of Nikolski, Alaska 2025-06-28"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nc75202001"
+name = "8 km SSE of Deep Springs, CA 2025-06-29"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "ci41019687"
+name = "12 km WNW of Calipatria, CA 2025-07-11"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "ci41021687"
+name = "12 km SSW of Olancha, CA 2025-07-13"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000qd00"
+name = "57 km E of Atka, Alaska 2025-07-16"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000qtzg"
+name = "275 km WSW of Adak, Alaska 2025-07-21"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000quqk"
+name = "Pagan region, Northern Mariana Islands 2025-07-24"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000qv0l"
+name = "Pagan region, Northern Mariana Islands 2025-07-25"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000qv9g"
+name = "Rat Islands, Aleutian Islands, Alaska 2025-07-26"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000qvdz"
+name = "Rat Islands, Aleutian Islands, Alaska 2025-07-26"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000qvj2"
+name = "23 km N of Dutch Harbor, Alaska 2025-07-27"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "ci41249496"
+name = "6 km NW of Rialto, CA 2025-07-31"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000qzki"
+name = "103 km ESE of Inarajan Village, Guam 2025-08-10"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000qzkp"
+name = "84 km ESE of Inarajan Village, Guam 2025-08-10"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000r0az"
+name = "117 km ESE of Yigo Village, Guam 2025-08-13"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000r0sy"
+name = "144 km SSW of Nikolski, Alaska 2025-08-14"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000qrj0"
+name = "237 km W of Adak, Alaska 2025-08-28"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000qru7"
+name = "260 km W of Adak, Alaska 2025-08-29"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nn00903470"
+name = "51 km NE of Valmy, Nevada 2025-08-30"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000qsvj"
+name = "35 km WSW of Asad\u0101b\u0101d, Afghanistan 2025-08-31"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "ak025b7povrc"
+name = "133 km SE of Old Harbor, Alaska 2025-09-01"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000qtpw"
+name = "254 km NE of Fais, Micronesia 2025-09-04"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000quwy"
+name = "174 km WSW of Port Orford, Oregon 2025-09-09"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000quxl"
+name = "152 km WSW of Port Orford, Oregon 2025-09-09"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000reas"
+name = "163 km W of Port Orford, Oregon 2025-09-09"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000quzl"
+name = "188 km WSW of Port Orford, Oregon 2025-09-09"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000reb8"
+name = "205 km WSW of Port Orford, Oregon 2025-09-09"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "uu80117176"
+name = "10 km W of Maeser, Utah 2025-09-10"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000qwg4"
+name = "130 km SSW of Nikolski, Alaska 2025-09-16"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000qxp1"
+name = "122 km SW of Adak, Alaska 2025-09-21"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000qxs1"
+name = "south of the Mariana Islands 2025-09-22"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nc75240492"
+name = "2 km ESE of Berkeley, CA 2025-09-22"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000rcru"
+name = "262 km NE of Fais, Micronesia 2025-09-25"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000rd1w"
+name = "239 km W of Bandon, Oregon 2025-09-26"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000rdjm"
+name = "off the coast of Oregon 2025-09-29"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000rg29"
+name = "223 km NNE of Fais, Micronesia 2025-10-10"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000rg47"
+name = "234 km NNE of Fais, Micronesia 2025-10-10"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "tx2025ubulqx"
+name = "5 km WSW of Westbrook, Texas 2025-10-12"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000rhss"
+name = "49 km S of Akutan, Alaska 2025-10-17"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000rk5p"
+name = "off the coast of Oregon 2025-10-29"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000rk5r"
+name = "off the coast of Oregon 2025-10-29"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "ak025dxe5mlz"
+name = "48 km ESE of Fox River, Alaska 2025-10-30"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000rl31"
+name = "30 km SE of Maz\u0101r-e Shar\u012bf, Afghanistan 2025-11-02"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000rlcd"
+name = "191 km WSW of Merizo Village, Guam 2025-11-04"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000rlky"
+name = "199 km W of Bandon, Oregon 2025-11-05"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000rmia"
+name = "19 km N of Yigo Village, Guam 2025-11-09"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000rmxh"
+name = "off the coast of Oregon 2025-11-12"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nc75265261"
+name = "7 km W of Templeton, CA 2025-11-18"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000rpht"
+name = "14 km ESE of Tungi, Bangladesh 2025-11-21"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000rpxa"
+name = "67 km SSW of Adak, Alaska 2025-11-23"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000rdre"
+name = "54 km ENE of Nikolski, Alaska 2025-11-25"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nc75269596"
+name = "8 km E of Gilroy, CA 2025-11-26"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "ak2025xjbvhj"
+name = "12 km WNW of Susitna, Alaska 2025-11-27"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nc75270551"
+name = "5 km S of San Juan Bautista, CA 2025-11-27"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000rez4"
+name = "79 km SE of Atka, Alaska 2025-12-01"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000rtmm"
+name = "off the coast of Oregon 2025-12-09"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000ru26"
+name = "241 km W of Tofino, Canada 2025-12-11"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000rumi"
+name = "Rat Islands, Aleutian Islands, Alaska 2025-12-13"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nc75279971"
+name = "6 km W of Glen Ellen, CA 2025-12-14"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000rv4q"
+name = "90 km SSE of San Jose Village, Northern Mariana Islands 2025-12-15"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000rvd3"
+name = "258 km ESE of Chiniak, Alaska 2025-12-16"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000rw71"
+name = "off the coast of Oregon 2025-12-20"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000rwbc"
+name = "273 km WNW of Bandon, Oregon 2025-12-21"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000rkke"
+name = "27 km S of Merizo Village, Guam 2025-12-24"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000rkkk"
+name = "216 km SW of Merizo Village, Guam 2025-12-24"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000rkmf"
+name = "236 km SW of Merizo Village, Guam 2025-12-24"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nc75288851"
+name = "15 km NNW of Susanville, CA 2025-12-31"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "ci41158263"
+name = "7 km WSW of Holtville, CA 2026-01-15"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "ci41162719"
+name = "20 km NNE of Indio, CA 2026-01-20"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nc75299751"
+name = "90 km W of Ferndale, CA 2026-01-22"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "uu80127891"
+name = "40 km S of Evanston, Wyoming 2026-01-22"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "tx2026burunl"
+name = "23 km SW of Snyder, Texas 2026-01-26"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000s5ba"
+name = "9 km N of Black Eagle, Montana 2026-01-29"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nc75305736"
+name = "4 km SE of San Ramon, CA 2026-02-02"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nc75308927"
+name = "107 km W of Petrolia, CA 2026-02-05"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "ci41395584"
+name = "6 km NW of Delta, B.C., MX 2026-02-11"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000s1a2"
+name = "4 km E of Cowles, Nebraska 2026-03-01"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000s27e"
+name = "2026 Red River Parish, Louisiana Earthquake 2026-03-05"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "uu80131546"
+name = "29 km ENE of Torrey, Utah 2026-03-10"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000sgk0"
+name = "off the coast of Oregon 2026-03-16"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000sh2i"
+name = "244 km W of Ferndale, California 2026-03-18"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000sijy"
+name = "272 km SW of Port McNeill, Canada 2026-03-22"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "ci41426656"
+name = "26 km WNW of Ludlow, CA 2026-03-27"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nc75337442"
+name = "1 km SE of Boulder Creek, CA 2026-04-02"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000sn3a"
+name = "9 km SSW of Atoka, New Mexico 2026-04-06"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000sb7l"
+name = "off the coast of Oregon 2026-04-07"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000srpu"
+name = "off the coast of Oregon 2026-04-20"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nm60620376"
+name = "1 km WNW of Cooter, Missouri 2026-04-23"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nn00916724"
+name = "30 km SSW of Alamo, Nevada 2026-04-29"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nn00917635"
+name = "77 km NE of Tonopah, Nevada 2026-05-05"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nc75358752"
+name = "2 km NW of The Geysers, CA 2026-05-07"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000svzn"
+name = "18 km SSW of Weston, Colorado 2026-05-07"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nc75357576"
+name = "89 km WSW of Crescent City, CA 2026-05-09"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "ci41461608"
+name = "3 km WSW of Brawley, CA 2026-05-10"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000sz0r"
+name = "278 km SW of Tofino, Canada 2026-05-12"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000syfl"
+name = "off the coast of Oregon 2026-05-17"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000sq93"
+name = "143 km WSW of Pistol River, Oregon 2026-06-03"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nc75370186"
+name = "62 km W of Petrolia, CA 2026-06-03"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000srjx"
+name = "99 km WNW of Mantua, Cuba 2026-06-08"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000ssnv"
+name = "83 km SSW of Unalaska, Alaska 2026-06-13"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000subg"
+name = "212 km WSW of Adak, Alaska 2026-06-18"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nc75382936"
+name = "11 km N of Redwood Valley, CA 2026-06-24"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "aka2026msxacu"
+name = "35 km SSW of Cordova, Alaska 2026-06-29"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000t8yt"
+name = "226 km W of Langlois, Oregon 2026-06-29"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nc75393566"
+name = "11 km N of Covelo, CA 2026-07-11"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "ci41291863"
+name = "2 km ESE of Frazier Park, CA 2026-07-12"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "ci41292687"
+name = "18 km WSW of Johannesburg, CA 2026-07-13"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000t2ug"
+name = "152 km W of Langlois, Oregon 2026-07-23"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nc75407577"
+name = "8 km ESE of Cloverdale, CA 2026-07-29"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nc75412157"
+name = "31 km NNW of Covelo, CA 2026-08-05"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000tij5"
+name = "126 km WSW of Port Orford, Oregon 2026-08-06"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000tj53"
+name = "116 km W of Gold Beach, Oregon 2026-08-08"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000tms8"
+name = "8 km SSE of San Mateo, New Mexico 2026-08-22"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "ci41533416"
+name = "10 km ENE of Coso Junction, CA 2026-08-23"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nc75426637"
+name = "85 km W of Petrolia, CA 2026-08-29"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000td35"
+name = "228 km W of Ferndale, California 2026-08-31"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nn00924954"
+name = "20 km W of Preston, Nevada 2026-09-27"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nc75444322"
+name = "97 km W of Petrolia, CA 2026-09-29"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "uw714111952"
+name = "6 km WNW of Wauna, Washington 2026-09-29"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000tzl0"
+name = "off the coast of Oregon 2026-10-04"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000tzna"
+name = "183 km ENE of Saipan, Northern Mariana Islands 2026-10-05"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "aka2026tuxgky"
+name = "92 km NNW of Aleneva, Alaska 2026-10-06"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000u1cd"
+name = "41 km NNE of Yigo Village, Guam 2026-10-10"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "tx2026uacobs"
+name = "56 km S of Whites City, New Mexico 2026-10-11"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "aka2026ukynnb"
+name = "43 km NNW of Lake Minchumina, Alaska 2026-10-15"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000u3jd"
+name = "Pagan region, Northern Mariana Islands 2026-10-20"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us6000u3lf"
+name = "81 km S of Sand Point, Alaska 2026-10-20"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000ttke"
+name = "193 km WSW of Merizo Village, Guam 2026-10-27"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "nc75458907"
+name = "10 km N of Lake Pillsbury, CA 2026-10-28"
+role = "test-post"
+catalog_min_mag = 3.0
