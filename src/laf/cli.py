@@ -430,6 +430,9 @@ def main(argv: list[str] | None = None) -> None:
                 print("batch", batch, "-> laf status / laf collect d1/pilot-settings")
             return
         if a.action == "pilot":
+            if a.dry_run:
+                print(f"pilot: at most {len(d1.PILOT_TAGS) * len(d1.PILOT_MODELS)} calls, $0.50")
+                return
             out = Path("runs/d1/pilot")
             print(f"pilot spend ${d1.pilot(client(), items, out):.3f} -> {out}/calls.jsonl")
             return
