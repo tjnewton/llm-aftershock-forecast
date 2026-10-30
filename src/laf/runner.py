@@ -14,7 +14,7 @@ from pathlib import Path
 
 from laf.items import Item
 from laf.prompts import PROMPT_DIR, render, schema_for
-from laf.providers import API_BASE_URL, PRICES, anthropic_params, cost_usd, env_value
+from laf.providers import API_BASE_URL, PRICES, anthropic_params, cost_usd, env_value, study_effort
 
 RUNS = Path("runs")
 MAX_TOKENS_BATCH = 32_000
@@ -90,6 +90,16 @@ BLOCKS: dict[str, dict] = {
         "effort": "medium",
         "floor": 3.0,
     },
+    # D2 for the confirmatory 4.6 models at their study settings (ADR 0014 decision 5)
+    "d2-46": {
+        "roles": ("test-post",),
+        "arms": ("direct",),
+        "infos": ("I1",),
+        "paras": ("v2A",),
+        "k": 3,
+        "effort": "study",
+        "floor": 3.0,
+    },
 }
 CHARS_PER_TOKEN = 1.25  # below the pilot prompts' minimum (1.28; median 1.36): overestimates
 
@@ -108,6 +118,7 @@ def request_id(params: dict, sample: int) -> str:
 
 def expand(items: list[Item], block: str, model: str) -> list[dict]:
     spec = BLOCKS[block]
+    effort = study_effort(model) if spec["effort"] == "study" else spec["effort"]
     reqs = []
     for item in items:
         if item.role not in spec["roles"]:
@@ -121,7 +132,7 @@ def expand(items: list[Item], block: str, model: str) -> list[dict]:
                         system,
                         user,
                         schema_for(arm, para),
-                        effort=spec["effort"],
+                        effort=effort,
                         max_tokens=MAX_TOKENS_BATCH,
                     )
                     for s in range(spec["k"]):
@@ -133,7 +144,7 @@ def expand(items: list[Item], block: str, model: str) -> list[dict]:
                             "sample": s,
                             "block": block,
                             "model": model,
-                            "effort": spec["effort"],
+                            "effort": effort,
                         }
                         reqs.append(
                             {"custom_id": request_id(params, s), "meta": meta, "params": params}
@@ -142,7 +153,9 @@ def expand(items: list[Item], block: str, model: str) -> list[dict]:
 
 
 def estimate_usd(reqs: list[dict], pilot: Path = RUNS / "pilot") -> float:
-    """Batch cost from the pilot's count_tokens inputs and mean outputs x 1.25 (prereg sec. 9)."""
+    """Batch cost from the pilot's count_tokens inputs and mean outputs x 1.25 (prereg sec. 9).
+    Models the registered pilot never called (the 4.6 models) take their mean output from
+    their D1 batch at the same study settings."""
     tokens = {
         (r["item_id"], r["arm"], r["info"]): r["input_tokens"]
         for r in _jsonl(pilot / "input_tokens.jsonl")
@@ -153,6 +166,11 @@ def estimate_usd(reqs: list[dict], pilot: Path = RUNS / "pilot") -> float:
         for m in {r["model_requested"] for r in calls}
         if (rs := [r for r in calls if r["model_requested"] == m])
     }
+    for m in {r["meta"]["model"] for r in reqs} - set(mean_out):
+        d1 = [
+            x["usage"]["output_tokens"] for x in _jsonl(RUNS / "d1" / f"d1-{m}" / "results.jsonl")
+        ]
+        mean_out[m] = 1.25 * statistics.mean(d1)
     total = 0.0
     for r in reqs:
         m = r["meta"]
