@@ -16,8 +16,10 @@ Status: proposed.
   We quantify it by comparing each version's `observations` field with ComCat counts at the information cutoff
   (`issue_times.oaf_obs_m5`, `comcat_m5_at_cutoff`): Flores +2 to +8, Kamchatka +54 to +60,
   Panama +2 to +3 M>=5 events at issue time.
-- Commit everything: raw (about 34 MB), manifest, processed parquet (about 3 MB). Total well under
-  50 MB.
+- Commit everything: raw data, manifest and processed parquet. At the hackathon this was about
+  37 MB. The confirmatory candidate snapshot (2026-10-30) added about 12,000 OAF versions and
+  histories, bringing the packed repository to about 100 MB. That is still small, and git
+  compresses JSON well.
 - Two USGS products had invalid JSON (trailing commas). They are repaired by removing only
   trailing commas, and the repair is flagged (`oaf_versions.repaired_json`). Seven Kamchatka
   versions have non-monotone fractiles; they are rejected, not repaired.
