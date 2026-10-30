@@ -216,7 +216,10 @@ def build_tables(data_dir: Path, snapshot: str, seqs: list[Sequence]) -> dict[st
         cat["t_days"] = (cat["time_ms"] - origin_ms) / DAY_MS
         cat["dist_km"] = haversine_km(circle.lat, circle.lon, cat["latitude"], cat["longitude"])
         rows["catalog"].extend(cat.drop(columns=["time", "updated"]).to_dict("records"))
-        others = cat.loc[cat["id"] != seq.id, "id"]
+        # events a forecaster can be shown: from the foreshock lookback on (ADR 0011 histories)
+        others = cat.loc[
+            (cat["id"] != seq.id) & (cat["time_ms"] >= origin_ms - FORESHOCK_LOOKBACK_MS), "id"
+        ]
         hist = load_versions(data_dir, others)
         # as-of if any history was fetched, or if the catalog holds no event but the mainshock
         # (its own history is in its event document)
