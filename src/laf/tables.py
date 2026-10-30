@@ -216,9 +216,14 @@ def build_tables(data_dir: Path, snapshot: str, seqs: list[Sequence]) -> dict[st
         cat["t_days"] = (cat["time_ms"] - origin_ms) / DAY_MS
         cat["dist_km"] = haversine_km(circle.lat, circle.lon, cat["latitude"], cat["longitude"])
         rows["catalog"].extend(cat.drop(columns=["time", "updated"]).to_dict("records"))
-        hist = load_versions(data_dir, cat.loc[cat["id"] != seq.id, "id"])
-        if len(hist):  # the mainshock's own history is in its event document
-            hist = pd.concat([hist, pd.DataFrame(origin_versions(event))], ignore_index=True)
+        others = cat.loc[cat["id"] != seq.id, "id"]
+        hist = load_versions(data_dir, others)
+        # as-of if any history was fetched, or if the catalog holds no event but the mainshock
+        # (its own history is in its event document)
+        asof_source = bool(len(hist)) or others.empty
+        if asof_source:
+            main = pd.DataFrame(origin_versions(event))
+            hist = pd.concat([hist, main], ignore_index=True) if len(hist) else main
 
         rows["sequences"].append(
             {
@@ -274,7 +279,7 @@ def build_tables(data_dir: Path, snapshot: str, seqs: list[Sequence]) -> dict[st
                     else float(props["mag"]),
                     "oaf_obs_m5": _obs(f, 5.0) if f else None,
                     "comcat_m5_at_cutoff": comcat_m5,
-                    "catalog_source": "asof" if len(hist) else "hindsight",
+                    "catalog_source": "asof" if asof_source else "hindsight",
                     "query_covers_x1_5": covered,
                     **{
                         f"oaf_{k.lower()}": _num(f.model.parameters.get(k)) if f else None

@@ -83,15 +83,20 @@ the differences between forecasters, so a retrospective test on today's catalog 
 catalog-driven forecasters. The two simple baselines do not show a consistent sign. The LLM
 subset (I1 prompts rebuilt from today's catalog) needs API spend and waits for approval.
 
-## Data gaps to fix
-- E3 snapshot `20261021T2300Z`: 44 of its 210 issue times have no histories. They come from
-  eight sequences (aka2026nyxoap, tx2026ojlaky, us6000s7qf, us6000sr43, us7000rrjh, us7000s0nl,
-  us7000thsx, us7000thwt). `n_hindsight_m4`, which counts events with M >= 4 that forecasters
-  were shown without a history, sums to 40 over the snapshot's issue times. Prompts for those issues showed today's catalog. Refetching their
-  histories (`laf asof --only ...`, one fetcher) closes the gap for B1. The E3 LLM results stay
-  as run and get a footnote.
+## Data gaps
+- E3 snapshot `20261021T2300Z`: 44 of its 210 issue times were built without histories. Five of
+  the eight sequences involved have no event in ComCat besides the mainshock, so they have
+  nothing to fetch. Before the fix below, `laf tables` labeled such sequences "hindsight" and
+  took the mainshock from today's catalog. Fixed on 2026-10-30: the mainshock's own history (its
+  event document) is now used whenever the catalog holds no other event. The committed E3 tables
+  stay as built, because the E3 prompts were made from them. A rebuild would change only those
+  mainshock rows (for example M5.2 today, M5.1 as it was at the issue time). Of the other
+  three, us6000sr43 is now covered by histories fetched for an overlapping candidate sequence.
+  us6000s7qf and us7000thwt still need their histories fetched before B1 covers them.
 
 ## Changelog
+- 2026-10-30: mainshock-only sequences get an as-of catalog (`laf tables` fix); E3 data-gap
+  note corrected.
 - 2026-10-30: `laf.hindsight` (RJ-MLE and the rule of thumb added; M>=4 log score) and the
   results above; catalog backfill measured.
 - 2026-10-29: first version; E3 hindsight refit written
