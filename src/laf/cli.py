@@ -113,7 +113,7 @@ def main(argv: list[str] | None = None) -> None:
     d1p = sub.add_parser(
         "d1", help="D1 behavioral probes: build items (free); pilot and run SPEND MONEY"
     )
-    d1p.add_argument("action", choices=("build", "pilot", "run"))
+    d1p.add_argument("action", choices=("build", "pilot", "run", "analyze"))
     d1p.add_argument("--snapshot", required=True)
     d1p.add_argument("--model", choices=("claude-opus-4-6", "claude-sonnet-4-6", "claude-opus-5-5"))
     d1p.add_argument("--dry-run", action="store_true", help="count requests and estimate cost")
@@ -416,6 +416,27 @@ def main(argv: list[str] | None = None) -> None:
         if a.action == "build":
             path.write_text(d1.items_jsonl(items), encoding="utf-8", newline="\n")
             print(f"{len(items)} probe items -> {path}")
+            return
+        if a.action == "analyze":  # no API calls
+            import hashlib
+            import json
+
+            if not path.exists() or path.read_text(encoding="utf-8") != d1.items_jsonl(items):
+                raise SystemExit(f"{path} missing or stale: run `laf d1 build`")
+            sha = hashlib.sha256(path.read_bytes()).hexdigest()
+            runs = []  # only answers to exactly these items
+            for p in sorted(Path("runs/d1").glob("d1-*/results.jsonl")):
+                rec = json.loads((p.parent / "batch.json").read_text(encoding="utf-8"))
+                if rec["snapshot"] == a.snapshot and rec["items_sha256"] == sha:
+                    runs.append(p.parent)
+                else:
+                    print(f"skipped {p.parent}: other snapshot or items")
+            st = d1.answer_stats(items, tables["sequences"], runs)
+            summary = d1.summarize(st, tables["sequences"])
+            for name, t in (("stats", st), ("summary", summary)):
+                t.to_csv(f"results/d1_{name}_{a.snapshot}.csv", index=False, lineterminator="\n")
+            print(f"{len(runs)} runs; {len(st)} rows -> results/d1_stats_{a.snapshot}.csv")
+            print(f"NaN means (infinite-mean tails): {st['mean'].isna().mean():.4f}")
             return
         if not path.exists() or path.read_text(encoding="utf-8") != d1.items_jsonl(items):
             raise SystemExit(f"{path} missing or stale: run `laf d1 build` and commit it")

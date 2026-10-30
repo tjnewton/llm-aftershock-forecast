@@ -1,4 +1,5 @@
 import json
+import math
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -137,3 +138,32 @@ def test_settings_pilot_requests_and_their_worst_case(probe):
         assert (thinking is not None) == name.startswith("adaptive")
         assert effort == name.split("-")[1]
     assert sum(d1.bound_usd(r["params"], batch=True) for r in reqs) <= 2.5
+
+
+def test_mean_statistics_track_a_poisson_count():
+    from scipy import stats
+
+    from laf.scoring import LEVELS
+
+    lam = 20.0
+    q = [float(stats.poisson.ppf(t, lam)) for t in LEVELS]
+    assert d1.mean_count(q) == pytest.approx(lam, rel=0.1)
+    n = range(200)
+    truth = sum(math.log1p(k) * stats.poisson.pmf(k, lam) for k in n)
+    assert d1.mean_log1p(q) == pytest.approx(truth, rel=0.05)
+    assert math.isfinite(d1.mean_log1p([0] * 8 + [2]))  # a tail with no finite mean
+
+
+def test_implied_p_recovers_the_omori_exponent():
+    import numpy as np
+
+    t = np.array(d1.ELAPSED_DAYS)
+    y = np.log([float(d1._omori(0.018, np.array([1.1]), ti, ti + 7)[0]) * 3.0 for ti in t])
+    assert d1.implied_p(t, y, 0.018, 7) == pytest.approx(1.1, abs=0.011)
+
+
+def test_probe_tags_parse():
+    assert d1._tag("x@d1-p1-0.5") == ("p1", -0.5)
+    assert d1._tag("x@d1-p2-0.04167d") == ("p2", 0.04167)
+    assert d1._tag("x@d1-p3-n30") == ("p3", 30.0)
+    assert d1._tag("x@d1-p4-even") == ("p4", 1.0)

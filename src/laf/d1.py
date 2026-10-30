@@ -363,3 +363,199 @@ def reference(item: Item, seq: dict) -> dict[str, dict]:
         out[key] = {f"m{m}_count_quantiles": poisson_mixture(lam[m], weights)[0] for m in (5, 4, 3)}
         out[key]["p_m6"] = float(1 - (weights * np.exp(-lam[6])).sum())
     return out
+
+
+# Analysis (proposal "Measures and references"). Every statistic comes from the nine quantiles,
+# for the answers and the RJ references alike (ADR 0015). The mean uses the negative-binomial
+# tail; where that tail falls back to a power law with an infinite mean, the mean is NaN and
+# E[log(1 + N)] (finite for any tail) still covers the answer.
+TARGETS = (("m5", "m5_count_quantiles"), ("m4", "m4_count_quantiles"), ("m3", "m3_count_quantiles"))
+
+
+def _survival(dist, n_max: int) -> np.ndarray:
+    return 1.0 - dist.cdf(np.arange(n_max))
+
+
+def mean_count(q) -> float:
+    from laf.countdist import from_quantiles
+
+    d = from_quantiles(q, tail="nb")
+    if d.nb is None and d.tail <= 1.0:
+        return float("nan")
+    n_max = int(20 * (q[-1] + 10))
+    while True:
+        s = _survival(d, n_max)
+        if s[-1] * n_max < 1e-6 or n_max >= 4_000_000:
+            return float(s.sum())
+        n_max *= 4
+
+
+def mean_log1p(q) -> float:
+    """E[log(1 + N)] under the default (power) tail, with the remainder of the tail sum."""
+    from laf.countdist import from_quantiles
+
+    d = from_quantiles(q)
+    n_max = int(20 * (q[-1] + 10))
+    s = _survival(d, n_max)
+    inc = np.log((np.arange(n_max) + 2) / (np.arange(n_max) + 1))
+    return float((s * inc).sum() + s[-1] / d.tail)
+
+
+def _tag(item_id: str) -> tuple[str, float]:
+    """(probe, level): P1 delta, P2 days, P3 N; P4 is level 1 (even)."""
+    tag = item_id.split("@d1-")[1]
+    if tag.startswith("p1"):
+        return "p1", float(tag[2:])
+    if tag.startswith("p2"):
+        return "p2", float(tag[3:-1])
+    if tag.startswith("p3"):
+        return "p3", float(tag[4:])
+    return "p4", 1.0
+
+
+def answer_stats(items: list[Item], sequences: pd.DataFrame, runs: list[Path]) -> pd.DataFrame:
+    """One row per (forecaster, item, sample, window, target): mean, E[log(1 + N)], spread and
+    P(M6+). The RJ reference is forecaster "rj" (sample 0)."""
+    by_id = {i.item_id: i for i in items}
+    seqs = sequences.set_index("sequence_id").to_dict("index")
+    rows = []
+
+    def p6(a: dict) -> float:  # answers name it p_m6_at_least_one, the reference p_m6
+        return float(a["p_m6"] if "p_m6" in a else a["p_m6_at_least_one"])
+
+    def add(model, item, sample, status, answer):
+        probe, level = _tag(item.item_id)
+        for w in ("day", "week", "month"):
+            for t, key in TARGETS:
+                q = answer[w][key] if answer else None
+                if isinstance(q, dict):
+                    q = [
+                        q[k]
+                        for k in (
+                            "q025",
+                            "q050",
+                            "q100",
+                            "q250",
+                            "q500",
+                            "q750",
+                            "q900",
+                            "q950",
+                            "q975",
+                        )
+                    ]
+                rows.append({
+                    "model": model, "item_id": item.item_id, "sequence_id": item.sequence_id,
+                    "probe": probe, "level": level, "sample": sample, "window": w, "target": t,
+                    "status": status,
+                    "mean": mean_count(q) if q else np.nan,
+                    "elog1p": mean_log1p(q) if q else np.nan,
+                    "spread": math.log1p(q[-1]) - math.log1p(q[0]) if q else np.nan,
+                    "p_m6": p6(answer[w]) if answer else np.nan,
+                })  # fmt: skip
+
+    for item in items:
+        add("rj", item, 0, "ok", reference(item, seqs[item.sequence_id]))
+    for run in runs:
+        meta = {r["custom_id"]: r for r in _jsonl(run / "requests.jsonl")}
+        for res in _jsonl(run / "results.jsonl"):
+            m = meta[res["custom_id"]]
+            if res["result"] != "succeeded":
+                status, parsed = "transport_error", None
+            else:
+                status, parsed, _ = validate(
+                    "direct", res.get("text"), res.get("stop_reason"), TARGETS_V2
+                )
+            add(
+                m["model"],
+                by_id[m["item_id"]],
+                m["sample"],
+                status,
+                parsed if status == "ok" else None,
+            )
+    return pd.DataFrame(rows)
+
+
+def _boot(values: list[float], n: int = 2000) -> tuple[float, float, float]:
+    """Mean over sequences and its 95% sequence-bootstrap interval."""
+    x = np.asarray(values, dtype=float)
+    x = x[np.isfinite(x)]
+    if len(x) == 0:
+        return (np.nan, np.nan, np.nan)
+    b = np.random.default_rng(20261030).choice(x, size=(n, len(x))).mean(axis=1)
+    return float(x.mean()), float(np.quantile(b, 0.025)), float(np.quantile(b, 0.975))
+
+
+def _slope(x: np.ndarray, y: np.ndarray) -> float:
+    ok = np.isfinite(y)
+    return float(np.polyfit(x[ok], y[ok], 1)[0]) if ok.sum() >= 3 else np.nan
+
+
+def implied_p(t: np.ndarray, log_y: np.ndarray, c: float, window_days: float) -> float:
+    """The Omori p whose window integrals [t, t + window) best fit the log mean counts, with a
+    free scale; least squares on a 0.01 grid over [0.2, 3]."""
+    ok = np.isfinite(log_y)
+    if ok.sum() < 3:
+        return np.nan
+    t, log_y = t[ok], log_y[ok]
+    grid = np.arange(0.2, 3.0001, 0.01)
+    sse = []
+    for p in grid:
+        r = log_y - np.log([_omori(c, np.array([p]), ti, ti + window_days)[0] for ti in t])
+        sse.append(float(((r - r.mean()) ** 2).sum()))
+    return float(grid[int(np.argmin(sse))])
+
+
+def _seq_measures(h: pd.DataFrame, stat: str, c: float, window_days: float) -> dict[str, float]:
+    """The probe measures of one sequence, on log10 of the mean ("mean") or E[log(1 + N)]."""
+    tr = np.log10 if stat == "mean" else (lambda v: v)
+    by = {k: g.set_index("level")[stat] for k, g in h.groupby("probe")}
+    p1, p2, p3, p4 = (by.get(k, pd.Series(dtype=float)) for k in ("p1", "p2", "p3", "p4"))
+    if 1.0 in p2.index:  # P1's delta = 0 is the P2 item at 1 day
+        p1 = pd.concat([p1, pd.Series({0.0: p2[1.0]})]).sort_index()
+    pos = p3[p3.index > 0]
+    get = lambda s, k: float(tr(s[k])) if k in s.index else np.nan  # noqa: E731
+    return {
+        "p1_slope": _slope(p1.index.to_numpy(), tr(p1.to_numpy())),
+        "p2_implied_p": (
+            implied_p(p2.index.to_numpy(), np.log(p2.to_numpy()), c, window_days)
+            if stat == "mean"
+            else np.nan
+        ),
+        "p3_elasticity": _slope(np.log10(pos.index.to_numpy()), tr(pos.to_numpy())),
+        "p3_empty_vs_none": get(p3, 0.0) - get(p2, 3.0),
+        "p4_even_vs_decaying": get(p4, 1.0) - get(p3, float(P4_N)),
+    }
+
+
+def summarize(stats_df: pd.DataFrame, sequences: pd.DataFrame) -> pd.DataFrame:
+    """Per forecaster, window and target: each probe measure averaged over base sequences, with
+    a sequence-bootstrap interval; plus the median spread and the implied b between targets."""
+    c_of = sequences.set_index("sequence_id")["generic_c_days"].to_dict()
+    days = {k: n for k, _, n in WINDOWS}
+    keys = ["model", "sequence_id", "probe", "level", "window", "target"]
+    cell = stats_df[stats_df["status"] == "ok"].groupby(keys)[["mean", "elog1p", "spread"]]
+    cell = cell.mean().reset_index()
+    out = []
+    for (model, w, t), g in cell.groupby(["model", "window", "target"]):
+        for stat in ("mean", "elog1p"):
+            per = [
+                _seq_measures(h, stat, c_of[str(seq)], days[str(w)])
+                for seq, h in g.groupby("sequence_id")
+            ]
+            for k in per[0]:
+                est, lo, hi = _boot([m[k] for m in per])
+                n = int(np.isfinite([m[k] for m in per]).sum())
+                out.append(dict(model=model, window=w, target=t, stat=stat, measure=k,
+                                estimate=est, lo95=lo, hi95=hi, sequences=n))  # fmt: skip
+        out.append(dict(model=model, window=w, target=t, stat="spread", measure="median_spread",
+                        estimate=float(g["spread"].median()), lo95=np.nan, hi95=np.nan,
+                        sequences=g["sequence_id"].nunique()))  # fmt: skip
+    wide = cell.pivot_table(index=keys[:-1], columns="target", values="mean")
+    for model, g in wide.groupby(level="model"):
+        for a, b in (("m3", "m4"), ("m4", "m5")):
+            ib = np.log10((g[a] / g[b]).to_numpy(dtype=float))
+            out.append(dict(model=model, window="all", target=f"{a}/{b}", stat="mean",
+                            measure="implied_b", estimate=float(np.nanmedian(ib[np.isfinite(ib)])),
+                            lo95=np.nan, hi95=np.nan,
+                            sequences=g.index.get_level_values(1).nunique()))  # fmt: skip
+    return pd.DataFrame(out)
