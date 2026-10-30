@@ -110,6 +110,16 @@ def main(argv: list[str] | None = None) -> None:
     d2p = sub.add_parser("d2", help="D2 prompt-robustness tables from runs/d2 (development data)")
     d2p.add_argument("--snapshot", required=True)
     d2p.add_argument("--runs", type=Path, default=Path("runs/d2"))
+    d1p = sub.add_parser(
+        "d1", help="D1 behavioral probes: build items (free); pilot and run SPEND MONEY"
+    )
+    d1p.add_argument("action", choices=("build", "pilot", "run"))
+    d1p.add_argument("--snapshot", required=True)
+    d1p.add_argument("--model", choices=("claude-opus-4-6", "claude-sonnet-4-6", "claude-opus-5-5"))
+    d1p.add_argument("--dry-run", action="store_true", help="count requests and estimate cost")
+    d1p.add_argument(
+        "--settings", action="store_true", help="pilot: the thinking and effort settings batch"
+    )
     lw = sub.add_parser(
         "live-watch", help="dry run of the live detector (ComCat polls; no model calls)"
     )
@@ -389,6 +399,61 @@ def main(argv: list[str] | None = None) -> None:
         Path("results").mkdir(exist_ok=True)
         tab.to_csv(f"results/combined_{a.snapshot}.csv", index=False, lineterminator="\n")
         print(tab[tab["sequence"] == "pooled"].round(3).to_string(index=False))
+    elif a.cmd == "d1":
+        from laf import d1
+        from laf.analysis import load_tables
+        from laf.items import build_items
+
+        proc = a.data_dir / "processed" / a.snapshot
+        tables = load_tables(proc)
+        items = d1.probe_items(build_items(tables, d1.FLOOR), tables["sequences"])
+        path = proc / "items_d1.jsonl"
+        if a.action == "build":
+            path.write_text(d1.items_jsonl(items), encoding="utf-8", newline="\n")
+            print(f"{len(items)} probe items -> {path}")
+            return
+        if not path.exists() or path.read_text(encoding="utf-8") != d1.items_jsonl(items):
+            raise SystemExit(f"{path} missing or stale: run `laf d1 build` and commit it")
+        from laf.providers import client
+
+        if a.action == "pilot" and a.settings:
+            from laf import runner
+
+            reqs = d1.settings_requests(items)
+            bound = sum(d1.bound_usd(r["params"], batch=True) for r in reqs)
+            print(f"settings pilot: {len(reqs)} requests, worst case ${bound:.2f} (batch)")
+            if not a.dry_run:
+                batch = runner.submit(
+                    client(), "d1/pilot-settings", reqs, a.snapshot, estimate=bound,
+                    items_file="items_d1.jsonl", prompt_set="v2",
+                )  # fmt: skip
+                print("batch", batch, "-> laf status / laf collect d1/pilot-settings")
+            return
+        if a.action == "pilot":
+            if a.dry_run:
+                print(f"pilot: at most {len(d1.PILOT_TAGS) * len(d1.PILOT_MODELS)} calls, $0.50")
+                return
+            out = Path("runs/d1/pilot")
+            print(f"pilot spend ${d1.pilot(client(), items, out):.3f} -> {out}/calls.jsonl")
+            return
+        if not a.model:
+            raise SystemExit("--model is required for run")
+        from laf import runner
+
+        reqs = d1.expand(items, a.model)
+        est = d1.estimate_usd(
+            reqs,
+            Path("runs/d1/pilot/calls.jsonl"),
+            Path("runs/d2/d2-claude-opus-5-5/results.jsonl"),
+        )
+        name = f"d1/d1-{a.model}"
+        print(f"{name}: {len(reqs)} requests, estimate ${est:.2f} (batch)")
+        if not a.dry_run:
+            batch = runner.submit(
+                client(), name, reqs, a.snapshot, estimate=est,
+                items_file="items_d1.jsonl", prompt_set="v2",
+            )  # fmt: skip
+            print("batch", batch)
     elif a.cmd == "d2":
         from laf.d2 import analyze, robustness
 
