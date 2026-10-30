@@ -101,4 +101,19 @@ outputs: runs/extensions/dev-gpt-oss-20b-e1b/, runs/extensions/e1-gpt-oss-20b-e1
 commit: Local run: gpt-oss-20b-e1b e1 block and E3 (N of M succeeded)
 notes: Exploratory (docs/deviations.md). About 40 min. Report the SHA-256 of the converted GGUF adapter in the done line.
 
+## T09 live-dryrun
+status: ready
+server: none (no llama-server; CPU and network only)
+prepare: git pull; uv run pre-commit install (the commit checks of the SETUP note); uv sync
+run: start the detector as a long-running background service, detached from this session, from the repo root: `uv run laf live-watch` (defaults: --out runs/live-dryrun, --live-data data/interim/live-dryrun). In PowerShell, for example: Start-Process -FilePath uv -ArgumentList "run","laf","live-watch" -WindowStyle Hidden -RedirectStandardOutput runs\live-dryrun\stdout.log -RedirectStandardError runs\live-dryrun\stderr.log. Record its process id in the done line.
+outputs: runs/live-dryrun/ (log.jsonl, state.json, stdout.log, stderr.log); data/interim/live-dryrun/ is gitignored and never committed
+commit: Live dry run: log update (N polls, M detections)
+notes: Dry run of the live arm (docs/adr/0017-live-pipeline.md). It polls ComCat every 10 minutes for new OAF versions and builds the live items with outcomes sealed. It makes no model calls and costs nothing. This task is an exception to two worker rules, by Tyler's decision of 2026-10-30:
+  - It fetches from ComCat. This IP does no other fetching, and the Mac's fetches come from a different IP.
+  - It keeps running after its done line. Mark T09 done as soon as the service is started (the done line gives the process id).
+  In every later iteration:
+  - If runs/live-dryrun/log.jsonl changed, commit runs/live-dryrun/ with the commit message above (counts from log.jsonl) and push. Do this about every 30 minutes; it is not a new task.
+  - If the process has died, restart it the same way. Append `T09 restarted <UTC time> <last line of stderr.log>` to the status file.
+  Do not stop the loop for idleness while the service runs; schedule iterations about every 1800 s. Other ready tasks still run normally alongside it. Stop the service only when this queue says so.
+
 ## END
