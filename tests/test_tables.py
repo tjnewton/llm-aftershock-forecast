@@ -154,3 +154,11 @@ def test_a_sequence_without_aftershocks_gets_an_as_of_catalog_and_sealed_counts(
     assert (its["catalog_source"] == "asof").all() and (its["n_hindsight_m4"] == 0).all()
     assert t["observed_counts"]["count"].isna().all()
     assert not t["issue_catalogs"]["from_hindsight"].any()
+
+
+def test_events_before_the_lookback_do_not_need_histories():
+    # nn00898573 (candidate): its only other event is ~30 days before the mainshock, outside the
+    # 7-day lookback, so no forecaster sees it and the as-of catalog is the mainshock alone
+    seq = Sequence(id="nn00898573", name="x", role="test-post", catalog_min_mag=3.0)
+    its = build_tables(Path("data"), "20261029T2000Z", [seq])["issue_times"]
+    assert (its["catalog_source"] == "asof").all() and (its["n_hindsight_m4"] == 0).all()
