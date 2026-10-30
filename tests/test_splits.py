@@ -26,6 +26,7 @@ def test_development_ids_cover_registered_e3_and_training_pool_and_nothing_else(
     assert splits.is_development(COLOMBIA)
     assert splits.is_development("us7000t0b5")  # E3
     assert splits.is_development("ak0138esnzr")  # adaptation pool
+    assert not splits.is_development("us7000pllu")  # training prompt input only (ADR 0013)
     assert not splits.is_development(NEW)
 
 

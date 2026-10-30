@@ -5,14 +5,10 @@
 # sequence configs whose ids are development
 sequence_configs = ["config/sequences.toml", "config/sequences_e3.toml"]
 
-# folders whose file stems are development sequence ids (adaptation pool and its outcomes),
-# pinned by count and SHA-256 of the sorted stems joined by "\n", so a file added later cannot
-# turn a confirmatory sequence into a development one
-[[id_dir]]
-path = "data/raw/training/catalogs"
-n = 1505
-sha256 = "62a2834d5c09dfbbeb4a176a58558723062bbfa13b1006245d7241f5da3da4ba"
-
+# folder whose file stems are development sequence ids: the E1 outcome pool (outcomes seen).
+# Sequences seen only as training prompts are not development (ADR 0013, decision 3). Pinned by
+# count and SHA-256 of the sorted stems joined by "\n", so a file added later cannot turn a
+# confirmatory sequence into a development one.
 [[id_dir]]
 path = "data/raw/training/outcomes"
 n = 515
