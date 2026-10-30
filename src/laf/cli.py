@@ -107,6 +107,9 @@ def main(argv: list[str] | None = None) -> None:
     cb.add_argument("--snapshot", required=True)
     cb.add_argument("--runs", type=Path, default=Path("runs"), help="runs/ or runs/e3")
     sub.add_parser("replicates", help="adapted-model replicate summary -> results/replicates.csv")
+    d2p = sub.add_parser("d2", help="D2 prompt-robustness tables from runs/d2 (development data)")
+    d2p.add_argument("--snapshot", required=True)
+    d2p.add_argument("--runs", type=Path, default=Path("runs/d2"))
     lw = sub.add_parser(
         "live-watch", help="dry run of the live detector (ComCat polls; no model calls)"
     )
@@ -386,6 +389,16 @@ def main(argv: list[str] | None = None) -> None:
         Path("results").mkdir(exist_ok=True)
         tab.to_csv(f"results/combined_{a.snapshot}.csv", index=False, lineterminator="\n")
         print(tab[tab["sequence"] == "pooled"].round(3).to_string(index=False))
+    elif a.cmd == "d2":
+        from laf.d2 import analyze, robustness
+
+        runs = sorted(d for d in a.runs.iterdir() if (d / "results.jsonl").exists())
+        df, summary = analyze(a.data_dir / "processed" / a.snapshot, runs)
+        rob = robustness(df)
+        for name, t in (("samples", df), ("summary", summary), ("robustness", rob)):
+            t.to_csv(Path("results") / f"d2_{name}_{a.snapshot}.csv", index=False)
+        print(summary.round(3).to_string(index=False))
+        print(rob.round(3).to_string(index=False))
     elif a.cmd == "live-watch":
         from laf.live_watch import run
 
