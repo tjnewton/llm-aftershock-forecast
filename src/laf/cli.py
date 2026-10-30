@@ -105,6 +105,10 @@ def main(argv: list[str] | None = None) -> None:
     cb.add_argument("--snapshot", required=True)
     cb.add_argument("--runs", type=Path, default=Path("runs"), help="runs/ or runs/e3")
     sub.add_parser("replicates", help="adapted-model replicate summary -> results/replicates.csv")
+    hs = sub.add_parser(
+        "hindsight", help="baselines on the as-of vs today's catalog, development cells (ADR 0016)"
+    )
+    hs.add_argument("--snapshot", required=True)
     cd = sub.add_parser(
         "countdist-check",
         help="log score from 9 quantiles vs full distributions, development cells (ADR 0015)",
@@ -367,6 +371,16 @@ def main(argv: list[str] | None = None) -> None:
         Path("results").mkdir(exist_ok=True)
         tab.to_csv(f"results/combined_{a.snapshot}.csv", index=False, lineterminator="\n")
         print(tab[tab["sequence"] == "pooled"].round(3).to_string(index=False))
+    elif a.cmd == "hindsight":
+        from laf import analysis as A
+        from laf.hindsight import compare, summary
+
+        proc = a.data_dir / "processed" / a.snapshot
+        df = compare(A.load_tables(proc), A.load_items(proc))
+        table = summary(df)
+        df.to_csv(Path("results") / f"hindsight_{a.snapshot}.csv", index=False)
+        table.to_csv(Path("results") / f"hindsight_summary_{a.snapshot}.csv", index=False)
+        print(table.round(4).to_string(index=False))
     elif a.cmd == "countdist-check":
         import numpy as np
         import pandas as pd
