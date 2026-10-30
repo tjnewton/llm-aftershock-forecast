@@ -155,15 +155,25 @@ Clean-period sizes (3-month buffer, ADR 0014; mainshock origin in the clean peri
 | Claude 5.5 | 2026-10-01 | 7 (plus about 4.3 per month live) | 10 |
 
 1. **Two co-primary tests**, equivalence with the official forecast at M>=5, with a Holm
-   correction across the two:
+   correction across the two. The first Holm step tests at 0.025 per side (a 95% interval),
+   the second at 0.05. Power is given at both levels: the true Holm power lies between them.
    - **A: gpt-5.1, retrospective**, on its 88 clean M>=5 sequences. If it behaves like Opus
-     4.6 or Opus 5.5 did in D2, power at a 0.05 margin is 0.83 to 0.91. It must run before
-     its API removal on 2027-04-01.
-   - **B: Claude 5.5 (Opus), prospective plus its clean retrospective sequences.** About 33
-     M>=5 sequences after the 6-month prospective period, power about 0.6 to 0.7 at 0.05. It
-     is the one arm where contamination is impossible, which is the paper's thesis. The
-     confirmatory decision uses the prospective stopping rule (ADR 0017); the full sample is
-     reported as it accumulates.
+     4.6 or Opus 5.5 did in D2, power at a 0.05 margin is 0.75 to 0.86 at 0.025 (0.83 to 0.91
+     at 0.05). It must run before its API removal on 2027-04-01.
+   - **B: Claude 5.5 (Opus), prospective plus its clean retrospective sequences.**
+     - Prospective items enter only as matched items hashed before their first window opens
+       (ADR 0017 decisions 1 and 2). Strict items have other windows than the official
+       forecast, so they serve the contrast with the pipeline's baselines instead.
+     - A sequence enters if at least one of its matched items is on time. With about 5
+       versions per sequence (1,010 issues in 194 candidates) and about 45% of matched items late, almost every sequence
+       enters, with roughly half its cells.
+     - About 33 M>=5 sequences after the 6-month prospective period. Power at a 0.05 margin:
+       0.52 at 0.025, 0.68 at 0.05. Fewer cells per sequence lower it somewhat further.
+     - It is the one arm where contamination is impossible, which is the paper's thesis. The
+       confirmatory decision uses the prospective stopping rule (ADR 0017), counted in
+       eligible sequences; the full sample is reported as it accumulates.
+   - Power from `laf.power.power` with `z = Z95` (0.025) or `Z90` (0.05), using each
+     model's D2 sequence effects with its D2 mean as the true difference.
 2. **Secondary: Opus 4.6** on its 22 M>=5 sequences, preregistered with its power (0.43 at
    0.05 if its D2 gap is real) stated openly. The M3 and M4 targets are added over its 75
    clean-period sequences where the catalog is complete.
