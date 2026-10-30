@@ -47,6 +47,13 @@ def test_d2_blocks_expand_to_the_planned_requests():
     assert all(r["params"]["output_config"]["effort"] == "high" for r in reqs)
     med = runner.expand(items, "d2-medium", "claude-sonnet-5-5")
     assert len(med) == n_post * 3 and med[0]["params"]["output_config"]["effort"] == "medium"
+    # d2-46: each 4.6 model at its study setting (ADR 0014 decision 5)
+    for model, effort in (("claude-opus-4-6", "medium"), ("claude-sonnet-4-6", "low")):
+        r = runner.expand(items, "d2-46", model)
+        assert len(r) == n_post * 3
+        assert {x["params"]["output_config"]["effort"] for x in r} == {effort}
+        assert {x["meta"]["effort"] for x in r} == {effort}
+        assert all(x["params"]["thinking"] == {"type": "adaptive"} for x in r)
 
 
 def test_v2_answers_validate_with_m3_and_flag_incoherent_magnitudes():
