@@ -53,9 +53,9 @@ locally at no cost:
 
 | Probe | LLM measure | Reference |
 |---|---|---|
-| P1 | slope of log10 mean count on Δ, per target magnitude and window | generic RJ: slope = b (about 1.0) |
+| P1 | slope of log10 mean count on Δ, per target magnitude and window | generic RJ, same statistic (analytic slope b, about 1.0, for context) |
 | P1 | P(M6+) at each Δ and window | generic RJ P(M6+) at the same Δ (it saturates as the expected count grows, so its slope is not b) |
-| P2 | implied Omori p: fit of log mean count against the RJ window integral, c fixed at the generic value | generic RJ p of the region |
+| P2 | implied Omori p: fit of log mean count against the RJ window integral, c fixed at the generic value | generic RJ, same statistic (the region's generic p for context) |
 | P3 | elasticity: slope of log mean forecast on log N (N >= 1); N = 0 reported on its own | Bayesian RJ update on the same catalogs (below) |
 | P4 | ratio of the even-pattern forecast to the decaying one | Bayesian RJ update on each catalog |
 | all | M3:M4:M5 ratios (implied b); spread, log(1 + 97.5% quantile) - log(1 + 2.5% quantile) | the same spread of the RJ reference |
@@ -67,6 +67,14 @@ locally at no cost:
   (the synthetic catalogs are complete at M3 by construction). It is defined for any count,
   including an empty list, where only the integral term remains. Through p it also responds
   to the time pattern in P4; with p fixed, the posterior would depend on the count alone.
+- **Same representation for the references (ADR 0015).** Every reference measure is computed
+  from the RJ forecast's own nine integer quantiles, passed through the same latent-PCHIP
+  reconstruction as the LLM answers. Small counts make this necessary: Poisson means from
+  0.0001 to 0.01 all have nine zero quantiles and one reconstructed mean, so an answer that
+  follows RJ exactly would show a zero slope against the analytic b. The analytic b and p are
+  shown for context only. Conditions where the reference's nine quantiles are all 0 carry no
+  slope information; their share is reported. P(M6+) is answered directly, so it needs no
+  reconstruction.
 - **Spread.** The 2.5% quantile is often 0 for these small counts (7,856 of 8,019 quantile
   sets in the D2 Opus answers), so the spread uses log(1 + q) rather than log q.
 
