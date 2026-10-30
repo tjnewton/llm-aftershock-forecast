@@ -177,22 +177,33 @@ def expand(items: list[Item], model: str, k: int = K) -> list[dict]:
     return reqs
 
 
+def bound_usd(params: dict, *, batch: bool) -> float:
+    """The most a request can cost: its prompt (from the request length, an overestimate) and
+    every output token up to `max_tokens`."""
+    usage = {
+        "input_tokens": len(json.dumps(params, ensure_ascii=False)) / CHARS_PER_TOKEN,
+        "output_tokens": params["max_tokens"],
+    }
+    return cost_usd(params["model"], usage, batch=batch)
+
+
 def pilot(client, items: list[Item], out: Path, budget_usd: float = 0.5) -> float:
     """Synchronous calls on one sequence (the largest mainshock), one item per probe, for each
-    4.6 model; stops before a call that could take the spend past `budget_usd`. Logs each call
-    with its validation status to out/calls.jsonl. Returns the spend."""
+    4.6 model; a call is made only if its worst-case cost (`bound_usd`) still fits in
+    `budget_usd`. Logs each call with its validation status to out/calls.jsonl. Returns the
+    spend."""
     check_budget(budget_usd)
     seq = max(bases(items), key=lambda i: i.mainshock.mag).sequence_id
     chosen = [i for t in PILOT_TAGS for i in items if i.item_id == f"{seq}@d1-{t}"]
-    spent, last = 0.0, {}  # last: each model's previous call cost
+    spent = 0.0
     out.mkdir(parents=True, exist_ok=True)
     for item in chosen:  # models alternate, so a stop still leaves both measured
         for model in PILOT_MODELS:
-            if spent + last.get(model, max(last.values(), default=0.1)) > budget_usd:
-                return spent
-            rec = call_anthropic(client, _params(item, model, MAX_TOKENS_SYNC))
-            last[model] = cost_usd(model, rec.get("usage") or {})
-            spent += last[model]
+            params = _params(item, model, MAX_TOKENS_SYNC)
+            if spent + bound_usd(params, batch=False) > budget_usd:
+                continue
+            rec = call_anthropic(client, params)
+            spent += cost_usd(model, rec.get("usage") or {})
             status, _, warn = validate(
                 "direct", rec.get("text"), rec.get("stop_reason"), TARGETS_V2
             )
@@ -201,6 +212,67 @@ def pilot(client, items: list[Item], out: Path, budget_usd: float = 0.5) -> floa
             with (out / "calls.jsonl").open("a", encoding="utf-8", newline="\n") as f:
                 f.write(json.dumps(row, sort_keys=True) + "\n")
     return spent
+
+
+# Settings pilot (Tyler, 2026-10-30): thinking and effort on the 4.6 models, one batch. The
+# output caps keep the worst case (every call at its cap) within $2.50; a capped answer is
+# itself the finding that the setting is too costly.
+SETTINGS_TAGS = ("p1+1.0", "p3-n100", "p4-even")
+SETTINGS = {  # name: (adaptive thinking, effort, max_tokens for Opus 4.6, for Sonnet 4.6)
+    "adaptive-high": (True, "high", 12_000, 32_000),
+    "adaptive-medium": (True, "medium", 12_000, 16_000),
+    "off-high": (False, "high", 4_000, 4_000),
+}
+
+
+def settings_requests(items: list[Item]) -> list[dict]:
+    seq = max(bases(items), key=lambda i: i.mainshock.mag).sequence_id
+    chosen = [i for t in SETTINGS_TAGS for i in items if i.item_id == f"{seq}@d1-{t}"]
+    reqs = []
+    for item in chosen:
+        system, user = render(item, "direct", info(item), PARAPHRASE)
+        for name, (thinking, effort, cap_opus, cap_sonnet) in SETTINGS.items():
+            for model, cap in zip(PILOT_MODELS, (cap_opus, cap_sonnet), strict=True):
+                params = anthropic_params(
+                    model, system, user, schema_for("direct", PARAPHRASE),
+                    effort=effort, max_tokens=cap,
+                )  # fmt: skip
+                if not thinking:
+                    params.pop("thinking")
+                meta = {"item_id": item.item_id, "arm": "direct", "info": info(item),
+                        "paraphrase": PARAPHRASE, "sample": 0, "block": "d1-settings",
+                        "model": model, "effort": effort, "setting": name}  # fmt: skip
+                reqs.append({"custom_id": request_id(params, 0), "meta": meta, "params": params})
+    return reqs
+
+
+def settings_summary(run: Path) -> pd.DataFrame:
+    """Per model and setting: valid answers, output tokens and batch cost per call."""
+    meta = {r["custom_id"]: r for r in _jsonl(run / "requests.jsonl")}
+    rows = []
+    for res in _jsonl(run / "results.jsonl"):
+        m = meta[res["custom_id"]]
+        status = (
+            validate("direct", res.get("text"), res.get("stop_reason"), TARGETS_V2)[0]
+            if res["result"] == "succeeded"
+            else "transport_error"
+        )
+        u = res.get("usage") or {}
+        rows.append({"model": m["model"], "setting": m["setting"], "item_id": m["item_id"],
+                     "status": status, "output_tokens": u.get("output_tokens"),
+                     "usd": cost_usd(m["model"], u, batch=True)})  # fmt: skip
+    df = pd.DataFrame(rows)
+    return (
+        df.groupby(["model", "setting"])
+        .agg(
+            calls=("status", "size"),
+            valid=("status", lambda s: int((s == "ok").sum())),
+            out_mean=("output_tokens", "mean"),
+            out_max=("output_tokens", "max"),
+            usd_per_call=("usd", "mean"),
+        )
+        .reset_index()
+    )
 
 
 def estimate_usd(reqs: list[dict], pilot_calls: Path, d2_results: Path) -> float:

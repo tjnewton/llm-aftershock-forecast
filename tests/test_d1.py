@@ -89,10 +89,11 @@ def test_references_follow_the_inputs(probe):
 
 
 def _fake_client(out_tokens):
+    outs = iter(out_tokens)
+
     def create(**params):
-        usage = SimpleNamespace(
-            model_dump=lambda: {"input_tokens": 2000, "output_tokens": out_tokens}
-        )
+        n = next(outs)
+        usage = SimpleNamespace(model_dump=lambda: {"input_tokens": 2000, "output_tokens": n})
         return SimpleNamespace(
             id="msg", model=params["model"], stop_reason="end_turn", stop_details=None,
             usage=usage, content=[SimpleNamespace(type="text", text="{}")],
@@ -103,15 +104,32 @@ def _fake_client(out_tokens):
     )
 
 
-def test_pilot_alternates_models_and_stops_at_its_budget(probe, tmp_path, monkeypatch):
+def test_pilot_alternates_models_and_never_exceeds_its_budget(probe, tmp_path, monkeypatch):
     items, _ = probe
     monkeypatch.chdir(tmp_path)  # an empty runs/ for the monthly guard
     monkeypatch.setenv("LAF_CLAUDE_MONTHLY_CAP_USD", "10")
-    spent = d1.pilot(_fake_client(1000), list(items.values()), tmp_path / "p")
+    d1.pilot(_fake_client([1000] * 8), list(items.values()), tmp_path / "p", budget_usd=10)
     rows = [json.loads(x) for x in (tmp_path / "p" / "calls.jsonl").read_text().splitlines()]
-    assert len(rows) == 8 and spent < 0.5
+    assert len(rows) == 8 and {r["status"] for r in rows} == {"schema_invalid"}
     assert [r["model_requested"] for r in rows[:2]] == ["claude-opus-4-6", "claude-sonnet-4-6"]
-    assert {r["status"] for r in rows} == {"schema_invalid"}
-    spent = d1.pilot(_fake_client(8000), list(items.values()), tmp_path / "q", budget_usd=0.5)
-    assert spent <= 0.5
-    assert len((tmp_path / "q" / "calls.jsonl").read_text().splitlines()) < 8
+    # outputs that grow after the first calls (Codex review): the guard uses each call's worst
+    # case, not the previous cost
+    for budget in (0.5, 0.8):
+        out = tmp_path / f"b{budget}"
+        spent = d1.pilot(
+            _fake_client([1000, 1000] + [16000] * 6), list(items.values()), out, budget
+        )
+        assert spent <= budget
+
+
+def test_settings_pilot_requests_and_their_worst_case(probe):
+    items, _ = probe
+    reqs = d1.settings_requests(list(items.values()))
+    assert len(reqs) == len(d1.SETTINGS_TAGS) * len(d1.SETTINGS) * 2
+    assert len({r["custom_id"] for r in reqs}) == len(reqs)
+    for r in reqs:
+        thinking, effort = r["params"].get("thinking"), r["params"]["output_config"]["effort"]
+        name = r["meta"]["setting"]
+        assert (thinking is not None) == name.startswith("adaptive")
+        assert effort == name.split("-")[1]
+    assert sum(d1.bound_usd(r["params"], batch=True) for r in reqs) <= 2.5

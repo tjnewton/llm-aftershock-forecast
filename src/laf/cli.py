@@ -116,7 +116,10 @@ def main(argv: list[str] | None = None) -> None:
     d1p.add_argument("action", choices=("build", "pilot", "run"))
     d1p.add_argument("--snapshot", required=True)
     d1p.add_argument("--model", choices=("claude-opus-4-6", "claude-sonnet-4-6", "claude-opus-5-5"))
-    d1p.add_argument("--dry-run", action="store_true", help="run: count requests, estimate cost")
+    d1p.add_argument("--dry-run", action="store_true", help="count requests and estimate cost")
+    d1p.add_argument(
+        "--settings", action="store_true", help="pilot: the thinking and effort settings batch"
+    )
     lw = sub.add_parser(
         "live-watch", help="dry run of the live detector (ComCat polls; no model calls)"
     )
@@ -413,6 +416,19 @@ def main(argv: list[str] | None = None) -> None:
             raise SystemExit(f"{path} missing or stale: run `laf d1 build` and commit it")
         from laf.providers import client
 
+        if a.action == "pilot" and a.settings:
+            from laf import runner
+
+            reqs = d1.settings_requests(items)
+            bound = sum(d1.bound_usd(r["params"], batch=True) for r in reqs)
+            print(f"settings pilot: {len(reqs)} requests, worst case ${bound:.2f} (batch)")
+            if not a.dry_run:
+                batch = runner.submit(
+                    client(), "d1/pilot-settings", reqs, a.snapshot, estimate=bound,
+                    items_file="items_d1.jsonl", prompt_set="v2",
+                )  # fmt: skip
+                print("batch", batch, "-> laf status / laf collect d1/pilot-settings")
+            return
         if a.action == "pilot":
             out = Path("runs/d1/pilot")
             print(f"pilot spend ${d1.pilot(client(), items, out):.3f} -> {out}/calls.jsonl")
