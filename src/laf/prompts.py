@@ -6,7 +6,7 @@ from pathlib import Path
 from string import Template
 from typing import Literal
 
-from laf.items import Item, utc
+from laf.items import N_LARGEST, Item, utc
 
 PROMPT_DIR = Path(__file__).resolve().parents[2] / "prompts"
 Arm = Literal["direct", "params"]
@@ -16,7 +16,6 @@ Paraphrase = Literal["p1", "p2", "v2A", "v2B", "v2C"]
 # M3.0; A and B reuse the p1 and p2 wording, C is A with the catalog given as a summary
 V2 = {"v2A": ("A", "list"), "v2B": ("B", "list"), "v2C": ("A", "summary")}
 V2_FLOOR = 3.0
-N_LARGEST = 20
 DAY_MS = 86_400_000
 
 
@@ -73,7 +72,10 @@ def _catalog_summary(item: Item) -> str:
         f"- day {d['day']}: M3+ {d['m3']}, M4+ {d['m4']}, M5+ {d['m5']}, M6+ {d['m6']}"
         for d in days
     ] or ["- (no events)"]
-    largest = sorted(item.catalog, key=lambda r: (-r.mag, r.t_days))[:N_LARGEST]
+    # the whole period's largest events (items built at floor 3.0 carry them even when the
+    # listed catalog is truncated to the most recent rows)
+    largest = item.largest if item.largest is not None else item.catalog
+    largest = sorted(largest, key=lambda r: (-r.mag, r.t_days))[:N_LARGEST]
     rows = ["t_days,utc_time,mag,mag_type,depth_km,dist_km"] + [
         f"{r.t_days:.4f},{r.utc_time},{r.mag:.1f},{r.mag_type},{r.depth_km:g},{r.dist_km:g}"
         for r in sorted(largest, key=lambda r: r.t_days)

@@ -65,3 +65,61 @@ def test_v2_answers_validate_with_m3_and_flag_incoherent_magnitudes():
     bad = json.dumps({"day": w(a, c, b), "week": w(a, c, b), "month": w(a, c, b), "notes": "x"})
     status, _, warn = validate("direct", bad, "end_turn", TARGETS_V2)
     assert status == "ok" and "incoherent_magnitudes" in warn
+
+
+def test_variant_c_uses_the_largest_events_of_the_whole_period(monkeypatch):
+    from laf import items as I
+
+    monkeypatch.setattr(I, "MAX_CATALOG_ROWS", 50)  # force truncation in the large sequences
+    t = load_tables(Path("data/processed/20261021T1027Z"))
+    big = [i for i in build_items(t, 3.0) if i.truncated]
+    assert big, "expected truncated M3 catalogs in large sequences"
+    item = max(big, key=lambda i: i.elapsed_days)
+    cats = t["issue_catalogs"]
+    rows = cats[(cats["issue_id"] == item.item_id) & (cats["mag"] >= 3.0 - 1e-6)]
+    rows = rows[rows["time_ms"] < item.issue_ms]
+    assert item.largest is not None and max(r.mag for r in item.largest) == rows["mag"].max()
+    _, c = render(item, "direct", "I1", "v2C")
+    assert f"{rows['mag'].max():.1f}" in c.split("```csv")[1]
+
+
+def test_d2_loader_validates_m3(tmp_path):
+    from laf.d2 import samples
+
+    def w(m3):
+        q = lambda v: dict(zip(QKEYS, v, strict=True))  # noqa: E731
+        z = [0] * 9
+        return {
+            "m5_count_quantiles": q(z),
+            "m4_count_quantiles": q(z),
+            "m3_count_quantiles": q(m3),
+            "p_m6_at_least_one": 0.0,
+        }
+
+    meta = {
+        "arm": "direct",
+        "info": "I1",
+        "item_id": "x",
+        "model": "m",
+        "block": "d2",
+        "effort": "high",
+        "sample": 0,
+    }
+    good = {"day": w([0] * 9), "week": w([0] * 9), "month": w([0] * 9), "notes": ""}
+    bad = {**good, "month": w([3, 2, 1, 0, 0, 0, 0, 0, 0])}  # non-monotone M3 only
+    reqs, res = [], []
+    for i, (para, ans) in enumerate((("v2A", good), ("v2A", bad), ("p1", bad))):
+        reqs.append({"custom_id": str(i), "paraphrase": para, **meta})
+        res.append(
+            {
+                "custom_id": str(i),
+                "result": "succeeded",
+                "stop_reason": "end_turn",
+                "text": json.dumps(ans),
+            }
+        )
+    (tmp_path / "requests.jsonl").write_text("".join(json.dumps(r) + "\n" for r in reqs))
+    (tmp_path / "results.jsonl").write_text("".join(json.dumps(r) + "\n" for r in res))
+    st = {(r["custom_id"], r["window"]): r["status"] for r in samples([tmp_path])}
+    assert st[("0", "day")] == "ok" and st[("1", "day")] == "non_monotone"
+    assert st[("2", "day")] == "ok"  # registered requests ignore the M3 field

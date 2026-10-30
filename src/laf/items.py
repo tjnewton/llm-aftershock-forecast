@@ -4,13 +4,14 @@ from datetime import UTC, datetime
 from typing import Literal
 
 import pandas as pd
-from pydantic import BaseModel
+from pydantic import BaseModel, model_serializer
 
 from laf.catalog import haversine_km
 from laf.oaf import WindowLabel
 from laf.registry import Role
 
 CATALOG_FLOOR = 4.0
+N_LARGEST = 20  # largest events kept for summary prompts (v2 variant C)
 MAX_CATALOG_ROWS = 800
 WINDOW_KEYS: dict[str, Literal["day", "week", "month"]] = {
     "1 Day": "day",
@@ -69,6 +70,27 @@ class Item(BaseModel):
     catalog: list[CatalogRow]
     truncated: bool
     daily_counts: list[dict] | None
+    # v2 items (catalog floor below 4.0): the largest events of the whole period, so a summary
+    # prompt does not depend on which rows the 800-row tail kept. Absent from registered items.
+    largest: list[CatalogRow] | None = None
+
+    @model_serializer(mode="wrap")
+    def _omit_absent_largest(self, handler):
+        d = handler(self)
+        if d.get("largest") is None:
+            d.pop("largest", None)
+        return d
+
+
+def _row(r: dict) -> CatalogRow:
+    return CatalogRow(
+        t_days=round(r["t_days"], 4),
+        utc_time=utc(int(r["time_ms"])),
+        mag=float(r["mag"]),
+        mag_type=str(r["magType"]),
+        depth_km=round(float(r["depth"]), 1),
+        dist_km=round(float(r["dist"]), 1),
+    )
 
 
 def _daily_counts(rows: pd.DataFrame, floor: float = CATALOG_FLOOR) -> list[dict]:
@@ -110,6 +132,7 @@ def build_items(tables: dict[str, pd.DataFrame], floor: float = CATALOG_FLOOR) -
         rows = rows.assign(dist=haversine_km(ms.lat, ms.lon, rows["latitude"], rows["longitude"]))
         truncated = len(rows) > MAX_CATALOG_ROWS
         shown = rows.tail(MAX_CATALOG_ROWS).to_dict("records")
+        top = rows.sort_values(["mag", "time_ms"], ascending=[False, True]).head(N_LARGEST)
         w = windows[windows["issue_id"] == it["issue_id"]].sort_values("time_end_ms")
         items.append(
             Item(
@@ -131,19 +154,10 @@ def build_items(tables: dict[str, pd.DataFrame], floor: float = CATALOG_FLOOR) -
                     )
                     for r in w.to_dict("records")
                 ],
-                catalog=[
-                    CatalogRow(
-                        t_days=round(r["t_days"], 4),
-                        utc_time=utc(int(r["time_ms"])),
-                        mag=float(r["mag"]),
-                        mag_type=str(r["magType"]),
-                        depth_km=round(float(r["depth"]), 1),
-                        dist_km=round(float(r["dist"]), 1),
-                    )
-                    for r in shown
-                ],
+                catalog=[_row(r) for r in shown],
                 truncated=truncated,
                 daily_counts=_daily_counts(rows, floor) if truncated else None,
+                largest=[_row(r) for r in top.to_dict("records")] if floor < 4.0 else None,
             )
         )
     return sorted(items, key=lambda i: i.item_id)
