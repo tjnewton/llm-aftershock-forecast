@@ -578,6 +578,8 @@ def main(argv: list[str] | None = None) -> None:
         if not a.dry_run:
             print("batch", O.submit(O.client(), name, reqs, a.snapshot, estimate=est))
     elif a.cmd == "confirmatory-dryrun":
+        import pandas as pd
+
         from laf.confirmatory import report
         from laf.power import d2_cell_differences
 
@@ -587,10 +589,21 @@ def main(argv: list[str] | None = None) -> None:
         # stand-ins for co-primary tests A (gpt-5.1) and B (Opus 5.5), ADR 0018
         primary = ("gpt-5.1-2025-11-13 medium v2A", "claude-opus-5-5 high v2A")
         t = report(cells, primary)
+        from laf.confirmatory import hierarchical, stratum
+        from laf.pilot import load_items
+
+        elapsed = {i.item_id: i.elapsed_days for i in load_items(a.data_dir, a.snapshot, 3.0)}
+        cells = cells.assign(
+            issue_id=[c[0] for c in cells["cell"]],
+            window=[c[1] for c in cells["cell"]],
+            stratum=[stratum(elapsed[c[0]]) for c in cells["cell"]],
+        )
+        hier = {m: hierarchical(g) for m, g in cells.groupby("model")}
+        t = t.join(pd.DataFrame.from_dict(hier, orient="index"), on="model")
         path = Path("results") / f"confirmatory_dryrun_d2_{a.snapshot}.csv"
         t.to_csv(path, index=False, lineterminator="\n")
-        cols = ["model", "sequences", "mean", "upper", "p", "noninferior", "superior",
-                "holm_noninferior", "trimmed_mean", "median"]  # fmt: skip
+        cols = ["model", "sequences", "mean", "upper", "noninferior", "holm_noninferior",
+                "trimmed_mean", "median", "hier_mu", "hier_upper", "hier_noninferior"]  # fmt: skip
         print(t[cols].round(3).to_string(index=False))
         print(f"-> {path} (development data: a rehearsal of the frozen analysis, not a result)")
     elif a.cmd == "power":

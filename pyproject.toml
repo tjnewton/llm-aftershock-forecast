@@ -16,6 +16,7 @@ dependencies = [
     "pyarrow>=17",
     "pydantic>=2.8",
     "scipy>=1.14",
+    "statsmodels>=0.14,<1",
 ]
 
 [project.scripts]
