@@ -147,7 +147,10 @@ def main(argv: list[str] | None = None) -> None:
     )
     ct.add_argument("--snapshot", required=True)
     ct.add_argument("--runs", type=Path, required=True, help="folder of confirmatory run folders")
-    ct.add_argument("--min-mag", type=float, default=5.0, help="0: test A's sensitivity set")
+    ct.add_argument(
+        "--test-a-all", action="store_true",
+        help="test A's sensitivity run: gpt-5.1 on all clean candidates (test B stays M>=5)",
+    )  # fmt: skip
     cf = sub.add_parser(
         "confirmatory-dryrun",
         help="ADR 0018 tests on development D2 answers (no API; a rehearsal, not a result)",
@@ -599,11 +602,12 @@ def main(argv: list[str] | None = None) -> None:
         runs = sorted(d for d in a.runs.iterdir() if (d / "results.jsonl").exists())
         samples, _ = analyze(proc, runs)
         elapsed = {i.item_id: i.elapsed_days for i in load_items(a.data_dir, a.snapshot, 3.0)}
-        cells = confirmatory_cells(samples, tables["sequences"], elapsed, a.min_mag)
+        widen = {CO_PRIMARY[0]: 0.0} if a.test_a_all else None
+        cells = confirmatory_cells(samples, tables["sequences"], elapsed, widen)
         t = report(cells, CO_PRIMARY)
         hier = {m: hierarchical(g) for m, g in cells.groupby("model")}
         t = t.join(pd.DataFrame.from_dict(hier, orient="index"), on="model")
-        tag = "" if a.min_mag == 5.0 else f"_min{a.min_mag:g}"
+        tag = "_test_a_all" if a.test_a_all else ""
         path = Path("results") / f"confirmatory_{a.snapshot}{tag}.csv"
         t.to_csv(path, index=False, lineterminator="\n")
         print(t.round(3).to_string(index=False))

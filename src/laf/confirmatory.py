@@ -160,11 +160,16 @@ def eligible(sequences: pd.DataFrame, model: str, min_mag: float = 5.0) -> set[s
 
 
 def confirmatory_cells(
-    samples: pd.DataFrame, sequences: pd.DataFrame, elapsed: dict[str, float], min_mag: float = 5.0
+    samples: pd.DataFrame,
+    sequences: pd.DataFrame,
+    elapsed: dict[str, float],
+    min_mag: dict[str, float] | None = None,
 ) -> pd.DataFrame:
     """Per (model, cell) mean dS over the model's primary-prompt samples at its study effort,
     kept only on its eligible sequences, with the issue, window and stratum the hierarchical
     model needs. `samples` is `laf.d2.analyze`'s per-sample table (with `worst_base_d5`).
+    `min_mag` lowers the M>=5 threshold for named models only (test A's sensitivity run widens
+    gpt-5.1 alone; test B stays on M>=5).
 
     Invalid answers get the worst score of any valid forecast in the cell, over every valid
     answer and every baseline (prereg v1 section 7; Tyler, 2026-10-31); transport errors are
@@ -179,8 +184,9 @@ def confirmatory_cells(
         s["status"] == "ok", s["d5"], worst.reindex(pd.MultiIndex.from_frame(s[key])).to_numpy()
     )
     s = s.assign(d=d)
+    mags = min_mag or {}
     ok = {
-        m: (study_effort(m), eligible(sequences, m, min_mag))
+        m: (study_effort(m), eligible(sequences, m, mags.get(m, 5.0)))
         for m in set(s["model"]) & set(CLEAN_FROM)
     }
     cols = zip(s["model"], s["effort"], s["variant"], s["sequence_id"], strict=True)

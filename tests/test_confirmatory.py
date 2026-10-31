@@ -133,3 +133,21 @@ def test_confirmatory_command_refuses_while_outcomes_are_sealed(tmp_path):
     (tmp_path / "r/requests.jsonl").write_text("")
     with pytest.raises(SystemExit, match="sealed"):
         main(["confirmatory", "--snapshot", "20261029T2000Z", "--runs", str(tmp_path)])
+
+
+def test_sensitivity_threshold_widens_only_the_named_model(monkeypatch):
+    from laf import splits
+
+    monkeypatch.setattr(splits, "development_ids", lambda: frozenset())
+    ms = pd.Timestamp("2026-10-15", tz="UTC").value // 1_000_000
+    seqs = pd.DataFrame({"sequence_id": ["big", "small"], "origin_ms": [ms, ms], "mag": [5.5, 4.5]})
+    rows = [(m, e, sid) for m, e in (("gpt-5.1-2025-11-13", "medium"), ("claude-opus-5-5", "high"))
+            for sid in ("big", "small")]  # fmt: skip
+    samples = pd.DataFrame(rows, columns=["model", "effort", "sequence_id"])
+    samples = samples.assign(variant="v2A", status="ok", d5=0.0, worst_base_d5=0.0, window="day",
+                             item_id=samples["sequence_id"] + "@1")  # fmt: skip
+    elapsed = {"big@1": 1.0, "small@1": 1.0}
+    cells = C.confirmatory_cells(samples, seqs, elapsed, {"gpt-5.1-2025-11-13": 0.0})
+    got = sorted(zip(cells["model"], cells["sequence_id"], strict=True))
+    assert got == [("claude-opus-5-5", "big"), ("gpt-5.1-2025-11-13", "big"),
+                   ("gpt-5.1-2025-11-13", "small")]  # fmt: skip
