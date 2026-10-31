@@ -1,0 +1,16 @@
+{
+ "base_url": "https://api.openai.com/v1",
+ "batch_id": "batch_6ae5ea40be7481908ab96cc7e3934c4a",
+ "created_at": "2026-10-31T13:16:48+00:00",
+ "estimate_usd": 18.18,
+ "git_dirty": false,
+ "git_sha": "c2c181290c2cfb1b9501b7e6f98941715f3a3eaf",
+ "input_file_id": "file-X4soxcHmRqXUherhkuJvdU",
+ "items_file": "items_m3.jsonl",
+ "items_sha256": "f802e103032f9cbb3e903ffce4a9cc9cca49167f045c0ad66e14954c9442bbc6",
+ "n_requests": 297,
+ "prompt_hashes_sha256": "3bed502a614f980cc495e4b3d51804b84aadbe46c5722c9b223a291a6ae8a680",
+ "provider": "openai",
+ "snapshot": "20261021T2300Z",
+ "spent_month_before_usd": 0.39
+}
