@@ -1,7 +1,8 @@
 # Preregistration v2: LLM aftershock forecasts against USGS operational forecasts, retrospective and prospective
 
-Status: **DRAFT, not frozen.** Tyler alone decides the freeze (tag `prereg-v2`). Items marked
-**OPEN** need his decision; each carries a recommendation. Items marked **TO BUILD** or **TO
+Status: **DRAFT, not frozen.** Tyler alone decides the freeze (tag `prereg-v2`). On 2026-10-31
+he accepted the recommendations for decisions 1-13 (section 13). Items still marked **OPEN**
+need his decision. Items marked **TO BUILD** or **TO
 FIX** are work that must be finished before the freeze (section 11). Sources: ADRs 0004, 0006,
 0011 and 0013-0018 (decisions of 2026-10-30 and 2026-10-31), the D1 and D2 results, the settings
 pilots, and three checks of this draft (2026-10-31: the author's, an independent fact check,
@@ -37,11 +38,11 @@ Per cell (issue time x window x target), dS = S(model) - S(official).
 |---|---|---|---|
 | **A** (co-primary) | gpt-5.1 is non-inferior to the official forecast | retrospective: gpt-5.1's clean M>=5 sequences (89 among the current candidates) | one-sided, delta = 0.10 nats per cell |
 | **B** (co-primary) | Claude Opus 5.5 is non-inferior to the official forecast | its clean retrospective M>=5 sequences plus prospective sequences (section 5) | one-sided, delta = 0.10 |
-| S1 (secondary) | Opus 4.6 is non-inferior | its clean M>=5 sequences (23); M3/M4 targets on its 76 clean sequences descriptive (**OPEN**, see 13) | one-sided, delta = 0.10, alpha 0.05 |
+| S1 (secondary) | Opus 4.6 is non-inferior | its clean M>=5 sequences (23); M3/M4 targets on its 76 clean sequences descriptive | one-sided, delta = 0.10, alpha 0.05 |
 | S2 (secondary) | gpt-6.1-sol is non-inferior | prospective (ADR 0018 decision 3) | as S1 |
 | S3 (secondary) | Opus 5.5, gpt-5.1, Opus 4.6 and gpt-6.1-sol each beat the rule of thumb | each model's A, B, S1 or S2 set | superiority, alpha 0.05 |
-| S4 (secondary) | the same models against the legacy-ETAS refit (and generic RJ, **OPEN**) | as S3 | estimate and 95% CI against ETAS (ADR 0018); superiority over generic RJ proposed |
-| S5 (secondary, **OPEN**) | Opus 5.5 (and gpt-6.1-sol) against the pipeline's baselines on strict prospective items | prospective strict items | as S3 and S4 |
+| S4 (secondary) | the same models against generic RJ and the legacy-ETAS refit | as S3 | superiority over generic RJ (alpha 0.05); estimate and 95% CI against ETAS |
+| S5 (secondary) | Opus 5.5 (and gpt-6.1-sol) against the pipeline's baselines on strict prospective items | prospective strict items | as S3 and S4 |
 | D (descriptive) | Sonnet 4.6; M3 and M4 targets; D1 behavioral probes; hindsight effect (ADR 0016) | as stated | no test |
 
 - **Decision rule** for each tested hypothesis, at its level:
@@ -55,7 +56,7 @@ Per cell (issue time x window x target), dS = S(model) - S(official).
     secondary models, superiority is tested at 0.05 after non-inferiority.
   - No secondary target, secondary set or sensitivity analysis overturns a primary result.
 - **Multiplicity:** a Holm correction across A and B, with A and B computed together on the
-  final outcome snapshot (**OPEN**, recommended; section 5). The first Holm step tests at 0.025, the second at 0.05.
+  final outcome snapshot (decided 2026-10-31); section 5). The first Holm step tests at 0.025, the second at 0.05.
   The reported bound of each co-primary hypothesis is at its Holm level. Secondary tests are
   at 0.05 each and labelled secondary.
 - **Margin delta = 0.10 nats per cell** (ADR 0018). Anchors on development data, as the mean
@@ -65,13 +66,13 @@ Per cell (issue time x window x target), dS = S(model) - S(official).
   - Generic RJ minus official is -0.013 on E3 and +0.184 on the registered sequences.
   - So delta = 0.10 is generous for small sequences. Most cells carry little information,
     which pulls the mean toward 0.
-  - **Assay sensitivity** (**OPEN**, recommended): the same non-inferiority test is run for generic RJ
+  - **Assay sensitivity** (decided 2026-10-31): the same non-inferiority test is run for generic RJ
     against the official forecast on each test's cells. If generic RJ is also non-inferior, A
     and B are reported as unable to separate the model from the generic default, and no claim
     of sequence-specific skill rests on them.
-  - **OPEN** (recommended): an informative-sequence secondary estimand, with an outcome-blind
-    stratifier. For example, the official forecast's mean N(M>=5) in the first issue's month
-    window is at least 0.5.
+  - **Informative-sequence secondary estimand** (decided 2026-10-31): the primary estimand on the sequences
+    whose official forecast at the first issue has a mean N(M>=5) of at least 0.5 in the month
+    window. This is outcome-blind.
 - **Power:**
   - From each model's development (D2) sequence effects with its D2 mean as the true
     difference, using the normal-approximation simulation of `laf.power`: A 0.62 on 88 (computed before the 89th was restored)
@@ -94,16 +95,16 @@ Per cell (issue time x window x target), dS = S(model) - S(official).
   - The JSON schema `prompts/v2/schema_direct.json`, strict where the API supports it, and an
     explicit effort.
   - Base URLs pinned to the official APIs. `response.model` and `usage` are logged for every
-    call. Proposed: an answer whose `response.model` differs from the requested ID is invalid.
+    call. An answer whose `response.model` differs from the requested ID is invalid.
 - **Prompt:** `v2A` (hashes in `prompts/v2/HASHES.json`).
   - It asks, per window, for nine quantiles of N(M>=5), N(M>=4) and N(M>=3) and for P(M>=6),
     and shows the catalog from M3.0.
   - `v2B` is a preregistered robustness check (ADR 0015 decision 4), run by the co-primary
     models only.
-- **Samples:** **OPEN**, k samples per item. Recommended: k = 3 (as in D2).
+- **Samples:** k = 3 per item (decided 2026-10-31), as in D2.
 - **Output cap:** 32,000 tokens for every scored call, batch or live (live calls stream). **TO
   FIX:** the live path is capped at 16,000 now.
-- **Model changes** (**OPEN**, recommended):
+- **Model changes** (decided 2026-10-31):
   - gpt-5.1 is removed from the API on 2027-04-01, so all test A forecasts are generated by
     2027-03-01.
   - If a model is withdrawn or changes (shown by `response.model`), its accrual stops then, and
@@ -121,14 +122,14 @@ Per cell (issue time x window x target), dS = S(model) - S(official).
   - Nothing else. nn00914068 (M5.7, 2026-04-14, Silver Springs NV) had been dropped for E3
     because ComCat would not return it in full. It was retrieved on 2026-10-31 and restored,
     making 195 candidates; its outcomes stay sealed.
-  - **OPEN: the foreshock half of the exclusion rule uses future information.** 3 of the 10
+  - **The foreshock half of the exclusion rule uses future information** (decided 2026-10-31). 3 of the 10
     excluded events were excluded only because a larger event followed within a year. That
     event can fall inside their own forecast windows, so the exclusion selects on outcomes. The
     3 were counted without looking at their identities.
-    - Recommended: keep the candidate list as built, since the primary set must not change
-      after this partial exposure.
-    - Apply only the backward-looking (aftershock) half to prospective sequences.
-    - Report test A, test B and S1 with the 3 included as a sensitivity analysis.
+    - The candidate list stays as built, since the primary set must not change after this
+      partial exposure.
+    - Prospective sequences get only the backward-looking (aftershock) half.
+    - Tests A, B and S1 are also reported with the 3 included, as a sensitivity analysis.
 - **Primary set:** M>=5 mainshocks in each model's clean period.
   - Mainshock magnitudes are those of the frozen snapshot (retrospective) or at first
     detection (prospective).
@@ -142,15 +143,15 @@ Per cell (issue time x window x target), dS = S(model) - S(official).
   - The first valid official version, plus for each target t in {1, 3, 7, 14, 28} days the
     earliest valid version whose information cutoff falls in
     [origin + t, origin + t + max(1 d, t/4)) (ADR 0004).
-  - **OPEN:** prospectively, the same schedule is applied in real time. Recommended: only the
-    scheduled versions get forecasts. Other versions are not forecast; forecasting every one
+  - Prospectively, the same schedule is applied in real time, and only the scheduled versions
+    get forecasts (decided 2026-10-31). Other versions are not forecast; forecasting every one
     would mean about 60 versions per sequence, mostly months later.
 - **Windows:** day, week and month, taken from each official version; the year window is not
   used. Windows are half-open [start, end).
 - **Strata:** under 1 day, 1 to 7 days, and 7 days or more after the mainshock.
 - **Targets:**
-  - M>=5 is primary. M>=4 is descriptive (**OPEN**, recommended: no completeness rule exists
-    at M4, and 9 of Opus 4.6's 76 clean sequences have catalog completeness 4.6).
+  - M>=5 is primary. M>=4 is descriptive (decided 2026-10-31): no completeness rule exists at M4, and 9 of
+    Opus 4.6's 76 clean sequences have catalog completeness 4.6.
   - M>=3 is descriptive and counts only where the catalog is complete at M3 for the whole
     window: the official product's own Mc (ETAS `Mc` or RJ `Mcat`) is at most 3.0, and the
     time-dependent completeness after the mainshock (`MagComp`, ADR 0009) reaches 3.0 before
@@ -162,8 +163,8 @@ Per cell (issue time x window x target), dS = S(model) - S(official).
   - A cell is primary once its window closed at least 21 days before the outcome snapshot;
     2 days is a sensitivity analysis.
 - **Prospective inclusion:** a new event qualifies by the same magnitude rules.
-  - **OPEN** (recommended): an event inside the circle of a larger event from the previous
-    365 days is excluded as an aftershock, using the same context catalogs.
+  - An event inside the circle of a larger event from the previous 365 days is excluded as an
+    aftershock, using the same context catalogs (decided 2026-10-31).
   - A sequence once included is never removed.
   - Event identities are matched through ComCat's associated IDs.
 
@@ -200,41 +201,40 @@ items against the official forecast. **TO FIX:** amend ADR 0017.
     outcome-blind procedure, into a supplementary snapshot.
   - Prospective sequences have origin at L or later. A sequence belongs to exactly one part.
   - Test B is also reported for each part alone.
-  - (**OPEN**, recommended: this definition of the parts and the supplementary snapshot.)
+  - (This definition of the parts and the supplementary snapshot was decided 2026-10-31.)
 - **Stopping rule:** sequences stop entering at S = min(L + 182 days, the time of the 26th
   eligible prospective M>=5 sequence).
   - The 6-month clock does not pause for outages.
   - One outcome snapshot for A and B is taken at S + 90 days. That covers the last 28-day
     issue, its tolerance, a month window and 21 days of settling.
   - There is no early stopping.
-- **No interim looks** (**OPEN**, recommended: computing A early would reveal outcomes of
-  October sequences that A and B share): no confirmatory score or test is computed before
-  S + 90 days.
+- **No interim looks** (decided 2026-10-31): no confirmatory score or test is computed before S + 90 days.
+  Computing A early would reveal outcomes of October sequences that A and B share.
   - **TO BUILD:** a second software gate that refuses outcome access for test B's sequences
     and for live records until then. `laf live-score` must refuse v2 records.
-- **Budget priority** (**OPEN**, recommended): a fixed live reserve. If the cap binds, the order is Opus 5.5 matched,
+- **Budget priority** (decided 2026-10-31): a fixed live reserve. If the cap binds, the order is Opus 5.5 matched,
   then Opus 5.5 strict, then gpt-6.1-sol. Misses are listed as "missed: budget".
-- **OPEN:** the live start date L, and which models run live. Recommended: Opus 5.5 and
-  gpt-6.1-sol.
+- **Live models:** Opus 5.5 and gpt-6.1-sol (decided 2026-10-31). gpt-6.1-sol joins once its
+  effort is set by a pilot. **OPEN:** the live start date L.
 
 ## 6. Analysis (ADR 0018; `laf.confirmatory`)
 - **Primary:** a sequence block bootstrap (B = 10,000, fixed seed) over the per-sequence mean
   dS. Test B resamples its retrospective and prospective parts separately.
-  - **OPEN: the bound.** Under heavy tails, the percentile bound drafted so far claims
+  - **The bound** (decided 2026-10-31): a studentized (bootstrap-t) upper bound. Under heavy tails, the
+    percentile bound drafted earlier claims
     non-inferiority too often. In simulation with the true mean at delta and a nominal 0.025:
     - With effects like gpt-5.1's in D2 (one sequence in 18 at +1 nat), it errs 0.15 of the
       time at N = 33 and 0.05 at N = 88.
     - A studentized (bootstrap-t) bound errs 0.15 at N = 33 and 0.02 at N = 88.
     - At N = 33 no bootstrap can recover a rare event the sample misses.
-    - Recommended:
-      - Register the bootstrap-t bound.
-      - Before the freeze, simulate the registered test's size at N = 33 and 88 from the
-        development effects shifted to delta.
-      - Register a calibrated nominal level wherever the size exceeds 0.03.
-      - State openly that test B at about 33 sequences cannot rule out a rare-event deficit.
-  - **OPEN: the family-wise level.** One-sided 0.05 with Holm matches the 90% interval of
-    equivalence testing but is looser than the usual one-sided 0.025 for non-inferiority.
-    Recommended: keep 0.05 and justify it by the power available.
+    - Before the freeze, the registered test's size is simulated at N = 33 and 89 from the
+      development effects shifted to delta. Wherever it exceeds 0.03, a calibrated nominal
+      level is registered as a number.
+    - Test B at about 33 sequences cannot rule out a rare-event deficit, and the paper says
+      so.
+  - **The family-wise level** (decided 2026-10-31): one-sided 0.05 with Holm. It matches the 90% interval of
+    equivalence testing but is looser than the usual one-sided 0.025 for non-inferiority;
+    the power available justifies it.
 - **Beside the mean:**
   - The 10% trimmed mean and the median of the sequence effects, with bootstrap intervals.
   - Leave-one-sequence-out influence on A and B.
@@ -277,16 +277,14 @@ items against the official forecast. **TO FIX:** amend ADR 0017.
     - Sonnet 4.6 excluded from any test row.
 
 ## 7. Invalid outputs
-- An invalid answer gets the worst score in its cell from a fixed pool (**OPEN**, see 13). Invalid means a schema
+- An invalid answer gets the worst score in its cell from a fixed pool (decided 2026-10-31). Invalid means a schema
   violation, an answer cut off at the output cap, a refusal, non-monotone quantiles, a value out
   of range, or a mismatched `response.model`.
   - The pool is the five baselines (official, generic RJ, RJ-MLE, the rule of thumb, the
     legacy-ETAS refit), scored through nine quantiles at M>=5. It therefore does not depend on k
     or on which other runs exist.
-  - This is the prereg v1 rule with its pool fixed. The alternative, closer to v1's wording:
-    the baselines plus the study models' v2A answers at their study settings. **TO FIX:** the
-    code now takes every valid answer it loads, so the penalty depends on which runs are
-    passed.
+  - This is the prereg v1 rule with its pool fixed. **TO FIX:** the code now takes every valid
+    answer it loads, so the penalty depends on which runs are passed.
 - Magnitudes that disagree across targets (an M3 count below an M4 count) are a warning, not
   invalid at M5.
 - Retrospective transport errors are retried, up to 10 attempts. Persistent failures are listed
@@ -352,29 +350,25 @@ Changes after the freeze go in a dedicated v2 section of docs/deviations.md, eac
 UTC time, reason and expected effect. A change made after outcomes are unsealed is exploratory,
 and the registered analysis is still reported.
 
-## 13. Decisions requested (OPEN items, with recommendations)
-1. **The bound of the non-inferiority test:** bootstrap-t with a simulated size check and a
-   calibrated level where needed (section 6). Recommended.
-2. **The family-wise level:** keep one-sided 0.05 with Holm, justified by power. Recommended.
-3. **Prospective issue times:** apply the ADR 0004 schedule in real time, and forecast only the
-   scheduled versions (section 4). Recommended.
-4. **The forward-looking exclusion:** keep the candidate list, apply only the backward half
-   prospectively, and add a sensitivity analysis with the 3 included (section 4). Recommended.
-5. **Margin support:** add the assay-sensitivity test (generic RJ against the official
-   forecast) and an informative-sequence secondary estimand (section 2). Recommended.
-6. **Strict items:** S5 against the baselines; ADR 0018's test B replaces ADR 0017 decisions
-   1-2 (section 5). Recommended.
-7. **Timing:** compute A and B together on one outcome snapshot at S + 90 days, behind a second
-   software gate (section 5). Recommended.
-8. **The parts of test B,** the supplementary snapshot at L, and a stratified bootstrap
-   (section 5). Recommended.
-9. **The invalid-answer pool:** the five baselines only (deterministic), or the baselines plus
-   the study models' v2A answers (closer to v1). Recommended: baselines only.
-10. **S1 and M4:** S1 tests M5 on its 23 sequences. ADR 0018 decision 2 adds M3 and M4 targets
-    on its 76 sequences; recommended to keep those descriptive, and M4 descriptive throughout.
-11. **S4:** add superiority over generic RJ. Recommended.
-12. **Model changes and budget priority** (sections 3 and 5). Recommended.
-13. **k = 3 samples per item.** Recommended.
-14. **gpt-6.1-sol:** its effort from a pilot, and whether it runs live (S2 needs it live).
-15. **The strict window rounding** and **the live start date L.**
-16. **The confirmatory cost plan.**
+## 13. Decisions
+Decided on 2026-10-31 (Tyler accepted the recommendations):
+1. the bootstrap-t bound, with a simulated size check and a calibrated level where needed;
+2. family-wise one-sided 0.05 with Holm;
+3. the ADR 0004 schedule applied in real time, forecasting only scheduled versions;
+4. the candidate list kept as built, the backward half of the exclusion rule applied
+   prospectively, and a sensitivity analysis with the 3 forward-excluded candidates;
+5. the assay-sensitivity test and the informative-sequence secondary estimand;
+6. S5 on strict items, with ADR 0018's test B replacing ADR 0017 decisions 1-2;
+7. A and B computed together on one snapshot at S + 90 days, behind a second software gate;
+8. the two parts of test B, the supplementary snapshot at L, and a stratified bootstrap;
+9. a penalty pool of the five baselines only;
+10. S1 on M5; M3 and M4 descriptive;
+11. superiority over generic RJ in S4;
+12. the model-change and budget-priority rules;
+13. k = 3.
+
+Still OPEN:
+- gpt-6.1-sol's effort (a pilot on the OpenAI key, approved separately);
+- the strict window rounding (after the live latency is measured);
+- the live start date L;
+- the confirmatory cost plan.
