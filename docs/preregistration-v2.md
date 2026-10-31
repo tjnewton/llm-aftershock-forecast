@@ -48,8 +48,11 @@ Per cell (issue time x window x target), dS = S(model) - S(official).
   - **supported** if the upper bound of mean dS is below delta;
   - **inferior** if the lower bound is above delta;
   - **inconclusive** otherwise.
-  - Superiority over the official forecast is claimed only when non-inferiority is supported
-    and the same bound is below 0 (a fixed sequence, so no extra alpha).
+  - **Superiority** over the official forecast is a secondary family. For A and B, the two
+    superiority hypotheses (mean dS < 0) get their own Holm correction at 0.05. Each is tested
+    only if its non-inferiority is supported. (Reusing the non-inferiority Holm levels does
+    not control false superiority claims across two models of different precision.) For
+    secondary models, superiority is tested at 0.05 after non-inferiority.
   - No secondary target, secondary set or sensitivity analysis overturns a primary result.
 - **Multiplicity:** a Holm correction across A and B, with A and B computed together on the
   final outcome snapshot (**OPEN**, recommended; section 5). The first Holm step tests at 0.025, the second at 0.05.
