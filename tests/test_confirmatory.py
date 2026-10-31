@@ -72,7 +72,10 @@ def test_hierarchical_model_recovers_the_mean():
     assert C.stratum(0.5) == "under 1 day" and C.stratum(7.0) == "7 days or more"
 
 
-def test_eligibility_follows_clean_periods_and_magnitude():
+def test_eligibility_follows_clean_periods_and_magnitude(monkeypatch):
+    from laf import splits
+
+    monkeypatch.setattr(splits, "development_ids", lambda: frozenset())
     ms = lambda d: pd.Timestamp(d, tz="UTC").value // 1_000_000  # noqa: E731
     seqs = pd.DataFrame({
         "sequence_id": ["old", "mid", "new", "small"],
@@ -85,24 +88,38 @@ def test_eligibility_follows_clean_periods_and_magnitude():
     assert C.eligible(seqs, "claude-opus-5-5", min_mag=0) == {"new", "small"}
 
 
-def test_confirmatory_cells_keep_eligible_primary_prompt_samples():
+def test_confirmatory_cells_keep_eligible_primary_prompt_samples(monkeypatch):
+    from laf import splits
+
+    monkeypatch.setattr(splits, "development_ids", lambda: frozenset({"dev"}))
     ms = lambda d: pd.Timestamp(d, tz="UTC").value // 1_000_000  # noqa: E731
-    origins = [ms("2026-10-10"), ms("2025-06-01")]
-    seqs = pd.DataFrame({"sequence_id": ["a", "b"], "origin_ms": origins, "mag": [5.5, 5.5]})
-    samples = pd.DataFrame({
-        "model": ["claude-opus-5-5"] * 4 + ["gpt-5.1-2025-11-13"],
-        "variant": ["v2A", "v2A", "v2B", "v2A", "v2A"],
-        "status": ["ok", "ok", "ok", "invalid", "ok"],
-        "sequence_id": ["a", "a", "a", "b", "b"], "item_id": ["a@1", "a@1", "a@1", "b@1", "b@1"],
-        "window": ["day"] * 5, "d5": [0.1, 0.3, 9.0, 9.0, 0.2],
-    })  # fmt: skip
-    cells = C.confirmatory_cells(samples, seqs, {"a@1": 0.5, "b@1": 3.0})
+    origins = [ms("2026-10-10"), ms("2025-06-01"), ms("2026-10-12")]
+    seqs = pd.DataFrame(
+        {"sequence_id": ["a", "b", "dev"], "origin_ms": origins, "mag": [5.5, 5.5, 6.0]}
+    )
+    rows = [  # model, effort, variant, status, sequence, d5
+        ("claude-opus-5-5", "high", "v2A", "ok", "a", 0.1),
+        ("claude-opus-5-5", "high", "v2A", "ok", "a", 0.3),
+        ("claude-opus-5-5", "high", "v2A", "max_tokens", "a", None),  # gets the cell's worst
+        ("claude-opus-5-5", "high", "v2A", "transport_error", "a", None),  # left out
+        ("claude-opus-5-5", "high", "v2B", "ok", "a", 9.0),  # robustness prompt: not here
+        ("claude-opus-5-5", "medium", "v2A", "ok", "a", 7.0),  # other effort: not here
+        ("gpt-5.1-2025-11-13", "medium", "v2A", "ok", "b", 0.2),
+        ("gpt-5.1-2025-11-13", "medium", "v2A", "ok", "dev", 0.4),  # development: never
+    ]
+    names = ("model", "effort", "variant", "status", "sequence_id", "d5")
+    samples = pd.DataFrame([dict(zip(names, r, strict=True)) for r in rows])
+    samples = samples.assign(item_id=samples["sequence_id"] + "@1", window="day", worst_base_d5=0.5)
+    cells = C.confirmatory_cells(samples, seqs, {"a@1": 0.5, "b@1": 3.0, "dev@1": 0.2})
     got = {
         (r.model, r.sequence_id): (round(float(r.d), 3), r.stratum)  # type: ignore[arg-type]
         for r in cells.itertuples()
     }
-    assert got == {("claude-opus-5-5", "a"): (0.2, "under 1 day"),
+    # cell a: worst valid is the v2B answer (9.0), so the invalid sample scores 9.0
+    assert got == {("claude-opus-5-5", "a"): (round((0.1 + 0.3 + 9.0) / 3, 3), "under 1 day"),
                    ("gpt-5.1-2025-11-13", "b"): (0.2, "1 to 7 days")}  # fmt: skip
+    assert C.study_effort("gpt-5.1-2025-11-13") == "medium"
+    assert C.study_effort("claude-opus-4-6") == "medium"
 
 
 def test_confirmatory_command_refuses_while_outcomes_are_sealed(tmp_path):

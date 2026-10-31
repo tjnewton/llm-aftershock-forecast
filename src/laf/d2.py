@@ -81,6 +81,10 @@ def analyze(proc: Path, run_dirs: list[Path]):
     y3 = oc[oc["magnitude"] == 3.0].set_index(["issue_id", "window"])["count"]
     seqs = tables["sequences"].set_index("sequence_id")
     key_window = {"day": "1 Day", "week": "1 Week", "month": "1 Month"}
+    by_cell: dict[tuple, list] = {}  # every baseline forecast per cell, for the worst score
+    for (name, iid, win), fc in base.items():
+        if name not in ("etas_analyst", "etas_hindsight"):
+            by_cell.setdefault((iid, win), []).append(fc)
     info = {}
     for c in cells.to_dict("records"):
         k = (c["issue_id"], c["window"])
@@ -103,6 +107,10 @@ def analyze(proc: Path, run_dirs: list[Path]):
             "off4": _ls(off.m4 if off else None, int(c["y4"])),
             "off3": _ls(q3, int(y3[k])) if k in y3.index else np.nan,
         }  # fmt: skip
+        # the worst valid baseline at M5, as dLS (prereg v1 section 7 rule for invalid answers)
+        info[k]["worst_base_d5"] = max(
+            _ls(fc.m5, int(c["y5"])) - info[k]["off5"] for fc in by_cell.get(k, []) if fc.m5
+        )
     rows = []
     for r in samples(run_dirs):
         k = (r["item_id"], key_window[r["window"]])
@@ -113,7 +121,7 @@ def analyze(proc: Path, run_dirs: list[Path]):
             "model": r["model"], "effort": r["effort"], "variant": r["paraphrase"],
             "item_id": r["item_id"], "window": r["window"], "sample": r["sample"],
             "sequence_id": ci["sequence_id"], "status": r["status"], "warnings": r["warnings"],
-            "m3_ok": ci["m3_ok"],
+            "m3_ok": ci["m3_ok"], "worst_base_d5": ci["worst_base_d5"],
         }  # fmt: skip
         if r["status"] == "ok":
             for m, t in (

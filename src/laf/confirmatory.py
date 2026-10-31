@@ -139,28 +139,55 @@ CLEAN_FROM = {
 }
 CO_PRIMARY = ("gpt-5.1-2025-11-13", "claude-opus-5-5")
 PRIMARY_PROMPT = "v2A"  # ADR 0015 decision 4
+OPENAI_EFFORT = {"gpt-5.1-2025-11-13": "medium"}  # ADR 0014 decision 6
+
+
+def study_effort(model: str) -> str:
+    """The effort a model's confirmatory answers must have (ADR 0014 decisions 5 and 6)."""
+    from laf.providers import study_effort as claude_effort
+
+    return OPENAI_EFFORT.get(model) or claude_effort(model)
 
 
 def eligible(sequences: pd.DataFrame, model: str, min_mag: float = 5.0) -> set[str]:
     """Sequences whose mainshock is in the model's clean period and at least `min_mag` (the
     M>=5 primary set; 0 gives every clean candidate, test A's sensitivity analysis)."""
+    from laf.splits import development_ids
+
     clean_ms = pd.Timestamp(CLEAN_FROM[model], tz="UTC").value // 1_000_000
     s = sequences[(sequences["origin_ms"] >= clean_ms) & (sequences["mag"] >= min_mag - 1e-9)]
-    return set(s["sequence_id"])
+    return set(s["sequence_id"]) - development_ids()  # development data is never confirmatory
 
 
 def confirmatory_cells(
     samples: pd.DataFrame, sequences: pd.DataFrame, elapsed: dict[str, float], min_mag: float = 5.0
 ) -> pd.DataFrame:
-    """Per (model, cell) mean dS over valid primary-prompt samples, kept only on the model's
-    eligible sequences, with the issue, window and stratum the hierarchical model needs.
-    `samples` is `laf.d2.analyze`'s per-sample table (which applies the snooping guard)."""
-    ok = samples[(samples["status"] == "ok") & (samples["variant"] == PRIMARY_PROMPT)]
+    """Per (model, cell) mean dS over the model's primary-prompt samples at its study effort,
+    kept only on its eligible sequences, with the issue, window and stratum the hierarchical
+    model needs. `samples` is `laf.d2.analyze`'s per-sample table (with `worst_base_d5`).
+
+    Invalid answers get the worst score of any valid forecast in the cell, over every valid
+    answer and every baseline (prereg v1 section 7; Tyler, 2026-10-31); transport errors are
+    left out."""
+    s = samples[samples["status"] != "transport_error"]
+    key = ["item_id", "window"]
+    worst = pd.concat(
+        [s[s["status"] == "ok"].groupby(key)["d5"].max(), s.groupby(key)["worst_base_d5"].max()],
+        axis=1,
+    ).max(axis=1)
+    d = np.where(
+        s["status"] == "ok", s["d5"], worst.reindex(pd.MultiIndex.from_frame(s[key])).to_numpy()
+    )
+    s = s.assign(d=d)
+    ok = {
+        m: (study_effort(m), eligible(sequences, m, min_mag))
+        for m in set(s["model"]) & set(CLEAN_FROM)
+    }
+    cols = zip(s["model"], s["effort"], s["variant"], s["sequence_id"], strict=True)
     keep = [
-        m in CLEAN_FROM and sid in eligible(sequences, m, min_mag)
-        for m, sid in zip(ok["model"], ok["sequence_id"], strict=True)
+        m in ok and e == ok[m][0] and v == PRIMARY_PROMPT and sid in ok[m][1]
+        for m, e, v, sid in cols
     ]
-    ok = ok[keep]
-    cells = ok.groupby(["model", "sequence_id", "item_id", "window"])["d5"].mean()
-    cells = cells.rename("d").reset_index().rename(columns={"item_id": "issue_id"})
+    cells = s[keep].groupby(["model", "sequence_id", "item_id", "window"])["d"].mean()
+    cells = cells.reset_index().rename(columns={"item_id": "issue_id"})
     return cells.assign(stratum=[stratum(elapsed[i]) for i in cells["issue_id"]])
