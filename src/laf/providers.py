@@ -14,6 +14,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 import anthropic
+import httpx
 
 MODELS = ("claude-haiku-5-5", "claude-sonnet-5-5", "claude-opus-5-5")
 # USD per MTok: input, output, cache read, 5-min cache write (pricing page).
@@ -127,7 +128,8 @@ def call_anthropic(
             error = f"{type(e).__name__}: {e}"
             retry_after = getattr(e, "response", None) and e.response.headers.get("retry-after")
             time.sleep(float(retry_after) if retry_after else 2 ** (i + 1))
-        except anthropic.APIConnectionError as e:
+        except (anthropic.APIConnectionError, httpx.TransportError) as e:
+            # httpx errors escape the SDK when a stream breaks after it started
             error = f"{type(e).__name__}: {e}"
             time.sleep(2 ** (i + 1))
         except anthropic.APIStatusError as e:  # 4xx other than 429: not retried
