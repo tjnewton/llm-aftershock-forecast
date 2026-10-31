@@ -141,6 +141,12 @@ def main(argv: list[str] | None = None) -> None:
     oa.add_argument("--model", default="gpt-5.1-2025-11-13", choices=("gpt-5.1-2025-11-13",))
     oa.add_argument("--effort", nargs="+", choices=("none", "low", "medium", "high"))
     oa.add_argument("--dry-run", action="store_true", help="count requests, estimate cost")
+    cf = sub.add_parser(
+        "confirmatory-dryrun",
+        help="ADR 0018 tests on development D2 answers (no API; a rehearsal, not a result)",
+    )
+    cf.add_argument("--snapshot", required=True)
+    cf.add_argument("--runs", type=Path, default=Path("runs/d2"))
     pw = sub.add_parser(
         "power", help="power of the confirmatory tests from development runs (ADR 0018)"
     )
@@ -571,6 +577,22 @@ def main(argv: list[str] | None = None) -> None:
             print(f"{name}: {len(reqs)} requests, estimate ${est:.2f} (batch)")
         if not a.dry_run:
             print("batch", O.submit(O.client(), name, reqs, a.snapshot, estimate=est))
+    elif a.cmd == "confirmatory-dryrun":
+        from laf.confirmatory import report
+        from laf.power import d2_cell_differences
+
+        runs = sorted(d for d in a.runs.iterdir() if (d / "results.jsonl").exists())
+        cells = d2_cell_differences(a.data_dir / "processed" / a.snapshot, runs)
+        cells = cells[cells["model"].str.endswith("v2A")]
+        # stand-ins for co-primary tests A (gpt-5.1) and B (Opus 5.5), ADR 0018
+        primary = ("gpt-5.1-2025-11-13 medium v2A", "claude-opus-5-5 high v2A")
+        t = report(cells, primary)
+        path = Path("results") / f"confirmatory_dryrun_d2_{a.snapshot}.csv"
+        t.to_csv(path, index=False, lineterminator="\n")
+        cols = ["model", "sequences", "mean", "upper", "p", "noninferior", "superior",
+                "holm_noninferior", "trimmed_mean", "median"]  # fmt: skip
+        print(t[cols].round(3).to_string(index=False))
+        print(f"-> {path} (development data: a rehearsal of the frozen analysis, not a result)")
     elif a.cmd == "power":
         import pandas as pd
 
