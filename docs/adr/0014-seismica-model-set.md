@@ -82,8 +82,7 @@ Qwen and DeepSeek distills document no cutoff, so they are excluded.
      structured outputs; removed from the API on 2027-04-01. Used in the older-cutoff
      retrospective arm.
 
-   The OpenAI effort level that matches Claude's `high` is set in the D2 study before the
-   freeze.
+   The OpenAI effort level is decision 6 (gpt-5.1: `medium`).
 3. **Clean-period rule:** the 3-month buffer applies to every model in the paper, the Claude
    5.5 models included (clean from 2026-10-01). The unbuffered rule is a sensitivity
    analysis. The registered hackathon analysis keeps its own rule.
@@ -111,7 +110,22 @@ Qwen and DeepSeek distills document no cutoff, so they are excluded.
      registered (no `thinking` field, effort `high`).
    - Implemented as `laf.providers.STUDY_SETTINGS`; first used by the D1 probes.
 
+6. **Effort for gpt-5.1 (Tyler, 2026-10-31): `medium`**, chosen by a pilot on three
+   development items (`runs/openai/pilot-gpt-5.1-2025-11-13`, $0.39, output capped at 16k):
+
+   | Effort | Valid | Output tokens (nearly all reasoning) | Batch USD per call |
+   |---|---|---|---|
+   | **medium** | 3 of 3 | 6,664 to 11,172 | 0.034 to 0.057 |
+   | high | 0 of 3 | 16,000 (all cut off) | 0.081 |
+
+   - At `high` it never answered within the cap, as Sonnet 4.6 at `medium` and `high` did not.
+   - `medium` also matches Opus 4.6's setting.
+   - Requests set `reasoning.effort` explicitly: gpt-5.1 defaults to `none`.
+   - Implemented in `laf.openai_runner` (`laf openai run --effort medium`). D2 for gpt-5.1
+     runs at this setting.
+
 ## Changelog
+- 2026-10-31: decision 6 (gpt-5.1 at effort medium, from its pilot).
 - 2026-10-30: decision 5 (thinking and effort on the 4.6 models, from the D1 settings pilot).
 - 2026-10-30: decisions 1-4 recorded; OpenAI facts for the chosen models re-checked.
 - 2026-10-29: first version with checked Claude facts; OpenAI and open-model facts from a
