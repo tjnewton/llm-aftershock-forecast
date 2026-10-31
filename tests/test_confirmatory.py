@@ -151,3 +151,20 @@ def test_sensitivity_threshold_widens_only_the_named_model(monkeypatch):
     got = sorted(zip(cells["model"], cells["sequence_id"], strict=True))
     assert got == [("claude-opus-5-5", "big"), ("gpt-5.1-2025-11-13", "big"),
                    ("gpt-5.1-2025-11-13", "small")]  # fmt: skip
+
+
+def test_co_primary_bounds_are_at_their_holm_level_and_superiority_is_its_own_family():
+    rng = np.random.default_rng(5)
+    cells = pd.DataFrame({
+        "model": ["A"] * 400 + ["B"] * 400,
+        "sequence_id": [f"s{i % 80}" for i in range(800)],
+        "d": np.r_[rng.normal(-0.05, 0.05, 400), rng.normal(0.0, 0.08, 400)],
+    })  # fmt: skip
+    t = C.report(cells, ("A", "B")).set_index("model")
+    assert sorted(t["holm_level"]) == [0.025, 0.05]
+    for m in ("A", "B"):
+        e = C.sequence_effects(cells[cells["model"] == m]).to_numpy()
+        expect = C.noninferiority(e, alpha=float(t.loc[m, "holm_level"]))["upper"]  # type: ignore[arg-type]
+        assert t.loc[m, "upper"] == pytest.approx(expect)
+    assert t.loc["A", "superior"]  # clearly better, and non-inferior first
+    assert C.holm_levels({"x": 0.3, "y": 0.01}) == {"y": 0.025, "x": 0.05}

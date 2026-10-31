@@ -27,7 +27,7 @@ LIVE_MODELS = ("claude-opus-5-5",)  # gpt-6.1-sol joins once its runner and effo
 K = 3
 FLOOR = 3.0
 PROMPT = "v2A"  # ADR 0015 decision 4
-MAX_TOKENS = 16_000
+MAX_TOKENS = 32_000  # as the retrospective batches (prereg v2 section 3)
 STRICT_LEAD_MS = 30 * 60_000
 MIN_MAG = 5.0  # primary: M>=5 mainshocks (ADR 0013); US M4.0-4.9 are secondary
 FILES = ("items.jsonl", "calls.jsonl", "baselines.jsonl")
@@ -81,7 +81,7 @@ def model_calls(client, items: list[Item], models=LIVE_MODELS, k: int = K) -> li
     def call(job):
         item_id, _, s, params = job
         effort = params["output_config"]["effort"]
-        rec = call_anthropic(client, params)
+        rec = call_anthropic(client, params, stream=True)
         return {"item_id": item_id, "paraphrase": PROMPT, "effort": effort, "sample": s, **rec}
 
     with ThreadPoolExecutor(6) as pool:

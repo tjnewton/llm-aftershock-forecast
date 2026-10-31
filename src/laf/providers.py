@@ -94,12 +94,19 @@ def _now() -> str:
     return datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%S.%fZ")
 
 
-def call_anthropic(c: anthropic.Anthropic, params: dict, *, attempts: int = 4) -> dict:
-    """One Messages call; retries only 429/5xx/connection errors. Returns a loggable record."""
+def call_anthropic(
+    c: anthropic.Anthropic, params: dict, *, attempts: int = 4, stream: bool = False
+) -> dict:
+    """One Messages call; retries only 429/5xx/connection errors. Returns a loggable record.
+    `stream` uses the streaming API, which long outputs (max_tokens above about 21k) need."""
     started, t0, error = _now(), time.monotonic(), None
     for i in range(attempts):
         try:
-            r = c.messages.create(**params)
+            if stream:
+                with c.messages.stream(**params) as st:
+                    r = st.get_final_message()
+            else:
+                r = c.messages.create(**params)
             text = next((b.text for b in r.content if b.type == "text"), None)
             return {
                 "started_utc": started,
