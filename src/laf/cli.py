@@ -141,6 +141,14 @@ def main(argv: list[str] | None = None) -> None:
     oa.add_argument("--model", default="gpt-5.1-2025-11-13", choices=("gpt-5.1-2025-11-13",))
     oa.add_argument("--effort", nargs="+", choices=("none", "low", "medium", "high"))
     oa.add_argument("--dry-run", action="store_true", help="count requests, estimate cost")
+    pp = sub.add_parser(
+        "prospective",
+        help="SPENDS MONEY: one live issue (ADR 0017): items, forecasts, baselines, sealed record",
+    )
+    pp.add_argument("--snapshot", required=True, help="snapshot holding the fresh fetch")
+    pp.add_argument("--sequence", required=True)
+    pp.add_argument("--out", type=Path, default=Path("runs/prospective"))
+    pp.add_argument("--dry-run", action="store_true", help="no model calls; time everything else")
     ct = sub.add_parser(
         "confirmatory",
         help="ADR 0018 tests on confirmatory runs; refuses until tag prereg-v2 (ADR 0013)",
@@ -587,6 +595,20 @@ def main(argv: list[str] | None = None) -> None:
             print(f"{name}: {len(reqs)} requests, estimate ${est:.2f} (batch)")
         if not a.dry_run:
             print("batch", O.submit(O.client(), name, reqs, a.snapshot, estimate=est))
+    elif a.cmd == "prospective":
+        import json
+
+        from laf.prospective import run_issue
+
+        seq = next(s for s in seqs if s.id == a.sequence)
+        out = a.out.with_name(a.out.name + "-dryrun") if a.dry_run else a.out
+        client = None
+        if not a.dry_run:
+            from laf.providers import client as anthropic_client
+
+            client = anthropic_client()
+        rec = run_issue(client, a.data_dir, a.snapshot, seq, out, dry_run=a.dry_run)
+        print(json.dumps(rec, indent=1, sort_keys=True))
     elif a.cmd == "confirmatory":
         import pandas as pd
 
