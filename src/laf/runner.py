@@ -278,17 +278,17 @@ def submit(
         "items_file": items_file,
         "items_sha256": _sha256(Path("data/processed") / snapshot / items_file),
     }
-    out.mkdir(parents=True, exist_ok=True)
     ledger = []
     for r in reqs:
         canonical = json.dumps(r["params"], sort_keys=True, ensure_ascii=False).encode("utf-8")
         row = {"custom_id": r["custom_id"], **r["meta"]}
         row["params_sha256"] = hashlib.sha256(canonical).hexdigest()
         ledger.append(json.dumps(row, sort_keys=True) + "\n")
-    (out / "requests.jsonl").write_text("".join(ledger), encoding="utf-8", newline="\n")
     batch = client.messages.batches.create(
         requests=[{"custom_id": r["custom_id"], "params": r["params"]} for r in reqs]
     )
+    out.mkdir(parents=True, exist_ok=True)  # local records only for a batch that exists
+    (out / "requests.jsonl").write_text("".join(ledger), encoding="utf-8", newline="\n")
     record = {
         "batch_id": batch.id,
         "created_at": str(batch.created_at),

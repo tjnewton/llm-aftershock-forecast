@@ -64,12 +64,16 @@ def test_stop_reasons_map_to_the_validator():
 class FakeClient:
     def __init__(self, bodies):
         self.bodies, self.uploaded = bodies, None
-        self.files = SimpleNamespace(create=self._upload, content=self._content)
+        self.deleted = []
+        self.files = SimpleNamespace(
+            create=self._upload, content=self._content, delete=self.deleted.append
+        )
         self.batches = SimpleNamespace(create=self._create, retrieve=self._retrieve)
 
     def _upload(self, file, purpose):
         assert purpose == "batch"
-        self.uploaded = [json.loads(x) for x in file.read().decode().splitlines()]
+        _, content = file
+        self.uploaded = [json.loads(x) for x in content.decode().splitlines()]
         return SimpleNamespace(id="file_in")
 
     def _create(self, input_file_id, endpoint, completion_window):
@@ -111,7 +115,6 @@ def test_submit_and_collect_round_trip(items, tmp_path, monkeypatch):
     O.submit(c, "d2/x", reqs, "S", estimate=0.1)
     assert c.uploaded is not None
     assert [x["url"] for x in c.uploaded] == ["/v1/responses"] * 2
-    assert not (tmp_path / "runs/d2/x/batch_input.jsonl").exists()
     rec = json.loads((tmp_path / "runs/d2/x/batch.json").read_text())
     assert rec["provider"] == "openai" and rec["base_url"] == "https://api.openai.com/v1"
     # OpenAI estimates never count against the Claude cap, and vice versa
@@ -152,3 +155,24 @@ def test_collect_waits_for_a_terminal_batch(tmp_path, monkeypatch):
     c.batches.retrieve = lambda bid: SimpleNamespace(status="in_progress")
     with pytest.raises(SystemExit, match="not collecting yet"):
         O.collect(c, "x")
+
+
+def test_a_refused_batch_leaves_nothing_behind(items, tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    (tmp_path / "data/processed/S").mkdir(parents=True)
+    (tmp_path / "data/processed/S/items_m3.jsonl").write_text("x")
+    (tmp_path / "prompts/v2").mkdir(parents=True)
+    (tmp_path / "prompts/v2/HASHES.json").write_text("{}")
+    monkeypatch.setattr(O, "PROMPT_DIR", tmp_path / "prompts")
+    monkeypatch.setattr(O, "RUNS", tmp_path / "runs")
+    monkeypatch.setenv("LAF_OPENAI_MONTHLY_CAP_USD", "5")
+    reqs = O.expand(O.pilot_items(items, 1), "gpt-5.1-2025-11-13", "medium", k=1)
+    c = FakeClient({})
+
+    def refuse(**kw):
+        raise RuntimeError("billing_hard_limit_reached")
+
+    c.batches.create = refuse
+    with pytest.raises(RuntimeError):
+        O.submit(c, "x", reqs, "S", estimate=0.1)
+    assert c.deleted == ["file_in"] and not (tmp_path / "runs/x").exists()

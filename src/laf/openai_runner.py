@@ -8,6 +8,7 @@ safety identifiers; `store` off. The client pins https://api.openai.com/v1, what
 OPENAI_BASE_URL says, and the SDK's own retries are disabled.
 """
 
+import contextlib
 import hashlib
 import json
 from datetime import UTC, datetime
@@ -205,7 +206,8 @@ def submit(
     c, name: str, reqs: list[dict], snapshot: str, *, estimate: float,
     items_file: str = "items_m3.jsonl", prompt_set: str = "v2",
 ) -> str:  # fmt: skip
-    """Write the request ledger, upload the input file, create one batch, record its id."""
+    """Upload the input file, create one batch, then write the request ledger and record the
+    batch id. A refused batch leaves no local files and deletes its uploaded input."""
     out = RUNS / name
     if (out / "batch.json").exists():
         raise SystemExit(f"{out}/batch.json exists: run already submitted")
@@ -216,7 +218,6 @@ def submit(
         "items_file": items_file,
         "items_sha256": _sha256(Path("data/processed") / snapshot / items_file),
     }
-    out.mkdir(parents=True, exist_ok=True)
     ledger, lines = [], []
     for r in reqs:
         canonical = json.dumps(r["params"], sort_keys=True, ensure_ascii=False).encode("utf-8")
@@ -225,13 +226,18 @@ def submit(
         ledger.append(json.dumps(row, sort_keys=True) + "\n")
         line = {"custom_id": r["custom_id"], "method": "POST", "url": ENDPOINT, "body": r["params"]}
         lines.append(json.dumps(line, ensure_ascii=False) + "\n")
+    # uploaded from memory: the ledger and the code rebuild it, and it repeats every prompt
+    file = c.files.create(
+        file=("batch_input.jsonl", "".join(lines).encode("utf-8")), purpose="batch"
+    )
+    try:
+        batch = c.batches.create(input_file_id=file.id, endpoint=ENDPOINT, completion_window="24h")
+    except Exception:
+        with contextlib.suppress(Exception):  # no batch, so none of its input stays at OpenAI
+            c.files.delete(file.id)
+        raise
+    out.mkdir(parents=True, exist_ok=True)  # local records only for a batch that exists
     (out / "requests.jsonl").write_text("".join(ledger), encoding="utf-8", newline="\n")
-    upload = out / "batch_input.jsonl"  # sent to OpenAI; gitignored by name below
-    upload.write_text("".join(lines), encoding="utf-8", newline="\n")
-    with upload.open("rb") as f:
-        file = c.files.create(file=f, purpose="batch")
-    batch = c.batches.create(input_file_id=file.id, endpoint=ENDPOINT, completion_window="24h")
-    upload.unlink()  # the ledger and the code rebuild it; it repeats every prompt in full
     record = {
         "provider": "openai",
         "batch_id": batch.id,
