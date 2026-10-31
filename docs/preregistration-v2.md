@@ -35,9 +35,9 @@ Per cell (issue time x window x target), dS = S(model) - S(official).
 ## 2. Hypotheses and decision rules
 | Id | Hypothesis | Set | Test |
 |---|---|---|---|
-| **A** (co-primary) | gpt-5.1 is non-inferior to the official forecast | retrospective: gpt-5.1's clean M>=5 sequences (88 among the current candidates) | one-sided, delta = 0.10 nats per cell |
+| **A** (co-primary) | gpt-5.1 is non-inferior to the official forecast | retrospective: gpt-5.1's clean M>=5 sequences (89 among the current candidates) | one-sided, delta = 0.10 nats per cell |
 | **B** (co-primary) | Claude Opus 5.5 is non-inferior to the official forecast | its clean retrospective M>=5 sequences plus prospective sequences (section 5) | one-sided, delta = 0.10 |
-| S1 (secondary) | Opus 4.6 is non-inferior | its clean M>=5 sequences (22); M3/M4 targets on its 75 clean sequences descriptive (**OPEN**, see 13) | one-sided, delta = 0.10, alpha 0.05 |
+| S1 (secondary) | Opus 4.6 is non-inferior | its clean M>=5 sequences (23); M3/M4 targets on its 76 clean sequences descriptive (**OPEN**, see 13) | one-sided, delta = 0.10, alpha 0.05 |
 | S2 (secondary) | gpt-6.1-sol is non-inferior | prospective (ADR 0018 decision 3) | as S1 |
 | S3 (secondary) | Opus 5.5, gpt-5.1, Opus 4.6 and gpt-6.1-sol each beat the rule of thumb | each model's A, B, S1 or S2 set | superiority, alpha 0.05 |
 | S4 (secondary) | the same models against the legacy-ETAS refit (and generic RJ, **OPEN**) | as S3 | estimate and 95% CI against ETAS (ADR 0018); superiority over generic RJ proposed |
@@ -74,7 +74,7 @@ Per cell (issue time x window x target), dS = S(model) - S(official).
     window is at least 0.5.
 - **Power:**
   - From each model's development (D2) sequence effects with its D2 mean as the true
-    difference, using the normal-approximation simulation of `laf.power`: A 0.62 on 88
+    difference, using the normal-approximation simulation of `laf.power`: A 0.62 on 88 (computed before the 89th was restored)
     sequences; B 0.96 on 33; S1 0.995.
   - The 0.84 for A on 174 sequences overstates what the extra, mostly zero-count cells add.
   - These numbers are recomputed with the registered test before the freeze (section 6),
@@ -110,17 +110,17 @@ Per cell (issue time x window x target), dS = S(model) - S(official).
     its tests use what accrued.
 
 ## 4. Data, sequences and cells
-- **Retrospective candidates** (config/sequences_confirmatory.toml, snapshot 20261029T2000Z):
-  every ComCat event with an OAF product from 2024-11-14 (the archive start) to 2026-10-29, 254
-  in all. Excluded:
+- **Retrospective candidates** (config/sequences_confirmatory.toml, snapshot 20261029T2000Z;
+  195 candidates): every ComCat event with an OAF product from 2024-11-14 (the archive start)
+  to 2026-10-29, 254 in all. Excluded:
   - development sequences: 49 (registered, E3, the E1 outcome pool; config/splits.toml);
     outcome exposure makes a sequence development, input exposure does not (ADR 0013);
   - foreshocks and aftershocks of a larger event: 10. That is an event inside the
     1.5 x Wells-Coppersmith circle (at least 10 km) of a larger event within 365 days. The
     context is the OAF events plus ComCat M>=6 from 2023-11-01 (ADR 0006 rule, `laf.e3.claimed`).
-  - one event ComCat would not return in full: nn00914068 (M5.7, 2026-04-14; `laf.e3.UNRETRIEVABLE`).
-    **TO FIX:** retry the retrieval; include the event if it now succeeds, otherwise keep it
-    listed as excluded.
+  - Nothing else. nn00914068 (M5.7, 2026-04-14, Silver Springs NV) had been dropped for E3
+    because ComCat would not return it in full. It was retrieved on 2026-10-31 and restored,
+    making 195 candidates; its outcomes stay sealed.
   - **OPEN: the foreshock half of the exclusion rule uses future information.** 3 of the 10
     excluded events were excluded only because a larger event followed within a year. That
     event can fall inside their own forecast windows, so the exclusion selects on outcomes. The
@@ -132,11 +132,11 @@ Per cell (issue time x window x target), dS = S(model) - S(official).
 - **Primary set:** M>=5 mainshocks in each model's clean period.
   - Mainshock magnitudes are those of the frozen snapshot (retrospective) or at first
     detection (prospective).
-  - The counts quoted (88, 22, 7) are expected sizes. A sequence with no valid official version
+  - The counts quoted (89, 23, 7) are expected sizes. A sequence with no valid official version
     or no primary cell drops out, and that attrition is reported.
   - Secondary set: M4.0-4.9 mainshocks from US regional networks (`laf.prospective.US_REGIONAL`:
     ak, ci, hv, mb, nc, nm, nn, pr, se, tx, uu, uw).
-  - Test A's sensitivity analysis uses all of gpt-5.1's 174 clean candidates; test B stays on
+  - Test A's sensitivity analysis uses all of gpt-5.1's 175 clean candidates; test B stays on
     M>=5.
 - **Issue times (both arms):**
   - The first valid official version, plus for each target t in {1, 3, 7, 14, 28} days the
@@ -150,7 +150,7 @@ Per cell (issue time x window x target), dS = S(model) - S(official).
 - **Strata:** under 1 day, 1 to 7 days, and 7 days or more after the mainshock.
 - **Targets:**
   - M>=5 is primary. M>=4 is descriptive (**OPEN**, recommended: no completeness rule exists
-    at M4, and 9 of Opus 4.6's 75 clean sequences have catalog completeness 4.6).
+    at M4, and 9 of Opus 4.6's 76 clean sequences have catalog completeness 4.6).
   - M>=3 is descriptive and counts only where the catalog is complete at M3 for the whole
     window: the official product's own Mc (ETAS `Mc` or RJ `Mcat`) is at most 3.0, and the
     time-dependent completeness after the mainshock (`MagComp`, ADR 0009) reaches 3.0 before
@@ -314,7 +314,7 @@ items against the official forecast. **TO FIX:** amend ADR 0017.
   - Only aggregate counts of the fore/aftershock exclusions were viewed.
 
 ## 10. Changes from prereg v1
-- **Data:** 194 confirmatory candidates instead of the registered sequences; prospective
+- **Data:** 195 confirmatory candidates instead of the registered sequences; prospective
   sequences counted toward a test.
 - **Contamination:** the 3-month buffer now applies to the Claude 5.5 models too.
 - **Scoring:** the log score of the count distribution as the primary score instead of the
@@ -370,8 +370,8 @@ and the registered analysis is still reported.
    (section 5). Recommended.
 9. **The invalid-answer pool:** the five baselines only (deterministic), or the baselines plus
    the study models' v2A answers (closer to v1). Recommended: baselines only.
-10. **S1 and M4:** S1 tests M5 on its 22 sequences. ADR 0018 decision 2 adds M3 and M4 targets
-    on its 75 sequences; recommended to keep those descriptive, and M4 descriptive throughout.
+10. **S1 and M4:** S1 tests M5 on its 23 sequences. ADR 0018 decision 2 adds M3 and M4 targets
+    on its 76 sequences; recommended to keep those descriptive, and M4 descriptive throughout.
 11. **S4:** add superiority over generic RJ. Recommended.
 12. **Model changes and budget priority** (sections 3 and 5). Recommended.
 13. **k = 3 samples per item.** Recommended.

@@ -146,12 +146,12 @@ settings (ADR 0014 decision 5).
 
 ## Confirmatory test design (Tyler, 2026-10-30; the margin is still open)
 Clean-period sizes (3-month buffer, ADR 0014; mainshock origin in the clean period;
-20261029T2000Z candidates):
+20261029T2000Z candidates, 195 since nn00914068 was restored on 2026-10-31):
 
 | Model | Clean from | M>=5 mainshocks | All candidates |
 |---|---|---|---|
-| gpt-5.1-2025-11-13 | 2025-01-01 | 88 | 174 |
-| claude-opus-4-6 | 2025-12-01 | 22 | 75 |
+| gpt-5.1-2025-11-13 | 2025-01-01 | 89 | 175 |
+| claude-opus-4-6 | 2025-12-01 | 23 | 76 |
 | claude-sonnet-4-6 | 2026-05-01 | 15 | 40 |
 | gpt-6.1-sol | 2026-08-01 | 7 | 20 |
 | Claude 5.5 | 2026-10-01 | 7 (plus about 4.3 per month live) | 10 |
@@ -265,6 +265,7 @@ Per sequence (18 sequences):
 3. ~~Whether the hierarchical model is confirmatory~~: decided 2026-10-31 (robustness check).
 
 ## Changelog
+- 2026-10-31: clean-period counts with nn00914068 restored (gpt-5.1 89/175, Opus 4.6 23/76).
 - 2026-10-31: decisions 5-7 (stopping rule, hierarchical model as robustness, no interim looks).
 - 2026-10-31: decisions on the test (non-inferiority, delta 0.10, mean primary, test A on 88).
 - 2026-10-31: D2 for gpt-5.1; non-inferiority power; margin proposal (pending Tyler).

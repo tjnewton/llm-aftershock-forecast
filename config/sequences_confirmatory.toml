@@ -914,6 +914,12 @@ role = "test-post"
 catalog_min_mag = 3.0
 
 [[sequence]]
+id = "nn00914068"
+name = "20 km ESE of Silver Springs, Nevada 2026-04-14"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
 id = "us6000srpu"
 name = "off the coast of Oregon 2026-04-20"
 role = "test-post"

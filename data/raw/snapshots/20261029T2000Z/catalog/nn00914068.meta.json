@@ -1,0 +1,11 @@
+{
+ "event_id": "nn00914068",
+ "query_url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2026-03-15T01%3A29%3A12&endtime=2026-07-13T01%3A29%3A12&latitude=39.3345&longitude=-119.0075&maxradiuskm=26.0&minmagnitude=3.0&eventtype=earthquake&format=csv&orderby=time-asc",
+ "expected_rows": 50,
+ "catalog_start_ms": 1773538152123,
+ "catalog_end_ms": 1783906152123,
+ "center_lat": 39.3345,
+ "center_lon": -119.0075,
+ "radius_km": 25.994021979428705,
+ "min_mag": 3.0
+}
