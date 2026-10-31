@@ -96,6 +96,17 @@ def _now() -> str:
     return datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%S.%fZ")
 
 
+# error types the API can send inside an already open stream; the SDK raises them as a plain
+# APIStatusError carrying the stream's HTTP 200, so they are classified by their body
+RETRYABLE_STREAM_ERRORS = frozenset({"overloaded_error", "api_error", "rate_limit_error"})
+
+
+def _error_type(e: Exception) -> str | None:
+    body = getattr(e, "body", None)
+    err = body.get("error") if isinstance(body, dict) else None
+    return err.get("type") if isinstance(err, dict) else None
+
+
 def call_anthropic(
     c: anthropic.Anthropic, params: dict, *, attempts: int = 4, stream: bool = False
 ) -> dict:
@@ -134,9 +145,12 @@ def call_anthropic(
             # anthropic SDK reads streams through httpx2)
             error = f"{type(e).__name__}: {e}"
             time.sleep(2 ** (i + 1))
-        except anthropic.APIStatusError as e:  # 4xx other than 429: not retried
+        except anthropic.APIStatusError as e:
             error = f"{type(e).__name__} {e.status_code}: {e.message}"
-            break
+            if _error_type(e) in RETRYABLE_STREAM_ERRORS:  # sent inside an open (HTTP 200) stream
+                time.sleep(2 ** (i + 1))
+                continue
+            break  # 4xx other than 429: not retried
     return {
         "started_utc": started,
         "latency_s": round(time.monotonic() - t0, 3),

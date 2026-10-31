@@ -90,3 +90,40 @@ def test_a_stream_broken_after_it_started_is_retried(monkeypatch):
     c = SimpleNamespace(messages=SimpleNamespace(stream=Stream), base_url="x")
     rec = providers.call_anthropic(c, {"model": "claude-opus-5-5"}, stream=True)  # type: ignore[arg-type]
     assert rec["attempts"] == 2 and rec["error"] is None
+
+
+def test_an_overload_inside_an_open_stream_is_retried(monkeypatch):
+    from types import SimpleNamespace
+
+    import anthropic
+    import httpx2
+
+    monkeypatch.setattr(providers.time, "sleep", lambda s: None)
+    calls = {"n": 0}
+    req = httpx2.Request("POST", "https://api.anthropic.com/v1/messages")
+
+    class Stream:
+        def __init__(self, **params):
+            pass
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *exc):
+            return False
+
+        def get_final_message(self):
+            calls["n"] += 1
+            if calls["n"] == 1:  # an SSE error event on an HTTP 200 stream
+                raise anthropic.APIStatusError(
+                    "Overloaded", response=httpx2.Response(200, request=req),
+                    body={"type": "error", "error": {"type": "overloaded_error"}},
+                )  # fmt: skip
+            usage = SimpleNamespace(model_dump=lambda: {"input_tokens": 1, "output_tokens": 1})
+            return SimpleNamespace(id="m", model="claude-opus-5-5", stop_reason="end_turn",
+                                   stop_details=None, usage=usage,
+                                   content=[SimpleNamespace(type="text", text="{}")])  # fmt: skip
+
+    c = SimpleNamespace(messages=SimpleNamespace(stream=Stream), base_url="x")
+    rec = providers.call_anthropic(c, {"model": "claude-opus-5-5"}, stream=True)  # type: ignore[arg-type]
+    assert rec["attempts"] == 2 and rec["error"] is None
