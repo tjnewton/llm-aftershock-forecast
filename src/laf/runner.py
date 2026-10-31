@@ -4,6 +4,7 @@ Blocks follow docs/PLAN.md 4.2 (prereg sections 3 and 9). Batch results are coll
 after the scoring code is tagged `scoring-v1` (prereg section 12).
 """
 
+import contextlib
 import hashlib
 import json
 import math
@@ -257,6 +258,33 @@ def _sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def confirmed_refusal(e: Exception) -> bool:
+    """True when the provider answered with a client error (HTTP 4xx: bad request, billing or
+    usage limit, rate limit), so no batch was created. Timeouts, dropped connections and 5xx
+    errors are ambiguous: the batch may exist."""
+    code = getattr(e, "status_code", None)
+    return isinstance(code, int) and 400 <= code < 500
+
+
+def check_not_pending(out: Path) -> None:
+    """Refuse to submit over a ledger without batch.json: an earlier submit may have created a
+    batch whose acceptance was uncertain."""
+    if (out / "batch.json").exists():
+        raise SystemExit(f"{out}/batch.json exists: run already submitted")
+    if (out / "requests.jsonl").exists():
+        raise SystemExit(
+            f"{out}/requests.jsonl exists without batch.json: an earlier submit may have created "
+            "a batch; check the provider's batch list, then remove the ledger to retry"
+        )
+
+
+def uncertain(out: Path, e: Exception) -> SystemExit:
+    return SystemExit(
+        f"batch acceptance uncertain ({type(e).__name__}); ledger kept in {out}: check the "
+        "provider's batch list before retrying"
+    )
+
+
 def submit(
     client,
     name: str,
@@ -269,8 +297,7 @@ def submit(
 ) -> str:
     """Write the request ledger, submit one batch, record its id. Never resubmits a run."""
     out = RUNS / name
-    if (out / "batch.json").exists():
-        raise SystemExit(f"{out}/batch.json exists: run already submitted")
+    check_not_pending(out)
     spent = check_budget(estimate)
     # provenance first: nothing is sent unless every file it records exists
     provenance = {
@@ -278,17 +305,27 @@ def submit(
         "items_file": items_file,
         "items_sha256": _sha256(Path("data/processed") / snapshot / items_file),
     }
-    out.mkdir(parents=True, exist_ok=True)
     ledger = []
     for r in reqs:
         canonical = json.dumps(r["params"], sort_keys=True, ensure_ascii=False).encode("utf-8")
         row = {"custom_id": r["custom_id"], **r["meta"]}
         row["params_sha256"] = hashlib.sha256(canonical).hexdigest()
         ledger.append(json.dumps(row, sort_keys=True) + "\n")
-    (out / "requests.jsonl").write_text("".join(ledger), encoding="utf-8", newline="\n")
-    batch = client.messages.batches.create(
-        requests=[{"custom_id": r["custom_id"], "params": r["params"]} for r in reqs]
-    )
+    # staged before anything is sent, so a local error cannot follow a paid batch
+    out.mkdir(parents=True, exist_ok=True)
+    ledger_path = out / "requests.jsonl"
+    ledger_path.write_text("".join(ledger), encoding="utf-8", newline="\n")
+    try:
+        batch = client.messages.batches.create(
+            requests=[{"custom_id": r["custom_id"], "params": r["params"]} for r in reqs]
+        )
+    except Exception as e:
+        if not confirmed_refusal(e):
+            raise uncertain(out, e) from e
+        ledger_path.unlink(missing_ok=True)  # refused: no batch exists
+        with contextlib.suppress(OSError):
+            out.rmdir()  # only if empty
+        raise
     record = {
         "batch_id": batch.id,
         "created_at": str(batch.created_at),

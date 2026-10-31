@@ -8,6 +8,7 @@ safety identifiers; `store` off. The client pins https://api.openai.com/v1, what
 OPENAI_BASE_URL says, and the SDK's own retries are disabled.
 """
 
+import contextlib
 import hashlib
 import json
 from datetime import UTC, datetime
@@ -23,8 +24,11 @@ from laf.runner import (
     _jsonl,
     _sha256,
     check_budget,
+    check_not_pending,
+    confirmed_refusal,
     request_id,
     scoring_frozen,
+    uncertain,
 )
 
 API_BASE_URL = "https://api.openai.com/v1"
@@ -205,10 +209,10 @@ def submit(
     c, name: str, reqs: list[dict], snapshot: str, *, estimate: float,
     items_file: str = "items_m3.jsonl", prompt_set: str = "v2",
 ) -> str:  # fmt: skip
-    """Write the request ledger, upload the input file, create one batch, record its id."""
+    """Stage the request ledger, upload the input file, create one batch and record its id. A
+    refused batch leaves no local files and deletes its uploaded input."""
     out = RUNS / name
-    if (out / "batch.json").exists():
-        raise SystemExit(f"{out}/batch.json exists: run already submitted")
+    check_not_pending(out)
     spent = check_openai_budget(estimate)
     # provenance first: nothing is sent unless every file it records exists
     provenance = {
@@ -216,7 +220,6 @@ def submit(
         "items_file": items_file,
         "items_sha256": _sha256(Path("data/processed") / snapshot / items_file),
     }
-    out.mkdir(parents=True, exist_ok=True)
     ledger, lines = [], []
     for r in reqs:
         canonical = json.dumps(r["params"], sort_keys=True, ensure_ascii=False).encode("utf-8")
@@ -225,13 +228,26 @@ def submit(
         ledger.append(json.dumps(row, sort_keys=True) + "\n")
         line = {"custom_id": r["custom_id"], "method": "POST", "url": ENDPOINT, "body": r["params"]}
         lines.append(json.dumps(line, ensure_ascii=False) + "\n")
-    (out / "requests.jsonl").write_text("".join(ledger), encoding="utf-8", newline="\n")
-    upload = out / "batch_input.jsonl"  # sent to OpenAI; gitignored by name below
-    upload.write_text("".join(lines), encoding="utf-8", newline="\n")
-    with upload.open("rb") as f:
-        file = c.files.create(file=f, purpose="batch")
-    batch = c.batches.create(input_file_id=file.id, endpoint=ENDPOINT, completion_window="24h")
-    upload.unlink()  # the ledger and the code rebuild it; it repeats every prompt in full
+    # staged before anything is sent, so a local error cannot follow a paid batch
+    out.mkdir(parents=True, exist_ok=True)
+    ledger_path = out / "requests.jsonl"
+    ledger_path.write_text("".join(ledger), encoding="utf-8", newline="\n")
+    file = None
+    try:  # the input goes from memory: the ledger and the code rebuild it
+        file = c.files.create(
+            file=("batch_input.jsonl", "".join(lines).encode("utf-8")), purpose="batch"
+        )
+        batch = c.batches.create(input_file_id=file.id, endpoint=ENDPOINT, completion_window="24h")
+    except Exception as e:
+        if not confirmed_refusal(e):  # the batch may exist: keep the ledger and the input file
+            raise uncertain(out, e) from e
+        ledger_path.unlink(missing_ok=True)  # refused: no batch exists
+        with contextlib.suppress(OSError):
+            out.rmdir()  # only if empty
+        if file is not None:
+            with contextlib.suppress(Exception):
+                c.files.delete(file.id)
+        raise
     record = {
         "provider": "openai",
         "batch_id": batch.id,
