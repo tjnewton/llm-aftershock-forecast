@@ -188,12 +188,56 @@ Still needed before the freeze:
 - The OpenAI effort level matching Claude's (ADR 0014).
 - The margin: this design works at 0.05; at 0.03 only test A has useful power.
 
+## D2 for gpt-5.1 and what it means for the margin (2026-10-31)
+gpt-5.1 at effort medium (ADR 0014 decision 6) on the D2 items: 296 of 297 answers valid,
+$11.42 (OpenAI). Mean dLS against the official forecast: M5 +0.017, M4 -0.062 per cell.
+Per sequence (18 sequences):
+
+| Model | Mean dLS5 | Between-sequence SD | Trimmed mean (10%) |
+|---|---|---|---|
+| gpt-5.1 (medium) | +0.042 | 0.248 | -0.014 |
+| Opus 5.5 (high) | +0.010 | 0.113 | |
+| Opus 4.6 (medium) | +0.033 | 0.062 | |
+
+- **One sequence drives the spread.**
+  - us7000t0b5 (M5.3, False Pass) was issued 10 minutes after the mainshock, and an M5
+    aftershock followed within the day.
+  - The official forecast gave at least one M5 about 10%; gpt-5.1 gave about 3%. Each window
+    cost gpt-5.1 1.7 to 2.5 nats (Opus 5.5 lost 0.44 on the sequence).
+  - Without it, gpt-5.1's mean is -0.015 with SD 0.055.
+  - Rare large aftershocks will recur in the confirmatory set (here 1 sequence in 18), so the
+    heavy tail is real. It matches the narrow forecast tails seen in D1.
+- **Two-sided equivalence is the wrong test when a model can be better.** At M4 gpt-5.1 beats
+  the official forecast (-0.062), which fails a two-sided equivalence test.
+- **Power with a non-inferiority test** (upper bound of mean dS below delta, at the first
+  Holm step, 0.025):
+
+  | Test | N | delta 0.05 | delta 0.10 | delta 0.15 |
+  |---|---|---|---|---|
+  | A gpt-5.1 | 88 | 0.12 | 0.62 | 0.95 |
+  | A gpt-5.1 | 174 | | 0.84 | |
+  | B Opus 5.5 | 33 | 0.52 | 0.96 | 1.00 |
+  | Opus 4.6 (secondary) | 22 | 0.34 | 1.00 | 1.00 |
+
+- **Anchors** (above): a factor-of-2 error in the expected count costs 0.063 nats per cell on
+  E3 and 0.30 on the registered sequences. The generic RJ model trails the official forecast
+  by up to 0.18.
+
+**Proposal, pending Tyler:**
+1. Non-inferiority in place of two-sided equivalence, with superiority reported when the
+   interval lies below 0.
+2. delta = 0.10 nats per cell: between the small-sequence and large-sequence factor-of-2
+   costs, and below the generic-RJ gap.
+3. The mean of sequence effects stays primary, since rare-event misses are what matters for
+   hazard; the trimmed mean and median are reported beside it.
+
 ## Open decisions (Tyler)
 1. The margin anchor and its value (after the development-data numbers exist).
 2. Target power and sequence count, which set the prospective stopping rule (ADR 0017).
 3. Whether the hierarchical model is confirmatory or a robustness check.
 
 ## Changelog
+- 2026-10-31: D2 for gpt-5.1; non-inferiority power; margin proposal (pending Tyler).
 - 2026-10-30: confirmatory test design (co-primary gpt-5.1 retrospective and Claude 5.5
   prospective; Opus 4.6 and gpt-6.1-sol secondary; Sonnet 4.6 descriptive).
 - 2026-10-30: power with the 4.6 models from their D2 runs (`laf power --from-d2`).
