@@ -124,3 +124,76 @@ def hierarchical(cells: pd.DataFrame, delta: float = DELTA, alpha: float = 0.05)
         "hier_sd_issue": float(np.sqrt(fit.vcomp[0])), "hier_sd_cell": float(np.sqrt(fit.scale)),
         "hier_converged": bool(fit.converged), "hier_warnings": len(caught),
     }  # fmt: skip
+
+
+# Clean periods (ADR 0014 decision 3: training cutoff plus a 3-month buffer) and the
+# co-primary models (ADR 0018: test A gpt-5.1, test B Claude 5.5 Opus).
+CLEAN_FROM = {
+    "gpt-5.1-2025-11-13": "2025-01-01",
+    "claude-opus-4-6": "2025-12-01",
+    "claude-sonnet-4-6": "2026-05-01",
+    "gpt-6.1-sol": "2026-08-01",
+    "claude-opus-5-5": "2026-10-01",
+    "claude-sonnet-5-5": "2026-10-01",
+    "claude-haiku-5-5": "2026-10-01",
+}
+CO_PRIMARY = ("gpt-5.1-2025-11-13", "claude-opus-5-5")
+PRIMARY_PROMPT = "v2A"  # ADR 0015 decision 4
+OPENAI_EFFORT = {"gpt-5.1-2025-11-13": "medium"}  # ADR 0014 decision 6
+
+
+def study_effort(model: str) -> str:
+    """The effort a model's confirmatory answers must have (ADR 0014 decisions 5 and 6)."""
+    from laf.providers import study_effort as claude_effort
+
+    return OPENAI_EFFORT.get(model) or claude_effort(model)
+
+
+def eligible(sequences: pd.DataFrame, model: str, min_mag: float = 5.0) -> set[str]:
+    """Sequences whose mainshock is in the model's clean period and at least `min_mag` (the
+    M>=5 primary set; 0 gives every clean candidate, test A's sensitivity analysis)."""
+    from laf.splits import development_ids
+
+    clean_ms = pd.Timestamp(CLEAN_FROM[model], tz="UTC").value // 1_000_000
+    s = sequences[(sequences["origin_ms"] >= clean_ms) & (sequences["mag"] >= min_mag - 1e-9)]
+    return set(s["sequence_id"]) - development_ids()  # development data is never confirmatory
+
+
+def confirmatory_cells(
+    samples: pd.DataFrame,
+    sequences: pd.DataFrame,
+    elapsed: dict[str, float],
+    min_mag: dict[str, float] | None = None,
+) -> pd.DataFrame:
+    """Per (model, cell) mean dS over the model's primary-prompt samples at its study effort,
+    kept only on its eligible sequences, with the issue, window and stratum the hierarchical
+    model needs. `samples` is `laf.d2.analyze`'s per-sample table (with `worst_base_d5`).
+    `min_mag` lowers the M>=5 threshold for named models only (test A's sensitivity run widens
+    gpt-5.1 alone; test B stays on M>=5).
+
+    Invalid answers get the worst score of any valid forecast in the cell, over every valid
+    answer and every baseline (prereg v1 section 7; Tyler, 2026-10-31); transport errors are
+    left out."""
+    s = samples[samples["status"] != "transport_error"]
+    key = ["item_id", "window"]
+    worst = pd.concat(
+        [s[s["status"] == "ok"].groupby(key)["d5"].max(), s.groupby(key)["worst_base_d5"].max()],
+        axis=1,
+    ).max(axis=1)
+    d = np.where(
+        s["status"] == "ok", s["d5"], worst.reindex(pd.MultiIndex.from_frame(s[key])).to_numpy()
+    )
+    s = s.assign(d=d)
+    mags = min_mag or {}
+    ok = {
+        m: (study_effort(m), eligible(sequences, m, mags.get(m, 5.0)))
+        for m in set(s["model"]) & set(CLEAN_FROM)
+    }
+    cols = zip(s["model"], s["effort"], s["variant"], s["sequence_id"], strict=True)
+    keep = [
+        m in ok and e == ok[m][0] and v == PRIMARY_PROMPT and sid in ok[m][1]
+        for m, e, v, sid in cols
+    ]
+    cells = s[keep].groupby(["model", "sequence_id", "item_id", "window"])["d"].mean()
+    cells = cells.reset_index().rename(columns={"item_id": "issue_id"})
+    return cells.assign(stratum=[stratum(elapsed[i]) for i in cells["issue_id"]])
