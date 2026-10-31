@@ -130,3 +130,14 @@ def test_openai_guard_needs_its_own_cap(tmp_path, monkeypatch):
     monkeypatch.chdir(tmp_path)  # no .env here
     with pytest.raises(SystemExit, match="LAF_OPENAI_MONTHLY_CAP_USD"):
         O.check_openai_budget(0.1, tmp_path)
+
+
+def test_submit_sends_nothing_without_its_provenance_files(items, tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(O, "RUNS", tmp_path / "runs")
+    monkeypatch.setenv("LAF_OPENAI_MONTHLY_CAP_USD", "5")
+    reqs = O.expand(O.pilot_items(items, 1), "gpt-5.1-2025-11-13", "medium", k=1)
+    c = FakeClient({})
+    with pytest.raises(FileNotFoundError):
+        O.submit(c, "x", reqs, "missing-snapshot", estimate=0.1)
+    assert c.uploaded is None and not (tmp_path / "runs/x").exists()

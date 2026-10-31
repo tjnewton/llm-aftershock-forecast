@@ -539,7 +539,7 @@ def main(argv: list[str] | None = None) -> None:
 
         if a.action in ("status", "collect"):
             if not a.name:
-                raise SystemExit("give the run name, e.g. d2/openai-pilot-gpt-5.1-2025-11-13")
+                raise SystemExit("give the run name, e.g. openai/pilot-gpt-5.1-2025-11-13")
             c = O.client()
             if a.action == "status":
                 print(O.status(c, a.name))
@@ -550,19 +550,24 @@ def main(argv: list[str] | None = None) -> None:
             raise SystemExit("run needs --snapshot and --effort")
         from laf.pilot import load_items
 
-        items = load_items(a.data_dir, a.snapshot, 3.0)  # the v2 items (items_m3.jsonl)
+        items = load_items(a.data_dir, a.snapshot, 3.0)
+        # the v2 items, written next to the registered ones and hashed into batch.json
+        (a.data_dir / "processed" / a.snapshot / "items_m3.jsonl").write_text(
+            "".join(i.model_dump_json() + "\n" for i in items), encoding="utf-8", newline="\n"
+        )
         if a.block == "pilot":  # one request per item and effort; output capped at 16k
             sel = O.pilot_items(items)
             reqs = [r for e in a.effort for r in O.expand(
                 sel, a.model, e, k=1, block="openai-pilot", max_output_tokens=16_000)]  # fmt: skip
-            name, est = f"d2/openai-pilot-{a.model}", O.bound_usd(reqs)
+            # outside runs/d2, so `laf d2` never pools the pilot with the experiment
+            name, est = f"openai/pilot-{a.model}", O.bound_usd(reqs)
             print(f"{name}: {len(reqs)} requests, worst case ${est:.2f} (batch)")
         else:
             if len(a.effort) != 1:
                 raise SystemExit("the d2 block takes one --effort")
             reqs = O.expand(items, a.model, a.effort[0])
             name = f"d2/d2-{a.model}-{a.effort[0]}"
-            est = O.estimate_usd(reqs, Path(f"runs/d2/openai-pilot-{a.model}"))
+            est = O.estimate_usd(reqs, Path(f"runs/openai/pilot-{a.model}"))
             print(f"{name}: {len(reqs)} requests, estimate ${est:.2f} (batch)")
         if not a.dry_run:
             print("batch", O.submit(O.client(), name, reqs, a.snapshot, estimate=est))

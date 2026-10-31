@@ -210,6 +210,12 @@ def submit(
     if (out / "batch.json").exists():
         raise SystemExit(f"{out}/batch.json exists: run already submitted")
     spent = check_openai_budget(estimate)
+    # provenance first: nothing is sent unless every file it records exists
+    provenance = {
+        "prompt_hashes_sha256": _sha256(PROMPT_DIR / prompt_set / "HASHES.json"),
+        "items_file": items_file,
+        "items_sha256": _sha256(Path("data/processed") / snapshot / items_file),
+    }
     out.mkdir(parents=True, exist_ok=True)
     ledger, lines = [], []
     for r in reqs:
@@ -237,9 +243,7 @@ def submit(
         "snapshot": snapshot,
         "git_sha": _git("rev-parse", "HEAD"),
         "git_dirty": bool(_git("status", "--porcelain", "--untracked-files=no")),
-        "prompt_hashes_sha256": _sha256(PROMPT_DIR / prompt_set / "HASHES.json"),
-        "items_file": items_file,
-        "items_sha256": _sha256(Path("data/processed") / snapshot / items_file),
+        **provenance,
         "base_url": API_BASE_URL,
     }
     (out / "batch.json").write_text(
