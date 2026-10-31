@@ -62,13 +62,26 @@ def _official_m3(fractiles, sequence_id: str, cutoff_ms: int, window: str) -> li
     return [float(f.loc[np.isclose(f["p"], t), "count"].iloc[0]) for t in LEVELS]
 
 
+def m3_complete(product_mc, regional, mag_main: float, t1_days: float) -> bool:
+    """ADR 0015: M>=3 is complete for a window starting t1_days after the mainshock when the
+    official product's own Mc (ETAS `Mc` or RJ `Mcat`) is at most 3.0, the regional catalog's is
+    at most 3.0, and the time-dependent completeness (`MagComp`) has reached 3.0 by then."""
+    if product_mc is None or product_mc != product_mc:  # NaN: no official Mc
+        return False
+    return bool(
+        product_mc <= 3.0 + 1e-9 and regional.mag_cat <= 3.0 + 1e-9
+        and regional.complete_after_days(mag_main, 3.0) <= t1_days
+    )  # fmt: skip
+
+
 def analyze(proc: Path, run_dirs: list[Path]):
     """Per-sample scores and a summary per model, effort and variant (development data only).
 
     Scores are the representation-matched log score (ADR 0015) minus the official forecast's,
     at M>=5, M>=4 and M>=3. M>=3 counts only where the catalog is complete at M3 for the whole
-    window: the regional completeness magnitude is at most 3.0 and the time-dependent
-    completeness after the mainshock (`MagComp`) reaches 3.0 before the window starts."""
+    window (ADR 0015): the official product's own Mc is at most 3.0, the regional completeness
+    magnitude is at most 3.0, and the time-dependent completeness after the mainshock
+    (`MagComp`) reaches 3.0 before the window starts."""
     from laf import analysis as A
     from laf.countdist import from_quantiles, log_score
     from laf.generic_rj import MagComp
@@ -85,6 +98,16 @@ def analyze(proc: Path, run_dirs: list[Path]):
     for (name, iid, win), fc in base.items():
         if name not in ("etas_analyst", "etas_hindsight"):
             by_cell.setdefault((iid, win), []).append(fc)
+    # the official product's completeness magnitude (ETAS `Mc` or RJ `Mcat`, oaf_versions.mc)
+    ov = tables["oaf_versions"]
+    ov = ov[ov["valid"]].drop_duplicates(["sequence_id", "creation_ms"])
+    official_mc = (
+        tables["issue_times"][["issue_id", "sequence_id", "creation_ms"]]
+        .merge(
+            ov[["sequence_id", "creation_ms", "mc"]], on=["sequence_id", "creation_ms"], how="left"
+        )
+        .set_index("issue_id")["mc"]
+    )
     info = {}
     for c in cells.to_dict("records"):
         k = (c["issue_id"], c["window"])
@@ -94,7 +117,7 @@ def analyze(proc: Path, run_dirs: list[Path]):
         )
         mag_main = items[c["issue_id"]].mainshock.mag
         t1 = (c["time_start_ms"] - items[c["issue_id"]].mainshock.origin_ms) / 86_400_000
-        m3_ok = s["magcomp_mcat"] <= 3.0 + 1e-9 and mc.complete_after_days(mag_main, 3.0) <= t1
+        m3_ok = m3_complete(official_mc.get(c["issue_id"]), mc, mag_main, t1)
         off = base.get(("official", *k))
         q3 = _official_m3(
             tables["forecast_fractiles"], c["sequence_id"], int(c["issue_ms"]), c["window"]

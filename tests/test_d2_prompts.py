@@ -137,3 +137,17 @@ def test_registered_loader_validates_v2_answers_with_m3(tmp_path):
 
     assert _targets({"paraphrase": "v2B"}) == TARGETS_V2
     assert "m3_count_quantiles" not in _targets({"paraphrase": "p1"})
+
+
+def test_m3_completeness_needs_the_official_products_mc():
+    from types import SimpleNamespace
+
+    from laf.d2 import m3_complete
+
+    ca = SimpleNamespace(mag_cat=3.0, complete_after_days=lambda mm, m: 0.5)
+    assert m3_complete(2.5, ca, 6.0, 1.0)
+    assert not m3_complete(3.5, ca, 6.0, 1.0)  # the official product is not complete at M3
+    assert not m3_complete(float("nan"), ca, 6.0, 1.0)
+    assert not m3_complete(2.5, ca, 6.0, 0.2)  # window opens before time-dependent completeness
+    ak = SimpleNamespace(mag_cat=3.5, complete_after_days=lambda mm, m: 0.0)
+    assert not m3_complete(2.5, ak, 6.0, 1.0)  # regional catalog not complete at M3
