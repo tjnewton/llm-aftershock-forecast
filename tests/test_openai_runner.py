@@ -169,13 +169,29 @@ def test_a_refused_batch_leaves_nothing_behind(items, tmp_path, monkeypatch):
     reqs = O.expand(O.pilot_items(items, 1), "gpt-5.1-2025-11-13", "medium", k=1)
     c = FakeClient({})
 
-    def refuse(**kw):
-        raise RuntimeError("billing_hard_limit_reached")
+    class Refused(Exception):
+        status_code = 400  # billing_hard_limit_reached
 
-    c.batches.create = refuse
-    with pytest.raises(RuntimeError):
+    class TimedOut(Exception):
+        pass  # no status: the batch may exist
+
+    def fail(error):
+        def create(**kw):
+            raise error
+
+        return create
+
+    c.batches.create = fail(Refused())
+    with pytest.raises(Refused):
         O.submit(c, "x", reqs, "S", estimate=0.1)
     assert c.deleted == ["file_in"] and not (tmp_path / "runs/x").exists()
+    # ambiguous: keep the ledger and the uploaded input, and refuse a blind retry
+    c.batches.create = fail(TimedOut())
+    with pytest.raises(SystemExit, match="uncertain"):
+        O.submit(c, "x", reqs, "S", estimate=0.1)
+    assert c.deleted == ["file_in"] and (tmp_path / "runs/x/requests.jsonl").exists()
+    with pytest.raises(SystemExit, match="earlier submit may have created"):
+        O.submit(c, "x", reqs, "S", estimate=0.1)
 
 
 def test_local_errors_surface_before_any_upload(items, tmp_path, monkeypatch):

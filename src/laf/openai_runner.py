@@ -24,8 +24,11 @@ from laf.runner import (
     _jsonl,
     _sha256,
     check_budget,
+    check_not_pending,
+    confirmed_refusal,
     request_id,
     scoring_frozen,
+    uncertain,
 )
 
 API_BASE_URL = "https://api.openai.com/v1"
@@ -209,8 +212,7 @@ def submit(
     """Stage the request ledger, upload the input file, create one batch and record its id. A
     refused batch leaves no local files and deletes its uploaded input."""
     out = RUNS / name
-    if (out / "batch.json").exists():
-        raise SystemExit(f"{out}/batch.json exists: run already submitted")
+    check_not_pending(out)
     spent = check_openai_budget(estimate)
     # provenance first: nothing is sent unless every file it records exists
     provenance = {
@@ -236,8 +238,10 @@ def submit(
             file=("batch_input.jsonl", "".join(lines).encode("utf-8")), purpose="batch"
         )
         batch = c.batches.create(input_file_id=file.id, endpoint=ENDPOINT, completion_window="24h")
-    except Exception:  # refused: no batch exists, so remove what was staged or uploaded for it
-        ledger_path.unlink(missing_ok=True)
+    except Exception as e:
+        if not confirmed_refusal(e):  # the batch may exist: keep the ledger and the input file
+            raise uncertain(out, e) from e
+        ledger_path.unlink(missing_ok=True)  # refused: no batch exists
         with contextlib.suppress(OSError):
             out.rmdir()  # only if empty
         if file is not None:
