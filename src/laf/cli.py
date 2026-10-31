@@ -602,6 +602,8 @@ def main(argv: list[str] | None = None) -> None:
 
         seq = next(s for s in seqs if s.id == a.sequence)
         out = a.out.with_name(a.out.name + "-dryrun") if a.dry_run else a.out
+        if not a.dry_run and not out.resolve().is_relative_to(Path("runs").resolve()):
+            raise SystemExit("a paid run writes under runs/, where the spend ledger looks")
         client = None
         if not a.dry_run:
             from laf.providers import client as anthropic_client

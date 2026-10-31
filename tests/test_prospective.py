@@ -79,3 +79,11 @@ def test_qualification_rule():
     assert P.qualifies(4.6, "nc") == "secondary"
     assert P.qualifies(4.6, "us") is None
     assert P.qualifies(3.9, "ci") is None
+
+
+def test_paid_runs_must_write_where_the_spend_ledger_looks(tmp_path):
+    from laf.cli import main
+
+    with pytest.raises(SystemExit, match="spend ledger"):
+        main(["prospective", "--snapshot", SNAP, "--sequence", PANAMA.id,
+              "--out", str(tmp_path / "elsewhere")])  # fmt: skip
