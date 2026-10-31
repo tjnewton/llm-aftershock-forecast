@@ -11,14 +11,15 @@ We compare probabilistic aftershock forecasts from general-purpose LLMs with the
 operational aftershock forecast (OAF) and with statistical baselines.
 - **Information parity:** every forecaster sees the information the OAF had at each issue time.
   The as-of catalog rebuild reproduces the official products' observation counts in 99.05% of
-  23,264 checks on the candidate set (ADR 0013).
+  23,264 checks on the candidate set (ADR 0011; 96.85% on today's catalog).
 - **Contamination:** each model is scored only on sequences whose mainshock falls after its
   training cutoff plus a 3-month buffer (section 3). In the prospective arm, contamination is
   impossible.
 
-Per cell (issue time x window x target), dS = S(model) - S(official), where S is the log score
-of the count distribution. Every forecaster is scored through its nine quantiles with the same
-latent-PCHIP reconstruction (ADR 0015). Negative dS favors the model.
+Per cell (issue time x window x target), dS = S(model) - S(official). S is the logarithmic
+score as a loss: S = -log p(y), with p the forecast probability of the observed count y (floored
+at 1e-6) and lower values better. Every forecaster is scored through its nine quantiles with the
+same latent-PCHIP reconstruction (ADR 0015). Negative dS favors the model.
 - **Primary estimand:** the mean over sequences of the per-sequence mean dS at M>=5.
 - **Estimand of an answer:** one chatbot answer to a fixed prompt. The per-sample scores are
   averaged within a cell.
@@ -36,6 +37,12 @@ latent-PCHIP reconstruction (ADR 0015). Negative dS favors the model.
 
 - **Multiplicity:** a Holm correction across A and B. The first step tests at 0.025, the
   second at 0.05. Secondary tests are at 0.05 each and are labelled secondary.
+- **Power** (ADR 0018), from the development (D2) effects of each model with its development
+  mean as the true difference, at 0.025:
+  - A: 0.62 on 88 sequences; 0.84 on all 174 clean candidates.
+  - B: 0.96 on about 33 sequences.
+  - gpt-5.1's development effects are heavy-tailed: one rare-event miss in 18 sequences
+    dominates them.
 - **Superiority** is reported whenever the one-sided interval lies below 0.
 
 ## 3. Models and settings
@@ -55,6 +62,8 @@ latent-PCHIP reconstruction (ADR 0015). Negative dS favors the model.
   N(M>=4) and N(M>=3) and P(M>=6) per window, and shows the catalog from M3.0. `v2B` is a
   preregistered robustness check (ADR 0015 decision 4).
 - **Samples:** **OPEN**, k samples per item (D2 used 3).
+- **Output caps:** 32,000 tokens in batches (`max_tokens` for Claude, `max_output_tokens` for
+  OpenAI), 16,000 for synchronous calls.
 - **Unbuffered sensitivity:** the clean rule without the 3-month buffer.
 
 ## 4. Data, sequences and cells
@@ -68,16 +77,23 @@ latent-PCHIP reconstruction (ADR 0015). Negative dS favors the model.
 - **Primary set:** M>=5 mainshocks in each model's clean period. US-regional-network
   M4.0-4.9 mainshocks are secondary. Test A's sensitivity analysis uses all of gpt-5.1's 174
   clean candidates (test B stays on M>=5).
-- **Targets:** M>=5 (primary), M>=4, and M>=3 where the catalog is complete at M3 for the whole
-  window (official Mc <= 3.0 and time-dependent completeness, ADR 0015; in practice the 35
-  California candidates). P(M>=6) is reported.
+- **Targets:** M>=5 (primary), M>=4, and M>=3 where the catalog is complete at M3 for the
+  whole window. Completeness requires the official product's own Mc <= 3.0, a regional catalog
+  Mc <= 3.0, and the time-dependent completeness after the mainshock (`MagComp`, ADR 0009)
+  reached before the window opens (ADR 0015; in practice California candidates). P(M>=6) is
+  reported. **To fix before the freeze:** the code checks the regional Mc and the time
+  dependence, but not yet the official product's Mc.
 - **Issue times and windows:** as ADR 0004, with day, week and month windows from each
   official version. Strata: under 1 day, 1 to 7 days, 7 days or more after the mainshock.
 - **Outcomes:** ComCat counts in the official forecast's region circle and window. A cell is
   primary once its window closed at least 21 days before the outcome snapshot; 2 days is a
   sensitivity analysis.
 - **Prospective inclusion:** every new valid OAF version of a sequence that qualifies by the
-  same rules (`laf.prospective.qualifies`).
+  same magnitude rules (`laf.prospective.qualifies`).
+  - **OPEN** (proposed): at detection, a new event inside the Wells-Coppersmith circle of a
+    larger event from the previous 365 days is excluded as an aftershock (the ADR 0006 rule).
+  - A sequence once included is never removed, even if a larger event follows (the foreshock
+    half of the rule cannot be known in real time).
 
 ## 5. Prospective protocol (ADR 0017)
 - **Detection:** ComCat is polled every 10 minutes. Each new OAF version gets two items:
@@ -114,13 +130,16 @@ latent-PCHIP reconstruction (ADR 0015). Negative dS favors the model.
     effects (a robustness check, not confirmatory).
 - **Sensitivity analyses:**
   - test A on all clean candidates;
+  - the non-overlapping subset (one window per issue, as in prereg v1);
   - v2B;
   - full-distribution scores of the official and ETAS forecasts;
   - the unbuffered clean rule;
   - the 2-day settling rule;
   - results by stratum.
-- **Software:** `laf confirmatory --snapshot S --runs DIR` refuses to run until the tag
-  `prereg-v2` exists.
+- **Software:** `laf confirmatory --snapshot S --runs DIR` runs the tests against the official
+  forecast (A, B, S1, S2). It refuses to run until the tag `prereg-v2` exists. **To build before
+  the freeze:** the contrasts with the rule of thumb and the ETAS refit (S3, S4), the
+  non-overlapping subset, and the prospective (live) inputs to test B.
 
 ## 7. Invalid outputs
 - An invalid answer (schema violation, cut off at the output cap, refusal, non-monotone or out
