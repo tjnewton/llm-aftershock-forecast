@@ -55,8 +55,11 @@ Of the 204 not yet used:
 - 26 of the M>=5.0 events have origin from 2025-12-01, the period after the older Claude models'
   training cutoffs plus the buffer (ADR 0014).
 
-The foreshock/aftershock rule of ADR 0006 has not yet been applied: candidates inside the circle
-of a larger event within 365 days are dropped.
+The foreshock/aftershock rule of ADR 0006 is applied in config/sequences_confirmatory.toml (194
+candidates): an event inside the Wells-Coppersmith circle of a larger event within 365 days is
+dropped. The context is these OAF events plus ComCat M>=6 from 2023-11-01
+(data/raw/confirmatory/m6_2023-11-01_2026-10-29.csv), as for E3 (`laf.e3.claimed`). Rechecked on
+2026-10-31: 10 of the 254 OAF events are claimed, and none of them is a candidate.
 
 ## Decisions (Tyler, 2026-10-30)
 1. **Start date:** the whole ComCat OAF archive, from 2024-11-14.
@@ -91,6 +94,7 @@ The rule stays as it is. The loss is about 1% of issue times; most are later ver
 same targets, and the median first-issue latency is unchanged.
 
 ## Changelog
+- 2026-10-31: the foreshock/aftershock rule is applied (rechecked; note corrected).
 - 2026-10-29: first version; candidate list fetched; guard specified in issue #2.
 - 2026-10-30: decisions 1-4 recorded; development set narrowed to outcome exposure
   (`config/splits.toml` drops the training-catalog folder).
