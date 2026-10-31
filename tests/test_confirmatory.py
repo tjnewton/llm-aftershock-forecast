@@ -45,3 +45,10 @@ def test_report_corrects_only_the_co_primary_models():
     t = C.report(cells, ("A", "B")).set_index("model")
     assert t.loc["A", "holm_noninferior"] and t.loc["B", "holm_noninferior"]
     assert t.loc["C", "holm_noninferior"] is None and not t.loc["C", "noninferior"]
+
+
+def test_report_refuses_an_incomplete_co_primary_family():
+    cells = pd.DataFrame({"model": ["A"] * 10, "sequence_id": [f"s{i}" for i in range(10)],
+                          "d": np.zeros(10)})  # fmt: skip
+    with pytest.raises(ValueError, match="co-primary results missing"):
+        C.report(cells, ("A", "B"))

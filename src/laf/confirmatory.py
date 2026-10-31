@@ -78,7 +78,10 @@ def report(cells: pd.DataFrame, primary: tuple[str, ...], delta: float = DELTA) 
     for model, g in cells.groupby("model"):
         e = sequence_effects(g).to_numpy()
         rows[model] = noninferiority(e, delta) | robust(e)
-    rej = holm({m: rows[m]["p"] for m in primary if m in rows})
+    missing = [m for m in primary if m not in rows]
+    if missing:  # a smaller Holm family would test the rest at a looser level
+        raise ValueError(f"co-primary results missing: {missing}")
+    rej = holm({m: rows[m]["p"] for m in primary})
     out = pd.DataFrame.from_dict(rows, orient="index")
     out["co_primary"] = out.index.isin(primary)
     out["holm_noninferior"] = [rej.get(m) for m in out.index]
