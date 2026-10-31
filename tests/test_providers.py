@@ -63,7 +63,7 @@ def test_inherited_base_url_is_ignored(monkeypatch):
 def test_a_stream_broken_after_it_started_is_retried(monkeypatch):
     from types import SimpleNamespace
 
-    import httpx
+    import httpx2
 
     monkeypatch.setattr(providers.time, "sleep", lambda s: None)
     calls = {"n": 0}
@@ -81,7 +81,7 @@ def test_a_stream_broken_after_it_started_is_retried(monkeypatch):
         def get_final_message(self):
             calls["n"] += 1
             if calls["n"] == 1:
-                raise httpx.ReadTimeout("read timed out mid-stream")
+                raise httpx2.ReadTimeout("read timed out mid-stream")  # the SDK's transport
             usage = SimpleNamespace(model_dump=lambda: {"input_tokens": 1, "output_tokens": 1})
             return SimpleNamespace(id="m", model="claude-opus-5-5", stop_reason="end_turn",
                                    stop_details=None, usage=usage,
