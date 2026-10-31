@@ -123,8 +123,11 @@ def _jsonl(rows) -> str:
 def seal(out: Path, items: list[Item], calls: list[dict], baselines: list[dict],
          clock=time.time) -> dict:  # fmt: skip
     """Write the record, hash it, and decide eligibility. The SHA-256 covers a manifest of the
-    three files' hashes; `sealed_ms` is taken after the files are written."""
-    out.mkdir(parents=True, exist_ok=False)
+    three files' hashes; `sealed_ms` is taken after the files are written. `out` may be the
+    folder `run_issue` reserved; a record is never sealed twice."""
+    out.mkdir(parents=True, exist_ok=True)
+    if (out / "seal.json").exists():
+        raise FileExistsError(f"{out}/seal.json exists: issue already sealed")
     bodies = {
         "items.jsonl": "".join(i.model_dump_json() + "\n" for i in items),
         "calls.jsonl": _jsonl(calls),
@@ -154,12 +157,15 @@ def run_issue(client, data_dir: Path, snapshot: str, seq: Sequence, out_root: Pa
     """One issue end to end; `dry_run` skips the model calls (no spend) and times the rest."""
     t0 = clock()
     tables, items, update_ms = issue(data_dir, snapshot, seq, int(t0 * 1000))
+    out = out_root / seq.id / str(update_ms)
+    out.mkdir(parents=True, exist_ok=False)  # reserved before any paid call: no duplicate issue
     t1 = clock()
     calls = [] if dry_run else model_calls(client, items)
+    (out / "calls.jsonl").write_text(_jsonl(calls), encoding="utf-8", newline="\n")  # spend log
     t2 = clock()
     base = baseline_forecasts(tables, items, data_dir)
     t3 = clock()
-    rec = seal(out_root / seq.id / str(update_ms), items, calls, base, clock)
+    rec = seal(out, items, calls, base, clock)
     timing = {"build_s": t1 - t0, "models_s": t2 - t1, "baselines_s": t3 - t2,
               "seal_s": clock() - t3, "dry_run": dry_run, "update_ms": update_ms}  # fmt: skip
     return rec | {"timing": timing}

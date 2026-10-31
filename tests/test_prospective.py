@@ -39,8 +39,17 @@ def test_seal_hashes_the_record_and_flags_on_time_items(built, tmp_path):
     assert saved["record_sha256"] == rec["record_sha256"] and len(rec["manifest"]) == 3
     rec2 = P.seal(tmp_path / "b", items, [{"x": 1}], [{"y": 2}], clock=lambda: 0)
     assert rec2["record_sha256"] == rec["record_sha256"]  # content, not time, is hashed
-    with pytest.raises(FileExistsError):
+    with pytest.raises(FileExistsError, match="already sealed"):
         P.seal(tmp_path / "a", items, [], [], clock=lambda: 0)
+
+
+def test_a_repeated_issue_fails_before_any_paid_call(tmp_path, monkeypatch):
+    monkeypatch.setattr(P, "model_calls", lambda *a, **k: pytest.fail("paid call"))
+    tables, items, update_ms = P.issue(Path("data"), SNAP, PANAMA, NOW)
+    monkeypatch.setattr(P, "issue", lambda *a: (tables, items, update_ms))
+    (tmp_path / PANAMA.id / str(update_ms)).mkdir(parents=True)  # sealed (or running) before
+    with pytest.raises(FileExistsError):
+        P.run_issue(object(), Path("data"), SNAP, PANAMA, tmp_path)
 
 
 def test_model_calls_use_the_study_settings_after_the_budget_check(built, monkeypatch):
