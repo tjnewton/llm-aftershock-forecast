@@ -65,12 +65,27 @@ def test_model_calls_use_the_study_settings_after_the_budget_check(built, monkey
 
     checked = []
     monkeypatch.setattr(P, "check_budget", lambda usd: checked.append(usd))
-    client = SimpleNamespace(messages=SimpleNamespace(create=create), base_url="x")
+
+    class Stream:
+        def __init__(self, **params):
+            self.msg = create(**params)
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *exc):
+            return False
+
+        def get_final_message(self):
+            return self.msg
+
+    client = SimpleNamespace(messages=SimpleNamespace(stream=Stream), base_url="x")
     calls = P.model_calls(client, items)
     assert checked and checked[0] == pytest.approx(P.bound_usd(items))
     assert len(calls) == len(items) * len(P.LIVE_MODELS) * P.K
     assert {p["output_config"]["effort"] for p in seen} == {"high"}  # Opus 5.5 as registered
     assert all("thinking" not in p for p in seen)
+    assert {p["max_tokens"] for p in seen} == {32_000}  # streamed, as long as batch answers
     assert "magnitude 3.0 or larger" in seen[0]["messages"][0]["content"]  # v2A asks for M3
 
 
