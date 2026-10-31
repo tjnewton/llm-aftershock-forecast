@@ -107,6 +107,9 @@ def test_check_budget_against_the_monthly_cap(monkeypatch, tmp_path):
         monkeypatch.setenv(CAP, bad)
         with pytest.raises(SystemExit, match="finite"):
             runner.check_budget(0.0, tmp_path)
+    monkeypatch.setenv(CAP, "50\u00df")  # a stray character typed into .env
+    with pytest.raises(SystemExit, match="not a number"):
+        runner.check_budget(0.0, tmp_path)
     monkeypatch.setenv(CAP, "10")
     with pytest.raises(SystemExit, match="finite"):
         runner.check_budget(float("nan"), tmp_path)
