@@ -61,6 +61,11 @@ dropped. The context is these OAF events plus ComCat M>=6 from 2023-11-01
 (data/raw/confirmatory/m6_2023-11-01_2026-10-29.csv), as for E3 (`laf.e3.claimed`). Rechecked on
 2026-10-31: 10 of the 254 OAF events are claimed, and none of them is a candidate.
 
+nn00914068 (M5.68, 2026-04-14) was missing from the 194: it had been dropped for E3 because
+ComCat would not return its full event document (`laf.e3.UNRETRIEVABLE`). It was retrieved on
+2026-10-31 (2.8 MB, 53 OAF versions) and restored, making 195 candidates. Its outcomes stay
+sealed (all 18,282 candidate counts are null), and its six issues have n_hindsight_m4 = 0.
+
 ## Decisions (Tyler, 2026-10-30)
 1. **Start date:** the whole ComCat OAF archive, from 2024-11-14.
 2. **Magnitude:** the primary set is M>=5.0 mainshocks. M>=3 targets are scored wherever the
@@ -94,6 +99,7 @@ The rule stays as it is. The loss is about 1% of issue times; most are later ver
 same targets, and the median first-issue latency is unchanged.
 
 ## Changelog
+- 2026-10-31: nn00914068 restored (195 candidates).
 - 2026-10-31: the foreshock/aftershock rule is applied (rechecked; note corrected).
 - 2026-10-29: first version; candidate list fetched; guard specified in issue #2.
 - 2026-10-30: decisions 1-4 recorded; development set narrowed to outcome exposure
