@@ -232,7 +232,10 @@ def check_budget(
     raw = env_value(cap_var)
     if not raw:
         raise SystemExit(f"{cap_var} not set (environment or .env): refusing to spend")
-    cap = float(raw)
+    try:
+        cap = float(raw)
+    except ValueError:
+        raise SystemExit(f"{cap_var} is not a number: refusing to spend") from None
     if not (math.isfinite(cap) and cap >= 0 and math.isfinite(estimate_usd) and estimate_usd >= 0):
         raise SystemExit(
             f"spend guard: cap {raw!r} and estimate {estimate_usd} must be finite, >= 0"
