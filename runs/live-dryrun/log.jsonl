@@ -278,3 +278,6 @@
 {"events": 0, "kind": "poll", "poll_ms": 1793468149707, "since_ms": 1793467548792}
 {"events": 0, "kind": "poll", "poll_ms": 1793468750602, "since_ms": 1793468149707}
 {"events": 0, "kind": "poll", "poll_ms": 1793469351322, "since_ms": 1793468750602}
+{"events": 1, "kind": "poll", "poll_ms": 1793469952134, "since_ms": 1793469351322}
+{"events": 0, "kind": "poll", "poll_ms": 1793470554899, "since_ms": 1793469952134}
+{"events": 0, "kind": "poll", "poll_ms": 1793471155632, "since_ms": 1793470554899}
