@@ -18,11 +18,12 @@ Cells are not independent. Windows of one issue time are nested (day within week
 Issue times of one sequence share aftershocks, and the 1-week and 1-month windows of
 consecutive issues overlap. Hence:
 - **Primary: block bootstrap over sequences** (resample sequences with replacement, keep all
-  their cells; B = 10,000, fixed seed), giving a 90% CI for a TOST equivalence test and a 95% CI
-  for superiority.
-- **Confirmatory model:** a hierarchical model, dS_ijk = mu + u_i + v_ij + e_ijk (sequence i,
-  issue time j, window k), with window and elapsed-time stratum as fixed effects. This is a
-  check that the bootstrap conclusion holds with partial pooling.
+  their cells; B = 10,000, fixed seed), giving the one-sided non-inferiority test
+  (`laf.confirmatory`).
+- **Robustness check, not confirmatory (decided 2026-10-31):** a hierarchical model,
+  dS_ijk = mu + u_i + v_ij + e_ijk (sequence i, issue time j, window k), with window and
+  elapsed-time stratum as fixed effects. It shows whether the bootstrap conclusion holds
+  with partial pooling.
 - **Reported beside:** the non-overlapping subset (one window per issue, as in prereg v1), and
   results by elapsed-time stratum.
 
@@ -171,8 +172,8 @@ Clean-period sizes (3-month buffer, ADR 0014; mainshock origin in the clean peri
      - About 33 M>=5 sequences after the 6-month prospective period. Power at delta 0.10:
        0.96 at 0.025. Fewer cells per sequence lower it somewhat.
      - It is the one arm where contamination is impossible, which is the paper's thesis. The
-       confirmatory decision uses the prospective stopping rule (ADR 0017), counted in
-       eligible sequences; the full sample is reported as it accumulates.
+       confirmatory decision uses the prospective stopping rule (decision 5 below), counted in
+       eligible sequences, with a single analysis at the stop.
    - Power from `laf.power.power` with `z = Z95` (0.025), using each model's D2 sequence
      effects with its D2 mean as the true difference (non-inferiority: superiority on
      dS - delta).
@@ -237,12 +238,34 @@ Per sequence (18 sequences):
    power for 174 comes from resampling M>=5 effects, so it overstates what the extra,
    mostly zero-count cells would give.
 
+**Decisions (Tyler, 2026-10-31), continued:**
+5. **Prospective stopping rule.** New live sequences stop entering at whichever comes
+   first: 6 months after live forecasting starts, or 26 eligible prospective M>=5
+   sequences. With the 7 clean retrospective ones, 26 brings test B to 33.
+   - The confirmatory test runs once, after the last windows close (about a month after the
+     stop). There is no early stopping for success or futility, so no alpha spending.
+   - If accrual is slow, the analysis still happens at 6 months, with the sample size and
+     power reached reported.
+   - Sequences between Claude 5.5's clean date (2026-10-01) and the start of live
+     forecasting count toward test B's retrospective part, not toward the 26.
+6. **Hierarchical model: a robustness check.** A second confirmatory test per model would
+   need another multiplicity correction or a conjunctive rule, both costing power. Its normal
+   random effects also misfit the heavy-tailed sequence effects seen in D2; the bootstrap
+   does not assume them. Its estimates are reported beside the primary test, and any
+   disagreement is discussed.
+7. **No interim looks.**
+   - During the prospective period, hashes and full forecasts are published as ADR 0017
+     plans.
+   - No one computes confirmatory scores or the test before the stop. Publishing
+     accumulating scores would amount to unplanned interim analyses.
+
 ## Open decisions (Tyler)
 1. ~~The margin anchor and its value~~: decided 2026-10-31 (non-inferiority, delta 0.10).
-2. Target power and sequence count, which set the prospective stopping rule (ADR 0017).
-3. Whether the hierarchical model is confirmatory or a robustness check.
+2. ~~Target power and sequence count~~: decided 2026-10-31 (decision 5).
+3. ~~Whether the hierarchical model is confirmatory~~: decided 2026-10-31 (robustness check).
 
 ## Changelog
+- 2026-10-31: decisions 5-7 (stopping rule, hierarchical model as robustness, no interim looks).
 - 2026-10-31: decisions on the test (non-inferiority, delta 0.10, mean primary, test A on 88).
 - 2026-10-31: D2 for gpt-5.1; non-inferiority power; margin proposal (pending Tyler).
 - 2026-10-30: confirmatory test design (co-primary gpt-5.1 retrospective and Claude 5.5

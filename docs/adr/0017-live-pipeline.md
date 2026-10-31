@@ -84,8 +84,8 @@ been late.
    10 minutes instead may shrink the offset from the official windows (now 30 to 90 minutes).
 
 ## Open decisions (Tyler)
-1. Prospective duration: until the power analysis's sequence count or 6 months, whichever comes
-   first (already decided). The count comes from ADR 0018.
+1. ~~Prospective duration~~: decided 2026-10-31 (ADR 0018 decision 5): 6 months or 26
+   eligible prospective M>=5 sequences, whichever comes first; one analysis at the stop.
 2. Which models run live (ADR 0014).
 3. The strict window rounding (decision 4), after the forecast time is measured.
 
