@@ -33,3 +33,4 @@ __marimo__/
 
 # E1b preference pairs (~ 90M): rebuilt by laf outcome-training; SHA-256 in runs/e1b-adaption/dataset.json
 data/processed/training/e1b_pairs.jsonl
+runs/**/batch_input.jsonl

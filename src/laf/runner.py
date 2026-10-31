@@ -191,6 +191,8 @@ def spend_records(runs: Path = RUNS) -> list[tuple[str, float]]:
     out = []
     for path in runs.glob("**/batch.json"):
         rec = json.loads(path.read_text(encoding="utf-8"))
+        if rec.get("provider") == "openai":  # tracked by laf.openai_runner, not this cap
+            continue
         if not (path.parent / "results.jsonl").exists():
             out.append((rec["created_at"][:7], rec.get("estimate_usd", 0.0)))
     for path in runs.glob("**/calls.jsonl"):
@@ -219,21 +221,24 @@ def month_spend_usd(month: str, runs: Path = RUNS) -> float:
     return sum(usd for m, usd in spend_records(runs) if m == month)
 
 
-def check_budget(estimate_usd: float, runs: Path = RUNS) -> float:
+def check_budget(
+    estimate_usd: float, runs: Path = RUNS, cap_var: str = CAP_VAR, month_spend=None
+) -> float:
     """Refuse a paid run unless this UTC month's spend plus `estimate_usd` stays within the cap
-    in LAF_CLAUDE_MONTHLY_CAP_USD (environment or .env). Returns the month's spend so far.
+    in `cap_var` (environment or .env; LAF_CLAUDE_MONTHLY_CAP_USD for Claude). Returns the
+    month's spend so far.
     A check, not a reservation: two paid runs started at once could both pass. Runs start one
     at a time by hand; a lock file is needed once the live workflow runs beside them."""
-    raw = env_value(CAP_VAR)
+    raw = env_value(cap_var)
     if not raw:
-        raise SystemExit(f"{CAP_VAR} not set (environment or .env): refusing to spend")
+        raise SystemExit(f"{cap_var} not set (environment or .env): refusing to spend")
     cap = float(raw)
     if not (math.isfinite(cap) and cap >= 0 and math.isfinite(estimate_usd) and estimate_usd >= 0):
         raise SystemExit(
             f"spend guard: cap {raw!r} and estimate {estimate_usd} must be finite, >= 0"
         )
     month = datetime.now(UTC).strftime("%Y-%m")
-    spent = month_spend_usd(month, runs)
+    spent = (month_spend or month_spend_usd)(month, runs)
     if spent + estimate_usd > cap:
         raise SystemExit(
             f"spend guard: ${spent:.2f} spent in {month} + ${estimate_usd:.2f} > monthly cap"
