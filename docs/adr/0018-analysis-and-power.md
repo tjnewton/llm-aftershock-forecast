@@ -6,7 +6,8 @@ v2; this records the method and what the development data says.
 ## Estimands
 Per cell, dS = S(model) - S(reference), with S the primary score (ADR 0015). The reference is
 the official USGS forecast where one exists. Main contrasts:
-- **Equivalence with the official forecast:** is the mean dS inside (-delta, +delta)?
+- **Non-inferiority to the official forecast** (decided 2026-10-31): is the mean dS below
+  +delta (delta = 0.10 nats)? Superiority is reported when it is below 0.
 - **Superiority over the rule of thumb** (the aftershock count so far, extended with the usual
   Omori decay; `naive`): is the mean dS < 0?
 - **Against the ETAS refit** on the as-of catalog: a contrast with a seismology reference that
@@ -154,12 +155,12 @@ Clean-period sizes (3-month buffer, ADR 0014; mainshock origin in the clean peri
 | gpt-6.1-sol | 2026-08-01 | 7 | 20 |
 | Claude 5.5 | 2026-10-01 | 7 (plus about 4.3 per month live) | 10 |
 
-1. **Two co-primary tests**, equivalence with the official forecast at M>=5, with a Holm
-   correction across the two. The first Holm step tests at 0.025 per side (a 95% interval),
-   the second at 0.05. Power is given at both levels: the true Holm power lies between them.
-   - **A: gpt-5.1, retrospective**, on its 88 clean M>=5 sequences. If it behaves like Opus
-     4.6 or Opus 5.5 did in D2, power at a 0.05 margin is 0.75 to 0.86 at 0.025 (0.83 to 0.91
-     at 0.05). It must run before its API removal on 2027-04-01.
+1. **Two co-primary tests**, non-inferiority to the official forecast at M>=5 with
+   delta = 0.10 nats per cell (decided 2026-10-31, below), with a Holm correction across the
+   two. The first Holm step tests at 0.025 (one-sided), the second at 0.05.
+   - **A: gpt-5.1, retrospective**, on its 88 clean M>=5 sequences; all 174 clean candidates
+     are a preregistered sensitivity analysis. Power from its own D2 effects: 0.62 at 0.025.
+     It must run before its API removal on 2027-04-01.
    - **B: Claude 5.5 (Opus), prospective plus its clean retrospective sequences.**
      - Prospective items enter only as matched items hashed before their first window opens
        (ADR 0017 decisions 1 and 2). Strict items have other windows than the official
@@ -167,15 +168,16 @@ Clean-period sizes (3-month buffer, ADR 0014; mainshock origin in the clean peri
      - A sequence enters if at least one of its matched items is on time. With about 5
        versions per sequence (1,010 issues in 194 candidates) and about 45% of matched items late, almost every sequence
        enters, with roughly half its cells.
-     - About 33 M>=5 sequences after the 6-month prospective period. Power at a 0.05 margin:
-       0.52 at 0.025, 0.68 at 0.05. Fewer cells per sequence lower it somewhat further.
+     - About 33 M>=5 sequences after the 6-month prospective period. Power at delta 0.10:
+       0.96 at 0.025. Fewer cells per sequence lower it somewhat.
      - It is the one arm where contamination is impossible, which is the paper's thesis. The
        confirmatory decision uses the prospective stopping rule (ADR 0017), counted in
        eligible sequences; the full sample is reported as it accumulates.
-   - Power from `laf.power.power` with `z = Z95` (0.025) or `Z90` (0.05), using each
-     model's D2 sequence effects with its D2 mean as the true difference.
-2. **Secondary: Opus 4.6** on its 22 M>=5 sequences, preregistered with its power (0.43 at
-   0.05 if its D2 gap is real) stated openly. The M3 and M4 targets are added over its 75
+   - Power from `laf.power.power` with `z = Z95` (0.025), using each model's D2 sequence
+     effects with its D2 mean as the true difference (non-inferiority: superiority on
+     dS - delta).
+2. **Secondary: Opus 4.6** on its 22 M>=5 sequences, with its power stated openly (1.00 at
+   delta 0.10, 0.34 at 0.05). The M3 and M4 targets are added over its 75
    clean-period sequences where the catalog is complete.
 3. **Secondary: gpt-6.1-sol, prospective**, as the same-cutoff comparison with Claude 5.5.
 4. **Descriptive only: Sonnet 4.6.** It has 15 sequences, its adaptive thinking fails above
@@ -223,20 +225,25 @@ Per sequence (18 sequences):
   E3 and 0.30 on the registered sequences. The generic RJ model trails the official forecast
   by up to 0.18.
 
-**Proposal, pending Tyler:**
-1. Non-inferiority in place of two-sided equivalence, with superiority reported when the
+**Decisions (Tyler, 2026-10-31):**
+1. **Non-inferiority** in place of two-sided equivalence. Superiority is reported when the
    interval lies below 0.
-2. delta = 0.10 nats per cell: between the small-sequence and large-sequence factor-of-2
-   costs, and below the generic-RJ gap.
-3. The mean of sequence effects stays primary, since rare-event misses are what matters for
-   hazard; the trimmed mean and median are reported beside it.
+2. **delta = 0.10 nats per cell.** It lies between the small-sequence and large-sequence
+   factor-of-2 costs, and below the generic-RJ gap.
+3. **The mean of sequence effects stays primary**, since rare-event misses are what matters
+   for hazard. The 10% trimmed mean and the median are reported beside it.
+4. **Test A's primary set is the 88 clean M>=5 sequences**, keeping M>=5 mainshocks as the
+   primary set (ADR 0013). All 174 clean candidates are a sensitivity analysis. The 0.84
+   power for 174 comes from resampling M>=5 effects, so it overstates what the extra,
+   mostly zero-count cells would give.
 
 ## Open decisions (Tyler)
-1. The margin anchor and its value (after the development-data numbers exist).
+1. ~~The margin anchor and its value~~: decided 2026-10-31 (non-inferiority, delta 0.10).
 2. Target power and sequence count, which set the prospective stopping rule (ADR 0017).
 3. Whether the hierarchical model is confirmatory or a robustness check.
 
 ## Changelog
+- 2026-10-31: decisions on the test (non-inferiority, delta 0.10, mean primary, test A on 88).
 - 2026-10-31: D2 for gpt-5.1; non-inferiority power; margin proposal (pending Tyler).
 - 2026-10-30: confirmatory test design (co-primary gpt-5.1 retrospective and Claude 5.5
   prospective; Opus 4.6 and gpt-6.1-sol secondary; Sonnet 4.6 descriptive).
