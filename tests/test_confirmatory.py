@@ -52,3 +52,21 @@ def test_report_refuses_an_incomplete_co_primary_family():
                           "d": np.zeros(10)})  # fmt: skip
     with pytest.raises(ValueError, match="co-primary results missing"):
         C.report(cells, ("A", "B"))
+
+
+def test_hierarchical_model_recovers_the_mean():
+    rng = np.random.default_rng(3)
+    rows = []
+    for i in range(60):
+        u = rng.normal(0, 0.1)
+        for j in range(4):
+            v = rng.normal(0, 0.05)
+            for w in ("day", "week", "month"):
+                rows.append({"sequence_id": f"s{i}", "issue_id": f"s{i}@{j}", "window": w,
+                             "stratum": C.stratum([0.1, 2.0, 10.0, 30.0][j]),
+                             "d": 0.03 + u + v + rng.normal(0, 0.1)})  # fmt: skip
+    r = C.hierarchical(pd.DataFrame(rows))
+    assert abs(r["hier_mu"] - 0.03) < 3 * r["hier_se"]
+    assert r["hier_noninferior"] and r["hier_converged"]
+    assert 0.05 < r["hier_sd_sequence"] < 0.2
+    assert C.stratum(0.5) == "under 1 day" and C.stratum(7.0) == "7 days or more"

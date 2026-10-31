@@ -86,3 +86,41 @@ def report(cells: pd.DataFrame, primary: tuple[str, ...], delta: float = DELTA) 
     out["co_primary"] = out.index.isin(primary)
     out["holm_noninferior"] = [rej.get(m) for m in out.index]
     return out.rename_axis("model").reset_index()
+
+
+# Robustness check (ADR 0018 decision 6): a hierarchical model with sequence and issue random
+# effects, window and elapsed-time stratum as fixed effects (sum coding, so the intercept is the
+# mean over their levels). Normal random effects misfit heavy tails; the bootstrap stays primary.
+STRATA = ((1.0, "under 1 day"), (7.0, "1 to 7 days"), (float("inf"), "7 days or more"))
+
+
+def stratum(elapsed_days: float) -> str:
+    return next(name for upper, name in STRATA if elapsed_days < upper)
+
+
+def hierarchical(cells: pd.DataFrame, delta: float = DELTA, alpha: float = 0.05) -> dict:
+    """dS_ijk = mu + u_i + v_ij + e_ijk (sequence i, issue j, window k), REML. `cells` needs
+    sequence_id, issue_id, window, stratum and d. Non-inferior when mu's one-sided (1 - alpha)
+    Wald bound is below delta."""
+    import warnings
+
+    import statsmodels.formula.api as smf
+    from scipy import stats
+
+    fixed = [f"C({c}, Sum)" for c in ("window", "stratum") if cells[c].nunique() > 1]
+    formula = " + ".join(["d ~ 1", *fixed])
+    model = smf.mixedlm(
+        formula, cells, groups=cells["sequence_id"], re_formula="1",
+        vc_formula={"issue": "0 + C(issue_id)"},
+    )  # fmt: skip
+    with warnings.catch_warnings(record=True) as caught:
+        warnings.simplefilter("always")
+        fit = model.fit(reml=True, method=["lbfgs"])
+    mu, se = float(fit.fe_params["Intercept"]), float(fit.bse_fe["Intercept"])
+    upper = mu + float(stats.norm.ppf(1 - alpha)) * se
+    return {
+        "hier_mu": mu, "hier_se": se, "hier_upper": upper, "hier_noninferior": upper < delta,
+        "hier_sd_sequence": float(np.sqrt(fit.cov_re.iloc[0, 0])),
+        "hier_sd_issue": float(np.sqrt(fit.vcomp[0])), "hier_sd_cell": float(np.sqrt(fit.scale)),
+        "hier_converged": bool(fit.converged), "hier_warnings": len(caught),
+    }  # fmt: skip
