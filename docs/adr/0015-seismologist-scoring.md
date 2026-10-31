@@ -97,7 +97,17 @@ uses only its nine quantiles, through the latent-PCHIP method.
    forecasters for M3 quantiles is a prompt change, worked out on development items in D2 and
    approved separately.
 
+4. **Prompts and targets for prereg v2 (Tyler, 2026-10-31)**, from D2:
+   - Variant A (`v2A`, the current wording with M3 quantiles and the catalog from M3.0) is the
+     primary prompt.
+   - Variant B (`v2B`, the paraphrase) is a preregistered robustness check.
+   - D2 found the spread between variants no larger than the spread between samples (SD 0.013
+     to 0.033 against 0.018 to 0.031).
+   - M3 targets are secondary. They are scored only where the completeness rule above holds;
+     in practice these are the California sequences (35 of the 194 candidates).
+
 ## Changelog
+- 2026-10-31: decision 4 (v2A primary, v2B robustness, M3 secondary where complete).
 - 2026-10-30: decisions 1-3 recorded.
 - 2026-10-29: first version.
 - 2026-10-29: `laf.countdist` implemented (latent-PCHIP, NB tail and NB fit, log score, N-test,

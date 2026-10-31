@@ -107,3 +107,8 @@ official forecast (positive = worse), as in the summary table:
 
 Both 4.6 models forecast worse than Opus 5.5, Sonnet 4.6 by a wide margin. This matches their
 weaker response to the observed aftershock count in the D1 probes. Power: ADR 0018.
+
+## Decision for prereg v2 (Tyler, 2026-10-31)
+Variant A primary, variant B as a preregistered robustness check, and M3 targets secondary
+where the catalog is complete at M3 (ADR 0015 decision 4). Variant C (catalog summary) is not
+carried forward. The study settings per model are in ADR 0014 (decisions 5 and 6).
