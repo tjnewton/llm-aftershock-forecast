@@ -10,7 +10,7 @@ Oct 21-22, 2026). Plan: docs/PLAN.md. Rules that bind the analysis: docs/preregi
 - Scoring (no API): `laf figures`, `laf e1 --model M`, `laf e3`, `laf combined`, `laf replicates`,
   `laf literature`, `laf live-score`; local models: `python -m laf.llamacpp` (docstring)
 - Spends money, ask first every time: `laf smoke`, `laf pilot`, `laf run`, `laf live`, `laf probe`,
-  `laf d1 pilot|run` (`laf d1 build` is free).
+  `laf d1 pilot|run` (`laf d1 build` is free), `laf openai run` (OpenAI key).
   Adaption launches (`laf adaption launch`) also need a yes.
 
 ## Layout
@@ -24,7 +24,8 @@ analysis's `runs/*/` glob; changes after `prereg-v1` go in `docs/deviations.md`.
 - Commits use the email 54011699+tjnewton@users.noreply.github.com, never another address.
 - No API spend without explicit approval, every time. Claude spend has a per-calendar-month (UTC)
   cap, enforced by `laf.runner.check_budget` from `LAF_CLAUDE_MONTHLY_CAP_USD` (env or .env; unset
-  means no paid run); use only `ANTHROPIC_API_KEY` from env/.env. Never read or print `.env`.
+  means no paid run); use only `ANTHROPIC_API_KEY` from env/.env. OpenAI spend has its own cap,
+  `LAF_OPENAI_MONTHLY_CAP_USD`, and key, `OPENAI_API_KEY`. Never read or print `.env`.
 - Data splits (docs/adr/0013-data-splits.md): development data may be scored freely; confirmatory
   data is never scored against outcomes before the `prereg-v2` tag (`laf.splits` enforces it).
 - Scored Claude calls: no `temperature`/`top_p`/`top_k`, no tools, no prefill, no `fallbacks`,

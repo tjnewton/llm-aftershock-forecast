@@ -131,6 +131,16 @@ def main(argv: list[str] | None = None) -> None:
     )
     ll.add_argument("--snapshot", nargs="+", required=True, help="snapshots with OAF versions")
     ll.add_argument("--log", type=Path, default=Path("runs/live-dryrun/log.jsonl"))
+    oa = sub.add_parser(
+        "openai", help="OpenAI models (ADR 0014): run SPENDS MONEY on the OpenAI key"
+    )
+    oa.add_argument("action", choices=("run", "status", "collect"))
+    oa.add_argument("name", nargs="?", help="status/collect: run name under runs/")
+    oa.add_argument("--snapshot")
+    oa.add_argument("--block", choices=("pilot", "d2"), default="d2")
+    oa.add_argument("--model", default="gpt-5.1-2025-11-13", choices=("gpt-5.1-2025-11-13",))
+    oa.add_argument("--effort", nargs="+", choices=("none", "low", "medium", "high"))
+    oa.add_argument("--dry-run", action="store_true", help="count requests, estimate cost")
     pw = sub.add_parser(
         "power", help="power of the confirmatory tests from development runs (ADR 0018)"
     )
@@ -524,6 +534,43 @@ def main(argv: list[str] | None = None) -> None:
         tab = pd.DataFrame(rows)
         tab.to_csv("results/live_late_share.csv", index=False, lineterminator="\n")
         print(tab.pivot(index="poll_min", columns="forecast_min", values="late").round(3))
+    elif a.cmd == "openai":
+        from laf import openai_runner as O
+
+        if a.action in ("status", "collect"):
+            if not a.name:
+                raise SystemExit("give the run name, e.g. openai/pilot-gpt-5.1-2025-11-13")
+            c = O.client()
+            if a.action == "status":
+                print(O.status(c, a.name))
+            else:
+                print(f"{O.collect(c, a.name)} results -> runs/{a.name}/results.jsonl")
+            return
+        if not (a.snapshot and a.effort):
+            raise SystemExit("run needs --snapshot and --effort")
+        from laf.pilot import load_items
+
+        items = load_items(a.data_dir, a.snapshot, 3.0)
+        # the v2 items, written next to the registered ones and hashed into batch.json
+        (a.data_dir / "processed" / a.snapshot / "items_m3.jsonl").write_text(
+            "".join(i.model_dump_json() + "\n" for i in items), encoding="utf-8", newline="\n"
+        )
+        if a.block == "pilot":  # one request per item and effort; output capped at 16k
+            sel = O.pilot_items(items)
+            reqs = [r for e in a.effort for r in O.expand(
+                sel, a.model, e, k=1, block="openai-pilot", max_output_tokens=16_000)]  # fmt: skip
+            # outside runs/d2, so `laf d2` never pools the pilot with the experiment
+            name, est = f"openai/pilot-{a.model}", O.bound_usd(reqs)
+            print(f"{name}: {len(reqs)} requests, worst case ${est:.2f} (batch)")
+        else:
+            if len(a.effort) != 1:
+                raise SystemExit("the d2 block takes one --effort")
+            reqs = O.expand(items, a.model, a.effort[0])
+            name = f"d2/d2-{a.model}-{a.effort[0]}"
+            est = O.estimate_usd(reqs, Path(f"runs/openai/pilot-{a.model}"))
+            print(f"{name}: {len(reqs)} requests, estimate ${est:.2f} (batch)")
+        if not a.dry_run:
+            print("batch", O.submit(O.client(), name, reqs, a.snapshot, estimate=est))
     elif a.cmd == "power":
         import pandas as pd
 
