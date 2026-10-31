@@ -19,6 +19,7 @@ from laf.tables import (
     DAY_MS,
     FORESHOCK_LOOKBACK_MS,
     SCORED_WINDOWS,
+    _num,
     build_tables,
     schedule_windows,
 )
@@ -34,8 +35,18 @@ def next_full_hour(ms: int) -> int:
     return -(-ms // HOUR_MS) * HOUR_MS
 
 
-def live_items(data_dir: Path, snapshot: str, seq: Sequence, now_ms: int, strict_ms: int):
+def live_items(
+    data_dir: Path, snapshot: str, seq: Sequence, now_ms: int, strict_ms: int, floor: float = 4.0
+):
     """The matched and strict items, with today's catalog up to each information cutoff."""
+    tables, update_ms = live_tables(data_dir, snapshot, seq, now_ms, strict_ms)
+    return build_items(tables, floor), update_ms
+
+
+def live_tables(data_dir: Path, snapshot: str, seq: Sequence, now_ms: int, strict_ms: int):
+    """The tables behind the matched and strict items (sequences, issue_times with the newest
+    official version's model parameters, windows, issue catalogs) and that version's update
+    time."""
     t = build_tables(data_dir, snapshot, [seq])
     s = t["sequences"].iloc[0]
     ov = t["oaf_versions"]
@@ -62,6 +73,10 @@ def live_items(data_dir: Path, snapshot: str, seq: Sequence, now_ms: int, strict
                 "region_lat": f.region.lat,
                 "region_lon": f.region.lon,
                 "region_radius_km": f.region.radius_km,
+                **{
+                    f"oaf_{k.lower()}": _num(f.model.parameters.get(k))
+                    for k in ("Mc", "b", "ams", "a", "p", "c")
+                },
             }
         )
         rows["observed_counts"] += [
@@ -75,8 +90,12 @@ def live_items(data_dir: Path, snapshot: str, seq: Sequence, now_ms: int, strict
             & (inside <= f.region.radius_km)
         ]
         rows["issue_catalogs"] += [{"issue_id": issue_id, **r} for r in seen.to_dict("records")]
-    tables = {"sequences": t["sequences"], **{k: pd.DataFrame(v) for k, v in rows.items()}}
-    return build_items(tables), int(newest["update_ms"])
+    tables = {
+        "sequences": t["sequences"],
+        "catalog": t["catalog"],
+        **{k: pd.DataFrame(v) for k, v in rows.items()},
+    }
+    return tables, int(newest["update_ms"])
 
 
 def run_live(client, items: list[Item], out: Path) -> tuple[str, float]:
