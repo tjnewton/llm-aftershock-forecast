@@ -124,3 +124,43 @@ def hierarchical(cells: pd.DataFrame, delta: float = DELTA, alpha: float = 0.05)
         "hier_sd_issue": float(np.sqrt(fit.vcomp[0])), "hier_sd_cell": float(np.sqrt(fit.scale)),
         "hier_converged": bool(fit.converged), "hier_warnings": len(caught),
     }  # fmt: skip
+
+
+# Clean periods (ADR 0014 decision 3: training cutoff plus a 3-month buffer) and the
+# co-primary models (ADR 0018: test A gpt-5.1, test B Claude 5.5 Opus).
+CLEAN_FROM = {
+    "gpt-5.1-2025-11-13": "2025-01-01",
+    "claude-opus-4-6": "2025-12-01",
+    "claude-sonnet-4-6": "2026-05-01",
+    "gpt-6.1-sol": "2026-08-01",
+    "claude-opus-5-5": "2026-10-01",
+    "claude-sonnet-5-5": "2026-10-01",
+    "claude-haiku-5-5": "2026-10-01",
+}
+CO_PRIMARY = ("gpt-5.1-2025-11-13", "claude-opus-5-5")
+PRIMARY_PROMPT = "v2A"  # ADR 0015 decision 4
+
+
+def eligible(sequences: pd.DataFrame, model: str, min_mag: float = 5.0) -> set[str]:
+    """Sequences whose mainshock is in the model's clean period and at least `min_mag` (the
+    M>=5 primary set; 0 gives every clean candidate, test A's sensitivity analysis)."""
+    clean_ms = pd.Timestamp(CLEAN_FROM[model], tz="UTC").value // 1_000_000
+    s = sequences[(sequences["origin_ms"] >= clean_ms) & (sequences["mag"] >= min_mag - 1e-9)]
+    return set(s["sequence_id"])
+
+
+def confirmatory_cells(
+    samples: pd.DataFrame, sequences: pd.DataFrame, elapsed: dict[str, float], min_mag: float = 5.0
+) -> pd.DataFrame:
+    """Per (model, cell) mean dS over valid primary-prompt samples, kept only on the model's
+    eligible sequences, with the issue, window and stratum the hierarchical model needs.
+    `samples` is `laf.d2.analyze`'s per-sample table (which applies the snooping guard)."""
+    ok = samples[(samples["status"] == "ok") & (samples["variant"] == PRIMARY_PROMPT)]
+    keep = [
+        m in CLEAN_FROM and sid in eligible(sequences, m, min_mag)
+        for m, sid in zip(ok["model"], ok["sequence_id"], strict=True)
+    ]
+    ok = ok[keep]
+    cells = ok.groupby(["model", "sequence_id", "item_id", "window"])["d5"].mean()
+    cells = cells.rename("d").reset_index().rename(columns={"item_id": "issue_id"})
+    return cells.assign(stratum=[stratum(elapsed[i]) for i in cells["issue_id"]])

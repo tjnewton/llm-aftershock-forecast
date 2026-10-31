@@ -7,6 +7,8 @@ Oct 21-22, 2026). Plan: docs/PLAN.md. Rules that bind the analysis: docs/preregi
 - `uv run pytest` / `uv run ruff format src tests` / `uv run ruff check src tests` / `uv run pyright`
 - Data: `uv run laf fetch|asof|tables|items --snapshot ID` (`--config config/sequences_e3.toml`
   for E3), `laf verify`, `laf prompts-hash`, `laf spend`
+- Confirmatory (no API): `laf confirmatory-dryrun` (development), `laf confirmatory` (refuses
+  before the `prereg-v2` tag)
 - Scoring (no API): `laf figures`, `laf e1 --model M`, `laf e3`, `laf combined`, `laf replicates`,
   `laf literature`, `laf live-score`; local models: `python -m laf.llamacpp` (docstring)
 - Spends money, ask first every time: `laf smoke`, `laf pilot`, `laf run`, `laf live`, `laf probe`,

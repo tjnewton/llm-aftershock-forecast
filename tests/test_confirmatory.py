@@ -70,3 +70,49 @@ def test_hierarchical_model_recovers_the_mean():
     assert r["hier_noninferior"] and r["hier_converged"]
     assert 0.05 < r["hier_sd_sequence"] < 0.2
     assert C.stratum(0.5) == "under 1 day" and C.stratum(7.0) == "7 days or more"
+
+
+def test_eligibility_follows_clean_periods_and_magnitude():
+    ms = lambda d: pd.Timestamp(d, tz="UTC").value // 1_000_000  # noqa: E731
+    seqs = pd.DataFrame({
+        "sequence_id": ["old", "mid", "new", "small"],
+        "origin_ms": [ms("2024-12-15"), ms("2026-01-15"), ms("2026-10-15"), ms("2026-10-20")],
+        "mag": [6.0, 5.5, 5.1, 4.6],
+    })  # fmt: skip
+    assert C.eligible(seqs, "gpt-5.1-2025-11-13") == {"mid", "new"}
+    assert C.eligible(seqs, "claude-opus-4-6") == {"mid", "new"}
+    assert C.eligible(seqs, "claude-opus-5-5") == {"new"}
+    assert C.eligible(seqs, "claude-opus-5-5", min_mag=0) == {"new", "small"}
+
+
+def test_confirmatory_cells_keep_eligible_primary_prompt_samples():
+    ms = lambda d: pd.Timestamp(d, tz="UTC").value // 1_000_000  # noqa: E731
+    origins = [ms("2026-10-10"), ms("2025-06-01")]
+    seqs = pd.DataFrame({"sequence_id": ["a", "b"], "origin_ms": origins, "mag": [5.5, 5.5]})
+    samples = pd.DataFrame({
+        "model": ["claude-opus-5-5"] * 4 + ["gpt-5.1-2025-11-13"],
+        "variant": ["v2A", "v2A", "v2B", "v2A", "v2A"],
+        "status": ["ok", "ok", "ok", "invalid", "ok"],
+        "sequence_id": ["a", "a", "a", "b", "b"], "item_id": ["a@1", "a@1", "a@1", "b@1", "b@1"],
+        "window": ["day"] * 5, "d5": [0.1, 0.3, 9.0, 9.0, 0.2],
+    })  # fmt: skip
+    cells = C.confirmatory_cells(samples, seqs, {"a@1": 0.5, "b@1": 3.0})
+    got = {
+        (r.model, r.sequence_id): (round(float(r.d), 3), r.stratum)  # type: ignore[arg-type]
+        for r in cells.itertuples()
+    }
+    assert got == {("claude-opus-5-5", "a"): (0.2, "under 1 day"),
+                   ("gpt-5.1-2025-11-13", "b"): (0.2, "1 to 7 days")}  # fmt: skip
+
+
+def test_confirmatory_command_refuses_while_outcomes_are_sealed(tmp_path):
+    from laf.cli import main
+    from laf.splits import unsealed
+
+    if unsealed():
+        pytest.skip("prereg-v2 exists")
+    (tmp_path / "r").mkdir()
+    (tmp_path / "r/results.jsonl").write_text("")
+    (tmp_path / "r/requests.jsonl").write_text("")
+    with pytest.raises(SystemExit, match="sealed"):
+        main(["confirmatory", "--snapshot", "20261029T2000Z", "--runs", str(tmp_path)])

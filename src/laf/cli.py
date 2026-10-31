@@ -141,6 +141,13 @@ def main(argv: list[str] | None = None) -> None:
     oa.add_argument("--model", default="gpt-5.1-2025-11-13", choices=("gpt-5.1-2025-11-13",))
     oa.add_argument("--effort", nargs="+", choices=("none", "low", "medium", "high"))
     oa.add_argument("--dry-run", action="store_true", help="count requests, estimate cost")
+    ct = sub.add_parser(
+        "confirmatory",
+        help="ADR 0018 tests on confirmatory runs; refuses until tag prereg-v2 (ADR 0013)",
+    )
+    ct.add_argument("--snapshot", required=True)
+    ct.add_argument("--runs", type=Path, required=True, help="folder of confirmatory run folders")
+    ct.add_argument("--min-mag", type=float, default=5.0, help="0: test A's sensitivity set")
     cf = sub.add_parser(
         "confirmatory-dryrun",
         help="ADR 0018 tests on development D2 answers (no API; a rehearsal, not a result)",
@@ -577,6 +584,30 @@ def main(argv: list[str] | None = None) -> None:
             print(f"{name}: {len(reqs)} requests, estimate ${est:.2f} (batch)")
         if not a.dry_run:
             print("batch", O.submit(O.client(), name, reqs, a.snapshot, estimate=est))
+    elif a.cmd == "confirmatory":
+        import pandas as pd
+
+        from laf.analysis import load_tables
+        from laf.confirmatory import CO_PRIMARY, confirmatory_cells, hierarchical, report
+        from laf.d2 import analyze
+        from laf.pilot import load_items
+        from laf.splits import require_outcome_table
+
+        proc = a.data_dir / "processed" / a.snapshot
+        tables = load_tables(proc)
+        require_outcome_table(tables["observed_counts"])  # first: refuses while sealed
+        runs = sorted(d for d in a.runs.iterdir() if (d / "results.jsonl").exists())
+        samples, _ = analyze(proc, runs)
+        elapsed = {i.item_id: i.elapsed_days for i in load_items(a.data_dir, a.snapshot, 3.0)}
+        cells = confirmatory_cells(samples, tables["sequences"], elapsed, a.min_mag)
+        t = report(cells, CO_PRIMARY)
+        hier = {m: hierarchical(g) for m, g in cells.groupby("model")}
+        t = t.join(pd.DataFrame.from_dict(hier, orient="index"), on="model")
+        tag = "" if a.min_mag == 5.0 else f"_min{a.min_mag:g}"
+        path = Path("results") / f"confirmatory_{a.snapshot}{tag}.csv"
+        t.to_csv(path, index=False, lineterminator="\n")
+        print(t.round(3).to_string(index=False))
+        print(f"-> {path}")
     elif a.cmd == "confirmatory-dryrun":
         import pandas as pd
 
