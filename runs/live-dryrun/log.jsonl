@@ -229,3 +229,6 @@
 {"backlog": true, "build_s": 17.214, "detect_latency_s": 173257.418, "event_id": "aka2026ukynnb", "index_ms": 1793272636238, "items_sha256": "141b159f35569c7f290afef143e606b52298a7d5fd6d062dc5c2b679bb81b4e4", "kind": "detection", "mag": 5.6, "matched_margin_s": null, "matched_update_ms": 1793445434850, "matched_window_start_ms": 1793448000000, "poll_ms": 1793445893656, "strict_margin_s": 2088.297, "strict_window_start_ms": 1793448000000, "superseded": true, "update_ms": 1793272631901}
 {"backlog": false, "build_s": 17.214, "detect_latency_s": 454.615, "event_id": "aka2026ukynnb", "index_ms": 1793445439041, "items_sha256": "141b159f35569c7f290afef143e606b52298a7d5fd6d062dc5c2b679bb81b4e4", "kind": "detection", "mag": 5.6, "matched_margin_s": 2088.297, "matched_update_ms": 1793445434850, "matched_window_start_ms": 1793448000000, "poll_ms": 1793445893656, "strict_margin_s": 2088.297, "strict_window_start_ms": 1793448000000, "superseded": false, "update_ms": 1793445434850}
 {"events": 0, "kind": "poll", "poll_ms": 1793446511718, "since_ms": 1793445893656}
+{"events": 0, "kind": "poll", "poll_ms": 1793447112462, "since_ms": 1793446511718}
+{"events": 0, "kind": "poll", "poll_ms": 1793447713135, "since_ms": 1793447112462}
+{"events": 0, "kind": "poll", "poll_ms": 1793448313950, "since_ms": 1793447713135}
