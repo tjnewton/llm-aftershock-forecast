@@ -206,8 +206,8 @@ def submit(
     c, name: str, reqs: list[dict], snapshot: str, *, estimate: float,
     items_file: str = "items_m3.jsonl", prompt_set: str = "v2",
 ) -> str:  # fmt: skip
-    """Upload the input file, create one batch, then write the request ledger and record the
-    batch id. A refused batch leaves no local files and deletes its uploaded input."""
+    """Stage the request ledger, upload the input file, create one batch and record its id. A
+    refused batch leaves no local files and deletes its uploaded input."""
     out = RUNS / name
     if (out / "batch.json").exists():
         raise SystemExit(f"{out}/batch.json exists: run already submitted")
@@ -226,18 +226,24 @@ def submit(
         ledger.append(json.dumps(row, sort_keys=True) + "\n")
         line = {"custom_id": r["custom_id"], "method": "POST", "url": ENDPOINT, "body": r["params"]}
         lines.append(json.dumps(line, ensure_ascii=False) + "\n")
-    # uploaded from memory: the ledger and the code rebuild it, and it repeats every prompt
-    file = c.files.create(
-        file=("batch_input.jsonl", "".join(lines).encode("utf-8")), purpose="batch"
-    )
-    try:
+    # staged before anything is sent, so a local error cannot follow a paid batch
+    out.mkdir(parents=True, exist_ok=True)
+    ledger_path = out / "requests.jsonl"
+    ledger_path.write_text("".join(ledger), encoding="utf-8", newline="\n")
+    file = None
+    try:  # the input goes from memory: the ledger and the code rebuild it
+        file = c.files.create(
+            file=("batch_input.jsonl", "".join(lines).encode("utf-8")), purpose="batch"
+        )
         batch = c.batches.create(input_file_id=file.id, endpoint=ENDPOINT, completion_window="24h")
-    except Exception:
-        with contextlib.suppress(Exception):  # no batch, so none of its input stays at OpenAI
-            c.files.delete(file.id)
+    except Exception:  # refused: no batch exists, so remove what was staged or uploaded for it
+        ledger_path.unlink(missing_ok=True)
+        with contextlib.suppress(OSError):
+            out.rmdir()  # only if empty
+        if file is not None:
+            with contextlib.suppress(Exception):
+                c.files.delete(file.id)
         raise
-    out.mkdir(parents=True, exist_ok=True)  # local records only for a batch that exists
-    (out / "requests.jsonl").write_text("".join(ledger), encoding="utf-8", newline="\n")
     record = {
         "provider": "openai",
         "batch_id": batch.id,

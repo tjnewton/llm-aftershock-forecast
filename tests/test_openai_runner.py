@@ -176,3 +176,21 @@ def test_a_refused_batch_leaves_nothing_behind(items, tmp_path, monkeypatch):
     with pytest.raises(RuntimeError):
         O.submit(c, "x", reqs, "S", estimate=0.1)
     assert c.deleted == ["file_in"] and not (tmp_path / "runs/x").exists()
+
+
+def test_local_errors_surface_before_any_upload(items, tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    (tmp_path / "data/processed/S").mkdir(parents=True)
+    (tmp_path / "data/processed/S/items_m3.jsonl").write_text("x")
+    (tmp_path / "prompts/v2").mkdir(parents=True)
+    (tmp_path / "prompts/v2/HASHES.json").write_text("{}")
+    monkeypatch.setattr(O, "PROMPT_DIR", tmp_path / "prompts")
+    monkeypatch.setattr(O, "RUNS", tmp_path / "runs")
+    monkeypatch.setenv("LAF_OPENAI_MONTHLY_CAP_USD", "5")
+    (tmp_path / "runs").mkdir()
+    (tmp_path / "runs/x").write_text("a file where the run folder should be")
+    reqs = O.expand(O.pilot_items(items, 1), "gpt-5.1-2025-11-13", "medium", k=1)
+    c = FakeClient({})
+    with pytest.raises(OSError):
+        O.submit(c, "x", reqs, "S", estimate=0.1)
+    assert c.uploaded is None

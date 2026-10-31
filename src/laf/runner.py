@@ -4,6 +4,7 @@ Blocks follow docs/PLAN.md 4.2 (prereg sections 3 and 9). Batch results are coll
 after the scoring code is tagged `scoring-v1` (prereg section 12).
 """
 
+import contextlib
 import hashlib
 import json
 import math
@@ -284,11 +285,19 @@ def submit(
         row = {"custom_id": r["custom_id"], **r["meta"]}
         row["params_sha256"] = hashlib.sha256(canonical).hexdigest()
         ledger.append(json.dumps(row, sort_keys=True) + "\n")
-    batch = client.messages.batches.create(
-        requests=[{"custom_id": r["custom_id"], "params": r["params"]} for r in reqs]
-    )
-    out.mkdir(parents=True, exist_ok=True)  # local records only for a batch that exists
-    (out / "requests.jsonl").write_text("".join(ledger), encoding="utf-8", newline="\n")
+    # staged before anything is sent, so a local error cannot follow a paid batch
+    out.mkdir(parents=True, exist_ok=True)
+    ledger_path = out / "requests.jsonl"
+    ledger_path.write_text("".join(ledger), encoding="utf-8", newline="\n")
+    try:
+        batch = client.messages.batches.create(
+            requests=[{"custom_id": r["custom_id"], "params": r["params"]} for r in reqs]
+        )
+    except Exception:  # refused: no batch exists, so remove what was staged for it
+        ledger_path.unlink(missing_ok=True)
+        with contextlib.suppress(OSError):
+            out.rmdir()  # only if empty
+        raise
     record = {
         "batch_id": batch.id,
         "created_at": str(batch.created_at),
