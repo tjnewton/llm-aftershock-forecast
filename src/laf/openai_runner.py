@@ -261,7 +261,9 @@ def status(c, name: str) -> dict:
 
 def collect(c, name: str) -> int:
     """Write runs/<name>/results.jsonl in the Claude runner's format (result, model, text,
-    stop_reason, usage), only once `scoring-v1` exists and the batch is completed."""
+    stop_reason, usage), only once `scoring-v1` exists and the batch has ended (completed,
+    expired or cancelled: an ended batch keeps its finished, billed responses; the rest are
+    errors or missing)."""
     if not scoring_frozen():
         raise SystemExit("refusing to collect: tag scoring-v1 does not exist (prereg section 12)")
     out = RUNS / name
@@ -269,8 +271,8 @@ def collect(c, name: str) -> int:
         raise SystemExit(f"{out}/results.jsonl exists")
     rec = json.loads((out / "batch.json").read_text(encoding="utf-8"))
     b = c.batches.retrieve(rec["batch_id"])
-    if b.status != "completed":
-        raise SystemExit(f"batch status {b.status}: not collecting")
+    if b.status not in ("completed", "expired", "cancelled"):  # terminal; partial results kept
+        raise SystemExit(f"batch status {b.status}: not collecting yet")
     model = {r["custom_id"]: r["model"] for r in _jsonl(out / "requests.jsonl")}
     lines = []
     for fid in (b.output_file_id, b.error_file_id):

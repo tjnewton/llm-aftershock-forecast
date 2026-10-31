@@ -141,3 +141,14 @@ def test_submit_sends_nothing_without_its_provenance_files(items, tmp_path, monk
     with pytest.raises(FileNotFoundError):
         O.submit(c, "x", reqs, "missing-snapshot", estimate=0.1)
     assert c.uploaded is None and not (tmp_path / "runs/x").exists()
+
+
+def test_collect_waits_for_a_terminal_batch(tmp_path, monkeypatch):
+    monkeypatch.setattr(O, "RUNS", tmp_path)
+    monkeypatch.setattr(O, "scoring_frozen", lambda: True)
+    (tmp_path / "x").mkdir()
+    (tmp_path / "x/batch.json").write_text('{"batch_id": "b"}')
+    c = FakeClient({})
+    c.batches.retrieve = lambda bid: SimpleNamespace(status="in_progress")
+    with pytest.raises(SystemExit, match="not collecting yet"):
+        O.collect(c, "x")
