@@ -290,3 +290,19 @@ def test_contrasts_follow_test_as_widened_eligibility(monkeypatch):
     m5 = C.contrasts(s, seqs, elapsed, m)
     wide = C.contrasts(s, seqs, elapsed, m, min_mag={m[0]: 0.0})
     assert set(m5["sequences"]) == {3} and set(wide["sequences"]) == {6}
+
+
+def test_test_b_resamples_its_two_parts_separately():
+    rng = np.random.default_rng(3)
+    retro, pro = rng.normal(0.0, 0.05, 20), rng.normal(0.3, 0.05, 10)
+    x = np.concatenate([retro, pro])
+    parts = np.array(["retrospective"] * 20 + ["prospective"] * 10)
+    pooled, strat = C.noninferiority(x), C.noninferiority(x, strata=parts)
+    assert strat["mean"] == pytest.approx(pooled["mean"]) and strat["strata"] == 2
+    # the gap between the parts is fixed by design, not sampling noise: a tighter bound
+    assert strat["upper"] < pooled["upper"]
+    one = np.array(["prospective"] + ["retrospective"] * 29)  # a part of one: no spread
+    assert C.noninferiority(x, strata=one) == pooled
+    assert C.noninferiority(x, strata=np.array(["retrospective"] * 30)) == pooled
+    with pytest.raises(ValueError, match="bootstrap-t"):  # never a silent change of method
+        C.noninferiority(x, strata=parts, method="percentile")
