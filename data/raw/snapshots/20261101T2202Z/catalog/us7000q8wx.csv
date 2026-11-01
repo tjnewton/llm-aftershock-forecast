@@ -1,0 +1,2 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2025-06-26T12:24:37.734Z,43.8486,-128.0755,10,4.4,mb,32,210,2.032,1.41,us,us7000q8wx,2026-06-26T12:34:45.384Z,"off the coast of Oregon",earthquake,10.77,2,0.064,71,reviewed,us,us

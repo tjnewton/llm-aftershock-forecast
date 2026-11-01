@@ -1,0 +1,25 @@
+# The 3 candidates excluded only by a later, larger event (docs/adr/0013-data-splits.md, "The
+# exclusion rule and future information"; prereg v2 section 4). That later event can fall inside
+# their own forecast windows, so excluding them selects on outcomes; the candidate list stays as
+# built, and tests A, B and S1 are also reported with these 3 included, as a sensitivity
+# analysis. They never enter a main analysis. Identified 2026-11-01 (Tyler's approval), by the
+# ADR 0006 rule on data/raw/confirmatory: claimed only by a later, larger event within 365 days.
+# Only us7000s2bn (M5.50) falls in a tested model's clean M>=5 set (gpt-5.1, Opus 4.6).
+
+[[sequence]]
+id = "nc75094976"
+name = "forward-excluded M4.23 2024-12-04 (later nc75095651)"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000q8wx"
+name = "forward-excluded M4.40 2025-06-26 (later us7000rq0d)"
+role = "test-post"
+catalog_min_mag = 3.0
+
+[[sequence]]
+id = "us7000s2bn"
+name = "forward-excluded M5.50 2026-03-05 (later us7000tdvt)"
+role = "test-post"
+catalog_min_mag = 3.0

@@ -327,7 +327,16 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     quantile, N-test failures, the PIT's KS distance and information gain per earthquake.
     Release dates are the Models API creation dates, checked 2026-11-01: gpt-5.1 2025-11-10,
     Opus 4.6 2026-02-04, Sonnet 4.6 2026-02-17, gpt-6.1-sol 2026-09-27, Opus 5.5 2026-09-21.
-  - **TO BUILD:** the remaining sensitivity analysis: with the 3 forward-excluded candidates.
+  - Built: tests A, B and S1 with the 3 forward-excluded candidates (`laf.sensitivity`; they
+    are in config/sequences_forward_excluded.toml and never enter a main analysis). They were
+    identified on 2026-11-01 with Tyler's approval: nc75094976 (M4.23, 2024-12-04), us7000q8wx
+    (M4.40, 2025-06-26) and us7000s2bn (M5.50, 2026-03-05), each followed within a year by a
+    larger event whose circle holds it. Only us7000s2bn is in a tested model's clean M>=5 set
+    (gpt-5.1 for A, Opus 4.6 for S1); nc75094976 predates gpt-5.1's clean period and is
+    secondary, and us7000q8wx is an M4 on the global network. Their data are in the
+    supplementary snapshot 20261101T2202Z (outcomes sealed), and their forecasts (gpt-5.1 and
+    Opus 4.6, v2A, k = 3, about $1, approved) run after the tag with the other confirmatory
+    batches. The outcome snapshot at S + 90 days fetches this config with the candidates.
 
 ## 7. Invalid outputs
 - An invalid answer gets the worst score in its cell from a fixed pool (decided 2026-10-31). Invalid means a schema
