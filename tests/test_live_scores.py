@@ -146,6 +146,11 @@ def test_test_b_joins_its_two_parts_and_s2_s5_use_the_live_items(monkeypatch):
     assert t["B"]["sequences"] == 12  # 6 retrospective + 6 prospective; late and M4.6 out
     assert t["B retrospective part"]["sequences"] == t["B prospective part"]["sequences"] == 6
     assert t["S2"]["sequences"] == 6 and t["S2"]["noninferior"]
+    s34 = {(r["hypothesis"], r["model"], r["reference"]): r for r in recs
+           if r["hypothesis"] in ("S3", "S4")}  # fmt: skip
+    assert s34[("S3", "claude-opus-5-5", "naive")]["sequences"] == 12  # B's full set
+    assert s34[("S4", "gpt-6.1-sol", "generic_rj")]["sequences"] == 6  # S2's set
+    assert "lower95" in s34[("S4", "claude-opus-5-5", "etas")]
     s5 = [r for r in recs if r["hypothesis"] == "S5"]
     assert {r["model"] for r in s5} == {"claude-opus-5-5", "gpt-6.1-sol"} and len(s5) == 6
     assert {r["sequences"] for r in s5} == {6}

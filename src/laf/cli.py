@@ -681,6 +681,13 @@ def main(argv: list[str] | None = None) -> None:
                              start, stop_ms())  # fmt: skip
             path = Path("results") / f"confirmatory_live_{a.snapshot}.csv"
             lv.to_csv(path, index=False, lineterminator="\n")
+            # S3/S4 for Opus 5.5 and gpt-6.1-sol now come from their full sets (B, S2): drop the
+            # retrospective-only rows from the secondary table
+            from laf.confirmatory import B_MODEL, S2_MODEL
+
+            stale = sec["hypothesis"].isin(["S3", "S4"]) & sec["model"].isin([B_MODEL, S2_MODEL])
+            sec[~stale].to_csv(Path("results") / f"confirmatory_secondary_{a.snapshot}{tag}.csv",
+                               index=False, lineterminator="\n")  # fmt: skip
             print(lv.round(3).to_string(index=False))
             listing = Path("results") / f"live_items_{a.snapshot}.csv"
             live_items(a.live).to_csv(listing, index=False, lineterminator="\n")

@@ -323,11 +323,14 @@ def confirmatory_cells(
     return cells.assign(stratum=[stratum(elapsed[i]) for i in cells["issue_id"]])
 
 
-def _two_sided(effects: np.ndarray, alpha: float = 0.05) -> tuple[float, float]:
+def _two_sided(
+    effects: np.ndarray, alpha: float = 0.05, strata: np.ndarray | None = None
+) -> tuple[float, float]:
     """The bootstrap-t interval at 1 - alpha: each bound one-sided at alpha / 2, the lower one
     as the upper bound of the negated effects (same resamples)."""
-    up = noninferiority(effects, 0.0, alpha=alpha / 2)["upper"]
-    lo = -noninferiority(-np.asarray(effects, dtype=float), 0.0, alpha=alpha / 2)["upper"]
+    up = noninferiority(effects, 0.0, alpha=alpha / 2, strata=strata)["upper"]
+    neg = -np.asarray(effects, dtype=float)
+    lo = -noninferiority(neg, 0.0, alpha=alpha / 2, strata=strata)["upper"]
     return lo, up
 
 
@@ -472,6 +475,26 @@ def live_report(
         {"model": B_MODEL} | test("B prospective part", b_pro),
         {"model": S2_MODEL} | test("S2", pro[pro["model"] == S2_MODEL]),
     ]
+    # S3 and S4 on each model's full test set: B's two parts for Opus 5.5, S2's for gpt-6.1-sol
+    for hyp, ref, kind in CONTRASTS:
+        r = confirmatory_cells(samples, sequences, elapsed, reference=ref)
+        r = r[(r["model"] == B_MODEL) & (r["sequence_id"].map(origin) < live_start_ms)]
+        p = confirmatory_cells(matched, sequences, live_elapsed, reference=ref, sets=sets) if (
+            len(matched)) else r.iloc[:0]  # fmt: skip
+        for model, label, retro_part in ((B_MODEL, "B", r), (S2_MODEL, "S2", r.iloc[:0])):
+            both = pd.concat([retro_part.assign(part="retrospective"),
+                              p[p["model"] == model].assign(part="prospective")])  # fmt: skip
+            e = sequence_effects(both)
+            st = both.groupby("sequence_id")["part"].first().reindex(e.index).to_numpy()
+            mean = float(e.mean()) if len(e) else np.nan
+            row = {"hypothesis": hyp, "model": model, "reference": ref, "kind": kind,
+                   "set": label, "sequences": len(e), "mean": mean}  # fmt: skip
+            if kind == "superiority":
+                t = noninferiority(e.to_numpy(), 0.0, strata=st)
+                row |= {k: t[k] for k in ("upper", "p_sup", "superior")}
+            else:
+                row["lower95"], row["upper95"] = _two_sided(e.to_numpy(), strata=st)
+            rows.append(row)
     strict = live[(live["kind"] == "strict") & live["on_time"]]  # sealed before its windows
     s5 = contrasts(strict, sequences, live_elapsed, (B_MODEL, S2_MODEL), sets) if len(strict) else (
         pd.DataFrame())  # fmt: skip
