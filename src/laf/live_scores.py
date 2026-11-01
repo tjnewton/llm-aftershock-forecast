@@ -107,7 +107,10 @@ def live_samples(live: Path, tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
                     ls["official"] = off = _ls(list(fc.m5), y)
                 else:  # strict windows: no official forecast, scores relative to 0
                     off = 0.0
-                worst = max(v for v in ls.values() if not np.isnan(v))
+                scored = [v for v in ls.values() if not np.isnan(v)]
+                if not scored:  # strict, and its baselines record is missing: nothing to score
+                    continue
+                worst = max(scored)
                 cell = {
                     "item_id": f"{it.item_id}#{d.name}", "window": w.key,
                     "sequence_id": it.sequence_id,

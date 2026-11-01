@@ -314,7 +314,11 @@ def confirmatory_cells(
         m in ok and e == ok[m][0] and v == PRIMARY_PROMPT and sid in ok[m][1]
         for m, e, v, sid in cols
     ]
-    cells = s[keep].groupby(["model", "sequence_id", "item_id", "window"])["d"].mean()
+    cells = (
+        s[np.asarray(keep, dtype=bool)]
+        .groupby(["model", "sequence_id", "item_id", "window"])["d"]
+        .mean()
+    )
     cells = cells.dropna().reset_index().rename(columns={"item_id": "issue_id"})
     return cells.assign(stratum=[stratum(elapsed[i]) for i in cells["issue_id"]])
 
@@ -468,7 +472,7 @@ def live_report(
         {"model": B_MODEL} | test("B prospective part", b_pro),
         {"model": S2_MODEL} | test("S2", pro[pro["model"] == S2_MODEL]),
     ]
-    strict = live[live["kind"] == "strict"]
+    strict = live[(live["kind"] == "strict") & live["on_time"]]  # sealed before its windows
     s5 = contrasts(strict, sequences, live_elapsed, (B_MODEL, S2_MODEL), sets) if len(strict) else (
         pd.DataFrame())  # fmt: skip
     return pd.concat([pd.DataFrame(rows), s5.assign(hypothesis="S5")], ignore_index=True)

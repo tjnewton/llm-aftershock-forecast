@@ -80,6 +80,14 @@ def test_live_answers_are_scored_like_batch_answers(live):
     assert (strict["worst_base_d5"] >= strict["base_d5_naive"]).all()
     assert L.live_start_ms(root) == 1
     assert all("#" in i for i in s["item_id"])  # one scoring ID per issue
+    issue = next(root.glob("*/*/baselines.jsonl"))
+    kept = issue.read_text()
+    issue.unlink()  # released without its baselines record (the baselines push failed)
+    try:
+        bare = L.live_samples(root, _mature(tables))
+    finally:
+        issue.write_text(kept)
+    assert set(bare["kind"]) == {"matched"}  # strict cells need a baseline; matched still score
 
 
 def test_nothing_released_yet_keeps_the_report_running(tmp_path, monkeypatch):
@@ -140,3 +148,11 @@ def test_test_b_joins_its_two_parts_and_s2_s5_use_the_live_items(monkeypatch):
     assert t["S2"]["sequences"] == 6 and t["S2"]["noninferior"]
     s5 = [r for r in recs if r["hypothesis"] == "S5"]
     assert {r["model"] for r in s5} == {"claude-opus-5-5", "gpt-6.1-sol"} and len(s5) == 6
+    assert {r["sequences"] for r in s5} == {6}
+    late = live.assign(on_time=live["kind"] == "matched")  # every strict answer sealed late
+    recs = C.live_report(retro, late, seqs, elapsed, start, None).to_dict("records")
+    assert not [r for r in recs if r["hypothesis"] == "S5"]
+    failed = live.assign(status="transport_error")  # every live call failed
+    recs = C.live_report(retro, failed, seqs, elapsed, start, None).to_dict("records")
+    t = {r["hypothesis"]: r for r in recs}
+    assert t["B prospective part"]["sequences"] == 0 and t["B"]["sequences"] == 6
