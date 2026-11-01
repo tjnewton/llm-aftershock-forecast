@@ -71,3 +71,39 @@ def test_the_release_rule_skips_models_without_a_release_date(monkeypatch):
     elapsed = {i: 0.5 for i in s["item_id"]}
     cells = C.confirmatory_cells(both, seqs, elapsed, rule="release")
     assert set(cells["model"]) == {"claude-opus-5-5"}
+
+
+def test_scoring_variants_change_only_what_they_name():
+    import math
+    from types import SimpleNamespace
+
+    from laf.countdist import from_quantiles, log_score
+    from laf.d2 import _ls, scorer
+    from laf.scoring import quantile_score
+
+    q, y = [0, 0, 0, 1, 1, 2, 3, 4, 5], 40  # a count far beyond the 97.5% quantile
+    assert scorer()(q, y) == _ls(q, y)
+    assert scorer(floor=1e-4)(q, y) == pytest.approx(-math.log(1e-4))  # the floor binds
+    assert scorer(floor=1e-8)(q, y) >= scorer()(q, y)
+    assert scorer("nb_tail")(q, 8) != scorer()(q, 8)  # another tail beyond the last knot
+    assert scorer("log_qs")(q, y) == quantile_score(q, y)
+    grid = ([0.01 * i for i in range(1, 100)], [min(i // 10, 9) for i in range(1, 100)])
+    official = SimpleNamespace(fractiles_m5=grid, cdf_m5=None)
+    want = log_score(from_quantiles(grid[1], grid[0]).cdf, 3)[0]
+    assert scorer("full")(q, 3, official) == pytest.approx(want)  # the whole grid
+    etas = SimpleNamespace(fractiles_m5=None, cdf_m5=np.array([0.5, 0.75, 1.0]))
+    assert scorer("full")(q, 1, etas) == pytest.approx(-math.log(0.25))  # its histogram
+    assert scorer("full")(q, 3) == scorer()(q, 3)  # model answers: as registered
+    with pytest.raises(ValueError):
+        scorer("other")
+
+
+def test_diagnostics_per_forecaster_on_development_answers():
+    from pathlib import Path
+
+    run = [Path("runs/d2/d2-claude-opus-5-5")]
+    t = S.diagnostics(Path("data/processed/20261021T2300Z"), run, ("claude-opus-5-5",))
+    rows = {r["forecaster"]: r for r in t.to_dict("records")}
+    assert {"official", "generic_rj", "naive", "rj_mle", "etas", "claude-opus-5-5"} <= set(rows)
+    assert rows["official"]["ig_per_quake"] == 0.0  # against itself
+    assert all(0 <= r["n_test_fail"] <= 1 and 0 <= r["pit_ks"] <= 1 for r in rows.values())

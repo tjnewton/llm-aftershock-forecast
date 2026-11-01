@@ -39,6 +39,40 @@ def samples(run_dirs: list[Path]) -> list[dict]:
     return out
 
 
+SCORES = ("registered", "nb_tail", "full", "log_qs")
+
+
+def scorer(score: str = "registered", floor: float | None = None):
+    """(quantiles, y, forecast=None) -> score, for the sensitivity analyses (prereg v2 section
+    6). `registered`: the representation-matched log score (ADR 0015); `nb_tail`: the same with
+    the negative-binomial tail; `full`: the official forecast through its whole published
+    fractile grid and the ETAS refit through its simulated histogram, the rest as registered;
+    `log_qs`: the registered log-scale quantile score (prereg v1). `floor` replaces the log
+    floor (1e-6)."""
+    from laf.countdist import LOG_FLOOR, from_cdf_array, from_quantiles, log_score
+    from laf.scoring import quantile_score
+
+    fl = LOG_FLOOR if floor is None else floor
+    if score not in SCORES:
+        raise ValueError(f"unknown score {score!r}")
+
+    def ls(quantiles, y: int, fc=None) -> float:
+        if not quantiles:
+            return float("nan")
+        if score == "log_qs":
+            return quantile_score(list(quantiles), y)
+        if score == "full" and fc is not None:
+            if fc.fractiles_m5:  # the official product's 197-point grid
+                levels, counts = fc.fractiles_m5
+                return log_score(from_quantiles(counts, levels).cdf, y, fl)[0]
+            if fc.cdf_m5 is not None:  # the ETAS refit's simulated distribution
+                return log_score(from_cdf_array(fc.cdf_m5), y, fl)[0]
+        tail = "nb" if score == "nb_tail" else "power"
+        return log_score(from_quantiles(quantiles, tail=tail).cdf, y, fl)[0]
+
+    return ls
+
+
 def _ls(quantiles, y: int) -> float:
     """Representation-matched log score of nine quantiles (ADR 0015); NaN without a forecast."""
     from laf.countdist import from_quantiles, log_score
@@ -79,7 +113,10 @@ def m3_complete(product_mc, regional, mag_main: float, t1_days: float) -> bool:
 BASELINES = ("generic_rj", "rj_mle", "naive", "etas")
 
 
-def analyze(proc: Path, run_dirs: list[Path], settle: str = "primary"):
+def analyze(
+    proc: Path, run_dirs: list[Path], settle: str = "primary", score: str = "registered",
+    floor: float | None = None,
+):  # fmt: skip
     """Per-sample scores and a summary per model, effort and variant (development data only).
 
     Scores are the representation-matched log score (ADR 0015) minus the official forecast's,
@@ -88,8 +125,10 @@ def analyze(proc: Path, run_dirs: list[Path], settle: str = "primary"):
     magnitude is at most 3.0, and the time-dependent completeness after the mainshock
     (`MagComp`) reaches 3.0 before the window starts."""
     from laf import analysis as A
-    from laf.countdist import from_quantiles, log_score
     from laf.generic_rj import MagComp
+
+    # `score` and `floor`: the sensitivity variants (prereg v2 section 6), at M>=5 only
+    ls = scorer(score, floor)
 
     tables, items = A.load_tables(proc), A.load_items(proc)
     cells = A.cells(tables)  # refuses confirmatory sequences (docs/adr/0013)
@@ -132,19 +171,19 @@ def analyze(proc: Path, run_dirs: list[Path], settle: str = "primary"):
             "sequence_id": c["sequence_id"],
             "y5": int(c["y5"]), "y4": int(c["y4"]), "y3": int(y3.get(k, -1)),
             "m3_ok": bool(m3_ok and q3 is not None and k in y3.index),
-            "off5": _ls(off.m5 if off else None, int(c["y5"])),
-            "off4": _ls(off.m4 if off else None, int(c["y4"])),
+            "off5": ls(off.m5 if off else None, int(c["y5"]), off),
+            "off4": _ls(off.m4 if off else None, int(c["y4"])),  # variants change M>=5 only
             "off3": _ls(q3, int(y3[k])) if k in y3.index else np.nan,
         }  # fmt: skip
         # the worst valid baseline at M5, as dLS (prereg v1 section 7 rule for invalid answers)
         info[k]["worst_base_d5"] = max(
-            _ls(fc.m5, int(c["y5"])) - info[k]["off5"] for fc in by_cell.get(k, []) if fc.m5
+            ls(fc.m5, int(c["y5"]), fc) - info[k]["off5"] for fc in by_cell.get(k, []) if fc.m5
         )
         # each baseline's dLS at M5, for the contrasts S3-S5 and the assay-sensitivity test
         for b in BASELINES:
             fc = base.get((b, *k))
             info[k][f"base_d5_{b}"] = (
-                _ls(fc.m5, int(c["y5"])) - info[k]["off5"] if fc and fc.m5 else np.nan
+                ls(fc.m5, int(c["y5"]), fc) - info[k]["off5"] if fc and fc.m5 else np.nan
             )
     rows = []
     for r in samples(run_dirs):
@@ -165,8 +204,8 @@ def analyze(proc: Path, run_dirs: list[Path], settle: str = "primary"):
                 (4, "m4_count_quantiles"),
                 (3, "m3_count_quantiles"),
             ):
-                ls = log_score(from_quantiles(r[t]).cdf, ci[f"y{m}"])[0]
-                row[f"d{m}"] = ls - ci[f"off{m}"] if (m != 3 or ci["m3_ok"]) else np.nan
+                sc = (ls if m == 5 else _ls)(r[t], ci[f"y{m}"])
+                row[f"d{m}"] = sc - ci[f"off{m}"] if (m != 3 or ci["m3_ok"]) else np.nan
             row["m3_over_m4_median"] = (r["m3_count_quantiles"][4] + 1) / (
                 r["m4_count_quantiles"][4] + 1
             )

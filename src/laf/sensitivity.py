@@ -85,3 +85,91 @@ def invalid_rates(samples: pd.DataFrame) -> pd.DataFrame:
     scored = out.drop(columns=["transport_error"], errors="ignore").sum(axis=1)
     out["invalid_rate"] = 1 - out.get("ok", 0) / scored.where(scored > 0)
     return out.reset_index()
+
+
+# scoring variants (prereg v2 section 6): (label, laf.d2 score, log floor)
+SCORE_VARIANTS = (
+    ("log floor 1e-4", "registered", 1e-4),
+    ("log floor 1e-8", "registered", 1e-8),
+    ("negative-binomial tail", "nb_tail", None),
+    ("full distributions (official, ETAS)", "full", None),
+    ("log-scale quantile score", "log_qs", None),
+)
+
+
+def scoring_variants(
+    proc, run_dirs, tables: dict[str, pd.DataFrame], elapsed: dict[str, float],
+    models: tuple[str, ...], sets: dict[str, set[str]] | None = None,
+) -> pd.DataFrame:  # fmt: skip
+    """The non-inferiority rows again under each scoring variant. The quantile score has
+    another unit, so delta does not apply to it: its row gives the estimate and bound only."""
+    from laf.d2 import analyze
+
+    rows = []
+    for label, score, floor in SCORE_VARIANTS:
+        s, _ = analyze(proc, run_dirs, score=score, floor=floor)
+        r = _row(label, C.confirmatory_cells(s, tables["sequences"], elapsed, sets=sets), models)
+        if score == "log_qs":
+            for x in r:
+                x["noninferior"] = None
+        rows += r
+    return pd.DataFrame(rows)
+
+
+FLOORS = (1e-6, 1e-4, 1e-8)
+
+
+def diagnostics(proc, run_dirs, models: tuple[str, ...]) -> pd.DataFrame:
+    """Per forecaster at M>=5 on the scored cells (prereg v2 section 6, ADR 0015): how often
+    each log floor binds, the cells above its 97.5% quantile, CSEP N-test failures (either
+    quantile below 0.025), the KS distance of its randomized PIT from uniform, and the
+    information gain per earthquake against the official forecast (official log score minus
+    its own, summed over cells, over the earthquakes counted)."""
+    import numpy as np
+    from scipy import stats
+
+    from laf import analysis as A
+    from laf.countdist import from_quantiles, log_score, n_test, pit
+    from laf.d2 import BASELINES, samples
+
+    tables, items = A.load_tables(proc), A.load_items(proc)
+    cells = A.cells(tables)  # refuses sealed outcomes
+    cells = cells[cells["primary"] & cells["oaf_cell"] & (cells["role"] == "test-post")]
+    base = A.baselines(tables, items, cells)
+    y5 = {(c["issue_id"], c["window"]): int(c["y5"]) for c in cells.to_dict("records")}
+    label = {"day": "1 Day", "week": "1 Week", "month": "1 Month"}
+    by: dict[str, list] = {}
+    for (name, iid, win), fc in base.items():
+        if (iid, win) in y5 and (name == "official" or name in BASELINES) and fc.m5:
+            by.setdefault(name, []).append(((iid, win), fc.m5))
+    for r in samples(run_dirs):
+        key = (r["item_id"], label[r["window"]])
+        if (r["model"] in models and r["status"] == "ok" and r["paraphrase"] == C.PRIMARY_PROMPT
+                and r["effort"] == C.study_effort(r["model"]) and key in y5):  # fmt: skip
+            by.setdefault(r["model"], []).append((key, r["m5_count_quantiles"]))
+    rng = np.random.default_rng(A.PIT_SEED)
+    ls_off = {k: log_score(from_quantiles(q).cdf, y5[k])[0] for k, q in by.get("official", [])}
+    rows = []
+    for name, fcs in sorted(by.items()):
+        bound = {f: 0 for f in FLOORS}
+        above = fails = 0
+        pits, gain = [], {}
+        for k, q in fcs:
+            y, cdf = y5[k], from_quantiles(q).cdf
+            for f in FLOORS:
+                bound[f] += log_score(cdf, y, f)[1]
+            above += y > q[-1]
+            d1, d2 = n_test(cdf, y)
+            fails += min(d1, d2) < 0.025
+            pits.append(pit(cdf, y, rng))
+            if k in ls_off:
+                gain.setdefault(k, []).append(ls_off[k] - log_score(cdf, y)[0])
+        quakes = sum(y5[k] for k in gain)
+        rows.append({
+            "forecaster": name, "answers": len(fcs),
+            **{f"floor_{f:g}_binds": bound[f] / len(fcs) for f in FLOORS},
+            "above_q975": above, "n_test_fail": fails / len(fcs),
+            "pit_ks": float(stats.kstest(pits, "uniform").statistic),
+            "ig_per_quake": (sum(np.mean(v) for v in gain.values()) / quakes) if quakes else None,
+        })  # fmt: skip
+    return pd.DataFrame(rows)

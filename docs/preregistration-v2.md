@@ -308,10 +308,13 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     - the prospective inputs to test B (its two-part bootstrap is built: `noninferiority(...,
       strata=...)` resamples each part at its own size, with the stratified standard error);
     - S2;
-    - the remaining sensitivity analyses: with the 3 forward-excluded candidates; the
-      log-scale quantile score; full-distribution scores; the negative-binomial tail; log
-      floors with their binding rates; region radius x0.5 and x1.5; N-test, PIT and
-      information gain. (Built, in one table, `laf.sensitivity`: test A on all clean
+    - the remaining sensitivity analyses: with the 3 forward-excluded candidates; region
+      radius x0.5 and x1.5. (Built, `laf.sensitivity`: the scoring variants at M>=5 (log
+      floors 1e-4 and 1e-8, the negative-binomial tail, full distributions of the official
+      forecast (its 197-point fractile grid) and the ETAS refit (its simulated histogram), the
+      log-scale quantile score, which reports its estimate and bound without delta), and per
+      forecaster the floor-binding rates, cells above its 97.5% quantile, N-test failures, the
+      PIT's KS distance and information gain per earthquake. Also, in one table: test A on all clean
       candidates, the unbuffered and release-date clean rules, the non-overlapping subset,
       v2B, valid answers only, the exact-match subset, the 2-day settling rule, the strata,
       and invalid rates by arm. Release dates are the Models API creation dates, checked
