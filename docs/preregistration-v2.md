@@ -406,6 +406,12 @@ The freeze needs all of the following:
 - No item marked OPEN, TO BUILD or TO FIX remains.
 - `laf confirmatory` has run end to end on a development snapshot, including the prospective
   inputs and the size simulation.
+  - Done 2026-11-01 on 20261021T2300Z: `laf confirmatory-dryrun` (the tests, the secondary
+    table, the sensitivity analyses, the scoring variants, the diagnostics) with `--live` on a
+    `laf live-rehearsal` issue (us7000ti1p: the real prospective pipeline, items, seals,
+    spend file and baselines, with synthetic answers from stub clients and the settling check
+    overridden, `--assume-settled`: a rehearsal of the code path, not a result), and
+    `laf confirmatory-size`, which reproduces the sizes quoted in section 6.
 - Tyler tags `prereg-v2` on a commit that holds this document. The SHA-256 of these is posted
   publicly with the tag's commit hash:
   - this document;
