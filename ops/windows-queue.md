@@ -129,4 +129,13 @@ outputs: branch live-dryrun holding the whole log; the service writing to ..\laf
 commit: on live-dryrun only: Live dry run: log update (N polls, M detections)
 notes: Tyler's decision of 2026-11-01: the log commits leave post-submission (86 of its 156 commits since 2026-10-30 were log updates). After this task, never commit runs/live-dryrun/ on post-submission; the Mac removes that folder there after this task's done line. Commits in ..\laf-live-dryrun run that branch's own hooks (identity, secrets, message; no tests, since the branch holds no code). The done line gives the new process ids and the pushed commit.
 
+## T11 live-dryrun-v2
+status: ready
+server: none (no llama-server)
+prepare: T10 done; git pull (brings PR #59: the detector now runs the prospective pipeline)
+run: restart the T09 service on the new code: stop its uv, laf.exe and python processes (ids in the T10 done line), then start it exactly as T10 step 3 does. Check after the next poll that ..\laf-live-dryrun\runs\live-dryrun\stderr.log has no traceback.
+outputs: the service writing to ..\laf-live-dryrun\runs\live-dryrun\; new detection lines carry "pipeline": "prospective"
+commit: none on post-submission (T09's log commits go to live-dryrun as before)
+notes: The detector now applies the inclusion rule (one ComCat query per new qualifying event), runs the ADR 0004 schedule, and for scheduled versions builds the items and the baselines (ETAS refit, about 20 s per issue on the Mac) and seals both records under data\interim\live-dryrun\issues\ (gitignored; never commit it). It still makes no model calls. The done line gives the new process ids.
+
 ## END
