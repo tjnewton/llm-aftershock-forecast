@@ -112,3 +112,27 @@ def test_release_checks_every_file_against_its_published_seal(worktree, tmp_path
     with pytest.raises(ValueError, match="differs from its published seal"):
         U.release(wt, "us1/2", rec)
     assert not (wt / "us1/2/NOTICE.txt").exists()
+
+
+def test_a_release_whose_push_failed_is_pushed_on_a_later_poll(worktree, tmp_path):
+    wt, origin, git = worktree
+    rec = tmp_path / "rec"
+    rec.mkdir()
+    (rec / "items.jsonl").write_text("{}\n")
+    sha = hashlib.sha256(b"{}\n").hexdigest()
+    (rec / "answers.seal.json").write_text(json.dumps({"manifest": {"items.jsonl": sha}}) + "\n")
+    U.publish(wt, "us1/1", rec / "answers.seal.json", calendars=())
+    hook = origin / "hooks/pre-receive"
+    hook.write_text("#!/bin/sh\nexit 1\n")  # the remote refuses every push for now
+    hook.chmod(0o755)
+    U.PUSH_ATTEMPTS, attempts = 1, U.PUSH_ATTEMPTS
+    try:
+        with pytest.raises(subprocess.CalledProcessError):
+            U.release(wt, "us1/1", rec)
+    finally:
+        U.PUSH_ATTEMPTS = attempts
+    assert U.released(wt, "us1/1")  # committed here, not yet on the remote
+    assert "us1/1/NOTICE.txt" not in git("ls-tree", "-r", "--name-only", "live-test", cwd=origin)
+    hook.unlink()
+    assert U.push_pending(wt) == 1 and U.push_pending(wt) == 0
+    assert "us1/1/NOTICE.txt" in git("ls-tree", "-r", "--name-only", "live-test", cwd=origin)

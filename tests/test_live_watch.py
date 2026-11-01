@@ -212,7 +212,7 @@ def test_issues_are_released_only_after_every_window_closed(tmp_path, monkeypatc
         if rel != "us3/1":  # never published: nothing to release against
             (wt / rel).mkdir(parents=True)
             (wt / rel / "answers.seal.json").write_text("{}")
-    (wt / "us2/1/NOTICE.txt").write_text("released before")
+    monkeypatch.setattr(W, "released", lambda wt, rel: rel == "us2/1")  # committed before
     W.release_closed(tmp_path, data, wt, now_ms=2_000)
     assert released == ["us1/1"]  # us1/2's month window is still open
     assert [r["rel"] for r in _log(tmp_path) if r["kind"] == "release"] == ["us1/1"]

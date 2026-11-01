@@ -124,7 +124,7 @@ def release(worktree: Path, rel: str, record_dir: Path) -> str | None:
     notice that these are not official forecasts. Returns the commit, or None if already
     released; a file that differs from its seal is never released."""
     dest = worktree / rel
-    if (dest / "NOTICE.txt").exists():
+    if released(worktree, rel):
         return None
     files: dict[str, bytes] = {}
     for seal in SEALS:
@@ -142,6 +142,26 @@ def release(worktree: Path, rel: str, record_dir: Path) -> str | None:
     (dest / "NOTICE.txt").write_text(NOTICE, encoding="utf-8", newline="\n")
     paths = [f"{rel}/{n}" for n in (*files, "NOTICE.txt")]
     return _commit_push(worktree, paths, f"Release {rel} (windows closed; not official forecasts)")
+
+
+def _committed(worktree: Path, path: str) -> bool:
+    shown = subprocess.run(["git", "-C", str(worktree), "cat-file", "-e", f"HEAD:{path}"],
+                           capture_output=True)  # fmt: skip
+    return shown.returncode == 0
+
+
+def released(worktree: Path, rel: str) -> bool:
+    """The release is committed (its notice is in HEAD); `push_pending` gets it to the remote."""
+    return _committed(worktree, f"{rel}/NOTICE.txt")
+
+
+def push_pending(worktree: Path) -> int:
+    """Push local commits the remote does not have yet (a seal or a release whose push failed
+    earlier); returns how many there were."""
+    ahead = int(_git(worktree, "rev-list", "--count", f"origin/{branch(worktree)}..HEAD"))
+    if ahead:
+        _git(worktree, "push", "-q", "origin", "HEAD")
+    return ahead
 
 
 def branch(worktree: Path) -> str:
