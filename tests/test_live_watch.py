@@ -40,7 +40,7 @@ def test_step_runs_each_new_version_once_and_keeps_polling_after_errors(tmp_path
     built = {"matched_update_ms": newest, "slot": "first", "matched_margin_s": -5.0,
              "strict_margin_s": 900.0}  # fmt: skip
     calls = []
-    monkeypatch.setattr(W, "dry_issue", lambda *a, **k: calls.append(a) or built)
+    monkeypatch.setattr(W, "live_issue", lambda *a, **k: calls.append(a) or built)
     state = W.step(tmp_path, tmp_path, {}, _get())
     n = len(W.new_versions(DOC, set()))
     dets = [r for r in _log(tmp_path) if r["kind"] == "detection"]
@@ -65,19 +65,19 @@ def test_a_failed_issue_is_logged_and_never_retried(tmp_path, monkeypatch):
     def fail(*a, **k):
         raise RuntimeError("fetch failed")
 
-    monkeypatch.setattr(W, "dry_issue", fail)
+    monkeypatch.setattr(W, "live_issue", fail)
     state = W.step(tmp_path, tmp_path, {}, _get())
     errs = [r for r in _log(tmp_path) if r["kind"] == "detection"]
     assert all("RuntimeError" in r["error"] for r in errs)
     assert sorted(r["update_ms"] for r in errs) == [
         v["update_ms"] for v in W.new_versions(DOC, set())
     ]  # every version tried keeps its record
-    monkeypatch.setattr(W, "dry_issue", lambda *a, **k: pytest.fail("retried"))
+    monkeypatch.setattr(W, "live_issue", lambda *a, **k: pytest.fail("retried"))
     W.step(tmp_path, tmp_path, state, _get())
 
 
 def test_aftershocks_and_small_events_are_not_run(tmp_path, monkeypatch):
-    monkeypatch.setattr(W, "dry_issue", lambda *a, **k: pytest.fail("excluded event was run"))
+    monkeypatch.setattr(W, "live_issue", lambda *a, **k: pytest.fail("excluded event was run"))
     lon, lat, _ = DOC["geometry"]["coordinates"]
     bigger = {"properties": {"mag": 6.5, "time": DOC["properties"]["time"] - 86_400_000,
                              "types": ",origin,"},
@@ -101,7 +101,7 @@ def test_aftershocks_and_small_events_are_not_run(tmp_path, monkeypatch):
 
 def test_a_failed_aftershock_query_is_retried_on_the_first_detection_values(tmp_path, monkeypatch):
     calls = []
-    monkeypatch.setattr(W, "dry_issue", lambda *a, **k: calls.append(a) or {})
+    monkeypatch.setattr(W, "live_issue", lambda *a, **k: calls.append(a) or {})
     vs = [v["update_ms"] for v in W.new_versions(DOC, set())]
     state: dict = {"seen": {"nc75458907": vs[:-2]}}
 
@@ -127,7 +127,7 @@ def test_a_sequence_is_tracked_through_its_associated_ids(tmp_path, monkeypatch)
         "inclusion": {"us7000ttnj": {"tier": "secondary", "reason": "included"}},
     }
     built = {"matched_update_ms": vs[-1], "slot": "1d"}
-    monkeypatch.setattr(W, "dry_issue", lambda *a, **k: built)
+    monkeypatch.setattr(W, "live_issue", lambda *a, **k: built)
 
     def no_context(url):
         assert "minmagnitude" not in url, "an included sequence is never checked again"
@@ -145,7 +145,7 @@ def test_a_published_seal_gets_its_github_receipt_on_a_later_poll(tmp_path, monk
                        "pushed_ms": 1_000_000}}  # fmt: skip
     built = {"matched_update_ms": newest, "slot": "first", "matched_first_ms": 1_600_000,
              "published": pub}  # fmt: skip
-    monkeypatch.setattr(W, "dry_issue", lambda *a, **k: built)
+    monkeypatch.setattr(W, "live_issue", lambda *a, **k: built)
     state = W.step(tmp_path, tmp_path, {}, _get(), publish_to=tmp_path)
     assert [r["commit"] for r in state["receipts"]] == ["a" * 40]
     activity = json.dumps([{"after": "a" * 40, "timestamp": "1970-01-01T00:16:41Z"}]).encode()
@@ -182,3 +182,20 @@ def test_index_lags_skip_failed_detections(tmp_path):
         '{"kind": "detection", "event_id": "x", "error": "HTTPError: 503"}\n'
     )
     assert index_lags_s(log) == [5.0]
+
+
+def test_paid_runs_publish_to_live_and_the_dry_run_never_does(tmp_path, monkeypatch):
+    on = ["live-test"]
+    monkeypatch.setattr(W, "branch", lambda wt: on[0])
+    with pytest.raises(SystemExit, match="--paid publishes"):
+        W.run(tmp_path, tmp_path, Path("data"), polls=0, publish_to=tmp_path, paid=True)
+    with pytest.raises(SystemExit, match="--paid publishes"):
+        W.run(tmp_path, tmp_path, Path("data"), polls=0, paid=True)  # no worktree at all
+    on[0] = "live"
+    with pytest.raises(SystemExit, match="never publishes to live"):
+        W.run(tmp_path, tmp_path, Path("data"), polls=0, publish_to=tmp_path)
+    from laf import prospective
+
+    monkeypatch.setattr(prospective, "env_value", lambda var: "")
+    with pytest.raises(SystemExit, match="LIVE_RESERVE"):  # before any client or poll
+        W.run(tmp_path, tmp_path, Path("data"), polls=0, publish_to=tmp_path, paid=True)

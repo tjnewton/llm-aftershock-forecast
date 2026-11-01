@@ -14,6 +14,7 @@ Oct 21-22, 2026). Plan: docs/PLAN.md. Rules that bind the analysis: docs/preregi
   `laf literature`, `laf live-score`; local models: `python -m laf.llamacpp` (docstring)
 - Spends money, ask first every time: `laf smoke`, `laf pilot`, `laf run`, `laf live`, `laf probe`,
   `laf d1 pilot|run` (`laf d1 build` is free), `laf prospective` (without `--dry-run`),
+  `laf live-watch --paid`,
   `laf openai run` (OpenAI key; `laf openai status|collect` are free).
   Adaption launches (`laf adaption launch`) also need a yes.
 

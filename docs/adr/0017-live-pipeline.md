@@ -110,6 +110,23 @@ These replace decisions 1-2 above where they conflict (docs/preregistration-v2.m
     (on a version the study does not use, published nowhere). L is the time of the first
     sealed live record.
 
+13. **Host (Tyler, 2026-11-01):** the Windows machine runs the paid live arm from L until
+    hackathon judging ends, then the scheduled GitHub Actions workflow takes over. Same command
+    on both: `laf live-watch --paid --publish <worktree of live>`. Windows needs both API keys
+    in its `.env` (Tyler), and the worker prompt allows API calls for this service only.
+
+## The paid path (2026-11-01)
+- **Live reserve:** each provider's monthly cap is split. Batch and one-off runs may spend the
+  cap minus `LAF_<PROVIDER>_LIVE_RESERVE_USD`; the live service may spend only the reserve.
+  The live ledger is the `spend.jsonl` published beside each answers seal on `live` (model,
+  token usage, cost, no text), so every host reads the same ledger and an ephemeral GitHub
+  Actions checkout loses nothing. The amounts come with the confirmatory cost plan.
+- **Priority (decision 10):** within an issue, Opus 5.5 matched, Opus 5.5 strict, gpt-6.1-sol
+  matched, gpt-6.1-sol strict; a group (item and model, k answers) runs only if its worst case
+  fits what is left, else its answers are listed as `missed: budget`.
+- **Guards:** `--paid` refuses unless it publishes to a worktree of `live` and both reserves
+  are set; the dry run refuses `live`.
+
 ## Open decisions (Tyler)
 1. ~~Prospective duration~~: decided 2026-10-31 (ADR 0018 decision 5): 6 months or 26
    eligible prospective M>=5 sequences, whichever comes first; one analysis at the stop.
@@ -117,6 +134,7 @@ These replace decisions 1-2 above where they conflict (docs/preregistration-v2.m
 3. ~~The strict window rounding~~: decided 2026-11-01 (decision 11).
 
 ## Changelog
+- 2026-11-01: decision 13 (host); the paid path (live reserve, ledger, priority, guards).
 - 2026-11-01: decisions 11-12 (strict window rule final, live start).
 - 2026-10-31: decisions 5-10 (from the prereg v2 checks); decisions 1-2 replaced where they conflict.
 - 2026-10-30: dry-run results so far; decisions 1-4 (Tyler).

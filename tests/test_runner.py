@@ -100,9 +100,17 @@ def test_priced_results_without_a_batch_record_are_refused(tmp_path):
 def test_check_budget_against_the_monthly_cap(monkeypatch, tmp_path):
     monkeypatch.setattr(runner, "month_spend_usd", lambda month, runs: 8.0)
     monkeypatch.setenv(CAP, "10")
+    monkeypatch.setenv(runner.reserve_var(CAP), "0")
     assert runner.check_budget(2.0, tmp_path) == 8.0  # at the cap: allowed
     with pytest.raises(SystemExit, match="spend guard"):
         runner.check_budget(2.01, tmp_path)
+    monkeypatch.setenv(runner.reserve_var(CAP), "1")  # the live reserve is off limits
+    assert runner.reserve_var(CAP) == "LAF_CLAUDE_LIVE_RESERVE_USD"
+    assert runner.remaining_usd(tmp_path) == 1.0
+    assert runner.check_budget(1.0, tmp_path) == 8.0
+    with pytest.raises(SystemExit, match="live reserve"):
+        runner.check_budget(1.01, tmp_path)
+    monkeypatch.setenv(runner.reserve_var(CAP), "0")
     for bad in ("nan", "inf", "-1"):
         monkeypatch.setenv(CAP, bad)
         with pytest.raises(SystemExit, match="finite"):

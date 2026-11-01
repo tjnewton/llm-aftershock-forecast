@@ -72,18 +72,23 @@ def _commit_push(worktree: Path, paths: list[str], message: str) -> str:
     return _git(worktree, "rev-parse", "HEAD")
 
 
-def publish(worktree: Path, rel: str, seal: Path, *, ots=ots_proof, calendars=CALENDARS) -> dict:
-    """Push `seal` to `<worktree>/<rel>/`, then its calendar proofs. Returns the commit, the
-    local time the push returned and the calendars that answered; a calendar failure is
-    recorded, a push failure raises."""
+def publish(
+    worktree: Path, rel: str, seal: Path, *, extra: tuple[Path, ...] = (), ots=ots_proof,
+    calendars=CALENDARS,
+) -> dict:  # fmt: skip
+    """Push `seal` (and `extra` files, such as the issue's spend file) to `<worktree>/<rel>/`,
+    then the seal's calendar proofs. Returns the commit, the local time the push returned and
+    the calendars that answered; a calendar failure is recorded, a push failure raises."""
     dest = worktree / rel
     dest.mkdir(parents=True, exist_ok=True)
     data = seal.read_bytes()
-    (dest / seal.name).write_bytes(data)
-    commit = _commit_push(worktree, [f"{rel}/{seal.name}"], f"Seal {rel}/{seal.name}")
+    for f in (seal, *extra):
+        (dest / f.name).write_bytes(f.read_bytes())
+    paths = [f"{rel}/{f.name}" for f in (seal, *extra)]
+    commit = _commit_push(worktree, paths, f"Seal {rel}/{seal.name}")
     rec: dict = {
         "commit": commit, "pushed_ms": int(time.time() * 1000), "ots": {},
-        "repo": repo_slug(worktree), "branch": _git(worktree, "branch", "--show-current"),
+        "repo": repo_slug(worktree), "branch": branch(worktree),
     }  # fmt: skip
     proofs = []
     for cal in calendars:
@@ -97,6 +102,10 @@ def publish(worktree: Path, rel: str, seal: Path, *, ots=ots_proof, calendars=CA
     if proofs:
         rec["ots_commit"] = _commit_push(worktree, proofs, f"Timestamps {rel}/{seal.name}")
     return rec
+
+
+def branch(worktree: Path) -> str:
+    return _git(worktree, "branch", "--show-current")
 
 
 def repo_slug(worktree: Path) -> str | None:

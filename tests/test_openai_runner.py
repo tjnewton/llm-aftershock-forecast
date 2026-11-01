@@ -210,3 +210,14 @@ def test_local_errors_surface_before_any_upload(items, tmp_path, monkeypatch):
     with pytest.raises(OSError):
         O.submit(c, "x", reqs, "S", estimate=0.1)
     assert c.uploaded is None
+
+
+def test_the_openai_ledger_counts_synchronous_calls_at_the_standard_price(tmp_path):
+    run = tmp_path / "prospective/us1/1"
+    run.mkdir(parents=True)
+    rows = [{"started_utc": "2026-12-01T00:00:00+00:00", "model_requested": "gpt-6.1-sol",
+             "usage": {"input_tokens": 1_000_000, "output_tokens": 100_000}},
+            {"started_utc": "2026-12-01T00:00:00+00:00", "model_requested": "claude-opus-5-5",
+             "usage": {"input_tokens": 1, "output_tokens": 1}}]  # fmt: skip
+    (run / "calls.jsonl").write_text("".join(json.dumps(r) + "\n" for r in rows))
+    assert O.spend_records(tmp_path) == [("2026-12", 2.0 + 1.0)]  # Claude calls stay off it

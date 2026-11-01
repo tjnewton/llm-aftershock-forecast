@@ -196,7 +196,11 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     (`laf.publish`): each seal file is pushed at once, then its OpenTimestamps proofs from
     three public calendars, and GitHub's push receipt is read from the repository activity
     API. The dry run publishes to the branch `live-test`, the study to `live`.
-  - **TO BUILD:** the paid detector path and the host.
+  - Built: the paid path (`laf live-watch --paid`; ADR 0017 "The paid path"): the live models
+    spend only a fixed live reserve per provider, counted on spend files published with each
+    answers seal, in the budget priority below.
+  - Host (decided 2026-11-01): the Windows machine from L until hackathon judging ends, then
+    the scheduled GitHub Actions workflow (ADR 0017 decision 13).
 - **On time:** a matched item enters test B only if its answer record's hash reached the
   GitHub push receipt (or an OpenTimestamps calendar) before the item's first window opened.
   - Late, missed and failed items are listed with reasons and never backfilled.
