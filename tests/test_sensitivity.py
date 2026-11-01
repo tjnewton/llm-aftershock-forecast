@@ -166,3 +166,25 @@ def test_a_radius_variant_with_no_covered_cell_reports_zero_sequences(monkeypatc
                            ("claude-opus-5-5",))  # fmt: skip
     assert t.to_dict("records") == [
         {"analysis": "region radius x1.5", "model": "claude-opus-5-5", "sequences": 0}]  # fmt: skip
+
+
+def test_forward_excluded_candidates_enter_only_their_sensitivity_row(monkeypatch):
+    from laf import splits
+
+    monkeypatch.setattr(splits, "development_ids", lambda: frozenset())
+    assert C.forward_excluded() == {"nc75094976", "us7000q8wx", "us7000s2bn"}
+    ids = ["s0", "s1", "s2", "us7000s2bn"]
+    origin = pd.Timestamp("2026-03-05", tz="UTC").value // 1_000_000
+    seqs = pd.DataFrame({"sequence_id": ids, "origin_ms": origin, "mag": 5.5})
+    assert C.eligible(seqs, "gpt-5.1-2025-11-13") == {"s0", "s1", "s2"}
+    assert "us7000s2bn" in C.eligible(seqs, "gpt-5.1-2025-11-13", include_forward=True)
+    rng = np.random.default_rng(0)
+    s = pd.DataFrame([{"model": "gpt-5.1-2025-11-13", "effort": "medium", "variant": "v2A",
+                       "status": "ok", "sequence_id": sid, "item_id": f"{sid}@first",
+                       "window": "day", "sample": 0, "d5": float(rng.normal(0, 0.05)),
+                       "worst_base_d5": 0.4} for sid in ids])  # fmt: skip
+    tables = {"sequences": seqs, "issue_times": pd.DataFrame(
+        {"issue_id": s["item_id"], "oaf_obs_m5": 0, "comcat_m5_at_cutoff": 0})}  # fmt: skip
+    t = S.sensitivity(s, tables, {i: 0.5 for i in s["item_id"]}, ("gpt-5.1-2025-11-13",))
+    n = dict(zip(t["analysis"], t["sequences"], strict=True))
+    assert n["main"] == 3 and n["with the 3 forward-excluded candidates"] == 4

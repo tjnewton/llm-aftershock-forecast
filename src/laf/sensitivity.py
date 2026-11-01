@@ -65,6 +65,9 @@ def sensitivity(
                      C.confirmatory_cells(samples, seqs, elapsed, wide), C.PRIMARY)  # fmt: skip
         for rule in ("unbuffered", "release"):
             rows += _row(f"{rule} clean rule", cells(rule=rule), models)
+        # tests A, B and S1 with the 3 forward-excluded candidates (prereg v2 section 4)
+        abs1 = tuple(m for m in models if m in (*C.PRIMARY, "claude-opus-5-5", "claude-opus-4-6"))
+        rows += _row("with the 3 forward-excluded candidates", cells(include_forward=True), abs1)
     rows += _row("non-overlapping subset", main[non_overlapping(main)], models)
     rows += _row("v2B", cells(variant="v2B"), tuple(m for m in models if m in AB_MODELS))
     rows += _row("valid answers only", cells(s=samples[samples["status"] == "ok"]), models)
