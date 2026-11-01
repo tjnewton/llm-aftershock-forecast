@@ -304,15 +304,26 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     assay-sensitivity test, and the informative-sequence estimand, whose official mean is the
     integral of the official quantile function over its published fractile grid.
   - Built: the prospective inputs (`laf confirmatory --live <worktree of live>`;
-    `laf.live_scores`): every released issue is scored on the outcome snapshot (counts in the
-    item's own circle and windows; matched items against the official version, strict items
-    against the pipeline's baselines only). Test B joins its retrospective part (origin before
-    L) and its prospective part (M>=5 at the first issue, origin in [L, S), on-time matched
-    items) in the two-part bootstrap (`noninferiority(..., strata=...)`: each part resampled
-    at its own size, with the stratified standard error), and is reported for each part alone;
-    S2 is gpt-6.1-sol on the same prospective items; S5 contrasts the strict items with each
-    baseline. Every live item is listed with its on-time, failed and missed answers.
-  - **TO BUILD:** the listed sensitivity analyses.
+    `laf.live_scores`). Every released issue is scored on the outcome snapshot: counts in the
+    item's own circle and windows, from its own sequence's catalog, once settled 21 days;
+    matched items against the official version, strict items against the pipeline's
+    baselines only. Test B joins its retrospective part (origin before L) and its prospective
+    part (sequences included as primary at first detection, `<sequence>/inclusion.json`;
+    origin in [L, S); on-time matched items) in the two-part bootstrap
+    (`noninferiority(..., strata=...)`: each part resampled at its own size, with the
+    stratified standard error), and is reported for each part alone. S2 is gpt-6.1-sol on the
+    same prospective items. S3 and S4 use each model's full set (B's two parts, S2's items).
+    S5 contrasts the on-time strict items with each baseline. Every live item is listed with
+    its on-time, failed and missed answers.
+  - Built, in one table (`laf.sensitivity`): test A on all clean candidates, the unbuffered
+    and release-date clean rules, the non-overlapping subset, v2B, valid answers only, the
+    exact-match subset, the 2-day settling rule, the strata, and invalid rates by arm.
+    Release dates are the Models API creation dates, checked 2026-11-01: gpt-5.1 2025-11-10,
+    Opus 4.6 2026-02-04, Sonnet 4.6 2026-02-17, gpt-6.1-sol 2026-09-27, Opus 5.5 2026-09-21.
+  - **TO BUILD:** the remaining sensitivity analyses: with the 3 forward-excluded candidates;
+    the log-scale quantile score; full-distribution scores; the negative-binomial tail; log
+    floors with their binding rates; region radius x0.5 and x1.5; N-test, PIT and
+    information gain.
 
 ## 7. Invalid outputs
 - An invalid answer gets the worst score in its cell from a fixed pool (decided 2026-10-31). Invalid means a schema

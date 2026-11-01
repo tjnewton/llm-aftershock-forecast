@@ -1,4 +1,4 @@
-hypothesis,model,reference,kind,sequences,mean,upper,p_sup,superior,lower95,upper95,generic_rj_mean,generic_rj_upper,generic_rj_noninferior,separates_from_generic,noninferior
+hypothesis,model,reference,kind,sequences,mean,upper,p_sup,superior,lower95,upper95,generic_rj_mean,generic_rj_lower,generic_rj_upper,generic_rj_status,noninferior
 S3,claude-opus-4-6,naive,superiority,18.0,-0.019451371765115816,0.07105113001035185,0.2685731426857314,False,,,,,,,
 S3,claude-opus-5-5,naive,superiority,18.0,-0.04234829106279649,0.01172236491531363,0.104989501049895,False,,,,,,,
 S3,gpt-5.1-2025-11-13,naive,superiority,18.0,-0.010864703997397555,0.002879436448880222,0.09829017098290171,False,,,,,,,
@@ -8,9 +8,9 @@ S4,gpt-5.1-2025-11-13,generic_rj,superiority,18.0,0.040587219942212,0.4062054137
 S4,claude-opus-4-6,etas,estimate,18.0,0.026445167072403485,,,,-0.09108161190539524,0.0898834373195131,,,,,
 S4,claude-opus-5-5,etas,estimate,18.0,0.003548247774722807,,,,-0.023698734892659678,0.02886656057301894,,,,,
 S4,gpt-5.1-2025-11-13,etas,estimate,18.0,0.03503183484012174,,,,-0.02407403935158728,0.6154383857509139,,,,,
-assay,claude-opus-4-6,,,,,,,,,,0.0009183022011917774,0.019947701360858237,True,False,
-assay,claude-opus-5-5,,,,,,,,,,0.0009183022011917774,0.019947701360858237,True,False,
-assay,gpt-5.1-2025-11-13,,,,,,,,,,0.0009183022011917774,0.019947701360858237,True,False,
+assay,claude-opus-4-6,,,,,,,,,,0.0009183022011917774,-0.049549518957777705,0.019947701360858237,noninferior,
+assay,claude-opus-5-5,,,,,,,,,,0.0009183022011917774,-0.049549518957777705,0.019947701360858237,noninferior,
+assay,gpt-5.1-2025-11-13,,,,,,,,,,0.0009183022011917774,-0.049549518957777705,0.019947701360858237,noninferior,
 informative,claude-opus-4-6,,,2.0,0.06361416731237185,inf,,,,,,,,,False
 informative,claude-opus-5-5,,,2.0,-0.08462640791841429,inf,,,,,,,,,False
 informative,gpt-5.1-2025-11-13,,,2.0,-0.004371512810790026,inf,,,,,,,,,False
