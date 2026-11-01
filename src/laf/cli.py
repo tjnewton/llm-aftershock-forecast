@@ -40,7 +40,8 @@ def main(argv: list[str] | None = None) -> None:
         "freeze-manifest",
         help="prereg v2 section 11: items and baselines without outcomes, then every SHA-256",
     )
-    fm.add_argument("--snapshot", required=True, help="the candidate snapshot (20261029T2000Z)")
+    fm.add_argument("--snapshot", nargs="+", required=True,
+                    help="the candidate and forward-excluded snapshots")  # fmt: skip
     sub.add_parser("spend", help="recorded API spend per UTC month and in total (runs/**)")
     bs = sub.add_parser(
         "batch-status", help="processing status and counts of a batch id (no results)"
@@ -1122,9 +1123,9 @@ def main(argv: list[str] | None = None) -> None:
 
         from laf.freeze import manifest, write_frozen_inputs
 
-        inputs = write_frozen_inputs(a.data_dir, a.snapshot)
+        inputs = [p for snap in a.snapshot for p in write_frozen_inputs(a.data_dir, snap)]
         m = manifest(a.data_dir, a.snapshot, inputs)
-        out = Path("results") / f"freeze_manifest_{a.snapshot}.json"
+        out = Path("results") / "freeze_manifest.json"
         out.write_text(json.dumps(m, indent=1, sort_keys=True) + "\n", encoding="utf-8")
         print(f"{len(m['files'])} artifacts; manifest SHA-256 {m['manifest_sha256']} -> {out}")
     elif a.cmd == "prompts-hash":

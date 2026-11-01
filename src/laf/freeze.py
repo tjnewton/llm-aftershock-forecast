@@ -1,11 +1,12 @@
 """The freeze manifest of prereg v2 section 11: SHA-256 of every artifact posted with the tag.
 
-`laf freeze-manifest --snapshot S` writes the candidate items at catalog floor 3 (the v2 items,
-`items_m3.jsonl`) and the pipeline's baseline forecasts on them (generic RJ, RJ-MLE, the rule of
-thumb and the legacy-ETAS refit with its per-issue seeds, `baselines_m3.jsonl`), both computed
-without any outcome: the cells come from the forecast windows, never from the counts. It then
-hashes this document's artifacts into `results/freeze_manifest_<S>.json`, with one SHA-256 over
-the whole manifest for the public post.
+`laf freeze-manifest --snapshot S [S2 ...]` writes, for each snapshot (the candidates and the
+forward-excluded ones), the items at catalog floor 3 (the v2 items, `items_m3.jsonl`) and the
+pipeline's baseline forecasts on them (generic RJ, RJ-MLE, the rule of thumb and the
+legacy-ETAS refit with its per-issue seeds, `baselines_m3.jsonl`), both computed without any
+outcome: the cells come from the forecast windows, never from the counts. It then hashes this
+document's artifacts into `results/freeze_manifest.json`, with one SHA-256 over the whole
+manifest for the public post.
 """
 
 import hashlib
@@ -17,7 +18,8 @@ import pandas as pd
 PREREG = Path("docs/preregistration-v2.md")
 PROMPT_HASHES = Path("prompts/v2/HASHES.json")
 CONFIGS = ("config/splits.toml", "config/sequences.toml", "config/sequences_e3.toml",
-           "config/sequences_confirmatory.toml")  # fmt: skip
+           "config/sequences_confirmatory.toml",
+           "config/sequences_forward_excluded.toml")  # fmt: skip
 SRC = Path("src/laf")
 
 
@@ -78,19 +80,21 @@ def write_frozen_inputs(data_dir: Path, snapshot: str) -> list[Path]:
     return list(bodies)
 
 
-def manifest(data_dir: Path, snapshot: str, inputs: list[Path]) -> dict:
-    """{label: SHA-256} for every artifact of prereg v2 section 11, and their combined hash."""
-    proc = data_dir / "processed" / snapshot
+def manifest(data_dir: Path, snapshots: list[str], inputs: list[Path]) -> dict:
+    """{label: SHA-256} for every artifact of prereg v2 section 11, and their combined hash:
+    the candidate snapshot and the forward-excluded one."""
     downloads = data_dir / "manifest.jsonl"  # the download inventory of this data directory
     files = {str(PREREG): PREREG, str(PROMPT_HASHES): PROMPT_HASHES, str(downloads): downloads}
     files |= {c: Path(c) for c in CONFIGS}
-    files |= {str(p): p for p in sorted(proc.glob("*.parquet"))}
+    for snapshot in snapshots:
+        proc = data_dir / "processed" / snapshot
+        files |= {str(p): p for p in sorted(proc.glob("*.parquet"))}
     files |= {str(p): p for p in inputs}
     out = {k: sha256(p) for k, p in sorted(files.items())}
     tree = {str(p): sha256(p) for p in sorted(SRC.rglob("*.py"))}
     out["src/laf (SHA-256 of its sorted file hashes)"] = hashlib.sha256(
         json.dumps(tree, sort_keys=True).encode("utf-8")
     ).hexdigest()
-    return {"snapshot": snapshot, "files": out, "src_files": tree,
+    return {"snapshots": snapshots, "files": out, "src_files": tree,
             "manifest_sha256": hashlib.sha256(
                 json.dumps(out, sort_keys=True).encode("utf-8")).hexdigest()}  # fmt: skip
