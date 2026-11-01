@@ -36,6 +36,11 @@ def main(argv: list[str] | None = None) -> None:
     it = sub.add_parser("items", help="write data/processed/<snapshot>/items.jsonl")
     it.add_argument("--snapshot", required=True)
     sub.add_parser("prompts-hash", help="write prompts/HASHES.json (SHA-256 per template)")
+    fm = sub.add_parser(
+        "freeze-manifest",
+        help="prereg v2 section 11: items and baselines without outcomes, then every SHA-256",
+    )
+    fm.add_argument("--snapshot", required=True, help="the candidate snapshot (20261029T2000Z)")
     sub.add_parser("spend", help="recorded API spend per UTC month and in total (runs/**)")
     bs = sub.add_parser(
         "batch-status", help="processing status and counts of a batch id (no results)"
@@ -1112,6 +1117,16 @@ def main(argv: list[str] | None = None) -> None:
             "".join(i.model_dump_json() + "\n" for i in items), encoding="utf-8", newline="\n"
         )
         print(f"{len(items)} items -> {out}")
+    elif a.cmd == "freeze-manifest":
+        import json
+
+        from laf.freeze import manifest, write_frozen_inputs
+
+        inputs = write_frozen_inputs(a.data_dir, a.snapshot)
+        m = manifest(a.data_dir, a.snapshot, inputs)
+        out = Path("results") / f"freeze_manifest_{a.snapshot}.json"
+        out.write_text(json.dumps(m, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+        print(f"{len(m['files'])} artifacts; manifest SHA-256 {m['manifest_sha256']} -> {out}")
     elif a.cmd == "prompts-hash":
         import json
 
