@@ -56,17 +56,16 @@ def scorer(score: str = "registered", floor: float | None = None):
     if score not in SCORES:
         raise ValueError(f"unknown score {score!r}")
 
-    def ls(quantiles, y: int, fc=None) -> float:
+    def ls(quantiles, y: int, fc=None, name: str | None = None) -> float:
         if not quantiles:
             return float("nan")
         if score == "log_qs":
             return quantile_score(list(quantiles), y)
-        if score == "full" and fc is not None:
-            if fc.fractiles_m5:  # the official product's 197-point grid
-                levels, counts = fc.fractiles_m5
-                return log_score(from_quantiles(counts, levels).cdf, y, fl)[0]
-            if fc.cdf_m5 is not None:  # the ETAS refit's simulated distribution
-                return log_score(from_cdf_array(fc.cdf_m5), y, fl)[0]
+        if score == "full" and name == "official" and fc is not None and fc.fractiles_m5:
+            levels, counts = fc.fractiles_m5  # the official product's 197-point grid
+            return log_score(from_quantiles(counts, levels).cdf, y, fl)[0]
+        if score == "full" and name == "etas" and fc is not None and fc.cdf_m5 is not None:
+            return log_score(from_cdf_array(fc.cdf_m5), y, fl)[0]  # its simulated distribution
         tail = "nb" if score == "nb_tail" else "power"
         return log_score(from_quantiles(quantiles, tail=tail).cdf, y, fl)[0]
 
@@ -142,7 +141,7 @@ def analyze(
     by_cell: dict[tuple, list] = {}  # every baseline forecast per cell, for the worst score
     for (name, iid, win), fc in base.items():
         if name not in ("etas_analyst", "etas_hindsight"):
-            by_cell.setdefault((iid, win), []).append(fc)
+            by_cell.setdefault((iid, win), []).append((name, fc))
     # the official product's completeness magnitude (ETAS `Mc` or RJ `Mcat`, oaf_versions.mc)
     ov = tables["oaf_versions"]
     ov = ov[ov["valid"]].drop_duplicates(["sequence_id", "creation_ms"])
@@ -171,19 +170,21 @@ def analyze(
             "sequence_id": c["sequence_id"],
             "y5": int(c["y5"]), "y4": int(c["y4"]), "y3": int(y3.get(k, -1)),
             "m3_ok": bool(m3_ok and q3 is not None and k in y3.index),
-            "off5": ls(off.m5 if off else None, int(c["y5"]), off),
+            "off5": ls(off.m5 if off else None, int(c["y5"]), off, "official"),
             "off4": _ls(off.m4 if off else None, int(c["y4"])),  # variants change M>=5 only
             "off3": _ls(q3, int(y3[k])) if k in y3.index else np.nan,
         }  # fmt: skip
         # the worst valid baseline at M5, as dLS (prereg v1 section 7 rule for invalid answers)
         info[k]["worst_base_d5"] = max(
-            ls(fc.m5, int(c["y5"]), fc) - info[k]["off5"] for fc in by_cell.get(k, []) if fc.m5
+            ls(fc.m5, int(c["y5"]), fc, name) - info[k]["off5"]
+            for name, fc in by_cell.get(k, [])
+            if fc.m5
         )
         # each baseline's dLS at M5, for the contrasts S3-S5 and the assay-sensitivity test
         for b in BASELINES:
             fc = base.get((b, *k))
             info[k][f"base_d5_{b}"] = (
-                ls(fc.m5, int(c["y5"]), fc) - info[k]["off5"] if fc and fc.m5 else np.nan
+                ls(fc.m5, int(c["y5"]), fc, b) - info[k]["off5"] if fc and fc.m5 else np.nan
             )
     rows = []
     for r in samples(run_dirs):

@@ -90,9 +90,11 @@ def test_scoring_variants_change_only_what_they_name():
     grid = ([0.01 * i for i in range(1, 100)], [min(i // 10, 9) for i in range(1, 100)])
     official = SimpleNamespace(fractiles_m5=grid, cdf_m5=None)
     want = log_score(from_quantiles(grid[1], grid[0]).cdf, 3)[0]
-    assert scorer("full")(q, 3, official) == pytest.approx(want)  # the whole grid
+    assert scorer("full")(q, 3, official, "official") == pytest.approx(want)  # the whole grid
     etas = SimpleNamespace(fractiles_m5=None, cdf_m5=np.array([0.5, 0.75, 1.0]))
-    assert scorer("full")(q, 1, etas) == pytest.approx(-math.log(0.25))  # its histogram
+    assert scorer("full")(q, 1, etas, "etas") == pytest.approx(-math.log(0.25))  # its histogram
+    # generic RJ and the rule of thumb carry full distributions too, but stay as registered
+    assert scorer("full")(q, 1, etas, "generic_rj") == scorer()(q, 1)
     assert scorer("full")(q, 3) == scorer()(q, 3)  # model answers: as registered
     with pytest.raises(ValueError):
         scorer("other")
