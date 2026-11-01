@@ -166,6 +166,9 @@ def main(argv: list[str] | None = None) -> None:
         "--test-a-all", action="store_true",
         help="test A's sensitivity run: gpt-5.1 on all clean candidates (test B stays M>=5)",
     )  # fmt: skip
+    ct.add_argument(
+        "--live", type=Path, help="worktree of branch live: test B in two parts, S2, S5"
+    )
     cz = sub.add_parser(
         "confirmatory-size",
         help="simulated size of the registered test from development D2 effects (no API)",
@@ -685,6 +688,32 @@ def main(argv: list[str] | None = None) -> None:
         diagnostics(proc, runs, tested).to_csv(diag, index=False, lineterminator="\n")
         print(sv.round(3).to_string(index=False))
         print(f"-> {path}, {diag}")
+        if a.live:
+            from laf.confirmatory import live_report
+            from laf.live_scores import live_items, live_samples, live_start_ms
+            from laf.splits import stop_ms
+
+            start = live_start_ms(a.live)
+            if start is None:
+                raise SystemExit(f"{a.live}: no sealed live record")
+            from laf.confirmatory import informative
+
+            lv = live_report(samples, live_samples(a.live, tables), tables["sequences"], elapsed,
+                             start, stop_ms(), informative(tables))  # fmt: skip
+            path = Path("results") / f"confirmatory_live_{a.snapshot}.csv"
+            lv.to_csv(path, index=False, lineterminator="\n")
+            # S3/S4, the assay and the informative estimand for Opus 5.5 and gpt-6.1-sol now come
+            # from their full sets (B, S2): drop the retrospective-only rows
+            from laf.confirmatory import B_MODEL, S2_MODEL
+
+            redone = ["S3", "S4", "assay", "informative"]
+            stale = sec["hypothesis"].isin(redone) & sec["model"].isin([B_MODEL, S2_MODEL])
+            sec[~stale].to_csv(Path("results") / f"confirmatory_secondary_{a.snapshot}{tag}.csv",
+                               index=False, lineterminator="\n")  # fmt: skip
+            print(lv.round(3).to_string(index=False))
+            listing = Path("results") / f"live_items_{a.snapshot}.csv"
+            live_items(a.live).to_csv(listing, index=False, lineterminator="\n")
+            print(f"-> {path}, {listing} (every live item: on time, failed, missed)")
     elif a.cmd == "confirmatory-size":
         import pandas as pd
 

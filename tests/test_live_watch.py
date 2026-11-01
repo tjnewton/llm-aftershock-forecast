@@ -146,15 +146,18 @@ def test_a_published_seal_gets_its_github_receipt_on_a_later_poll(tmp_path, monk
     built = {"matched_update_ms": newest, "slot": "first", "matched_first_ms": 1_600_000,
              "published": pub}  # fmt: skip
     monkeypatch.setattr(W, "live_issue", lambda *a, **k: built)
+    added = []
+    monkeypatch.setattr(W, "add_record", lambda wt, rel, name, r: added.append((rel, name, r)))
     state = W.step(tmp_path, tmp_path, {}, _get(), publish_to=tmp_path)
     assert [r["commit"] for r in state["receipts"]] == ["a" * 40]
+    assert [(a[0], a[1], a[2]["tier"]) for a in added] == [
+        ("nc75458907", "inclusion.json", "secondary")]  # the first-detection decision  # fmt: skip
+    added.clear()
     activity = json.dumps([{"after": "a" * 40, "timestamp": "1970-01-01T00:16:41Z"}]).encode()
 
     def get(url):
         return activity if "api.github.com" in url else _get()(url)
 
-    added = []
-    monkeypatch.setattr(W, "add_record", lambda wt, rel, name, r: added.append((rel, name, r)))
     W.step(tmp_path, tmp_path, state, get, publish_to=tmp_path)
     rec = [r for r in _log(tmp_path) if r["kind"] == "receipt"]
     assert [(a[0], a[1], a[2]["receipt_ms"]) for a in added] == [
@@ -225,3 +228,15 @@ def test_issues_are_released_only_after_every_window_closed(tmp_path, monkeypatc
     assert released == ["us1/1"]  # us1/2's month window is still open
     logged = {r["rel"]: r for r in _log(tmp_path) if r["kind"] == "release"}
     assert set(logged) == {"us1/1", "us4/1"} and "JSONDecodeError" in logged["us4/1"]["error"]
+
+
+def test_the_inclusion_record_is_written_before_the_issue_runs(tmp_path, monkeypatch):
+    added = []
+    monkeypatch.setattr(W, "add_record", lambda wt, rel, name, r: added.append(name))
+
+    def boom(*a, **k):
+        raise RuntimeError("baselines failed after the answers were published")
+
+    monkeypatch.setattr(W, "live_issue", boom)
+    W.step(tmp_path, tmp_path, {}, _get(), publish_to=tmp_path)
+    assert added == ["inclusion.json"]

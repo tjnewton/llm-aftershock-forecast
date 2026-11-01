@@ -178,8 +178,10 @@ def release_closed(out: Path, data_dir: Path, publish_to: Path, now_ms: int) -> 
         if released(publish_to, rel) or not (publish_to / rel / SEALS[0]).exists():
             continue  # released already, or never published
         try:  # a damaged record is logged and skipped; the detector keeps polling
-            lines = items_file.read_text(encoding="utf-8").splitlines()
-            last = max(w["end_ms"] for line in lines for w in json.loads(line)["windows"])
+            lines = items_file.read_text(encoding="utf-8").split("\n")
+            last = max(
+                w["end_ms"] for line in lines if line.strip() for w in json.loads(line)["windows"]
+            )
             if last > now_ms:
                 continue  # a window is still open
             commit = release(publish_to, rel, items_file.parent)
@@ -235,6 +237,17 @@ def step(
             tier, reason = inclusion(doc, key, decided, get)
             det |= {"key": key, "mag": p.get("mag"), "net": p.get("net"), "tier": tier,
                     "inclusion": reason}  # fmt: skip
+            seq_dir = publish_to / event_id if publish_to else None
+            if tier and seq_dir and not (seq_dir / "inclusion.json").exists():
+                # the first-detection decision, which the analysis must use (prereg v2 s4),
+                # before the issue runs: a later failure must not lose it
+                try:
+                    add_record(
+                        seq_dir.parent, event_id, "inclusion.json", {"key": key, **decided[key]}
+                    )
+                except Exception as e:  # logged; the decision is also in state.json
+                    _log(out, {**det, "kind": "inclusion_record",
+                               "error": f"{type(e).__name__}: {e}"[:300]})  # fmt: skip
             built = live_issue(data_dir, event_id, t_poll, get, publish_to, clients) if tier else {}
             answers = (built.get("published") or {}).get("answers") or {}
             if answers.get("commit") and answers.get("repo"):

@@ -343,16 +343,23 @@ def confirmatory_cells(
     }
     cols = zip(s["model"], s["effort"], s["variant"], s["sequence_id"], strict=True)
     keep = [m in ok and e == ok[m][0] and v == variant and sid in ok[m][1] for m, e, v, sid in cols]
-    cells = s[keep].groupby(["model", "sequence_id", "item_id", "window"])["d"].mean()
+    cells = (
+        s[np.asarray(keep, dtype=bool)]
+        .groupby(["model", "sequence_id", "item_id", "window"])["d"]
+        .mean()
+    )
     cells = cells.dropna().reset_index().rename(columns={"item_id": "issue_id"})
     return cells.assign(stratum=[stratum(elapsed[i]) for i in cells["issue_id"]])
 
 
-def _two_sided(effects: np.ndarray, alpha: float = 0.05) -> tuple[float, float]:
+def _two_sided(
+    effects: np.ndarray, alpha: float = 0.05, strata: np.ndarray | None = None
+) -> tuple[float, float]:
     """The bootstrap-t interval at 1 - alpha: each bound one-sided at alpha / 2, the lower one
     as the upper bound of the negated effects (same resamples)."""
-    up = noninferiority(effects, 0.0, alpha=alpha / 2)["upper"]
-    lo = -noninferiority(-np.asarray(effects, dtype=float), 0.0, alpha=alpha / 2)["upper"]
+    up = noninferiority(effects, 0.0, alpha=alpha / 2, strata=strata)["upper"]
+    neg = -np.asarray(effects, dtype=float)
+    lo = -noninferiority(neg, 0.0, alpha=alpha / 2, strata=strata)["upper"]
     return lo, up
 
 
@@ -386,7 +393,10 @@ def contrasts(
     return pd.DataFrame(rows)
 
 
-def assay(samples: pd.DataFrame, cells: pd.DataFrame, delta: float = DELTA) -> pd.DataFrame:
+def assay(
+    samples: pd.DataFrame, cells: pd.DataFrame, delta: float = DELTA,
+    parts: dict[str, str] | None = None,
+) -> pd.DataFrame:  # fmt: skip
     """Assay sensitivity (prereg v2 section 2): the non-inferiority test for generic RJ against
     the official forecast on each model's own test cells, read with the prereg's decision rule:
     `noninferior` (upper bound below delta: that model's test cannot separate it from the
@@ -397,9 +407,11 @@ def assay(samples: pd.DataFrame, cells: pd.DataFrame, delta: float = DELTA) -> p
     for m, g in cells.groupby("model"):
         d = rj.reindex(pd.MultiIndex.from_frame(g[["issue_id", "window"]])).to_numpy()
         gc = g.assign(d=d).dropna(subset=["d"])
-        e = sequence_effects(gc).to_numpy()
-        t = noninferiority(e, delta)
-        lower = -noninferiority(-e, -delta)["upper"]
+        se = sequence_effects(gc)
+        st = se.index.map(parts).to_numpy() if parts else None  # test B's two parts
+        e = se.to_numpy()
+        t = noninferiority(e, delta, strata=st)
+        lower = -noninferiority(-e, -delta, strata=st)["upper"]
         status = "noninferior" if t["noninferior"] else "inferior" if lower > delta else (
             "inconclusive")  # fmt: skip
         rows.append({"model": m, "generic_rj_mean": t["mean"], "generic_rj_lower": lower,
@@ -447,3 +459,96 @@ def secondary(
          assay(samples, tested).assign(hypothesis="assay"), pd.DataFrame(rows)],
         ignore_index=True,
     )  # fmt: skip
+
+
+B_MODEL, S2_MODEL = "claude-opus-5-5", "gpt-6.1-sol"
+
+
+def live_report(
+    samples: pd.DataFrame, live: pd.DataFrame, sequences: pd.DataFrame,
+    elapsed: dict[str, float], live_start_ms: int, stop_ms: int | None,
+    informative_ids: set[str] | None = None,
+) -> pd.DataFrame:  # fmt: skip
+    """Test B in its two parts, S2 and S5 (prereg v2 sections 2, 5 and 6).
+
+    `samples` are the batch answers (`laf.d2.analyze`), `live` the released live answers
+    (`laf.live_scores.live_samples`). L (`live_start_ms`) splits the parts: B's retrospective
+    part is Opus 5.5's clean M>=5 sequences with origin before L; its prospective part, the
+    sequences included as primary at first detection (`tier`) with origin in [L, S), on-time
+    matched items only.
+    Test B resamples the parts separately and is also reported for each part alone. S2:
+    gpt-6.1-sol on the prospective matched items. S5: the strict items of the same sequences
+    against each pipeline baseline (superiority over the rule of thumb and generic RJ, an
+    interval against ETAS). The assay-sensitivity test and, given `informative_ids`
+    (`informative(tables)`), the informative-sequence estimand are computed on the same full
+    B and S2 cells."""
+    origin = sequences.set_index("sequence_id")["origin_ms"]
+    retro = confirmatory_cells(samples, sequences, elapsed)
+    retro = retro[(retro["model"] == B_MODEL)
+                  & (retro["sequence_id"].map(origin) < live_start_ms)]  # fmt: skip
+    first = live.sort_values("elapsed_days").drop_duplicates("sequence_id").set_index("sequence_id")
+    end = stop_ms if stop_ms is not None else np.inf
+    pro_ids = {str(sid) for sid, r in first.iterrows()
+               if live_start_ms <= r["origin_ms"] < end and r["tier"] == "primary"}  # fmt: skip
+    live_elapsed = dict(zip(live["item_id"], live["elapsed_days"], strict=True))
+    sets = {m: pro_ids for m in (B_MODEL, S2_MODEL)}
+    matched = live[(live["kind"] == "matched") & live["on_time"]]
+    pro = confirmatory_cells(matched, sequences, live_elapsed, sets=sets) if len(matched) else (
+        retro.iloc[:0])  # fmt: skip
+
+    def test(label: str, cells: pd.DataFrame, strata: np.ndarray | None = None) -> dict:
+        e = sequence_effects(cells)
+        t = noninferiority(e.to_numpy(), strata=strata)
+        return {"hypothesis": label} | {k: t[k] for k in TEST_COLUMNS} | {
+            "sequences": t["sequences"], "mean": t["mean"]}  # fmt: skip
+
+    b_retro, b_pro = retro, pro[pro["model"] == B_MODEL]
+    both = pd.concat([b_retro.assign(part="retrospective"), b_pro.assign(part="prospective")])
+    parts = both.groupby("sequence_id")["part"].first()
+    rows = [
+        {"model": B_MODEL}
+        | test("B", both, parts.reindex(sequence_effects(both).index).to_numpy()),
+        {"model": B_MODEL} | test("B retrospective part", b_retro),
+        {"model": B_MODEL} | test("B prospective part", b_pro),
+        {"model": S2_MODEL} | test("S2", pro[pro["model"] == S2_MODEL]),
+    ]
+    # S3 and S4 on each model's full test set: B's two parts for Opus 5.5, S2's for gpt-6.1-sol
+    for hyp, ref, kind in CONTRASTS:
+        r = confirmatory_cells(samples, sequences, elapsed, reference=ref)
+        r = r[(r["model"] == B_MODEL) & (r["sequence_id"].map(origin) < live_start_ms)]
+        p = confirmatory_cells(matched, sequences, live_elapsed, reference=ref, sets=sets) if (
+            len(matched)) else r.iloc[:0]  # fmt: skip
+        for model, label, retro_part in ((B_MODEL, "B", r), (S2_MODEL, "S2", r.iloc[:0])):
+            joined = pd.concat([retro_part.assign(part="retrospective"),
+                                p[p["model"] == model].assign(part="prospective")])  # fmt: skip
+            e = sequence_effects(joined)
+            st = joined.groupby("sequence_id")["part"].first().reindex(e.index).to_numpy()
+            mean = float(e.mean()) if len(e) else np.nan
+            row = {"hypothesis": hyp, "model": model, "reference": ref, "kind": kind,
+                   "set": label, "sequences": len(e), "mean": mean}  # fmt: skip
+            if kind == "superiority":
+                t = noninferiority(e.to_numpy(), 0.0, strata=st)
+                row |= {k: t[k] for k in ("upper", "p_sup", "superior")}
+            else:
+                row["lower95"], row["upper95"] = _two_sided(e.to_numpy(), strata=st)
+            rows.append(row)
+    # assay sensitivity and the informative estimand on the same full sets
+    full = {B_MODEL: both, S2_MODEL: pro[pro["model"] == S2_MODEL]}
+    for model, cells in full.items():
+        # B resamples its parts apart
+        part_of = {str(k): str(v) for k, v in parts.items()} if model == B_MODEL else None
+        if len(cells):
+            rj = pd.concat([samples, matched]) if len(matched) else samples
+            one = assay(rj, cells.assign(model=model), parts=part_of).iloc[0].to_dict()
+            rows.append({"hypothesis": "assay"} | one)
+        if informative_ids is not None:
+            # live rows are keyed by the frozen inclusion key; the tables use the item's own ID
+            keyed = set(live.loc[live["table_sequence_id"].isin(informative_ids), "sequence_id"])
+            keep = cells[cells["sequence_id"].isin(set(informative_ids) | keyed)]
+            idx = sequence_effects(keep).index
+            st = idx.map(part_of).to_numpy() if part_of else None
+            rows.append({"model": model} | test("informative", keep, st))
+    strict = live[(live["kind"] == "strict") & live["on_time"]]  # sealed before its windows
+    s5 = contrasts(strict, sequences, live_elapsed, (B_MODEL, S2_MODEL), sets) if len(strict) else (
+        pd.DataFrame())  # fmt: skip
+    return pd.concat([pd.DataFrame(rows), s5.assign(hypothesis="S5")], ignore_index=True)

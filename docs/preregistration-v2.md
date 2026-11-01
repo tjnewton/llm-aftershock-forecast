@@ -303,24 +303,31 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     contrasts S3 and S4 (dS against each pipeline baseline on the model's own test cells), the
     assay-sensitivity test, and the informative-sequence estimand, whose official mean is the
     integral of the official quantile function over its published fractile grid.
-  - **TO BUILD:**
-    - S5 (with the prospective inputs);
-    - the prospective inputs to test B (its two-part bootstrap is built: `noninferiority(...,
-      strata=...)` resamples each part at its own size, with the stratified standard error);
-    - S2;
-    - the remaining sensitivity analysis: with the 3 forward-excluded candidates. (Built,
-      `laf.sensitivity`: region radius x0.5 and x1.5, outcomes recounted from each sequence's
-      own catalog, x1.5 only where the catalog query covered it; the scoring variants at M>=5 (log
-      floors 1e-4 and 1e-8, the negative-binomial tail, full distributions of the official
-      forecast (its 197-point fractile grid) and the ETAS refit (its simulated histogram), the
-      log-scale quantile score, which reports its estimate and bound without delta), and per
-      forecaster the floor-binding rates, cells above its 97.5% quantile, N-test failures, the
-      PIT's KS distance and information gain per earthquake. Also, in one table: test A on all clean
-      candidates, the unbuffered and release-date clean rules, the non-overlapping subset,
-      v2B, valid answers only, the exact-match subset, the 2-day settling rule, the strata,
-      and invalid rates by arm. Release dates are the Models API creation dates, checked
-      2026-11-01: gpt-5.1 2025-11-10, Opus 4.6 2026-02-04, Sonnet 4.6 2026-02-17,
-      gpt-6.1-sol 2026-09-27, Opus 5.5 2026-09-21.)
+  - Built: the prospective inputs (`laf confirmatory --live <worktree of live>`;
+    `laf.live_scores`). Every released issue is scored on the outcome snapshot: counts in the
+    item's own circle and windows, from its own sequence's catalog, once settled 21 days;
+    matched items against the official version, strict items against the pipeline's
+    baselines only. Test B joins its retrospective part (origin before L) and its prospective
+    part (sequences included as primary at first detection, `<sequence>/inclusion.json`;
+    origin in [L, S); on-time matched items) in the two-part bootstrap
+    (`noninferiority(..., strata=...)`: each part resampled at its own size, with the
+    stratified standard error), and is reported for each part alone. S2 is gpt-6.1-sol on the
+    same prospective items. S3 and S4 use each model's full set (B's two parts, S2's items).
+    S5 contrasts the on-time strict items with each baseline. Every live item is listed with
+    its on-time, failed and missed answers.
+  - Built (`laf.sensitivity`): region radius x0.5 and x1.5 (outcomes recounted from each
+    sequence's own catalog, x1.5 only where the catalog query covered it); in one table,
+    test A on all clean candidates, the unbuffered
+    and release-date clean rules, the non-overlapping subset, v2B, valid answers only, the
+    exact-match subset, the 2-day settling rule, the strata, and invalid rates by arm; the
+    scoring variants at M>=5 (log floors 1e-4 and 1e-8, the negative-binomial tail, full
+    distributions of the official forecast (its 197-point fractile grid) and the ETAS refit
+    (its simulated histogram), and the log-scale quantile score, which reports its estimate
+    and bound without delta); and per forecaster the floor-binding rates, cells above its 97.5%
+    quantile, N-test failures, the PIT's KS distance and information gain per earthquake.
+    Release dates are the Models API creation dates, checked 2026-11-01: gpt-5.1 2025-11-10,
+    Opus 4.6 2026-02-04, Sonnet 4.6 2026-02-17, gpt-6.1-sol 2026-09-27, Opus 5.5 2026-09-21.
+  - **TO BUILD:** the remaining sensitivity analysis: with the 3 forward-excluded candidates.
 
 ## 7. Invalid outputs
 - An invalid answer gets the worst score in its cell from a fixed pool (decided 2026-10-31). Invalid means a schema
