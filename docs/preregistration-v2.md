@@ -91,7 +91,7 @@ Per cell (issue time x window x target), dS = S(model) - S(official).
 | `gpt-5.1-2025-11-13` | 2024-09-30 | 2025-01-01 | reasoning effort `medium` (ADR 0014 decision 6) | A |
 | `claude-opus-5-5` | Jun 2026 | 2026-10-01 | registered request: no `thinking` field (adaptive by default), effort `high` | B |
 | `claude-opus-4-6` | Aug 2025 | 2025-12-01 | `thinking: {"type": "adaptive"}`, effort `medium` (ADR 0014 decision 5) | S1 |
-| `gpt-6.1-sol` | 2026-04-30 | 2026-08-01 | **OPEN**: effort from a pilot, as for gpt-5.1 | S2 |
+| `gpt-6.1-sol` | 2026-04-30 | 2026-08-01 | reasoning effort `high` (ADR 0014 decision 7); no dated snapshot, so each response's reported model is logged | S2 |
 | `claude-sonnet-4-6` | Jan 2026 | 2026-05-01 | `thinking: {"type": "adaptive"}`, effort `low` | D |
 
 - **Requests (all models):**
@@ -226,8 +226,8 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     passed; `laf live-score` refuses v2 records until then.
 - **Budget priority** (decided 2026-10-31): a fixed live reserve. If the cap binds, the order is Opus 5.5 matched,
   then Opus 5.5 strict, then gpt-6.1-sol. Misses are listed as "missed: budget".
-- **Live models:** Opus 5.5 and gpt-6.1-sol (decided 2026-10-31). gpt-6.1-sol joins once its
-  effort is set by a pilot.
+- **Live models:** Opus 5.5 and gpt-6.1-sol (decided 2026-10-31), gpt-6.1-sol at effort
+  `high` (ADR 0014 decision 7).
 - **Live start** (decided 2026-11-01): the live arm starts right after the `prereg-v2` tag,
   once one paid end-to-end check has passed (on a version the study does not use, published
   nowhere). L is then the time of the first sealed live record; no calendar date is set.
@@ -394,7 +394,7 @@ Decided on 2026-11-01:
 15. The strict window rule stays: the next full hour at least 30 minutes after detection.
 16. The live arm starts right after the `prereg-v2` tag, once one paid end-to-end check has
     passed; no calendar date.
+17. gpt-6.1-sol runs at effort `high`, from its pilot (ADR 0014 decision 7).
 
 Still OPEN:
-- gpt-6.1-sol's effort (the pilot is approved in principle; its cost estimate comes first);
 - the confirmatory cost plan.

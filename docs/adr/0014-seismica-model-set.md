@@ -124,7 +124,23 @@ Qwen and DeepSeek distills document no cutoff, so they are excluded.
    - Implemented in `laf.openai_runner` (`laf openai run --effort medium`). D2 for gpt-5.1
      runs at this setting.
 
+7. **Effort for gpt-6.1-sol (Tyler, 2026-11-01): `high`**, from a pilot on the same three
+   development items (`runs/openai/pilot-gpt-6.1-sol`, $0.14, output capped at 16k):
+
+   | Effort | Valid | Output tokens (reasoning) | Batch USD per call |
+   |---|---|---|---|
+   | medium | 3 of 3 | 2,145 to 3,328 (1,238 to 2,447) | 0.012 to 0.018 |
+   | **high** | 3 of 3 | 4,998 to 7,619 (4,128 to 6,732) | 0.026 to 0.039 |
+
+   - The highest effort that reliably answers, the rule behind decisions 5 and 6: `high` used
+     at most 48% of the pilot cap, and live and batch calls allow 32k.
+   - It matches Opus 5.5, the other live model.
+   - gpt-6.1-sol has no dated snapshot (`gpt-6.1-sol` is the only ID), so every response's
+     reported model is logged (`model_reported`). Knowledge cutoff 2026-04-30 (OpenAI model
+     page, checked 2026-11-01); price $2 / $10 per MTok, half on the Batch API.
+
 ## Changelog
+- 2026-11-01: decision 7 (gpt-6.1-sol at effort high, from its pilot).
 - 2026-10-31: decision 6 (gpt-5.1 at effort medium, from its pilot).
 - 2026-10-30: decision 5 (thinking and effort on the 4.6 models, from the D1 settings pilot).
 - 2026-10-30: decisions 1-4 recorded; OpenAI facts for the chosen models re-checked.

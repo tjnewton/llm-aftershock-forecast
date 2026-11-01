@@ -211,7 +211,8 @@ CLEAN_FROM = {
 PRIMARY = ("gpt-5.1-2025-11-13",)
 SECONDARY = ("claude-opus-5-5", "claude-opus-4-6", "gpt-6.1-sol")  # B, S1, S2; others descriptive
 PRIMARY_PROMPT = "v2A"  # ADR 0015 decision 4
-OPENAI_EFFORT = {"gpt-5.1-2025-11-13": "medium"}  # ADR 0014 decision 6
+# ADR 0014 decisions 6 and 7
+OPENAI_EFFORT = {"gpt-5.1-2025-11-13": "medium", "gpt-6.1-sol": "high"}
 
 
 def study_effort(model: str) -> str:

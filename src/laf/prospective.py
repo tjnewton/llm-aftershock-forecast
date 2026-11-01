@@ -23,7 +23,7 @@ from laf.providers import anthropic_params, call_anthropic, cost_usd, study_effo
 from laf.registry import Sequence
 from laf.runner import check_budget
 
-LIVE_MODELS = ("claude-opus-5-5",)  # gpt-6.1-sol joins once its runner and effort are set
+LIVE_MODELS = ("claude-opus-5-5",)  # gpt-6.1-sol (effort high) joins with its synchronous calls
 K = 3
 FLOOR = 3.0
 PROMPT = "v2A"  # ADR 0015 decision 4
