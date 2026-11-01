@@ -95,10 +95,49 @@ def test_an_added_file_cannot_make_a_sequence_development(tmp_path, monkeypatch)
         splits.development_ids.__wrapped__(cfg)
 
 
-def test_the_tag_unseals(monkeypatch):
+def test_the_gates_unseal(monkeypatch):
     monkeypatch.setattr(splits, "unsealed", lambda: True)
     assert splits.sealed([NEW]) == []
     splits.require_outcomes([NEW])
+
+
+def test_outcomes_open_only_after_the_tag_and_s_plus_90_days(monkeypatch):
+    day = 86_400_000
+    tags: set[str] = set()
+    stop: list[int | None] = [None]
+    monkeypatch.setattr(splits, "_tagged", lambda t: t in tags)
+    monkeypatch.setattr(splits, "stop_ms", lambda: stop[0])
+    assert not splits.unsealed(now_ms=10**15)  # no prereg-v2 tag
+    tags.add("prereg-v2")
+    assert not splits.unsealed(now_ms=10**15)  # tagged, live arm not stopped: no interim looks
+    stop[0] = 1000 * day
+    assert not splits.unsealed(now_ms=1089 * day)
+    assert splits.unsealed(now_ms=1090 * day)
+
+
+def test_the_stop_time_is_read_from_the_tagged_commit(tmp_path, monkeypatch):
+    import os
+    import subprocess
+
+    for var in [v for v in os.environ if v.startswith("GIT_")]:  # e.g. set by pre-commit hooks
+        monkeypatch.delenv(var)
+
+    def git(*a):
+        subprocess.run(["git", "-C", str(tmp_path), *a], check=True, capture_output=True)
+
+    git("init", "-q")
+    git("config", "user.email", "t@example.invalid")
+    git("config", "user.name", "t")
+    (tmp_path / "config").mkdir()
+    monkeypatch.chdir(tmp_path)
+    assert splits.stop_ms() is None
+    (tmp_path / splits.STOP_FILE).write_text("s_ms = 1793000000000\n")
+    git("add", ".")
+    git("commit", "-qm", "S")
+    git("tag", splits.STOP_TAG)
+    (tmp_path / splits.STOP_FILE).write_text("s_ms = 1\n")  # a later edit
+    git("commit", "-qam", "edit")
+    assert splits.stop_ms() == 1793000000000
 
 
 def test_build_tables_never_counts_a_sealed_window(locked, monkeypatch):
