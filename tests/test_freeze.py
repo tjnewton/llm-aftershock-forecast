@@ -34,3 +34,20 @@ def test_the_download_inventory_comes_from_the_data_directory(tmp_path):
     (tmp_path / "manifest.jsonl").write_text('{"path": "raw/x"}\n')
     files = F.manifest(tmp_path, "S", [])["files"]
     assert str(tmp_path / "manifest.jsonl") in files and "data/manifest.jsonl" not in files
+
+
+def test_the_freeze_refuses_an_incomplete_etas_refit(tmp_path):
+    import pytest
+
+    proc = tmp_path / "processed/S"
+    proc.mkdir(parents=True)
+    pd.DataFrame({"issue_id": ["s@first", "s@first"], "sequence_id": "s",
+                  "window": ["1 Day", "1 Week"], "magnitude": 5.0}).to_parquet(
+        proc / "observed_counts.parquet")  # fmt: skip
+    pd.DataFrame({"issue_id": ["s@first"], "source": ["oaf"], "issue_ms": [1]}).to_parquet(
+        proc / "issue_times.parquet")  # fmt: skip
+    pd.DataFrame({"issue_id": ["s@first"], "window": ["1 Day"]}).to_parquet(
+        proc / "etas_forecasts.parquet"
+    )  # the week window is missing
+    with pytest.raises(SystemExit, match="lacks 1 cells"):
+        F.write_frozen_inputs(tmp_path, "S")

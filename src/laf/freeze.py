@@ -60,6 +60,12 @@ def write_frozen_inputs(data_dir: Path, snapshot: str) -> list[Path]:
     if not (proc / "etas_forecasts.parquet").exists():
         raise SystemExit(f"{proc}: run `laf etas --snapshot {snapshot}` first (the ETAS refit)")
     tables = {p.stem: pd.read_parquet(p) for p in proc.glob("*.parquet")}
+    cells = window_cells(tables)
+    etas = set(zip(tables["etas_forecasts"]["issue_id"], tables["etas_forecasts"]["window"],
+                   strict=True))  # fmt: skip
+    missing = set(zip(cells["issue_id"], cells["window"], strict=True)) - etas
+    if missing:  # `analysis.baselines` would skip them silently
+        raise SystemExit(f"the ETAS refit lacks {len(missing)} cells, e.g. {sorted(missing)[:3]}")
     items = load_items(data_dir, snapshot, 3.0)
     bodies = {
         proc / "items_m3.jsonl": "".join(i.model_dump_json() + "\n" for i in items),
