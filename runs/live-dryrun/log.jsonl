@@ -438,3 +438,25 @@
 {"events": 0, "kind": "poll", "poll_ms": 1793531351554, "since_ms": 1793530747008}
 {"events": 0, "kind": "poll", "poll_ms": 1793531952304, "since_ms": 1793531351554}
 {"events": 0, "kind": "poll", "poll_ms": 1793532553023, "since_ms": 1793531952304}
+{"events": 0, "kind": "poll", "poll_ms": 1793533153705, "since_ms": 1793532553023}
+{"events": 0, "kind": "poll", "poll_ms": 1793533754654, "since_ms": 1793533153705}
+{"events": 0, "kind": "poll", "poll_ms": 1793534355551, "since_ms": 1793533754654}
+{"events": 0, "kind": "poll", "poll_ms": 1793534956457, "since_ms": 1793534355551}
+{"events": 1, "kind": "poll", "poll_ms": 1793535557209, "since_ms": 1793534956457}
+{"backlog": false, "build_s": 3.961, "detect_latency_s": 474.091, "event_id": "nc75458907", "index_ms": 1793535083118, "items_sha256": "75a5399baa8b96fe3f855fd4c1dc5723e5d3c832359f8b85e8265e7580b856ee", "kind": "detection", "mag": 4.01, "matched_margin_s": 2437.931, "matched_update_ms": 1793535077710, "matched_window_start_ms": 1793538000000, "poll_ms": 1793535557209, "strict_margin_s": 2437.931, "strict_window_start_ms": 1793538000000, "superseded": false, "update_ms": 1793535077710}
+{"events": 0, "kind": "poll", "poll_ms": 1793536162082, "since_ms": 1793535557209}
+{"events": 0, "kind": "poll", "poll_ms": 1793536762801, "since_ms": 1793536162082}
+{"events": 0, "kind": "poll", "poll_ms": 1793537363687, "since_ms": 1793536762801}
+{"events": 0, "kind": "poll", "poll_ms": 1793537964507, "since_ms": 1793537363687}
+{"events": 0, "kind": "poll", "poll_ms": 1793538565229, "since_ms": 1793537964507}
+{"events": 0, "kind": "poll", "poll_ms": 1793539166122, "since_ms": 1793538565229}
+{"events": 0, "kind": "poll", "poll_ms": 1793539766978, "since_ms": 1793539166122}
+{"events": 0, "kind": "poll", "poll_ms": 1793540367834, "since_ms": 1793539766978}
+{"events": 0, "kind": "poll", "poll_ms": 1793540968717, "since_ms": 1793540367834}
+{"events": 0, "kind": "poll", "poll_ms": 1793541569581, "since_ms": 1793540968717}
+{"events": 0, "kind": "poll", "poll_ms": 1793542170249, "since_ms": 1793541569581}
+{"events": 0, "kind": "poll", "poll_ms": 1793542771093, "since_ms": 1793542170249}
+{"events": 0, "kind": "poll", "poll_ms": 1793543371915, "since_ms": 1793542771093}
+{"events": 0, "kind": "poll", "poll_ms": 1793543972837, "since_ms": 1793543371915}
+{"events": 0, "kind": "poll", "poll_ms": 1793544573580, "since_ms": 1793543972837}
+{"events": 0, "kind": "poll", "poll_ms": 1793544629980, "since_ms": 1793544573580}
