@@ -24,3 +24,7 @@ T08 done 2026-10-22T22:54Z e54def7 849 of 849 succeeded (dev 72, e1 147, e3all 6
 worker stopped 2026-10-29T19:59Z
 T09 running 2026-10-30T13:45Z
 T09 done 2026-10-30T13:51Z live-watch started detached, uv pid 13660 (laf.exe 32780, python 26532); first poll logged
+T10 running 2026-11-01T14:48Z
+T10 done 2026-11-01T14:51Z e441f00a worktree ..\laf-live-dryrun on live-dryrun; service stopped right after the 14:49Z poll (uv 13660, laf.exe 32780, python 26532/38576); 4 log files copied (the branch log.jsonl was a prefix of the local one); restarted 14:50Z writing to ..\laf-live-dryrun\runs\live-dryrun: uv pid 31616 (laf.exe 39556, python 38364/8476); pushed live-dryrun e441f00a (295 polls, 167 detections); runs/live-dryrun/ here reset to HEAD, untouched since
+T11 running 2026-11-01T14:51Z
+T11 done 2026-11-01T14:51Z none no second restart needed: the T10 restart at 14:50Z already ran 2bb4612b (PR #59 merged; uv rebuilt laf at start), same pids (uv 31616, laf.exe 39556, python 38364/8476); its first poll at 14:50:30Z left no traceback in stderr.log; no detection yet, so no "pipeline" line to check
