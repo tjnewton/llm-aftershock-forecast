@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 from numpy.polynomial.hermite import hermgauss
 from numpy.polynomial.legendre import leggauss
-from scipy import optimize, stats
+from scipy import optimize, special, stats
 
 from laf.scoring import LEVELS
 
@@ -50,7 +50,8 @@ def poisson_mixture(lams: np.ndarray, weights: np.ndarray) -> tuple[tuple[float,
     )
     nmax = min(int(stats.poisson.ppf(1 - 1e-9, max(float(upper), 1e-12))) + 2, 2_000_000)
     n = np.arange(nmax + 1)
-    cdf = (weights[:, None] * stats.poisson.cdf(n[None, :], lams[:, None])).sum(axis=0)
+    # special.pdtr is what stats.poisson.cdf computes, without its per-call argument checks
+    cdf = (weights[:, None] * special.pdtr(n[None, :], lams[:, None])).sum(axis=0)
     qs = tuple(float(np.searchsorted(cdf, tau - 1e-12)) for tau in LEVELS)
     return qs, cdf
 
