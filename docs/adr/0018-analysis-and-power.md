@@ -259,12 +259,36 @@ Per sequence (18 sequences):
    - No one computes confirmatory scores or the test before the stop. Publishing
      accumulating scores would amount to unplanned interim analyses.
 
+**Decisions (Tyler, 2026-10-31), from the prereg v2 checks** (docs/preregistration-v2.md
+section 13):
+8. **The bound:** a studentized (bootstrap-t) upper bound replaces the percentile bound.
+   - In simulation with the true mean at delta and nominal 0.025, effects like gpt-5.1's in D2
+     (one sequence in 18 at +1 nat) make the percentile bound err 0.15 at N = 33 and 0.05 at
+     N = 88. The bootstrap-t bound errs 0.15 and 0.02.
+   - The registered test's size is simulated before the freeze, and a calibrated level is
+     registered where the size exceeds 0.03.
+   - Test B resamples its retrospective and prospective parts separately.
+9. **Family-wise level:** one-sided 0.05 with Holm. Superiority over the official forecast is a
+   separate Holm family, tested only after non-inferiority.
+10. **Assay sensitivity:** generic RJ is tested for non-inferiority against the official
+    forecast on each test's cells; if it passes, A and B cannot separate a model from the
+    generic default.
+    - An informative-sequence secondary estimand: official mean N(M>=5) at the first issue of
+      at least 0.5 in the month window.
+    - S4 adds superiority over generic RJ.
+11. **Timing:** A and B are computed together on one outcome snapshot at S + 90 days, behind a
+    second software gate.
+12. **Invalid answers:** the penalty pool is the five baselines only.
+13. **S1** tests M5 on its 23 sequences. M3 and M4 are descriptive throughout.
+14. **k = 3** samples per item.
+
 ## Open decisions (Tyler)
 1. ~~The margin anchor and its value~~: decided 2026-10-31 (non-inferiority, delta 0.10).
 2. ~~Target power and sequence count~~: decided 2026-10-31 (decision 5).
 3. ~~Whether the hierarchical model is confirmatory~~: decided 2026-10-31 (robustness check).
 
 ## Changelog
+- 2026-10-31: decisions 8-14 (from the prereg v2 checks).
 - 2026-10-31: clean-period counts with nn00914068 restored (gpt-5.1 89/175, Opus 4.6 23/76).
 - 2026-10-31: decisions 5-7 (stopping rule, hierarchical model as robustness, no interim looks).
 - 2026-10-31: decisions on the test (non-inferiority, delta 0.10, mean primary, test A on 88).

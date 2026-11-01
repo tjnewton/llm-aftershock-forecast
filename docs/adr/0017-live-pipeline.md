@@ -83,6 +83,24 @@ been late.
    Once the live forecast time is measured with the final model settings, rounding to the next
    10 minutes instead may shrink the offset from the official windows (now 30 to 90 minutes).
 
+## Decisions (Tyler, 2026-10-31), from the prereg v2 checks
+These replace decisions 1-2 above where they conflict (docs/preregistration-v2.md section 13).
+5. **On-time matched items enter test B** (ADR 0018), against the official forecast. Strict
+   items serve S5, the contrast with this pipeline's baselines on identical windows.
+6. **Issue schedule:** prospectively, only the versions that ADR 0004's schedule selects get
+   items: the first valid version, plus for each target in {1, 3, 7, 14, 28} days the
+   earliest valid version in its window. Applied in real time.
+7. **On time** means the answer record's hash reached the GitHub push receipt (or an
+   OpenTimestamps calendar) before the item's first window opened.
+   - Answers are sealed before the baselines, in two records.
+   - On-time and late versions are compared on outcome-blind covariates.
+8. **Inclusion:** a new event inside the circle of a larger event from the previous 365 days is
+   an aftershock and excluded (the backward half of ADR 0006). A sequence once included is
+   never removed.
+9. **Live models:** Opus 5.5, and gpt-6.1-sol once its effort is set by a pilot.
+10. **Budget priority:** a fixed live reserve. If the cap binds, the order is Opus 5.5 matched,
+    then Opus 5.5 strict, then gpt-6.1-sol. Misses are listed as "missed: budget".
+
 ## Open decisions (Tyler)
 1. ~~Prospective duration~~: decided 2026-10-31 (ADR 0018 decision 5): 6 months or 26
    eligible prospective M>=5 sequences, whichever comes first; one analysis at the stop.
@@ -90,5 +108,6 @@ been late.
 3. The strict window rounding (decision 4), after the forecast time is measured.
 
 ## Changelog
+- 2026-10-31: decisions 5-10 (from the prereg v2 checks); decisions 1-2 replaced where they conflict.
 - 2026-10-30: dry-run results so far; decisions 1-4 (Tyler).
 - 2026-10-29: first version.
