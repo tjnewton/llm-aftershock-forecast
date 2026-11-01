@@ -1,5 +1,6 @@
 """Confirmatory tests of ADR 0018: non-inferiority to the official forecast with a sequence
-block bootstrap, and a Holm correction across the co-primary tests. Pure functions on
+block bootstrap (one primary hypothesis since 2026-10-31, ADR 0018 decision 15; Holm across
+the primary models when there are several). Pure functions on
 per-cell score differences (dS = S(model) - S(official), primary score, ADR 0015); loading and
 the snooping guard stay with the callers (laf.splits, ADR 0013).
 """
@@ -25,22 +26,70 @@ def bootstrap_means(effects: np.ndarray, b: int = B, seed: int = SEED) -> np.nda
 
 
 def noninferiority(
-    effects: np.ndarray, delta: float = DELTA, alpha: float = 0.05, b: int = B, seed: int = SEED
-) -> dict:
+    effects: np.ndarray, delta: float = DELTA, alpha: float = 0.05, b: int = B, seed: int = SEED,
+    method: str = "student",
+) -> dict:  # fmt: skip
     """H0: mean dS >= delta against H1: mean dS < delta (the model is not worse by delta or
-    more). Percentile bootstrap: the upper bound is the (1 - alpha) quantile of the bootstrap
-    means and the p-value the share of them at or above delta, so p <= alpha and
-    upper < delta agree. Superiority: the upper bound is below 0."""
+    more), with resampled sequences.
+
+    `method="student"` (registered, ADR 0018 decision 8): bootstrap-t. T* = (mean* - mean) /
+    se*, the upper bound is mean - q_alpha(T*) se, and the p-value is the share of T* at or below
+    (mean - delta) / se. `method="percentile"`: the (1 - alpha) quantile of the bootstrap means,
+    and the share of them at or above delta. Either way p <= alpha and upper < delta agree, and
+    `p_sup` tests H0: mean dS >= 0. Superiority: the upper bound is below 0."""
     x = np.asarray(effects, dtype=float)
+    n = len(x)
+    if n < 2:  # no spread to estimate from one sequence (or none): no claim
+        return {"sequences": n, "mean": float(x.mean()) if n else float("nan"),
+                "upper": float("inf"), "p": 1.0, "p_sup": 1.0,
+                "noninferior": False, "superior": False}  # fmt: skip
     mean = float(x.mean())
-    boot = bootstrap_means(x, b, seed)
-    p = (1 + int(np.sum(boot >= delta))) / (b + 1)
-    p_sup = (1 + int(np.sum(boot >= 0.0))) / (b + 1)  # superiority: H0 mean dS >= 0
-    upper = float(np.quantile(boot, 1 - alpha))
+    rng = np.random.default_rng(seed)
+    draws = x[rng.integers(0, n, size=(b, n))]
+    boot = draws.mean(axis=1)
+    if method == "percentile":
+        p = (1 + int(np.sum(boot >= delta))) / (b + 1)
+        p_sup = (1 + int(np.sum(boot >= 0.0))) / (b + 1)
+        upper = float(np.quantile(boot, 1 - alpha))
+    elif method == "student":
+        se = float(x.std(ddof=1)) / np.sqrt(n)
+        se_b = draws.std(axis=1, ddof=1) / np.sqrt(n)
+        diff = boot - mean
+        # a resample with no spread keeps the direction of its difference: T* = +-inf (0 if none)
+        degenerate = np.where(diff > 0, np.inf, np.where(diff < 0, -np.inf, 0.0))
+        t = np.where(se_b > 0, diff / np.where(se_b > 0, se_b, 1.0), degenerate)
+        if not np.isfinite(se) or se == 0:  # no spread to estimate: no claim
+            upper, p, p_sup = float("inf"), 1.0, 1.0
+        else:
+            # an order statistic (no interpolation), so infinite T* stay infinite
+            upper = float(mean - np.quantile(t, alpha, method="inverted_cdf") * se)
+            p = (1 + int(np.sum(t <= (mean - delta) / se))) / (b + 1)
+            p_sup = (1 + int(np.sum(t <= mean / se))) / (b + 1)
+    else:
+        raise ValueError(f"unknown method {method!r}")
     return {
-        "sequences": len(x), "mean": mean, "upper": upper, "p": p, "p_sup": p_sup,
+        "sequences": n, "mean": mean, "upper": upper, "p": p, "p_sup": p_sup,
         "noninferior": upper < delta, "superior": upper < 0,
     }  # fmt: skip
+
+
+def size(
+    effects: np.ndarray, n: int, delta: float = DELTA, alpha: float = 0.025, sims: int = 2000,
+    b: int = 2000, seed: int = SEED, method: str = "student",
+) -> float:  # fmt: skip
+    """Simulated size of the test: draw `n` sequence effects with replacement from `effects`
+    shifted so their mean is exactly delta (H0 true at its boundary), apply the test, and
+    return the share of false non-inferiority claims. Before the freeze, a level is calibrated
+    wherever this exceeds 0.03 (ADR 0018 decision 8)."""
+    x = np.asarray(effects, dtype=float)
+    x = x - x.mean() + delta
+    rng = np.random.default_rng(seed)
+    hits = 0
+    for i in range(sims):
+        sample = x[rng.integers(0, len(x), size=n)]
+        r = noninferiority(sample, delta, alpha, b, seed + 1 + i, method)
+        hits += r["noninferior"]
+    return hits / sims
 
 
 def holm_levels(p_values: dict[str, float], alpha: float = 0.05) -> dict[str, float]:
@@ -80,7 +129,13 @@ def robust(effects: np.ndarray, b: int = B, seed: int = SEED) -> dict:
     }  # fmt: skip
 
 
-def report(cells: pd.DataFrame, primary: tuple[str, ...], delta: float = DELTA) -> pd.DataFrame:
+TEST_COLUMNS = ("upper", "p", "p_sup", "noninferior", "superior")
+
+
+def report(
+    cells: pd.DataFrame, primary: tuple[str, ...], delta: float = DELTA,
+    descriptive: tuple[str, ...] = (),
+) -> pd.DataFrame:  # fmt: skip
     """One row per model: the non-inferiority test and the robust summaries.
 
     The co-primary models (`primary`) are Holm-corrected, and their bound (`upper`) is reported
@@ -91,7 +146,7 @@ def report(cells: pd.DataFrame, primary: tuple[str, ...], delta: float = DELTA) 
     rows = {m: noninferiority(e, delta) | robust(e) for m, e in effects.items()}
     missing = [m for m in primary if m not in rows]
     if missing:  # a smaller Holm family would test the rest at a looser level
-        raise ValueError(f"co-primary results missing: {missing}")
+        raise ValueError(f"primary results missing: {missing}")
     p_ni = {m: rows[m]["p"] for m in primary}
     levels, rej = holm_levels(p_ni), holm(p_ni)
     sup = holm({m: rows[m]["p_sup"] for m in primary})
@@ -103,6 +158,8 @@ def report(cells: pd.DataFrame, primary: tuple[str, ...], delta: float = DELTA) 
     for m in rows:
         if m not in primary:
             rows[m]["superior"] = bool(rows[m]["noninferior"] and rows[m]["superior"])
+        if m in descriptive:  # no test for descriptive models (Sonnet 4.6, prereg v2 section 2)
+            rows[m] |= dict.fromkeys(TEST_COLUMNS)
     out = pd.DataFrame.from_dict(rows, orient="index")
     out["co_primary"] = out.index.isin(primary)
     out["holm_noninferior"] = [rej.get(m) for m in out.index]
@@ -148,7 +205,7 @@ def hierarchical(cells: pd.DataFrame, delta: float = DELTA, alpha: float = 0.05)
 
 
 # Clean periods (ADR 0014 decision 3: training cutoff plus a 3-month buffer) and the
-# co-primary models (ADR 0018: test A gpt-5.1, test B Claude 5.5 Opus).
+# primary model (ADR 0018 decision 15: test A, gpt-5.1; test B, Opus 5.5, is secondary).
 CLEAN_FROM = {
     "gpt-5.1-2025-11-13": "2025-01-01",
     "claude-opus-4-6": "2025-12-01",
@@ -158,7 +215,8 @@ CLEAN_FROM = {
     "claude-sonnet-5-5": "2026-10-01",
     "claude-haiku-5-5": "2026-10-01",
 }
-CO_PRIMARY = ("gpt-5.1-2025-11-13", "claude-opus-5-5")
+PRIMARY = ("gpt-5.1-2025-11-13",)
+SECONDARY = ("claude-opus-5-5", "claude-opus-4-6", "gpt-6.1-sol")  # B, S1, S2; others descriptive
 PRIMARY_PROMPT = "v2A"  # ADR 0015 decision 4
 OPENAI_EFFORT = {"gpt-5.1-2025-11-13": "medium"}  # ADR 0014 decision 6
 
@@ -192,15 +250,12 @@ def confirmatory_cells(
     `min_mag` lowers the M>=5 threshold for named models only (test A's sensitivity run widens
     gpt-5.1 alone; test B stays on M>=5).
 
-    Invalid answers get the worst score of any valid forecast in the cell, over every valid
-    answer and every baseline (prereg v1 section 7; Tyler, 2026-10-31); transport errors are
-    left out."""
+    Invalid answers get the worst score in the cell among the five baselines (official, generic
+    RJ, RJ-MLE, the rule of thumb, the ETAS refit; ADR 0018 decision 12), so the penalty does not
+    depend on k or on which other runs are loaded; transport errors are left out."""
     s = samples[samples["status"] != "transport_error"]
     key = ["item_id", "window"]
-    worst = pd.concat(
-        [s[s["status"] == "ok"].groupby(key)["d5"].max(), s.groupby(key)["worst_base_d5"].max()],
-        axis=1,
-    ).max(axis=1)
+    worst = s.groupby(key)["worst_base_d5"].max()  # the five baselines only (ADR 0018 decision 12)
     d = np.where(
         s["status"] == "ok", s["d5"], worst.reindex(pd.MultiIndex.from_frame(s[key])).to_numpy()
     )

@@ -50,7 +50,7 @@ def test_report_corrects_only_the_co_primary_models():
 def test_report_refuses_an_incomplete_co_primary_family():
     cells = pd.DataFrame({"model": ["A"] * 10, "sequence_id": [f"s{i}" for i in range(10)],
                           "d": np.zeros(10)})  # fmt: skip
-    with pytest.raises(ValueError, match="co-primary results missing"):
+    with pytest.raises(ValueError, match="primary results missing"):
         C.report(cells, ("A", "B"))
 
 
@@ -115,8 +115,8 @@ def test_confirmatory_cells_keep_eligible_primary_prompt_samples(monkeypatch):
         (r.model, r.sequence_id): (round(float(r.d), 3), r.stratum)  # type: ignore[arg-type]
         for r in cells.itertuples()
     }
-    # cell a: worst valid is the v2B answer (9.0), so the invalid sample scores 9.0
-    assert got == {("claude-opus-5-5", "a"): (round((0.1 + 0.3 + 9.0) / 3, 3), "under 1 day"),
+    # cell a: the invalid sample takes the worst baseline (0.5), not the v2B answer's 9.0
+    assert got == {("claude-opus-5-5", "a"): (round((0.1 + 0.3 + 0.5) / 3, 3), "under 1 day"),
                    ("gpt-5.1-2025-11-13", "b"): (0.2, "1 to 7 days")}  # fmt: skip
     assert C.study_effort("gpt-5.1-2025-11-13") == "medium"
     assert C.study_effort("claude-opus-4-6") == "medium"
@@ -168,3 +168,44 @@ def test_co_primary_bounds_are_at_their_holm_level_and_superiority_is_its_own_fa
         assert t.loc[m, "upper"] == pytest.approx(expect)
     assert t.loc["A", "superior"]  # clearly better, and non-inferior first
     assert C.holm_levels({"x": 0.3, "y": 0.01}) == {"y": 0.025, "x": 0.05}
+
+
+def test_bootstrap_t_controls_size_better_on_heavy_tails():
+    # one sequence in 18 at +1 nat (like gpt-5.1's development effects), true mean at delta
+    e = np.r_[np.random.default_rng(4).normal(0, 0.055, 17), 1.0]
+    pct = C.size(e, 89, alpha=0.025, sims=300, b=500, method="percentile")
+    stu = C.size(e, 89, alpha=0.025, sims=300, b=500, method="student")
+    assert stu < pct and stu < 0.05
+
+
+def test_descriptive_models_get_no_test():
+    rng = np.random.default_rng(2)
+    cells = pd.DataFrame({
+        "model": ["A"] * 300 + ["B"] * 300 + ["S"] * 300,
+        "sequence_id": [f"s{i % 60}" for i in range(900)],
+        "d": rng.normal(0, 0.05, 900),
+    })  # fmt: skip
+    t = C.report(cells, ("A", "B"), descriptive=("S",)).set_index("model")
+    assert pd.isna(t.loc["S", "noninferior"]) and pd.isna(t.loc["S", "upper"])
+    assert t.loc["S", "median"] == t.loc["S", "median"]  # summaries kept
+
+
+def test_bootstrap_t_keeps_the_tail_of_zero_variance_resamples():
+    # 17 tied effects and one outlier: about a third of resamples hold only the ties, whose mean
+    # lies below the observed mean; their T* must count as -inf, not 0 (Codex review)
+    e = np.r_[np.zeros(17), 1.0]
+    r = C.noninferiority(e, 0.10, alpha=0.025)
+    assert not r["noninferior"] and r["upper"] == float("inf")
+    flat = C.noninferiority(np.zeros(30), 0.10)
+    assert not flat["noninferior"] and flat["p"] == 1.0
+
+
+def test_fewer_than_two_sequences_make_no_claim():
+    for e in (np.array([0.2]), np.array([-0.5]), np.array([])):
+        for method in ("student", "percentile"):
+            r = C.noninferiority(e, 0.10, method=method)
+            assert not r["noninferior"] and not r["superior"] and r["p"] == 1.0
+    cells = pd.DataFrame({"model": ["A", "B", "B"], "sequence_id": ["s1", "s1", "s2"],
+                          "d": [0.2, 0.0, 0.01]})  # fmt: skip
+    t = C.report(cells, ("A",)).set_index("model")
+    assert not t.loc["A", "noninferior"] and not t.loc["A", "superior"]

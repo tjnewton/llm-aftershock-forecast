@@ -159,6 +159,13 @@ def main(argv: list[str] | None = None) -> None:
         "--test-a-all", action="store_true",
         help="test A's sensitivity run: gpt-5.1 on all clean candidates (test B stays M>=5)",
     )  # fmt: skip
+    cz = sub.add_parser(
+        "confirmatory-size",
+        help="simulated size of the registered test from development D2 effects (no API)",
+    )
+    cz.add_argument("--snapshot", required=True)
+    cz.add_argument("--runs", type=Path, default=Path("runs/d2"))
+    cz.add_argument("--sims", type=int, default=1000)
     cf = sub.add_parser(
         "confirmatory-dryrun",
         help="ADR 0018 tests on development D2 answers (no API; a rehearsal, not a result)",
@@ -615,7 +622,13 @@ def main(argv: list[str] | None = None) -> None:
         import pandas as pd
 
         from laf.analysis import load_tables
-        from laf.confirmatory import CO_PRIMARY, confirmatory_cells, hierarchical, report
+        from laf.confirmatory import (
+            PRIMARY,
+            SECONDARY,
+            confirmatory_cells,
+            hierarchical,
+            report,
+        )
         from laf.d2 import analyze
         from laf.pilot import load_items
         from laf.splits import require_outcome_table
@@ -626,15 +639,37 @@ def main(argv: list[str] | None = None) -> None:
         runs = sorted(d for d in a.runs.iterdir() if (d / "results.jsonl").exists())
         samples, _ = analyze(proc, runs)
         elapsed = {i.item_id: i.elapsed_days for i in load_items(a.data_dir, a.snapshot, 3.0)}
-        widen = {CO_PRIMARY[0]: 0.0} if a.test_a_all else None
+        widen = {PRIMARY[0]: 0.0} if a.test_a_all else None
         cells = confirmatory_cells(samples, tables["sequences"], elapsed, widen)
-        t = report(cells, CO_PRIMARY)
+        descriptive = tuple(set(cells["model"]) - set(PRIMARY) - set(SECONDARY))
+        t = report(cells, PRIMARY, descriptive=descriptive)
         hier = {m: hierarchical(g) for m, g in cells.groupby("model")}
         t = t.join(pd.DataFrame.from_dict(hier, orient="index"), on="model")
         tag = "_test_a_all" if a.test_a_all else ""
         path = Path("results") / f"confirmatory_{a.snapshot}{tag}.csv"
         t.to_csv(path, index=False, lineterminator="\n")
         print(t.round(3).to_string(index=False))
+        print(f"-> {path}")
+    elif a.cmd == "confirmatory-size":
+        import pandas as pd
+
+        from laf.confirmatory import sequence_effects, size
+        from laf.power import d2_cell_differences
+
+        runs = sorted(d for d in a.runs.iterdir() if (d / "results.jsonl").exists())
+        cells = d2_cell_differences(a.data_dir / "processed" / a.snapshot, runs)
+        rows = []
+        for label in ("gpt-5.1-2025-11-13 medium v2A", "claude-opus-5-5 high v2A"):
+            e = sequence_effects(cells[cells["model"] == label]).to_numpy()
+            for n in (33, 89):
+                for alpha in (0.025, 0.05):
+                    for method in ("student", "percentile"):
+                        rate = size(e, n, alpha=alpha, sims=a.sims, method=method)
+                        rows.append(dict(effects=label, n=n, alpha=alpha, method=method,
+                                         size=rate, sims=a.sims))  # fmt: skip
+                        print(f"{label:<32} n={n:<3} alpha={alpha:<5} {method:<10} {rate:.3f}")
+        path = Path("results") / f"confirmatory_size_d2_{a.snapshot}.csv"
+        pd.DataFrame(rows).to_csv(path, index=False, lineterminator="\n")
         print(f"-> {path}")
     elif a.cmd == "confirmatory-dryrun":
         import pandas as pd
@@ -645,8 +680,8 @@ def main(argv: list[str] | None = None) -> None:
         runs = sorted(d for d in a.runs.iterdir() if (d / "results.jsonl").exists())
         cells = d2_cell_differences(a.data_dir / "processed" / a.snapshot, runs)
         cells = cells[cells["model"].str.endswith("v2A")]
-        # stand-ins for co-primary tests A (gpt-5.1) and B (Opus 5.5), ADR 0018
-        primary = ("gpt-5.1-2025-11-13 medium v2A", "claude-opus-5-5 high v2A")
+        # stand-in for the primary test A (gpt-5.1), ADR 0018 decision 15
+        primary = ("gpt-5.1-2025-11-13 medium v2A",)
         t = report(cells, primary)
         from laf.confirmatory import hierarchical, stratum
         from laf.pilot import load_items
