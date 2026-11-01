@@ -195,6 +195,8 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     (`laf.publish`): each seal file is pushed at once, then its OpenTimestamps proofs from
     three public calendars, and GitHub's push receipt is read from the repository activity
     API. The dry run publishes to the branch `live-test`, the study to `live`.
+  - Each push receipt is committed beside its seal (`receipt.json`), so the on-time evidence
+    stays on the branch whatever GitHub's activity retention.
   - Built: the paid path (`laf live-watch --paid`; ADR 0017 "The paid path"): the live models
     spend only a fixed live reserve per provider, counted on spend files published with each
     answers seal, in the budget priority below.
@@ -295,7 +297,8 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     outside the primary and secondary lists (Sonnet 4.6 among them) get no test row.
   - **TO BUILD:**
     - the contrasts with the baselines (S3, S4, S5) and the assay-sensitivity test;
-    - the prospective inputs and the two-part test B;
+    - the prospective inputs to test B (its two-part bootstrap is built: `noninferiority(...,
+      strata=...)` resamples each part at its own size, with the stratified standard error);
     - S2;
     - the listed sensitivity analyses.
 
