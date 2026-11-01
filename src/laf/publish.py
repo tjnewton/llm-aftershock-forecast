@@ -109,6 +109,61 @@ def publish(
     return rec
 
 
+NOTICE = (
+    "Research forecasts from the llm-aftershock-forecast study (docs/preregistration-v2.md on\n"
+    "post-submission), released after every forecast window of this issue closed. They are not\n"
+    "official forecasts and must not be used as such; official aftershock forecasts come from\n"
+    "the USGS.\n"
+)
+SEALS = ("answers.seal.json", "baselines.seal.json")
+
+
+def release(worktree: Path, rel: str, record_dir: Path) -> str | None:
+    """Publish an issue's full records once its windows have closed: every file named in the
+    manifests of its seals on the branch, each checked against the published hash first, and a
+    notice that these are not official forecasts. Returns the commit, or None if already
+    released; a file that differs from its seal is never released."""
+    dest = worktree / rel
+    if released(worktree, rel):
+        return None
+    files: dict[str, bytes] = {}
+    for seal in SEALS:
+        if not (dest / seal).exists():  # e.g. the baselines push failed: nothing to check against
+            continue
+        for name, sha in json.loads((dest / seal).read_text(encoding="utf-8"))["manifest"].items():
+            data = (record_dir / name).read_bytes()
+            if hashlib.sha256(data).hexdigest() != sha:
+                raise ValueError(f"{rel}/{name} differs from its published seal: not released")
+            files[name] = data
+    if not files:
+        raise FileNotFoundError(f"{rel}: no seal on the branch")
+    for name, data in files.items():
+        (dest / name).write_bytes(data)
+    (dest / "NOTICE.txt").write_text(NOTICE, encoding="utf-8", newline="\n")
+    paths = [f"{rel}/{n}" for n in (*files, "NOTICE.txt")]
+    return _commit_push(worktree, paths, f"Release {rel} (windows closed; not official forecasts)")
+
+
+def _committed(worktree: Path, path: str) -> bool:
+    shown = subprocess.run(["git", "-C", str(worktree), "cat-file", "-e", f"HEAD:{path}"],
+                           capture_output=True)  # fmt: skip
+    return shown.returncode == 0
+
+
+def released(worktree: Path, rel: str) -> bool:
+    """The release is committed (its notice is in HEAD); `push_pending` gets it to the remote."""
+    return _committed(worktree, f"{rel}/NOTICE.txt")
+
+
+def push_pending(worktree: Path) -> int:
+    """Push local commits the remote does not have yet (a seal or a release whose push failed
+    earlier); returns how many there were."""
+    ahead = int(_git(worktree, "rev-list", "--count", f"origin/{branch(worktree)}..HEAD"))
+    if ahead:
+        _git(worktree, "push", "-q", "origin", "HEAD")
+    return ahead
+
+
 def add_record(worktree: Path, rel: str, name: str, rec: dict) -> str:
     """Commit and push one small JSON record (such as an issue's push receipt) beside its
     seal; returns the commit. Never overwrites."""

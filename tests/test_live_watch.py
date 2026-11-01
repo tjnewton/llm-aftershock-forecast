@@ -203,3 +203,25 @@ def test_paid_runs_publish_to_live_and_the_dry_run_never_does(tmp_path, monkeypa
     monkeypatch.setattr(runner, "env_value", lambda var: "")
     with pytest.raises(SystemExit, match="not set"):  # caps and reserves, before any poll
         W.run(tmp_path, tmp_path, Path("data"), polls=0, publish_to=tmp_path, paid=True)
+
+
+def test_issues_are_released_only_after_every_window_closed(tmp_path, monkeypatch):
+    released = []
+    monkeypatch.setattr(W, "release", lambda wt, rel, d: released.append(rel) or "c")
+    wt, data = tmp_path / "wt", tmp_path / "data"
+    for rel, end in (("us1/1", 1_000), ("us1/2", 5_000), ("us2/1", 1_000), ("us3/1", 1_000)):
+        (data / "issues" / rel).mkdir(parents=True)
+        item = {"windows": [{"end_ms": end - 500}, {"end_ms": end}]}
+        (data / "issues" / rel / "items.jsonl").write_text(json.dumps(item) + "\n")
+        if rel != "us3/1":  # never published: nothing to release against
+            (wt / rel).mkdir(parents=True)
+            (wt / rel / "answers.seal.json").write_text("{}")
+    monkeypatch.setattr(W, "released", lambda wt, rel: rel == "us2/1")  # committed before
+    (data / "issues/us4/1").mkdir(parents=True)
+    (data / "issues/us4/1/items.jsonl").write_text('{"windows": [{"end_ms": 1')  # truncated
+    (wt / "us4/1").mkdir(parents=True)
+    (wt / "us4/1/answers.seal.json").write_text("{}")
+    W.release_closed(tmp_path, data, wt, now_ms=2_000)
+    assert released == ["us1/1"]  # us1/2's month window is still open
+    logged = {r["rel"]: r for r in _log(tmp_path) if r["kind"] == "release"}
+    assert set(logged) == {"us1/1", "us4/1"} and "JSONDecodeError" in logged["us4/1"]["error"]
