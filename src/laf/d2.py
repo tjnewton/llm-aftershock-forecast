@@ -112,9 +112,35 @@ def m3_complete(product_mc, regional, mag_main: float, t1_days: float) -> bool:
 BASELINES = ("generic_rj", "rj_mle", "naive", "etas")
 
 
+def recount_m5(tables: dict, cells, scale: float) -> dict[tuple, int | None]:
+    """M>=5 counts per (issue, window) with each issue's region radius times `scale`, from its
+    own sequence's catalog (the radius sensitivity analyses, prereg v2 section 6). Above 1 a
+    cell counts only where the catalog query covered 1.5 times the radius; else None."""
+    from laf.catalog import count_in_window
+    from laf.oaf import Circle
+    from laf.splits import require_outcomes
+
+    require_outcomes(cells["sequence_id"].unique())  # an outcome counter: sealed sequences refused
+    its = tables["issue_times"].set_index("issue_id")
+    cat = tables["catalog"]
+    by_seq = {sid: g for sid, g in cat.groupby("sequence_id")}
+    out: dict[tuple, int | None] = {}
+    for c in cells.to_dict("records"):
+        it = its.loc[c["issue_id"]]
+        if scale > 1.0 and not bool(it["query_covers_x1_5"]):
+            out[(c["issue_id"], c["window"])] = None
+            continue
+        circle = Circle(it["region_lat"], it["region_lon"], it["region_radius_km"] * scale)
+        own = by_seq.get(c["sequence_id"], cat.iloc[:0])
+        out[(c["issue_id"], c["window"])] = count_in_window(
+            own, circle, int(c["time_start_ms"]), int(c["time_end_ms"]), 5.0
+        )
+    return out
+
+
 def analyze(
     proc: Path, run_dirs: list[Path], settle: str = "primary", score: str = "registered",
-    floor: float | None = None,
+    floor: float | None = None, radius: float = 1.0,
 ):  # fmt: skip
     """Per-sample scores and a summary per model, effort and variant (development data only).
 
@@ -153,8 +179,13 @@ def analyze(
         .set_index("issue_id")["mc"]
     )
     info = {}
+    # `radius`: outcomes recounted in the scaled region (a sensitivity analysis, M>=5 only)
+    y5_of = recount_m5(tables, cells, radius) if radius != 1.0 else None
     for c in cells.to_dict("records"):
         k = (c["issue_id"], c["window"])
+        y5 = int(c["y5"]) if y5_of is None else y5_of[k]
+        if y5 is None:
+            continue  # the catalog query does not cover the scaled region
         s = seqs.loc[c["sequence_id"]]
         mc = MagComp(
             s["magcomp_region"], s["magcomp_mcat"], s["magcomp_F"], s["magcomp_G"], s["magcomp_H"]
@@ -168,23 +199,21 @@ def analyze(
         )
         info[k] = {
             "sequence_id": c["sequence_id"],
-            "y5": int(c["y5"]), "y4": int(c["y4"]), "y3": int(y3.get(k, -1)),
+            "y5": y5, "y4": int(c["y4"]), "y3": int(y3.get(k, -1)),
             "m3_ok": bool(m3_ok and q3 is not None and k in y3.index),
-            "off5": ls(off.m5 if off else None, int(c["y5"]), off, "official"),
+            "off5": ls(off.m5 if off else None, y5, off, "official"),
             "off4": _ls(off.m4 if off else None, int(c["y4"])),  # variants change M>=5 only
             "off3": _ls(q3, int(y3[k])) if k in y3.index else np.nan,
         }  # fmt: skip
         # the worst valid baseline at M5, as dLS (prereg v1 section 7 rule for invalid answers)
         info[k]["worst_base_d5"] = max(
-            ls(fc.m5, int(c["y5"]), fc, name) - info[k]["off5"]
-            for name, fc in by_cell.get(k, [])
-            if fc.m5
+            ls(fc.m5, y5, fc, name) - info[k]["off5"] for name, fc in by_cell.get(k, []) if fc.m5
         )
         # each baseline's dLS at M5, for the contrasts S3-S5 and the assay-sensitivity test
         for b in BASELINES:
             fc = base.get((b, *k))
             info[k][f"base_d5_{b}"] = (
-                ls(fc.m5, int(c["y5"]), fc, b) - info[k]["off5"] if fc and fc.m5 else np.nan
+                ls(fc.m5, y5, fc, b) - info[k]["off5"] if fc and fc.m5 else np.nan
             )
     rows = []
     for r in samples(run_dirs):
@@ -211,6 +240,8 @@ def analyze(
                 r["m4_count_quantiles"][4] + 1
             )
         rows.append(row)
+    if not rows:  # e.g. the x1.5 radius variant where no catalog query covers 1.5 times
+        return pd.DataFrame(), pd.DataFrame()
     df = pd.DataFrame(rows)
     ok = df[df["status"] == "ok"]
     summary = (
