@@ -23,6 +23,7 @@ from laf.training import read_events
 from laf.usgs import download, read_raw, store
 
 RAW = "raw/confirmatory"
+EMPTY_CSV = b"time,latitude,longitude,depth,mag,magType,net,id,updated,place,type,status\n"
 DAY_MS = 86_400_000
 
 
@@ -30,7 +31,9 @@ def _events(data_dir: Path, name: str, url: str, get=download) -> pd.DataFrame:
     rel = f"{RAW}/{name}.csv"
     if not (data_dir / rel).exists():
         store(data_dir, rel, get(url), url)
-    return read_events(read_raw(data_dir, rel))
+    raw = read_raw(data_dir, rel)
+    # ComCat answers a window without events with HTTP 204 and an empty body
+    return read_events(raw if raw.strip() else EMPTY_CSV)
 
 
 def is_aftershock(r: dict, context: pd.DataFrame) -> bool:

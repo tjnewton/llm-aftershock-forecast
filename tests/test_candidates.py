@@ -34,3 +34,10 @@ def test_supplementary_candidates_drop_development_and_aftershocks_only(tmp_path
     out = tmp_path / "supp.toml"
     K.write_config(sel, out, "2026-10-29", "2026-11-04")
     assert out.read_text().count("[[sequence]]") == 3
+
+
+def test_a_window_without_events_gives_no_candidates(tmp_path):
+    sel = K.select(tmp_path, "2026-10-29", "2026-10-30", lambda url: b"")  # HTTP 204
+    assert sel.empty
+    again = K.select(tmp_path, "2026-10-29", "2026-10-30", lambda url: b"unused")  # cached
+    assert again.empty
