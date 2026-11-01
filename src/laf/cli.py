@@ -126,6 +126,7 @@ def main(argv: list[str] | None = None) -> None:
     lw.add_argument("--out", type=Path, default=Path("runs/live-dryrun"))
     lw.add_argument("--live-data", type=Path, default=Path("data/interim/live-dryrun"))
     lw.add_argument("--polls", type=int, help="stop after this many polls (default: run on)")
+    lw.add_argument("--publish", type=Path, help="worktree of branch live-test: push each seal")
     ll = sub.add_parser(
         "live-late", help="share of matched live items that would be late (ADR 0017; no network)"
     )
@@ -544,7 +545,7 @@ def main(argv: list[str] | None = None) -> None:
     elif a.cmd == "live-watch":
         from laf.live_watch import run
 
-        run(a.out, a.live_data, a.data_dir, a.polls)
+        run(a.out, a.live_data, a.data_dir, a.polls, a.publish)
     elif a.cmd == "live-late":
         import pandas as pd
 

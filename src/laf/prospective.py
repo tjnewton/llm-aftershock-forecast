@@ -224,9 +224,12 @@ def is_aftershock(lat: float, lon: float, origin_ms: int, mag: float, get=None) 
 
 
 def run_issue(client, data_dir: Path, snapshot: str, seq: Sequence, out_root: Path,
-              *, dry_run: bool = False, clock=time.time) -> dict:  # fmt: skip
+              *, dry_run: bool = False, clock=time.time, publish=None) -> dict:  # fmt: skip
     """One issue end to end; `dry_run` skips the model calls (no spend) and times the rest.
-    Only versions the ADR 0004 schedule picks are forecast; others return a skip record."""
+    Only versions the ADR 0004 schedule picks are forecast; others return a skip record.
+    `publish(rel, seal_path)` (`laf.publish.publish` bound to a worktree) pushes each seal as
+    soon as it exists: the answers before the baselines run. A publishing failure is recorded,
+    never fatal."""
     t0 = clock()
     tables, items, update_ms = issue(data_dir, snapshot, seq, int(t0 * 1000))
     slot = scheduled_slot(tables, update_ms)
@@ -237,10 +240,22 @@ def run_issue(client, data_dir: Path, snapshot: str, seq: Sequence, out_root: Pa
     t1 = clock()
     calls = [] if dry_run else model_calls(client, items)
     (out / "calls.jsonl").write_text(_jsonl(calls), encoding="utf-8", newline="\n")  # spend log
+    published: dict = {}
+
+    def post(name: str) -> None:
+        if publish is None:
+            return
+        try:
+            published[name] = publish(f"{seq.id}/{update_ms}", out / f"{name}.seal.json")
+        except Exception as e:  # the item is then not on time; the issue still completes
+            published[name] = {"error": f"{type(e).__name__}: {e}"[:300]}
+
     answers = seal_answers(out, items, calls, clock)
+    post("answers")
     t2 = clock()
     base = baseline_forecasts(tables, items, data_dir)
     baselines = seal_baselines(out, base, clock)
+    post("baselines")
     timing = {"build_s": t1 - t0, "models_s": t2 - t1, "baselines_s": clock() - t2,
               "dry_run": dry_run, "update_ms": update_ms, "slot": slot}  # fmt: skip
-    return {"answers": answers, "baselines": baselines, "timing": timing}
+    return {"answers": answers, "baselines": baselines, "timing": timing, "published": published}

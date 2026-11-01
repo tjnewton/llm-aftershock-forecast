@@ -163,3 +163,23 @@ def test_paid_runs_must_write_where_the_spend_ledger_looks(tmp_path):
     with pytest.raises(SystemExit, match="spend ledger"):
         main(["prospective", "--snapshot", SNAP, "--sequence", PANAMA.id,
               "--out", str(tmp_path / "elsewhere")])  # fmt: skip
+
+
+def test_the_answers_seal_is_published_before_the_baselines_run(tmp_path, monkeypatch):
+    tables, items, update_ms = P.issue(Path("data"), SNAP, PANAMA, NOW)
+    monkeypatch.setattr(P, "issue", lambda *a: (tables, items, update_ms))
+    monkeypatch.setattr(P, "scheduled_slot", lambda t, u: "first")
+    order = []
+    monkeypatch.setattr(P, "baseline_forecasts", lambda *a: order.append("baselines") or [])
+
+    def publish(rel, seal):
+        order.append(seal.name)
+        if seal.name.startswith("baselines"):
+            raise OSError("push rejected")
+        return {"commit": "c", "rel": rel}
+
+    rec = P.run_issue(None, Path("data"), SNAP, PANAMA, tmp_path, dry_run=True, publish=publish)
+    assert order == ["answers.seal.json", "baselines", "baselines.seal.json"]
+    assert rec["published"]["answers"] == {"commit": "c", "rel": f"{PANAMA.id}/{update_ms}"}
+    assert "OSError" in rec["published"]["baselines"]["error"]  # recorded, the issue completes
+    assert (tmp_path / PANAMA.id / str(update_ms) / "baselines.seal.json").exists()

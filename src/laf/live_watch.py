@@ -19,10 +19,12 @@ import shutil
 import time
 import urllib.parse
 from datetime import UTC, datetime
+from functools import partial
 from pathlib import Path
 
 from laf.generic_rj import REFERENCE_REL
 from laf.prospective import is_aftershock, qualifies, run_issue
+from laf.publish import publish, push_receipt
 from laf.registry import Sequence
 from laf.usgs import FDSN, download, event_url, fetch_sequence, iso
 
@@ -87,15 +89,19 @@ def inclusion(doc: dict, key: str, decided: dict, get=download) -> tuple[str | N
     return d["tier"], d["reason"]
 
 
-def dry_issue(data_dir: Path, event_id: str, now_ms: int, get=download) -> dict:
+def dry_issue(
+    data_dir: Path, event_id: str, now_ms: int, get=download, publish_to: Path | None = None
+) -> dict:
     """Fetch the sequence into a snapshot stamped now and run its newest version through the
-    prospective pipeline without model calls; the sealed records go under data_dir/issues."""
+    prospective pipeline without model calls; the sealed records go under data_dir/issues and,
+    with `publish_to` (a worktree of the `live-test` branch), their seals are pushed there."""
     snap = datetime.fromtimestamp(now_ms / 1000, UTC).strftime("%Y%m%dT%H%MZ")
     t0 = time.time()
     fetch_sequence(data_dir, snap, event_id, CATALOG_MIN_MAG, now_ms=now_ms, get=get)
     seq = Sequence(id=event_id, name=event_id, role="test-post", catalog_min_mag=CATALOG_MIN_MAG)
     fetch_s = time.time() - t0
-    rec = run_issue(None, data_dir, snap, seq, data_dir / "issues", dry_run=True)
+    pub = partial(publish, publish_to) if publish_to else None
+    rec = run_issue(None, data_dir, snap, seq, data_dir / "issues", dry_run=True, publish=pub)
     if "skipped" in rec:
         return {"fetch_s": fetch_s, "matched_update_ms": rec["update_ms"], "slot": None,
                 "skipped": rec["skipped"]}  # fmt: skip
@@ -107,12 +113,36 @@ def dry_issue(data_dir: Path, event_id: str, now_ms: int, get=download) -> dict:
         "answers_sha256": a["record_sha256"], "baselines_sha256": b["record_sha256"],
         "matched_margin_s": (first["live-matched"] - a["sealed_ms"]) / 1000,
         "strict_margin_s": (first["live-strict"] - a["sealed_ms"]) / 1000,
+        "matched_first_ms": first["live-matched"], "published": rec["published"],
     }  # fmt: skip
 
 
-def step(out: Path, data_dir: Path, state: dict, get=download) -> dict:
-    """One poll: detect new OAF versions since the last poll and run each included sequence's
-    newest version once."""
+def check_receipts(out: Path, state: dict, get=download) -> None:
+    """Look up GitHub's push time for each published answers seal not yet confirmed and log it
+    with the matched item's margin from that receipt (the registered on-time criterion). A
+    receipt still missing after a day is logged as missing."""
+    keep = []
+    for r in state.get("receipts", []):
+        try:
+            ms = push_receipt(r["repo"], r["branch"], r["commit"], get)
+        except Exception:  # GitHub unreachable: try again next poll
+            ms = None
+        if ms is not None:
+            margin_s, lag_s = (r["matched_first_ms"] - ms) / 1000, (ms - r["pushed_ms"]) / 1000
+            _log(out, {"kind": "receipt", **r, "receipt_ms": ms,
+                       "matched_receipt_margin_s": margin_s, "receipt_lag_s": lag_s})  # fmt: skip
+        elif _now_ms() - r["pushed_ms"] > 86_400_000:
+            _log(out, {"kind": "receipt", **r, "receipt_ms": None})
+        else:
+            keep.append(r)
+    state["receipts"] = keep
+
+
+def step(
+    out: Path, data_dir: Path, state: dict, get=download, publish_to: Path | None = None
+) -> dict:
+    """One poll: confirm pending push receipts, detect new OAF versions since the last poll and
+    run each included sequence's newest version once."""
     t_poll = _now_ms()
     since = state.get("last_poll_ms", t_poll - POLL_S * 1000)
     rec = {"kind": "poll", "poll_ms": t_poll, "since_ms": since}
@@ -123,6 +153,7 @@ def step(out: Path, data_dir: Path, state: dict, get=download) -> dict:
         _log(out, {**rec, "error": f"{type(e).__name__}: {e}"[:300]})
         return state
     _log(out, {**rec, "events": len(ids)})
+    check_receipts(out, state, get)
     seen, decided = state.setdefault("seen", {}), state.setdefault("inclusion", {})
 
     def version(v: dict) -> dict:
@@ -146,7 +177,14 @@ def step(out: Path, data_dir: Path, state: dict, get=download) -> dict:
             tier, reason = inclusion(doc, key, decided, get)
             det |= {"key": key, "mag": p.get("mag"), "net": p.get("net"), "tier": tier,
                     "inclusion": reason}  # fmt: skip
-            built = dry_issue(data_dir, event_id, t_poll, get) if tier else {}
+            built = dry_issue(data_dir, event_id, t_poll, get, publish_to) if tier else {}
+            answers = (built.get("published") or {}).get("answers") or {}
+            if answers.get("commit") and answers.get("repo"):
+                state.setdefault("receipts", []).append({
+                    "key": key, "update_ms": built["matched_update_ms"],
+                    "matched_first_ms": built["matched_first_ms"],
+                    **{k: answers[k] for k in ("repo", "branch", "commit", "pushed_ms")},
+                })  # fmt: skip
             for v in vs:
                 # only the version the matched item is built from has a slot and margins; an
                 # older or invalid version detected in the same poll is superseded
@@ -162,7 +200,10 @@ def step(out: Path, data_dir: Path, state: dict, get=download) -> dict:
     return state
 
 
-def run(out: Path, data_dir: Path, repo_data: Path, polls: int | None = None) -> None:
+def run(
+    out: Path, data_dir: Path, repo_data: Path, polls: int | None = None,
+    publish_to: Path | None = None,
+) -> None:  # fmt: skip
     """Poll every POLL_S seconds until stopped (or `polls` times)."""
     out.mkdir(parents=True, exist_ok=True)
     ref = data_dir / REFERENCE_REL
@@ -172,7 +213,7 @@ def run(out: Path, data_dir: Path, repo_data: Path, polls: int | None = None) ->
     state = json.loads(state_path.read_text(encoding="utf-8")) if state_path.exists() else {}
     n = 0
     while polls is None or n < polls:
-        state = step(out, data_dir, state)
+        state = step(out, data_dir, state, publish_to=publish_to)
         n += 1
         if polls is None or n < polls:
             time.sleep(POLL_S)
