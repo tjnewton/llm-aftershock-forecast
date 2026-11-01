@@ -33,3 +33,6 @@ __marimo__/
 
 # E1b preference pairs (~ 90M): rebuilt by laf outcome-training; SHA-256 in runs/e1b-adaption/dataset.json
 data/processed/training/e1b_pairs.jsonl
+
+# live dry-run log: kept on branch live-dryrun (ops/windows-queue.md T10)
+runs/live-dryrun/
