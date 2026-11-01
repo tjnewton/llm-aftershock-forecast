@@ -56,3 +56,18 @@ def test_one_table_with_every_variant():
     assert got["valid answers only"] < got["main"]  # the penalty raised the main mean
     rates = S.invalid_rates(s).set_index("variant")
     assert rates.loc["v2A", "invalid_rate"] == pytest.approx(1 / 3)
+
+
+def test_the_release_rule_skips_models_without_a_release_date(monkeypatch):
+    from laf import splits
+
+    monkeypatch.setattr(splits, "development_ids", lambda: frozenset())
+    s = _samples()
+    other = s.assign(model="claude-haiku-5-5")  # clean period known, release date not recorded
+    both = pd.concat([s, other], ignore_index=True)
+    origin = pd.Timestamp("2026-10-15", tz="UTC").value // 1_000_000
+    seqs = pd.DataFrame({"sequence_id": s["sequence_id"].unique(), "origin_ms": origin,
+                         "mag": 5.5})  # fmt: skip
+    elapsed = {i: 0.5 for i in s["item_id"]}
+    cells = C.confirmatory_cells(both, seqs, elapsed, rule="release")
+    assert set(cells["model"]) == {"claude-opus-5-5"}

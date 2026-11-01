@@ -338,7 +338,8 @@ def confirmatory_cells(
             study_effort(m),
             sets[m] if sets else eligible(sequences, m, mags.get(m, 5.0), rule),
         )
-        for m in set(s["model"]) & set(sets or CLEAN_FROM)
+        # the release rule covers models with a recorded release date only
+        for m in set(s["model"]) & set(sets or (RELEASED if rule == "release" else CLEAN_FROM))
     }
     cols = zip(s["model"], s["effort"], s["variant"], s["sequence_id"], strict=True)
     keep = [m in ok and e == ok[m][0] and v == variant and sid in ok[m][1] for m, e, v, sid in cols]
