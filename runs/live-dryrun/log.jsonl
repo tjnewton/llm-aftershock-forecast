@@ -533,3 +533,6 @@
 {"backlog": true, "detect_latency_s": 518921.287, "event_id": "us6000tzl0", "inclusion": "magnitude", "index_ms": 1793053411699, "key": "us6000tzl0", "kind": "detection", "mag": 4.2, "net": "us", "pipeline": "prospective", "poll_ms": 1793572332986, "superseded": false, "tier": null, "update_ms": 1793053407659}
 {"backlog": true, "detect_latency_s": 258440.491, "event_id": "us6000tzl0", "inclusion": "magnitude", "index_ms": 1793313892495, "key": "us6000tzl0", "kind": "detection", "mag": 4.2, "net": "us", "pipeline": "prospective", "poll_ms": 1793572332986, "superseded": false, "tier": null, "update_ms": 1793312618432}
 {"backlog": false, "detect_latency_s": 519.782, "event_id": "us6000tzl0", "inclusion": "magnitude", "index_ms": 1793571813204, "key": "us6000tzl0", "kind": "detection", "mag": 4.2, "net": "us", "pipeline": "prospective", "poll_ms": 1793572332986, "superseded": false, "tier": null, "update_ms": 1793571808153}
+{"events": 0, "kind": "poll", "poll_ms": 1793572934454, "since_ms": 1793572332986}
+{"events": 0, "kind": "poll", "poll_ms": 1793573535093, "since_ms": 1793572934454}
+{"events": 0, "kind": "poll", "poll_ms": 1793574135751, "since_ms": 1793573535093}
