@@ -1,18 +1,19 @@
-"""Dry run of the live arm's detector (docs/adr/0017): poll ComCat for new OAF versions and
-time each step of building the live items. It makes no model calls and scores nothing.
+"""Dry run of the live arm's detector (docs/adr/0017; prereg v2 sections 4-5): poll ComCat for
+new OAF versions, apply the inclusion rule, and run each scheduled issue through the prospective
+pipeline (`laf.prospective.run_issue`) without model calls. It spends nothing and scores nothing.
 
-Every poll and every detected version is appended to `<out>/log.jsonl`. A detection records
-the version's ComCat index time and update time, when the poll saw it, how long fetching the
-sequence and building the items took, the items' SHA-256, and any error. The items are the live
-ones (`laf.live.live_items`): matched to the newest valid OAF version, and strict, with windows
-opening at the next full hour. `matched_margin_s` is that version's first window start minus the
-hash time (negative: the matched item would be late); older versions found in the same poll are
-`superseded`; `strict_margin_s` should always be positive. Fetched raw data goes
-to a separate data directory (gitignored), never into data/raw. Outcomes stay sealed because
-`build_tables` seals every confirmatory sequence (docs/adr/0013).
+Every poll and every detected version is appended to `<out>/log.jsonl`. A detection records the
+version's ComCat index time and update time, when the poll saw it, the inclusion decision, and,
+for an included sequence, the ADR 0004 slot, how long fetching, building and the baselines took,
+the two records' SHA-256, and any error. `matched_margin_s` is the matched item's first window
+start minus the answers seal (negative: late; the dry run has no model time, so a paid issue's
+margin is smaller by the models' latency); older versions found in the same poll are
+`superseded`; `strict_margin_s` should always be positive. Each version is tried once and never
+backfilled. Fetched raw data and the sealed dry-run records go to the live data directory
+(gitignored), never into data/raw or the log. Outcomes stay sealed because `build_tables` seals
+every confirmatory sequence (docs/adr/0013).
 """
 
-import hashlib
 import json
 import shutil
 import time
@@ -21,7 +22,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 from laf.generic_rj import REFERENCE_REL
-from laf.live import live_items, next_full_hour
+from laf.prospective import is_aftershock, qualifies, run_issue
 from laf.registry import Sequence
 from laf.usgs import FDSN, download, event_url, fetch_sequence, iso
 
@@ -58,27 +59,55 @@ def _log(out: Path, rec: dict) -> None:
         f.write(json.dumps(rec, sort_keys=True) + "\n")
 
 
-def build_live_items(data_dir: Path, event_id: str, now_ms: int, get=download) -> dict:
-    """Fetch the sequence into a snapshot stamped now and build the live items the arm would
-    forecast (`laf.live.live_items`): one matched to the newest valid OAF version and one strict,
-    whose windows open at the next full hour at least 30 minutes after now. Outcomes sealed."""
+def event_key(doc: dict, known) -> str:
+    """The ID a sequence is tracked under: the first of its ComCat associated IDs already
+    `known`, else its preferred ID, so a change of preferred ID is the same sequence."""
+    ids = [i for i in (doc["properties"].get("ids") or "").split(",") if i]
+    return next((i for i in ids if i in known), doc["id"])
+
+
+def inclusion(doc: dict, key: str, included: dict, get=download) -> tuple[str | None, str]:
+    """(tier, reason) under prereg v2 section 4: once included, always included; otherwise the
+    magnitude rule (`qualifies`), then the backward aftershock check."""
+    if key in included:
+        return included[key], "included"
+    p = doc["properties"]
+    tier = qualifies(float(p["mag"]), p.get("net") or "")
+    if tier is None:
+        return None, "magnitude"
+    lon, lat, _ = doc["geometry"]["coordinates"]
+    if is_aftershock(lat, lon, int(p["time"]), float(p["mag"]), get):
+        return None, "aftershock"
+    included[key] = tier
+    return tier, "included"
+
+
+def dry_issue(data_dir: Path, event_id: str, now_ms: int, get=download) -> dict:
+    """Fetch the sequence into a snapshot stamped now and run its newest version through the
+    prospective pipeline without model calls; the sealed records go under data_dir/issues."""
     snap = datetime.fromtimestamp(now_ms / 1000, UTC).strftime("%Y%m%dT%H%MZ")
+    t0 = time.time()
     fetch_sequence(data_dir, snap, event_id, CATALOG_MIN_MAG, now_ms=now_ms, get=get)
     seq = Sequence(id=event_id, name=event_id, role="test-post", catalog_min_mag=CATALOG_MIN_MAG)
-    strict_ms = next_full_hour(now_ms + 30 * 60_000)
-    items, newest_update_ms = live_items(data_dir, snap, seq, now_ms, strict_ms)
-    body = "".join(i.model_dump_json() + "\n" for i in items)
-    matched = next(i for i in items if i.item_id.endswith("@live-matched"))
+    fetch_s = time.time() - t0
+    rec = run_issue(None, data_dir, snap, seq, data_dir / "issues", dry_run=True)
+    if "skipped" in rec:
+        return {"fetch_s": fetch_s, "matched_update_ms": rec["update_ms"], "slot": None,
+                "skipped": rec["skipped"]}  # fmt: skip
+    a, b, t = rec["answers"], rec["baselines"], rec["timing"]
+    first = {i.rsplit("@", 1)[1]: v["first_window_ms"] for i, v in a["items"].items()}
     return {
-        "items_sha256": hashlib.sha256(body.encode("utf-8")).hexdigest(),
-        "matched_update_ms": newest_update_ms,
-        "matched_window_start_ms": min(w.start_ms for w in matched.windows),
-        "strict_window_start_ms": strict_ms,
-    }
+        "fetch_s": fetch_s, "build_s": t["build_s"], "baselines_s": t["baselines_s"],
+        "matched_update_ms": t["update_ms"], "slot": t["slot"],
+        "answers_sha256": a["record_sha256"], "baselines_sha256": b["record_sha256"],
+        "matched_margin_s": (first["live-matched"] - a["sealed_ms"]) / 1000,
+        "strict_margin_s": (first["live-strict"] - a["sealed_ms"]) / 1000,
+    }  # fmt: skip
 
 
 def step(out: Path, data_dir: Path, state: dict, get=download) -> dict:
-    """One poll: detect new OAF versions since the last poll and time each one's items."""
+    """One poll: detect new OAF versions since the last poll and run each included sequence's
+    newest version once."""
     t_poll = _now_ms()
     since = state.get("last_poll_ms", t_poll - POLL_S * 1000)
     rec = {"kind": "poll", "poll_ms": t_poll, "since_ms": since}
@@ -89,35 +118,34 @@ def step(out: Path, data_dir: Path, state: dict, get=download) -> dict:
         _log(out, {**rec, "error": f"{type(e).__name__}: {e}"[:300]})
         return state
     _log(out, {**rec, "events": len(ids)})
-    seen = state.setdefault("seen", {})
+    seen, included = state.setdefault("seen", {}), state.setdefault("included", {})
     for event_id in ids:
-        t0 = _now_ms()
-        det = {"kind": "detection", "event_id": event_id, "poll_ms": t_poll}
+        det = {"kind": "detection", "pipeline": "prospective", "event_id": event_id,
+               "poll_ms": t_poll}  # fmt: skip
         try:
             doc = json.loads(get(event_url(event_id)))
-            vs = new_versions(doc, set(seen.get(event_id, [])))
+            key = event_key(doc, seen.keys() | included.keys())
+            vs = new_versions(doc, set(seen.get(key, [])))
             if not vs:
                 continue
-            mag = doc["properties"].get("mag")
-            built = build_live_items(data_dir, event_id, t_poll, get)
-            t1 = _now_ms()
+            # tried once: a failure below is logged, never retried (prereg v2 section 5)
+            seen[key] = sorted(set(seen.get(key, [])) | {v["update_ms"] for v in vs})
+            p = doc["properties"]
+            tier, reason = inclusion(doc, key, included, get)
+            det |= {"key": key, "mag": p.get("mag"), "net": p.get("net"), "tier": tier,
+                    "inclusion": reason}  # fmt: skip
+            built = dry_issue(data_dir, event_id, t_poll, get) if tier else {}
             for v in vs:
-                # only the version the matched item is built from has a margin; an older or
-                # invalid version detected in the same poll is superseded, not on time
-                own = v["update_ms"] == built["matched_update_ms"]
+                # only the version the matched item is built from has a slot and margins; an
+                # older or invalid version detected in the same poll is superseded
+                own = v["update_ms"] == built.get("matched_update_ms")
                 _log(out, {
-                    **det, **v, **built, "mag": mag,
+                    **det, **v, **(built if own else {}),
                     "detect_latency_s": (t_poll - v["index_ms"]) / 1000,
                     # indexed before this poll's window: a sequence seen for the first time
                     "backlog": v["index_ms"] < since,
-                    "build_s": (t1 - t0) / 1000,
-                    "matched_margin_s": (
-                        (built["matched_window_start_ms"] - t1) / 1000 if own else None
-                    ),
-                    "strict_margin_s": (built["strict_window_start_ms"] - t1) / 1000,
-                    "superseded": not own,
+                    "superseded": bool(tier) and not own,
                 })  # fmt: skip
-            seen[event_id] = sorted(set(seen.get(event_id, [])) | {v["update_ms"] for v in vs})
         except Exception as e:
             _log(out, {**det, "error": f"{type(e).__name__}: {e}"[:300]})
     state["last_poll_ms"] = t_poll
