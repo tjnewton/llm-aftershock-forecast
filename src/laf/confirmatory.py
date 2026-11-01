@@ -250,6 +250,15 @@ CLEAN_FROM = {
     "claude-sonnet-5-5": "2026-10-01",
     "claude-haiku-5-5": "2026-10-01",
 }
+# Release dates (Models API creation dates, checked 2026-11-01) for the release-date clean rule
+# (prereg v2 section 6): a model cannot have seen anything after its release.
+RELEASED = {
+    "gpt-5.1-2025-11-13": "2025-11-10",
+    "claude-opus-4-6": "2026-02-04",
+    "claude-sonnet-4-6": "2026-02-17",
+    "gpt-6.1-sol": "2026-09-27",
+    "claude-opus-5-5": "2026-09-21",
+}
 PRIMARY = ("gpt-5.1-2025-11-13",)
 SECONDARY = ("claude-opus-5-5", "claude-opus-4-6", "gpt-6.1-sol")  # B, S1, S2; others descriptive
 PRIMARY_PROMPT = "v2A"  # ADR 0015 decision 4
@@ -264,12 +273,28 @@ def study_effort(model: str) -> str:
     return OPENAI_EFFORT.get(model) or claude_effort(model)
 
 
-def eligible(sequences: pd.DataFrame, model: str, min_mag: float = 5.0) -> set[str]:
+def clean_from(model: str, rule: str = "buffered") -> pd.Timestamp:
+    """Start of a model's clean period: `buffered` (registered: training cutoff plus 3 months),
+    `unbuffered` (the cutoff itself) or `release` (the model's release date); the last two are
+    sensitivity analyses (prereg v2 section 6)."""
+    start = pd.Timestamp(CLEAN_FROM[model], tz="UTC")
+    if rule == "unbuffered":
+        return start - pd.DateOffset(months=3)
+    if rule == "release":
+        return pd.Timestamp(RELEASED[model], tz="UTC")
+    if rule != "buffered":
+        raise ValueError(f"unknown clean rule {rule!r}")
+    return start
+
+
+def eligible(
+    sequences: pd.DataFrame, model: str, min_mag: float = 5.0, rule: str = "buffered"
+) -> set[str]:
     """Sequences whose mainshock is in the model's clean period and at least `min_mag` (the
     M>=5 primary set; 0 gives every clean candidate, test A's sensitivity analysis)."""
     from laf.splits import development_ids
 
-    clean_ms = pd.Timestamp(CLEAN_FROM[model], tz="UTC").value // 1_000_000
+    clean_ms = clean_from(model, rule).value // 1_000_000
     s = sequences[(sequences["origin_ms"] >= clean_ms) & (sequences["mag"] >= min_mag - 1e-9)]
     return set(s["sequence_id"]) - development_ids()  # development data is never confirmatory
 
@@ -281,6 +306,8 @@ def confirmatory_cells(
     min_mag: dict[str, float] | None = None,
     reference: str = "official",
     sets: dict[str, set[str]] | None = None,
+    variant: str = PRIMARY_PROMPT,
+    rule: str = "buffered",
 ) -> pd.DataFrame:
     """Per (model, cell) mean dS over the model's primary-prompt samples at its study effort,
     kept only on its eligible sequences, with the issue, window and stratum the hierarchical
@@ -294,7 +321,8 @@ def confirmatory_cells(
 
     `reference` is the forecast dS is taken against: the official one, or a pipeline baseline
     (`laf.d2.BASELINES`) for the contrasts S3-S5; cells without that baseline drop out. `sets`
-    replaces the clean eligible sets (the development dry run uses every sequence)."""
+    replaces the clean eligible sets (the development dry run uses every sequence). `variant`
+    and `rule` select the prompt and the clean rule for the sensitivity analyses."""
     s = samples[samples["status"] != "transport_error"]
     key = ["item_id", "window"]
     worst = s.groupby(key)["worst_base_d5"].max()  # the five baselines only (ADR 0018 decision 12)
@@ -306,14 +334,14 @@ def confirmatory_cells(
     s = s.assign(d=d)
     mags = min_mag or {}
     ok = {
-        m: (study_effort(m), sets[m] if sets else eligible(sequences, m, mags.get(m, 5.0)))
+        m: (
+            study_effort(m),
+            sets[m] if sets else eligible(sequences, m, mags.get(m, 5.0), rule),
+        )
         for m in set(s["model"]) & set(sets or CLEAN_FROM)
     }
     cols = zip(s["model"], s["effort"], s["variant"], s["sequence_id"], strict=True)
-    keep = [
-        m in ok and e == ok[m][0] and v == PRIMARY_PROMPT and sid in ok[m][1]
-        for m, e, v, sid in cols
-    ]
+    keep = [m in ok and e == ok[m][0] and v == variant and sid in ok[m][1] for m, e, v, sid in cols]
     cells = s[keep].groupby(["model", "sequence_id", "item_id", "window"])["d"].mean()
     cells = cells.dropna().reset_index().rename(columns={"item_id": "issue_id"})
     return cells.assign(stratum=[stratum(elapsed[i]) for i in cells["issue_id"]])

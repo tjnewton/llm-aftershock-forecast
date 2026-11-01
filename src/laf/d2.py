@@ -79,7 +79,7 @@ def m3_complete(product_mc, regional, mag_main: float, t1_days: float) -> bool:
 BASELINES = ("generic_rj", "rj_mle", "naive", "etas")
 
 
-def analyze(proc: Path, run_dirs: list[Path]):
+def analyze(proc: Path, run_dirs: list[Path], settle: str = "primary"):
     """Per-sample scores and a summary per model, effort and variant (development data only).
 
     Scores are the representation-matched log score (ADR 0015) minus the official forecast's,
@@ -93,7 +93,8 @@ def analyze(proc: Path, run_dirs: list[Path]):
 
     tables, items = A.load_tables(proc), A.load_items(proc)
     cells = A.cells(tables)  # refuses confirmatory sequences (docs/adr/0013)
-    cells = cells[cells["primary"] & cells["oaf_cell"] & (cells["role"] == "test-post")]
+    # `settle`: "primary" (21 days) or "settled_2d" (the 2-day sensitivity rule)
+    cells = cells[cells[settle] & cells["oaf_cell"] & (cells["role"] == "test-post")]
     base = A.baselines(tables, items, cells)
     oc = tables["observed_counts"]
     y3 = oc[oc["magnitude"] == 3.0].set_index(["issue_id", "window"])["count"]
