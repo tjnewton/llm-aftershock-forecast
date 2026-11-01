@@ -21,3 +21,5 @@ def test_the_rehearsal_runs_the_real_pipeline_with_synthetic_answers(tmp_path):
     assert calls and all(R.SYNTHETIC_NOTE in c["text"] for c in calls)
     assert {c["model_requested"] for c in calls} == set(P.LIVE_MODELS)
     assert json.loads((d / "receipt.json").read_text())["synthetic"]
+    spend = [json.loads(x) for x in (d / "spend.jsonl").read_text().splitlines()]
+    assert spend and all(r["usd"] == 0 for r in spend)  # the real ledger is untouched

@@ -188,7 +188,7 @@ def main(argv: list[str] | None = None) -> None:
     )
     lr.add_argument("--snapshot", required=True)
     lr.add_argument("--sequence", required=True, help="a development sequence in --config")
-    lr.add_argument("--out", type=Path, default=Path("runs/live-rehearsal"))
+    lr.add_argument("--out", type=Path, default=Path("data/interim/live-rehearsal"))  # gitignored
     cf = sub.add_parser(
         "confirmatory-dryrun",
         help="ADR 0018 tests on development D2 answers (no API; a rehearsal, not a result)",

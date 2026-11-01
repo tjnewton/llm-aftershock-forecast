@@ -28,7 +28,7 @@ def synthetic_answer() -> str:
 
 def stub_clients() -> dict:
     """SDK stand-ins with the call shapes `prospective.model_calls` uses; no network."""
-    usage = {"input_tokens": 2000, "output_tokens": 500}
+    usage = {"input_tokens": 0, "output_tokens": 0}  # nothing spent: the ledger stays as it is
 
     def message(**params):
         return SimpleNamespace(
