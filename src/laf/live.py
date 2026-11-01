@@ -93,6 +93,7 @@ def live_tables(data_dir: Path, snapshot: str, seq: Sequence, now_ms: int, stric
     tables = {
         "sequences": t["sequences"],
         "catalog": t["catalog"],
+        "oaf_versions": t["oaf_versions"],
         **{k: pd.DataFrame(v) for k, v in rows.items()},
     }
     return tables, int(newest["update_ms"])
