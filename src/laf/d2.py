@@ -118,7 +118,9 @@ def recount_m5(tables: dict, cells, scale: float) -> dict[tuple, int | None]:
     cell counts only where the catalog query covered 1.5 times the radius; else None."""
     from laf.catalog import count_in_window
     from laf.oaf import Circle
+    from laf.splits import require_outcomes
 
+    require_outcomes(cells["sequence_id"].unique())  # an outcome counter: sealed sequences refused
     its = tables["issue_times"].set_index("issue_id")
     cat = tables["catalog"]
     by_seq = {sid: g for sid, g in cat.groupby("sequence_id")}

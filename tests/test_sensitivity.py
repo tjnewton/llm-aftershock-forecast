@@ -131,3 +131,15 @@ def test_recounted_outcomes_match_at_x1_and_grow_with_the_radius():
         assert h is not None and n is not None and h <= n and (w is None or n <= w)
     uncovered = {**tables, "issue_times": tables["issue_times"].assign(query_covers_x1_5=False)}
     assert set(recount_m5(uncovered, cells, 1.5).values()) == {None}  # no wider catalog: out
+
+
+def test_the_recount_refuses_sealed_sequences(monkeypatch):
+    from laf import splits
+    from laf.d2 import recount_m5
+
+    monkeypatch.setattr(splits, "unsealed", lambda: False)
+    sid = "us7000zzzz"  # in no development source: confirmatory
+    cells = pd.DataFrame({"sequence_id": [sid], "issue_id": [f"{sid}@first"], "window": ["1 Day"],
+                          "time_start_ms": [0], "time_end_ms": [1]})  # fmt: skip
+    with pytest.raises(SystemExit, match="sealed"):
+        recount_m5({}, cells, 0.5)
