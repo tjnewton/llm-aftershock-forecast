@@ -435,3 +435,6 @@
 {"events": 0, "kind": "poll", "poll_ms": 1793530146343, "since_ms": 1793529545605}
 {"events": 1, "kind": "poll", "poll_ms": 1793530747008, "since_ms": 1793530146343}
 {"backlog": false, "build_s": 3.829, "detect_latency_s": 498.077, "event_id": "us6000u3lf", "index_ms": 1793530248931, "items_sha256": "ba1655d9ed5111cffff8a1f142610fe1852e8d226928c9f75ef46677ebfd1945", "kind": "detection", "mag": 5, "matched_margin_s": 48.458, "matched_update_ms": 1793530244656, "matched_window_start_ms": 1793530800000, "poll_ms": 1793530747008, "strict_margin_s": 3648.458, "strict_window_start_ms": 1793534400000, "superseded": false, "update_ms": 1793530244656}
+{"events": 0, "kind": "poll", "poll_ms": 1793531351554, "since_ms": 1793530747008}
+{"events": 0, "kind": "poll", "poll_ms": 1793531952304, "since_ms": 1793531351554}
+{"events": 0, "kind": "poll", "poll_ms": 1793532553023, "since_ms": 1793531952304}
