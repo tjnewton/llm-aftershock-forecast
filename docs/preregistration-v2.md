@@ -295,8 +295,12 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
   - The registered decision for A is its `noninferior` column at 0.05.
   - Built: the registered bound and its size simulation (`laf confirmatory-size`); models
     outside the primary and secondary lists (Sonnet 4.6 among them) get no test row.
+  - Built: the secondary table (`laf.confirmatory.secondary`, written beside the tests): the
+    contrasts S3 and S4 (dS against each pipeline baseline on the model's own test cells), the
+    assay-sensitivity test, and the informative-sequence estimand, whose official mean is the
+    integral of the official quantile function over its published fractile grid.
   - **TO BUILD:**
-    - the contrasts with the baselines (S3, S4, S5) and the assay-sensitivity test;
+    - S5 (with the prospective inputs);
     - the prospective inputs to test B (its two-part bootstrap is built: `noninferiority(...,
       strata=...)` resamples each part at its own size, with the stratified standard error);
     - S2;

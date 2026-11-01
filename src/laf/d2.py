@@ -74,6 +74,11 @@ def m3_complete(product_mc, regional, mag_main: float, t1_days: float) -> bool:
     )  # fmt: skip
 
 
+# the pipeline's baselines (`analysis.baselines` names): generic RJ, RJ-MLE, the rule of thumb,
+# the legacy-ETAS refit
+BASELINES = ("generic_rj", "rj_mle", "naive", "etas")
+
+
 def analyze(proc: Path, run_dirs: list[Path]):
     """Per-sample scores and a summary per model, effort and variant (development data only).
 
@@ -134,6 +139,12 @@ def analyze(proc: Path, run_dirs: list[Path]):
         info[k]["worst_base_d5"] = max(
             _ls(fc.m5, int(c["y5"])) - info[k]["off5"] for fc in by_cell.get(k, []) if fc.m5
         )
+        # each baseline's dLS at M5, for the contrasts S3-S5 and the assay-sensitivity test
+        for b in BASELINES:
+            fc = base.get((b, *k))
+            info[k][f"base_d5_{b}"] = (
+                _ls(fc.m5, int(c["y5"])) - info[k]["off5"] if fc and fc.m5 else np.nan
+            )
     rows = []
     for r in samples(run_dirs):
         k = (r["item_id"], key_window[r["window"]])
@@ -145,6 +156,7 @@ def analyze(proc: Path, run_dirs: list[Path]):
             "item_id": r["item_id"], "window": r["window"], "sample": r["sample"],
             "sequence_id": ci["sequence_id"], "status": r["status"], "warnings": r["warnings"],
             "m3_ok": ci["m3_ok"], "worst_base_d5": ci["worst_base_d5"],
+            **{f"base_d5_{b}": ci[f"base_d5_{b}"] for b in BASELINES},
         }  # fmt: skip
         if r["status"] == "ok":
             for m, t in (

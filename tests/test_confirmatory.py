@@ -212,6 +212,86 @@ def test_fewer_than_two_sequences_make_no_claim():
     assert not t.loc["A", "noninferior"] and not t.loc["A", "superior"]
 
 
+def _contrast_samples(n_seq: int = 12, d5: float = -0.3, naive: float = 0.2, rj: float = 0.5):
+    """Synthetic per-sample rows: every sequence one cell, two valid samples and one invalid.
+    The model is `d5` below official; the rule of thumb `naive` and generic RJ `rj` above."""
+    rng = np.random.default_rng(0)
+    rows = []
+    for i in range(n_seq):
+        jitter = float(rng.normal(0, 0.05))
+        for st in ("ok", "ok", "max_tokens"):
+            rows.append({"model": "gpt-5.1-2025-11-13", "effort": "medium", "variant": "v2A",
+                         "status": st, "sequence_id": f"s{i}", "item_id": f"s{i}@1",
+                         "window": "day", "d5": d5 + jitter if st == "ok" else None,
+                         "worst_base_d5": 1.0, "base_d5_naive": naive, "base_d5_generic_rj": rj,
+                         "base_d5_rj_mle": 0.1, "base_d5_etas": d5 + jitter})  # fmt: skip
+    return pd.DataFrame(rows)
+
+
+def test_contrasts_take_ds_against_each_baseline_and_test_superiority():
+    s = _contrast_samples()
+    seqs = pd.DataFrame({"sequence_id": s["sequence_id"].unique()})
+    elapsed = {i: 2.0 for i in s["item_id"]}
+    sets = {"gpt-5.1-2025-11-13": set(seqs["sequence_id"])}
+    cells = C.confirmatory_cells(s, seqs, elapsed, reference="naive", sets=sets)
+    # per cell: valid answers d5 - naive, the invalid one worst - naive (ADR 0018 decision 12)
+    first = s[s["sequence_id"] == "s0"]
+    want = (first["d5"].iloc[0] * 2 + 1.0) / 3 - 0.2
+    assert float(cells.loc[cells["sequence_id"] == "s0", "d"].iloc[0]) == pytest.approx(want)
+    t = C.contrasts(s, seqs, elapsed, ("gpt-5.1-2025-11-13",), sets).set_index("reference")
+    assert bool(t.loc["generic_rj", "superior"])  # well below generic RJ
+    lo, mid, up = (float(t.loc["etas", c]) for c in ("lower95", "mean", "upper95"))  # type: ignore[arg-type]
+    assert lo < mid < up  # an interval, no test, against ETAS
+    assert pd.isna(t.loc["etas", "superior"])
+
+
+def test_assay_flags_a_test_that_cannot_separate_from_generic_rj():
+    s = _contrast_samples(rj=0.0)  # generic RJ as good as the official forecast
+    ids = {"sequence_id": s["sequence_id"].unique(), "issue_id": s["item_id"].unique()}
+    cells = pd.DataFrame({"model": "m", **ids, "window": "day", "d": 0.0})
+    noisy = s.assign(base_d5_generic_rj=np.random.default_rng(1).normal(0, 0.02, len(s)))
+    assert C.assay(noisy, cells).iloc[0]["generic_rj_status"] == "noninferior"
+    worse = s.assign(base_d5_generic_rj=0.5 + np.random.default_rng(2).normal(0, 0.02, len(s)))
+    assert C.assay(worse, cells).iloc[0]["generic_rj_status"] == "inferior"
+    near = s.assign(base_d5_generic_rj=0.1 + np.random.default_rng(4).normal(0, 0.3, len(s)))
+    assert C.assay(near, cells).iloc[0]["generic_rj_status"] == "inconclusive"  # no claim
+    one = cells.head(1)  # one sequence: no spread, so no claim either way
+    assert C.assay(s, one).iloc[0]["generic_rj_status"] == "inconclusive"
+
+
+def test_informative_sequences_use_the_official_mean_at_the_first_issue():
+    p = np.linspace(0.0, 1.0, 101)
+    rows = []
+    for sid, cutoff, scale in (("big", 1, 1.0), ("big", 2, 0.0), ("small", 1, 0.1)):
+        rows += [{"sequence_id": sid, "info_cutoff_ms": cutoff, "window": "1 Month",
+                  "magnitude": 5.0, "p": q, "count": scale * q} for q in p]  # fmt: skip
+    rows += [{"sequence_id": "small", "info_cutoff_ms": 1, "window": "1 Month", "magnitude": 4.0,
+              "p": q, "count": 50.0} for q in p]  # M>=4 never counts  # fmt: skip
+    tables = {
+        "forecast_fractiles": pd.DataFrame(rows),
+        "issue_times": pd.DataFrame(
+            {"sequence_id": ["big", "big", "small"], "issue_ms": [2, 1, 1]}
+        ),
+    }
+    # big: first issue (cutoff 1) has mean 0.5 (the integral of q on [0, 1]); small: 0.05
+    assert C.informative(tables) == {"big"}
+
+
+def test_contrasts_follow_test_as_widened_eligibility(monkeypatch):
+    from laf import splits
+
+    monkeypatch.setattr(splits, "development_ids", lambda: frozenset())
+    s = _contrast_samples(n_seq=6)
+    origin = pd.Timestamp("2026-06-01", tz="UTC").value // 1_000_000
+    seqs = pd.DataFrame({"sequence_id": [f"s{i}" for i in range(6)], "origin_ms": origin,
+                         "mag": [5.5, 5.5, 5.5, 4.5, 4.5, 4.5]})  # fmt: skip
+    elapsed = {i: 2.0 for i in s["item_id"]}
+    m = ("gpt-5.1-2025-11-13",)
+    m5 = C.contrasts(s, seqs, elapsed, m)
+    wide = C.contrasts(s, seqs, elapsed, m, min_mag={m[0]: 0.0})
+    assert set(m5["sequences"]) == {3} and set(wide["sequences"]) == {6}
+
+
 def test_test_b_resamples_its_two_parts_separately():
     rng = np.random.default_rng(3)
     retro, pro = rng.normal(0.0, 0.05, 20), rng.normal(0.3, 0.05, 10)
