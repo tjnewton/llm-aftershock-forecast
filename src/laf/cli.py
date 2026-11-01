@@ -176,7 +176,7 @@ def main(argv: list[str] | None = None) -> None:
         "--block", default="d2",
         choices=("pilot", "d2", "confirmatory", "confirmatory-sens", "confirmatory-v2b"),
     )  # fmt: skip
-    oa.add_argument("--name", help="run name under runs/ (confirmatory blocks)")
+    oa.add_argument("--name", dest="run_name", help="run name under runs/ (confirmatory blocks)")
     oa.add_argument("--chunk", help="confirmatory blocks: K/N, the K-th of N parts")
     oa.add_argument("--forward-excluded", action="store_true",
                     help="confirmatory blocks: the forward-excluded candidates")  # fmt: skip
@@ -650,7 +650,7 @@ def main(argv: list[str] | None = None) -> None:
             variant = "v2B" if a.block == "confirmatory-v2b" else "v2A"
             effort = study_effort(a.model)
             reqs = O.expand(send, a.model, effort, paraphrase=variant, block=a.block)
-            name = a.name or _batch_name(a)
+            name = a.run_name or _batch_name(a)
             est = O.estimate_usd(reqs, Path(f"runs/openai/pilot-{a.model}"))
             print(f"{name}: {len(reqs)} requests, estimate ${est:.2f} (batch)")
         else:

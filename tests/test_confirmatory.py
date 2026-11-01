@@ -334,3 +334,14 @@ def test_confirmatory_batches_send_each_models_own_set_in_parts(monkeypatch):
         got("claude-opus-4-6", "confirmatory-v2b")
     with pytest.raises(SystemExit, match="test A"):
         got("claude-opus-4-6", "confirmatory-sens")
+
+
+def test_the_openai_run_name_option_is_kept(monkeypatch, capsys):
+    from laf import cli
+
+    seen = {}
+    monkeypatch.setattr(cli, "_batch_name", lambda a: seen.setdefault("default", "x") and "x")
+    args = ["openai", "run", "--block", "confirmatory", "--snapshot", "20261029T2000Z",
+            "--name", "confirmatory/custom-test", "--dry-run"]  # fmt: skip
+    cli.main(args)
+    assert "confirmatory/custom-test:" in capsys.readouterr().out and "default" not in seen
