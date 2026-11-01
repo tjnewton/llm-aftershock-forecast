@@ -93,15 +93,25 @@ def baselines(
     }
     out: dict[tuple[str, str, str], CellForecast] = {}
     fits = {}
+    # one pass over each long table, not a full scan per cell
+    by_issue = dict(tuple(cats.groupby("issue_id")))
+    version = ["sequence_id", "info_cutoff_ms", "window"]
+    official = (
+        {
+            n: dict(tuple(tables[n].groupby(version)))
+            for n in ("forecast_fractiles", "forecast_bins")
+        }
+        if cell_df["oaf_cell"].any()
+        else {}
+    )
     for c in cell_df.to_dict("records"):
         iid, win = c["issue_id"], c["window"]
         item, s = items[iid], seqs[c["sequence_id"]]
         t1, t2 = _t(item, win)
         mm = item.mainshock.mag
         out[("generic_rj", iid, win)] = generic_rj(s, mm, t1, t2)
-        ev = cats[
-            (cats["issue_id"] == iid) & (cats["t_days"] > 0) & (cats["id"] != c["sequence_id"])
-        ]
+        ev = by_issue.get(iid, cats.iloc[:0])
+        ev = ev[(ev["t_days"] > 0) & (ev["id"] != c["sequence_id"])]
         n5 = int((ev["mag"] >= 5.0 - 1e-6).sum())
         out[("naive", iid, win)] = naive_forecast(n5, item.elapsed_days, t1, t2)
         if iid not in fits:
@@ -121,13 +131,12 @@ def baselines(
             rj_mle_forecast(fit, mm, t1, t2) if fit else out[("generic_rj", iid, win)]
         )
         if c["oaf_cell"]:
-            out[("official", iid, win)] = official_forecast(
-                tables["forecast_fractiles"],
-                tables["forecast_bins"],
-                c["sequence_id"],
-                int(c["issue_ms"]),
-                win,
+            key = (c["sequence_id"], int(c["issue_ms"]), win)
+            fr, bn = (
+                official[n].get(key, tables[n].iloc[:0])
+                for n in ("forecast_fractiles", "forecast_bins")
             )
+            out[("official", iid, win)] = official_forecast(fr, bn, *key)
         for name, label in (
             ("etas_forecasts", "etas"),
             ("etas_forecasts_hindsight", "etas_hindsight"),
