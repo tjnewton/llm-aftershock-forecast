@@ -179,8 +179,10 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
   gets two items:
   - a **matched** item, on the version's own windows;
   - a **strict** item, whose windows open at the next full hour at least 30 minutes after
-    detection. **OPEN:** whether to round to the next 10 minutes instead, decided after the
-    live forecast latency is measured.
+    detection (kept, decided 2026-11-01: on live data the items and baselines took about 21 s
+    before any model time, the 30-minute lead leaves the answers room either way, and rounding
+    to 10 minutes would shrink the offset from the official windows by under 50 minutes on
+    windows of a day or more).
 - **Per issue:**
   - The live models' answers (k samples) are sealed first, in one record with its SHA-256.
   - The baselines on the same items (generic RJ, RJ-MLE, the rule of thumb, the legacy-ETAS
@@ -221,7 +223,10 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
 - **Budget priority** (decided 2026-10-31): a fixed live reserve. If the cap binds, the order is Opus 5.5 matched,
   then Opus 5.5 strict, then gpt-6.1-sol. Misses are listed as "missed: budget".
 - **Live models:** Opus 5.5 and gpt-6.1-sol (decided 2026-10-31). gpt-6.1-sol joins once its
-  effort is set by a pilot. **OPEN:** the live start date L.
+  effort is set by a pilot.
+- **Live start** (decided 2026-11-01): the live arm starts right after the `prereg-v2` tag,
+  once one paid end-to-end check has passed (on a version the study does not use, published
+  nowhere). L is then the time of the first sealed live record; no calendar date is set.
 
 ## 6. Analysis (ADR 0018; `laf.confirmatory`)
 - **Primary:** a sequence block bootstrap (B = 10,000, fixed seed) over the per-sequence mean
@@ -381,8 +386,11 @@ Decided on 2026-10-31, after the size simulation:
 14. A is the sole primary hypothesis at one-sided 0.05; B is secondary and reported with its
     simulated size. The 6-month live window stays.
 
+Decided on 2026-11-01:
+15. The strict window rule stays: the next full hour at least 30 minutes after detection.
+16. The live arm starts right after the `prereg-v2` tag, once one paid end-to-end check has
+    passed; no calendar date.
+
 Still OPEN:
-- gpt-6.1-sol's effort (a pilot on the OpenAI key, approved separately);
-- the strict window rounding (after the live latency is measured);
-- the live start date L;
+- gpt-6.1-sol's effort (the pilot is approved in principle; its cost estimate comes first);
 - the confirmatory cost plan.

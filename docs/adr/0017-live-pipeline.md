@@ -101,13 +101,23 @@ These replace decisions 1-2 above where they conflict (docs/preregistration-v2.m
 10. **Budget priority:** a fixed live reserve. If the cap binds, the order is Opus 5.5 matched,
     then Opus 5.5 strict, then gpt-6.1-sol. Misses are listed as "missed: budget".
 
+## Decisions (Tyler, 2026-11-01)
+11. **Strict window rule final** (decision 4): the next full hour at least 30 minutes after
+    detection. The dry run built the items and both records in about 21 s before model time;
+    10-minute rounding would shrink the offset from the official windows by under 50 minutes
+    on windows of a day or more.
+12. **Live start:** right after the `prereg-v2` tag, once one paid end-to-end check has passed
+    (on a version the study does not use, published nowhere). L is the time of the first
+    sealed live record.
+
 ## Open decisions (Tyler)
 1. ~~Prospective duration~~: decided 2026-10-31 (ADR 0018 decision 5): 6 months or 26
    eligible prospective M>=5 sequences, whichever comes first; one analysis at the stop.
 2. Which models run live (ADR 0014).
-3. The strict window rounding (decision 4), after the forecast time is measured.
+3. ~~The strict window rounding~~: decided 2026-11-01 (decision 11).
 
 ## Changelog
+- 2026-11-01: decisions 11-12 (strict window rule final, live start).
 - 2026-10-31: decisions 5-10 (from the prereg v2 checks); decisions 1-2 replaced where they conflict.
 - 2026-10-30: dry-run results so far; decisions 1-4 (Tyler).
 - 2026-10-29: first version.
