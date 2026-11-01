@@ -139,7 +139,9 @@ def main(argv: list[str] | None = None) -> None:
     oa.add_argument("name", nargs="?", help="status/collect: run name under runs/")
     oa.add_argument("--snapshot")
     oa.add_argument("--block", choices=("pilot", "d2"), default="d2")
-    oa.add_argument("--model", default="gpt-5.1-2025-11-13", choices=("gpt-5.1-2025-11-13",))
+    oa.add_argument(
+        "--model", default="gpt-5.1-2025-11-13", choices=("gpt-5.1-2025-11-13", "gpt-6.1-sol")
+    )
     oa.add_argument("--effort", nargs="+", choices=("none", "low", "medium", "high"))
     oa.add_argument("--dry-run", action="store_true", help="count requests, estimate cost")
     pp = sub.add_parser(
