@@ -143,3 +143,26 @@ def test_the_recount_refuses_sealed_sequences(monkeypatch):
                           "time_start_ms": [0], "time_end_ms": [1]})  # fmt: skip
     with pytest.raises(SystemExit, match="sealed"):
         recount_m5({}, cells, 0.5)
+
+
+def test_a_radius_variant_with_no_covered_cell_reports_zero_sequences(monkeypatch):
+    from pathlib import Path
+
+    from laf import analysis as A
+    from laf import d2
+
+    proc = Path("data/processed/20261021T2300Z")
+    load = A.load_tables
+
+    def uncovered(p):
+        t = load(p)
+        return {**t, "issue_times": t["issue_times"].assign(query_covers_x1_5=False)}
+
+    monkeypatch.setattr(A, "load_tables", uncovered)
+    s, summary = d2.analyze(proc, [Path("runs/d2/d2-claude-opus-5-5")], radius=1.5)
+    assert s.empty and summary.empty
+    monkeypatch.setattr(S, "SCORE_VARIANTS", (("region radius x1.5", {"radius": 1.5}),))
+    t = S.scoring_variants(proc, [Path("runs/d2/d2-claude-opus-5-5")], uncovered(proc), {},
+                           ("claude-opus-5-5",))  # fmt: skip
+    assert t.to_dict("records") == [
+        {"analysis": "region radius x1.5", "model": "claude-opus-5-5", "sequences": 0}]  # fmt: skip

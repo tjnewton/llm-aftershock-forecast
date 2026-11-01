@@ -112,6 +112,9 @@ def scoring_variants(
     rows = []
     for label, kw in SCORE_VARIANTS:
         s, _ = analyze(proc, run_dirs, **kw)
+        if s.empty:  # no cell can be scored under this variant: reported as such
+            rows += [{"analysis": label, "model": m, "sequences": 0} for m in models]
+            continue
         r = _row(label, C.confirmatory_cells(s, tables["sequences"], elapsed, sets=sets), models)
         if kw.get("score") == "log_qs":
             for x in r:

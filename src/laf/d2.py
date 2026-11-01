@@ -240,6 +240,8 @@ def analyze(
                 r["m4_count_quantiles"][4] + 1
             )
         rows.append(row)
+    if not rows:  # e.g. the x1.5 radius variant where no catalog query covers 1.5 times
+        return pd.DataFrame(), pd.DataFrame()
     df = pd.DataFrame(rows)
     ok = df[df["status"] == "ok"]
     summary = (
