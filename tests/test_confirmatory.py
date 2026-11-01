@@ -115,8 +115,8 @@ def test_confirmatory_cells_keep_eligible_primary_prompt_samples(monkeypatch):
         (r.model, r.sequence_id): (round(float(r.d), 3), r.stratum)  # type: ignore[arg-type]
         for r in cells.itertuples()
     }
-    # cell a: worst valid is the v2B answer (9.0), so the invalid sample scores 9.0
-    assert got == {("claude-opus-5-5", "a"): (round((0.1 + 0.3 + 9.0) / 3, 3), "under 1 day"),
+    # cell a: the invalid sample takes the worst baseline (0.5), not the v2B answer's 9.0
+    assert got == {("claude-opus-5-5", "a"): (round((0.1 + 0.3 + 0.5) / 3, 3), "under 1 day"),
                    ("gpt-5.1-2025-11-13", "b"): (0.2, "1 to 7 days")}  # fmt: skip
     assert C.study_effort("gpt-5.1-2025-11-13") == "medium"
     assert C.study_effort("claude-opus-4-6") == "medium"
@@ -168,3 +168,23 @@ def test_co_primary_bounds_are_at_their_holm_level_and_superiority_is_its_own_fa
         assert t.loc[m, "upper"] == pytest.approx(expect)
     assert t.loc["A", "superior"]  # clearly better, and non-inferior first
     assert C.holm_levels({"x": 0.3, "y": 0.01}) == {"y": 0.025, "x": 0.05}
+
+
+def test_bootstrap_t_controls_size_better_on_heavy_tails():
+    # one sequence in 18 at +1 nat (like gpt-5.1's development effects), true mean at delta
+    e = np.r_[np.random.default_rng(4).normal(0, 0.055, 17), 1.0]
+    pct = C.size(e, 89, alpha=0.025, sims=300, b=500, method="percentile")
+    stu = C.size(e, 89, alpha=0.025, sims=300, b=500, method="student")
+    assert stu < pct and stu < 0.05
+
+
+def test_descriptive_models_get_no_test():
+    rng = np.random.default_rng(2)
+    cells = pd.DataFrame({
+        "model": ["A"] * 300 + ["B"] * 300 + ["S"] * 300,
+        "sequence_id": [f"s{i % 60}" for i in range(900)],
+        "d": rng.normal(0, 0.05, 900),
+    })  # fmt: skip
+    t = C.report(cells, ("A", "B"), descriptive=("S",)).set_index("model")
+    assert pd.isna(t.loc["S", "noninferior"]) and pd.isna(t.loc["S", "upper"])
+    assert t.loc["S", "median"] == t.loc["S", "median"]  # summaries kept
