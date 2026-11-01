@@ -16,7 +16,6 @@ import pandas as pd
 
 PREREG = Path("docs/preregistration-v2.md")
 PROMPT_HASHES = Path("prompts/v2/HASHES.json")
-MANIFEST = Path("data/manifest.jsonl")
 CONFIGS = ("config/splits.toml", "config/sequences.toml", "config/sequences_e3.toml",
            "config/sequences_confirmatory.toml")  # fmt: skip
 SRC = Path("src/laf")
@@ -76,7 +75,8 @@ def write_frozen_inputs(data_dir: Path, snapshot: str) -> list[Path]:
 def manifest(data_dir: Path, snapshot: str, inputs: list[Path]) -> dict:
     """{label: SHA-256} for every artifact of prereg v2 section 11, and their combined hash."""
     proc = data_dir / "processed" / snapshot
-    files = {str(PREREG): PREREG, str(PROMPT_HASHES): PROMPT_HASHES, str(MANIFEST): MANIFEST}
+    downloads = data_dir / "manifest.jsonl"  # the download inventory of this data directory
+    files = {str(PREREG): PREREG, str(PROMPT_HASHES): PROMPT_HASHES, str(downloads): downloads}
     files |= {c: Path(c) for c in CONFIGS}
     files |= {str(p): p for p in sorted(proc.glob("*.parquet"))}
     files |= {str(p): p for p in inputs}

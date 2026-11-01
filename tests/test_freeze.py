@@ -25,3 +25,12 @@ def test_the_manifest_hashes_every_listed_artifact():
             "data/processed/20261021T2300Z/sequences.parquet"} <= set(files)  # fmt: skip
     assert "src/laf/freeze.py" in m["src_files"]
     assert F.manifest(Path("data"), "20261021T2300Z", [])["manifest_sha256"] == m["manifest_sha256"]
+
+
+def test_the_download_inventory_comes_from_the_data_directory(tmp_path):
+    proc = tmp_path / "processed/S"
+    proc.mkdir(parents=True)
+    (proc / "sequences.parquet").write_bytes(b"x")
+    (tmp_path / "manifest.jsonl").write_text('{"path": "raw/x"}\n')
+    files = F.manifest(tmp_path, "S", [])["files"]
+    assert str(tmp_path / "manifest.jsonl") in files and "data/manifest.jsonl" not in files
