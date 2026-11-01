@@ -1,5 +1,6 @@
 """Confirmatory tests of ADR 0018: non-inferiority to the official forecast with a sequence
-block bootstrap, and a Holm correction across the co-primary tests. Pure functions on
+block bootstrap (one primary hypothesis since 2026-10-31, ADR 0018 decision 15; Holm across
+the primary models when there are several). Pure functions on
 per-cell score differences (dS = S(model) - S(official), primary score, ADR 0015); loading and
 the snooping guard stay with the callers (laf.splits, ADR 0013).
 """
@@ -37,7 +38,12 @@ def noninferiority(
     and the share of them at or above delta. Either way p <= alpha and upper < delta agree, and
     `p_sup` tests H0: mean dS >= 0. Superiority: the upper bound is below 0."""
     x = np.asarray(effects, dtype=float)
-    n, mean = len(x), float(x.mean())
+    n = len(x)
+    if n < 2:  # no spread to estimate from one sequence (or none): no claim
+        return {"sequences": n, "mean": float(x.mean()) if n else float("nan"),
+                "upper": float("inf"), "p": 1.0, "p_sup": 1.0,
+                "noninferior": False, "superior": False}  # fmt: skip
+    mean = float(x.mean())
     rng = np.random.default_rng(seed)
     draws = x[rng.integers(0, n, size=(b, n))]
     boot = draws.mean(axis=1)
@@ -52,7 +58,7 @@ def noninferiority(
         # a resample with no spread keeps the direction of its difference: T* = +-inf (0 if none)
         degenerate = np.where(diff > 0, np.inf, np.where(diff < 0, -np.inf, 0.0))
         t = np.where(se_b > 0, diff / np.where(se_b > 0, se_b, 1.0), degenerate)
-        if se == 0:  # every sequence effect equal: no uncertainty to estimate, so no claim
+        if not np.isfinite(se) or se == 0:  # no spread to estimate: no claim
             upper, p, p_sup = float("inf"), 1.0, 1.0
         else:
             # an order statistic (no interpolation), so infinite T* stay infinite
@@ -140,7 +146,7 @@ def report(
     rows = {m: noninferiority(e, delta) | robust(e) for m, e in effects.items()}
     missing = [m for m in primary if m not in rows]
     if missing:  # a smaller Holm family would test the rest at a looser level
-        raise ValueError(f"co-primary results missing: {missing}")
+        raise ValueError(f"primary results missing: {missing}")
     p_ni = {m: rows[m]["p"] for m in primary}
     levels, rej = holm_levels(p_ni), holm(p_ni)
     sup = holm({m: rows[m]["p_sup"] for m in primary})
@@ -199,7 +205,7 @@ def hierarchical(cells: pd.DataFrame, delta: float = DELTA, alpha: float = 0.05)
 
 
 # Clean periods (ADR 0014 decision 3: training cutoff plus a 3-month buffer) and the
-# co-primary models (ADR 0018: test A gpt-5.1, test B Claude 5.5 Opus).
+# primary model (ADR 0018 decision 15: test A, gpt-5.1; test B, Opus 5.5, is secondary).
 CLEAN_FROM = {
     "gpt-5.1-2025-11-13": "2025-01-01",
     "claude-opus-4-6": "2025-12-01",
@@ -209,8 +215,8 @@ CLEAN_FROM = {
     "claude-sonnet-5-5": "2026-10-01",
     "claude-haiku-5-5": "2026-10-01",
 }
-CO_PRIMARY = ("gpt-5.1-2025-11-13", "claude-opus-5-5")
-SECONDARY = ("claude-opus-4-6", "gpt-6.1-sol")  # S1, S2; every other model is descriptive
+PRIMARY = ("gpt-5.1-2025-11-13",)
+SECONDARY = ("claude-opus-5-5", "claude-opus-4-6", "gpt-6.1-sol")  # B, S1, S2; others descriptive
 PRIMARY_PROMPT = "v2A"  # ADR 0015 decision 4
 OPENAI_EFFORT = {"gpt-5.1-2025-11-13": "medium"}  # ADR 0014 decision 6
 

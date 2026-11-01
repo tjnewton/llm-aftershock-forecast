@@ -50,7 +50,7 @@ def test_report_corrects_only_the_co_primary_models():
 def test_report_refuses_an_incomplete_co_primary_family():
     cells = pd.DataFrame({"model": ["A"] * 10, "sequence_id": [f"s{i}" for i in range(10)],
                           "d": np.zeros(10)})  # fmt: skip
-    with pytest.raises(ValueError, match="co-primary results missing"):
+    with pytest.raises(ValueError, match="primary results missing"):
         C.report(cells, ("A", "B"))
 
 
@@ -198,3 +198,14 @@ def test_bootstrap_t_keeps_the_tail_of_zero_variance_resamples():
     assert not r["noninferior"] and r["upper"] == float("inf")
     flat = C.noninferiority(np.zeros(30), 0.10)
     assert not flat["noninferior"] and flat["p"] == 1.0
+
+
+def test_fewer_than_two_sequences_make_no_claim():
+    for e in (np.array([0.2]), np.array([-0.5]), np.array([])):
+        for method in ("student", "percentile"):
+            r = C.noninferiority(e, 0.10, method=method)
+            assert not r["noninferior"] and not r["superior"] and r["p"] == 1.0
+    cells = pd.DataFrame({"model": ["A", "B", "B"], "sequence_id": ["s1", "s1", "s2"],
+                          "d": [0.2, 0.0, 0.01]})  # fmt: skip
+    t = C.report(cells, ("A",)).set_index("model")
+    assert not t.loc["A", "noninferior"] and not t.loc["A", "superior"]

@@ -623,7 +623,7 @@ def main(argv: list[str] | None = None) -> None:
 
         from laf.analysis import load_tables
         from laf.confirmatory import (
-            CO_PRIMARY,
+            PRIMARY,
             SECONDARY,
             confirmatory_cells,
             hierarchical,
@@ -639,10 +639,10 @@ def main(argv: list[str] | None = None) -> None:
         runs = sorted(d for d in a.runs.iterdir() if (d / "results.jsonl").exists())
         samples, _ = analyze(proc, runs)
         elapsed = {i.item_id: i.elapsed_days for i in load_items(a.data_dir, a.snapshot, 3.0)}
-        widen = {CO_PRIMARY[0]: 0.0} if a.test_a_all else None
+        widen = {PRIMARY[0]: 0.0} if a.test_a_all else None
         cells = confirmatory_cells(samples, tables["sequences"], elapsed, widen)
-        descriptive = tuple(set(cells["model"]) - set(CO_PRIMARY) - set(SECONDARY))
-        t = report(cells, CO_PRIMARY, descriptive=descriptive)
+        descriptive = tuple(set(cells["model"]) - set(PRIMARY) - set(SECONDARY))
+        t = report(cells, PRIMARY, descriptive=descriptive)
         hier = {m: hierarchical(g) for m, g in cells.groupby("model")}
         t = t.join(pd.DataFrame.from_dict(hier, orient="index"), on="model")
         tag = "_test_a_all" if a.test_a_all else ""
@@ -680,8 +680,8 @@ def main(argv: list[str] | None = None) -> None:
         runs = sorted(d for d in a.runs.iterdir() if (d / "results.jsonl").exists())
         cells = d2_cell_differences(a.data_dir / "processed" / a.snapshot, runs)
         cells = cells[cells["model"].str.endswith("v2A")]
-        # stand-ins for co-primary tests A (gpt-5.1) and B (Opus 5.5), ADR 0018
-        primary = ("gpt-5.1-2025-11-13 medium v2A", "claude-opus-5-5 high v2A")
+        # stand-in for the primary test A (gpt-5.1), ADR 0018 decision 15
+        primary = ("gpt-5.1-2025-11-13 medium v2A",)
         t = report(cells, primary)
         from laf.confirmatory import hierarchical, stratum
         from laf.pilot import load_items
