@@ -499,3 +499,7 @@
 {"events": 0, "kind": "poll", "poll_ms": 1793565723919, "since_ms": 1793565093236}
 {"branch": "live-test", "commit": "650ff7da90143efc303d4993521b9037f88daa7f", "key": "us7000tu3j", "kind": "receipt", "matched_first_ms": 1793566800000, "matched_receipt_margin_s": 1697.0, "pushed_ms": 1793565103871, "receipt_lag_s": -0.871, "receipt_ms": 1793565103000, "repo": "tjnewton/llm-aftershock-forecast", "update_ms": 1793564679802}
 {"events": 0, "kind": "poll", "poll_ms": 1793566325400, "since_ms": 1793565723919}
+{"events": 0, "kind": "poll", "poll_ms": 1793566926295, "since_ms": 1793566325400}
+{"events": 0, "kind": "poll", "poll_ms": 1793567527132, "since_ms": 1793566926295}
+{"events": 0, "kind": "poll", "poll_ms": 1793568127837, "since_ms": 1793567527132}
+{"events": 0, "kind": "poll", "poll_ms": 1793568728487, "since_ms": 1793568127837}
