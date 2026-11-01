@@ -139,6 +139,26 @@ def test_a_sequence_is_tracked_through_its_associated_ids(tmp_path, monkeypatch)
     assert set(state["seen"]) == {"us7000ttnj"}
 
 
+def test_a_published_seal_gets_its_github_receipt_on_a_later_poll(tmp_path, monkeypatch):
+    newest = W.new_versions(DOC, set())[-1]["update_ms"]
+    pub = {"answers": {"repo": "o/r", "branch": "live-test", "commit": "a" * 40,
+                       "pushed_ms": 1_000_000}}  # fmt: skip
+    built = {"matched_update_ms": newest, "slot": "first", "matched_first_ms": 1_600_000,
+             "published": pub}  # fmt: skip
+    monkeypatch.setattr(W, "dry_issue", lambda *a, **k: built)
+    state = W.step(tmp_path, tmp_path, {}, _get(), publish_to=tmp_path)
+    assert [r["commit"] for r in state["receipts"]] == ["a" * 40]
+    activity = json.dumps([{"after": "a" * 40, "timestamp": "1970-01-01T00:16:41Z"}]).encode()
+
+    def get(url):
+        return activity if "api.github.com" in url else _get()(url)
+
+    W.step(tmp_path, tmp_path, state, get, publish_to=tmp_path)
+    rec = [r for r in _log(tmp_path) if r["kind"] == "receipt"]
+    assert len(rec) == 1 and rec[0]["receipt_ms"] == 1_001_000 and state["receipts"] == []
+    assert rec[0]["matched_receipt_margin_s"] == 599.0 and rec[0]["receipt_lag_s"] == 1.0
+
+
 def test_late_share_bounds_and_monotonicity():
     import numpy as np
 
