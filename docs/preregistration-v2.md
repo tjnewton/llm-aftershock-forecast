@@ -308,7 +308,15 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     - the prospective inputs to test B (its two-part bootstrap is built: `noninferiority(...,
       strata=...)` resamples each part at its own size, with the stratified standard error);
     - S2;
-    - the listed sensitivity analyses.
+    - the remaining sensitivity analyses: with the 3 forward-excluded candidates; the
+      log-scale quantile score; full-distribution scores; the negative-binomial tail; log
+      floors with their binding rates; region radius x0.5 and x1.5; N-test, PIT and
+      information gain. (Built, in one table, `laf.sensitivity`: test A on all clean
+      candidates, the unbuffered and release-date clean rules, the non-overlapping subset,
+      v2B, valid answers only, the exact-match subset, the 2-day settling rule, the strata,
+      and invalid rates by arm. Release dates are the Models API creation dates, checked
+      2026-11-01: gpt-5.1 2025-11-10, Opus 4.6 2026-02-04, Sonnet 4.6 2026-02-17,
+      gpt-6.1-sol 2026-09-27, Opus 5.5 2026-09-21.)
 
 ## 7. Invalid outputs
 - An invalid answer gets the worst score in its cell from a fixed pool (decided 2026-10-31). Invalid means a schema

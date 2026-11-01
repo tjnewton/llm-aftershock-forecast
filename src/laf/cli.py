@@ -666,6 +666,16 @@ def main(argv: list[str] | None = None) -> None:
         sec.to_csv(path, index=False, lineterminator="\n")
         print(sec.round(3).to_string(index=False))
         print(f"-> {path}")
+        from laf.sensitivity import invalid_rates, sensitivity
+
+        s2d, _ = analyze(proc, runs, settle="settled_2d")
+        sens = sensitivity(samples, tables, elapsed, tested, samples_2d=s2d)
+        path = Path("results") / f"confirmatory_sensitivity_{a.snapshot}.csv"
+        sens.to_csv(path, index=False, lineterminator="\n")
+        rates = Path("results") / f"confirmatory_invalid_{a.snapshot}.csv"
+        invalid_rates(samples).to_csv(rates, index=False, lineterminator="\n")
+        print(sens.round(3).to_string(index=False))
+        print(f"-> {path}, {rates}")
     elif a.cmd == "confirmatory-size":
         import pandas as pd
 
@@ -731,6 +741,14 @@ def main(argv: list[str] | None = None) -> None:
         path = Path("results") / f"confirmatory_dryrun_secondary_d2_{a.snapshot}.csv"
         sec.to_csv(path, index=False, lineterminator="\n")
         print(sec.round(3).to_string(index=False))
+        print(f"-> {path} (development data)")
+        from laf.sensitivity import sensitivity
+
+        s2d, _ = analyze(proc, runs, settle="settled_2d")
+        sens = sensitivity(samples, tables, elapsed, tested, samples_2d=s2d, sets=sets)
+        path = Path("results") / f"confirmatory_dryrun_sensitivity_d2_{a.snapshot}.csv"
+        sens.to_csv(path, index=False, lineterminator="\n")
+        print(sens.round(3).to_string(index=False))
         print(f"-> {path} (development data)")
     elif a.cmd == "power":
         import pandas as pd
