@@ -308,8 +308,9 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     - the prospective inputs to test B (its two-part bootstrap is built: `noninferiority(...,
       strata=...)` resamples each part at its own size, with the stratified standard error);
     - S2;
-    - the remaining sensitivity analyses: with the 3 forward-excluded candidates; region
-      radius x0.5 and x1.5. (Built, `laf.sensitivity`: the scoring variants at M>=5 (log
+    - the remaining sensitivity analysis: with the 3 forward-excluded candidates. (Built,
+      `laf.sensitivity`: region radius x0.5 and x1.5, outcomes recounted from each sequence's
+      own catalog, x1.5 only where the catalog query covered it; the scoring variants at M>=5 (log
       floors 1e-4 and 1e-8, the negative-binomial tail, full distributions of the official
       forecast (its 197-point fractile grid) and the ETAS refit (its simulated histogram), the
       log-scale quantile score, which reports its estimate and bound without delta), and per

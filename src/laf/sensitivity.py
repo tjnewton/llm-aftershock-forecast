@@ -7,6 +7,8 @@ full distributions, the negative-binomial tail, other log floors) and the outcom
 (region radius, the forward-excluded candidates) come in their own modules.
 """
 
+from typing import Any
+
 import pandas as pd
 
 from laf import confirmatory as C
@@ -87,13 +89,15 @@ def invalid_rates(samples: pd.DataFrame) -> pd.DataFrame:
     return out.reset_index()
 
 
-# scoring variants (prereg v2 section 6): (label, laf.d2 score, log floor)
-SCORE_VARIANTS = (
-    ("log floor 1e-4", "registered", 1e-4),
-    ("log floor 1e-8", "registered", 1e-8),
-    ("negative-binomial tail", "nb_tail", None),
-    ("full distributions (official, ETAS)", "full", None),
-    ("log-scale quantile score", "log_qs", None),
+# scoring and outcome variants (prereg v2 section 6): (label, `laf.d2.analyze` arguments)
+SCORE_VARIANTS: tuple[tuple[str, dict[str, Any]], ...] = (
+    ("log floor 1e-4", {"floor": 1e-4}),
+    ("log floor 1e-8", {"floor": 1e-8}),
+    ("negative-binomial tail", {"score": "nb_tail"}),
+    ("full distributions (official, ETAS)", {"score": "full"}),
+    ("log-scale quantile score", {"score": "log_qs"}),
+    ("region radius x0.5", {"radius": 0.5}),
+    ("region radius x1.5", {"radius": 1.5}),
 )
 
 
@@ -106,10 +110,10 @@ def scoring_variants(
     from laf.d2 import analyze
 
     rows = []
-    for label, score, floor in SCORE_VARIANTS:
-        s, _ = analyze(proc, run_dirs, score=score, floor=floor)
+    for label, kw in SCORE_VARIANTS:
+        s, _ = analyze(proc, run_dirs, **kw)
         r = _row(label, C.confirmatory_cells(s, tables["sequences"], elapsed, sets=sets), models)
-        if score == "log_qs":
+        if kw.get("score") == "log_qs":
             for x in r:
                 x["noninferior"] = None
         rows += r

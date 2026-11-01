@@ -112,3 +112,22 @@ def test_diagnostics_per_forecaster_on_development_answers():
     assert {"official", "generic_rj", "naive", "rj_mle", "etas", "claude-opus-5-5"} <= set(rows)
     assert rows["official"]["ig_per_quake"] == 0.0  # against itself
     assert all(0 <= r["n_test_fail"] <= 1 and 0 <= r["pit_ks"] <= 1 for r in rows.values())
+
+
+def test_recounted_outcomes_match_at_x1_and_grow_with_the_radius():
+    from pathlib import Path
+
+    from laf import analysis as A
+    from laf.d2 import recount_m5
+
+    tables = A.load_tables(Path("data/processed/20261021T2300Z"))
+    cells = A.cells(tables)
+    cells = cells[cells["primary"] & cells["oaf_cell"]]
+    same = recount_m5(tables, cells, 1.0)
+    assert same == {(c["issue_id"], c["window"]): int(c["y5"]) for c in cells.to_dict("records")}
+    half, wide = recount_m5(tables, cells, 0.5), recount_m5(tables, cells, 1.5)
+    for k, n in same.items():
+        h, w = half[k], wide[k]
+        assert h is not None and n is not None and h <= n and (w is None or n <= w)
+    uncovered = {**tables, "issue_times": tables["issue_times"].assign(query_covers_x1_5=False)}
+    assert set(recount_m5(uncovered, cells, 1.5).values()) == {None}  # no wider catalog: out
