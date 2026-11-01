@@ -88,3 +88,8 @@ Each entry: UTC time, change, reason, expected effect on the registered analyses
   development snapshot took 27 s (now 4.6 s); they feed every scoring command and the live
   baselines record. Effect: none; all 3,780 baseline forecasts on 20261021T2300Z (quantiles,
   P(M>=6), cdf bytes, fractiles) are identical before and after.
+- 2026-11-01 (Seismica phase). `laf.splits` (a frozen brake) adds the second gate: outcomes of
+  confirmatory sequences stay sealed until the tag `prereg-v2-stop` (S recorded in
+  config/live_stop.toml) and S + 90 days, besides the tag `prereg-v2` (prereg v2 section 5, ADR
+  0018 decision 11, ADR 0013). Reason: no interim looks. Effect: none on registered or
+  development results; the guard only refuses more.

@@ -218,8 +218,10 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
   - There is no early stopping.
 - **No interim looks** (decided 2026-10-31): no confirmatory score or test is computed before S + 90 days.
   Computing A early would reveal outcomes of October sequences that A and B share.
-  - **TO BUILD:** a second software gate that refuses outcome access for test B's sequences
-    and for live records until then. `laf live-score` must refuse v2 records.
+  - Built: the second software gate (`laf.splits`). At S, a commit records S (epoch ms) in
+    config/live_stop.toml and Tyler tags it `prereg-v2-stop`. Outcomes of every confirmatory
+    sequence, live records included, stay sealed until that tag exists and S + 90 days have
+    passed; `laf live-score` refuses v2 records until then.
 - **Budget priority** (decided 2026-10-31): a fixed live reserve. If the cap binds, the order is Opus 5.5 matched,
   then Opus 5.5 strict, then gpt-6.1-sol. Misses are listed as "missed: budget".
 - **Live models:** Opus 5.5 and gpt-6.1-sol (decided 2026-10-31). gpt-6.1-sol joins once its

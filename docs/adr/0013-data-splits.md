@@ -105,7 +105,16 @@ their own forecast windows. They were counted without viewing their identities.
 - Prospective sequences get only the backward (aftershock) half of the rule.
 - Tests A, B and S1 are also reported with the 3 included, as a sensitivity analysis.
 
+## The second gate (2026-11-01; prereg v2 section 5, ADR 0018 decision 11)
+No confirmatory score or test is computed before S + 90 days, so the tag `prereg-v2` alone no
+longer unseals. `laf.splits.unsealed` also needs the tag `prereg-v2-stop` on the commit that
+records S (the live arm's stop time, epoch ms) in config/live_stop.toml, and the clock past
+S + 90 days. S is read from the tagged commit, and the tag falls under the `freeze-tags` ruleset
+(`prereg-*`). Live sequences are never development, so `laf live-score` refuses v2 records
+until then; the Panama record (development) still scores.
+
 ## Changelog
+- 2026-11-01: the second gate (`prereg-v2-stop`, S + 90 days).
 - 2026-10-31: the forward half of the exclusion rule; prospective sequences use only the backward half.
 - 2026-10-31: nn00914068 restored (195 candidates).
 - 2026-10-31: the foreshock/aftershock rule is applied (rechecked; note corrected).
