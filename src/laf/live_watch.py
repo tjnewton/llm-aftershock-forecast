@@ -66,20 +66,22 @@ def event_key(doc: dict, known) -> str:
     return next((i for i in ids if i in known), doc["id"])
 
 
-def inclusion(doc: dict, key: str, included: dict, get=download) -> tuple[str | None, str]:
-    """(tier, reason) under prereg v2 section 4: once included, always included; otherwise the
-    magnitude rule (`qualifies`), then the backward aftershock check."""
-    if key in included:
-        return included[key], "included"
-    p = doc["properties"]
-    tier = qualifies(float(p["mag"]), p.get("net") or "")
-    if tier is None:
-        return None, "magnitude"
-    lon, lat, _ = doc["geometry"]["coordinates"]
-    if is_aftershock(lat, lon, int(p["time"]), float(p["mag"]), get):
-        return None, "aftershock"
-    included[key] = tier
-    return tier, "included"
+def inclusion(doc: dict, key: str, decided: dict, get=download) -> tuple[str | None, str]:
+    """(tier, reason) under prereg v2 section 4, decided at the sequence's first detection and
+    kept in `decided`: the magnitude rule (`qualifies`) on the magnitude then, then the backward
+    aftershock check. A later magnitude revision changes nothing either way."""
+    if key not in decided:
+        p = doc["properties"]
+        mag = float(p["mag"])
+        tier = qualifies(mag, p.get("net") or "")
+        if tier is None:
+            decided[key] = [None, "magnitude"]
+        else:
+            lon, lat, _ = doc["geometry"]["coordinates"]
+            after = is_aftershock(lat, lon, int(p["time"]), mag, get)
+            decided[key] = [None, "aftershock"] if after else [tier, "included"]
+    tier, reason = decided[key]
+    return tier, reason
 
 
 def dry_issue(data_dir: Path, event_id: str, now_ms: int, get=download) -> dict:
@@ -118,20 +120,27 @@ def step(out: Path, data_dir: Path, state: dict, get=download) -> dict:
         _log(out, {**rec, "error": f"{type(e).__name__}: {e}"[:300]})
         return state
     _log(out, {**rec, "events": len(ids)})
-    seen, included = state.setdefault("seen", {}), state.setdefault("included", {})
+    seen, decided = state.setdefault("seen", {}), state.setdefault("inclusion", {})
+
+    def version(v: dict) -> dict:
+        # indexed before this poll's window: a sequence seen for the first time
+        return {**v, "detect_latency_s": (t_poll - v["index_ms"]) / 1000,
+                "backlog": v["index_ms"] < since}  # fmt: skip
+
     for event_id in ids:
         det = {"kind": "detection", "pipeline": "prospective", "event_id": event_id,
                "poll_ms": t_poll}  # fmt: skip
+        vs: list[dict] = []
         try:
             doc = json.loads(get(event_url(event_id)))
-            key = event_key(doc, seen.keys() | included.keys())
+            key = event_key(doc, seen.keys() | decided.keys())
             vs = new_versions(doc, set(seen.get(key, [])))
             if not vs:
                 continue
             # tried once: a failure below is logged, never retried (prereg v2 section 5)
             seen[key] = sorted(set(seen.get(key, [])) | {v["update_ms"] for v in vs})
             p = doc["properties"]
-            tier, reason = inclusion(doc, key, included, get)
+            tier, reason = inclusion(doc, key, decided, get)
             det |= {"key": key, "mag": p.get("mag"), "net": p.get("net"), "tier": tier,
                     "inclusion": reason}  # fmt: skip
             built = dry_issue(data_dir, event_id, t_poll, get) if tier else {}
@@ -139,15 +148,12 @@ def step(out: Path, data_dir: Path, state: dict, get=download) -> dict:
                 # only the version the matched item is built from has a slot and margins; an
                 # older or invalid version detected in the same poll is superseded
                 own = v["update_ms"] == built.get("matched_update_ms")
-                _log(out, {
-                    **det, **v, **(built if own else {}),
-                    "detect_latency_s": (t_poll - v["index_ms"]) / 1000,
-                    # indexed before this poll's window: a sequence seen for the first time
-                    "backlog": v["index_ms"] < since,
-                    "superseded": bool(tier) and not own,
-                })  # fmt: skip
-        except Exception as e:
-            _log(out, {**det, "error": f"{type(e).__name__}: {e}"[:300]})
+                _log(out, {**det, **version(v), **(built if own else {}),
+                           "superseded": bool(tier) and not own})  # fmt: skip
+        except Exception as e:  # one record per version tried, so failures stay countable
+            err = {"error": f"{type(e).__name__}: {e}"[:300]}
+            for v in vs or [None]:
+                _log(out, {**det, **(version(v) if v else {}), **err})
     state["last_poll_ms"] = t_poll
     (out / "state.json").write_text(json.dumps(state, sort_keys=True), encoding="utf-8")
     return state
