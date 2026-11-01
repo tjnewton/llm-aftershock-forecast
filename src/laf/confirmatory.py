@@ -393,7 +393,10 @@ def contrasts(
     return pd.DataFrame(rows)
 
 
-def assay(samples: pd.DataFrame, cells: pd.DataFrame, delta: float = DELTA) -> pd.DataFrame:
+def assay(
+    samples: pd.DataFrame, cells: pd.DataFrame, delta: float = DELTA,
+    parts: dict[str, str] | None = None,
+) -> pd.DataFrame:  # fmt: skip
     """Assay sensitivity (prereg v2 section 2): the non-inferiority test for generic RJ against
     the official forecast on each model's own test cells, read with the prereg's decision rule:
     `noninferior` (upper bound below delta: that model's test cannot separate it from the
@@ -404,9 +407,11 @@ def assay(samples: pd.DataFrame, cells: pd.DataFrame, delta: float = DELTA) -> p
     for m, g in cells.groupby("model"):
         d = rj.reindex(pd.MultiIndex.from_frame(g[["issue_id", "window"]])).to_numpy()
         gc = g.assign(d=d).dropna(subset=["d"])
-        e = sequence_effects(gc).to_numpy()
-        t = noninferiority(e, delta)
-        lower = -noninferiority(-e, -delta)["upper"]
+        se = sequence_effects(gc)
+        st = se.index.map(parts).to_numpy() if parts else None  # test B's two parts
+        e = se.to_numpy()
+        t = noninferiority(e, delta, strata=st)
+        lower = -noninferiority(-e, -delta, strata=st)["upper"]
         status = "noninferior" if t["noninferior"] else "inferior" if lower > delta else (
             "inconclusive")  # fmt: skip
         rows.append({"model": m, "generic_rj_mean": t["mean"], "generic_rj_lower": lower,
@@ -530,14 +535,17 @@ def live_report(
     # assay sensitivity and the informative estimand on the same full sets
     full = {B_MODEL: both, S2_MODEL: pro[pro["model"] == S2_MODEL]}
     for model, cells in full.items():
+        # B resamples its parts apart
+        part_of = {str(k): str(v) for k, v in parts.items()} if model == B_MODEL else None
         if len(cells):
             rj = pd.concat([samples, matched]) if len(matched) else samples
-            rows.append(
-                {"hypothesis": "assay"} | assay(rj, cells.assign(model=model)).iloc[0].to_dict()
-            )
+            one = assay(rj, cells.assign(model=model), parts=part_of).iloc[0].to_dict()
+            rows.append({"hypothesis": "assay"} | one)
         if informative_ids is not None:
             keep = cells[cells["sequence_id"].isin(informative_ids)]
-            rows.append({"model": model} | test("informative", keep))
+            idx = sequence_effects(keep).index
+            st = idx.map(part_of).to_numpy() if part_of else None
+            rows.append({"model": model} | test("informative", keep, st))
     strict = live[(live["kind"] == "strict") & live["on_time"]]  # sealed before its windows
     s5 = contrasts(strict, sequences, live_elapsed, (B_MODEL, S2_MODEL), sets) if len(strict) else (
         pd.DataFrame())  # fmt: skip

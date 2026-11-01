@@ -85,9 +85,11 @@ def test_live_answers_are_scored_like_batch_answers(live):
     issue.unlink()  # released without its baselines record (the baselines push failed)
     try:
         bare = L.live_samples(root, _mature(tables))
+        listed = L.live_items(root)
     finally:
         issue.write_text(kept)
-    assert set(bare["kind"]) == {"matched"}  # strict cells need a baseline; matched still score
+    # no registered penalty pool without the baselines: a pipeline failure, listed, not scored
+    assert bare.empty and not listed["baselines"].any()
 
 
 def test_nothing_released_yet_keeps_the_report_running(tmp_path, monkeypatch):

@@ -79,6 +79,8 @@ def live_samples(live: Path, tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
         lines = (d / "items.jsonl").read_text(encoding="utf-8").splitlines()
         items = [Item.model_validate_json(x) for x in lines if x.strip()]
         require_outcomes({i.sequence_id for i in items})  # the second gate (laf.splits)
+        if not (d / "baselines.jsonl").exists():
+            continue  # a pipeline failure: no registered penalty pool; listed by `live_items`
         seal = json.loads((d / "answers.seal.json").read_text(encoding="utf-8"))
         receipt = d / "receipt.json"
         receipt_ms = json.loads(receipt.read_text(encoding="utf-8"))["receipt_ms"] if (
@@ -149,6 +151,7 @@ def live_items(live: Path) -> pd.DataFrame:
                 "first_window_ms": v["first_window_ms"], "receipt_ms": receipt_ms,
                 "on_time": receipt_ms is not None and receipt_ms < v["first_window_ms"],
                 "released": (d / "NOTICE.txt").exists(),
+                "baselines": (d / "baselines.jsonl").exists() or not (d / "NOTICE.txt").exists(),
                 "missed_budget": sum(bool(c.get("missed")) for c in mine),
                 "failed": sum(c.get("text") is None and not c.get("missed") for c in mine),
                 "answers": sum(c.get("text") is not None for c in mine),
