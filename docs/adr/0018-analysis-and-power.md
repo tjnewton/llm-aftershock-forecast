@@ -282,12 +282,24 @@ section 13):
 13. **S1** tests M5 on its 23 sequences. M3 and M4 are descriptive throughout.
 14. **k = 3** samples per item.
 
+15. **A is the sole primary hypothesis** (Tyler, 2026-10-31), at one-sided 0.05; B is
+    secondary. The bootstrap-t size simulation from the D2 effects (`laf confirmatory-size`,
+    true mean at delta, nominal 0.025) gives:
+    - 0.007 and 0.025 at N = 89, but 0.14 at N = 33 for any test. About 14% of 33-sequence
+      samples miss the rare large-deficit sequence, 1 in 18 in D2.
+    - At N = 60 and 75 the size is still 0.043 and 0.044.
+    - B's planned size is therefore not controllable within the 6-month window, which stays.
+    - Power with the bootstrap-t at 0.05: A 0.45 on 89 sequences; B 0.64 on 33.
+    - A and B are still computed together on one snapshot (decision 11), for the exposure
+      reason.
+
 ## Open decisions (Tyler)
 1. ~~The margin anchor and its value~~: decided 2026-10-31 (non-inferiority, delta 0.10).
 2. ~~Target power and sequence count~~: decided 2026-10-31 (decision 5).
 3. ~~Whether the hierarchical model is confirmatory~~: decided 2026-10-31 (robustness check).
 
 ## Changelog
+- 2026-10-31: decision 15 (A sole primary; B secondary) after the size simulation.
 - 2026-10-31: decisions 8-14 (from the prereg v2 checks).
 - 2026-10-31: clean-period counts with nn00914068 restored (gpt-5.1 89/175, Opus 4.6 23/76).
 - 2026-10-31: decisions 5-7 (stopping rule, hierarchical model as robustness, no interim looks).

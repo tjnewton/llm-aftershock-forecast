@@ -36,8 +36,8 @@ Per cell (issue time x window x target), dS = S(model) - S(official).
 ## 2. Hypotheses and decision rules
 | Id | Hypothesis | Set | Test |
 |---|---|---|---|
-| **A** (co-primary) | gpt-5.1 is non-inferior to the official forecast | retrospective: gpt-5.1's clean M>=5 sequences (89 among the current candidates) | one-sided, delta = 0.10 nats per cell |
-| **B** (co-primary) | Claude Opus 5.5 is non-inferior to the official forecast | its clean retrospective M>=5 sequences plus prospective sequences (section 5) | one-sided, delta = 0.10 |
+| **A** (primary) | gpt-5.1 is non-inferior to the official forecast | retrospective: gpt-5.1's clean M>=5 sequences (89 among the current candidates) | one-sided, delta = 0.10 nats per cell |
+| B (secondary) | Claude Opus 5.5 is non-inferior to the official forecast | its clean retrospective M>=5 sequences plus prospective sequences (section 5) | one-sided, delta = 0.10, alpha 0.05; reported with its simulated size |
 | S1 (secondary) | Opus 4.6 is non-inferior | its clean M>=5 sequences (23); M3/M4 targets on its 76 clean sequences descriptive | one-sided, delta = 0.10, alpha 0.05 |
 | S2 (secondary) | gpt-6.1-sol is non-inferior | prospective (ADR 0018 decision 3) | as S1 |
 | S3 (secondary) | Opus 5.5, gpt-5.1, Opus 4.6 and gpt-6.1-sol each beat the rule of thumb | each model's A, B, S1 or S2 set | superiority, alpha 0.05 |
@@ -49,16 +49,17 @@ Per cell (issue time x window x target), dS = S(model) - S(official).
   - **supported** if the upper bound of mean dS is below delta;
   - **inferior** if the lower bound is above delta;
   - **inconclusive** otherwise.
-  - **Superiority** over the official forecast is a secondary family. For A and B, the two
-    superiority hypotheses (mean dS < 0) get their own Holm correction at 0.05. Each is tested
-    only if its non-inferiority is supported. (Reusing the non-inferiority Holm levels does
-    not control false superiority claims across two models of different precision.) For
-    secondary models, superiority is tested at 0.05 after non-inferiority.
+  - **Superiority** over the official forecast is tested for A at 0.05 only after its
+    non-inferiority is supported (a fixed sequence on one hypothesis, so no extra alpha). For
+    secondary models, superiority is tested at 0.05 after non-inferiority and labelled
+    secondary.
   - No secondary target, secondary set or sensitivity analysis overturns a primary result.
-- **Multiplicity:** a Holm correction across A and B, with A and B computed together on the
-  final outcome snapshot (decided 2026-10-31); section 5). The first Holm step tests at 0.025, the second at 0.05.
-  The reported bound of each co-primary hypothesis is at its Holm level. Secondary tests are
-  at 0.05 each and labelled secondary.
+- **One primary hypothesis** (Tyler, 2026-10-31): A, at one-sided 0.05.
+  - B was co-primary with a Holm correction. It became secondary when the size simulation
+    showed that no test controls its error at about 33 sequences (section 6).
+  - Secondary tests are at 0.05 each and labelled secondary.
+  - A and B are still computed together on the final outcome snapshot (section 5), because
+    computing A early would reveal outcomes of October sequences that A and B share.
 - **Margin delta = 0.10 nats per cell** (ADR 0018). Anchors on development data, as the mean
   per cell:
   - Doubling the official expected count costs 0.063 on the E3 sequences (mostly M5-6, mostly
@@ -73,13 +74,16 @@ Per cell (issue time x window x target), dS = S(model) - S(official).
   - **Informative-sequence secondary estimand** (decided 2026-10-31): the primary estimand on the sequences
     whose official forecast at the first issue has a mean N(M>=5) of at least 0.5 in the month
     window. This is outcome-blind.
-- **Power:**
-  - From each model's development (D2) sequence effects with its D2 mean as the true
-    difference, using the normal-approximation simulation of `laf.power`: A 0.62 on 88 (computed before the 89th was restored)
-    sequences; B 0.96 on 33; S1 0.995.
-  - The 0.84 for A on 174 sequences overstates what the extra, mostly zero-count cells add.
-  - These numbers are recomputed with the registered test before the freeze (section 6),
-    which must also report the test's actual size.
+- **Power, with the registered bootstrap-t:**
+  - It is computed from each model's development (D2) sequence effects, with its D2 mean as
+    the true difference (1,000 simulations).
+  - A: 0.45 on 89 sequences at 0.05. On all 175 clean candidates it is 0.84, which overstates,
+    because the extra sequences are resampled from M>=5 effects.
+  - B: 0.64 on 33 at 0.05.
+  - The normal approximation used earlier (`laf.power`) gave higher numbers: A 0.62, B 0.96. It
+    ignores the heavy tail.
+  - A's development effects come from 18 sequences, one of which (a rare-event miss) dominates
+    them, so these powers are uncertain in both directions.
 
 ## 3. Models and settings
 | Model | Training cutoff | Clean from | Settings | Role |
@@ -99,7 +103,7 @@ Per cell (issue time x window x target), dS = S(model) - S(official).
 - **Prompt:** `v2A` (hashes in `prompts/v2/HASHES.json`).
   - It asks, per window, for nine quantiles of N(M>=5), N(M>=4) and N(M>=3) and for P(M>=6),
     and shows the catalog from M3.0.
-  - `v2B` is a preregistered robustness check (ADR 0015 decision 4), run by the co-primary
+  - `v2B` is a preregistered robustness check (ADR 0015 decision 4), run by the A and B
     models only.
 - **Samples:** k = 3 per item (decided 2026-10-31), as in D2.
 - **Output cap:** 32,000 tokens for every scored call, batch or live (live calls stream). **TO
@@ -232,9 +236,15 @@ items against the official forecast. **TO FIX:** amend ADR 0017.
       level is registered as a number.
     - Test B at about 33 sequences cannot rule out a rare-event deficit, and the paper says
       so.
-  - **The family-wise level** (decided 2026-10-31): one-sided 0.05 with Holm. It matches the 90% interval of
-    equivalence testing but is looser than the usual one-sided 0.025 for non-inferiority;
-    the power available justifies it.
+  - **The level** (decided 2026-10-31): one-sided 0.05 for the single primary test, A. It
+    matches the 90% interval of equivalence testing but is looser than the usual one-sided
+    0.025 for non-inferiority; the power available justifies it.
+  - **Simulated size** of the bootstrap-t at nominal 0.025, from D2 effects shifted to delta
+    (`laf confirmatory-size`):
+    - 0.007 (gpt-5.1-like effects) and 0.025 (Opus-5.5-like effects) at N = 89;
+    - 0.14 for both at N = 33.
+    - The size at 0.05 and N = 89 is 0.018 and 0.030, within the 0.03 threshold, so no
+      calibration is needed for A.
 - **Beside the mean:**
   - The 10% trimmed mean and the median of the sequence effects, with bootstrap intervals.
   - Leave-one-sequence-out influence on A and B.
@@ -266,10 +276,9 @@ items against the official forecast. **TO FIX:** amend ADR 0017.
   `prereg-v2` exists.
   - It computes A, B and S1 against the official forecast at M>=5, with the trimmed mean,
     median and hierarchical model.
-  - The registered decision for A and B is the Holm column.
+  - The registered decision for A is its `noninferior` column at 0.05.
   - **TO BUILD:**
     - the registered bound and its size simulation;
-    - bounds reported at the Holm level;
     - the contrasts with the baselines (S3, S4, S5) and the assay-sensitivity test;
     - the prospective inputs and the two-part test B;
     - S2;
@@ -353,7 +362,7 @@ and the registered analysis is still reported.
 ## 13. Decisions
 Decided on 2026-10-31 (Tyler accepted the recommendations):
 1. the bootstrap-t bound, with a simulated size check and a calibrated level where needed;
-2. family-wise one-sided 0.05 with Holm;
+2. one-sided 0.05 (Holm while A and B were co-primary);
 3. the ADR 0004 schedule applied in real time, forecasting only scheduled versions;
 4. the candidate list kept as built, the backward half of the exclusion rule applied
    prospectively, and a sensitivity analysis with the 3 forward-excluded candidates;
@@ -366,6 +375,10 @@ Decided on 2026-10-31 (Tyler accepted the recommendations):
 11. superiority over generic RJ in S4;
 12. the model-change and budget-priority rules;
 13. k = 3.
+
+Decided on 2026-10-31, after the size simulation:
+14. A is the sole primary hypothesis at one-sided 0.05; B is secondary and reported with its
+    simulated size. The 6-month live window stays.
 
 Still OPEN:
 - gpt-6.1-sol's effort (a pilot on the OpenAI key, approved separately);
