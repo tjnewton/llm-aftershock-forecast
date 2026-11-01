@@ -188,3 +188,13 @@ def test_descriptive_models_get_no_test():
     t = C.report(cells, ("A", "B"), descriptive=("S",)).set_index("model")
     assert pd.isna(t.loc["S", "noninferior"]) and pd.isna(t.loc["S", "upper"])
     assert t.loc["S", "median"] == t.loc["S", "median"]  # summaries kept
+
+
+def test_bootstrap_t_keeps_the_tail_of_zero_variance_resamples():
+    # 17 tied effects and one outlier: about a third of resamples hold only the ties, whose mean
+    # lies below the observed mean; their T* must count as -inf, not 0 (Codex review)
+    e = np.r_[np.zeros(17), 1.0]
+    r = C.noninferiority(e, 0.10, alpha=0.025)
+    assert not r["noninferior"] and r["upper"] == float("inf")
+    flat = C.noninferiority(np.zeros(30), 0.10)
+    assert not flat["noninferior"] and flat["p"] == 1.0

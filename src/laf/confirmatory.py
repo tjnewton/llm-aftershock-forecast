@@ -48,11 +48,15 @@ def noninferiority(
     elif method == "student":
         se = float(x.std(ddof=1)) / np.sqrt(n)
         se_b = draws.std(axis=1, ddof=1) / np.sqrt(n)
-        t = np.where(se_b > 0, (boot - mean) / np.where(se_b > 0, se_b, 1.0), 0.0)
-        if se == 0:  # every sequence effect equal: the mean is exact
-            upper, p, p_sup = mean, float(mean >= delta), float(mean >= 0)
+        diff = boot - mean
+        # a resample with no spread keeps the direction of its difference: T* = +-inf (0 if none)
+        degenerate = np.where(diff > 0, np.inf, np.where(diff < 0, -np.inf, 0.0))
+        t = np.where(se_b > 0, diff / np.where(se_b > 0, se_b, 1.0), degenerate)
+        if se == 0:  # every sequence effect equal: no uncertainty to estimate, so no claim
+            upper, p, p_sup = float("inf"), 1.0, 1.0
         else:
-            upper = float(mean - np.quantile(t, alpha) * se)
+            # an order statistic (no interpolation), so infinite T* stay infinite
+            upper = float(mean - np.quantile(t, alpha, method="inverted_cdf") * se)
             p = (1 + int(np.sum(t <= (mean - delta) / se))) / (b + 1)
             p_sup = (1 + int(np.sum(t <= mean / se))) / (b + 1)
     else:
