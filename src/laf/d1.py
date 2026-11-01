@@ -257,35 +257,6 @@ def settings_requests(items: list[Item], grid: str = "grid") -> list[dict]:
     return reqs
 
 
-def settings_summary(run: Path) -> pd.DataFrame:
-    """Per model and setting: valid answers, output tokens and batch cost per call."""
-    meta = {r["custom_id"]: r for r in _jsonl(run / "requests.jsonl")}
-    rows = []
-    for res in _jsonl(run / "results.jsonl"):
-        m = meta[res["custom_id"]]
-        status = (
-            validate("direct", res.get("text"), res.get("stop_reason"), TARGETS_V2)[0]
-            if res["result"] == "succeeded"
-            else "transport_error"
-        )
-        u = res.get("usage") or {}
-        rows.append({"model": m["model"], "setting": m["setting"], "item_id": m["item_id"],
-                     "status": status, "output_tokens": u.get("output_tokens"),
-                     "usd": cost_usd(m["model"], u, batch=True)})  # fmt: skip
-    df = pd.DataFrame(rows)
-    return (
-        df.groupby(["model", "setting"])
-        .agg(
-            calls=("status", "size"),
-            valid=("status", lambda s: int((s == "ok").sum())),
-            out_mean=("output_tokens", "mean"),
-            out_max=("output_tokens", "max"),
-            usd_per_call=("usd", "mean"),
-        )
-        .reset_index()
-    )
-
-
 def study_setting(model: str) -> str:
     """The settings-pilot name of a model's study setting, e.g. "adaptive-medium"; "registered"
     for models that keep the registered request (the 5.5 models, adaptive by default)."""

@@ -488,30 +488,6 @@ def sensitivity(data_dir, snapshot: str, workers: int = 8, variants=VARIANTS) ->
     return pd.DataFrame(rows)
 
 
-def sensitivity_summary(df: pd.DataFrame) -> pd.DataFrame:
-    """Per variant: discrepancy of the M>=5 quantiles to the base variant (mean |log ratio|
-    over the nine levels, median and 90th percentile over cells) and max |dP(M>=6)|."""
-    qcols = [f"q{round(lv * 1000):03d}" for lv in LEVELS]
-    base = df[df["variant"] == "base"].set_index(["issue_id", "window"])
-    out = []
-    for name, g in df[df["variant"] != "base"].groupby("variant"):
-        g = g.set_index(["issue_id", "window"])
-        q, q0 = g[qcols].to_numpy(float), base.loc[g.index, qcols].to_numpy(float)
-        d = np.mean(np.abs(np.log((q + 1.0) / (q0 + 1.0))), axis=1)
-        dp = np.abs(g["p_m6"].to_numpy() - base.loc[g.index, "p_m6"].to_numpy())
-        out.append(
-            {
-                "variant": name,
-                "d_median": float(np.median(d)),
-                "d_p90": float(np.quantile(d, 0.9)),
-                "d_max": float(d.max()),
-                "dp6_p90": float(np.quantile(dp, 0.9)),
-                "dp6_max": float(dp.max()),
-            }
-        )
-    return pd.DataFrame(out).sort_values("d_p90")
-
-
 def decomposition(asof: pd.DataFrame, hind: pd.DataFrame, issue_times, fractiles) -> pd.DataFrame:
     """Outcome-free split of refit-vs-official differences on OAF issues: distance official to
     refit(as-of) (code and analyst settings), refit(as-of) to refit(hindsight) (catalog), and
