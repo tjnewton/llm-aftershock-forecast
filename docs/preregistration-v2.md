@@ -218,7 +218,10 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
   - Let L be the UTC time of the first sealed live record.
   - The retrospective part is the Opus-5.5-clean qualifying M>=5 sequences with origin in
     [2026-10-01, L). Those after the candidate snapshot are fetched once at L, by the same
-    outcome-blind procedure, into a supplementary snapshot.
+    outcome-blind procedure, into a supplementary snapshot: `laf candidates --since
+    2026-10-29 --until <the day after L>` lists the OAF events that are not development and
+    not aftershocks (the backward half of the rule, section 4; on the candidate window this
+    procedure gives the 195 candidates plus the 3 forward-excluded ones).
   - Prospective sequences have origin at L or later. A sequence belongs to exactly one part.
   - Test B is also reported for each part alone.
   - (This definition of the parts and the supplementary snapshot was decided 2026-10-31.)
