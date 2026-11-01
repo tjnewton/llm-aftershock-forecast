@@ -103,9 +103,12 @@ def test_scoring_variants_change_only_what_they_name():
 def test_diagnostics_per_forecaster_on_development_answers():
     from pathlib import Path
 
-    run = [Path("runs/d2/d2-claude-opus-5-5")]
-    t = S.diagnostics(Path("data/processed/20261021T2300Z"), run, ("claude-opus-5-5",))
+    run, proc = [Path("runs/d2/d2-claude-opus-5-5")], Path("data/processed/20261021T2300Z")
+    dev = set(pd.read_parquet(proc / "sequences.parquet")["sequence_id"])
+    t = S.diagnostics(proc, run, ("claude-opus-5-5",), {"claude-opus-5-5": dev})
     rows = {r["forecaster"]: r for r in t.to_dict("records")}
+    few = S.diagnostics(proc, run, ("claude-opus-5-5",), {"claude-opus-5-5": set(sorted(dev)[:3])})
+    assert few["answers"].sum() < t["answers"].sum()  # only the model's own sequences count
     assert {"official", "generic_rj", "naive", "rj_mle", "etas", "claude-opus-5-5"} <= set(rows)
     assert rows["official"]["ig_per_quake"] == 0.0  # against itself
     assert all(0 <= r["n_test_fail"] <= 1 and 0 <= r["pit_ks"] <= 1 for r in rows.values())

@@ -119,12 +119,16 @@ def scoring_variants(
 FLOORS = (1e-6, 1e-4, 1e-8)
 
 
-def diagnostics(proc, run_dirs, models: tuple[str, ...]) -> pd.DataFrame:
+def diagnostics(
+    proc, run_dirs, models: tuple[str, ...], sets: dict[str, set[str]] | None = None
+) -> pd.DataFrame:  # fmt: skip
     """Per forecaster at M>=5 on the scored cells (prereg v2 section 6, ADR 0015): how often
     each log floor binds, the cells above its 97.5% quantile, CSEP N-test failures (either
     quantile below 0.025), the KS distance of its randomized PIT from uniform, and the
     information gain per earthquake against the official forecast (official log score minus
-    its own, summed over cells, over the earthquakes counted)."""
+    its own, summed over cells, over the earthquakes counted). Each model counts on its own
+    eligible sequences (its test set), the baselines on those of any tested model; `sets`
+    replaces them (the development rehearsal)."""
     import numpy as np
     from scipy import stats
 
@@ -136,6 +140,11 @@ def diagnostics(proc, run_dirs, models: tuple[str, ...]) -> pd.DataFrame:
     cells = A.cells(tables)  # refuses sealed outcomes
     cells = cells[cells["primary"] & cells["oaf_cell"] & (cells["role"] == "test-post")]
     base = A.baselines(tables, items, cells)
+    sets = sets or {m: C.eligible(tables["sequences"], m) for m in models}
+    union = set().union(*sets.values())
+    cells = cells[cells["sequence_id"].isin(union)]
+    seq_of = dict(zip(zip(cells["issue_id"], cells["window"], strict=True), cells["sequence_id"],
+                      strict=True))  # fmt: skip
     y5 = {(c["issue_id"], c["window"]): int(c["y5"]) for c in cells.to_dict("records")}
     label = {"day": "1 Day", "week": "1 Week", "month": "1 Month"}
     by: dict[str, list] = {}
@@ -145,7 +154,8 @@ def diagnostics(proc, run_dirs, models: tuple[str, ...]) -> pd.DataFrame:
     for r in samples(run_dirs):
         key = (r["item_id"], label[r["window"]])
         if (r["model"] in models and r["status"] == "ok" and r["paraphrase"] == C.PRIMARY_PROMPT
-                and r["effort"] == C.study_effort(r["model"]) and key in y5):  # fmt: skip
+                and r["effort"] == C.study_effort(r["model"]) and key in y5
+                and seq_of[key] in sets.get(r["model"], set())):  # fmt: skip
             by.setdefault(r["model"], []).append((key, r["m5_count_quantiles"]))
     rng = np.random.default_rng(A.PIT_SEED)
     ls_off = {k: log_score(from_quantiles(q).cdf, y5[k])[0] for k, q in by.get("official", [])}

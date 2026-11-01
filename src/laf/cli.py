@@ -765,7 +765,7 @@ def main(argv: list[str] | None = None) -> None:
         path = Path("results") / f"confirmatory_dryrun_scoring_d2_{a.snapshot}.csv"
         sv.to_csv(path, index=False, lineterminator="\n")
         diag = Path("results") / f"confirmatory_dryrun_diagnostics_d2_{a.snapshot}.csv"
-        diagnostics(proc, runs, tested).to_csv(diag, index=False, lineterminator="\n")
+        diagnostics(proc, runs, tested, sets).to_csv(diag, index=False, lineterminator="\n")
         print(sv.round(3).to_string(index=False))
         print(f"-> {path}, {diag} (development data)")
     elif a.cmd == "power":
