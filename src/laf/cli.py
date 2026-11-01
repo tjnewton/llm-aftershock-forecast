@@ -661,7 +661,7 @@ def main(argv: list[str] | None = None) -> None:
         from laf.confirmatory import secondary
 
         tested = PRIMARY + SECONDARY
-        sec = secondary(samples, tables, elapsed, cells, tested)
+        sec = secondary(samples, tables, elapsed, cells, tested, min_mag=widen)
         path = Path("results") / f"confirmatory_secondary_{a.snapshot}{tag}.csv"
         sec.to_csv(path, index=False, lineterminator="\n")
         print(sec.round(3).to_string(index=False))

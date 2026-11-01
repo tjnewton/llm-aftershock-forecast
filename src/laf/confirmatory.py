@@ -294,12 +294,13 @@ CONTRASTS = (("S3", "naive", "superiority"), ("S4", "generic_rj", "superiority")
 def contrasts(
     samples: pd.DataFrame, sequences: pd.DataFrame, elapsed: dict[str, float],
     models: tuple[str, ...], sets: dict[str, set[str]] | None = None,
+    min_mag: dict[str, float] | None = None,
 ) -> pd.DataFrame:  # fmt: skip
     """One row per tested model and baseline: mean LS(model) - LS(baseline) over its test's
     sequences (its A, B, S1 or S2 set), with the superiority test or the 95% interval."""
     rows = []
     for hyp, ref, kind in CONTRASTS:
-        cells = confirmatory_cells(samples, sequences, elapsed, reference=ref, sets=sets)
+        cells = confirmatory_cells(samples, sequences, elapsed, min_mag, reference=ref, sets=sets)
         for m, g in cells[cells["model"].isin(models)].groupby("model"):
             e = sequence_effects(g).to_numpy()
             row = {"hypothesis": hyp, "model": m, "reference": ref, "kind": kind}
@@ -316,17 +317,22 @@ def contrasts(
 
 def assay(samples: pd.DataFrame, cells: pd.DataFrame, delta: float = DELTA) -> pd.DataFrame:
     """Assay sensitivity (prereg v2 section 2): the non-inferiority test for generic RJ against
-    the official forecast on each model's own test cells. If generic RJ is non-inferior too,
-    that model's test cannot separate it from the generic default."""
+    the official forecast on each model's own test cells, read with the prereg's decision rule:
+    `noninferior` (upper bound below delta: that model's test cannot separate it from the
+    generic default), `inferior` (lower bound above delta: the cells do separate) or
+    `inconclusive`."""
     rj = samples.groupby(["item_id", "window"])["base_d5_generic_rj"].first()
     rows = []
     for m, g in cells.groupby("model"):
         d = rj.reindex(pd.MultiIndex.from_frame(g[["issue_id", "window"]])).to_numpy()
         gc = g.assign(d=d).dropna(subset=["d"])
-        t = noninferiority(sequence_effects(gc).to_numpy(), delta)
-        rows.append({"model": m, "generic_rj_mean": t["mean"], "generic_rj_upper": t["upper"],
-                     "generic_rj_noninferior": t["noninferior"],
-                     "separates_from_generic": not t["noninferior"]})  # fmt: skip
+        e = sequence_effects(gc).to_numpy()
+        t = noninferiority(e, delta)
+        lower = -noninferiority(-e, -delta)["upper"]
+        status = "noninferior" if t["noninferior"] else "inferior" if lower > delta else (
+            "inconclusive")  # fmt: skip
+        rows.append({"model": m, "generic_rj_mean": t["mean"], "generic_rj_lower": lower,
+                     "generic_rj_upper": t["upper"], "generic_rj_status": status})  # fmt: skip
     return pd.DataFrame(rows)
 
 
@@ -352,6 +358,7 @@ def informative(tables: dict[str, pd.DataFrame]) -> set[str]:
 def secondary(
     samples: pd.DataFrame, tables: dict[str, pd.DataFrame], elapsed: dict[str, float],
     cells: pd.DataFrame, models: tuple[str, ...], sets: dict[str, set[str]] | None = None,
+    min_mag: dict[str, float] | None = None,
 ) -> pd.DataFrame:  # fmt: skip
     """The secondary table beside the tests against the official forecast: the contrasts S3
     and S4, the assay-sensitivity test, and the informative-sequence estimand (non-inferiority
@@ -365,7 +372,7 @@ def secondary(
         for t in [noninferiority(sequence_effects(g).to_numpy())]
     ]
     return pd.concat(
-        [contrasts(samples, tables["sequences"], elapsed, models, sets),
+        [contrasts(samples, tables["sequences"], elapsed, models, sets, min_mag),
          assay(samples, tested).assign(hypothesis="assay"), pd.DataFrame(rows)],
         ignore_index=True,
     )  # fmt: skip

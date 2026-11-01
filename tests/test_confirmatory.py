@@ -250,10 +250,13 @@ def test_assay_flags_a_test_that_cannot_separate_from_generic_rj():
     ids = {"sequence_id": s["sequence_id"].unique(), "issue_id": s["item_id"].unique()}
     cells = pd.DataFrame({"model": "m", **ids, "window": "day", "d": 0.0})
     noisy = s.assign(base_d5_generic_rj=np.random.default_rng(1).normal(0, 0.02, len(s)))
-    row = C.assay(noisy, cells).iloc[0]
-    assert row["generic_rj_noninferior"] and not row["separates_from_generic"]
+    assert C.assay(noisy, cells).iloc[0]["generic_rj_status"] == "noninferior"
     worse = s.assign(base_d5_generic_rj=0.5 + np.random.default_rng(2).normal(0, 0.02, len(s)))
-    assert C.assay(worse, cells).iloc[0]["separates_from_generic"]
+    assert C.assay(worse, cells).iloc[0]["generic_rj_status"] == "inferior"
+    near = s.assign(base_d5_generic_rj=0.1 + np.random.default_rng(4).normal(0, 0.3, len(s)))
+    assert C.assay(near, cells).iloc[0]["generic_rj_status"] == "inconclusive"  # no claim
+    one = cells.head(1)  # one sequence: no spread, so no claim either way
+    assert C.assay(s, one).iloc[0]["generic_rj_status"] == "inconclusive"
 
 
 def test_informative_sequences_use_the_official_mean_at_the_first_issue():
@@ -272,3 +275,18 @@ def test_informative_sequences_use_the_official_mean_at_the_first_issue():
     }
     # big: first issue (cutoff 1) has mean 0.5 (the integral of q on [0, 1]); small: 0.05
     assert C.informative(tables) == {"big"}
+
+
+def test_contrasts_follow_test_as_widened_eligibility(monkeypatch):
+    from laf import splits
+
+    monkeypatch.setattr(splits, "development_ids", lambda: frozenset())
+    s = _contrast_samples(n_seq=6)
+    origin = pd.Timestamp("2026-06-01", tz="UTC").value // 1_000_000
+    seqs = pd.DataFrame({"sequence_id": [f"s{i}" for i in range(6)], "origin_ms": origin,
+                         "mag": [5.5, 5.5, 5.5, 4.5, 4.5, 4.5]})  # fmt: skip
+    elapsed = {i: 2.0 for i in s["item_id"]}
+    m = ("gpt-5.1-2025-11-13",)
+    m5 = C.contrasts(s, seqs, elapsed, m)
+    wide = C.contrasts(s, seqs, elapsed, m, min_mag={m[0]: 0.0})
+    assert set(m5["sequences"]) == {3} and set(wide["sequences"]) == {6}
