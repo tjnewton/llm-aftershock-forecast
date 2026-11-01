@@ -138,4 +138,17 @@ outputs: the service writing to ..\laf-live-dryrun\runs\live-dryrun\; new detect
 commit: none on post-submission (T09's log commits go to live-dryrun as before)
 notes: The detector now applies the inclusion rule (one ComCat query per new qualifying event), runs the ADR 0004 schedule, and for scheduled versions builds the items and the baselines (ETAS refit, about 20 s per issue on the Mac) and seals both records under data\interim\live-dryrun\issues\ (gitignored; never commit it). It still makes no model calls. The done line gives the new process ids.
 
+## T12 live-test-publish
+status: ready
+server: none (no llama-server)
+prepare: git pull (brings PR #62: live publishing); git fetch origin live-test
+run: from the repo root, in this order:
+  1. Create a third worktree next to the repo root: `git worktree add -b live-test ..\laf-live-test origin/live-test`
+  2. Stop the T09 service (its uv, laf.exe and python processes; ids in the T10 done line or the latest T09 restarted line).
+  3. Restart it with publishing on: Start-Process -FilePath uv -ArgumentList "run","laf","live-watch","--out","..\laf-live-dryrun\runs\live-dryrun","--publish","..\laf-live-test" -WindowStyle Hidden -RedirectStandardOutput ..\laf-live-dryrun\runs\live-dryrun\stdout.log -RedirectStandardError ..\laf-live-dryrun\runs\live-dryrun\stderr.log
+  4. After the next poll, check stderr.log has no traceback.
+outputs: the service writing its log as before and pushing seal files to branch live-test
+commit: none (the detector itself commits and pushes the seal files in ..\laf-live-test)
+notes: For each scheduled version, the detector now pushes answers.seal.json (hashes and the seal time, no forecast) to live-test before the baselines run, then OpenTimestamps proofs from three public calendars, then baselines.seal.json; it logs GitHub's push receipt on a later poll ("kind": "receipt"). These pushes are the detector's own, sanctioned by this task: the worker never commits in ..\laf-live-test and never edits it. If a push fails, the detector records the error and keeps running; report repeated push errors in the status file. From now on, every restart of the service (T09) uses the step 3 command. The done line gives the new process ids.
+
 ## END
