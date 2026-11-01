@@ -222,30 +222,54 @@ def month_spend_usd(month: str, runs: Path = RUNS) -> float:
     return sum(usd for m, usd in spend_records(runs) if m == month)
 
 
+def usd_var(var: str, *, required: bool) -> float:
+    raw = env_value(var)
+    if not raw:
+        if required:
+            raise SystemExit(f"{var} not set (environment or .env): refusing to spend")
+        return 0.0
+    try:
+        usd = float(raw)
+    except ValueError:
+        raise SystemExit(f"{var} is not a number: refusing to spend") from None
+    if not (math.isfinite(usd) and usd >= 0):
+        raise SystemExit(f"spend guard: {var} {raw!r} must be finite, >= 0")
+    return usd
+
+
+def reserve_var(cap_var: str) -> str:
+    """The live reserve's variable beside a cap: LAF_<PROVIDER>_LIVE_RESERVE_USD."""
+    return cap_var.replace("MONTHLY_CAP", "LIVE_RESERVE")
+
+
+def _limit(cap_var: str) -> float:
+    """The monthly cap minus the live reserve (prereg v2 section 5; unset means none)."""
+    return usd_var(cap_var, required=True) - usd_var(reserve_var(cap_var), required=False)
+
+
+def remaining_usd(runs: Path = RUNS, cap_var: str = CAP_VAR, month_spend=None) -> float:
+    """What batch and one-off runs on this machine may still spend this UTC month."""
+    month = datetime.now(UTC).strftime("%Y-%m")
+    return _limit(cap_var) - (month_spend or month_spend_usd)(month, runs)
+
+
 def check_budget(
     estimate_usd: float, runs: Path = RUNS, cap_var: str = CAP_VAR, month_spend=None
 ) -> float:
-    """Refuse a paid run unless this UTC month's spend plus `estimate_usd` stays within the cap
-    in `cap_var` (environment or .env; LAF_CLAUDE_MONTHLY_CAP_USD for Claude). Returns the
-    month's spend so far.
+    """Refuse a paid run unless this UTC month's spend plus `estimate_usd` stays within the
+    monthly cap in `cap_var` (environment or .env; LAF_CLAUDE_MONTHLY_CAP_USD for Claude) minus
+    the live reserve. Returns the month's spend so far.
     A check, not a reservation: two paid runs started at once could both pass. Runs start one
-    at a time by hand; a lock file is needed once the live workflow runs beside them."""
-    raw = env_value(cap_var)
-    if not raw:
-        raise SystemExit(f"{cap_var} not set (environment or .env): refusing to spend")
-    try:
-        cap = float(raw)
-    except ValueError:
-        raise SystemExit(f"{cap_var} is not a number: refusing to spend") from None
-    if not (math.isfinite(cap) and cap >= 0 and math.isfinite(estimate_usd) and estimate_usd >= 0):
-        raise SystemExit(
-            f"spend guard: cap {raw!r} and estimate {estimate_usd} must be finite, >= 0"
-        )
+    at a time by hand; the live service spends only the reserve, from its own ledger."""
+    limit = _limit(cap_var)
+    if not (math.isfinite(estimate_usd) and estimate_usd >= 0):
+        raise SystemExit(f"spend guard: estimate {estimate_usd} must be finite, >= 0")
     month = datetime.now(UTC).strftime("%Y-%m")
     spent = (month_spend or month_spend_usd)(month, runs)
-    if spent + estimate_usd > cap:
+    if spent + estimate_usd > limit:
         raise SystemExit(
-            f"spend guard: ${spent:.2f} spent in {month} + ${estimate_usd:.2f} > monthly cap"
+            f"spend guard: ${spent:.2f} spent in {month} + ${estimate_usd:.2f} > monthly cap "
+            "minus live reserve"
         )
     return spent
 

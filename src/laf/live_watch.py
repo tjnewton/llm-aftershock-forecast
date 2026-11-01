@@ -23,8 +23,8 @@ from functools import partial
 from pathlib import Path
 
 from laf.generic_rj import REFERENCE_REL
-from laf.prospective import is_aftershock, qualifies, run_issue
-from laf.publish import publish, push_receipt
+from laf.prospective import is_aftershock, live_budget, qualifies, run_issue
+from laf.publish import branch, publish, push_receipt
 from laf.registry import Sequence
 from laf.usgs import FDSN, download, event_url, fetch_sequence, iso
 
@@ -89,19 +89,28 @@ def inclusion(doc: dict, key: str, decided: dict, get=download) -> tuple[str | N
     return d["tier"], d["reason"]
 
 
-def dry_issue(
-    data_dir: Path, event_id: str, now_ms: int, get=download, publish_to: Path | None = None
-) -> dict:
+def live_issue(
+    data_dir: Path, event_id: str, now_ms: int, get=download, publish_to: Path | None = None,
+    clients: dict | None = None,
+) -> dict:  # fmt: skip
     """Fetch the sequence into a snapshot stamped now and run its newest version through the
-    prospective pipeline without model calls; the sealed records go under data_dir/issues and,
-    with `publish_to` (a worktree of the `live-test` branch), their seals are pushed there."""
+    prospective pipeline; the sealed records go under data_dir/issues and, with `publish_to`
+    (a worktree of `live-test`, or of `live` when paid), their seals are pushed there. Without
+    `clients` it makes no model calls; with them it spends only the live reserve, counted on
+    the published ledger."""
     snap = datetime.fromtimestamp(now_ms / 1000, UTC).strftime("%Y%m%dT%H%MZ")
     t0 = time.time()
     fetch_sequence(data_dir, snap, event_id, CATALOG_MIN_MAG, now_ms=now_ms, get=get)
     seq = Sequence(id=event_id, name=event_id, role="test-post", catalog_min_mag=CATALOG_MIN_MAG)
     fetch_s = time.time() - t0
     pub = partial(publish, publish_to) if publish_to else None
-    rec = run_issue(None, data_dir, snap, seq, data_dir / "issues", dry_run=True, publish=pub)
+    budget = partial(live_budget, publish_to) if clients and publish_to else None
+
+    def seen(rel: str) -> bool:  # the branch, not this host's state, says what was issued
+        return bool(publish_to) and (publish_to / rel / "answers.seal.json").exists()
+
+    rec = run_issue(clients, data_dir, snap, seq, data_dir / "issues", dry_run=clients is None,
+                    publish=pub, budget=budget or (lambda: {}), issued=seen)  # fmt: skip
     if "skipped" in rec:
         return {"fetch_s": fetch_s, "matched_update_ms": rec["update_ms"], "slot": None,
                 "skipped": rec["skipped"]}  # fmt: skip
@@ -139,8 +148,9 @@ def check_receipts(out: Path, state: dict, get=download) -> None:
 
 
 def step(
-    out: Path, data_dir: Path, state: dict, get=download, publish_to: Path | None = None
-) -> dict:
+    out: Path, data_dir: Path, state: dict, get=download, publish_to: Path | None = None,
+    clients: dict | None = None,
+) -> dict:  # fmt: skip
     """One poll: confirm pending push receipts, detect new OAF versions since the last poll and
     run each included sequence's newest version once."""
     t_poll = _now_ms()
@@ -177,7 +187,7 @@ def step(
             tier, reason = inclusion(doc, key, decided, get)
             det |= {"key": key, "mag": p.get("mag"), "net": p.get("net"), "tier": tier,
                     "inclusion": reason}  # fmt: skip
-            built = dry_issue(data_dir, event_id, t_poll, get, publish_to) if tier else {}
+            built = live_issue(data_dir, event_id, t_poll, get, publish_to, clients) if tier else {}
             answers = (built.get("published") or {}).get("answers") or {}
             if answers.get("commit") and answers.get("repo"):
                 state.setdefault("receipts", []).append({
@@ -202,9 +212,23 @@ def step(
 
 def run(
     out: Path, data_dir: Path, repo_data: Path, polls: int | None = None,
-    publish_to: Path | None = None,
+    publish_to: Path | None = None, paid: bool = False,
 ) -> None:  # fmt: skip
-    """Poll every POLL_S seconds until stopped (or `polls` times)."""
+    """Poll every POLL_S seconds until stopped (or `polls` times). `paid` runs the live models
+    and must publish to the `live` branch; the dry run must not."""
+    on = branch(publish_to) if publish_to else None
+    if paid and on != "live":
+        raise SystemExit("--paid publishes to a worktree of branch live (--publish)")
+    if not paid and on == "live":
+        raise SystemExit("the dry run never publishes to live: use a worktree of live-test")
+    clients = None
+    if paid:
+        from laf.openai_runner import client as openai_client
+        from laf.providers import client as anthropic_client
+
+        assert publish_to is not None  # a live worktree, checked above
+        live_budget(publish_to)  # refuses before the first poll if a reserve is unset
+        clients = {"claude": anthropic_client(), "openai": openai_client()}
     out.mkdir(parents=True, exist_ok=True)
     ref = data_dir / REFERENCE_REL
     if not ref.exists():  # generic-RJ reference tables, read by build_tables
@@ -213,7 +237,7 @@ def run(
     state = json.loads(state_path.read_text(encoding="utf-8")) if state_path.exists() else {}
     n = 0
     while polls is None or n < polls:
-        state = step(out, data_dir, state, publish_to=publish_to)
+        state = step(out, data_dir, state, publish_to=publish_to, clients=clients)
         n += 1
         if polls is None or n < polls:
             time.sleep(POLL_S)

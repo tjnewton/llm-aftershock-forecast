@@ -126,7 +126,11 @@ def main(argv: list[str] | None = None) -> None:
     lw.add_argument("--out", type=Path, default=Path("runs/live-dryrun"))
     lw.add_argument("--live-data", type=Path, default=Path("data/interim/live-dryrun"))
     lw.add_argument("--polls", type=int, help="stop after this many polls (default: run on)")
-    lw.add_argument("--publish", type=Path, help="worktree of branch live-test: push each seal")
+    lw.add_argument("--publish", type=Path, help="worktree of live-test (or live): push each seal")
+    lw.add_argument(
+        "--paid", action="store_true",
+        help="SPENDS MONEY: the live models within the live reserve; --publish must be live",
+    )  # fmt: skip
     ll = sub.add_parser(
         "live-late", help="share of matched live items that would be late (ADR 0017; no network)"
     )
@@ -545,7 +549,7 @@ def main(argv: list[str] | None = None) -> None:
     elif a.cmd == "live-watch":
         from laf.live_watch import run
 
-        run(a.out, a.live_data, a.data_dir, a.polls, a.publish)
+        run(a.out, a.live_data, a.data_dir, a.polls, a.publish, a.paid)
     elif a.cmd == "live-late":
         import pandas as pd
 
@@ -614,12 +618,13 @@ def main(argv: list[str] | None = None) -> None:
         out = a.out.with_name(a.out.name + "-dryrun") if a.dry_run else a.out
         if not a.dry_run and not out.resolve().is_relative_to(Path("runs").resolve()):
             raise SystemExit("a paid run writes under runs/, where the spend ledger looks")
-        client = None
+        clients = None
         if not a.dry_run:
+            from laf.openai_runner import client as openai_client
             from laf.providers import client as anthropic_client
 
-            client = anthropic_client()
-        rec = run_issue(client, a.data_dir, a.snapshot, seq, out, dry_run=a.dry_run)
+            clients = {"claude": anthropic_client(), "openai": openai_client()}
+        rec = run_issue(clients, a.data_dir, a.snapshot, seq, out, dry_run=a.dry_run)
         print(json.dumps(rec, indent=1, sort_keys=True))
     elif a.cmd == "confirmatory":
         import pandas as pd

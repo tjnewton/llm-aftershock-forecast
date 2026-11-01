@@ -74,6 +74,8 @@ def test_publish_pushes_the_seal_then_its_proofs(worktree, tmp_path):
     assert rec["branch"] == "live-test" and rec["repo"] is None  # a local origin: no receipt
     shown = git("show", f"{rec['commit']}:us1/123/answers.seal.json", cwd=origin)
     assert shown == seal.read_text().strip()
+    with pytest.raises(FileExistsError, match="never overwritten"):
+        U.publish(wt, "us1/123", seal, ots=ots, calendars=())
     tree = git("ls-tree", "-r", "--name-only", "live-test", cwd=origin).splitlines()
     pub = "us1/123/answers.seal.json"
     assert tree == ["README.md", pub, f"{pub}.up.example.ots"]

@@ -11,6 +11,7 @@ OPENAI_BASE_URL says, and the SDK's own retries are disabled.
 import contextlib
 import hashlib
 import json
+import time
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -132,9 +133,15 @@ def expand(
 
 
 def spend_records(runs: Path = RUNS) -> list[tuple[str, float]]:
-    """(UTC month, USD) of OpenAI spend: collected batch results (half price) and the
-    estimates of submitted, uncollected batches."""
-    out = []
+    """(UTC month, USD) of OpenAI spend: synchronous calls (`calls.jsonl`, standard price) by
+    `started_utc`, collected batch results (half price) and the estimates of submitted,
+    uncollected batches."""
+    out = [
+        (r["started_utc"][:7], cost_usd(r["model_requested"], r["usage"]))
+        for path in runs.glob("**/calls.jsonl")
+        for r in _jsonl(path)
+        if r.get("usage") and r.get("model_requested") in PRICES
+    ]
     for path in runs.glob("**/batch.json"):
         rec = json.loads(path.read_text(encoding="utf-8"))
         if rec.get("provider") != "openai":
@@ -194,6 +201,40 @@ def estimate_usd(reqs: list[dict], pilot_run: Path) -> float:
         }
         total += cost_usd(m["model"], usage, batch=True)
     return total
+
+
+def call_openai(c, params: dict, *, attempts: int = 4) -> dict:
+    """One synchronous Responses call (the live arm), retried only on rate limits, server and
+    connection errors. Returns a record shaped like `providers.call_anthropic`'s."""
+    import openai
+
+    started, t0, error = datetime.now(UTC).isoformat(), time.monotonic(), None
+    for i in range(attempts):
+        try:
+            body = c.responses.create(**params).model_dump()
+            return {
+                "started_utc": started,
+                "latency_s": round(time.monotonic() - t0, 3),
+                "attempts": i + 1,
+                **_record(body),
+                "model_requested": params["model"],
+                "error": None,
+                "sdk_version": openai.__version__,
+                "base_url": str(c.base_url),
+            }
+        except (openai.RateLimitError, openai.InternalServerError, openai.APIConnectionError) as e:
+            error = f"{type(e).__name__}: {e}"
+            time.sleep(2 ** (i + 1))
+        except openai.APIStatusError as e:
+            error = f"{type(e).__name__} {e.status_code}: {e.message}"
+            break  # 4xx other than 429: not retried
+    return {
+        "started_utc": started,
+        "latency_s": round(time.monotonic() - t0, 3),
+        "model_requested": params["model"],
+        "error": error,
+        "sdk_version": openai.__version__,
+    }
 
 
 def _record(body: dict) -> dict:

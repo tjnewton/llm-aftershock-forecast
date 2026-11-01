@@ -16,14 +16,15 @@ from pathlib import Path
 
 import pandas as pd
 
+from laf import openai_runner as O
 from laf.items import Item, build_items
 from laf.live import live_tables, next_full_hour
 from laf.prompts import render, schema_for
-from laf.providers import anthropic_params, call_anthropic, cost_usd, study_effort
+from laf.providers import anthropic_params, call_anthropic, cost_usd
 from laf.registry import Sequence
-from laf.runner import check_budget
+from laf.runner import CAP_VAR, remaining_usd, reserve_var, usd_var
 
-LIVE_MODELS = ("claude-opus-5-5",)  # gpt-6.1-sol (effort high) joins with its synchronous calls
+LIVE_MODELS = ("claude-opus-5-5", "gpt-6.1-sol")  # in budget priority (prereg v2 section 5)
 K = 3
 FLOOR = 3.0
 PROMPT = "v2A"  # ADR 0015 decision 4
@@ -53,39 +54,119 @@ def issue(data_dir: Path, snapshot: str, seq: Sequence, now_ms: int):
     return tables, build_items(tables, FLOOR), update_ms
 
 
+def provider(model: str) -> str:
+    return "openai" if model in O.PRICES else "claude"
+
+
 def _params(item: Item, model: str) -> dict:
+    from laf.confirmatory import study_effort  # both providers (ADR 0014 decisions 5-7)
+
     system, user = render(item, "direct", "I1", PROMPT)
-    return anthropic_params(
-        model, system, user, schema_for("direct", PROMPT),
-        effort=study_effort(model), max_tokens=MAX_TOKENS,
-    )  # fmt: skip
+    schema, effort = schema_for("direct", PROMPT), study_effort(model)
+    if provider(model) == "openai":
+        return O.openai_params(
+            model, system, user, schema, effort=effort, max_output_tokens=MAX_TOKENS
+        )
+    return anthropic_params(model, system, user, schema, effort=effort, max_tokens=MAX_TOKENS)
+
+
+def _cost(model: str, usage: dict) -> float:
+    """Standard (synchronous) price."""
+    return O.cost_usd(model, usage) if provider(model) == "openai" else cost_usd(model, usage)
+
+
+def call_bound_usd(item: Item, model: str) -> float:
+    """The most one answer can cost: its whole output budget."""
+    p = _params(item, model)
+    return _cost(model, {"input_tokens": len(json.dumps(p)) / 1.25, "output_tokens": MAX_TOKENS})
 
 
 def bound_usd(items: list[Item], models=LIVE_MODELS, k: int = K) -> float:
-    """The most the calls for one issue can cost: every answer at its whole output budget."""
-    total = 0.0
-    for item in items:
-        for model in models:
-            p = _params(item, model)
-            usage = {"input_tokens": len(json.dumps(p)) / 1.25, "output_tokens": MAX_TOKENS}
-            total += k * cost_usd(model, usage)
-    return total
+    """The most the calls for one issue can cost."""
+    return sum(k * call_bound_usd(i, m) for i in items for m in models)
 
 
-def model_calls(client, items: list[Item], models=LIVE_MODELS, k: int = K) -> list[dict]:
-    """k synchronous answers per item and model, after the monthly spend guard."""
-    check_budget(bound_usd(items, models, k))
-    jobs = [(i.item_id, m, s, _params(i, m)) for i in items for m in models for s in range(k)]
+def plan_calls(items: list[Item], left: dict[str, float], models=LIVE_MODELS, k: int = K):
+    """(jobs, missed) in the registered budget priority (prereg v2 section 5): models in order,
+    each model's matched item before its strict one. A group (item and model, k answers) runs
+    only if its worst case fits what is left of its provider's budget; otherwise its answers
+    are listed as "missed: budget"."""
+    left = dict(left)
+    ordered = sorted(items, key=lambda i: not i.item_id.endswith("@live-matched"))
+    jobs, missed = [], []
+    for m in models:
+        for item in ordered:
+            cost = k * call_bound_usd(item, m)
+            if cost <= left.get(provider(m), 0.0):
+                left[provider(m)] -= cost
+                jobs += [(item.item_id, m, s, _params(item, m)) for s in range(k)]
+            else:
+                miss = {"item_id": item.item_id, "model_requested": m, "paraphrase": PROMPT,
+                        "missed": "budget"}  # fmt: skip
+                missed += [{**miss, "sample": s} for s in range(k)]
+    return jobs, missed
+
+
+def model_calls(clients: dict, items: list[Item], left: dict[str, float], models=LIVE_MODELS,
+                k: int = K) -> list[dict]:  # fmt: skip
+    """k synchronous answers per item and model within `left` (USD per provider), in the
+    budget priority; `clients` maps "claude" and "openai" to their SDK clients."""
+    jobs, missed = plan_calls(items, left, models, k)
 
     def call(job):
-        item_id, _, s, params = job
-        effort = params["output_config"]["effort"]
-        rec = call_anthropic(client, params, stream=True)
+        item_id, m, s, params = job
+        if provider(m) == "openai":
+            effort, rec = params["reasoning"]["effort"], O.call_openai(clients["openai"], params)
+        else:
+            effort = params["output_config"]["effort"]
+            rec = call_anthropic(clients["claude"], params, stream=True)
         return {"item_id": item_id, "paraphrase": PROMPT, "effort": effort, "sample": s, **rec}
 
     with ThreadPoolExecutor(6) as pool:
         recs = list(pool.map(call, jobs))
-    return sorted(recs, key=lambda r: (r["item_id"], r["model_requested"], r["sample"]))
+    return sorted(recs + missed, key=lambda r: (r["item_id"], r["model_requested"], r["sample"]))
+
+
+def spend_rows(calls: list[dict]) -> list[dict]:
+    """The spend of an issue's calls, without their text: what the live ledger publishes."""
+    return [
+        {"started_utc": c["started_utc"], "model_requested": c["model_requested"],
+         "provider": provider(c["model_requested"]), "usage": c["usage"],
+         "usd": _cost(c["model_requested"], c["usage"])}
+        for c in calls if c.get("usage")
+    ]  # fmt: skip
+
+
+def local_budget() -> dict[str, float]:
+    """One-off runs on this machine (`laf prospective`): each provider's cap minus its live
+    reserve minus this month's spend."""
+    return {
+        "claude": remaining_usd(),
+        "openai": remaining_usd(cap_var=O.CAP_VAR, month_spend=O.month_spend_usd),
+    }
+
+
+def live_budget(ledger: Path, month: str | None = None) -> dict[str, float]:
+    """The live service: each provider's live reserve minus this month's live spend, summed
+    from the spend files published on the live branch (`ledger` is its worktree), so every host
+    reads the same ledger. A reserve must be set."""
+    from datetime import UTC, datetime
+
+    month = month or datetime.now(UTC).strftime("%Y-%m")
+    spent = {"claude": 0.0, "openai": 0.0}
+    for f in ledger.glob("**/spend.jsonl"):
+        for line in f.read_text(encoding="utf-8").splitlines():
+            r = json.loads(line)
+            if r["started_utc"][:7] == month:
+                spent[r["provider"]] += r["usd"]
+    out = {}
+    for prov, cap_var in (("claude", CAP_VAR), ("openai", O.CAP_VAR)):
+        cap = usd_var(cap_var, required=True)  # finite, >= 0
+        reserve = usd_var(reserve_var(cap_var), required=True)
+        if reserve > cap:
+            raise SystemExit(f"{reserve_var(cap_var)} ${reserve:.2f} exceeds {cap_var} ${cap:.2f}")
+        out[prov] = reserve - spent[prov]
+    return out
 
 
 def baseline_forecasts(tables: dict, items: list[Item], data_dir: Path) -> list[dict]:
@@ -223,35 +304,43 @@ def is_aftershock(lat: float, lon: float, origin_ms: int, mag: float, get=None) 
     return False
 
 
-def run_issue(client, data_dir: Path, snapshot: str, seq: Sequence, out_root: Path,
-              *, dry_run: bool = False, clock=time.time, publish=None) -> dict:  # fmt: skip
+def run_issue(clients, data_dir: Path, snapshot: str, seq: Sequence, out_root: Path, *,
+              dry_run: bool = False, clock=time.time, publish=None,
+              budget=local_budget, issued=lambda rel: False) -> dict:  # fmt: skip
     """One issue end to end; `dry_run` skips the model calls (no spend) and times the rest.
     Only versions the ADR 0004 schedule picks are forecast; others return a skip record.
-    `publish(rel, seal_path)` (`laf.publish.publish` bound to a worktree) pushes each seal as
-    soon as it exists: the answers before the baselines run. A publishing failure is recorded,
-    never fatal."""
+    `budget()` gives what each provider may still spend (`local_budget`, or `live_budget` on
+    the live branch's ledger). `publish(rel, seal_path, extra=...)` (`laf.publish.publish`
+    bound to a worktree) pushes each seal as soon as it exists: the answers, with the issue's
+    spend file, before the baselines run. A publishing failure is recorded, never fatal.
+    `issued(rel)` says whether the shared branch already holds this issue: then nothing is
+    run or paid again, whatever this host's local state says."""
     t0 = clock()
     tables, items, update_ms = issue(data_dir, snapshot, seq, int(t0 * 1000))
     slot = scheduled_slot(tables, update_ms)
     if slot is None:
         return {"skipped": "not a scheduled version (ADR 0004)", "update_ms": update_ms}
+    if issued(f"{seq.id}/{update_ms}"):
+        return {"skipped": "already published", "update_ms": update_ms}
     out = out_root / seq.id / str(update_ms)
     out.mkdir(parents=True, exist_ok=False)  # reserved before any paid call: no duplicate issue
     t1 = clock()
-    calls = [] if dry_run else model_calls(client, items)
+    calls = [] if dry_run else model_calls(clients, items, budget())
     (out / "calls.jsonl").write_text(_jsonl(calls), encoding="utf-8", newline="\n")  # spend log
+    (out / "spend.jsonl").write_text(_jsonl(spend_rows(calls)), encoding="utf-8", newline="\n")
     published: dict = {}
 
-    def post(name: str) -> None:
+    def post(name: str, extra: tuple[Path, ...] = ()) -> None:
         if publish is None:
             return
         try:
-            published[name] = publish(f"{seq.id}/{update_ms}", out / f"{name}.seal.json")
+            seal = out / f"{name}.seal.json"
+            published[name] = publish(f"{seq.id}/{update_ms}", seal, extra=extra)
         except Exception as e:  # the item is then not on time; the issue still completes
             published[name] = {"error": f"{type(e).__name__}: {e}"[:300]}
 
     answers = seal_answers(out, items, calls, clock)
-    post("answers")
+    post("answers", (out / "spend.jsonl",))
     t2 = clock()
     base = baseline_forecasts(tables, items, data_dir)
     baselines = seal_baselines(out, base, clock)
