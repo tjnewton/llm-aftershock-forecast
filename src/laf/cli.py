@@ -15,6 +15,15 @@ def snapshot_ms(snapshot: str) -> int:
     return int(datetime.strptime(snapshot, SNAPSHOT_FORMAT).replace(tzinfo=UTC).timestamp() * 1000)
 
 
+def _batch_name(a) -> str:
+    """runs/<name> of a batch: confirmatory/<block>-<model>[-K-of-N][-forward]."""
+    if not a.block.startswith("confirmatory"):
+        return f"{a.block}-{a.model}"
+    chunk = f"-{a.chunk.replace('/', '-of-')}" if getattr(a, "chunk", None) else ""
+    fwd = "-forward" if getattr(a, "forward_excluded", False) else ""
+    return f"confirmatory/{a.block}-{a.model}{chunk}{fwd}"
+
+
 def main(argv: list[str] | None = None) -> None:
     p = argparse.ArgumentParser(prog="laf")
     p.add_argument("--data-dir", type=Path, default=Path("data"))
@@ -52,9 +61,25 @@ def main(argv: list[str] | None = None) -> None:
     rn.add_argument(
         "--block",
         required=True,
-        choices=("core", "i0", "sonnet-low", "e3", "e3pre", "e3i0", "d2", "d2-medium", "d2-46"),
+        choices=(
+            "core",
+            "i0",
+            "sonnet-low",
+            "e3",
+            "e3pre",
+            "e3i0",
+            "d2",
+            "d2-medium",
+            "d2-46",
+            "confirmatory",
+            "confirmatory-sens",
+            "confirmatory-v2b",
+        ),
     )
     rn.add_argument("--model", required=True)
+    rn.add_argument("--chunk", help="confirmatory blocks: K/N, the K-th of N parts")
+    rn.add_argument("--forward-excluded", action="store_true",
+                    help="confirmatory blocks: the forward-excluded candidates")  # fmt: skip
     rn.add_argument("--name", help="run name under runs/ (default <block>-<model>)")
     rn.add_argument("--dry-run", action="store_true", help="count requests and estimate cost")
     st = sub.add_parser("status", help="batch status and counts of a run (no results)")
@@ -148,7 +173,14 @@ def main(argv: list[str] | None = None) -> None:
     oa.add_argument("action", choices=("run", "status", "collect"))
     oa.add_argument("name", nargs="?", help="status/collect: run name under runs/")
     oa.add_argument("--snapshot")
-    oa.add_argument("--block", choices=("pilot", "d2"), default="d2")
+    oa.add_argument(
+        "--block", default="d2",
+        choices=("pilot", "d2", "confirmatory", "confirmatory-sens", "confirmatory-v2b"),
+    )  # fmt: skip
+    oa.add_argument("--name", dest="run_name", help="run name under runs/ (confirmatory blocks)")
+    oa.add_argument("--chunk", help="confirmatory blocks: K/N, the K-th of N parts")
+    oa.add_argument("--forward-excluded", action="store_true",
+                    help="confirmatory blocks: the forward-excluded candidates")  # fmt: skip
     oa.add_argument(
         "--model", default="gpt-5.1-2025-11-13", choices=("gpt-5.1-2025-11-13", "gpt-6.1-sol")
     )
@@ -593,8 +625,8 @@ def main(argv: list[str] | None = None) -> None:
             else:
                 print(f"{O.collect(c, a.name)} results -> runs/{a.name}/results.jsonl")
             return
-        if not (a.snapshot and a.effort):
-            raise SystemExit("run needs --snapshot and --effort")
+        if not a.snapshot or not (a.effort or a.block.startswith("confirmatory")):
+            raise SystemExit("run needs --snapshot and --effort (confirmatory: the study effort)")
         from laf.pilot import load_items
 
         items = load_items(a.data_dir, a.snapshot, 3.0)
@@ -609,6 +641,19 @@ def main(argv: list[str] | None = None) -> None:
             # outside runs/d2, so `laf d2` never pools the pilot with the experiment
             name, est = f"openai/pilot-{a.model}", O.bound_usd(reqs)
             print(f"{name}: {len(reqs)} requests, worst case ${est:.2f} (batch)")
+        elif a.block.startswith("confirmatory"):  # study effort, the model's own clean set
+            import pandas as pd
+
+            from laf.confirmatory import batch_items, study_effort
+
+            seqs = pd.read_parquet(a.data_dir / "processed" / a.snapshot / "sequences.parquet")
+            send = batch_items(items, seqs, a.model, a.block, a.forward_excluded, a.chunk)
+            variant = "v2B" if a.block == "confirmatory-v2b" else "v2A"
+            effort = study_effort(a.model)
+            reqs = O.expand(send, a.model, effort, paraphrase=variant, block=a.block)
+            name = a.run_name or _batch_name(a)
+            est = O.estimate_usd(reqs, Path(f"runs/openai/pilot-{a.model}"))
+            print(f"{name}: {len(reqs)} requests, estimate ${est:.2f} (batch)")
         else:
             if len(a.effort) != 1:
                 raise SystemExit("the d2 block takes one --effort")
@@ -1179,9 +1224,17 @@ def main(argv: list[str] | None = None) -> None:
                     encoding="utf-8",
                     newline="\n",
                 )
-            reqs = runner.expand(items, a.block, a.model)
+            send = items
+            if a.block.startswith("confirmatory"):  # the model's own clean set only
+                import pandas as pd
+
+                from laf.confirmatory import batch_items
+
+                seqs = pd.read_parquet(a.data_dir / "processed" / a.snapshot / "sequences.parquet")
+                send = batch_items(items, seqs, a.model, a.block, a.forward_excluded, a.chunk)
+            reqs = runner.expand(send, a.block, a.model)
             est = runner.estimate_usd(reqs)
-            name = a.name or f"{a.block}-{a.model}"
+            name = a.name or _batch_name(a)
             print(f"{name}: {len(reqs)} requests, estimate ${est:.2f} (batch), "
                   f"spent so far ${runner.spent_usd():.2f}")  # fmt: skip
             if not a.dry_run:

@@ -374,6 +374,13 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
   - Order: test A's batches first, about $55 a month (v2A on the 89, then the sensitivity set,
     then v2B), all by 2027-03-01; the other retrospective batches after L, since B's
     retrospective part needs the supplementary snapshot taken at L.
+  - Commands (runs under `runs/confirmatory/`): `laf openai run --block confirmatory`,
+    `confirmatory-sens` (gpt-5.1 below M5) or `confirmatory-v2b`, and `laf run --block
+    confirmatory` or `confirmatory-v2b` for Claude; each sends only the model's own clean set
+    at its study settings (`confirmatory.batch_items`). `--chunk K/N` splits a batch whose
+    estimate exceeds the month's room; `--forward-excluded` runs the forward-excluded
+    snapshot. The runners' estimates (pilot output tokens, plus 25%) are above the plan's: about
+    $87 for gpt-5.1's v2A on the 89, so it goes in two parts of about $43.
 
 ## 9. Availability and timeline
 - All items, sealed records, answers, scores and code are released with a DOI at
