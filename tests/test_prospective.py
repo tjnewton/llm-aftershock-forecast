@@ -49,13 +49,22 @@ def test_answers_are_sealed_before_and_apart_from_the_baselines(built, tmp_path)
 def test_only_scheduled_versions_are_forecast(built):
     tables, _, _ = built
     ov = tables["oaf_versions"]
-    valid = ov[ov["valid"] & ~ov["duplicate"].fillna(False).astype(bool)].sort_values("creation_ms")
+    valid = ov[ov["valid"] & ~ov["duplicate"].fillna(False).astype(bool)].sort_values(
+        "info_cutoff_ms"
+    )
     first = int(valid["update_ms"].iloc[0])
     slot = P.scheduled_slot(tables, first)
     assert slot is not None and slot.startswith("first")
     picked = [P.scheduled_slot(tables, int(u)) for u in valid["update_ms"]]
     assert 1 <= sum(x is not None for x in picked) <= 6  # first plus at most five targets
     assert P.scheduled_slot(tables, -1) is None
+    # the same versions as the issue times registered for Panama in the snapshot (ADR 0004)
+    import pandas as pd
+
+    its = pd.read_parquet(f"data/processed/{SNAP}/issue_times.parquet")
+    retro = set(its.loc[(its["sequence_id"] == PANAMA.id) & (its["source"] == "oaf"), "issue_ms"])
+    live = {int(c) for c, x in zip(valid["info_cutoff_ms"], picked, strict=True) if x is not None}
+    assert live == {int(x) for x in retro}
 
 
 def test_aftershock_check_looks_backward_only():

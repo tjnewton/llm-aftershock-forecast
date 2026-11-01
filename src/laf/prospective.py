@@ -173,11 +173,12 @@ def scheduled_slot(tables: dict, update_ms: int) -> str | None:
 
     ov = tables["oaf_versions"]
     valid = ov[ov["valid"] & ~ov["duplicate"].fillna(False).astype(bool)]
-    mine = valid.loc[valid["update_ms"] == update_ms, "creation_ms"]
+    # information cutoffs, as `build_tables` passes them (ADR 0004)
+    mine = valid.loc[valid["update_ms"] == update_ms, "info_cutoff_ms"]
     if mine.empty:
         return None
     origin = int(tables["sequences"]["origin_ms"].iloc[0])
-    picks = select_issue_times(origin, [int(c) for c in valid["creation_ms"]])
+    picks = select_issue_times(origin, [int(c) for c in valid["info_cutoff_ms"]])
     return next((p.target for p in picks if p.issue_ms == int(mine.iloc[0])), None)
 
 
