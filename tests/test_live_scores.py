@@ -70,6 +70,22 @@ def test_live_answers_are_scored_like_batch_answers(live):
     strict = ok[ok["kind"] == "strict"]  # no official forecast: scores relative to 0
     assert (strict["worst_base_d5"] >= strict["base_d5_naive"]).all()
     assert L.live_start_ms(root) == 1
+    assert all("#" in i for i in s["item_id"])  # one scoring ID per issue
+
+
+def test_nothing_released_yet_keeps_the_report_running(tmp_path, monkeypatch):
+    from laf import splits
+
+    monkeypatch.setattr(splits, "development_ids", lambda: frozenset())
+    empty = L.live_samples(tmp_path, load_tables(Path("data/processed") / SNAP))
+    assert empty.empty and "elapsed_days" in empty.columns
+    retro = pd.DataFrame([_rows("claude-opus-5-5", f"r{i}", "batch") for i in range(3)])
+    clean = pd.Timestamp("2026-10-15", tz="UTC").value // 1_000_000  # Opus 5.5's clean period
+    seqs = pd.DataFrame({"sequence_id": [f"r{i}" for i in range(3)], "origin_ms": clean,
+                         "mag": 5.5})  # fmt: skip
+    recs = C.live_report(retro, empty, seqs, {i: 2.0 for i in retro["item_id"]}, 10**13, None)
+    t = {r["hypothesis"]: r for r in recs.to_dict("records")}
+    assert t["B retrospective part"]["sequences"] == 3 and t["B prospective part"]["sequences"] == 0
 
 
 def test_every_live_item_is_listed_with_its_status(live):

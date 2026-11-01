@@ -57,8 +57,15 @@ def _status(call: dict, window: str) -> tuple[str, list[float] | None]:
     return status, [parsed[window]["m5_count_quantiles"][k] for k in QKEYS]
 
 
+COLUMNS = ("item_id", "window", "sequence_id", "kind", "on_time", "part", "origin_ms", "mag",
+           "elapsed_days", "worst_base_d5", *(f"base_d5_{b}" for b in BASELINES), "model",
+           "effort", "variant", "sample", "status", "d5")  # fmt: skip
+
+
 def live_samples(live: Path, tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
-    """One row per released live answer and window, on the outcome snapshot `tables`."""
+    """One row per released live answer and window, on the outcome snapshot `tables` (the
+    columns are kept when nothing is released yet). Item IDs repeat across a sequence's issues
+    (`<sequence>@live-matched`), so each row's `item_id` adds the issue's OAF update time."""
     cat, fr, bins = tables["catalog"], tables["forecast_fractiles"], tables["forecast_bins"]
     rows = []
     for d in released(live):
@@ -77,8 +84,9 @@ def live_samples(live: Path, tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
             first = seal["items"][it.item_id]["first_window_ms"]
             on_time = receipt_ms is not None and receipt_ms < first
             circle = Circle(it.region.lat, it.region.lon, it.region.radius_km)
+            own = cat[cat["sequence_id"] == it.sequence_id]  # overlapping catalogs share events
             for w in it.windows:
-                y = count_in_window(cat, circle, w.start_ms, w.end_ms, 5.0)
+                y = count_in_window(own, circle, w.start_ms, w.end_ms, 5.0)
                 ls = {b: _ls(base.get((b, it.item_id, w.label)), y) for b in BASELINES}
                 if kind == "matched":
                     fc = official_forecast(fr, bins, it.sequence_id, it.issue_ms, w.label)
@@ -87,7 +95,8 @@ def live_samples(live: Path, tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
                     off = 0.0
                 worst = max(v for v in ls.values() if not np.isnan(v))
                 cell = {
-                    "item_id": it.item_id, "window": w.key, "sequence_id": it.sequence_id,
+                    "item_id": f"{it.item_id}#{d.name}", "window": w.key,
+                    "sequence_id": it.sequence_id,
                     "kind": kind, "on_time": on_time, "part": "prospective",
                     "origin_ms": it.mainshock.origin_ms, "mag": it.mainshock.mag,
                     "elapsed_days": it.elapsed_days, "worst_base_d5": worst - off,
@@ -102,7 +111,7 @@ def live_samples(live: Path, tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
                         "variant": c.get("paraphrase"), "sample": c["sample"], "status": status,
                         "d5": _ls(q, y) - off if q else np.nan,
                     })  # fmt: skip
-    return pd.DataFrame(rows)
+    return pd.DataFrame(rows, columns=list(COLUMNS))
 
 
 def live_items(live: Path) -> pd.DataFrame:
