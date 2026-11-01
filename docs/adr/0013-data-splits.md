@@ -98,7 +98,15 @@ today's ComCat values.
 The rule stays as it is. The loss is about 1% of issue times; most are later versions of the
 same targets, and the median first-issue latency is unchanged.
 
+## The exclusion rule and future information (Tyler, 2026-10-31)
+3 of the 10 excluded events were excluded only by a later, larger event, which can fall inside
+their own forecast windows. They were counted without viewing their identities.
+- The candidate list stays as built.
+- Prospective sequences get only the backward (aftershock) half of the rule.
+- Tests A, B and S1 are also reported with the 3 included, as a sensitivity analysis.
+
 ## Changelog
+- 2026-10-31: the forward half of the exclusion rule; prospective sequences use only the backward half.
 - 2026-10-31: nn00914068 restored (195 candidates).
 - 2026-10-31: the foreshock/aftershock rule is applied (rechecked; note corrected).
 - 2026-10-29: first version; candidate list fetched; guard specified in issue #2.
