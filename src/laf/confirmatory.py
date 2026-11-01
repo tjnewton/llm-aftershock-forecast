@@ -418,3 +418,56 @@ def secondary(
          assay(samples, tested).assign(hypothesis="assay"), pd.DataFrame(rows)],
         ignore_index=True,
     )  # fmt: skip
+
+
+B_MODEL, S2_MODEL = "claude-opus-5-5", "gpt-6.1-sol"
+
+
+def live_report(
+    samples: pd.DataFrame, live: pd.DataFrame, sequences: pd.DataFrame,
+    elapsed: dict[str, float], live_start_ms: int, stop_ms: int | None,
+) -> pd.DataFrame:  # fmt: skip
+    """Test B in its two parts, S2 and S5 (prereg v2 sections 2, 5 and 6).
+
+    `samples` are the batch answers (`laf.d2.analyze`), `live` the released live answers
+    (`laf.live_scores.live_samples`). L (`live_start_ms`) splits the parts: B's retrospective
+    part is Opus 5.5's clean M>=5 sequences with origin before L; its prospective part, M>=5
+    sequences (magnitude at the first issue) with origin in [L, S), on-time matched items only.
+    Test B resamples the parts separately and is also reported for each part alone. S2:
+    gpt-6.1-sol on the prospective matched items. S5: the strict items of the same sequences
+    against each pipeline baseline (superiority over the rule of thumb and generic RJ, an
+    interval against ETAS)."""
+    origin = sequences.set_index("sequence_id")["origin_ms"]
+    retro = confirmatory_cells(samples, sequences, elapsed)
+    retro = retro[(retro["model"] == B_MODEL)
+                  & (retro["sequence_id"].map(origin) < live_start_ms)]  # fmt: skip
+    first = live.sort_values("elapsed_days").drop_duplicates("sequence_id").set_index("sequence_id")
+    end = stop_ms if stop_ms is not None else np.inf
+    pro_ids = {str(sid) for sid, r in first.iterrows()
+               if live_start_ms <= r["origin_ms"] < end and r["mag"] >= 5.0 - 1e-9}  # fmt: skip
+    live_elapsed = dict(zip(live["item_id"], live["elapsed_days"], strict=True))
+    sets = {m: pro_ids for m in (B_MODEL, S2_MODEL)}
+    matched = live[(live["kind"] == "matched") & live["on_time"]]
+    pro = confirmatory_cells(matched, sequences, live_elapsed, sets=sets) if len(matched) else (
+        retro.iloc[:0])  # fmt: skip
+
+    def test(label: str, cells: pd.DataFrame, strata: np.ndarray | None = None) -> dict:
+        e = sequence_effects(cells)
+        t = noninferiority(e.to_numpy(), strata=strata)
+        return {"hypothesis": label} | {k: t[k] for k in TEST_COLUMNS} | {
+            "sequences": t["sequences"], "mean": t["mean"]}  # fmt: skip
+
+    b_retro, b_pro = retro, pro[pro["model"] == B_MODEL]
+    both = pd.concat([b_retro.assign(part="retrospective"), b_pro.assign(part="prospective")])
+    parts = both.groupby("sequence_id")["part"].first()
+    rows = [
+        {"model": B_MODEL}
+        | test("B", both, parts.reindex(sequence_effects(both).index).to_numpy()),
+        {"model": B_MODEL} | test("B retrospective part", b_retro),
+        {"model": B_MODEL} | test("B prospective part", b_pro),
+        {"model": S2_MODEL} | test("S2", pro[pro["model"] == S2_MODEL]),
+    ]
+    strict = live[live["kind"] == "strict"]
+    s5 = contrasts(strict, sequences, live_elapsed, (B_MODEL, S2_MODEL), sets) if len(strict) else (
+        pd.DataFrame())  # fmt: skip
+    return pd.concat([pd.DataFrame(rows), s5.assign(hypothesis="S5")], ignore_index=True)

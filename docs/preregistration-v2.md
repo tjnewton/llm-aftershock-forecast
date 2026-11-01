@@ -299,12 +299,16 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     contrasts S3 and S4 (dS against each pipeline baseline on the model's own test cells), the
     assay-sensitivity test, and the informative-sequence estimand, whose official mean is the
     integral of the official quantile function over its published fractile grid.
-  - **TO BUILD:**
-    - S5 (with the prospective inputs);
-    - the prospective inputs to test B (its two-part bootstrap is built: `noninferiority(...,
-      strata=...)` resamples each part at its own size, with the stratified standard error);
-    - S2;
-    - the listed sensitivity analyses.
+  - Built: the prospective inputs (`laf confirmatory --live <worktree of live>`;
+    `laf.live_scores`): every released issue is scored on the outcome snapshot (counts in the
+    item's own circle and windows; matched items against the official version, strict items
+    against the pipeline's baselines only). Test B joins its retrospective part (origin before
+    L) and its prospective part (M>=5 at the first issue, origin in [L, S), on-time matched
+    items) in the two-part bootstrap (`noninferiority(..., strata=...)`: each part resampled
+    at its own size, with the stratified standard error), and is reported for each part alone;
+    S2 is gpt-6.1-sol on the same prospective items; S5 contrasts the strict items with each
+    baseline. Every live item is listed with its on-time, failed and missed answers.
+  - **TO BUILD:** the listed sensitivity analyses.
 
 ## 7. Invalid outputs
 - An invalid answer gets the worst score in its cell from a fixed pool (decided 2026-10-31). Invalid means a schema
