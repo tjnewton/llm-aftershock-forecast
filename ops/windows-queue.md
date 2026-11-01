@@ -112,8 +112,21 @@ notes: Dry run of the live arm (docs/adr/0017-live-pipeline.md). It polls ComCat
   - It fetches from ComCat. This IP does no other fetching, and the Mac's fetches come from a different IP.
   - It keeps running after its done line. Mark T09 done as soon as the service is started (the done line gives the process id).
   In every later iteration:
-  - If runs/live-dryrun/log.jsonl changed, commit runs/live-dryrun/ with the commit message above (counts from log.jsonl) and push. Do this about every 30 minutes; it is not a new task.
-  - If the process has died, restart it the same way. Append `T09 restarted <UTC time> <last line of stderr.log>` to the status file.
+  - If the log changed, commit it with the commit message above (counts from log.jsonl) and push. Do this about every 30 minutes; it is not a new task. Once T10 is done, the log lives in the worktree ..\laf-live-dryrun on branch `live-dryrun`; commit and push there as T10 step 4 does, never on post-submission. Before T10 is done, commit runs/live-dryrun/ on post-submission as before.
+  - If the process has died, restart it (once T10 is done, as T10 step 3 does). Append `T09 restarted <UTC time> <last line of stderr.log>` to the status file.
   Do not stop the loop for idleness while the service runs; schedule iterations about every 1800 s. Other ready tasks still run normally alongside it. Stop the service only when this queue says so.
+
+## T10 live-dryrun-branch
+status: ready
+server: none (no llama-server)
+prepare: git pull; git fetch origin live-dryrun
+run: move the dry-run log to its own branch, from the repo root, in this order:
+  1. Create a second worktree next to the repo root: `git worktree add -b live-dryrun ..\laf-live-dryrun origin/live-dryrun`
+  2. Stop the T09 service (its uv, laf.exe and python processes; ids in the latest T09 done or restarted line of the status file). Then copy runs\live-dryrun\log.jsonl, state.json, stdout.log and stderr.log over the files in ..\laf-live-dryrun\runs\live-dryrun\ (the local log.jsonl is append-only, so it holds every line of the branch's copy and more).
+  3. Restart the service with its output in the new worktree: Start-Process -FilePath uv -ArgumentList "run","laf","live-watch","--out","..\laf-live-dryrun\runs\live-dryrun" -WindowStyle Hidden -RedirectStandardOutput ..\laf-live-dryrun\runs\live-dryrun\stdout.log -RedirectStandardError ..\laf-live-dryrun\runs\live-dryrun\stderr.log (it keeps the default --live-data data/interim/live-dryrun and resumes from state.json).
+  4. Commit and push on the log branch: `git -C ..\laf-live-dryrun add runs/live-dryrun`, then `git -C ..\laf-live-dryrun commit -m "Live dry run: log update (N polls, M detections)"`, then `git -C ..\laf-live-dryrun push origin live-dryrun`.
+outputs: branch live-dryrun holding the whole log; the service writing to ..\laf-live-dryrun\runs\live-dryrun\
+commit: on live-dryrun only: Live dry run: log update (N polls, M detections)
+notes: Tyler's decision of 2026-11-01: the log commits leave post-submission (86 of its 156 commits since 2026-10-30 were log updates). After this task, never commit runs/live-dryrun/ on post-submission; the Mac removes that folder there after this task's done line. Commits in ..\laf-live-dryrun run that branch's own hooks (identity, secrets, message; no tests, since the branch holds no code). The done line gives the new process ids and the pushed commit.
 
 ## END
