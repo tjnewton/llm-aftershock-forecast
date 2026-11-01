@@ -20,7 +20,7 @@ def sequence_effects(cells: pd.DataFrame) -> pd.Series:
 
 def noninferiority(
     effects: np.ndarray, delta: float = DELTA, alpha: float = 0.05, b: int = B, seed: int = SEED,
-    method: str = "student",
+    method: str = "student", strata: np.ndarray | None = None,
 ) -> dict:  # fmt: skip
     """H0: mean dS >= delta against H1: mean dS < delta (the model is not worse by delta or
     more), with resampled sequences.
@@ -29,9 +29,21 @@ def noninferiority(
     se*, the upper bound is mean - q_alpha(T*) se, and the p-value is the share of T* at or below
     (mean - delta) / se. `method="percentile"`: the (1 - alpha) quantile of the bootstrap means,
     and the share of them at or above delta. Either way p <= alpha and upper < delta agree, and
-    `p_sup` tests H0: mean dS >= 0. Superiority: the upper bound is below 0."""
+    `p_sup` tests H0: mean dS >= 0. Superiority: the upper bound is below 0.
+
+    `strata` (one label per sequence; test B's retrospective and prospective parts) resamples
+    each stratum separately at its own size, with the stratified standard error
+    sqrt(sum_h (n_h/n)^2 s_h^2 / n_h). Strata with fewer than two sequences cannot give a
+    spread, so then all sequences are resampled together."""
     x = np.asarray(effects, dtype=float)
     n = len(x)
+    if strata is not None:
+        labels = np.asarray(strata)
+        levels = np.unique(labels)
+        if len(levels) > 1 and all(int(np.sum(labels == h)) >= 2 for h in levels):
+            if method != "student":  # the registered bound; no stratified percentile variant
+                raise ValueError("strata take the registered bootstrap-t (method='student')")
+            return _stratified(x, labels, levels, delta, alpha, b, seed)
     if n < 2:  # no spread to estimate from one sequence (or none): no claim
         return {"sequences": n, "mean": float(x.mean()) if n else float("nan"),
                 "upper": float("inf"), "p": 1.0, "p_sup": 1.0,
@@ -63,6 +75,36 @@ def noninferiority(
     return {
         "sequences": n, "mean": mean, "upper": upper, "p": p, "p_sup": p_sup,
         "noninferior": upper < delta, "superior": upper < 0,
+    }  # fmt: skip
+
+
+def _stratified(x, labels, levels, delta, alpha, b, seed) -> dict:
+    """The bootstrap-t of `noninferiority` with stratified resampling."""
+    groups = [x[labels == h] for h in levels]
+    n = len(x)
+    rng = np.random.default_rng(seed)
+    draws = [g[rng.integers(0, len(g), size=(b, len(g)))] for g in groups]
+    mean = float(x.mean())
+    boot = np.concatenate(draws, axis=1).mean(axis=1)
+
+    def se_of(parts, axis=None):
+        return np.sqrt(sum((len(g) / n) ** 2 * np.var(d, axis=axis, ddof=1) / len(g)
+                           for g, d in zip(groups, parts, strict=True)))  # fmt: skip
+
+    se = float(se_of(groups))
+    se_b = se_of(draws, axis=1)
+    diff = boot - mean
+    degenerate = np.where(diff > 0, np.inf, np.where(diff < 0, -np.inf, 0.0))
+    t = np.where(se_b > 0, diff / np.where(se_b > 0, se_b, 1.0), degenerate)
+    if not np.isfinite(se) or se == 0:
+        upper, p, p_sup = float("inf"), 1.0, 1.0
+    else:
+        upper = float(mean - np.quantile(t, alpha, method="inverted_cdf") * se)
+        p = (1 + int(np.sum(t <= (mean - delta) / se))) / (b + 1)
+        p_sup = (1 + int(np.sum(t <= mean / se))) / (b + 1)
+    return {
+        "sequences": n, "mean": mean, "upper": upper, "p": p, "p_sup": p_sup,
+        "noninferior": upper < delta, "superior": upper < 0, "strata": len(levels),
     }  # fmt: skip
 
 

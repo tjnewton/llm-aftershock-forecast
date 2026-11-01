@@ -153,8 +153,12 @@ def test_a_published_seal_gets_its_github_receipt_on_a_later_poll(tmp_path, monk
     def get(url):
         return activity if "api.github.com" in url else _get()(url)
 
+    added = []
+    monkeypatch.setattr(W, "add_record", lambda wt, rel, name, r: added.append((rel, name, r)))
     W.step(tmp_path, tmp_path, state, get, publish_to=tmp_path)
     rec = [r for r in _log(tmp_path) if r["kind"] == "receipt"]
+    assert [(a[0], a[1], a[2]["receipt_ms"]) for a in added] == [
+        (f"nc75458907/{newest}", "receipt.json", 1_001_000)]  # kept beside its seal  # fmt: skip
     assert len(rec) == 1 and rec[0]["receipt_ms"] == 1_001_000 and state["receipts"] == []
     assert rec[0]["matched_receipt_margin_s"] == 599.0 and rec[0]["receipt_lag_s"] == 1.0
 

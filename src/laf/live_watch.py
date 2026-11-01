@@ -24,7 +24,16 @@ from pathlib import Path
 
 from laf.generic_rj import REFERENCE_REL
 from laf.prospective import is_aftershock, live_budget, qualifies, run_issue
-from laf.publish import SEALS, branch, publish, push_pending, push_receipt, release, released
+from laf.publish import (
+    SEALS,
+    add_record,
+    branch,
+    publish,
+    push_pending,
+    push_receipt,
+    release,
+    released,
+)
 from laf.registry import Sequence
 from laf.usgs import FDSN, download, event_url, fetch_sequence, iso
 
@@ -126,10 +135,12 @@ def live_issue(
     }  # fmt: skip
 
 
-def check_receipts(out: Path, state: dict, get=download) -> None:
+def check_receipts(out: Path, state: dict, get=download, publish_to: Path | None = None) -> None:
     """Look up GitHub's push time for each published answers seal not yet confirmed and log it
-    with the matched item's margin from that receipt (the registered on-time criterion). A
-    receipt still missing after a day is logged as missing."""
+    with the matched item's margin from that receipt (the registered on-time criterion). The
+    receipt is also committed beside its seal (`receipt.json`), so the branch keeps the
+    evidence however long GitHub keeps its activity list. A receipt still missing after a day
+    is logged as missing."""
     keep = []
     for r in state.get("receipts", []):
         try:
@@ -140,6 +151,17 @@ def check_receipts(out: Path, state: dict, get=download) -> None:
             margin_s, lag_s = (r["matched_first_ms"] - ms) / 1000, (ms - r["pushed_ms"]) / 1000
             _log(out, {"kind": "receipt", **r, "receipt_ms": ms,
                        "matched_receipt_margin_s": margin_s, "receipt_lag_s": lag_s})  # fmt: skip
+            if publish_to and r.get("rel"):
+                rec = {"commit": r["commit"], "receipt_ms": ms, "pushed_ms": r["pushed_ms"],
+                       "source": f"api.github.com/repos/{r['repo']}/activity (push to "
+                                 f"{r['branch']})"}  # fmt: skip
+                try:
+                    add_record(publish_to, r["rel"], "receipt.json", rec)
+                except Exception as e:  # logged above; the branch copy can be added by hand
+                    _log(
+                        out,
+                        {"kind": "receipt_record", **r, "error": f"{type(e).__name__}: {e}"[:300]},
+                    )
         elif _now_ms() - r["pushed_ms"] > 86_400_000:
             _log(out, {"kind": "receipt", **r, "receipt_ms": None})
         else:
@@ -182,7 +204,7 @@ def step(
         _log(out, {**rec, "error": f"{type(e).__name__}: {e}"[:300]})
         return state
     _log(out, {**rec, "events": len(ids)})
-    check_receipts(out, state, get)
+    check_receipts(out, state, get, publish_to)
     if publish_to:
         try:  # anything an earlier failed push left behind goes first
             if n := push_pending(publish_to):
@@ -218,6 +240,7 @@ def step(
             if answers.get("commit") and answers.get("repo"):
                 state.setdefault("receipts", []).append({
                     "key": key, "update_ms": built["matched_update_ms"],
+                    "rel": f"{event_id}/{built['matched_update_ms']}",
                     "matched_first_ms": built["matched_first_ms"],
                     **{k: answers[k] for k in ("repo", "branch", "commit", "pushed_ms")},
                 })  # fmt: skip

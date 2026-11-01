@@ -195,6 +195,8 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     (`laf.publish`): each seal file is pushed at once, then its OpenTimestamps proofs from
     three public calendars, and GitHub's push receipt is read from the repository activity
     API. The dry run publishes to the branch `live-test`, the study to `live`.
+  - Each push receipt is committed beside its seal (`receipt.json`), so the on-time evidence
+    stays on the branch whatever GitHub's activity retention.
   - Built: the release. Each poll, the detector releases every issue whose forecast windows
     have all closed: the files named in its seals' manifests, each checked against the hash
     published on the branch (a mismatch is never released), with a NOTICE that they are not
@@ -299,7 +301,8 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     outside the primary and secondary lists (Sonnet 4.6 among them) get no test row.
   - **TO BUILD:**
     - the contrasts with the baselines (S3, S4, S5) and the assay-sensitivity test;
-    - the prospective inputs and the two-part test B;
+    - the prospective inputs to test B (its two-part bootstrap is built: `noninferiority(...,
+      strata=...)` resamples each part at its own size, with the stratified standard error);
     - S2;
     - the listed sensitivity analyses.
 
