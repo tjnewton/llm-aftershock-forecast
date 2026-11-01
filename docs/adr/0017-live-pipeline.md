@@ -115,6 +115,16 @@ These replace decisions 1-2 above where they conflict (docs/preregistration-v2.m
     on both: `laf live-watch --paid --publish <worktree of live>`. Windows needs both API keys
     in its `.env` (Tyler), and the worker prompt allows API calls for this service only.
 
+14. **Host, revised (Tyler, 2026-11-01): the Windows machine runs the paid live arm for its
+    whole duration**, replacing decision 13's handover to GitHub Actions. An issue's full records
+    (the forecasts) must stay private until its windows close, more than a month later, and a
+    GitHub Actions run keeps nothing between runs: its disk is wiped, and artifacts of a public
+    repository can be downloaded by anyone. On Windows the records wait on disk until the
+    release (`laf.publish.release`). Downtime is the risk: issues missed while the service is
+    down are listed as missed, and the 6-month clock does not pause. If Windows proves
+    unreliable, the fallback is GitHub Actions with a second, private repository holding the
+    records until release.
+
 ## The paid path (2026-11-01)
 - **Live reserve:** each provider's monthly cap is split. Batch and one-off runs may spend the
   cap minus `LAF_<PROVIDER>_LIVE_RESERVE_USD`; the live service may spend only the reserve.
@@ -134,6 +144,8 @@ These replace decisions 1-2 above where they conflict (docs/preregistration-v2.m
 3. ~~The strict window rounding~~: decided 2026-11-01 (decision 11).
 
 ## Changelog
+- 2026-11-01: decision 14 (Windows hosts the whole live arm; GitHub Actions cannot hold the
+  records privately until release).
 - 2026-11-01: decision 13 (host); the paid path (live reserve, ledger, priority, guards).
 - 2026-11-01: decisions 11-12 (strict window rule final, live start).
 - 2026-10-31: decisions 5-10 (from the prereg v2 checks); decisions 1-2 replaced where they conflict.
