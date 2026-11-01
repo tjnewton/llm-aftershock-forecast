@@ -214,6 +214,12 @@ def main(argv: list[str] | None = None) -> None:
     cz.add_argument("--snapshot", required=True)
     cz.add_argument("--runs", type=Path, default=Path("runs/d2"))
     cz.add_argument("--sims", type=int, default=1000)
+    cd = sub.add_parser(
+        "candidates", help="supplementary candidates at L (prereg v2 section 5; ComCat lists)"
+    )
+    cd.add_argument("--since", required=True, help="first origin day, e.g. 2026-10-29")
+    cd.add_argument("--until", required=True, help="day after the last origin (L's day + 1)")
+    cd.add_argument("--out", type=Path, default=Path("config/sequences_supplementary.toml"))
     cf = sub.add_parser(
         "confirmatory-dryrun",
         help="ADR 0018 tests on development D2 answers (no API; a rehearsal, not a result)",
@@ -786,6 +792,12 @@ def main(argv: list[str] | None = None) -> None:
         path = Path("results") / f"confirmatory_size_d2_{a.snapshot}.csv"
         pd.DataFrame(rows).to_csv(path, index=False, lineterminator="\n")
         print(f"-> {path}")
+    elif a.cmd == "candidates":
+        from laf.candidates import select, write_config
+
+        sel = select(a.data_dir, a.since, a.until)
+        write_config(sel, a.out, a.since, a.until)
+        print(f"{len(sel)} candidates -> {a.out}")
     elif a.cmd == "confirmatory-dryrun":
         import pandas as pd
 
