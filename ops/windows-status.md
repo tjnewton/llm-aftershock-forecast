@@ -29,3 +29,4 @@ T10 done 2026-11-01T14:51Z e441f00a worktree ..\laf-live-dryrun on live-dryrun; 
 T11 running 2026-11-01T14:51Z
 T11 done 2026-11-01T14:51Z none no second restart needed: the T10 restart at 14:50Z already ran 2bb4612b (PR #59 merged; uv rebuilt laf at start), same pids (uv 31616, laf.exe 39556, python 38364/8476); its first poll at 14:50:30Z left no traceback in stderr.log; no detection yet, so no "pipeline" line to check
 T12 running 2026-11-01T16:02Z
+T12 done 2026-11-01T16:12Z none worktree ..\laf-live-test on live-test (3a5bd26a); service stopped right after the 16:10Z poll (uv 31616, laf.exe 39556, python 38364/8476); restarted 16:11Z with --publish ..\laf-live-test on b6c64d47 (PR #62 and #65; no --paid, so no model clients): uv pid 27812 (laf.exe 38404, python 33040/31896); its first poll at 16:11:05Z left stderr.log empty; no detection yet, so no seal pushed; log pushed on live-dryrun 141620a1 (304 polls, 167 detections)
