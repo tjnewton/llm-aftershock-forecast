@@ -687,15 +687,18 @@ def main(argv: list[str] | None = None) -> None:
             start = live_start_ms(a.live)
             if start is None:
                 raise SystemExit(f"{a.live}: no sealed live record")
+            from laf.confirmatory import informative
+
             lv = live_report(samples, live_samples(a.live, tables), tables["sequences"], elapsed,
-                             start, stop_ms())  # fmt: skip
+                             start, stop_ms(), informative(tables))  # fmt: skip
             path = Path("results") / f"confirmatory_live_{a.snapshot}.csv"
             lv.to_csv(path, index=False, lineterminator="\n")
-            # S3/S4 for Opus 5.5 and gpt-6.1-sol now come from their full sets (B, S2): drop the
-            # retrospective-only rows from the secondary table
+            # S3/S4, the assay and the informative estimand for Opus 5.5 and gpt-6.1-sol now come
+            # from their full sets (B, S2): drop the retrospective-only rows
             from laf.confirmatory import B_MODEL, S2_MODEL
 
-            stale = sec["hypothesis"].isin(["S3", "S4"]) & sec["model"].isin([B_MODEL, S2_MODEL])
+            redone = ["S3", "S4", "assay", "informative"]
+            stale = sec["hypothesis"].isin(redone) & sec["model"].isin([B_MODEL, S2_MODEL])
             sec[~stale].to_csv(Path("results") / f"confirmatory_secondary_{a.snapshot}{tag}.csv",
                                index=False, lineterminator="\n")  # fmt: skip
             print(lv.round(3).to_string(index=False))

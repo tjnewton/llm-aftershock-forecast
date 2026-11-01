@@ -141,8 +141,13 @@ def test_test_b_joins_its_two_parts_and_s2_s5_use_the_live_items(monkeypatch):
            for m in ("claude-opus-5-5", "gpt-6.1-sol") for i in range(6)]
     )  # fmt: skip
     elapsed = {i: 2.0 for i in retro["item_id"]}
-    recs = C.live_report(retro, live, seqs, elapsed, start, None).to_dict("records")
-    t = {r["hypothesis"]: r for r in recs if r["hypothesis"] != "S5"}
+    keep = {"r0", "r1", "p0", "p1", "p2"}
+    recs = C.live_report(retro, live, seqs, elapsed, start, None, keep).to_dict("records")
+    t = {r["hypothesis"]: r for r in recs if r["hypothesis"] not in ("S5", "assay", "informative")}
+    assay = {r["model"]: r for r in recs if r["hypothesis"] == "assay"}
+    assert set(assay) == {"claude-opus-5-5", "gpt-6.1-sol"}  # on the full B and S2 cells
+    info = {r["model"]: r["sequences"] for r in recs if r["hypothesis"] == "informative"}
+    assert info == {"claude-opus-5-5": 5, "gpt-6.1-sol": 3}
     assert t["B"]["sequences"] == 12  # 6 retrospective + 6 prospective; late and M4.6 out
     assert t["B retrospective part"]["sequences"] == t["B prospective part"]["sequences"] == 6
     assert t["S2"]["sequences"] == 6 and t["S2"]["noninferior"]

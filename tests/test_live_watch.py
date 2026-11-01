@@ -228,3 +228,15 @@ def test_issues_are_released_only_after_every_window_closed(tmp_path, monkeypatc
     assert released == ["us1/1"]  # us1/2's month window is still open
     logged = {r["rel"]: r for r in _log(tmp_path) if r["kind"] == "release"}
     assert set(logged) == {"us1/1", "us4/1"} and "JSONDecodeError" in logged["us4/1"]["error"]
+
+
+def test_the_inclusion_record_is_written_before_the_issue_runs(tmp_path, monkeypatch):
+    added = []
+    monkeypatch.setattr(W, "add_record", lambda wt, rel, name, r: added.append(name))
+
+    def boom(*a, **k):
+        raise RuntimeError("baselines failed after the answers were published")
+
+    monkeypatch.setattr(W, "live_issue", boom)
+    W.step(tmp_path, tmp_path, {}, _get(), publish_to=tmp_path)
+    assert added == ["inclusion.json"]

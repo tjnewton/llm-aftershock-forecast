@@ -462,6 +462,7 @@ B_MODEL, S2_MODEL = "claude-opus-5-5", "gpt-6.1-sol"
 def live_report(
     samples: pd.DataFrame, live: pd.DataFrame, sequences: pd.DataFrame,
     elapsed: dict[str, float], live_start_ms: int, stop_ms: int | None,
+    informative_ids: set[str] | None = None,
 ) -> pd.DataFrame:  # fmt: skip
     """Test B in its two parts, S2 and S5 (prereg v2 sections 2, 5 and 6).
 
@@ -473,7 +474,9 @@ def live_report(
     Test B resamples the parts separately and is also reported for each part alone. S2:
     gpt-6.1-sol on the prospective matched items. S5: the strict items of the same sequences
     against each pipeline baseline (superiority over the rule of thumb and generic RJ, an
-    interval against ETAS)."""
+    interval against ETAS). The assay-sensitivity test and, given `informative_ids`
+    (`informative(tables)`), the informative-sequence estimand are computed on the same full
+    B and S2 cells."""
     origin = sequences.set_index("sequence_id")["origin_ms"]
     retro = confirmatory_cells(samples, sequences, elapsed)
     retro = retro[(retro["model"] == B_MODEL)
@@ -511,10 +514,10 @@ def live_report(
         p = confirmatory_cells(matched, sequences, live_elapsed, reference=ref, sets=sets) if (
             len(matched)) else r.iloc[:0]  # fmt: skip
         for model, label, retro_part in ((B_MODEL, "B", r), (S2_MODEL, "S2", r.iloc[:0])):
-            both = pd.concat([retro_part.assign(part="retrospective"),
-                              p[p["model"] == model].assign(part="prospective")])  # fmt: skip
-            e = sequence_effects(both)
-            st = both.groupby("sequence_id")["part"].first().reindex(e.index).to_numpy()
+            joined = pd.concat([retro_part.assign(part="retrospective"),
+                                p[p["model"] == model].assign(part="prospective")])  # fmt: skip
+            e = sequence_effects(joined)
+            st = joined.groupby("sequence_id")["part"].first().reindex(e.index).to_numpy()
             mean = float(e.mean()) if len(e) else np.nan
             row = {"hypothesis": hyp, "model": model, "reference": ref, "kind": kind,
                    "set": label, "sequences": len(e), "mean": mean}  # fmt: skip
@@ -524,6 +527,17 @@ def live_report(
             else:
                 row["lower95"], row["upper95"] = _two_sided(e.to_numpy(), strata=st)
             rows.append(row)
+    # assay sensitivity and the informative estimand on the same full sets
+    full = {B_MODEL: both, S2_MODEL: pro[pro["model"] == S2_MODEL]}
+    for model, cells in full.items():
+        if len(cells):
+            rj = pd.concat([samples, matched]) if len(matched) else samples
+            rows.append(
+                {"hypothesis": "assay"} | assay(rj, cells.assign(model=model)).iloc[0].to_dict()
+            )
+        if informative_ids is not None:
+            keep = cells[cells["sequence_id"].isin(informative_ids)]
+            rows.append({"model": model} | test("informative", keep))
     strict = live[(live["kind"] == "strict") & live["on_time"]]  # sealed before its windows
     s5 = contrasts(strict, sequences, live_elapsed, (B_MODEL, S2_MODEL), sets) if len(strict) else (
         pd.DataFrame())  # fmt: skip
