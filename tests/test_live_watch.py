@@ -194,8 +194,8 @@ def test_paid_runs_publish_to_live_and_the_dry_run_never_does(tmp_path, monkeypa
     on[0] = "live"
     with pytest.raises(SystemExit, match="never publishes to live"):
         W.run(tmp_path, tmp_path, Path("data"), polls=0, publish_to=tmp_path)
-    from laf import prospective
+    from laf import runner
 
-    monkeypatch.setattr(prospective, "env_value", lambda var: "")
-    with pytest.raises(SystemExit, match="LIVE_RESERVE"):  # before any client or poll
+    monkeypatch.setattr(runner, "env_value", lambda var: "")
+    with pytest.raises(SystemExit, match="not set"):  # caps and reserves, before any poll
         W.run(tmp_path, tmp_path, Path("data"), polls=0, publish_to=tmp_path, paid=True)

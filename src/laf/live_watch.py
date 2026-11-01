@@ -105,8 +105,12 @@ def live_issue(
     fetch_s = time.time() - t0
     pub = partial(publish, publish_to) if publish_to else None
     budget = partial(live_budget, publish_to) if clients and publish_to else None
+
+    def seen(rel: str) -> bool:  # the branch, not this host's state, says what was issued
+        return bool(publish_to) and (publish_to / rel / "answers.seal.json").exists()
+
     rec = run_issue(clients, data_dir, snap, seq, data_dir / "issues", dry_run=clients is None,
-                    publish=pub, budget=budget or (lambda: {}))  # fmt: skip
+                    publish=pub, budget=budget or (lambda: {}), issued=seen)  # fmt: skip
     if "skipped" in rec:
         return {"fetch_s": fetch_s, "matched_update_ms": rec["update_ms"], "slot": None,
                 "skipped": rec["skipped"]}  # fmt: skip

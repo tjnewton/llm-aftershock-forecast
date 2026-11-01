@@ -20,9 +20,9 @@ from laf import openai_runner as O
 from laf.items import Item, build_items
 from laf.live import live_tables, next_full_hour
 from laf.prompts import render, schema_for
-from laf.providers import anthropic_params, call_anthropic, cost_usd, env_value
+from laf.providers import anthropic_params, call_anthropic, cost_usd
 from laf.registry import Sequence
-from laf.runner import CAP_VAR, remaining_usd, reserve_var
+from laf.runner import CAP_VAR, remaining_usd, reserve_var, usd_var
 
 LIVE_MODELS = ("claude-opus-5-5", "gpt-6.1-sol")  # in budget priority (prereg v2 section 5)
 K = 3
@@ -161,10 +161,11 @@ def live_budget(ledger: Path, month: str | None = None) -> dict[str, float]:
                 spent[r["provider"]] += r["usd"]
     out = {}
     for prov, cap_var in (("claude", CAP_VAR), ("openai", O.CAP_VAR)):
-        reserve = env_value(reserve_var(cap_var))
-        if not reserve:
-            raise SystemExit(f"{reserve_var(cap_var)} not set: the live service spends only it")
-        out[prov] = float(reserve) - spent[prov]
+        cap = usd_var(cap_var, required=True)  # finite, >= 0
+        reserve = usd_var(reserve_var(cap_var), required=True)
+        if reserve > cap:
+            raise SystemExit(f"{reserve_var(cap_var)} ${reserve:.2f} exceeds {cap_var} ${cap:.2f}")
+        out[prov] = reserve - spent[prov]
     return out
 
 
@@ -305,18 +306,22 @@ def is_aftershock(lat: float, lon: float, origin_ms: int, mag: float, get=None) 
 
 def run_issue(clients, data_dir: Path, snapshot: str, seq: Sequence, out_root: Path, *,
               dry_run: bool = False, clock=time.time, publish=None,
-              budget=local_budget) -> dict:  # fmt: skip
+              budget=local_budget, issued=lambda rel: False) -> dict:  # fmt: skip
     """One issue end to end; `dry_run` skips the model calls (no spend) and times the rest.
     Only versions the ADR 0004 schedule picks are forecast; others return a skip record.
     `budget()` gives what each provider may still spend (`local_budget`, or `live_budget` on
     the live branch's ledger). `publish(rel, seal_path, extra=...)` (`laf.publish.publish`
     bound to a worktree) pushes each seal as soon as it exists: the answers, with the issue's
-    spend file, before the baselines run. A publishing failure is recorded, never fatal."""
+    spend file, before the baselines run. A publishing failure is recorded, never fatal.
+    `issued(rel)` says whether the shared branch already holds this issue: then nothing is
+    run or paid again, whatever this host's local state says."""
     t0 = clock()
     tables, items, update_ms = issue(data_dir, snapshot, seq, int(t0 * 1000))
     slot = scheduled_slot(tables, update_ms)
     if slot is None:
         return {"skipped": "not a scheduled version (ADR 0004)", "update_ms": update_ms}
+    if issued(f"{seq.id}/{update_ms}"):
+        return {"skipped": "already published", "update_ms": update_ms}
     out = out_root / seq.id / str(update_ms)
     out.mkdir(parents=True, exist_ok=False)  # reserved before any paid call: no duplicate issue
     t1 = clock()

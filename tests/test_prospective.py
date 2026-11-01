@@ -186,16 +186,32 @@ def test_the_live_budget_is_the_reserve_minus_the_published_live_spend(tmp_path,
     assert len(rows) == 2 and all("text" not in r for r in rows)
     (tmp_path / "us1/1").mkdir(parents=True)
     (tmp_path / "us1/1/spend.jsonl").write_text(P._jsonl(rows))
+    monkeypatch.setenv("LAF_CLAUDE_MONTHLY_CAP_USD", "200")
+    monkeypatch.setenv("LAF_OPENAI_MONTHLY_CAP_USD", "50")
     monkeypatch.setenv("LAF_CLAUDE_LIVE_RESERVE_USD", "20")
     monkeypatch.setenv("LAF_OPENAI_LIVE_RESERVE_USD", "10")
     left = P.live_budget(tmp_path, month="2026-12")
     assert left["openai"] == pytest.approx(10 - 2.0)  # $2 per MTok input
     assert left["claude"] == pytest.approx(20 - P._cost("claude-opus-5-5", calls[0]["usage"]))
     assert P.live_budget(tmp_path, month="2027-01") == {"claude": 20.0, "openai": 10.0}
-    monkeypatch.setenv("LAF_OPENAI_LIVE_RESERVE_USD", "")
-    monkeypatch.setattr(P, "env_value", lambda var: "")
-    with pytest.raises(SystemExit, match="LIVE_RESERVE"):
-        P.live_budget(tmp_path)
+    for bad, why in (("60", "exceeds"), ("inf", "finite"), ("-1", "finite"), ("", "not set")):
+        monkeypatch.setenv("LAF_OPENAI_LIVE_RESERVE_USD", bad)  # above the $50 cap, or invalid
+        if not bad:
+            from laf import runner
+
+            monkeypatch.setattr(runner, "env_value", lambda var: "")
+        with pytest.raises(SystemExit, match=why):
+            P.live_budget(tmp_path)
+
+
+def test_an_issue_already_on_the_shared_branch_is_never_run_again(tmp_path, monkeypatch):
+    monkeypatch.setattr(P, "model_calls", lambda *a, **k: pytest.fail("paid twice"))
+    tables, items, update_ms = P.issue(Path("data"), SNAP, PANAMA, NOW)
+    monkeypatch.setattr(P, "issue", lambda *a: (tables, items, update_ms))
+    monkeypatch.setattr(P, "scheduled_slot", lambda t, u: "first")
+    rec = P.run_issue({}, Path("data"), SNAP, PANAMA, tmp_path,
+                      issued=lambda rel: rel == f"{PANAMA.id}/{update_ms}")  # fmt: skip
+    assert rec["skipped"] == "already published" and not any(tmp_path.iterdir())
 
 
 def test_qualification_rule():

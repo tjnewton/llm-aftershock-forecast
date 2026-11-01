@@ -9,6 +9,7 @@ records are released after their windows close. The study publishes to `live`; t
 `live-test`, so the study branch holds study records only.
 """
 
+import contextlib
 import hashlib
 import json
 import re
@@ -69,6 +70,8 @@ def _commit_push(worktree: Path, paths: list[str], message: str) -> str:
             if i == PUSH_ATTEMPTS - 1:
                 raise
             time.sleep(5 * (i + 1))
+            with contextlib.suppress(subprocess.CalledProcessError):  # another host pushed first
+                _git(worktree, "pull", "-q", "--rebase", "origin", branch(worktree))
     return _git(worktree, "rev-parse", "HEAD")
 
 
@@ -80,6 +83,8 @@ def publish(
     then the seal's calendar proofs. Returns the commit, the local time the push returned and
     the calendars that answered; a calendar failure is recorded, a push failure raises."""
     dest = worktree / rel
+    if (dest / seal.name).exists():
+        raise FileExistsError(f"{rel}/{seal.name} is already published: never overwritten")
     dest.mkdir(parents=True, exist_ok=True)
     data = seal.read_bytes()
     for f in (seal, *extra):

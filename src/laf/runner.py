@@ -222,7 +222,7 @@ def month_spend_usd(month: str, runs: Path = RUNS) -> float:
     return sum(usd for m, usd in spend_records(runs) if m == month)
 
 
-def _usd_var(var: str, *, required: bool) -> float:
+def usd_var(var: str, *, required: bool) -> float:
     raw = env_value(var)
     if not raw:
         if required:
@@ -244,7 +244,7 @@ def reserve_var(cap_var: str) -> str:
 
 def _limit(cap_var: str) -> float:
     """The monthly cap minus the live reserve (prereg v2 section 5; unset means none)."""
-    return _usd_var(cap_var, required=True) - _usd_var(reserve_var(cap_var), required=False)
+    return usd_var(cap_var, required=True) - usd_var(reserve_var(cap_var), required=False)
 
 
 def remaining_usd(runs: Path = RUNS, cap_var: str = CAP_VAR, month_spend=None) -> float:
