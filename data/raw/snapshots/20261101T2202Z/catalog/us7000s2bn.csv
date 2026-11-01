@@ -1,0 +1,5 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type,horizontalError,depthError,magError,magNst,status,locationSource,magSource
+2026-03-05T19:25:07.317Z,52.106,-168.9557,17,5.5,mww,124,111,0.828,1.04,us,us7000s2bn,2026-10-29T19:35:13.014Z,"92 km S of Nikolski, Alaska",earthquake,5.01,1.889,0.037,70,reviewed,us,us
+2026-03-05T19:39:48.164Z,51.997,-168.824,7.7,3.1,ml,19,234,1,0.9,ak,aka2026endwcr,2026-07-24T16:39:53.279Z,"104 km S of Nikolski, Alaska",earthquake,6.8,3.4239,0.2,15,reviewed,ak,ak
+2026-05-23T09:03:06.406Z,52.1389,-169.2425,10,4.9,mb,90,130,0.712,1.1,us,us6000szp8,2026-08-05T15:58:50.040Z,"92 km SSW of Nikolski, Alaska",earthquake,4.78,1.843,0.032,299,reviewed,us,us
+2026-05-23T09:15:34.887Z,52.1078,-169.1662,10,3.3,mb,29,181,0.761,0.72,us,us7000snqs,2026-08-05T15:58:50.040Z,"94 km SSW of Nikolski, Alaska",earthquake,3.88,1.929,0.162,9,reviewed,us,us

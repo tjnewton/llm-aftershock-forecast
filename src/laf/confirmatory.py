@@ -5,6 +5,8 @@ per-cell score differences (dS = S(model) - S(official), primary score, ADR 0015
 the snooping guard stay with the callers (laf.splits, ADR 0013).
 """
 
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 
@@ -287,16 +289,31 @@ def clean_from(model: str, rule: str = "buffered") -> pd.Timestamp:
     return start
 
 
+FORWARD_EXCLUDED = Path("config/sequences_forward_excluded.toml")
+
+
+def forward_excluded() -> frozenset[str]:
+    """The 3 candidates excluded only by a later, larger event (prereg v2 section 4): never in a
+    main analysis, only in the sensitivity analysis that includes them."""
+    import tomllib
+
+    seqs = tomllib.loads(FORWARD_EXCLUDED.read_text(encoding="utf-8"))["sequence"]
+    return frozenset(s["id"] for s in seqs)
+
+
 def eligible(
-    sequences: pd.DataFrame, model: str, min_mag: float = 5.0, rule: str = "buffered"
-) -> set[str]:
+    sequences: pd.DataFrame, model: str, min_mag: float = 5.0, rule: str = "buffered",
+    include_forward: bool = False,
+) -> set[str]:  # fmt: skip
     """Sequences whose mainshock is in the model's clean period and at least `min_mag` (the
-    M>=5 primary set; 0 gives every clean candidate, test A's sensitivity analysis)."""
+    M>=5 primary set; 0 gives every clean candidate, test A's sensitivity analysis). The
+    forward-excluded candidates count only with `include_forward`."""
     from laf.splits import development_ids
 
     clean_ms = clean_from(model, rule).value // 1_000_000
     s = sequences[(sequences["origin_ms"] >= clean_ms) & (sequences["mag"] >= min_mag - 1e-9)]
-    return set(s["sequence_id"]) - development_ids()  # development data is never confirmatory
+    out = set(s["sequence_id"]) - development_ids()  # development data is never confirmatory
+    return out if include_forward else out - forward_excluded()
 
 
 def confirmatory_cells(
@@ -308,6 +325,7 @@ def confirmatory_cells(
     sets: dict[str, set[str]] | None = None,
     variant: str = PRIMARY_PROMPT,
     rule: str = "buffered",
+    include_forward: bool = False,
 ) -> pd.DataFrame:
     """Per (model, cell) mean dS over the model's primary-prompt samples at its study effort,
     kept only on its eligible sequences, with the issue, window and stratum the hierarchical
@@ -336,7 +354,7 @@ def confirmatory_cells(
     ok = {
         m: (
             study_effort(m),
-            sets[m] if sets else eligible(sequences, m, mags.get(m, 5.0), rule),
+            sets[m] if sets else eligible(sequences, m, mags.get(m, 5.0), rule, include_forward),
         )
         # the release rule covers models with a recorded release date only
         for m in set(s["model"]) & set(sets or (RELEASED if rule == "release" else CLEAN_FROM))
