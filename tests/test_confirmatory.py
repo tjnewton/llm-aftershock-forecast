@@ -120,6 +120,7 @@ def test_confirmatory_cells_keep_eligible_primary_prompt_samples(monkeypatch):
                    ("gpt-5.1-2025-11-13", "b"): (0.2, "1 to 7 days")}  # fmt: skip
     assert C.study_effort("gpt-5.1-2025-11-13") == "medium"
     assert C.study_effort("claude-opus-4-6") == "medium"
+    assert C.study_effort("gpt-6.1-sol") == "high"
 
 
 def test_confirmatory_command_refuses_while_outcomes_are_sealed(tmp_path):
