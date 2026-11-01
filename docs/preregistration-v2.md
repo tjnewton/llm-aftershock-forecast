@@ -315,15 +315,18 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     same prospective items. S3 and S4 use each model's full set (B's two parts, S2's items).
     S5 contrasts the on-time strict items with each baseline. Every live item is listed with
     its on-time, failed and missed answers.
-  - Built, in one table (`laf.sensitivity`): test A on all clean candidates, the unbuffered
+  - Built (`laf.sensitivity`): in one table, test A on all clean candidates, the unbuffered
     and release-date clean rules, the non-overlapping subset, v2B, valid answers only, the
-    exact-match subset, the 2-day settling rule, the strata, and invalid rates by arm.
+    exact-match subset, the 2-day settling rule, the strata, and invalid rates by arm; the
+    scoring variants at M>=5 (log floors 1e-4 and 1e-8, the negative-binomial tail, full
+    distributions of the official forecast (its 197-point fractile grid) and the ETAS refit
+    (its simulated histogram), and the log-scale quantile score, which reports its estimate
+    and bound without delta); and per forecaster the floor-binding rates, cells above its 97.5%
+    quantile, N-test failures, the PIT's KS distance and information gain per earthquake.
     Release dates are the Models API creation dates, checked 2026-11-01: gpt-5.1 2025-11-10,
     Opus 4.6 2026-02-04, Sonnet 4.6 2026-02-17, gpt-6.1-sol 2026-09-27, Opus 5.5 2026-09-21.
   - **TO BUILD:** the remaining sensitivity analyses: with the 3 forward-excluded candidates;
-    the log-scale quantile score; full-distribution scores; the negative-binomial tail; log
-    floors with their binding rates; region radius x0.5 and x1.5; N-test, PIT and
-    information gain.
+    region radius x0.5 and x1.5.
 
 ## 7. Invalid outputs
 - An invalid answer gets the worst score in its cell from a fixed pool (decided 2026-10-31). Invalid means a schema

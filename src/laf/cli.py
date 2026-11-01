@@ -679,6 +679,15 @@ def main(argv: list[str] | None = None) -> None:
         invalid_rates(samples).to_csv(rates, index=False, lineterminator="\n")
         print(sens.round(3).to_string(index=False))
         print(f"-> {path}, {rates}")
+        from laf.sensitivity import diagnostics, scoring_variants
+
+        sv = scoring_variants(proc, runs, tables, elapsed, tested)
+        path = Path("results") / f"confirmatory_scoring_{a.snapshot}.csv"
+        sv.to_csv(path, index=False, lineterminator="\n")
+        diag = Path("results") / f"confirmatory_diagnostics_{a.snapshot}.csv"
+        diagnostics(proc, runs, tested).to_csv(diag, index=False, lineterminator="\n")
+        print(sv.round(3).to_string(index=False))
+        print(f"-> {path}, {diag}")
         if a.live:
             from laf.confirmatory import live_report
             from laf.live_scores import live_items, live_samples, live_start_ms
@@ -779,6 +788,15 @@ def main(argv: list[str] | None = None) -> None:
         sens.to_csv(path, index=False, lineterminator="\n")
         print(sens.round(3).to_string(index=False))
         print(f"-> {path} (development data)")
+        from laf.sensitivity import diagnostics, scoring_variants
+
+        sv = scoring_variants(proc, runs, tables, elapsed, tested, sets)  # minutes: the NB fits
+        path = Path("results") / f"confirmatory_dryrun_scoring_d2_{a.snapshot}.csv"
+        sv.to_csv(path, index=False, lineterminator="\n")
+        diag = Path("results") / f"confirmatory_dryrun_diagnostics_d2_{a.snapshot}.csv"
+        diagnostics(proc, runs, tested, sets).to_csv(diag, index=False, lineterminator="\n")
+        print(sv.round(3).to_string(index=False))
+        print(f"-> {path}, {diag} (development data)")
     elif a.cmd == "power":
         import pandas as pd
 
