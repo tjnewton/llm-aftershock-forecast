@@ -418,10 +418,10 @@ The freeze needs all of the following:
   - the baseline forecasts (ETAS refit with seeds), computed before any outcome is unsealed.
 - The tag opens the first software gate (`laf.splits`); every confirmatory outcome stays sealed
   behind the second gate until S + 90 days (section 5, no interim looks).
-- `laf freeze-manifest --snapshot 20261029T2000Z` writes the items (`items_m3.jsonl`) and the
-  baseline forecasts (`baselines_m3.jsonl`, with the ETAS refit of `laf etas`) without any
-  outcome, and the SHA-256 of every artifact above with one hash over the whole manifest
-  (`results/freeze_manifest_<snapshot>.json`).
+- `laf freeze-manifest --snapshot 20261029T2000Z 20261101T2202Z` writes, for the candidate and
+  the forward-excluded snapshots, the items (`items_m3.jsonl`) and the baseline forecasts
+  (`baselines_m3.jsonl`, with the ETAS refit of `laf etas`) without any outcome, and the SHA-256
+  of every artifact above with one hash over the whole manifest (`results/freeze_manifest.json`).
 - Confirmatory runs and live forecasting start after the tag.
 
 ## 12. Deviations
