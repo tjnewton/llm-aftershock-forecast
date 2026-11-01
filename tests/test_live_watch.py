@@ -46,7 +46,7 @@ def test_step_runs_each_new_version_once_and_keeps_polling_after_errors(tmp_path
     dets = [r for r in _log(tmp_path) if r["kind"] == "detection"]
     assert len(dets) == n and len(calls) == 1 and "last_poll_ms" in state
     assert all(r["tier"] == "secondary" and r["inclusion"] == "included" for r in dets)  # M4.01 nc
-    assert state["inclusion"] == {"nc75458907": ["secondary", "included"]}
+    assert state["inclusion"]["nc75458907"]["tier"] == "secondary"
     assert all(r["backlog"] for r in dets)  # versions published before the watch began
     own = [r for r in dets if r["update_ms"] == newest]
     assert len(own) == 1 and own[0]["slot"] == "first" and not own[0]["superseded"]
@@ -84,26 +84,47 @@ def test_aftershocks_and_small_events_are_not_run(tmp_path, monkeypatch):
               "geometry": {"coordinates": [lon + 0.01, lat, 8.0]}}  # fmt: skip
     state = W.step(tmp_path, tmp_path, {}, _get([bigger]))
     assert {r["inclusion"] for r in _log(tmp_path) if r["kind"] == "detection"} == {"aftershock"}
-    assert state["inclusion"] == {"nc75458907": [None, "aftershock"]}
+    assert state["inclusion"]["nc75458907"]["reason"] == "aftershock"
     small = json.loads(json.dumps(DOC))
     small["properties"]["mag"] = 3.9
     (tmp_path / "s").mkdir()
     vs = [v["update_ms"] for v in W.new_versions(DOC, set())]
-    small_state = {"seen": {"nc75458907": vs[:-1]}}  # the newest version arrives later
+    small_state: dict = {"seen": {"nc75458907": vs[:-1]}}  # the newest version arrives later
     W.step(tmp_path / "s", tmp_path, small_state, _get(doc=small))
     assert {r["inclusion"] for r in _log(tmp_path / "s") if "inclusion" in r} == {"magnitude"}
     # the magnitude at first detection decides: a later upgrade to M4.1 changes nothing
     small_state["seen"]["nc75458907"] = vs[:-2]
     small["properties"]["mag"] = 4.1
     W.step(tmp_path / "s", tmp_path, small_state, _get(doc=small))
-    assert small_state["inclusion"] == {"nc75458907": [None, "magnitude"]}
+    assert small_state["inclusion"]["nc75458907"]["reason"] == "magnitude"
+
+
+def test_a_failed_aftershock_query_is_retried_on_the_first_detection_values(tmp_path, monkeypatch):
+    calls = []
+    monkeypatch.setattr(W, "dry_issue", lambda *a, **k: calls.append(a) or {})
+    vs = [v["update_ms"] for v in W.new_versions(DOC, set())]
+    state: dict = {"seen": {"nc75458907": vs[:-2]}}
+
+    def down(url):
+        if "minmagnitude" in url:
+            raise TimeoutError("ComCat slow")
+        return _get()(url)
+
+    W.step(tmp_path, tmp_path, state, down)
+    assert state["inclusion"]["nc75458907"]["reason"] == "pending" and not calls
+    state["seen"]["nc75458907"] = vs[:-1]  # the next version arrives, magnitude revised down
+    revised = json.loads(json.dumps(DOC))
+    revised["properties"]["mag"] = 3.9
+    W.step(tmp_path, tmp_path, state, _get(doc=revised))
+    d = state["inclusion"]["nc75458907"]
+    assert (d["tier"], d["reason"], d["mag"]) == ("secondary", "included", 4.01) and calls
 
 
 def test_a_sequence_is_tracked_through_its_associated_ids(tmp_path, monkeypatch):
     vs = [v["update_ms"] for v in W.new_versions(DOC, set())]
     state = {
         "seen": {"us7000ttnj": vs[:-1]},
-        "inclusion": {"us7000ttnj": ["secondary", "included"]},
+        "inclusion": {"us7000ttnj": {"tier": "secondary", "reason": "included"}},
     }
     built = {"matched_update_ms": vs[-1], "slot": "1d"}
     monkeypatch.setattr(W, "dry_issue", lambda *a, **k: built)

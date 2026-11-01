@@ -67,21 +67,24 @@ def event_key(doc: dict, known) -> str:
 
 
 def inclusion(doc: dict, key: str, decided: dict, get=download) -> tuple[str | None, str]:
-    """(tier, reason) under prereg v2 section 4, decided at the sequence's first detection and
-    kept in `decided`: the magnitude rule (`qualifies`) on the magnitude then, then the backward
-    aftershock check. A later magnitude revision changes nothing either way."""
+    """(tier, reason) under prereg v2 section 4, decided on the values at the sequence's first
+    detection: the magnitude rule (`qualifies`), then the backward aftershock check. Those values
+    are kept in `decided` before the aftershock query, so a failed query is retried at the next
+    version on them, never on revised ones; a later magnitude revision changes nothing."""
     if key not in decided:
         p = doc["properties"]
-        mag = float(p["mag"])
-        tier = qualifies(mag, p.get("net") or "")
-        if tier is None:
-            decided[key] = [None, "magnitude"]
+        lon, lat, _ = doc["geometry"]["coordinates"]
+        tier = qualifies(float(p["mag"]), p.get("net") or "")
+        decided[key] = {"tier": tier, "reason": "pending" if tier else "magnitude",
+                        "mag": float(p["mag"]), "lat": lat, "lon": lon,
+                        "time_ms": int(p["time"])}  # fmt: skip
+    d = decided[key]
+    if d["reason"] == "pending":
+        if is_aftershock(d["lat"], d["lon"], d["time_ms"], d["mag"], get):
+            d["tier"], d["reason"] = None, "aftershock"
         else:
-            lon, lat, _ = doc["geometry"]["coordinates"]
-            after = is_aftershock(lat, lon, int(p["time"]), mag, get)
-            decided[key] = [None, "aftershock"] if after else [tier, "included"]
-    tier, reason = decided[key]
-    return tier, reason
+            d["reason"] = "included"
+    return d["tier"], d["reason"]
 
 
 def dry_issue(data_dir: Path, event_id: str, now_ms: int, get=download) -> dict:
