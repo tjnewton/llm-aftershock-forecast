@@ -33,9 +33,11 @@ from laf.runner import (
 
 API_BASE_URL = "https://api.openai.com/v1"
 CAP_VAR = "LAF_OPENAI_MONTHLY_CAP_USD"
-# USD per MTok, input and output (developers.openai.com model page, checked 2026-10-30); the
-# Batch API halves both. Cached input is billed here at the full input price (an overestimate).
-PRICES = {"gpt-5.1-2025-11-13": (1.25, 10.00)}
+# USD per MTok, input and output (developers.openai.com pricing page, checked 2026-10-30 and,
+# for gpt-6.1-sol, 2026-11-01); the Batch API halves both. Cached input is billed here at the
+# full input price (an overestimate). gpt-6.1-sol has no dated snapshot: each response's
+# reported model is logged (`model_reported`).
+PRICES = {"gpt-5.1-2025-11-13": (1.25, 10.00), "gpt-6.1-sol": (2.00, 10.00)}
 MAX_OUTPUT_TOKENS = 32_000
 ENDPOINT = "/v1/responses"
 
