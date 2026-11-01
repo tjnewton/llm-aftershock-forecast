@@ -155,7 +155,9 @@ def live_budget(ledger: Path, month: str | None = None) -> dict[str, float]:
     month = month or datetime.now(UTC).strftime("%Y-%m")
     spent = {"claude": 0.0, "openai": 0.0}
     for f in ledger.glob("**/spend.jsonl"):
-        for line in f.read_text(encoding="utf-8").splitlines():
+        for line in f.read_text(encoding="utf-8").split("\n"):  # model text may hold U+2028
+            if not line.strip():
+                continue
             r = json.loads(line)
             if r["started_utc"][:7] == month:
                 spent[r["provider"]] += r["usd"]

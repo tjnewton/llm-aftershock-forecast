@@ -50,7 +50,10 @@ def live(tmp_path_factory):
         calls.append({**calls[-1], "sample": 1, "model_reported": "gpt-other"})  # invalid
         calls.append({"item_id": it.item_id, "model_requested": "gpt-6.1-sol", "sample": 2,
                       "missed": "budget"})  # fmt: skip
-    (d / "calls.jsonl").write_text("".join(json.dumps(c) + "\n" for c in calls))
+    calls[0]["text"] = calls[0]["text"].replace("Synthetic.", "Line\u2028separator.")
+    # as `prospective._jsonl` writes them: raw non-ASCII, so U+2028 stays inside a string
+    calls_body = "".join(json.dumps(c, ensure_ascii=False) + "\n" for c in calls)
+    (d / "calls.jsonl").write_text(calls_body, encoding="utf-8")
     base = [{"forecaster": b, "item_id": it.item_id, "window": w.label,
              "m5": [0, 0, 0, 0, 0, 1, 1, 2, 2]}
             for b in BASELINES for it in items for w in it.windows]  # fmt: skip

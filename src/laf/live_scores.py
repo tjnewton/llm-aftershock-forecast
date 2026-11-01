@@ -29,7 +29,7 @@ from laf.splits import require_outcomes
 def _jsonl(path: Path) -> list[dict]:
     if not path.exists():
         return []
-    return [json.loads(x) for x in path.read_text(encoding="utf-8").splitlines() if x.strip()]
+    return [json.loads(x) for x in path.read_text(encoding="utf-8").split("\n") if x.strip()]
 
 
 def released(live: Path) -> list[Path]:
@@ -76,7 +76,7 @@ def live_samples(live: Path, tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
     settle_ms = PRIMARY_SETTLING_DAYS * 86_400_000
     rows = []
     for d in released(live):
-        lines = (d / "items.jsonl").read_text(encoding="utf-8").splitlines()
+        lines = (d / "items.jsonl").read_text(encoding="utf-8").split("\n")
         items = [Item.model_validate_json(x) for x in lines if x.strip()]
         require_outcomes({i.sequence_id for i in items})  # the second gate (laf.splits)
         if not (d / "baselines.jsonl").exists():
