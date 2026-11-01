@@ -363,3 +363,6 @@
 {"events": 1, "kind": "poll", "poll_ms": 1793502422988, "since_ms": 1793501822310}
 {"backlog": false, "build_s": 3.523, "detect_latency_s": 36.681, "event_id": "us6000u3jd", "index_ms": 1793502386307, "items_sha256": "9d73578b17e4988d05042149d220001a667c0f487620253f0902e885419eb64c", "kind": "detection", "mag": 5, "matched_margin_s": -427.181, "matched_update_ms": 1793502381318, "matched_window_start_ms": 1793502000000, "poll_ms": 1793502422988, "strict_margin_s": 3172.819, "strict_window_start_ms": 1793505600000, "superseded": false, "update_ms": 1793502381318}
 {"events": 0, "kind": "poll", "poll_ms": 1793503027193, "since_ms": 1793502422988}
+{"events": 0, "kind": "poll", "poll_ms": 1793503628097, "since_ms": 1793503027193}
+{"error": "HTTPError: HTTP Error 504: Gateway Time-out", "kind": "poll", "poll_ms": 1793504228912, "since_ms": 1793503628097}
+{"events": 0, "kind": "poll", "poll_ms": 1793504896128, "since_ms": 1793503628097}
