@@ -41,6 +41,8 @@ def noninferiority(
         labels = np.asarray(strata)
         levels = np.unique(labels)
         if len(levels) > 1 and all(int(np.sum(labels == h)) >= 2 for h in levels):
+            if method != "student":  # the registered bound; no stratified percentile variant
+                raise ValueError("strata take the registered bootstrap-t (method='student')")
             return _stratified(x, labels, levels, delta, alpha, b, seed)
     if n < 2:  # no spread to estimate from one sequence (or none): no claim
         return {"sequences": n, "mean": float(x.mean()) if n else float("nan"),

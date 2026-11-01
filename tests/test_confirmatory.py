@@ -224,3 +224,5 @@ def test_test_b_resamples_its_two_parts_separately():
     one = np.array(["prospective"] + ["retrospective"] * 29)  # a part of one: no spread
     assert C.noninferiority(x, strata=one) == pooled
     assert C.noninferiority(x, strata=np.array(["retrospective"] * 30)) == pooled
+    with pytest.raises(ValueError, match="bootstrap-t"):  # never a silent change of method
+        C.noninferiority(x, strata=parts, method="percentile")
