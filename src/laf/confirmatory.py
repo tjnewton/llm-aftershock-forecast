@@ -552,3 +552,17 @@ def live_report(
     s5 = contrasts(strict, sequences, live_elapsed, (B_MODEL, S2_MODEL), sets) if len(strict) else (
         pd.DataFrame())  # fmt: skip
     return pd.concat([pd.DataFrame(rows), s5.assign(hypothesis="S5")], ignore_index=True)
+
+
+V2B_MODELS = (*PRIMARY, "claude-opus-5-5")  # v2B robustness: the A and B models only
+
+
+def batch_items(items: list, sequences: pd.DataFrame, model: str, block: str) -> list:
+    """The items a confirmatory batch sends (prereg v2 sections 3 and 8): those of the model's
+    own clean set, by the rule the analysis applies (`eligible`). gpt-5.1's v2A batch covers all
+    its clean candidates (test A's sensitivity set); every other batch, the M>=5 set."""
+    if block == "confirmatory-v2b" and model not in V2B_MODELS:
+        raise SystemExit(f"v2B runs for {', '.join(V2B_MODELS)} only (prereg v2 section 3)")
+    min_mag = 0.0 if (model in PRIMARY and block == "confirmatory") else 5.0
+    keep = eligible(sequences, model, min_mag)
+    return [i for i in items if i.sequence_id in keep]

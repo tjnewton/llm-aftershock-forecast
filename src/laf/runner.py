@@ -101,6 +101,27 @@ BLOCKS: dict[str, dict] = {
         "effort": "study",
         "floor": 3.0,
     },
+    # confirmatory runs after the prereg-v2 tag (prereg v2 sections 3 and 8): each model at its
+    # study settings on its own clean set (`confirmatory.batch_items`); v2B for the A and B
+    # models only
+    "confirmatory": {
+        "roles": ("test-post",),
+        "arms": ("direct",),
+        "infos": ("I1",),
+        "paras": ("v2A",),
+        "k": 3,
+        "effort": "study",
+        "floor": 3.0,
+    },
+    "confirmatory-v2b": {
+        "roles": ("test-post",),
+        "arms": ("direct",),
+        "infos": ("I1",),
+        "paras": ("v2B",),
+        "k": 3,
+        "effort": "study",
+        "floor": 3.0,
+    },
 }
 CHARS_PER_TOKEN = 1.25  # below the pilot prompts' minimum (1.28; median 1.36): overestimates
 
