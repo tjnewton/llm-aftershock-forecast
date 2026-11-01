@@ -57,9 +57,10 @@ def _status(call: dict, window: str) -> tuple[str, list[float] | None]:
     return status, [parsed[window]["m5_count_quantiles"][k] for k in QKEYS]
 
 
-COLUMNS = ("item_id", "window", "sequence_id", "kind", "on_time", "part", "origin_ms", "mag",
-           "tier", "elapsed_days", "worst_base_d5", *(f"base_d5_{b}" for b in BASELINES), "model",
-           "effort", "variant", "sample", "status", "d5")  # fmt: skip
+COLUMNS = ("item_id", "window", "sequence_id", "table_sequence_id", "kind", "on_time", "part",
+           "origin_ms", "mag", "tier", "elapsed_days", "worst_base_d5",
+           *(f"base_d5_{b}" for b in BASELINES), "model", "effort", "variant", "sample", "status",
+           "d5")  # fmt: skip
 
 
 def live_samples(live: Path, tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
@@ -117,6 +118,7 @@ def live_samples(live: Path, tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
                     # grouped under the frozen key: a changed preferred ID is one sequence
                     "item_id": f"{it.item_id}#{d.name}", "window": w.key,
                     "sequence_id": inc.get("key") or it.sequence_id,
+                    "table_sequence_id": it.sequence_id,  # the ID in the outcome tables
                     "kind": kind, "on_time": on_time, "part": "prospective",
                     "origin_ms": it.mainshock.origin_ms, "mag": it.mainshock.mag, "tier": tier,
                     "elapsed_days": it.elapsed_days, "worst_base_d5": worst - off,

@@ -128,7 +128,7 @@ def _rows(model, sid, kind="matched", on_time=True, origin=10, d=-0.1, mag=5.5):
     return {"model": model, "effort": "high", "variant": "v2A", "status": "ok", "sample": 0,
             "sequence_id": sid, "item_id": f"{sid}@{kind}", "window": "day", "kind": kind,
             "on_time": on_time, "origin_ms": origin, "mag": mag, "elapsed_days": 2.0, "d5": d,
-            "tier": "primary" if mag >= 5 else "secondary",
+            "tier": "primary" if mag >= 5 else "secondary", "table_sequence_id": sid,
             "worst_base_d5": 1.0, **{f"base_d5_{b}": 0.5 for b in BASELINES}}  # fmt: skip
 
 
@@ -158,6 +158,16 @@ def test_test_b_joins_its_two_parts_and_s2_s5_use_the_live_items(monkeypatch):
     t = {r["hypothesis"]: r for r in recs if r["hypothesis"] not in ("S5", "assay", "informative")}
     assay = {r["model"]: r for r in recs if r["hypothesis"] == "assay"}
     assert set(assay) == {"claude-opus-5-5", "gpt-6.1-sol"}  # on the full B and S2 cells
+    info = {r["model"]: r["sequences"] for r in recs if r["hypothesis"] == "informative"}
+    assert info == {"claude-opus-5-5": 5, "gpt-6.1-sol": 3}
+    # p0 tracked under a frozen key while the tables know it by its new preferred ID
+    new_ids = live["table_sequence_id"].replace("p0", "pnew")
+    aliased = live.assign(sequence_id=live["sequence_id"].replace("p0", "pkey"),
+                          table_sequence_id=new_ids)  # fmt: skip
+    seqs2 = pd.concat([seqs, pd.DataFrame({"sequence_id": ["pkey"], "origin_ms": [start + 10**6],
+                                           "mag": [5.5]})])  # fmt: skip
+    keep2 = (keep - {"p0"}) | {"pnew"}
+    recs = C.live_report(retro, aliased, seqs2, elapsed, start, None, keep2).to_dict("records")
     info = {r["model"]: r["sequences"] for r in recs if r["hypothesis"] == "informative"}
     assert info == {"claude-opus-5-5": 5, "gpt-6.1-sol": 3}
     assert t["B"]["sequences"] == 12  # 6 retrospective + 6 prospective; late and M4.6 out

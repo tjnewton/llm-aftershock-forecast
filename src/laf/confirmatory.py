@@ -542,7 +542,9 @@ def live_report(
             one = assay(rj, cells.assign(model=model), parts=part_of).iloc[0].to_dict()
             rows.append({"hypothesis": "assay"} | one)
         if informative_ids is not None:
-            keep = cells[cells["sequence_id"].isin(informative_ids)]
+            # live rows are keyed by the frozen inclusion key; the tables use the item's own ID
+            keyed = set(live.loc[live["table_sequence_id"].isin(informative_ids), "sequence_id"])
+            keep = cells[cells["sequence_id"].isin(set(informative_ids) | keyed)]
             idx = sequence_effects(keep).index
             st = idx.map(part_of).to_numpy() if part_of else None
             rows.append({"model": model} | test("informative", keep, st))
