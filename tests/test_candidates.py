@@ -41,3 +41,8 @@ def test_a_window_without_events_gives_no_candidates(tmp_path):
     assert sel.empty
     again = K.select(tmp_path, "2026-10-29", "2026-10-30", lambda url: b"unused")  # cached
     assert again.empty
+    from laf.registry import load_sequences
+
+    out = tmp_path / "empty.toml"
+    K.write_config(sel, out, "2026-10-29", "2026-10-30")
+    assert load_sequences(out) == []

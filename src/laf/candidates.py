@@ -74,4 +74,6 @@ def write_config(sel: pd.DataFrame, path: Path, since: str, until: str) -> None:
         lines += ["", "[[sequence]]", f'id = "{r["id"]}"',
                   f'name = "{str(r.get("place") or r["id"]).replace(chr(34), "")} {day}"',
                   'role = "test-post"', "catalog_min_mag = 3.0"]  # fmt: skip
+    if sel.empty:  # an empty set still loads (`registry.load_sequences`)
+        lines += ["", "sequence = []"]
     path.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
