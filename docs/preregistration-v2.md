@@ -174,7 +174,7 @@ Per cell (issue time x window x target), dS = S(model) - S(official).
 
 ## 5. Prospective protocol
 This replaces ADR 0017 decisions 1-2: ADR 0018's test B, decided later, uses on-time matched
-items against the official forecast. **TO FIX:** amend ADR 0017.
+items against the official forecast. ADR 0017 records this (2026-10-31).
 - **Detection:** ComCat is polled every 10 minutes. Each scheduled official version (section 4)
   gets two items:
   - a **matched** item, on the version's own windows;
@@ -189,8 +189,9 @@ items against the official forecast. **TO FIX:** amend ADR 0017.
   - Each record gets an OpenTimestamps proof and is committed to the `live` branch in real
     time. Full forecasts are published after their windows close, with a note that they are
     not official forecasts.
-  - **TO BUILD:** the two-record seal, the OpenTimestamps proof, the live-branch commit, the
-    detector-to-issue wiring and the host.
+  - Built: the two-record seal (`laf.prospective`).
+  - **TO BUILD:** the OpenTimestamps proof, the live-branch commit, the detector-to-issue
+    wiring and the host.
 - **On time:** a matched item enters test B only if its answer record's hash reached the
   GitHub push receipt (or an OpenTimestamps calendar) before the item's first window opened.
   - Late, missed and failed items are listed with reasons and never backfilled.
@@ -277,13 +278,13 @@ items against the official forecast. **TO FIX:** amend ADR 0017.
   - It computes A, B and S1 against the official forecast at M>=5, with the trimmed mean,
     median and hierarchical model.
   - The registered decision for A is its `noninferior` column at 0.05.
+  - Built: the registered bound and its size simulation (`laf confirmatory-size`); models
+    outside the primary and secondary lists (Sonnet 4.6 among them) get no test row.
   - **TO BUILD:**
-    - the registered bound and its size simulation;
     - the contrasts with the baselines (S3, S4, S5) and the assay-sensitivity test;
     - the prospective inputs and the two-part test B;
     - S2;
-    - the listed sensitivity analyses;
-    - Sonnet 4.6 excluded from any test row.
+    - the listed sensitivity analyses.
 
 ## 7. Invalid outputs
 - An invalid answer gets the worst score in its cell from a fixed pool (decided 2026-10-31). Invalid means a schema
@@ -292,8 +293,7 @@ items against the official forecast. **TO FIX:** amend ADR 0017.
   - The pool is the five baselines (official, generic RJ, RJ-MLE, the rule of thumb, the
     legacy-ETAS refit), scored through nine quantiles at M>=5. It therefore does not depend on k
     or on which other runs exist.
-  - This is the prereg v1 rule with its pool fixed. **TO FIX:** the code now takes every valid
-    answer it loads, so the penalty depends on which runs are passed.
+  - This is the prereg v1 rule with its pool fixed. `laf.confirmatory` applies it.
 - Magnitudes that disagree across targets (an M3 count below an M4 count) are a warning, not
   invalid at M5.
 - Retrospective transport errors are retried, up to 10 attempts. Persistent failures are listed

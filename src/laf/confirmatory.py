@@ -18,13 +18,6 @@ def sequence_effects(cells: pd.DataFrame) -> pd.Series:
     return cells.groupby("sequence_id")["d"].mean()
 
 
-def bootstrap_means(effects: np.ndarray, b: int = B, seed: int = SEED) -> np.ndarray:
-    """Means of `b` resamples of the sequence effects (sequences drawn with replacement)."""
-    x = np.asarray(effects, dtype=float)
-    rng = np.random.default_rng(seed)
-    return x[rng.integers(0, len(x), size=(b, len(x)))].mean(axis=1)
-
-
 def noninferiority(
     effects: np.ndarray, delta: float = DELTA, alpha: float = 0.05, b: int = B, seed: int = SEED,
     method: str = "student",

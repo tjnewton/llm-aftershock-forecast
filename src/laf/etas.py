@@ -165,40 +165,6 @@ def simulate_counts(
 DAY_MS = 86_400_000
 
 
-def fit_data_for_issue(item, seq: dict, issue_catalog) -> FitData:
-    """As-of data for one issue: observed M>=5 events after the mainshock and before the cutoff.
-
-    `item` is a laf.items.Item, `seq` a row of sequences.parquet, `issue_catalog` the rows of
-    issue_catalogs.parquet for this issue. t_c follows the USGS completeness model (ADR 0009).
-    """
-    from laf.generic_rj import MagComp
-
-    origin = item.mainshock.origin_ms
-    rows = issue_catalog[
-        (issue_catalog["time_ms"] > origin)
-        & (issue_catalog["time_ms"] < item.issue_ms)
-        & (issue_catalog["mag"] >= MREF - 1e-6)
-    ].sort_values("time_ms")
-    t = (rows["time_ms"].to_numpy() - origin) / DAY_MS
-    mc = MagComp(
-        seq["magcomp_region"],
-        seq["magcomp_mcat"],
-        seq["magcomp_F"],
-        seq["magcomp_G"],
-        seq["magcomp_H"],
-    )
-    t_end = (item.issue_ms - origin) / DAY_MS
-    t_c = min(mc.complete_after_days(item.mainshock.mag, MREF), t_end)
-    return FitData(
-        mag_main=item.mainshock.mag,
-        t_c=t_c,
-        t_end=t_end,
-        t_trig=t,
-        m_trig=rows["mag"].to_numpy(dtype=float),
-        target=t >= t_c,
-    )
-
-
 # ---------------------------------------------------------------------------------------------
 # Legacy USGS ETAS ("Epidemic-Type aftershock model (Bayesian Combination)"), the model behind
 # the published international OAF products. Ported from opensha-oaf etas/ at 08a274bd; formulas
