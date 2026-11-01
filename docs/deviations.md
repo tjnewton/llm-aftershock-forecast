@@ -81,3 +81,10 @@ Each entry: UTC time, change, reason, expected effect on the registered analyses
   answers with their M3 quantiles; registered requests (p1, p2) keep the original targets.
   D2 runs go to runs/d2/, outside the registered `runs/*/` glob and runs/e3/. Effect: none on
   registered or E3 results.
+- 2026-11-01 (Seismica phase). Speed only: `analysis.baselines` (frozen at `scoring-v1`) groups
+  the fractile, bin and issue-catalog tables once instead of scanning them for every cell, and
+  `forecast.poisson_mixture` (frozen) calls `scipy.special.pdtr`, the function
+  `stats.poisson.cdf` evaluates, without the wrapper's per-call checks. Reason: baselines on the
+  development snapshot took 27 s (now 4.6 s); they feed every scoring command and the live
+  baselines record. Effect: none; all 3,780 baseline forecasts on 20261021T2300Z (quantiles,
+  P(M>=6), cdf bytes, fractiles) are identical before and after.
