@@ -35,11 +35,20 @@ def noninferiority(
     mean = float(x.mean())
     boot = bootstrap_means(x, b, seed)
     p = (1 + int(np.sum(boot >= delta))) / (b + 1)
+    p_sup = (1 + int(np.sum(boot >= 0.0))) / (b + 1)  # superiority: H0 mean dS >= 0
     upper = float(np.quantile(boot, 1 - alpha))
     return {
-        "sequences": len(x), "mean": mean, "upper": upper, "p": p,
+        "sequences": len(x), "mean": mean, "upper": upper, "p": p, "p_sup": p_sup,
         "noninferior": upper < delta, "superior": upper < 0,
     }  # fmt: skip
+
+
+def holm_levels(p_values: dict[str, float], alpha: float = 0.05) -> dict[str, float]:
+    """The level at which Holm tests each hypothesis: alpha / (m - k) for the k-th smallest
+    p-value (k from 0)."""
+    m = len(p_values)
+    ranked = sorted(p_values.items(), key=lambda kv: kv[1])
+    return {name: alpha / (m - k) for k, (name, _) in enumerate(ranked)}
 
 
 def holm(p_values: dict[str, float], alpha: float = 0.05) -> dict[str, bool]:
@@ -72,16 +81,28 @@ def robust(effects: np.ndarray, b: int = B, seed: int = SEED) -> dict:
 
 
 def report(cells: pd.DataFrame, primary: tuple[str, ...], delta: float = DELTA) -> pd.DataFrame:
-    """One row per model: the non-inferiority test and the robust summaries; the co-primary
-    models (`primary`) are Holm-corrected, the rest tested at 0.05 alone."""
-    rows = {}
-    for model, g in cells.groupby("model"):
-        e = sequence_effects(g).to_numpy()
-        rows[model] = noninferiority(e, delta) | robust(e)
+    """One row per model: the non-inferiority test and the robust summaries.
+
+    The co-primary models (`primary`) are Holm-corrected, and their bound (`upper`) is reported
+    at the level Holm tests them at (0.025 or 0.05). Superiority over the official forecast is a
+    separate Holm family across the co-primary models, each tested only after its
+    non-inferiority is supported. Other models are tested at 0.05 alone."""
+    effects = {m: sequence_effects(g).to_numpy() for m, g in cells.groupby("model")}
+    rows = {m: noninferiority(e, delta) | robust(e) for m, e in effects.items()}
     missing = [m for m in primary if m not in rows]
     if missing:  # a smaller Holm family would test the rest at a looser level
         raise ValueError(f"co-primary results missing: {missing}")
-    rej = holm({m: rows[m]["p"] for m in primary})
+    p_ni = {m: rows[m]["p"] for m in primary}
+    levels, rej = holm_levels(p_ni), holm(p_ni)
+    sup = holm({m: rows[m]["p_sup"] for m in primary})
+    for m in primary:  # the bound at the model's Holm level
+        at = noninferiority(effects[m], delta, alpha=levels[m])
+        rows[m] |= {"holm_level": levels[m], "upper": at["upper"]}
+        rows[m]["noninferior"] = rej[m]
+        rows[m]["superior"] = bool(rej[m] and sup[m])
+    for m in rows:
+        if m not in primary:
+            rows[m]["superior"] = bool(rows[m]["noninferior"] and rows[m]["superior"])
     out = pd.DataFrame.from_dict(rows, orient="index")
     out["co_primary"] = out.index.isin(primary)
     out["holm_noninferior"] = [rej.get(m) for m in out.index]

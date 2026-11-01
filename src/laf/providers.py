@@ -14,6 +14,8 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 import anthropic
+import httpx
+import httpx2
 
 MODELS = ("claude-haiku-5-5", "claude-sonnet-5-5", "claude-opus-5-5")
 # USD per MTok: input, output, cache read, 5-min cache write (pricing page).
@@ -94,12 +96,30 @@ def _now() -> str:
     return datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%S.%fZ")
 
 
-def call_anthropic(c: anthropic.Anthropic, params: dict, *, attempts: int = 4) -> dict:
-    """One Messages call; retries only 429/5xx/connection errors. Returns a loggable record."""
+# error types the API can send inside an already open stream; the SDK raises them as a plain
+# APIStatusError carrying the stream's HTTP 200, so they are classified by their body
+RETRYABLE_STREAM_ERRORS = frozenset({"overloaded_error", "api_error", "rate_limit_error"})
+
+
+def _error_type(e: Exception) -> str | None:
+    body = getattr(e, "body", None)
+    err = body.get("error") if isinstance(body, dict) else None
+    return err.get("type") if isinstance(err, dict) else None
+
+
+def call_anthropic(
+    c: anthropic.Anthropic, params: dict, *, attempts: int = 4, stream: bool = False
+) -> dict:
+    """One Messages call; retries only 429/5xx/connection errors. Returns a loggable record.
+    `stream` uses the streaming API, which long outputs (max_tokens above about 21k) need."""
     started, t0, error = _now(), time.monotonic(), None
     for i in range(attempts):
         try:
-            r = c.messages.create(**params)
+            if stream:
+                with c.messages.stream(**params) as st:
+                    r = st.get_final_message()
+            else:
+                r = c.messages.create(**params)
             text = next((b.text for b in r.content if b.type == "text"), None)
             return {
                 "started_utc": started,
@@ -120,12 +140,17 @@ def call_anthropic(c: anthropic.Anthropic, params: dict, *, attempts: int = 4) -
             error = f"{type(e).__name__}: {e}"
             retry_after = getattr(e, "response", None) and e.response.headers.get("retry-after")
             time.sleep(float(retry_after) if retry_after else 2 ** (i + 1))
-        except anthropic.APIConnectionError as e:
+        except (anthropic.APIConnectionError, httpx2.TransportError, httpx.TransportError) as e:
+            # transport errors escape the SDK when a stream breaks after it started (the pinned
+            # anthropic SDK reads streams through httpx2)
             error = f"{type(e).__name__}: {e}"
             time.sleep(2 ** (i + 1))
-        except anthropic.APIStatusError as e:  # 4xx other than 429: not retried
+        except anthropic.APIStatusError as e:
             error = f"{type(e).__name__} {e.status_code}: {e.message}"
-            break
+            if _error_type(e) in RETRYABLE_STREAM_ERRORS:  # sent inside an open (HTTP 200) stream
+                time.sleep(2 ** (i + 1))
+                continue
+            break  # 4xx other than 429: not retried
     return {
         "started_utc": started,
         "latency_s": round(time.monotonic() - t0, 3),
