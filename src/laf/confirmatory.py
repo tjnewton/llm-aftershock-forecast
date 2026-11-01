@@ -431,8 +431,9 @@ def live_report(
 
     `samples` are the batch answers (`laf.d2.analyze`), `live` the released live answers
     (`laf.live_scores.live_samples`). L (`live_start_ms`) splits the parts: B's retrospective
-    part is Opus 5.5's clean M>=5 sequences with origin before L; its prospective part, M>=5
-    sequences (magnitude at the first issue) with origin in [L, S), on-time matched items only.
+    part is Opus 5.5's clean M>=5 sequences with origin before L; its prospective part, the
+    sequences included as primary at first detection (`tier`) with origin in [L, S), on-time
+    matched items only.
     Test B resamples the parts separately and is also reported for each part alone. S2:
     gpt-6.1-sol on the prospective matched items. S5: the strict items of the same sequences
     against each pipeline baseline (superiority over the rule of thumb and generic RJ, an
@@ -444,7 +445,7 @@ def live_report(
     first = live.sort_values("elapsed_days").drop_duplicates("sequence_id").set_index("sequence_id")
     end = stop_ms if stop_ms is not None else np.inf
     pro_ids = {str(sid) for sid, r in first.iterrows()
-               if live_start_ms <= r["origin_ms"] < end and r["mag"] >= 5.0 - 1e-9}  # fmt: skip
+               if live_start_ms <= r["origin_ms"] < end and r["tier"] == "primary"}  # fmt: skip
     live_elapsed = dict(zip(live["item_id"], live["elapsed_days"], strict=True))
     sets = {m: pro_ids for m in (B_MODEL, S2_MODEL)}
     matched = live[(live["kind"] == "matched") & live["on_time"]]

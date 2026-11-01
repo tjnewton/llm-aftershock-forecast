@@ -58,15 +58,22 @@ def _status(call: dict, window: str) -> tuple[str, list[float] | None]:
 
 
 COLUMNS = ("item_id", "window", "sequence_id", "kind", "on_time", "part", "origin_ms", "mag",
-           "elapsed_days", "worst_base_d5", *(f"base_d5_{b}" for b in BASELINES), "model",
+           "tier", "elapsed_days", "worst_base_d5", *(f"base_d5_{b}" for b in BASELINES), "model",
            "effort", "variant", "sample", "status", "d5")  # fmt: skip
 
 
 def live_samples(live: Path, tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
     """One row per released live answer and window, on the outcome snapshot `tables` (the
     columns are kept when nothing is released yet). Item IDs repeat across a sequence's issues
-    (`<sequence>@live-matched`), so each row's `item_id` adds the issue's OAF update time."""
+    (`<sequence>@live-matched`), so each row's `item_id` adds the issue's OAF update time.
+    `tier` is the sequence's first-detection decision (`<sequence>/inclusion.json`, prereg v2
+    section 4). A window counts only once it closed at least 21 days before its sequence's
+    catalog end in the snapshot, the batch rule (`analysis.PRIMARY_SETTLING_DAYS`)."""
+    from laf.analysis import PRIMARY_SETTLING_DAYS
+
     cat, fr, bins = tables["catalog"], tables["forecast_fractiles"], tables["forecast_bins"]
+    catalog_end = tables["sequences"].set_index("sequence_id")["catalog_end_ms"]
+    settle_ms = PRIMARY_SETTLING_DAYS * 86_400_000
     rows = []
     for d in released(live):
         lines = (d / "items.jsonl").read_text(encoding="utf-8").splitlines()
@@ -79,13 +86,20 @@ def live_samples(live: Path, tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
         base = {(b["forecaster"], b["item_id"], b["window"]): b["m5"]
                 for b in _jsonl(d / "baselines.jsonl")}  # fmt: skip
         calls = [c for c in _jsonl(d / "calls.jsonl") if not c.get("missed")]
+        inclusion = d.parent / "inclusion.json"
+        tier = json.loads(inclusion.read_text(encoding="utf-8"))["tier"] if (
+            inclusion.exists()) else None  # fmt: skip
         for it in items:
+            if it.sequence_id not in catalog_end.index:
+                raise SystemExit(f"outcome snapshot lacks live sequence {it.sequence_id}")
             kind = "matched" if it.item_id.endswith("@live-matched") else "strict"
             first = seal["items"][it.item_id]["first_window_ms"]
             on_time = receipt_ms is not None and receipt_ms < first
             circle = Circle(it.region.lat, it.region.lon, it.region.radius_km)
             own = cat[cat["sequence_id"] == it.sequence_id]  # overlapping catalogs share events
             for w in it.windows:
+                if w.end_ms + settle_ms > catalog_end[it.sequence_id]:
+                    continue  # not settled in this snapshot
                 y = count_in_window(own, circle, w.start_ms, w.end_ms, 5.0)
                 ls = {b: _ls(base.get((b, it.item_id, w.label)), y) for b in BASELINES}
                 if kind == "matched":
@@ -98,7 +112,7 @@ def live_samples(live: Path, tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
                     "item_id": f"{it.item_id}#{d.name}", "window": w.key,
                     "sequence_id": it.sequence_id,
                     "kind": kind, "on_time": on_time, "part": "prospective",
-                    "origin_ms": it.mainshock.origin_ms, "mag": it.mainshock.mag,
+                    "origin_ms": it.mainshock.origin_ms, "mag": it.mainshock.mag, "tier": tier,
                     "elapsed_days": it.elapsed_days, "worst_base_d5": worst - off,
                     **{f"base_d5_{b}": ls[b] - off for b in BASELINES},
                 }  # fmt: skip

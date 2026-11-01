@@ -146,15 +146,18 @@ def test_a_published_seal_gets_its_github_receipt_on_a_later_poll(tmp_path, monk
     built = {"matched_update_ms": newest, "slot": "first", "matched_first_ms": 1_600_000,
              "published": pub}  # fmt: skip
     monkeypatch.setattr(W, "live_issue", lambda *a, **k: built)
+    added = []
+    monkeypatch.setattr(W, "add_record", lambda wt, rel, name, r: added.append((rel, name, r)))
     state = W.step(tmp_path, tmp_path, {}, _get(), publish_to=tmp_path)
     assert [r["commit"] for r in state["receipts"]] == ["a" * 40]
+    assert [(a[0], a[1], a[2]["tier"]) for a in added] == [
+        ("nc75458907", "inclusion.json", "secondary")]  # the first-detection decision  # fmt: skip
+    added.clear()
     activity = json.dumps([{"after": "a" * 40, "timestamp": "1970-01-01T00:16:41Z"}]).encode()
 
     def get(url):
         return activity if "api.github.com" in url else _get()(url)
 
-    added = []
-    monkeypatch.setattr(W, "add_record", lambda wt, rel, name, r: added.append((rel, name, r)))
     W.step(tmp_path, tmp_path, state, get, publish_to=tmp_path)
     rec = [r for r in _log(tmp_path) if r["kind"] == "receipt"]
     assert [(a[0], a[1], a[2]["receipt_ms"]) for a in added] == [

@@ -56,12 +56,21 @@ def live(tmp_path_factory):
             for b in BASELINES for it in items for w in it.windows]  # fmt: skip
     (d / "baselines.jsonl").write_text("".join(json.dumps(b) + "\n" for b in base))
     (d / "NOTICE.txt").write_text("not official forecasts\n")
+    (root / PANAMA.id / "inclusion.json").write_text(json.dumps({"tier": "primary"}))
     return root, items
+
+
+def _mature(tables):
+    """The outcome snapshot as if fetched long after every window closed."""
+    return {**tables, "sequences": tables["sequences"].assign(catalog_end_ms=10**14)}
 
 
 def test_live_answers_are_scored_like_batch_answers(live):
     root, _ = live
-    s = L.live_samples(root, load_tables(Path("data/processed") / SNAP))
+    tables = load_tables(Path("data/processed") / SNAP)
+    assert L.live_samples(root, tables).empty  # windows not settled in this snapshot
+    s = L.live_samples(root, _mature(tables))
+    assert set(s["tier"]) == {"primary"}  # the first-detection decision
     assert set(s["kind"]) == {"matched", "strict"} and set(s["window"]) == set(WINDOWS)
     assert (s.loc[s["model"] == "gpt-6.1-sol", "status"] == "model_mismatch").any()
     assert not s["sample"].eq(2).any()  # a budget miss is listed, never scored
@@ -99,6 +108,7 @@ def _rows(model, sid, kind="matched", on_time=True, origin=10, d=-0.1, mag=5.5):
     return {"model": model, "effort": "high", "variant": "v2A", "status": "ok", "sample": 0,
             "sequence_id": sid, "item_id": f"{sid}@{kind}", "window": "day", "kind": kind,
             "on_time": on_time, "origin_ms": origin, "mag": mag, "elapsed_days": 2.0, "d5": d,
+            "tier": "primary" if mag >= 5 else "secondary",
             "worst_base_d5": 1.0, **{f"base_d5_{b}": 0.5 for b in BASELINES}}  # fmt: skip
 
 
