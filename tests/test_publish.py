@@ -89,3 +89,26 @@ def test_the_receipt_is_githubs_time_for_the_push_of_that_commit():
     assert U.push_receipt("o/r", "live", "a" * 40, get) == 1793544671000
     assert "ref=refs/heads/live" in urls[0] and "activity_type=push" in urls[0]
     assert U.push_receipt("o/r", "live", "c" * 40, get) is None
+
+
+def test_release_checks_every_file_against_its_published_seal(worktree, tmp_path):
+    wt, origin, git = worktree
+    rec = tmp_path / "rec"
+    rec.mkdir()
+    bodies = {"items.jsonl": '{"a": 1}\n', "calls.jsonl": '{"text": "forecast"}\n'}
+    for name, body in bodies.items():
+        (rec / name).write_text(body)
+    manifest = {n: hashlib.sha256(b.encode()).hexdigest() for n, b in bodies.items()}
+    (rec / "answers.seal.json").write_text(json.dumps({"manifest": manifest}) + "\n")
+    U.publish(wt, "us1/1", rec / "answers.seal.json", calendars=())
+    assert not (wt / "us1/1/calls.jsonl").exists()  # forecasts stay unpublished until release
+    commit = U.release(wt, "us1/1", rec)
+    tree = git("ls-tree", "-r", "--name-only", commit, cwd=origin).splitlines()
+    assert {"us1/1/items.jsonl", "us1/1/calls.jsonl", "us1/1/NOTICE.txt"} <= set(tree)
+    assert "not official forecasts" in " ".join((wt / "us1/1/NOTICE.txt").read_text().split())
+    assert U.release(wt, "us1/1", rec) is None  # once
+    U.publish(wt, "us1/2", rec / "answers.seal.json", calendars=())
+    (rec / "calls.jsonl").write_text('{"text": "edited after the seal"}\n')
+    with pytest.raises(ValueError, match="differs from its published seal"):
+        U.release(wt, "us1/2", rec)
+    assert not (wt / "us1/2/NOTICE.txt").exists()

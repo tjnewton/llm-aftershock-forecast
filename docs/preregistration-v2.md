@@ -195,6 +195,10 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     (`laf.publish`): each seal file is pushed at once, then its OpenTimestamps proofs from
     three public calendars, and GitHub's push receipt is read from the repository activity
     API. The dry run publishes to the branch `live-test`, the study to `live`.
+  - Built: the release. Each poll, the detector releases every issue whose forecast windows
+    have all closed: the files named in its seals' manifests, each checked against the hash
+    published on the branch (a mismatch is never released), with a NOTICE that they are not
+    official forecasts (`laf.publish.release`).
   - Built: the paid path (`laf live-watch --paid`; ADR 0017 "The paid path"): the live models
     spend only a fixed live reserve per provider, counted on spend files published with each
     answers seal, in the budget priority below.

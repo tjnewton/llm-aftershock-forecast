@@ -24,7 +24,7 @@ from pathlib import Path
 
 from laf.generic_rj import REFERENCE_REL
 from laf.prospective import is_aftershock, live_budget, qualifies, run_issue
-from laf.publish import branch, publish, push_receipt
+from laf.publish import SEALS, branch, publish, push_receipt, release
 from laf.registry import Sequence
 from laf.usgs import FDSN, download, event_url, fetch_sequence, iso
 
@@ -147,6 +147,25 @@ def check_receipts(out: Path, state: dict, get=download) -> None:
     state["receipts"] = keep
 
 
+def release_closed(out: Path, data_dir: Path, publish_to: Path, now_ms: int) -> None:
+    """Release every sealed issue whose forecast windows have all closed (prereg v2 section 5):
+    its records under data_dir/issues go to the branch beside its seals (`publish.release`)."""
+    root = data_dir / "issues"
+    for items_file in sorted(root.glob("*/*/items.jsonl")):
+        rel = items_file.parent.relative_to(root).as_posix()
+        if (publish_to / rel / "NOTICE.txt").exists() or not (publish_to / rel / SEALS[0]).exists():
+            continue  # released already, or never published
+        lines = items_file.read_text(encoding="utf-8").splitlines()
+        last = max(w["end_ms"] for line in lines for w in json.loads(line)["windows"])
+        if last > now_ms:
+            continue  # a window is still open
+        try:
+            commit = release(publish_to, rel, items_file.parent)
+            _log(out, {"kind": "release", "rel": rel, "commit": commit})
+        except Exception as e:  # listed, never forced: a mismatch needs a look by hand
+            _log(out, {"kind": "release", "rel": rel, "error": f"{type(e).__name__}: {e}"[:300]})
+
+
 def step(
     out: Path, data_dir: Path, state: dict, get=download, publish_to: Path | None = None,
     clients: dict | None = None,
@@ -164,6 +183,8 @@ def step(
         return state
     _log(out, {**rec, "events": len(ids)})
     check_receipts(out, state, get)
+    if publish_to:
+        release_closed(out, data_dir, publish_to, t_poll)
     seen, decided = state.setdefault("seen", {}), state.setdefault("inclusion", {})
 
     def version(v: dict) -> dict:
