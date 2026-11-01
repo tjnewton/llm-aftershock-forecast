@@ -74,6 +74,13 @@ def test_live_answers_are_scored_like_batch_answers(live):
     assert L.live_samples(root, tables).empty  # windows not settled in this snapshot
     s = L.live_samples(root, _mature(tables))
     assert set(s["tier"]) == {"primary"}  # the first-detection decision
+    inc = root / PANAMA.id / "inclusion.json"
+    inc.write_text(json.dumps({"tier": "primary", "key": "us7000alias"}))
+    try:  # the sequence was first tracked under another associated ID
+        aliased = L.live_samples(root, _mature(tables))
+    finally:
+        inc.write_text(json.dumps({"tier": "primary"}))
+    assert set(aliased["sequence_id"]) == {"us7000alias"} and len(aliased) == len(s)
     assert set(s["kind"]) == {"matched", "strict"} and set(s["window"]) == set(WINDOWS)
     assert (s.loc[s["model"] == "gpt-6.1-sol", "status"] == "model_mismatch").any()
     assert not s["sample"].eq(2).any()  # a budget miss is listed, never scored

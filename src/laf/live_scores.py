@@ -89,8 +89,8 @@ def live_samples(live: Path, tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
                 for b in _jsonl(d / "baselines.jsonl")}  # fmt: skip
         calls = [c for c in _jsonl(d / "calls.jsonl") if not c.get("missed")]
         inclusion = d.parent / "inclusion.json"
-        tier = json.loads(inclusion.read_text(encoding="utf-8"))["tier"] if (
-            inclusion.exists()) else None  # fmt: skip
+        inc = json.loads(inclusion.read_text(encoding="utf-8")) if inclusion.exists() else {}
+        tier = inc.get("tier")
         for it in items:
             if it.sequence_id not in catalog_end.index:
                 raise SystemExit(f"outcome snapshot lacks live sequence {it.sequence_id}")
@@ -114,8 +114,9 @@ def live_samples(live: Path, tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
                     continue
                 worst = max(scored)
                 cell = {
+                    # grouped under the frozen key: a changed preferred ID is one sequence
                     "item_id": f"{it.item_id}#{d.name}", "window": w.key,
-                    "sequence_id": it.sequence_id,
+                    "sequence_id": inc.get("key") or it.sequence_id,
                     "kind": kind, "on_time": on_time, "part": "prospective",
                     "origin_ms": it.mainshock.origin_ms, "mag": it.mainshock.mag, "tier": tier,
                     "elapsed_days": it.elapsed_days, "worst_base_d5": worst - off,
