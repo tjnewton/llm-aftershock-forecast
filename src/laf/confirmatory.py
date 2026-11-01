@@ -575,12 +575,32 @@ def live_report(
 V2B_MODELS = (*PRIMARY, "claude-opus-5-5")  # v2B robustness: the A and B models only
 
 
-def batch_items(items: list, sequences: pd.DataFrame, model: str, block: str) -> list:
-    """The items a confirmatory batch sends (prereg v2 sections 3 and 8): those of the model's
-    own clean set, by the rule the analysis applies (`eligible`). gpt-5.1's v2A batch covers all
-    its clean candidates (test A's sensitivity set); every other batch, the M>=5 set."""
+def batch_items(
+    items: list, sequences: pd.DataFrame, model: str, block: str,
+    include_forward: bool = False, chunk: str | None = None,
+) -> list:  # fmt: skip
+    """The items a confirmatory batch sends (prereg v2 sections 3 and 8), by the rule the
+    analysis applies (`eligible`): `confirmatory` and `confirmatory-v2b` the model's clean M>=5
+    set, `confirmatory-sens` gpt-5.1's clean candidates below M5 (test A's sensitivity set).
+    `include_forward` takes the forward-excluded candidates (their own snapshot). `chunk` "K/N"
+    sends the K-th of N round-robin parts of the sequences, ordered by origin, so a batch fits
+    the monthly room (prereg v2 section 8: test A in parts)."""
     if block == "confirmatory-v2b" and model not in V2B_MODELS:
         raise SystemExit(f"v2B runs for {', '.join(V2B_MODELS)} only (prereg v2 section 3)")
-    min_mag = 0.0 if (model in PRIMARY and block == "confirmatory") else 5.0
-    keep = eligible(sequences, model, min_mag)
-    return [i for i in items if i.sequence_id in keep]
+    if block == "confirmatory-sens" and model not in PRIMARY:
+        raise SystemExit("the sensitivity set is test A's (gpt-5.1) only")
+    m5 = eligible(sequences, model, 5.0, include_forward=include_forward)
+    if block == "confirmatory-sens":
+        keep = eligible(sequences, model, 0.0, include_forward=include_forward) - m5
+    else:
+        keep = m5
+    if include_forward:
+        keep &= forward_excluded()
+    order = sequences[sequences["sequence_id"].isin(keep)].sort_values(["origin_ms", "sequence_id"])
+    ids = list(order["sequence_id"])
+    if chunk:
+        k, n = (int(x) for x in chunk.split("/"))
+        if not 1 <= k <= n:
+            raise SystemExit(f"--chunk {chunk}: need 1 <= K <= N")
+        ids = ids[k - 1 :: n]
+    return [i for i in items if i.sequence_id in set(ids)]

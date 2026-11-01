@@ -306,3 +306,31 @@ def test_test_b_resamples_its_two_parts_separately():
     assert C.noninferiority(x, strata=np.array(["retrospective"] * 30)) == pooled
     with pytest.raises(ValueError, match="bootstrap-t"):  # never a silent change of method
         C.noninferiority(x, strata=parts, method="percentile")
+
+
+def test_confirmatory_batches_send_each_models_own_set_in_parts(monkeypatch):
+    from types import SimpleNamespace
+
+    from laf import splits
+
+    monkeypatch.setattr(splits, "development_ids", lambda: frozenset())
+    ms = lambda d: pd.Timestamp(d, tz="UTC").value // 1_000_000  # noqa: E731
+    seqs = pd.DataFrame({"sequence_id": [f"s{i}" for i in range(7)] + ["us7000s2bn"],
+                         "origin_ms": [ms(f"2025-0{i + 2}-01") for i in range(7)]
+                                      + [ms("2026-03-05")],
+                         "mag": [5.5, 5.5, 5.5, 4.5, 4.5, 5.2, 5.0, 5.5]})  # fmt: skip
+    items = [SimpleNamespace(sequence_id=s, item_id=f"{s}@first") for s in seqs["sequence_id"]]
+
+    def got(*a, **k):
+        return {i.sequence_id for i in C.batch_items(items, seqs, *a, **k)}
+
+    gpt = "gpt-5.1-2025-11-13"
+    assert got(gpt, "confirmatory") == {"s0", "s1", "s2", "s5", "s6"}  # M>=5, forward out
+    assert got(gpt, "confirmatory-sens") == {"s3", "s4"}  # test A's sensitivity set
+    parts = [got(gpt, "confirmatory", chunk=f"{k}/2") for k in (1, 2)]
+    assert parts[0] | parts[1] == got(gpt, "confirmatory") and not parts[0] & parts[1]
+    assert got(gpt, "confirmatory", include_forward=True) == {"us7000s2bn"}
+    with pytest.raises(SystemExit, match="v2B"):
+        got("claude-opus-4-6", "confirmatory-v2b")
+    with pytest.raises(SystemExit, match="test A"):
+        got("claude-opus-4-6", "confirmatory-sens")

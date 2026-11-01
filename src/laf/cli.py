@@ -15,6 +15,15 @@ def snapshot_ms(snapshot: str) -> int:
     return int(datetime.strptime(snapshot, SNAPSHOT_FORMAT).replace(tzinfo=UTC).timestamp() * 1000)
 
 
+def _batch_name(a) -> str:
+    """runs/<name> of a batch: confirmatory/<block>-<model>[-K-of-N][-forward]."""
+    if not a.block.startswith("confirmatory"):
+        return f"{a.block}-{a.model}"
+    chunk = f"-{a.chunk.replace('/', '-of-')}" if getattr(a, "chunk", None) else ""
+    fwd = "-forward" if getattr(a, "forward_excluded", False) else ""
+    return f"confirmatory/{a.block}-{a.model}{chunk}{fwd}"
+
+
 def main(argv: list[str] | None = None) -> None:
     p = argparse.ArgumentParser(prog="laf")
     p.add_argument("--data-dir", type=Path, default=Path("data"))
@@ -62,10 +71,14 @@ def main(argv: list[str] | None = None) -> None:
             "d2-medium",
             "d2-46",
             "confirmatory",
+            "confirmatory-sens",
             "confirmatory-v2b",
         ),
     )
     rn.add_argument("--model", required=True)
+    rn.add_argument("--chunk", help="confirmatory blocks: K/N, the K-th of N parts")
+    rn.add_argument("--forward-excluded", action="store_true",
+                    help="confirmatory blocks: the forward-excluded candidates")  # fmt: skip
     rn.add_argument("--name", help="run name under runs/ (default <block>-<model>)")
     rn.add_argument("--dry-run", action="store_true", help="count requests and estimate cost")
     st = sub.add_parser("status", help="batch status and counts of a run (no results)")
@@ -160,9 +173,13 @@ def main(argv: list[str] | None = None) -> None:
     oa.add_argument("name", nargs="?", help="status/collect: run name under runs/")
     oa.add_argument("--snapshot")
     oa.add_argument(
-        "--block", choices=("pilot", "d2", "confirmatory", "confirmatory-v2b"), default="d2"
-    )
+        "--block", default="d2",
+        choices=("pilot", "d2", "confirmatory", "confirmatory-sens", "confirmatory-v2b"),
+    )  # fmt: skip
     oa.add_argument("--name", help="run name under runs/ (confirmatory blocks)")
+    oa.add_argument("--chunk", help="confirmatory blocks: K/N, the K-th of N parts")
+    oa.add_argument("--forward-excluded", action="store_true",
+                    help="confirmatory blocks: the forward-excluded candidates")  # fmt: skip
     oa.add_argument(
         "--model", default="gpt-5.1-2025-11-13", choices=("gpt-5.1-2025-11-13", "gpt-6.1-sol")
     )
@@ -629,11 +646,11 @@ def main(argv: list[str] | None = None) -> None:
             from laf.confirmatory import batch_items, study_effort
 
             seqs = pd.read_parquet(a.data_dir / "processed" / a.snapshot / "sequences.parquet")
-            send = batch_items(items, seqs, a.model, a.block)
+            send = batch_items(items, seqs, a.model, a.block, a.forward_excluded, a.chunk)
             variant = "v2B" if a.block == "confirmatory-v2b" else "v2A"
             effort = study_effort(a.model)
             reqs = O.expand(send, a.model, effort, paraphrase=variant, block=a.block)
-            name = a.name or f"confirmatory/{a.block}-{a.model}"
+            name = a.name or _batch_name(a)
             est = O.estimate_usd(reqs, Path(f"runs/openai/pilot-{a.model}"))
             print(f"{name}: {len(reqs)} requests, estimate ${est:.2f} (batch)")
         else:
@@ -1213,11 +1230,10 @@ def main(argv: list[str] | None = None) -> None:
                 from laf.confirmatory import batch_items
 
                 seqs = pd.read_parquet(a.data_dir / "processed" / a.snapshot / "sequences.parquet")
-                send = batch_items(items, seqs, a.model, a.block)
+                send = batch_items(items, seqs, a.model, a.block, a.forward_excluded, a.chunk)
             reqs = runner.expand(send, a.block, a.model)
             est = runner.estimate_usd(reqs)
-            prefix = "confirmatory/" if a.block.startswith("confirmatory") else ""
-            name = a.name or f"{prefix}{a.block}-{a.model}"
+            name = a.name or _batch_name(a)
             print(f"{name}: {len(reqs)} requests, estimate ${est:.2f} (batch), "
                   f"spent so far ${runner.spent_usd():.2f}")  # fmt: skip
             if not a.dry_run:

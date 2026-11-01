@@ -113,6 +113,15 @@ BLOCKS: dict[str, dict] = {
         "effort": "study",
         "floor": 3.0,
     },
+    "confirmatory-sens": {
+        "roles": ("test-post",),
+        "arms": ("direct",),
+        "infos": ("I1",),
+        "paras": ("v2A",),
+        "k": 3,
+        "effort": "study",
+        "floor": 3.0,
+    },
     "confirmatory-v2b": {
         "roles": ("test-post",),
         "arms": ("direct",),
