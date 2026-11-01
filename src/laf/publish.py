@@ -109,6 +109,19 @@ def publish(
     return rec
 
 
+def add_record(worktree: Path, rel: str, name: str, rec: dict) -> str:
+    """Commit and push one small JSON record (such as an issue's push receipt) beside its
+    seal; returns the commit. Never overwrites."""
+    path = worktree / rel / name
+    if path.exists():
+        raise FileExistsError(f"{rel}/{name} is already published: never overwritten")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps(rec, indent=1, sort_keys=True) + "\n", encoding="utf-8", newline="\n"
+    )
+    return _commit_push(worktree, [f"{rel}/{name}"], f"Receipt {rel}/{name}")
+
+
 def branch(worktree: Path) -> str:
     return _git(worktree, "branch", "--show-current")
 
