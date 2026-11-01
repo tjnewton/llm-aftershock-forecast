@@ -237,6 +237,8 @@ def confirmatory_cells(
     sequences: pd.DataFrame,
     elapsed: dict[str, float],
     min_mag: dict[str, float] | None = None,
+    reference: str = "official",
+    sets: dict[str, set[str]] | None = None,
 ) -> pd.DataFrame:
     """Per (model, cell) mean dS over the model's primary-prompt samples at its study effort,
     kept only on its eligible sequences, with the issue, window and stratum the hierarchical
@@ -246,18 +248,24 @@ def confirmatory_cells(
 
     Invalid answers get the worst score in the cell among the five baselines (official, generic
     RJ, RJ-MLE, the rule of thumb, the ETAS refit; ADR 0018 decision 12), so the penalty does not
-    depend on k or on which other runs are loaded; transport errors are left out."""
+    depend on k or on which other runs are loaded; transport errors are left out.
+
+    `reference` is the forecast dS is taken against: the official one, or a pipeline baseline
+    (`laf.d2.BASELINES`) for the contrasts S3-S5; cells without that baseline drop out. `sets`
+    replaces the clean eligible sets (the development dry run uses every sequence)."""
     s = samples[samples["status"] != "transport_error"]
     key = ["item_id", "window"]
     worst = s.groupby(key)["worst_base_d5"].max()  # the five baselines only (ADR 0018 decision 12)
     d = np.where(
         s["status"] == "ok", s["d5"], worst.reindex(pd.MultiIndex.from_frame(s[key])).to_numpy()
     )
+    if reference != "official":  # LS(model) - LS(baseline) = dS - (LS(baseline) - LS(official))
+        d = d - s[f"base_d5_{reference}"].to_numpy()
     s = s.assign(d=d)
     mags = min_mag or {}
     ok = {
-        m: (study_effort(m), eligible(sequences, m, mags.get(m, 5.0)))
-        for m in set(s["model"]) & set(CLEAN_FROM)
+        m: (study_effort(m), sets[m] if sets else eligible(sequences, m, mags.get(m, 5.0)))
+        for m in set(s["model"]) & set(sets or CLEAN_FROM)
     }
     cols = zip(s["model"], s["effort"], s["variant"], s["sequence_id"], strict=True)
     keep = [
@@ -265,5 +273,99 @@ def confirmatory_cells(
         for m, e, v, sid in cols
     ]
     cells = s[keep].groupby(["model", "sequence_id", "item_id", "window"])["d"].mean()
-    cells = cells.reset_index().rename(columns={"item_id": "issue_id"})
+    cells = cells.dropna().reset_index().rename(columns={"item_id": "issue_id"})
     return cells.assign(stratum=[stratum(elapsed[i]) for i in cells["issue_id"]])
+
+
+def _two_sided(effects: np.ndarray, alpha: float = 0.05) -> tuple[float, float]:
+    """The bootstrap-t interval at 1 - alpha: each bound one-sided at alpha / 2, the lower one
+    as the upper bound of the negated effects (same resamples)."""
+    up = noninferiority(effects, 0.0, alpha=alpha / 2)["upper"]
+    lo = -noninferiority(-np.asarray(effects, dtype=float), 0.0, alpha=alpha / 2)["upper"]
+    return lo, up
+
+
+# S3 and S4 (prereg v2 section 2): superiority at 0.05 over the rule of thumb and generic RJ;
+# against the legacy-ETAS refit an estimate and 95% interval only
+CONTRASTS = (("S3", "naive", "superiority"), ("S4", "generic_rj", "superiority"),
+             ("S4", "etas", "estimate"))  # fmt: skip
+
+
+def contrasts(
+    samples: pd.DataFrame, sequences: pd.DataFrame, elapsed: dict[str, float],
+    models: tuple[str, ...], sets: dict[str, set[str]] | None = None,
+) -> pd.DataFrame:  # fmt: skip
+    """One row per tested model and baseline: mean LS(model) - LS(baseline) over its test's
+    sequences (its A, B, S1 or S2 set), with the superiority test or the 95% interval."""
+    rows = []
+    for hyp, ref, kind in CONTRASTS:
+        cells = confirmatory_cells(samples, sequences, elapsed, reference=ref, sets=sets)
+        for m, g in cells[cells["model"].isin(models)].groupby("model"):
+            e = sequence_effects(g).to_numpy()
+            row = {"hypothesis": hyp, "model": m, "reference": ref, "kind": kind}
+            if kind == "superiority":
+                t = noninferiority(e, 0.0)
+                row |= {k: t[k] for k in ("sequences", "mean", "upper", "p_sup", "superior")}
+            else:
+                lo, up = _two_sided(e)
+                row |= {"sequences": len(e), "mean": float(e.mean()), "lower95": lo,
+                        "upper95": up}  # fmt: skip
+            rows.append(row)
+    return pd.DataFrame(rows)
+
+
+def assay(samples: pd.DataFrame, cells: pd.DataFrame, delta: float = DELTA) -> pd.DataFrame:
+    """Assay sensitivity (prereg v2 section 2): the non-inferiority test for generic RJ against
+    the official forecast on each model's own test cells. If generic RJ is non-inferior too,
+    that model's test cannot separate it from the generic default."""
+    rj = samples.groupby(["item_id", "window"])["base_d5_generic_rj"].first()
+    rows = []
+    for m, g in cells.groupby("model"):
+        d = rj.reindex(pd.MultiIndex.from_frame(g[["issue_id", "window"]])).to_numpy()
+        gc = g.assign(d=d).dropna(subset=["d"])
+        t = noninferiority(sequence_effects(gc).to_numpy(), delta)
+        rows.append({"model": m, "generic_rj_mean": t["mean"], "generic_rj_upper": t["upper"],
+                     "generic_rj_noninferior": t["noninferior"],
+                     "separates_from_generic": not t["noninferior"]})  # fmt: skip
+    return pd.DataFrame(rows)
+
+
+INFORMATIVE_MEAN = 0.5  # official mean N(M>=5) in the month window of the first issue
+
+
+def informative(tables: dict[str, pd.DataFrame]) -> set[str]:
+    """Sequences for the informative-sequence estimand (prereg v2 section 2), outcome-blind:
+    the official forecast at the sequence's first issue has a mean N(M>=5) of at least 0.5 in
+    the month window. The mean integrates the official quantile function over its published
+    fractile grid (trapezoid in p)."""
+    it = tables["issue_times"].sort_values("issue_ms").drop_duplicates("sequence_id")
+    f = tables["forecast_fractiles"]
+    f = f[(f["magnitude"] == 5.0) & (f["window"] == "1 Month")].sort_values("p")
+    mean = {
+        k: np.trapezoid(g["count"].to_numpy(float), g["p"].to_numpy(float))
+        for k, g in f.groupby(["sequence_id", "info_cutoff_ms"])
+    }
+    first = zip(it["sequence_id"], it["issue_ms"], strict=True)
+    return {sid for sid, cutoff in first if mean.get((sid, cutoff), 0.0) >= INFORMATIVE_MEAN}
+
+
+def secondary(
+    samples: pd.DataFrame, tables: dict[str, pd.DataFrame], elapsed: dict[str, float],
+    cells: pd.DataFrame, models: tuple[str, ...], sets: dict[str, set[str]] | None = None,
+) -> pd.DataFrame:  # fmt: skip
+    """The secondary table beside the tests against the official forecast: the contrasts S3
+    and S4, the assay-sensitivity test, and the informative-sequence estimand (non-inferiority
+    on each model's informative sequences), for the tested `models` on their `cells`."""
+    tested = cells[cells["model"].isin(models)]
+    keep = informative(tables)
+    rows = [
+        {"hypothesis": "informative", "model": m}
+        | {k: t[k] for k in ("sequences", "mean", "upper", "noninferior")}
+        for m, g in tested[tested["sequence_id"].isin(keep)].groupby("model")
+        for t in [noninferiority(sequence_effects(g).to_numpy())]
+    ]
+    return pd.concat(
+        [contrasts(samples, tables["sequences"], elapsed, models, sets),
+         assay(samples, tested).assign(hypothesis="assay"), pd.DataFrame(rows)],
+        ignore_index=True,
+    )  # fmt: skip

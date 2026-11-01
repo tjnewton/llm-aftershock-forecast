@@ -658,6 +658,14 @@ def main(argv: list[str] | None = None) -> None:
         t.to_csv(path, index=False, lineterminator="\n")
         print(t.round(3).to_string(index=False))
         print(f"-> {path}")
+        from laf.confirmatory import secondary
+
+        tested = PRIMARY + SECONDARY
+        sec = secondary(samples, tables, elapsed, cells, tested)
+        path = Path("results") / f"confirmatory_secondary_{a.snapshot}{tag}.csv"
+        sec.to_csv(path, index=False, lineterminator="\n")
+        print(sec.round(3).to_string(index=False))
+        print(f"-> {path}")
     elif a.cmd == "confirmatory-size":
         import pandas as pd
 
@@ -708,6 +716,22 @@ def main(argv: list[str] | None = None) -> None:
                 "trimmed_mean", "median", "hier_mu", "hier_upper", "hier_noninferior"]  # fmt: skip
         print(t[cols].round(3).to_string(index=False))
         print(f"-> {path} (development data: a rehearsal of the frozen analysis, not a result)")
+        # the secondary table on the same development answers, every D2 sequence in each set
+        from laf.analysis import load_tables
+        from laf.confirmatory import PRIMARY, SECONDARY, confirmatory_cells, secondary
+        from laf.d2 import analyze
+
+        proc = a.data_dir / "processed" / a.snapshot
+        samples, _ = analyze(proc, runs)
+        tested = tuple(m for m in PRIMARY + SECONDARY if m in set(samples["model"]))
+        sets = {m: set(samples["sequence_id"]) for m in tested}
+        tables = load_tables(proc)
+        dev = confirmatory_cells(samples, tables["sequences"], elapsed, sets=sets)
+        sec = secondary(samples, tables, elapsed, dev, tested, sets)
+        path = Path("results") / f"confirmatory_dryrun_secondary_d2_{a.snapshot}.csv"
+        sec.to_csv(path, index=False, lineterminator="\n")
+        print(sec.round(3).to_string(index=False))
+        print(f"-> {path} (development data)")
     elif a.cmd == "power":
         import pandas as pd
 
