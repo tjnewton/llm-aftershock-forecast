@@ -189,9 +189,10 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
   - Each record gets an OpenTimestamps proof and is committed to the `live` branch in real
     time. Full forecasts are published after their windows close, with a note that they are
     not official forecasts.
-  - Built: the two-record seal (`laf.prospective`).
-  - **TO BUILD:** the OpenTimestamps proof, the live-branch commit, the detector-to-issue
-    wiring and the host.
+  - Built: the two-record seal (`laf.prospective`); the detector-to-issue wiring as a dry run
+    (`laf live-watch`: inclusion rule, schedule, both records, no model calls).
+  - **TO BUILD:** the OpenTimestamps proof, the live-branch commit, the paid detector path
+    and the host.
 - **On time:** a matched item enters test B only if its answer record's hash reached the
   GitHub push receipt (or an OpenTimestamps calendar) before the item's first window opened.
   - Late, missed and failed items are listed with reasons and never backfilled.
