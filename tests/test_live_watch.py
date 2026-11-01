@@ -213,6 +213,11 @@ def test_issues_are_released_only_after_every_window_closed(tmp_path, monkeypatc
             (wt / rel).mkdir(parents=True)
             (wt / rel / "answers.seal.json").write_text("{}")
     monkeypatch.setattr(W, "released", lambda wt, rel: rel == "us2/1")  # committed before
+    (data / "issues/us4/1").mkdir(parents=True)
+    (data / "issues/us4/1/items.jsonl").write_text('{"windows": [{"end_ms": 1')  # truncated
+    (wt / "us4/1").mkdir(parents=True)
+    (wt / "us4/1/answers.seal.json").write_text("{}")
     W.release_closed(tmp_path, data, wt, now_ms=2_000)
     assert released == ["us1/1"]  # us1/2's month window is still open
-    assert [r["rel"] for r in _log(tmp_path) if r["kind"] == "release"] == ["us1/1"]
+    logged = {r["rel"]: r for r in _log(tmp_path) if r["kind"] == "release"}
+    assert set(logged) == {"us1/1", "us4/1"} and "JSONDecodeError" in logged["us4/1"]["error"]

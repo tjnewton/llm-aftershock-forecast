@@ -155,11 +155,11 @@ def release_closed(out: Path, data_dir: Path, publish_to: Path, now_ms: int) -> 
         rel = items_file.parent.relative_to(root).as_posix()
         if released(publish_to, rel) or not (publish_to / rel / SEALS[0]).exists():
             continue  # released already, or never published
-        lines = items_file.read_text(encoding="utf-8").splitlines()
-        last = max(w["end_ms"] for line in lines for w in json.loads(line)["windows"])
-        if last > now_ms:
-            continue  # a window is still open
-        try:
+        try:  # a damaged record is logged and skipped; the detector keeps polling
+            lines = items_file.read_text(encoding="utf-8").splitlines()
+            last = max(w["end_ms"] for line in lines for w in json.loads(line)["windows"])
+            if last > now_ms:
+                continue  # a window is still open
             commit = release(publish_to, rel, items_file.parent)
             _log(out, {"kind": "release", "rel": rel, "commit": commit})
         except Exception as e:  # listed, never forced: a mismatch needs a look by hand
