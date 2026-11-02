@@ -1,0 +1,21 @@
+model,hypothesis,upper,p,p_sup,noninferior,superior,sequences,mean,reference,kind,set,lower95,upper95,generic_rj_mean,generic_rj_lower,generic_rj_upper,generic_rj_status
+claude-opus-5-5,B,inf,1.0,1.0,False,False,1.0,1.0172045540600934,,,,,,,,,
+claude-opus-5-5,B retrospective part,inf,1.0,1.0,False,False,0.0,,,,,,,,,,
+claude-opus-5-5,B prospective part,inf,1.0,1.0,False,False,1.0,1.0172045540600934,,,,,,,,,
+gpt-6.1-sol,S2,inf,1.0,1.0,False,False,1.0,1.0172045540600934,,,,,,,,,
+claude-opus-5-5,S3,inf,,1.0,,False,1.0,1.0172045540600934,naive,superiority,B,,,,,,
+gpt-6.1-sol,S3,inf,,1.0,,False,1.0,1.0172045540600934,naive,superiority,S2,,,,,,
+claude-opus-5-5,S4,inf,,1.0,,False,1.0,0.9289550390338507,generic_rj,superiority,B,,,,,,
+gpt-6.1-sol,S4,inf,,1.0,,False,1.0,0.9289550390338507,generic_rj,superiority,S2,,,,,,
+claude-opus-5-5,S4,,,,,,1.0,0.9941227853849607,etas,estimate,B,-inf,inf,,,,
+gpt-6.1-sol,S4,,,,,,1.0,0.9941227853849607,etas,estimate,S2,-inf,inf,,,,
+claude-opus-5-5,assay,,,,,,,,,,,,,0.08824951502624269,-inf,inf,inconclusive
+claude-opus-5-5,informative,inf,1.0,1.0,False,False,1.0,1.0172045540600934,,,,,,,,,
+gpt-6.1-sol,assay,,,,,,,,,,,,,0.08824951502624269,-inf,inf,inconclusive
+gpt-6.1-sol,informative,inf,1.0,1.0,False,False,1.0,1.0172045540600934,,,,,,,,,
+claude-opus-5-5,S5,inf,,1.0,,False,1.0,1.0172045540600934,naive,superiority,,,,,,,
+gpt-6.1-sol,S5,inf,,1.0,,False,1.0,1.0172045540600934,naive,superiority,,,,,,,
+claude-opus-5-5,S5,inf,,1.0,,False,1.0,0.932046563835017,generic_rj,superiority,,,,,,,
+gpt-6.1-sol,S5,inf,,1.0,,False,1.0,0.932046563835017,generic_rj,superiority,,,,,,,
+claude-opus-5-5,S5,,,,,,1.0,0.9941227853849606,etas,estimate,,-inf,inf,,,,
+gpt-6.1-sol,S5,,,,,,1.0,0.9941227853849606,etas,estimate,,-inf,inf,,,,

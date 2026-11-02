@@ -51,6 +51,19 @@ def main(argv: list[str] | None = None) -> None:
     )
     fm.add_argument("--snapshot", nargs="+", required=True,
                     help="the candidate and forward-excluded snapshots")  # fmt: skip
+    oc_ = sub.add_parser("outcome-config", help="the S + 90 days fetch's config (prereg v2 s5)")
+    oc_.add_argument("--configs", type=Path, nargs="+", required=True,
+                     help="candidate, forward-excluded and supplementary configs")  # fmt: skip
+    oc_.add_argument("--live", type=Path, help="worktree of the live branch")
+    oc_.add_argument("--out", type=Path, required=True)
+    os_ = sub.add_parser(
+        "outcome-snapshot",
+        help="frozen forecast-time tables with outcomes from a fresh snapshot (prereg v2 s5)",
+    )
+    os_.add_argument("--frozen", nargs="+", required=True, help="snapshots the items came from")
+    os_.add_argument("--fresh", required=True, help="the S + 90 days snapshot (outcomes)")
+    os_.add_argument("--live", type=Path, help="worktree of the live branch (gives L)")
+    os_.add_argument("--out", required=True, help="new processed snapshot name")
     sub.add_parser("spend", help="recorded API spend per UTC month and in total (runs/**)")
     bs = sub.add_parser(
         "batch-status", help="processing status and counts of a batch id (no results)"
@@ -214,12 +227,28 @@ def main(argv: list[str] | None = None) -> None:
     cz.add_argument("--snapshot", required=True)
     cz.add_argument("--runs", type=Path, default=Path("runs/d2"))
     cz.add_argument("--sims", type=int, default=1000)
+    cd = sub.add_parser(
+        "candidates", help="supplementary candidates at L (prereg v2 section 5; ComCat lists)"
+    )
+    cd.add_argument("--since", required=True, help="first origin day, e.g. 2026-10-29")
+    cd.add_argument("--until", required=True, help="day after the last origin (L's day + 1)")
+    cd.add_argument("--out", type=Path, default=Path("config/sequences_supplementary.toml"))
+    lr = sub.add_parser(
+        "live-rehearsal",
+        help="prospective pipeline on a development sequence with synthetic answers (no API)",
+    )
+    lr.add_argument("--snapshot", required=True)
+    lr.add_argument("--sequence", required=True, help="a development sequence in --config")
+    lr.add_argument("--out", type=Path, default=Path("data/interim/live-rehearsal"))  # gitignored
     cf = sub.add_parser(
         "confirmatory-dryrun",
         help="ADR 0018 tests on development D2 answers (no API; a rehearsal, not a result)",
     )
     cf.add_argument("--snapshot", required=True)
     cf.add_argument("--runs", type=Path, default=Path("runs/d2"))
+    cf.add_argument("--live", type=Path, help="a `laf live-rehearsal` folder: the live report")
+    cf.add_argument("--assume-settled", action="store_true",
+                    help="rehearsal only: score unsettled live windows")  # fmt: skip
     pw = sub.add_parser(
         "power", help="power of the confirmatory tests from development runs (ADR 0018)"
     )
@@ -683,6 +712,7 @@ def main(argv: list[str] | None = None) -> None:
     elif a.cmd == "confirmatory":
         import pandas as pd
 
+        from laf import analysis as A
         from laf.analysis import load_tables
         from laf.confirmatory import (
             PRIMARY,
@@ -692,7 +722,6 @@ def main(argv: list[str] | None = None) -> None:
             report,
         )
         from laf.d2 import analyze
-        from laf.pilot import load_items
         from laf.splits import require_outcome_table
 
         proc = a.data_dir / "processed" / a.snapshot
@@ -700,7 +729,8 @@ def main(argv: list[str] | None = None) -> None:
         require_outcome_table(tables["observed_counts"])  # first: refuses while sealed
         runs = sorted(d for d in a.runs.iterdir() if (d / "results.jsonl").exists())
         samples, _ = analyze(proc, runs)
-        elapsed = {i.item_id: i.elapsed_days for i in load_items(a.data_dir, a.snapshot, 3.0)}
+        # the frozen items (`laf outcome-snapshot`), not ones rebuilt from the tables
+        elapsed = {k: i.elapsed_days for k, i in A.load_items(proc).items()}
         widen = {PRIMARY[0]: 0.0} if a.test_a_all else None
         cells = confirmatory_cells(samples, tables["sequences"], elapsed, widen)
         descriptive = tuple(set(cells["model"]) - set(PRIMARY) - set(SECONDARY))
@@ -786,6 +816,21 @@ def main(argv: list[str] | None = None) -> None:
         path = Path("results") / f"confirmatory_size_d2_{a.snapshot}.csv"
         pd.DataFrame(rows).to_csv(path, index=False, lineterminator="\n")
         print(f"-> {path}")
+    elif a.cmd == "candidates":
+        from laf.candidates import select, write_config
+
+        sel = select(a.data_dir, a.since, a.until)
+        write_config(sel, a.out, a.since, a.until)
+        print(f"{len(sel)} candidates -> {a.out}")
+    elif a.cmd == "live-rehearsal":
+        from laf.rehearsal import build
+        from laf.splits import is_development
+
+        seq = next(s for s in seqs if s.id == a.sequence)
+        if not is_development(seq.id):
+            raise SystemExit(f"{seq.id} is not development: a rehearsal uses development data")
+        d = build(a.data_dir, a.snapshot, seq, a.out, snapshot_ms(a.snapshot))
+        print(f"rehearsal issue -> {d} (synthetic answers; no API call)")
     elif a.cmd == "confirmatory-dryrun":
         import pandas as pd
 
@@ -848,6 +893,28 @@ def main(argv: list[str] | None = None) -> None:
         diagnostics(proc, runs, tested, sets).to_csv(diag, index=False, lineterminator="\n")
         print(sv.round(3).to_string(index=False))
         print(f"-> {path}, {diag} (development data)")
+        if a.live:  # the prospective inputs, from a `laf live-rehearsal` folder
+            from laf.confirmatory import informative, live_report
+            from laf.live_scores import live_items, live_samples, live_start_ms
+
+            lt = tables
+            if a.assume_settled:  # rehearsal only: every live window counts as settled
+                lt = {**tables, "sequences": tables["sequences"].assign(catalog_end_ms=2**62)}
+            start = live_start_ms(a.live)
+            if start is None:
+                raise SystemExit(f"{a.live}: no sealed record")
+            ls = live_samples(a.live, lt)
+            if a.assume_settled and len(ls):
+                # rehearsal only: a development mainshock precedes the rehearsal's seal, so L
+                # moves to the earliest live mainshock and its sequence counts as prospective
+                start = min(start, int(ls["origin_ms"].min()))
+            lv = live_report(samples, ls, tables["sequences"], elapsed, start, None,
+                             informative(tables))  # fmt: skip
+            path = Path("results") / f"confirmatory_dryrun_live_{a.snapshot}.csv"
+            lv.to_csv(path, index=False, lineterminator="\n")
+            print(lv.round(3).to_string(index=False))
+            print(live_items(a.live).to_string(index=False))
+            print(f"-> {path} (rehearsal: synthetic answers, development data)")
     elif a.cmd == "power":
         import pandas as pd
 
@@ -1163,6 +1230,20 @@ def main(argv: list[str] | None = None) -> None:
             "".join(i.model_dump_json() + "\n" for i in items), encoding="utf-8", newline="\n"
         )
         print(f"{len(items)} items -> {out}")
+    elif a.cmd == "outcome-config":
+        from laf.outcome import config
+
+        print(f"{config(a.configs, a.live, a.out)} sequences -> {a.out}")
+    elif a.cmd == "outcome-snapshot":
+        from laf.live_scores import live_start_ms
+        from laf.outcome import assemble, write
+
+        start = live_start_ms(a.live) if a.live else None
+        if a.live and start is None:
+            raise SystemExit(f"{a.live}: no sealed live record")
+        tables, lines, notes = assemble(a.data_dir, a.frozen, a.fresh, start)
+        print("\n".join(notes))
+        print(f"-> {write(a.data_dir, a.out, tables, lines)}")
     elif a.cmd == "freeze-manifest":
         import json
 

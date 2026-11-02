@@ -218,15 +218,27 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
   - Let L be the UTC time of the first sealed live record.
   - The retrospective part is the Opus-5.5-clean qualifying M>=5 sequences with origin in
     [2026-10-01, L). Those after the candidate snapshot are fetched once at L, by the same
-    outcome-blind procedure, into a supplementary snapshot.
+    outcome-blind procedure, into a supplementary snapshot: `laf candidates --since
+    2026-10-29 --until <the day after L>` lists the OAF events that are not development and
+    not aftershocks (the backward half of the rule, section 4; on the candidate window this
+    procedure gives the 195 candidates plus the 3 forward-excluded ones).
   - Prospective sequences have origin at L or later. A sequence belongs to exactly one part.
   - Test B is also reported for each part alone.
   - (This definition of the parts and the supplementary snapshot was decided 2026-10-31.)
 - **Stopping rule:** sequences stop entering at S = min(L + 182 days, the time of the 26th
   eligible prospective M>=5 sequence).
+  - In software: once config/live_stop.toml (S) is in the detector's checkout, a new sequence
+    whose origin is at S or later is not admitted; admitted sequences keep their scheduled
+    issues to the 28-day slot, and releases continue (`laf.live_watch`).
   - The 6-month clock does not pause for outages.
   - One outcome snapshot for A and B is taken at S + 90 days. That covers the last 28-day
     issue, its tolerance, a month window and 21 days of settling.
+  - Built: `laf outcome-config` (the fetch's config: the frozen configs and every live item's
+    sequence) and `laf outcome-snapshot` (`laf.outcome`). Forecast-time inputs stay as frozen
+    in each sequence's own snapshot, checked against the freeze manifest: items, issue times
+    and catalogs, official forecasts, the ETAS refit. The fresh fetch gives only outcomes: each
+    frozen issue's counts in its own circle and windows, and the catalog end that decides
+    settling. Sequences with origin at L or later come from the fresh fetch alone.
   - There is no early stopping.
 - **No interim looks** (decided 2026-10-31): no confirmatory score or test is computed before S + 90 days.
   Computing A early would reveal outcomes of October sequences that A and B share.
@@ -413,6 +425,12 @@ The freeze needs all of the following:
 - No item marked OPEN, TO BUILD or TO FIX remains.
 - `laf confirmatory` has run end to end on a development snapshot, including the prospective
   inputs and the size simulation.
+  - Done 2026-11-01 on 20261021T2300Z: `laf confirmatory-dryrun` (the tests, the secondary
+    table, the sensitivity analyses, the scoring variants, the diagnostics) with `--live` on a
+    `laf live-rehearsal` issue (us7000ti1p: the real prospective pipeline, items, seals,
+    spend file and baselines, with synthetic answers from stub clients and the settling check
+    overridden, `--assume-settled`: a rehearsal of the code path, not a result), and
+    `laf confirmatory-size`, which reproduces the sizes quoted in section 6.
 - Tyler tags `prereg-v2` on a commit that holds this document. The SHA-256 of these is posted
   publicly with the tag's commit hash:
   - this document;

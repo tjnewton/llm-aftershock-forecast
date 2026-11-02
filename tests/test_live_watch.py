@@ -240,3 +240,23 @@ def test_the_inclusion_record_is_written_before_the_issue_runs(tmp_path, monkeyp
     monkeypatch.setattr(W, "live_issue", boom)
     W.step(tmp_path, tmp_path, {}, _get(), publish_to=tmp_path)
     assert added == ["inclusion.json"]
+
+
+def test_after_the_stop_no_new_sequence_is_admitted(tmp_path, monkeypatch):
+    calls = []
+    monkeypatch.setattr(W, "live_issue", lambda *a, **k: calls.append(a) or {})
+    origin = int(DOC["properties"]["time"])
+    monkeypatch.setattr(W, "admission_stop_ms", lambda path=None: origin)  # S at the mainshock
+    state = W.step(tmp_path, tmp_path, {}, _get())
+    assert state["inclusion"]["nc75458907"]["reason"] == "after the stop" and not calls
+    kept = {"inclusion": {"nc75458907": {"tier": "secondary", "reason": "included"}}}
+    (tmp_path / "b").mkdir()
+    W.step(tmp_path / "b", tmp_path, kept, _get())
+    assert calls  # admitted before the stop: its scheduled issues continue
+
+
+def test_the_stop_is_read_from_the_checkout(tmp_path):
+    assert W.admission_stop_ms(tmp_path / "missing.toml") is None
+    stop = tmp_path / "live_stop.toml"
+    stop.write_text("s_ms = 1793000000000\n")
+    assert W.admission_stop_ms(stop) == 1793000000000
