@@ -227,6 +227,9 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
   - (This definition of the parts and the supplementary snapshot was decided 2026-10-31.)
 - **Stopping rule:** sequences stop entering at S = min(L + 182 days, the time of the 26th
   eligible prospective M>=5 sequence).
+  - In software: once config/live_stop.toml (S) is in the detector's checkout, a new sequence
+    whose origin is at S or later is not admitted; admitted sequences keep their scheduled
+    issues to the 28-day slot, and releases continue (`laf.live_watch`).
   - The 6-month clock does not pause for outages.
   - One outcome snapshot for A and B is taken at S + 90 days. That covers the last 28-day
     issue, its tolerance, a month window and 21 days of settling.
