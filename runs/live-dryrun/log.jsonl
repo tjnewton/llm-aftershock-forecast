@@ -540,3 +540,6 @@
 {"events": 0, "kind": "poll", "poll_ms": 1793575337288, "since_ms": 1793574736564}
 {"events": 1, "kind": "poll", "poll_ms": 1793575938000, "since_ms": 1793575337288}
 {"backlog": false, "detect_latency_s": 469.778, "event_id": "us7000ttke", "fetch_s": 2.5718801021575928, "inclusion": "included", "index_ms": 1793575468222, "key": "us7000ttke", "kind": "detection", "mag": 5.4, "matched_update_ms": 1793575464260, "net": "us", "pipeline": "prospective", "poll_ms": 1793575938000, "skipped": "not a scheduled version (ADR 0004)", "slot": null, "superseded": false, "tier": "primary", "update_ms": 1793575464260}
+{"events": 0, "kind": "poll", "poll_ms": 1793576543545, "since_ms": 1793575938000}
+{"events": 0, "kind": "poll", "poll_ms": 1793577144219, "since_ms": 1793576543545}
+{"events": 0, "kind": "poll", "poll_ms": 1793577744868, "since_ms": 1793577144219}
