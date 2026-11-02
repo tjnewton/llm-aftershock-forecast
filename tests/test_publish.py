@@ -81,6 +81,23 @@ def test_publish_pushes_the_seal_then_its_proofs(worktree, tmp_path):
     assert tree == ["README.md", pub, f"{pub}.up.example.ots"]
 
 
+def test_the_push_time_excludes_calendar_waits(worktree, tmp_path, monkeypatch):
+    wt, _, _ = worktree
+    seal = tmp_path / "answers.seal.json"
+    seal.write_text("{}\n")
+    clock = [1_000.0]
+    monkeypatch.setattr(U.time, "time", lambda: clock[0])
+
+    def slow(data, cal):
+        clock[0] += 30.0  # a calendar timing out
+        raise TimeoutError("slow calendar")
+
+    rec = U.publish(
+        wt, "us1/9", seal, ots=slow, calendars=("https://a.example", "https://b.example")
+    )
+    assert rec["pushed_ms"] == 1_000_000 and clock[0] == 1_060.0
+
+
 def test_the_receipt_is_githubs_time_for_the_push_of_that_commit():
     acts = [{"after": "b" * 40, "timestamp": "2026-11-01T15:00:00Z"},
             {"after": "a" * 40, "timestamp": "2026-11-01T14:51:11Z"}]  # fmt: skip

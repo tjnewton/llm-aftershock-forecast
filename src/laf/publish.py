@@ -90,11 +90,11 @@ def publish(
         (dest / f.name).write_bytes(f.read_bytes())
     paths = [f"{rel}/{f.name}" for f in (seal, *extra)]
     commit = _commit_push(worktree, paths, f"Seal {rel}/{seal.name}")
-    names, status = stamp(dest / seal.name, ots=ots, calendars=calendars)
     rec: dict = {
-        "commit": commit, "pushed_ms": int(time.time() * 1000), "ots": status,
+        "commit": commit, "pushed_ms": int(time.time() * 1000),  # before any calendar wait
         "repo": repo_slug(worktree), "branch": branch(worktree),
     }  # fmt: skip
+    names, rec["ots"] = stamp(dest / seal.name, ots=ots, calendars=calendars)
     if names:
         proofs = [f"{rel}/{n}" for n in names]
         rec["ots_commit"] = _commit_push(worktree, proofs, f"Timestamps {rel}/{seal.name}")
