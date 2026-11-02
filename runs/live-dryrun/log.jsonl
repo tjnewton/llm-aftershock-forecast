@@ -619,3 +619,6 @@
 {"backlog": true, "detect_latency_s": 518876.828, "event_id": "tx2026uacobs", "inclusion": "included", "index_ms": 1793088912253, "key": "tx2026uacobs", "kind": "detection", "mag": 4, "net": "tx", "pipeline": "prospective", "poll_ms": 1793607789081, "superseded": true, "tier": "secondary", "update_ms": 1793088907876}
 {"backlog": true, "detect_latency_s": 259677.613, "event_id": "tx2026uacobs", "inclusion": "included", "index_ms": 1793348111468, "key": "tx2026uacobs", "kind": "detection", "mag": 4, "net": "tx", "pipeline": "prospective", "poll_ms": 1793607789081, "superseded": true, "tier": "secondary", "update_ms": 1793348106811}
 {"backlog": false, "detect_latency_s": 477.296, "event_id": "tx2026uacobs", "fetch_s": 21.67144465446472, "inclusion": "included", "index_ms": 1793607311785, "key": "tx2026uacobs", "kind": "detection", "mag": 4, "matched_update_ms": 1793607305826, "net": "tx", "pipeline": "prospective", "poll_ms": 1793607789081, "skipped": "not a scheduled version (ADR 0004)", "slot": null, "superseded": false, "tier": "secondary", "update_ms": 1793607305826}
+{"events": 0, "kind": "poll", "poll_ms": 1793608413900, "since_ms": 1793607789081}
+{"events": 0, "kind": "poll", "poll_ms": 1793609014720, "since_ms": 1793608413900}
+{"events": 0, "kind": "poll", "poll_ms": 1793609615551, "since_ms": 1793609014720}
