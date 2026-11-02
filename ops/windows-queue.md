@@ -164,9 +164,9 @@ commit: none (the report goes in ops/windows-status.md)
 notes: The live arm runs 6 months and its clock does not pause for outages, so the runbook (section 0) asks for sleep off, Windows Update restarts handled, and the detector started at boot. Never read or print .env.
 
 ## T14 paid-e2e
-status: hold
+status: ready
 server: none (no llama-server)
-prepare: git pull (brings PR #85: `laf prospective` on a detected event). Tyler has set the Windows .env (keys, caps, live reserves) and approved this one paid run; until this task says ready, make no API call.
+prepare: git pull. Start only once PR #85 is merged into post-submission (`git log --oneline origin/post-submission | Select-String "#85"` shows it); until then, wait and re-check at each loop. Approved by Tyler 2026-11-02 (he set the Windows .env): this one paid run, and no other API call.
 run: from the repo root:
   1. In ..\laf-live-dryrun\runs\live-dryrun\log.jsonl find the latest detection whose issue ran (it has "answers_sha256", no "skipped"); note its event id and the snapshot it fetched (the detector's data folder holds raw/snapshots/<snapshot> for it; the snapshot id is the detection time as YYYYMMDDTHHMMZ).
   2. `uv run laf --data-dir <the detector's data folder> prospective --snapshot <snapshot> --sequence <event id> --out runs/prospective-e2e`
