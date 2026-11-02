@@ -469,8 +469,10 @@ The freeze needs all of the following:
     20261021T2300Z (210 items and their issue tables, official forecasts and ETAS refit kept;
     3,780 counts recounted, 5 changed by catalog revisions, 114 more windows closed), then
     `laf confirmatory-dryrun` on the assembled directory, every output written. `laf
-    confirmatory` itself refuses before the tag, so its own path is checked by tests and by
-    this dry run, which shares its scoring, tests and tables.
+    confirmatory` itself refuses before the tag; the dry run shares its secondary, sensitivity,
+    scoring, live and listing functions, while its main table takes development cells
+    (`power.d2_cell_differences`) where `laf confirmatory` takes `confirmatory_cells`, which
+    tests cover.
 - Tyler tags `prereg-v2` on a commit that holds this document. The SHA-256 of these is posted
   publicly with the tag's commit hash:
   - this document;
