@@ -38,3 +38,4 @@ T14 done 2026-11-02T20:31Z none laf prospective on us6000tzna (snapshot 20261102
 T15 waiting 2026-11-02T21:07Z after PR #90 one Windows test still fails (tests/test_publish.py line 138 writes items.jsonl with write_text, CRLF on Windows: test_a_release_whose_push_failed_is_pushed_on_a_later_poll), so step 1 cannot be committed; Tyler chose to hold T15 and T16 until the Mac fixes it
 T15 running 2026-11-02T21:38Z after PR #91 the tests pass here
 T15 done 2026-11-02T21:46Z none T13/T14 lines committed in deb64a47; service stopped right after the 21:45Z poll (uv 27812, laf.exe 38404, python 33040/31896); restarted 21:46Z with the T12 step 3 command on deb64a47 (code of 51633fc5, PRs #68-#91): uv pid 33968 (laf.exe 604, python 32824/13676); first poll 21:46:05Z logged, stderr.log empty; data\interim\live-dryrun\mode.txt reads dry; log pushed on live-dryrun cfb652e5 (482 polls, 249 detections; its message says 481 by mistake)
+T16 running 2026-11-02T21:51Z
