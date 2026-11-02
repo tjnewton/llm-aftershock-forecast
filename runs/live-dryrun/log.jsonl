@@ -670,3 +670,6 @@
 {"events": 0, "kind": "poll", "poll_ms": 1793621081672, "since_ms": 1793620480782}
 {"events": 1, "kind": "poll", "poll_ms": 1793621682527, "since_ms": 1793621081672}
 {"backlog": false, "detect_latency_s": 192.166, "event_id": "nc75458907", "fetch_s": 3.0966193675994873, "inclusion": "included", "index_ms": 1793621490361, "key": "nc75458907", "kind": "detection", "mag": 4.01, "matched_update_ms": 1793621484229, "net": "nc", "pipeline": "prospective", "poll_ms": 1793621682527, "skipped": "not a scheduled version (ADR 0004)", "slot": null, "superseded": false, "tier": "secondary", "update_ms": 1793621484229}
+{"events": 0, "kind": "poll", "poll_ms": 1793622289242, "since_ms": 1793621682527}
+{"events": 0, "kind": "poll", "poll_ms": 1793622890048, "since_ms": 1793622289242}
+{"events": 0, "kind": "poll", "poll_ms": 1793623490706, "since_ms": 1793622890048}
