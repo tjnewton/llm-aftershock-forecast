@@ -101,7 +101,8 @@ Per cell (issue time x window x target), dS = S(model) - S(official).
   - The JSON schema `prompts/v2/schema_direct.json`, strict where the API supports it, and an
     explicit effort.
   - Base URLs pinned to the official APIs. `response.model` and `usage` are logged for every
-    call. An answer whose `response.model` differs from the requested ID is invalid.
+    call. An answer whose `response.model` differs from the requested ID is invalid, in the
+    batches (`d2.samples`) and live (`live_scores`).
 - **Prompt:** `v2A` (hashes in `prompts/v2/HASHES.json`).
   - It asks, per window, for nine quantiles of N(M>=5), N(M>=4) and N(M>=3) and for P(M>=6),
     and shows the catalog from M3.0.
@@ -217,7 +218,8 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
   - "Failed" means a pipeline or transport failure. A delivered invalid answer is scored under
     section 7, never excluded.
   - On-time and late versions are compared on outcome-blind covariates: magnitude, network or
-    region, time since the mainshock, official model type.
+    region, time since the mainshock, official model type. Built: `live_scores.timeliness`
+    (the network is the event ID's prefix), written as `confirmatory_timeliness_*.csv`.
 - **Arms of test B:**
   - Let L be the UTC time of the first sealed live record.
   - The retrospective part is the Opus-5.5-clean qualifying M>=5 sequences with origin in
@@ -289,7 +291,8 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
       calibration is needed for A.
 - **Beside the mean:**
   - The 10% trimmed mean and the median of the sequence effects, with bootstrap intervals.
-  - Leave-one-sequence-out influence on A and B.
+  - Leave-one-sequence-out influence on A and B (`confirmatory.influence`: each sequence's
+    effect and the mean and bound without it; B with its two parts).
   - The hierarchical model dS_ijk = mu + u_i + v_ij + e_ijk, with window and stratum as fixed
     effects in sum coding. It is a robustness check that estimates an unweighted mean over
     windows and strata, not the mean of sequence means. If it fails to converge, that is
@@ -346,7 +349,8 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     sequence's own catalog, x1.5 only where the catalog query covered it); in one table,
     test A on all clean candidates, the unbuffered
     and release-date clean rules, the non-overlapping subset, v2B, valid answers only, the
-    exact-match subset, the 2-day settling rule, the strata, and invalid rates by arm; the
+    exact-match subset, the 2-day settling rule and the strata, with invalid rates by arm
+    written beside it (`confirmatory_invalid_*.csv`); the
     scoring variants at M>=5 (log floors 1e-4 and 1e-8, the negative-binomial tail, full
     distributions of the official forecast (its published fractile grid of 197 or 399 points) and the ETAS refit
     (its simulated histogram), and the log-scale quantile score, which reports its estimate
@@ -378,7 +382,12 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
   invalid at M5.
 - Retrospective transport errors are retried, up to 10 attempts. Persistent failures are listed
   and left out.
-- Invalid rates are reported per model and arm.
+  - Built: `laf run --retry` and `laf openai run --retry` resend the latest attempt's
+    errored, expired, cancelled or missing requests, unchanged (each checked against its ledger
+    hash), as `<run>-retry2` up to `-retry10`; an answer, valid or not, is never resent. A
+    retried error that a later attempt answered drops out (`d2.samples`); the rest are listed
+    (`confirmatory_failures_*.csv`).
+- Invalid rates are reported per model and arm (retrospective batches, prospective answers).
 
 ## 8. Budget
 - Claude spend is capped per calendar month (`LAF_CLAUDE_MONTHLY_CAP_USD`) and OpenAI spend

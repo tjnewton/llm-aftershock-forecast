@@ -160,3 +160,39 @@ def live_items(live: Path) -> pd.DataFrame:
                 "answers": sum(c.get("text") is not None for c in mine),
             })  # fmt: skip
     return pd.DataFrame(rows)
+
+
+def timeliness(live: Path, tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
+    """On-time against late matched items on outcome-blind covariates (prereg v2 section 5):
+    magnitude, network (the event ID's prefix), time since the mainshock and the official
+    model type of the matched version (`oaf_versions.model` at the issue's update time)."""
+    import re
+
+    ov = tables["oaf_versions"].drop_duplicates(["sequence_id", "update_ms"])
+    model = ov.set_index(["sequence_id", "update_ms"])["model"]
+    rows = []
+    for d in released(live):
+        receipt = d / "receipt.json"
+        receipt_ms = json.loads(receipt.read_text(encoding="utf-8"))["receipt_ms"] if (
+            receipt.exists()) else None  # fmt: skip
+        seal = json.loads((d / "answers.seal.json").read_text(encoding="utf-8"))
+        for x in (d / "items.jsonl").read_text(encoding="utf-8").split("\n"):
+            it = Item.model_validate_json(x) if x.strip() else None
+            if it is None or not it.item_id.endswith("@live-matched"):
+                continue
+            first = seal["items"][it.item_id]["first_window_ms"]
+            net = re.match(r"[a-z]+", it.sequence_id)
+            rows.append({"on_time": receipt_ms is not None and receipt_ms < first,
+                         "mag": it.mainshock.mag, "network": net.group(0) if net else "",
+                         "elapsed_days": it.elapsed_days,
+                         "model": model.get((it.sequence_id, int(d.name)))})  # fmt: skip
+    df = pd.DataFrame(rows, columns=["on_time", "mag", "network", "elapsed_days", "model"])
+
+    def counts(x: pd.Series) -> str:
+        return ", ".join(f"{k} {v}" for k, v in x.fillna("unknown").value_counts().items())
+
+    return df.groupby("on_time").agg(
+        items=("mag", "size"), mag_median=("mag", "median"),
+        elapsed_days_median=("elapsed_days", "median"),
+        networks=("network", counts), official_models=("model", counts),
+    ).reset_index()  # fmt: skip

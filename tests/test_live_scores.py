@@ -194,3 +194,13 @@ def test_test_b_joins_its_two_parts_and_s2_s5_use_the_live_items(monkeypatch):
     recs = C.live_report(retro, failed, seqs, elapsed, start, None).to_dict("records")
     t = {r["hypothesis"]: r for r in recs}
     assert t["B prospective part"]["sequences"] == 0 and t["B"]["sequences"] == 6
+
+
+def test_on_time_and_late_items_are_compared_on_outcome_blind_covariates(live):
+    root, _ = live
+    d = next(p.parent for p in root.glob("*/*/answers.seal.json"))
+    ov = {"sequence_id": [d.parent.name], "update_ms": [int(d.name)], "model": ["ETAS"]}
+    tables = {"oaf_versions": pd.DataFrame(ov)}
+    t = L.timeliness(root, tables)
+    row = t[t["on_time"]].iloc[0].to_dict()
+    assert row["items"] == 1 and row["official_models"] == "ETAS 1" and row["mag_median"] > 5

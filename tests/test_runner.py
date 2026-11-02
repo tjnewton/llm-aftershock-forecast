@@ -164,3 +164,33 @@ def test_probe_and_live_claim_their_output_folder_before_paying(monkeypatch, tmp
         probe.run_probe(None, pd.DataFrame(), tmp_path / "p")  # client None: never reached
     with pytest.raises(FileExistsError):
         live.run_live(None, [], tmp_path / "l")
+
+
+def test_a_retry_resends_only_transport_errors_unchanged(tmp_path, monkeypatch):
+    monkeypatch.setattr(runner, "RUNS", tmp_path)
+    reqs = [{"custom_id": c, "params": {"n": i}, "meta": {}} for i, c in enumerate("abcd")]
+
+    def attempt(name, results):
+        d = tmp_path / name
+        d.mkdir(parents=True)
+        (d / "batch.json").write_text("{}")
+        ledger = [{"custom_id": r["custom_id"], "params_sha256": runner.params_sha256(r["params"])}
+                  for r in reqs if r["custom_id"] in results or not results]  # fmt: skip
+        (d / "requests.jsonl").write_text("".join(json.dumps(x) + "\n" for x in ledger))
+        rows = [{"custom_id": c, "result": r} for c, r in results.items() if r]
+        (d / "results.jsonl").write_text("".join(json.dumps(x) + "\n" for x in rows))
+
+    # a: answered (even if invalid); b: errored; c: expired; d: absent from the results
+    attempt("confirmatory/x", {"a": "succeeded", "b": "errored", "c": "expired", "d": None})
+    name, send = runner.retry_plan("confirmatory/x", reqs)
+    assert name == "confirmatory/x-retry2" and [r["custom_id"] for r in send] == ["b", "c", "d"]
+    attempt("confirmatory/x-retry2", {"b": "succeeded", "c": "errored", "d": "succeeded"})
+    name, send = runner.retry_plan("confirmatory/x", reqs)
+    assert name == "confirmatory/x-retry3" and [r["custom_id"] for r in send] == ["c"]
+    changed = [{**r, "params": {"n": 99}} if r["custom_id"] == "c" else r for r in reqs]
+    with pytest.raises(SystemExit, match="differ from the ledger"):
+        runner.retry_plan("confirmatory/x", changed)
+    for i in range(3, runner.MAX_ATTEMPTS + 1):
+        attempt(f"confirmatory/x-retry{i}", {"c": "errored"})
+    with pytest.raises(SystemExit, match="10 attempts made; 1 persistent"):
+        runner.retry_plan("confirmatory/x", reqs)

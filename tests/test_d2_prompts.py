@@ -121,6 +121,7 @@ def test_d2_loader_validates_m3(tmp_path):
             {
                 "custom_id": str(i),
                 "result": "succeeded",
+                "model_reported": "m",
                 "stop_reason": "end_turn",
                 "text": json.dumps(ans),
             }
@@ -151,3 +152,29 @@ def test_m3_completeness_needs_the_official_products_mc():
     assert not m3_complete(2.5, ca, 6.0, 0.2)  # window opens before time-dependent completeness
     ak = SimpleNamespace(mag_cat=3.5, complete_after_days=lambda mm, m: 0.0)
     assert not m3_complete(2.5, ak, 6.0, 1.0)  # regional catalog not complete at M3
+
+
+def test_a_retried_error_drops_out_and_a_wrong_model_is_invalid(tmp_path):
+    from laf.d2 import samples
+
+    q = dict(zip(QKEYS, [0] * 9, strict=True))
+    win = {"m5_count_quantiles": q, "m4_count_quantiles": q, "m3_count_quantiles": q,
+           "p_m6_at_least_one": 0.0}  # fmt: skip
+    ans = json.dumps({"day": win, "week": win, "month": win, "notes": ""})
+    meta = {"arm": "direct", "info": "I1", "model": "m", "block": "x", "effort": "high",
+            "paraphrase": "v2A"}  # fmt: skip
+    first, retry = tmp_path / "x", tmp_path / "x-retry2"
+    for d, rows in (
+        (first, [("i1", 0, "errored", None), ("i2", 0, "errored", None),
+                 ("i3", 0, "succeeded", "other-model")]),
+        (retry, [("i1", 0, "succeeded", "m"), ("i2", 0, "errored", None)]),
+    ):  # fmt: skip
+        d.mkdir()
+        reqs = [{"custom_id": f"{i}{s}", "item_id": i, "sample": s, **meta} for i, s, _, _ in rows]
+        res = [{"custom_id": f"{i}{s}", "result": r, "model_reported": rep, "text": ans,
+                "stop_reason": "end_turn"} for i, s, r, rep in rows]  # fmt: skip
+        (d / "requests.jsonl").write_text("".join(json.dumps(x) + "\n" for x in reqs))
+        (d / "results.jsonl").write_text("".join(json.dumps(x) + "\n" for x in res))
+    st = sorted({(r["item_id"], r["status"]) for r in samples([first, retry])})
+    # i1 answered on retry; i2 a persistent failure (listed, left out); i3 the wrong model
+    assert st == [("i1", "ok"), ("i2", "transport_error"), ("i3", "model_mismatch")]

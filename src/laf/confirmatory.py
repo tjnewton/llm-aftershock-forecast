@@ -503,24 +503,14 @@ def secondary(
 B_MODEL, S2_MODEL = "claude-opus-5-5", "gpt-6.1-sol"
 
 
-def live_report(
+def b_parts(
     samples: pd.DataFrame, live: pd.DataFrame, sequences: pd.DataFrame,
     elapsed: dict[str, float], live_start_ms: int, stop_ms: int | None,
-    informative_ids: set[str] | None = None,
-) -> pd.DataFrame:  # fmt: skip
-    """Test B in its two parts, S2 and S5 (prereg v2 sections 2, 5 and 6).
-
-    `samples` are the batch answers (`laf.d2.analyze`), `live` the released live answers
-    (`laf.live_scores.live_samples`). L (`live_start_ms`) splits the parts: B's retrospective
-    part is Opus 5.5's clean M>=5 sequences with origin before L; its prospective part, the
-    sequences included as primary at first detection (`tier`) with origin in [L, S), on-time
-    matched items only.
-    Test B resamples the parts separately and is also reported for each part alone. S2:
-    gpt-6.1-sol on the prospective matched items. S5: the strict items of the same sequences
-    against each pipeline baseline (superiority over the rule of thumb and generic RJ, an
-    interval against ETAS). The assay-sensitivity test and, given `informative_ids`
-    (`informative(tables)`), the informative-sequence estimand are computed on the same full
-    B and S2 cells."""
+) -> dict:  # fmt: skip
+    """Test B's cells: the retrospective part (Opus 5.5's clean M>=5 sequences with origin before
+    L), the prospective part (included as primary at first detection, origin in [L, S], on-time
+    matched items), joined in `both` with each sequence's `parts` label; and the live inputs S2
+    and the contrasts reuse."""
     origin = sequences.set_index("sequence_id")["origin_ms"]
     retro = confirmatory_cells(samples, sequences, elapsed)
     retro = retro[(retro["model"] == B_MODEL)
@@ -534,6 +524,55 @@ def live_report(
     matched = live[(live["kind"] == "matched") & live["on_time"]]
     pro = confirmatory_cells(matched, sequences, live_elapsed, sets=sets) if len(matched) else (
         retro.iloc[:0])  # fmt: skip
+    both = pd.concat([retro.assign(part="retrospective"),
+                      pro[pro["model"] == B_MODEL].assign(part="prospective")])  # fmt: skip
+    parts = both.groupby("sequence_id")["part"].first()
+    return {"retro": retro, "pro": pro, "matched": matched, "live_elapsed": live_elapsed,
+            "sets": sets, "both": both, "parts": parts}  # fmt: skip
+
+
+def influence(
+    cells: pd.DataFrame, parts: pd.Series | None = None, delta: float = DELTA
+) -> pd.DataFrame:
+    """Leave-one-sequence-out influence (prereg v2 section 6): for each sequence, its effect
+    and the test's mean and bound without it, beside the full set's (`parts`: test B's strata)."""
+    e = sequence_effects(cells)
+    x = e.to_numpy()
+    st = parts.reindex(e.index).to_numpy() if parts is not None else None
+    full = noninferiority(x, delta, strata=st)
+    rows = []
+    for i, sid in enumerate(e.index):
+        keep = np.arange(len(x)) != i
+        t = noninferiority(x[keep], delta, strata=None if st is None else st[keep])
+        rows.append({"sequence_id": sid, "effect": float(x[i]), "mean_without": t["mean"],
+                     "upper_without": t["upper"],
+                     "noninferior_without": t["noninferior"]})  # fmt: skip
+    cols = ["sequence_id", "effect", "mean_without", "upper_without", "noninferior_without"]
+    return pd.DataFrame(rows, columns=cols).assign(mean=full["mean"], upper=full["upper"])
+
+
+def live_report(
+    samples: pd.DataFrame, live: pd.DataFrame, sequences: pd.DataFrame,
+    elapsed: dict[str, float], live_start_ms: int, stop_ms: int | None,
+    informative_ids: set[str] | None = None,
+) -> pd.DataFrame:  # fmt: skip
+    """Test B in its two parts, S2 and S5 (prereg v2 sections 2, 5 and 6).
+
+    `samples` are the batch answers (`laf.d2.analyze`), `live` the released live answers
+    (`laf.live_scores.live_samples`). L (`live_start_ms`) splits the parts: B's retrospective
+    part is Opus 5.5's clean M>=5 sequences with origin before L; its prospective part, the
+    sequences included as primary at first detection (`tier`) with origin in [L, S], on-time
+    matched items only.
+    Test B resamples the parts separately and is also reported for each part alone. S2:
+    gpt-6.1-sol on the prospective matched items. S5: the strict items of the same sequences
+    against each pipeline baseline (superiority over the rule of thumb and generic RJ, an
+    interval against ETAS). The assay-sensitivity test and, given `informative_ids`
+    (`informative(tables)`), the informative-sequence estimand are computed on the same full
+    B and S2 cells."""
+    bp = b_parts(samples, live, sequences, elapsed, live_start_ms, stop_ms)
+    origin = sequences.set_index("sequence_id")["origin_ms"]
+    retro, pro, matched = bp["retro"], bp["pro"], bp["matched"]
+    live_elapsed, sets, both, parts = bp["live_elapsed"], bp["sets"], bp["both"], bp["parts"]
 
     def test(label: str, cells: pd.DataFrame, strata: np.ndarray | None = None) -> dict:
         e = sequence_effects(cells)
@@ -542,8 +581,6 @@ def live_report(
             "sequences": t["sequences"], "mean": t["mean"]}  # fmt: skip
 
     b_retro, b_pro = retro, pro[pro["model"] == B_MODEL]
-    both = pd.concat([b_retro.assign(part="retrospective"), b_pro.assign(part="prospective")])
-    parts = both.groupby("sequence_id")["part"].first()
     rows = [
         {"model": B_MODEL}
         | test("B", both, parts.reindex(sequence_effects(both).index).to_numpy()),
