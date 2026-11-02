@@ -22,7 +22,11 @@ def samples(run_dirs: list[Path]) -> list[dict]:
     out = []
     for d in run_dirs:
         meta = {r["custom_id"]: r for r in _jsonl(d / "requests.jsonl")}
-        for res in _jsonl(d / "results.jsonl"):
+        results = _jsonl(d / "results.jsonl")
+        # a request the provider never returned is a transport error too (`runner.retry_plan`)
+        seen = {r["custom_id"] for r in results}
+        results += [{"custom_id": c, "result": "missing"} for c in meta if c not in seen]
+        for res in results:
             m = meta[res["custom_id"]]
             targets = TARGETS_V2 if m["paraphrase"] in V2 else TARGETS
             if res["result"] != "succeeded":

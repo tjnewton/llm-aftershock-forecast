@@ -175,6 +175,10 @@ def test_a_retried_error_drops_out_and_a_wrong_model_is_invalid(tmp_path):
                 "stop_reason": "end_turn"} for i, s, r, rep in rows]  # fmt: skip
         (d / "requests.jsonl").write_text("".join(json.dumps(x) + "\n" for x in reqs))
         (d / "results.jsonl").write_text("".join(json.dumps(x) + "\n" for x in res))
+    # i4 is in the first attempt's ledger but never came back
+    with (first / "requests.jsonl").open("a") as f:
+        f.write(json.dumps({"custom_id": "i40", "item_id": "i4", "sample": 0, **meta}) + "\n")
     st = sorted({(r["item_id"], r["status"]) for r in samples([first, retry])})
-    # i1 answered on retry; i2 a persistent failure (listed, left out); i3 the wrong model
-    assert st == [("i1", "ok"), ("i2", "transport_error"), ("i3", "model_mismatch")]
+    # i1 answered on retry; i2 and i4 persistent failures (listed, left out); i3 the wrong model
+    assert st == [("i1", "ok"), ("i2", "transport_error"), ("i3", "model_mismatch"),
+                  ("i4", "transport_error")]  # fmt: skip
