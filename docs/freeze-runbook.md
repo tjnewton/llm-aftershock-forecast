@@ -32,22 +32,37 @@ marked Windows.
 - Forward-excluded: `laf openai run --snapshot 20261101T2202Z --block confirmatory
   --forward-excluded` and `laf run --snapshot 20261101T2202Z --block confirmatory --model
   claude-opus-4-6 --forward-excluded` (about $1.76).
-- S1, S2, descriptive: `laf run --block confirmatory --model claude-opus-4-6` (and
-  `claude-sonnet-4-6`); `laf openai run --block confirmatory --model gpt-6.1-sol`.
+- Test B's retrospective arm on the candidates (October 1-28 at Opus 5.5's clean start):
+  `laf run --snapshot 20261029T2000Z --block confirmatory --model claude-opus-5-5`, and
+  `--block confirmatory-v2b` (about $4.73).
+- S1, S2, descriptive: `laf run --snapshot 20261029T2000Z --block confirmatory --model
+  claude-opus-4-6` (and `claude-sonnet-4-6`); `laf openai run --snapshot 20261029T2000Z --block
+  confirmatory --model gpt-6.1-sol`.
 - Collect each with `laf collect` / `laf openai collect`; results stay unscored (second gate).
 
 ## 4. At L: the supplementary snapshot
 1. `laf candidates --since 2026-10-29 --until <day after L> --out config/sequences_supplementary.toml`
    (through a pull request).
 2. `laf --config config/sequences_supplementary.toml fetch`, `asof --workers 1`, `tables`, `etas`.
-3. B's retrospective batches on it: `laf run --block confirmatory` and `confirmatory-v2b` with
-   `--model claude-opus-5-5`.
+3. The rest of B's retrospective arm, on it: `laf run --snapshot <it> --block confirmatory
+   --model claude-opus-5-5 --name confirmatory/confirmatory-claude-opus-5-5-supplementary`, and
+   `--block confirmatory-v2b --name confirmatory/confirmatory-v2b-claude-opus-5-5-supplementary`
+   (distinct names: the defaults are section 3's runs on the candidates).
 
 ## 5. At S: the stop
 1. S = min(L + 182 days, the 26th eligible prospective M>=5 sequence).
-2. Commit `config/live_stop.toml` with `s_ms = <S>`; Tyler tags it `prereg-v2-stop`.
-3. The detector stops admitting new sequences; issues of admitted ones continue to their 28-day
-   slot; releases continue.
+2. Commit `config/live_stop.toml` with `s_ms = <S>` to `post-submission`; Tyler tags it
+   `prereg-v2-stop`.
+3. Windows pulls `post-submission` (its queue loop does), so the file is in the detector's
+   checkout. `laf.live_watch` reads it every poll: from then on a sequence whose origin is at S
+   or later is not admitted ("after the stop" in the log), while admitted sequences keep their
+   scheduled issues to the 28-day slot and releases continue. No restart.
+4. Check: `git log -1 -- config/live_stop.toml` in the detector's checkout shows the stop
+   commit; any qualifying sequence after S has `"inclusion": "after the stop"` in `log.jsonl`;
+   no new sequence folder appears on `live` after S.
+5. The stop takes effect once the file is merged into the detector's checkout: merge it
+   promptly. A sequence admitted between S and that pull is outside the analysis, which keeps
+   origins in [L, S); its records stay on `live` and are reported as such.
 
 ## 6. At S + 90 days: the analysis
 1. One outcome snapshot: fetch the candidate, forward-excluded, supplementary and live
