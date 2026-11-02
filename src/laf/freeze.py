@@ -85,16 +85,17 @@ def manifest(data_dir: Path, snapshots: list[str], inputs: list[Path]) -> dict:
     """{label: SHA-256} for every artifact of prereg v2 section 11, and their combined hash:
     the candidate snapshot and the forward-excluded one."""
     downloads = data_dir / "manifest.jsonl"  # the download inventory of this data directory
-    files = {str(PREREG): PREREG, str(PROMPT_HASHES): PROMPT_HASHES, str(downloads): downloads}
+    # keys in POSIX form, so the manifest is the same on Windows (the live host) and the Mac
+    files = {p.as_posix(): p for p in (PREREG, PROMPT_HASHES, downloads)}
     files |= {c: Path(c) for c in CONFIGS}
     if SUPPLEMENTARY_CONFIG.exists():  # written at L, after the freeze
-        files[str(SUPPLEMENTARY_CONFIG)] = SUPPLEMENTARY_CONFIG
+        files[SUPPLEMENTARY_CONFIG.as_posix()] = SUPPLEMENTARY_CONFIG
     for snapshot in snapshots:
         proc = data_dir / "processed" / snapshot
-        files |= {str(p): p for p in sorted(proc.glob("*.parquet"))}
-    files |= {str(p): p for p in inputs}
+        files |= {p.as_posix(): p for p in sorted(proc.glob("*.parquet"))}
+    files |= {p.as_posix(): p for p in inputs}
     out = {k: sha256(p) for k, p in sorted(files.items())}
-    tree = {str(p): sha256(p) for p in sorted(SRC.rglob("*.py"))}
+    tree = {p.as_posix(): sha256(p) for p in sorted(SRC.rglob("*.py"))}
     out["src/laf (SHA-256 of its sorted file hashes)"] = hashlib.sha256(
         json.dumps(tree, sort_keys=True).encode("utf-8")
     ).hexdigest()
