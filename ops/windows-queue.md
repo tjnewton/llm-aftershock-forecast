@@ -175,4 +175,17 @@ outputs: runs\prospective-e2e (local, not committed)
 commit: none
 notes: The paid end-to-end check of runbook section 0: the real clients on the live host, published nowhere, before the tag. Expected cost about $0.85, at most about $6.30. If it fails, stop and report the traceback; do not retry.
 
+## T15 dry-run-current-code
+status: ready
+server: none (no llama-server)
+prepare: git pull (brings PRs #68-#90: receipts on the branch, release of closed issues, the stop at S, the paid-path guards, `mode.txt`). Start once PR #90 is merged, so the tests pass here and the T13/T14 status lines can be committed first.
+run: from the repo root, in this order:
+  1. Commit the T13 and T14 status lines (from your pending-status.md) to ops/windows-status.md and push.
+  2. Stop the T12 service right after its next poll (uv 27812 and its laf.exe and python processes, from the T12 done line).
+  3. Restart it with the T12 step 3 command, unchanged (same --out ..\laf-live-dryrun\runs\live-dryrun and the default --live-data: the dry run's own folders; it writes mode.txt "dry" there).
+  4. After the next poll, check stderr.log has no traceback and log.jsonl has the new poll.
+outputs: the dry-run service on the current code, still publishing seals to live-test
+commit: the done line only (with the new process ids and the commit the service runs)
+notes: No API call. From now on the dry run's folders are marked "dry"; the paid detector (runbook section 2) will refuse them and use runs\live and data\interim\live. The boot task and the Windows Update setting wait for Tyler's decision.
+
 ## END
