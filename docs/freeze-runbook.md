@@ -67,9 +67,19 @@ marked Windows.
    origins in [L, S); its records stay on `live` and are reported as such.
 
 ## 6. At S + 90 days: the analysis
-1. One outcome snapshot: fetch the candidate, forward-excluded, supplementary and live
-   sequences' configs into one snapshot; `tables` (the gate now opens).
-2. `laf confirmatory --snapshot <it> --runs runs/confirmatory --live <worktree of live>`; then
-   `--test-a-all`.
-3. Report every table whatever its result; deviations go to the v2 section of
+1. `laf outcome-config --configs config/sequences_confirmatory.toml
+   config/sequences_forward_excluded.toml config/sequences_supplementary.toml --live <worktree
+   of live> --out config/sequences_outcome.toml` (through a pull request): every frozen
+   sequence and every live item's sequence.
+2. `laf --config config/sequences_outcome.toml fetch` (one fetcher, paced), then `tables
+   --snapshot <fresh>`. Both gates are open (tag `prereg-v2-stop`, S + 90 days), so counts are
+   written.
+3. `laf outcome-snapshot --frozen 20261029T2000Z 20261101T2202Z <supplementary> --fresh <fresh>
+   --live <worktree of live> --out <fresh>-outcomes`: the frozen items, issue tables, official
+   forecasts and ETAS refit, checked against `results/freeze_manifest.json`, with counts
+   recounted from the fresh catalog in each issue's own circle; sequences with origin at L or
+   later come from the fresh fetch.
+4. `laf confirmatory --snapshot <fresh>-outcomes --runs runs/confirmatory --live <worktree of
+   live>`; then `--test-a-all`.
+5. Report every table whatever its result; deviations go to the v2 section of
    `docs/deviations.md`.
