@@ -369,3 +369,15 @@ def test_the_openai_run_name_option_is_kept(monkeypatch, capsys):
             "--name", "confirmatory/custom-test", "--dry-run"]  # fmt: skip
     cli.main(args)
     assert "confirmatory/custom-test:" in capsys.readouterr().out and "default" not in seen
+
+
+def test_leave_one_sequence_out_influence():
+    cells = pd.DataFrame({"sequence_id": [f"s{i}" for i in range(20)],
+                          "d": np.r_[np.zeros(19), 2.0]})  # fmt: skip
+    t = C.influence(cells).set_index("sequence_id")
+    assert len(t) == 20 and t["mean"].iloc[0] == pytest.approx(0.1)
+    assert t.loc["s19", "mean_without"] == 0.0 and t.loc["s0", "mean_without"] == pytest.approx(
+        2 / 19
+    )
+    parts = pd.Series(["r"] * 10 + ["p"] * 10, index=[f"s{i}" for i in range(20)])
+    assert len(C.influence(cells, parts)) == 20  # test B: its strata kept

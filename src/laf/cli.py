@@ -98,6 +98,7 @@ def main(argv: list[str] | None = None) -> None:
     rn.add_argument("--forward-excluded", action="store_true",
                     help="confirmatory blocks: the forward-excluded candidates")  # fmt: skip
     rn.add_argument("--name", help="run name under runs/ (default <block>-<model>)")
+    rn.add_argument("--retry", action="store_true", help="resend the transport errors")
     rn.add_argument("--dry-run", action="store_true", help="count requests and estimate cost")
     st = sub.add_parser("status", help="batch status and counts of a run (no results)")
     st.add_argument("name")
@@ -196,6 +197,7 @@ def main(argv: list[str] | None = None) -> None:
                  "confirmatory-unbuffered"),
     )  # fmt: skip
     oa.add_argument("--name", dest="run_name", help="run name under runs/ (confirmatory blocks)")
+    oa.add_argument("--retry", action="store_true", help="confirmatory: resend transport errors")
     oa.add_argument("--chunk", help="confirmatory blocks: K/N, the K-th of N parts")
     oa.add_argument("--forward-excluded", action="store_true",
                     help="confirmatory blocks: the forward-excluded candidates")  # fmt: skip
@@ -686,6 +688,10 @@ def main(argv: list[str] | None = None) -> None:
             effort = study_effort(a.model)
             reqs = O.expand(send, a.model, effort, paraphrase=variant, block=a.block)
             name = a.run_name or _batch_name(a)
+            if a.retry:  # the latest attempt's transport errors, resent unchanged
+                from laf.runner import retry_plan
+
+                name, reqs = retry_plan(name, reqs)
             est = O.estimate_usd(reqs, Path(f"runs/openai/pilot-{a.model}"))
             print(f"{name}: {len(reqs)} requests, estimate ${est:.2f} (batch)")
         else:
@@ -757,16 +763,14 @@ def main(argv: list[str] | None = None) -> None:
         sec.to_csv(path, index=False, lineterminator="\n")
         print(sec.round(3).to_string(index=False))
         print(f"-> {path}")
-        from laf.sensitivity import invalid_rates, sensitivity
+        from laf.sensitivity import sensitivity
 
         s2d, _ = analyze(proc, runs, settle="settled_2d")
         sens = sensitivity(samples, tables, elapsed, tested, samples_2d=s2d)
         path = Path("results") / f"confirmatory_sensitivity_{a.snapshot}.csv"
         sens.to_csv(path, index=False, lineterminator="\n")
-        rates = Path("results") / f"confirmatory_invalid_{a.snapshot}.csv"
-        invalid_rates(samples).to_csv(rates, index=False, lineterminator="\n")
         print(sens.round(3).to_string(index=False))
-        print(f"-> {path}, {rates}")
+        print(f"-> {path}")
         from laf.sensitivity import diagnostics, scoring_variants
 
         sv = scoring_variants(proc, runs, tables, elapsed, tested)
@@ -776,9 +780,10 @@ def main(argv: list[str] | None = None) -> None:
         diagnostics(proc, runs, tested).to_csv(diag, index=False, lineterminator="\n")
         print(sv.round(3).to_string(index=False))
         print(f"-> {path}, {diag}")
+        live_inputs: tuple = ()
         if a.live:
-            from laf.confirmatory import live_report
-            from laf.live_scores import live_items, live_samples, live_start_ms
+            from laf.confirmatory import b_parts, live_report
+            from laf.live_scores import live_items, live_samples, live_start_ms, timeliness
             from laf.splits import stop_ms
 
             start = live_start_ms(a.live)
@@ -786,8 +791,11 @@ def main(argv: list[str] | None = None) -> None:
                 raise SystemExit(f"{a.live}: no sealed live record")
             from laf.confirmatory import informative
 
-            lv = live_report(samples, live_samples(a.live, tables), tables["sequences"], elapsed,
-                             start, stop_ms(), informative(tables))  # fmt: skip
+            ls = live_samples(a.live, tables)
+            lv = live_report(samples, ls, tables["sequences"], elapsed, start, stop_ms(),
+                             informative(tables))  # fmt: skip
+            bp = b_parts(samples, ls, tables["sequences"], elapsed, start, stop_ms())
+            live_inputs = (ls, bp, timeliness(a.live, tables))
             path = Path("results") / f"confirmatory_live_{a.snapshot}.csv"
             lv.to_csv(path, index=False, lineterminator="\n")
             # S3/S4, the assay and the informative estimand for Opus 5.5 and gpt-6.1-sol now come
@@ -802,6 +810,12 @@ def main(argv: list[str] | None = None) -> None:
             listing = Path("results") / f"live_items_{a.snapshot}.csv"
             live_items(a.live).to_csv(listing, index=False, lineterminator="\n")
             print(f"-> {path}, {listing} (every live item: on time, failed, missed)")
+        from laf.sensitivity import extras
+
+        for k, df in extras(samples, cells, *live_inputs).items():
+            path = Path("results") / f"confirmatory_{k}_{a.snapshot}{tag}.csv"
+            df.to_csv(path, index=False, lineterminator="\n")
+            print(f"-> {path}")
     elif a.cmd == "confirmatory-size":
         import pandas as pd
 
@@ -900,6 +914,7 @@ def main(argv: list[str] | None = None) -> None:
         diagnostics(proc, runs, tested, sets).to_csv(diag, index=False, lineterminator="\n")
         print(sv.round(3).to_string(index=False))
         print(f"-> {path}, {diag} (development data)")
+        dry_live: tuple = ()
         if a.live:  # the prospective inputs, from a `laf live-rehearsal` folder
             from laf.confirmatory import informative, live_report
             from laf.live_scores import live_items, live_samples, live_start_ms
@@ -922,6 +937,17 @@ def main(argv: list[str] | None = None) -> None:
             print(lv.round(3).to_string(index=False))
             print(live_items(a.live).to_string(index=False))
             print(f"-> {path} (rehearsal: synthetic answers, development data)")
+            from laf.confirmatory import b_parts
+            from laf.live_scores import timeliness
+
+            bp = b_parts(samples, ls, tables["sequences"], elapsed, start, None)
+            dry_live = (ls, bp, timeliness(a.live, lt))
+        from laf.sensitivity import extras
+
+        for k, df in extras(samples, dev, *dry_live).items():
+            path = Path("results") / f"confirmatory_dryrun_{k}_d2_{a.snapshot}.csv"
+            df.to_csv(path, index=False, lineterminator="\n")
+            print(f"-> {path} (development data)")
     elif a.cmd == "power":
         import pandas as pd
 
@@ -1329,8 +1355,10 @@ def main(argv: list[str] | None = None) -> None:
                 seqs = pd.read_parquet(a.data_dir / "processed" / a.snapshot / "sequences.parquet")
                 send = batch_items(items, seqs, a.model, a.block, a.forward_excluded, a.chunk)
             reqs = runner.expand(send, a.block, a.model)
-            est = runner.estimate_usd(reqs)
             name = a.name or _batch_name(a)
+            if a.retry:  # the latest attempt's transport errors, resent unchanged
+                name, reqs = runner.retry_plan(name, reqs)
+            est = runner.estimate_usd(reqs)
             print(f"{name}: {len(reqs)} requests, estimate ${est:.2f} (batch), "
                   f"spent so far ${runner.spent_usd():.2f}")  # fmt: skip
             if not a.dry_run:

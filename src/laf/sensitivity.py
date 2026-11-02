@@ -81,15 +81,49 @@ def sensitivity(
     return pd.DataFrame(rows)
 
 
-def invalid_rates(samples: pd.DataFrame) -> pd.DataFrame:
-    """Invalid answers per model, effort and prompt, by status; transport errors apart (they
-    are retried and left out, not penalized)."""
-    s = samples.drop_duplicates(["model", "effort", "variant", "item_id", "sample"])
-    g = s.groupby(["model", "effort", "variant"])["status"]
+def invalid_rates(samples: pd.DataFrame, live: pd.DataFrame | None = None) -> pd.DataFrame:
+    """Invalid answers per arm (the retrospective batches; with `live`, the prospective
+    answers of `live_scores.live_samples`), model, effort and prompt, by status; transport
+    errors apart (they are retried and left out, not penalized)."""
+    arms = [samples.assign(arm="retrospective")]
+    if live is not None and len(live):
+        arms.append(live.assign(arm="prospective"))
+    s = pd.concat(arms).drop_duplicates(["arm", "model", "effort", "variant", "item_id", "sample"])
+    g = s.groupby(["arm", "model", "effort", "variant"], dropna=False)["status"]
     out = g.value_counts().unstack(fill_value=0)
     scored = out.drop(columns=["transport_error"], errors="ignore").sum(axis=1)
     out["invalid_rate"] = 1 - out.get("ok", 0) / scored.where(scored > 0)
     return out.reset_index()
+
+
+def failures(samples: pd.DataFrame) -> pd.DataFrame:
+    """The persistent transport failures, one row per answer: left out and listed (prereg v2
+    section 7). Failures a retry answered are already gone (`d2.samples`)."""
+    keys = ["model", "effort", "variant", "item_id", "sample", "sequence_id"]
+    bad = samples[samples["status"] == "transport_error"]
+    return bad.drop_duplicates(keys[:-1])[keys].reset_index(drop=True)
+
+
+def extras(
+    samples: pd.DataFrame, cells: pd.DataFrame, live: pd.DataFrame | None = None,
+    b_parts: dict | None = None, timeliness: pd.DataFrame | None = None,
+) -> dict[str, pd.DataFrame]:  # fmt: skip
+    """The registered outputs beside the tests: persistent failures, invalid rates by arm, and
+    the leave-one-sequence-out influence on A and on B (both parts given `b_parts`, else its
+    retrospective part), and on-time against late items when given."""
+    inf = []
+    for label, model in (("A", C.PRIMARY[0]), ("B retrospective part", C.B_MODEL)):
+        g = cells[cells["model"] == model]
+        if len(g) and not (b_parts and model == C.B_MODEL):
+            inf.append(C.influence(g).assign(hypothesis=label, model=model))
+    if b_parts and len(b_parts["both"]):
+        b = C.influence(b_parts["both"], b_parts["parts"])
+        inf.append(b.assign(hypothesis="B", model=C.B_MODEL))
+    out = {"failures": failures(samples), "invalid": invalid_rates(samples, live),
+           "influence": pd.concat(inf, ignore_index=True) if inf else pd.DataFrame()}  # fmt: skip
+    if timeliness is not None:
+        out["timeliness"] = timeliness
+    return out
 
 
 # scoring and outcome variants (prereg v2 section 6): (label, `laf.d2.analyze` arguments)

@@ -320,6 +320,44 @@ def confirmed_refusal(e: Exception) -> bool:
     return isinstance(code, int) and 400 <= code < 500
 
 
+MAX_ATTEMPTS = 10  # retrospective transport errors (prereg v2 section 7)
+
+
+def params_sha256(params: dict) -> str:
+    canonical = json.dumps(params, sort_keys=True, ensure_ascii=False).encode("utf-8")
+    return hashlib.sha256(canonical).hexdigest()
+
+
+def retry_plan(name: str, reqs: list[dict]) -> tuple[str, list[dict]]:
+    """The next attempt of run `name` (`<name>`, then `<name>-retry2` ... `-retry10`): the
+    requests whose latest attempt ended in a transport error (errored, expired, cancelled or
+    missing), never an answer, however invalid. `reqs` is the original command's rebuild; each
+    resent request must match its ledger hash, so a retry sends the same request."""
+    attempts = [name] + [f"{name}-retry{i}" for i in range(2, MAX_ATTEMPTS + 1)]
+    done = [x for x in attempts if (RUNS / x / "batch.json").exists()]
+    if not done:
+        raise SystemExit(f"{name}: no batch to retry")
+    last = RUNS / done[-1]
+    if not (last / "results.jsonl").exists():
+        raise SystemExit(f"{last}: collect it first")
+    ledger = {r["custom_id"]: r for r in _jsonl(last / "requests.jsonl")}
+    results = _jsonl(last / "results.jsonl")
+    failed = {r["custom_id"] for r in results if r["result"] != "succeeded"}
+    failed |= set(ledger) - {r["custom_id"] for r in results}
+    if not failed:
+        raise SystemExit(f"{last}: no transport error to retry")
+    if len(done) == MAX_ATTEMPTS:
+        raise SystemExit(f"{name}: {MAX_ATTEMPTS} attempts made; {len(failed)} persistent "
+                         "failures are listed and left out")  # fmt: skip
+    send = [r for r in reqs if r["custom_id"] in failed]
+    if {r["custom_id"] for r in send} != failed or any(
+        params_sha256(r["params"]) != ledger[r["custom_id"]]["params_sha256"] for r in send
+    ):
+        raise SystemExit(f"{name}: the rebuilt requests differ from the ledger; rerun the "
+                         "original command's options with --retry")  # fmt: skip
+    return attempts[len(done)], send
+
+
 def check_not_pending(out: Path) -> None:
     """Refuse to submit over a ledger without batch.json: an earlier submit may have created a
     batch whose acceptance was uncertain."""
@@ -361,9 +399,11 @@ def submit(
     }
     ledger = []
     for r in reqs:
-        canonical = json.dumps(r["params"], sort_keys=True, ensure_ascii=False).encode("utf-8")
-        row = {"custom_id": r["custom_id"], **r["meta"]}
-        row["params_sha256"] = hashlib.sha256(canonical).hexdigest()
+        row = {
+            "custom_id": r["custom_id"],
+            **r["meta"],
+            "params_sha256": params_sha256(r["params"]),
+        }
         ledger.append(json.dumps(row, sort_keys=True) + "\n")
     # staged before anything is sent, so a local error cannot follow a paid batch
     out.mkdir(parents=True, exist_ok=True)

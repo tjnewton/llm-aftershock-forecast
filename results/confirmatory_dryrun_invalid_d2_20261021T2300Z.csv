@@ -1,0 +1,16 @@
+arm,model,effort,variant,non_monotone,ok,invalid_rate
+prospective,claude-opus-5-5,high,v2A,0,6,0.0
+prospective,gpt-6.1-sol,high,v2A,0,6,0.0
+retrospective,claude-haiku-5-5,high,v2A,6,246,0.023809523809523836
+retrospective,claude-haiku-5-5,high,v2B,0,252,0.0
+retrospective,claude-haiku-5-5,high,v2C,5,247,0.019841269841269882
+retrospective,claude-opus-4-6,medium,v2A,0,252,0.0
+retrospective,claude-opus-5-5,high,v2A,0,252,0.0
+retrospective,claude-opus-5-5,high,v2B,0,252,0.0
+retrospective,claude-opus-5-5,high,v2C,0,252,0.0
+retrospective,claude-sonnet-4-6,low,v2A,0,252,0.0
+retrospective,claude-sonnet-5-5,high,v2A,0,252,0.0
+retrospective,claude-sonnet-5-5,high,v2B,0,252,0.0
+retrospective,claude-sonnet-5-5,high,v2C,0,252,0.0
+retrospective,claude-sonnet-5-5,medium,v2A,0,252,0.0
+retrospective,gpt-5.1-2025-11-13,medium,v2A,1,251,0.003968253968253954

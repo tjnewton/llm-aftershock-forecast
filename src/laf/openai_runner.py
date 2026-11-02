@@ -9,7 +9,6 @@ OPENAI_BASE_URL says, and the SDK's own retries are disabled.
 """
 
 import contextlib
-import hashlib
 import json
 import time
 from datetime import UTC, datetime
@@ -27,6 +26,7 @@ from laf.runner import (
     check_budget,
     check_not_pending,
     confirmed_refusal,
+    params_sha256,
     request_id,
     scoring_frozen,
     uncertain,
@@ -265,9 +265,11 @@ def submit(
     }
     ledger, lines = [], []
     for r in reqs:
-        canonical = json.dumps(r["params"], sort_keys=True, ensure_ascii=False).encode("utf-8")
-        row = {"custom_id": r["custom_id"], **r["meta"]}
-        row["params_sha256"] = hashlib.sha256(canonical).hexdigest()
+        row = {
+            "custom_id": r["custom_id"],
+            **r["meta"],
+            "params_sha256": params_sha256(r["params"]),
+        }
         ledger.append(json.dumps(row, sort_keys=True) + "\n")
         line = {"custom_id": r["custom_id"], "method": "POST", "url": ENDPOINT, "body": r["params"]}
         lines.append(json.dumps(line, ensure_ascii=False) + "\n")

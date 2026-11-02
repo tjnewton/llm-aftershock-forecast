@@ -7,7 +7,7 @@ from typing import Literal
 
 Status = Literal[
     "ok", "refusal", "max_tokens", "schema_invalid", "non_monotone", "out_of_range",
-    "transport_error",
+    "transport_error", "model_mismatch",
 ]  # fmt: skip
 WINDOWS = ("day", "week", "month")
 QKEYS = ("q025", "q050", "q100", "q250", "q500", "q750", "q900", "q950", "q975")

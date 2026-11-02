@@ -56,6 +56,15 @@ def test_one_table_with_every_variant():
     assert got["valid answers only"] < got["main"]  # the penalty raised the main mean
     rates = S.invalid_rates(s).set_index("variant")
     assert rates.loc["v2A", "invalid_rate"] == pytest.approx(1 / 3)
+    live = s.assign(status="ok", effort=None)  # the live arm: every answer valid
+    both = S.invalid_rates(s, live).set_index(["arm", "variant"])
+    assert both.loc[("retrospective", "v2A"), "invalid_rate"] == pytest.approx(1 / 3)
+    assert both.loc[("prospective", "v2A"), "invalid_rate"] == 0.0  # kept despite no effort
+    lost = s.assign(status="transport_error")
+    f = S.failures(pd.concat([lost, lost]))  # one row per answer, whatever its windows
+    assert len(f) == len(lost.drop_duplicates(["model", "effort", "variant", "item_id", "sample"]))
+    ex = S.extras(s, C.confirmatory_cells(s, tables["sequences"], elapsed, sets=sets))
+    assert set(ex) == {"failures", "invalid", "influence"}
 
 
 def test_the_release_rule_skips_models_without_a_release_date(monkeypatch):

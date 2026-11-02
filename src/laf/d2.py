@@ -22,11 +22,17 @@ def samples(run_dirs: list[Path]) -> list[dict]:
     out = []
     for d in run_dirs:
         meta = {r["custom_id"]: r for r in _jsonl(d / "requests.jsonl")}
-        for res in _jsonl(d / "results.jsonl"):
+        results = _jsonl(d / "results.jsonl")
+        # a request the provider never returned is a transport error too (`runner.retry_plan`)
+        seen = {r["custom_id"] for r in results}
+        results += [{"custom_id": c, "result": "missing"} for c in meta if c not in seen]
+        for res in results:
             m = meta[res["custom_id"]]
             targets = TARGETS_V2 if m["paraphrase"] in V2 else TARGETS
             if res["result"] != "succeeded":
                 status, parsed, warn = "transport_error", None, []
+            elif res.get("model_reported") != m["model"]:  # invalid (prereg v2 section 3)
+                status, parsed, warn = "model_mismatch", None, []
             else:
                 status, parsed, warn = validate(
                     m["arm"], res.get("text"), res.get("stop_reason"), targets
@@ -36,7 +42,14 @@ def samples(run_dirs: list[Path]) -> list[dict]:
                 for t in targets:
                     rec[t] = [parsed[w][t][k] for k in QKEYS] if parsed and status == "ok" else None
                 out.append(rec)
-    return out
+    # a transport error that a later attempt answered (`runner.retry_plan`) drops out; the
+    # rest are the persistent failures, listed and left out (prereg v2 section 7)
+    answered = {_attempt_key(r) for r in out if r["status"] != "transport_error"}
+    return [r for r in out if r["status"] != "transport_error" or _attempt_key(r) not in answered]
+
+
+def _attempt_key(r: dict) -> tuple:
+    return tuple(r[k] for k in ("model", "item_id", "effort", "paraphrase", "sample", "window"))
 
 
 SCORES = ("registered", "nb_tail", "full", "log_qs")

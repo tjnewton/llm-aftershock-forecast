@@ -64,6 +64,8 @@ finishes in January (decision 20).
   claude-opus-4-6` (and `claude-sonnet-4-6`); `laf openai run --snapshot 20261029T2000Z --block
   confirmatory --model gpt-6.1-sol`.
 - Collect each with `laf collect` / `laf openai collect`; results stay unscored (second gate).
+  A batch with transport errors (errored, expired, missing) is resent with the same command
+  plus `--retry` (asked first, with its estimate), up to 10 attempts.
 
 ## 4. At L: the supplementary snapshot
 1. `laf candidates --since 2026-10-29 --until <day after L> --out config/sequences_supplementary.toml`
