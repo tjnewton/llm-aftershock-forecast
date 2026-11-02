@@ -41,8 +41,9 @@ Done before the freeze, because after it every code fix is a deviation.
    The `protect-live` ruleset (no deletion, no force-push) already covers it.
 2. The worker prompt allows API calls for the detector service only; Tyler restarts the loop.
 3. A queue task: worktree `..\laf-live` on `live`; stop the dry run; start
-   `laf live-watch --paid --publish ..\laf-live` (Windows) through the boot task of section
-   0. L is the first sealed live record.
+   `laf live-watch --paid --publish ..\laf-live --out runs\live --live-data data\interim\live`
+   (Windows) through the boot task of section 0: its own state and issue folders, never the dry
+   run's (`live_watch.run` refuses them). L is the first sealed live record.
 
 ## 3. Retrospective batches (each approved with its estimate)
 Retirement dates (checked 2026-11-02): gpt-5.1 is deprecated and shuts down 2027-04-01; Claude
@@ -73,7 +74,11 @@ finishes in January (decision 20).
 2. `laf --config config/sequences_supplementary.toml fetch`, `asof --workers 1`, `tables`, `etas`.
    ComCat allows 500 requests per 5 minutes per IP: one fetcher on the Mac, paced at 1 per
    second, beside the detector's poll every 10 minutes if both share the home address.
-3. The rest of B's retrospective arm, on it: `laf run --snapshot <it> --block confirmatory
+3. Before any batch on it: `laf freeze-manifest --snapshot <it> --out
+   results/supplementary_manifest.json` (its items and baselines without outcomes, and their
+   hashes), `laf stamp results/supplementary_manifest.json`, commit both and post the
+   manifest's hash; the outcome snapshot refuses a frozen snapshot in no manifest.
+4. The rest of B's retrospective arm, on it: `laf run --snapshot <it> --block confirmatory
    --model claude-opus-5-5 --name confirmatory/confirmatory-claude-opus-5-5-supplementary`, and
    `--block confirmatory-v2b --name confirmatory/confirmatory-v2b-claude-opus-5-5-supplementary`
    (distinct names: the defaults are section 3's runs on the candidates).

@@ -242,7 +242,9 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     issue, its tolerance, a month window and 21 days of settling.
   - Built: `laf outcome-config` (the fetch's config: the frozen configs and every live item's
     sequence) and `laf outcome-snapshot` (`laf.outcome`). Forecast-time inputs stay as frozen
-    in each sequence's own snapshot, checked against the freeze manifest: items, issue times
+    in each sequence's own snapshot, checked against its manifest (the freeze manifest; for
+    the snapshot at L, its own, written and timestamped when taken; a snapshot in no manifest
+    is refused): items, issue times
     and catalogs, official forecasts, the ETAS refit. The fresh fetch gives only outcomes: each
     frozen issue's counts in its own circle and windows, and the catalog end that decides
     settling. Sequences with origin at L or later come from the fresh fetch alone.

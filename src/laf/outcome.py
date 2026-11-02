@@ -20,6 +20,8 @@ from pathlib import Path
 import pandas as pd
 
 MANIFEST = Path("results/freeze_manifest.json")
+# the snapshot taken at L, after the freeze: hashed when taken (`laf freeze-manifest --out`)
+SUPPLEMENTARY_MANIFEST = Path("results/supplementary_manifest.json")
 # forecast-time tables that a later fetch would extend: kept from the frozen snapshot, and taken
 # from the fresh one for the live sequences, whose matched items use the official forecasts
 VERSION_TABLES = ("oaf_versions", "forecast_bins", "forecast_fractiles")
@@ -48,28 +50,30 @@ def config(configs: list[Path], live: Path | None, out: Path) -> int:
     return len(seqs)
 
 
-def _check_frozen(proc: Path, snapshot: str, manifest_path: Path) -> bool:
-    """Every file the freeze manifest lists for `snapshot` still has its hash; False when the
-    manifest does not cover it (the supplementary snapshot, taken after the freeze)."""
+def _check_frozen(proc: Path, snapshot: str, manifests: tuple[Path, ...]) -> Path | None:
+    """The manifest that lists `snapshot`, once every file it lists for it still has its hash;
+    None when none does. The first (the freeze manifest) must exist."""
     from laf.freeze import sha256
 
-    if not manifest_path.exists():
+    if not manifests[0].exists():
         raise SystemExit(
-            f"{manifest_path}: no freeze manifest (`laf freeze-manifest`, at the freeze)"
+            f"{manifests[0]}: no freeze manifest (`laf freeze-manifest`, at the freeze)"
         )
-    m = json.loads(manifest_path.read_text(encoding="utf-8"))
-    if snapshot not in m["snapshots"]:
-        return False
-    for k, h in m["files"].items():
-        p = Path(k)
-        if p.parent.name == snapshot and sha256(proc / p.name) != h:
-            raise SystemExit(f"{proc / p.name}: differs from the freeze manifest")
-    return True
+    for path in (m for m in manifests if m.exists()):
+        m = json.loads(path.read_text(encoding="utf-8"))
+        if snapshot not in m["snapshots"]:
+            continue
+        for k, h in m["files"].items():
+            f = Path(k)
+            if f.parent.name == snapshot and sha256(proc / f.name) != h:
+                raise SystemExit(f"{proc / f.name}: differs from {path}")
+        return path
+    return None
 
 
 def assemble(
     data_dir: Path, frozen: list[str], fresh: str, live_start: int | None,
-    manifest_path: Path = MANIFEST,
+    manifests: tuple[Path, ...] = (MANIFEST, SUPPLEMENTARY_MANIFEST), unlisted: bool = False,
 ) -> tuple[dict[str, pd.DataFrame], list[str], list[str]]:  # fmt: skip
     """(tables, item lines, notes) of the outcome snapshot. `live_start` is L; without it every
     frozen sequence counts as retrospective."""
@@ -88,10 +92,10 @@ def assemble(
     owner: dict[str, str] = {}
     for snap in frozen:
         d = proc / snap
-        checked = _check_frozen(d, snap, manifest_path)
-        notes.append(
-            f"{snap}: {'matches the freeze manifest' if checked else 'not in the manifest'}"
-        )
+        listed = _check_frozen(d, snap, manifests)
+        if listed is None and not unlisted:  # `unlisted`: rehearsals on development data
+            raise SystemExit(f"{snap}: in no manifest ({', '.join(map(str, manifests))})")
+        notes.append(f"{snap}: {f'matches {listed}' if listed else 'in no manifest'}")
         t = load_tables(d)
         s = t["sequences"]
         keep = set(s["sequence_id"] if live_start is None else s.loc[s["origin_ms"] < live_start,

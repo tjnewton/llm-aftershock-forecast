@@ -80,7 +80,9 @@ def test_frozen_forecast_inputs_with_fresh_outcomes(tmp_path, monkeypatch):
     monkeypatch.setattr(splits, "unsealed", lambda: True)
     _frozen(tmp_path, "F")
     _fresh(tmp_path, "N")
-    t, lines, _ = outcome.assemble(tmp_path, ["F"], "N", L, manifest_path=_no_manifest(tmp_path))
+    t, lines, _ = outcome.assemble(
+        tmp_path, ["F"], "N", L, manifests=(_no_manifest(tmp_path),), unlisted=True
+    )
     oc = t["observed_counts"].set_index("magnitude")
     assert list(oc["count"]) == [1, 1]  # the M4.1 is outside the issue's 50 km circle
     assert oc["closed"].all() and oc["days_since_close"].iloc[0] == 192.0
@@ -115,7 +117,9 @@ def test_counts_stay_sealed_before_the_gate(tmp_path, monkeypatch):
     monkeypatch.setattr(splits, "unsealed", lambda: False)
     _frozen(tmp_path, "F")
     _fresh(tmp_path, "N")
-    t, _, _ = outcome.assemble(tmp_path, ["F"], "N", None, manifest_path=_no_manifest(tmp_path))
+    t, _, _ = outcome.assemble(
+        tmp_path, ["F"], "N", None, manifests=(_no_manifest(tmp_path),), unlisted=True
+    )
     assert t["observed_counts"]["count"].isna().all()
     assert t["observed_counts"]["sequence_id"].unique().tolist() == ["s1"]
     assert {"s1@1", "s2@1", "s3@9"} == set(t["issue_times"]["issue_id"])  # no L: s2 frozen
@@ -125,15 +129,17 @@ def test_refusals(tmp_path):
     f = _frozen(tmp_path, "F")
     _fresh(tmp_path, "N", radius_km=40.0)
     with pytest.raises(SystemExit, match="misses issues s1@1"):
-        outcome.assemble(tmp_path, ["F"], "N", L, manifest_path=_no_manifest(tmp_path))
+        outcome.assemble(
+            tmp_path, ["F"], "N", L, manifests=(_no_manifest(tmp_path),), unlisted=True
+        )
     with pytest.raises(SystemExit, match="no freeze manifest"):
-        outcome.assemble(tmp_path, ["F"], "N", L, manifest_path=tmp_path / "absent.json")
+        outcome.assemble(tmp_path, ["F"], "N", L, manifests=(tmp_path / "absent.json",))
     m = tmp_path / "manifest.json"
     files = {f"data/processed/F/{p.name}": sha256(p) for p in f.iterdir()}
     m.write_text(json.dumps({"snapshots": ["F"], "files": files}))
     (f / "items_m3.jsonl").write_text((f / "items_m3.jsonl").read_text() + "\n")
-    with pytest.raises(SystemExit, match=r"items_m3\.jsonl: differs from the freeze manifest"):
-        outcome.assemble(tmp_path, ["F"], "N", L, manifest_path=m)
+    with pytest.raises(SystemExit, match=r"items_m3\.jsonl: differs from"):
+        outcome.assemble(tmp_path, ["F"], "N", L, manifests=(m,))
 
 
 def test_config_adds_live_sequences(tmp_path):
@@ -154,5 +160,22 @@ def test_config_adds_live_sequences(tmp_path):
 def test_coverage_flag_follows_the_fresh_query_circle(tmp_path):
     _frozen(tmp_path, "F")
     _fresh(tmp_path, "N", radius_km=60.0)  # holds the 50 km circle, not 1.5 times it
-    t, _, _ = outcome.assemble(tmp_path, ["F"], "N", L, manifest_path=_no_manifest(tmp_path))
+    t, _, _ = outcome.assemble(
+        tmp_path, ["F"], "N", L, manifests=(_no_manifest(tmp_path),), unlisted=True
+    )
     assert not t["issue_times"]["query_covers_x1_5"].tolist()[0]
+
+
+def test_each_frozen_snapshot_must_be_in_a_manifest(tmp_path, monkeypatch):
+    monkeypatch.setattr(splits, "unsealed", lambda: False)
+    f = _frozen(tmp_path, "F")
+    _fresh(tmp_path, "N")
+    with pytest.raises(SystemExit, match="F: in no manifest"):
+        outcome.assemble(tmp_path, ["F"], "N", L, manifests=(_no_manifest(tmp_path),))
+    supp = tmp_path / "supplementary_manifest.json"  # the snapshot at L, hashed when taken
+    files = {f"data/processed/F/{p.name}": sha256(p) for p in f.iterdir()}
+    supp.write_text(json.dumps({"snapshots": ["F"], "files": files}))
+    _, _, notes = outcome.assemble(
+        tmp_path, ["F"], "N", L, manifests=(_no_manifest(tmp_path), supp)
+    )
+    assert notes[0] == f"F: matches {supp}"

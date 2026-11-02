@@ -20,6 +20,7 @@ PROMPT_HASHES = Path("prompts/v2/HASHES.json")
 CONFIGS = ("config/splits.toml", "config/sequences.toml", "config/sequences_e3.toml",
            "config/sequences_confirmatory.toml",
            "config/sequences_forward_excluded.toml")  # fmt: skip
+SUPPLEMENTARY_CONFIG = Path("config/sequences_supplementary.toml")
 SRC = Path("src/laf")
 
 
@@ -86,6 +87,8 @@ def manifest(data_dir: Path, snapshots: list[str], inputs: list[Path]) -> dict:
     downloads = data_dir / "manifest.jsonl"  # the download inventory of this data directory
     files = {str(PREREG): PREREG, str(PROMPT_HASHES): PROMPT_HASHES, str(downloads): downloads}
     files |= {c: Path(c) for c in CONFIGS}
+    if SUPPLEMENTARY_CONFIG.exists():  # written at L, after the freeze
+        files[str(SUPPLEMENTARY_CONFIG)] = SUPPLEMENTARY_CONFIG
     for snapshot in snapshots:
         proc = data_dir / "processed" / snapshot
         files |= {str(p): p for p in sorted(proc.glob("*.parquet"))}

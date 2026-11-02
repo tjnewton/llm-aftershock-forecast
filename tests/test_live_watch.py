@@ -264,3 +264,26 @@ def test_the_stop_is_read_from_the_checkout(tmp_path):
     stop = tmp_path / "live_stop.toml"
     stop.write_text("s_ms = 1793000000000\n")
     assert W.admission_stop_ms(stop) == 1793000000000
+
+
+def test_the_paid_detector_never_reuses_the_dry_runs_folders(tmp_path, monkeypatch):
+    import os
+    import subprocess
+
+    for k in [k for k in os.environ if k.startswith("GIT_")]:  # a commit hook's GIT_DIR etc.
+        monkeypatch.delenv(k)
+    live = tmp_path / "laf-live"
+    subprocess.run(["git", "init", "-q", "-b", "live", str(live)], check=True)
+    dry_out, dry_data = tmp_path / "dry", tmp_path / "dry-data"
+    dry_out.mkdir()
+    (dry_out / "state.json").write_text('{"last_poll_ms": 1}')  # a dry run's state, no marker
+    with pytest.raises(SystemExit, match="holds the dry run"):
+        W.run(dry_out, tmp_path / "new-data", Path("data"), polls=0, publish_to=live, paid=True)
+    (dry_data / "issues").mkdir(parents=True)  # the dry run's issue folders
+    with pytest.raises(SystemExit, match="holds the dry run"):
+        W.run(tmp_path / "new", dry_data, Path("data"), polls=0, publish_to=live, paid=True)
+    paid_data = tmp_path / "paid-data"
+    paid_data.mkdir()
+    (paid_data / "mode.txt").write_text("paid\n")
+    with pytest.raises(SystemExit, match="holds the paid run"):
+        W.run(tmp_path / "other", paid_data, Path("data"), polls=0)
