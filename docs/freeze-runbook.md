@@ -6,10 +6,12 @@ marked Windows.
 
 ## 1. Freeze (Tyler decides)
 1. Every pull request merged; `uv run pytest` green on `post-submission`.
-2. `uv run laf freeze-manifest --snapshot 20261029T2000Z 20261101T2202Z` rebuilds and checks the
+2. The prereg's status line changes from DRAFT to FROZEN, first: the manifest hashes the
+   prereg, so it must see the final text.
+3. `uv run laf freeze-manifest --snapshot 20261029T2000Z 20261101T2202Z` rebuilds and checks the
    frozen items and baselines and writes `results/freeze_manifest.json` (31 artifacts, one
-   `manifest_sha256`).
-3. The prereg's status line changes from DRAFT to FROZEN; commit it with the manifest.
+   `manifest_sha256`). Commit the prereg and the manifest together; nothing changes between
+   this step and the tag (rebuilding the manifest at the tag gives the same `manifest_sha256`).
 4. Tyler tags that commit `prereg-v2` (annotated) and pushes the tag; the `freeze-tags` ruleset
    protects it.
 5. Tyler posts the tag's commit hash and `manifest_sha256` publicly.
