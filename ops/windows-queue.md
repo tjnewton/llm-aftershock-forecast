@@ -207,4 +207,14 @@ outputs: the task `laf-detector` running the dry-run detector; Windows Update se
 commit: the done line only
 notes: At live start (runbook section 2), a queue task points detector.ps1 at the paid command (`--paid --publish ..\laf-live --out runs\live --live-data data\interim\live`) and restarts the task. Never read or print .env.
 
+## T17 e2e-validate
+status: ready
+server: none (no llama-server)
+prepare: git pull. After T16 (or now, if T16 waits on Tyler). No API call; outcome-blind.
+run: from the repo root:
+  `uv run python -c "import json,pathlib; from laf.schemas import TARGETS_V2, validate; [print(c['item_id'], c['model_requested'], c['sample'], validate('direct', c.get('text'), c.get('stop_reason'), TARGETS_V2)[0]) for p in pathlib.Path('runs/prospective-e2e').glob('*/*/calls.jsonl') for c in map(json.loads, p.read_text(encoding='utf-8').split(chr(10))[:-1]) if not c.get('missed')]"`
+outputs: none
+commit: the done line only: each answer's status (expect 12 "ok"), and for any other status the item, model and status
+notes: Checks the T14 answers' format only (the schema and quantile checks); nothing is scored, no outcome is read.
+
 ## END
