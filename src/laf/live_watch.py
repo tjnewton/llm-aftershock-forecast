@@ -95,14 +95,14 @@ def inclusion(
     detection: the magnitude rule (`qualifies`), then the backward aftershock check. Those values
     are kept in `decided` before the aftershock query, so a failed query is retried at the next
     version on them, never on revised ones; a later magnitude revision changes nothing. After
-    the stop (prereg v2 section 5), a new sequence whose origin is at S or later is not
+    the stop (prereg v2 section 5), a new sequence whose origin is after S is not
     admitted; admitted sequences keep their scheduled issues."""
     if key not in decided:
         p = doc["properties"]
         lon, lat, _ = doc["geometry"]["coordinates"]
         tier = qualifies(float(p["mag"]), p.get("net") or "")
         reason = "pending" if tier else "magnitude"
-        if tier and stop_ms is not None and int(p["time"]) >= stop_ms:
+        if tier and stop_ms is not None and int(p["time"]) > stop_ms:  # [L, S] (decision 23)
             tier, reason = None, "after the stop"
         decided[key] = {"tier": tier, "reason": reason, "mag": float(p["mag"]), "lat": lat,
                         "lon": lon, "time_ms": int(p["time"])}  # fmt: skip

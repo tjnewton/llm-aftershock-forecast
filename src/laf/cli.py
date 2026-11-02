@@ -192,7 +192,8 @@ def main(argv: list[str] | None = None) -> None:
     oa.add_argument("--snapshot")
     oa.add_argument(
         "--block", default="d2",
-        choices=("pilot", "d2", "confirmatory", "confirmatory-sens", "confirmatory-v2b"),
+        choices=("pilot", "d2", "confirmatory", "confirmatory-sens", "confirmatory-v2b",
+                 "confirmatory-unbuffered"),
     )  # fmt: skip
     oa.add_argument("--name", dest="run_name", help="run name under runs/ (confirmatory blocks)")
     oa.add_argument("--chunk", help="confirmatory blocks: K/N, the K-th of N parts")

@@ -184,6 +184,12 @@ def test_test_b_joins_its_two_parts_and_s2_s5_use_the_live_items(monkeypatch):
     late = live.assign(on_time=live["kind"] == "matched")  # every strict answer sealed late
     recs = C.live_report(retro, late, seqs, elapsed, start, None).to_dict("records")
     assert not [r for r in recs if r["hypothesis"] == "S5"]
+    # the window is [L, S]: a sequence with origin at S is in it (decision 23), one after is out
+    at_s = C.live_report(retro, live, seqs, elapsed, start, start + 10**6).to_dict("records")
+    assert {r["hypothesis"]: r for r in at_s}["B"]["sequences"] == 12
+    before = C.live_report(retro, live, seqs, elapsed, start, start + 10**6 - 1).to_dict("records")
+    assert {r["hypothesis"]: r for r in before}["B"]["sequences"] == 6
+    assert t["S2"]["status"] == "supported" and "lower" in t["B"]
     failed = live.assign(status="transport_error")  # every live call failed
     recs = C.live_report(retro, failed, seqs, elapsed, start, None).to_dict("records")
     t = {r["hypothesis"]: r for r in recs}

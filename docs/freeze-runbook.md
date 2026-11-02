@@ -47,11 +47,13 @@ Done before the freeze, because after it every code fix is a deviation.
 ## 3. Retrospective batches (each approved with its estimate)
 Retirement dates (checked 2026-11-02): gpt-5.1 is deprecated and shuts down 2027-04-01; Claude
 Opus 4.6 not before 2027-02-05, Sonnet 4.6 not before 2027-02-17, Opus 5.5 not before
-2027-09-22. So the Claude batches on the candidates run right after the tag, and test A keeps a
-month's margin.
-- Test A, by 2027-03-01, about one part a month (OpenAI cap $100 to February):
+2027-09-22. So the Claude batches on the candidates run right after the tag, and test A
+finishes in January (decision 20).
+- Test A, two half-parts a month from November to January (OpenAI cap $150; Tyler sets $100 on
+  2027-02-01 and $50 in March):
   `laf openai run --snapshot 20261029T2000Z --block confirmatory --chunk 1/2` then `2/2`;
-  `--block confirmatory-sens --chunk 1/2`, `2/2`; `--block confirmatory-v2b --chunk 1/2`, `2/2`.
+  `--block confirmatory-sens --chunk 1/2`, `2/2`; `--block confirmatory-v2b --chunk 1/2`, `2/2`;
+  then `--block confirmatory-unbuffered` (about $13, decision 21).
 - Forward-excluded: `laf openai run --snapshot 20261101T2202Z --block confirmatory
   --forward-excluded` and `laf run --snapshot 20261101T2202Z --block confirmatory --model
   claude-opus-4-6 --forward-excluded` (about $1.76).
@@ -75,12 +77,13 @@ month's margin.
    (distinct names: the defaults are section 3's runs on the candidates).
 
 ## 5. At S: the stop
-1. S = min(L + 182 days, the 26th eligible prospective M>=5 sequence).
+1. S = min(L + 182 days, the origin of the 26th eligible prospective M>=5 sequence: included
+   as primary at first detection). Prospective origins are in [L, S] (decision 23).
 2. Commit `config/live_stop.toml` with `s_ms = <S>` to `post-submission`; Tyler tags it
    `prereg-v2-stop`.
 3. Windows pulls `post-submission` (its queue loop does), so the file is in the detector's
-   checkout. `laf.live_watch` reads it every poll: from then on a sequence whose origin is at S
-   or later is not admitted ("after the stop" in the log), while admitted sequences keep their
+   checkout. `laf.live_watch` reads it every poll: from then on a sequence whose origin is after
+   S is not admitted ("after the stop" in the log), while admitted sequences keep their
    scheduled issues to the 28-day slot and releases continue. No restart.
 4. Check: `git log -1 -- config/live_stop.toml` in the detector's checkout shows the stop
    commit; any qualifying sequence after S has `"inclusion": "after the stop"` in `log.jsonl`;
@@ -95,7 +98,7 @@ month's margin.
    of live> --out config/sequences_outcome.toml` (through a pull request): every frozen
    sequence and every live item's sequence.
 2. `laf --config config/sequences_outcome.toml fetch` (one fetcher, paced), then `tables
-   --snapshot <fresh>`. Both gates are open (tag `prereg-v2-stop`, S + 90 days), so counts are
+   --snapshot <fresh>`. Both gates are open (the tag `prereg-v2`; the tag `prereg-v2-stop` and S + 90 days), so counts are
    written.
 3. `laf outcome-snapshot --frozen 20261029T2000Z 20261101T2202Z <supplementary> --fresh <fresh>
    --live <worktree of live> --out <fresh>-outcomes`: the frozen items, issue tables, official

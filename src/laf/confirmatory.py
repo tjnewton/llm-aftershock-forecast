@@ -166,7 +166,25 @@ def robust(effects: np.ndarray, b: int = B, seed: int = SEED) -> dict:
     }  # fmt: skip
 
 
-TEST_COLUMNS = ("upper", "p", "p_sup", "noninferior", "superior")
+def decide(
+    effects: np.ndarray, delta: float = DELTA, alpha: float = 0.05,
+    strata: np.ndarray | None = None,
+) -> dict:  # fmt: skip
+    """The registered decision rule (prereg v2 section 2, decision 25): `supported` if the upper
+    bound is below delta, `inferior` if the lower bound is above it, `inconclusive` otherwise.
+    The lower bound is at the same one-sided level: the upper bound of the negated effects, on
+    the same resamples."""
+    x = np.asarray(effects, dtype=float)
+    t = noninferiority(x, delta, alpha=alpha, strata=strata)
+    lower = -noninferiority(-x, -delta, alpha=alpha, strata=strata)["upper"]
+    return t | {"lower": lower, "status": _status(t["noninferior"], lower, delta)}
+
+
+def _status(supported: bool, lower: float, delta: float) -> str:
+    return "supported" if supported else "inferior" if lower > delta else "inconclusive"
+
+
+TEST_COLUMNS = ("upper", "lower", "status", "p", "p_sup", "noninferior", "superior")
 
 
 def report(
@@ -180,7 +198,7 @@ def report(
     separate Holm family across the co-primary models, each tested only after its
     non-inferiority is supported. Other models are tested at 0.05 alone."""
     effects = {m: sequence_effects(g).to_numpy() for m, g in cells.groupby("model")}
-    rows = {m: noninferiority(e, delta) | robust(e) for m, e in effects.items()}
+    rows = {m: decide(e, delta) | robust(e) for m, e in effects.items()}
     missing = [m for m in primary if m not in rows]
     if missing:  # a smaller Holm family would test the rest at a looser level
         raise ValueError(f"primary results missing: {missing}")
@@ -188,8 +206,9 @@ def report(
     levels, rej = holm_levels(p_ni), holm(p_ni)
     sup = holm({m: rows[m]["p_sup"] for m in primary})
     for m in primary:  # the bound at the model's Holm level
-        at = noninferiority(effects[m], delta, alpha=levels[m])
-        rows[m] |= {"holm_level": levels[m], "upper": at["upper"]}
+        at = decide(effects[m], delta, alpha=levels[m])
+        rows[m] |= {"holm_level": levels[m], "upper": at["upper"], "lower": at["lower"],
+                    "status": _status(rej[m], at["lower"], delta)}  # fmt: skip
         rows[m]["noninferior"] = rej[m]
         rows[m]["superior"] = bool(rej[m] and sup[m])
     for m in rows:
@@ -262,7 +281,9 @@ RELEASED = {
     "claude-opus-5-5": "2026-09-21",
 }
 PRIMARY = ("gpt-5.1-2025-11-13",)
-SECONDARY = ("claude-opus-5-5", "claude-opus-4-6", "gpt-6.1-sol")  # B, S1, S2; others descriptive
+# B and S1 on retrospective sets; S2 (gpt-6.1-sol) is prospective only (`live_report`), so its
+# retrospective run is descriptive (decision 24), as are the other models
+SECONDARY = ("claude-opus-5-5", "claude-opus-4-6")
 PRIMARY_PROMPT = "v2A"  # ADR 0015 decision 4
 # ADR 0014 decisions 6 and 7
 OPENAI_EFFORT = {"gpt-5.1-2025-11-13": "medium", "gpt-6.1-sol": "high"}
@@ -507,7 +528,7 @@ def live_report(
     first = live.sort_values("elapsed_days").drop_duplicates("sequence_id").set_index("sequence_id")
     end = stop_ms if stop_ms is not None else np.inf
     pro_ids = {str(sid) for sid, r in first.iterrows()
-               if live_start_ms <= r["origin_ms"] < end and r["tier"] == "primary"}  # fmt: skip
+               if live_start_ms <= r["origin_ms"] <= end and r["tier"] == "primary"}  # fmt: skip
     live_elapsed = dict(zip(live["item_id"], live["elapsed_days"], strict=True))
     sets = {m: pro_ids for m in (B_MODEL, S2_MODEL)}
     matched = live[(live["kind"] == "matched") & live["on_time"]]
@@ -516,7 +537,7 @@ def live_report(
 
     def test(label: str, cells: pd.DataFrame, strata: np.ndarray | None = None) -> dict:
         e = sequence_effects(cells)
-        t = noninferiority(e.to_numpy(), strata=strata)
+        t = decide(e.to_numpy(), strata=strata)
         return {"hypothesis": label} | {k: t[k] for k in TEST_COLUMNS} | {
             "sequences": t["sequences"], "mean": t["mean"]}  # fmt: skip
 
@@ -581,17 +602,21 @@ def batch_items(
 ) -> list:  # fmt: skip
     """The items a confirmatory batch sends (prereg v2 sections 3 and 8), by the rule the
     analysis applies (`eligible`): `confirmatory` and `confirmatory-v2b` the model's clean M>=5
-    set, `confirmatory-sens` gpt-5.1's clean candidates below M5 (test A's sensitivity set).
+    set, `confirmatory-sens` gpt-5.1's clean candidates below M5 (test A's sensitivity set),
+    `confirmatory-unbuffered` gpt-5.1's M>=5 sequences that only the unbuffered clean rule
+    admits (its sensitivity row, decision 21).
     `include_forward` takes the forward-excluded candidates (their own snapshot). `chunk` "K/N"
     sends the K-th of N round-robin parts of the sequences, ordered by origin, so a batch fits
     the monthly room (prereg v2 section 8: test A in parts)."""
     if block == "confirmatory-v2b" and model not in V2B_MODELS:
         raise SystemExit(f"v2B runs for {', '.join(V2B_MODELS)} only (prereg v2 section 3)")
-    if block == "confirmatory-sens" and model not in PRIMARY:
-        raise SystemExit("the sensitivity set is test A's (gpt-5.1) only")
+    if block in ("confirmatory-sens", "confirmatory-unbuffered") and model not in PRIMARY:
+        raise SystemExit(f"{block} is test A's (gpt-5.1) only")
     m5 = eligible(sequences, model, 5.0, include_forward=include_forward)
     if block == "confirmatory-sens":
         keep = eligible(sequences, model, 0.0, include_forward=include_forward) - m5
+    elif block == "confirmatory-unbuffered":  # the unbuffered clean rule's extra M>=5 sequences
+        keep = eligible(sequences, model, 5.0, "unbuffered", include_forward) - m5
     else:
         keep = m5
     if include_forward:

@@ -26,6 +26,16 @@ def test_noninferiority_decisions_and_p_value():
         assert (r["p"] <= 0.05) == r["noninferior"]
 
 
+def test_the_decision_rule_has_three_outcomes():
+    rng = np.random.default_rng(0)
+    good, bad, wide = rng.normal(0.0, 0.05, 80), rng.normal(0.3, 0.05, 80), rng.normal(0.1, 0.5, 20)
+    assert C.decide(good)["status"] == "supported"
+    r = C.decide(bad)  # the lower bound above delta
+    assert r["status"] == "inferior" and r["lower"] > C.DELTA and r["lower"] < r["upper"]
+    assert C.decide(wide)["status"] == "inconclusive"
+    assert C.decide(np.array([0.5]))["status"] == "inconclusive"  # one sequence: no claim
+
+
 def test_heavy_tail_moves_the_mean_not_the_median():
     x = np.r_[np.zeros(17), 1.0]
     r = C.robust(x)
@@ -45,6 +55,13 @@ def test_report_corrects_only_the_co_primary_models():
     t = C.report(cells, ("A", "B")).set_index("model")
     assert t.loc["A", "holm_noninferior"] and t.loc["B", "holm_noninferior"]
     assert t.loc["C", "holm_noninferior"] is None and not t.loc["C", "noninferior"]
+    assert t.loc["A", "status"] == "supported" and t.loc["C", "status"] == "inferior"
+    d = C.report(cells, ("A",), descriptive=("C",)).set_index("model")
+    assert pd.isna(d.loc["C", "status"]) and pd.isna(d.loc["C", "lower"])  # no test row
+
+
+def test_s2_is_prospective_only():
+    assert "gpt-6.1-sol" not in C.SECONDARY and C.S2_MODEL == "gpt-6.1-sol"
 
 
 def test_report_refuses_an_incomplete_co_primary_family():
@@ -334,6 +351,13 @@ def test_confirmatory_batches_send_each_models_own_set_in_parts(monkeypatch):
         got("claude-opus-4-6", "confirmatory-v2b")
     with pytest.raises(SystemExit, match="test A"):
         got("claude-opus-4-6", "confirmatory-sens")
+    # the unbuffered rule's extras: clean only without the buffer, M>=5
+    monkeypatch.setattr(C, "clean_from", lambda m, rule="buffered": pd.Timestamp(
+        "2025-04-15" if rule == "buffered" else "2025-01-15", tz="UTC"))  # fmt: skip
+    assert got(gpt, "confirmatory") == {"s5", "s6"}
+    assert got(gpt, "confirmatory-unbuffered") == {"s0", "s1", "s2"}
+    with pytest.raises(SystemExit, match="test A"):
+        got("claude-opus-5-5", "confirmatory-unbuffered")
 
 
 def test_the_openai_run_name_option_is_kept(monkeypatch, capsys):
