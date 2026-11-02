@@ -664,3 +664,9 @@
 {"events": 0, "kind": "poll", "poll_ms": 1793618076870, "since_ms": 1793617436951}
 {"branch": "live-test", "commit": "2517e3e634f710dd8f53da9c6a720d7a48ff4a35", "key": "us6000tzna", "kind": "receipt", "matched_first_ms": 1793617200000, "matched_receipt_margin_s": -259.0, "pushed_ms": 1793617459441, "receipt_lag_s": -0.441, "receipt_ms": 1793617459000, "repo": "tjnewton/llm-aftershock-forecast", "update_ms": 1793617340204}
 {"events": 0, "kind": "poll", "poll_ms": 1793618678442, "since_ms": 1793618076870}
+{"events": 0, "kind": "poll", "poll_ms": 1793619279243, "since_ms": 1793618678442}
+{"events": 0, "kind": "poll", "poll_ms": 1793619880086, "since_ms": 1793619279243}
+{"events": 0, "kind": "poll", "poll_ms": 1793620480782, "since_ms": 1793619880086}
+{"events": 0, "kind": "poll", "poll_ms": 1793621081672, "since_ms": 1793620480782}
+{"events": 1, "kind": "poll", "poll_ms": 1793621682527, "since_ms": 1793621081672}
+{"backlog": false, "detect_latency_s": 192.166, "event_id": "nc75458907", "fetch_s": 3.0966193675994873, "inclusion": "included", "index_ms": 1793621490361, "key": "nc75458907", "kind": "detection", "mag": 4.01, "matched_update_ms": 1793621484229, "net": "nc", "pipeline": "prospective", "poll_ms": 1793621682527, "skipped": "not a scheduled version (ADR 0004)", "slot": null, "superseded": false, "tier": "secondary", "update_ms": 1793621484229}
