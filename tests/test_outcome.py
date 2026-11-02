@@ -4,7 +4,7 @@ import tomllib
 import pandas as pd
 import pytest
 
-from laf import outcome, splits
+from laf import confirmatory, outcome, splits
 from laf.freeze import sha256
 
 DAY = 86_400_000
@@ -55,6 +55,10 @@ def _fresh(data_dir, snap, radius_km=200.0):
         "forecast_fractiles": pd.DataFrame({"sequence_id": ["s1", "s2", "s3"],
                                             "info_cutoff_ms": [9, 9, 9]}),
         "oaf_versions": pd.DataFrame({"sequence_id": ["s3"], "creation_ms": [9]}),
+        "issue_times": pd.DataFrame({"issue_id": ["s1@9", "s2@9", "s3@9"],
+                                     "sequence_id": ["s1", "s2", "s3"], "issue_ms": 9,
+                                     "region_lat": 0.0, "region_lon": 0.0,
+                                     "region_radius_km": 50.0}),
         "forecast_bins": pd.DataFrame({"sequence_id": ["s3"], "info_cutoff_ms": [9]}),
     }  # fmt: skip
     for name, df in tables.items():
@@ -83,8 +87,14 @@ def test_frozen_forecast_inputs_with_fresh_outcomes(tmp_path, monkeypatch):
     # s2 (origin after L) belongs to the prospective part: its rows come from the fresh fetch
     assert t["sequences"]["catalog_end_ms"].tolist() == [200 * DAY] * 3
     assert t["sequences"]["sequence_id"].tolist() == ["s1", "s2", "s3"]
-    assert set(t["issue_times"]["sequence_id"]) == {"s1"}
-    assert t["issue_times"]["query_covers_x1_5"].tolist() == [True]  # 75 km within 200 km
+    # frozen issues for s1; the prospective sequences' issues (first-issue metadata) are fresh
+    assert t["issue_times"]["issue_id"].tolist() == ["s1@1", "s2@9", "s3@9"]
+    assert t["observed_counts"]["issue_id"].unique().tolist() == ["s1@1"]  # no cells for them
+    month = {"magnitude": 5.0, "window": "1 Month", "p": [0.0, 1.0], "count": [1.0, 1.0]}
+    first = t | {"forecast_fractiles": pd.DataFrame({"sequence_id": "s3", "info_cutoff_ms": 9,
+                                                     **month})}  # fmt: skip
+    assert confirmatory.informative(first) == {"s3"}  # a prospective sequence can qualify
+    assert t["issue_times"]["query_covers_x1_5"].tolist()[0]  # 75 km within 200 km
     assert list(t["issue_catalogs"]["issue_id"]) == ["s1@1"]
     assert list(t["etas_forecasts"]["q500"]) == [1]
     ff = t["forecast_fractiles"]  # frozen versions for s1, fresh ones for the live sequences
@@ -107,7 +117,8 @@ def test_counts_stay_sealed_before_the_gate(tmp_path, monkeypatch):
     _fresh(tmp_path, "N")
     t, _, _ = outcome.assemble(tmp_path, ["F"], "N", None, manifest_path=_no_manifest(tmp_path))
     assert t["observed_counts"]["count"].isna().all()
-    assert set(t["issue_times"]["sequence_id"]) == {"s1", "s2"}  # without L: all retrospective
+    assert t["observed_counts"]["sequence_id"].unique().tolist() == ["s1"]
+    assert {"s1@1", "s2@1", "s3@9"} == set(t["issue_times"]["issue_id"])  # no L: s2 frozen
 
 
 def test_refusals(tmp_path):
@@ -144,4 +155,4 @@ def test_coverage_flag_follows_the_fresh_query_circle(tmp_path):
     _frozen(tmp_path, "F")
     _fresh(tmp_path, "N", radius_km=60.0)  # holds the 50 km circle, not 1.5 times it
     t, _, _ = outcome.assemble(tmp_path, ["F"], "N", L, manifest_path=_no_manifest(tmp_path))
-    assert t["issue_times"]["query_covers_x1_5"].tolist() == [False]
+    assert not t["issue_times"]["query_covers_x1_5"].tolist()[0]

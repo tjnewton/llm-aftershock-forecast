@@ -7,7 +7,7 @@ times and catalogs, the official forecasts and the ETAS refit. Only outcomes are
 fetch of every sequence at S + 90 days gives its catalog, recounted in each frozen issue's own
 circle and windows, and its catalog end, which decides settling. Sequences with origin at L or
 later belong to the prospective part (a sequence belongs to exactly one part) and come from the
-fresh fetch alone; `laf.live_scores` counts their live items there.
+fresh fetch alone (no counts: `laf.live_scores` counts their live items there).
 
 `laf outcome-config` writes the fresh fetch's config (the frozen configs and every live item's
 sequence); `laf outcome-snapshot` assembles the directory.
@@ -114,7 +114,9 @@ def assemble(
     if missing := sorted(set(owner) - fresh_ids):
         raise SystemExit(f"the fresh snapshot {fresh} lacks {', '.join(missing)}")
     others = fresh_ids - set(owner)  # the prospective part's sequences
-    for name in ("sequences", *VERSION_TABLES):
+    # their issue times too: the informative estimand reads each sequence's first issue
+    # (`confirmatory.informative`); scored cells come from observed_counts, which they lack
+    for name in ("sequences", "issue_times", *VERSION_TABLES):
         parts.setdefault(name, []).append(new[name][new[name]["sequence_id"].isin(others)])
     out = {name: pd.concat(dfs, ignore_index=True) for name, dfs in parts.items()}
     out["catalog"] = new["catalog"]
