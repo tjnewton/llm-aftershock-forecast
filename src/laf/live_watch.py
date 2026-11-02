@@ -306,6 +306,21 @@ def run(
         raise SystemExit("--paid publishes to a worktree of branch live (--publish)")
     if not paid and on == "live":
         raise SystemExit("the dry run never publishes to live: use a worktree of live-test")
+    state_path = out / "state.json"
+    state = json.loads(state_path.read_text(encoding="utf-8")) if state_path.exists() else {}
+    # the paid detector never resumes a dry run's state (seen versions, last poll) nor shares
+    # its issue folders: each mode keeps its own --out and --live-data
+    mode = "paid" if paid else "dry"
+    marker = data_dir / "mode.txt"
+    # folders from before this marker existed are the dry run's
+    held = {out: state.get("mode") or ("dry" if state else None),
+            data_dir: marker.read_text(encoding="utf-8").strip() if marker.exists() else (
+                "dry" if (data_dir / "issues").exists() else None)}  # fmt: skip
+    for folder, other in held.items():
+        if other not in (None, mode):
+            raise SystemExit(f"{folder} holds the {other} run: the paid detector and the dry run "
+                             "each keep their own --out and --live-data")  # fmt: skip
+    state["mode"] = mode
     clients = None
     if paid:
         from laf.openai_runner import client as openai_client
@@ -318,8 +333,7 @@ def run(
     ref = data_dir / REFERENCE_REL
     if not ref.exists():  # generic-RJ reference tables, read by build_tables
         shutil.copytree(repo_data / REFERENCE_REL, ref)
-    state_path = out / "state.json"
-    state = json.loads(state_path.read_text(encoding="utf-8")) if state_path.exists() else {}
+    marker.write_text(mode + "\n", encoding="utf-8")
     n = 0
     while polls is None or n < polls:
         state = step(out, data_dir, state, publish_to=publish_to, clients=clients)

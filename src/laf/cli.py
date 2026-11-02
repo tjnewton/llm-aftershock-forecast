@@ -51,6 +51,8 @@ def main(argv: list[str] | None = None) -> None:
     )
     fm.add_argument("--snapshot", nargs="+", required=True,
                     help="the candidate and forward-excluded snapshots")  # fmt: skip
+    fm.add_argument("--out", type=Path, default=Path("results/freeze_manifest.json"),
+                    help="at L: results/supplementary_manifest.json")  # fmt: skip
     oc_ = sub.add_parser("outcome-config", help="the S + 90 days fetch's config (prereg v2 s5)")
     oc_.add_argument("--configs", type=Path, nargs="+", required=True,
                      help="candidate, forward-excluded and supplementary configs")  # fmt: skip
@@ -1266,7 +1268,7 @@ def main(argv: list[str] | None = None) -> None:
 
         inputs = [p for snap in a.snapshot for p in write_frozen_inputs(a.data_dir, snap)]
         m = manifest(a.data_dir, a.snapshot, inputs)
-        out = Path("results") / "freeze_manifest.json"
+        out = a.out
         out.write_text(json.dumps(m, indent=1, sort_keys=True) + "\n", encoding="utf-8")
         print(f"{len(m['files'])} artifacts; manifest SHA-256 {m['manifest_sha256']} -> {out}")
     elif a.cmd == "prompts-hash":
