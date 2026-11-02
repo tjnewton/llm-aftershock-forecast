@@ -229,6 +229,18 @@ def test_paid_runs_must_write_where_the_spend_ledger_looks(tmp_path):
               "--out", str(tmp_path / "elsewhere")])  # fmt: skip
 
 
+def test_a_detected_event_needs_no_config_entry(tmp_path):
+    from laf.cli import main
+    from laf.live_watch import live_sequence
+
+    # built as the detector builds it, so the paid check runs on a dry-run detection
+    with pytest.raises(SystemExit, match="spend ledger"):
+        main(["prospective", "--snapshot", SNAP, "--sequence", "us9999zzzz",
+              "--out", str(tmp_path / "elsewhere")])  # fmt: skip
+    seq = live_sequence("us9999zzzz")
+    assert (seq.role, seq.catalog_min_mag) == ("test-post", 3.0)
+
+
 def test_the_answers_seal_is_published_before_the_baselines_run(tmp_path, monkeypatch):
     tables, items, update_ms = P.issue(Path("data"), SNAP, PANAMA, NOW)
     monkeypatch.setattr(P, "issue", lambda *a: (tables, items, update_ms))

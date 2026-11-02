@@ -64,6 +64,10 @@ def main(argv: list[str] | None = None) -> None:
     os_.add_argument("--fresh", required=True, help="the S + 90 days snapshot (outcomes)")
     os_.add_argument("--live", type=Path, help="worktree of the live branch (gives L)")
     os_.add_argument("--out", required=True, help="new processed snapshot name")
+    sp = sub.add_parser(
+        "stamp", help="OpenTimestamps proofs beside each file (the freeze manifest)"
+    )
+    sp.add_argument("files", type=Path, nargs="+")
     sub.add_parser("spend", help="recorded API spend per UTC month and in total (runs/**)")
     bs = sub.add_parser(
         "batch-status", help="processing status and counts of a batch id (no results)"
@@ -695,9 +699,11 @@ def main(argv: list[str] | None = None) -> None:
     elif a.cmd == "prospective":
         import json
 
+        from laf.live_watch import live_sequence
         from laf.prospective import run_issue
 
-        seq = next(s for s in seqs if s.id == a.sequence)
+        # a detected event is in no config: built as the detector builds it
+        seq = next((s for s in seqs if s.id == a.sequence), None) or live_sequence(a.sequence)
         out = a.out.with_name(a.out.name + "-dryrun") if a.dry_run else a.out
         if not a.dry_run and not out.resolve().is_relative_to(Path("runs").resolve()):
             raise SystemExit("a paid run writes under runs/, where the spend ledger looks")
@@ -1230,6 +1236,14 @@ def main(argv: list[str] | None = None) -> None:
             "".join(i.model_dump_json() + "\n" for i in items), encoding="utf-8", newline="\n"
         )
         print(f"{len(items)} items -> {out}")
+    elif a.cmd == "stamp":
+        from laf.publish import stamp
+
+        for f in a.files:
+            names, status = stamp(f)
+            print(f, *(f"{cal}: {st}" for cal, st in status.items()), sep="\n  ")
+            if not names:
+                raise SystemExit(f"{f}: no calendar answered; try again")
     elif a.cmd == "outcome-config":
         from laf.outcome import config
 

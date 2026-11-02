@@ -4,6 +4,22 @@ Steps from the freeze to the final analysis, in order. Tyler alone decides the f
 approves every paid batch with its estimate. Commands run from the repo root on the Mac unless
 marked Windows.
 
+## 0. Before the tag
+Done before the freeze, because after it every code fix is a deviation.
+1. Windows `.env` (Tyler types it): `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`,
+   `LAF_CLAUDE_MONTHLY_CAP_USD=200`, `LAF_OPENAI_MONTHLY_CAP_USD=100`,
+   `LAF_CLAUDE_LIVE_RESERVE_USD=20`, `LAF_OPENAI_LIVE_RESERVE_USD=25`.
+2. The paid end-to-end check (asked first, with its estimate: about $0.85; at most about $6.30,
+   every answer at the 32k output cap), on Windows, the live host. Tyler lets the worker make
+   this one run. Take a dry-run detection whose issue ran (a scheduled version) and its
+   snapshot; `laf --data-dir <the detector's data folder> prospective --snapshot <it>
+   --sequence <id> --out runs/prospective-e2e`, published nowhere (a detected event needs no
+   config entry). Check: 12 answers (2 items, 2 models, k = 3) with `model_reported` and
+   `usage`, `spend.jsonl`, both seals, the baselines. A failure is fixed before the tag.
+3. The Windows host for 6 months (the clock does not pause for outages): sleep off; Windows
+   Update restarts outside active hours, or paused, with Tyler watching for forced ones; the
+   detector started at boot by a scheduled task that restarts it on failure.
+
 ## 1. Freeze (Tyler decides)
 1. Every pull request merged; `uv run pytest` green on `post-submission`.
 2. The prereg's status line changes from DRAFT to FROZEN, first: the manifest hashes the
@@ -12,22 +28,27 @@ marked Windows.
    frozen items and baselines and writes `results/freeze_manifest.json` (31 artifacts, one
    `manifest_sha256`). Commit the prereg and the manifest together; nothing changes between
    this step and the tag (rebuilding the manifest at the tag gives the same `manifest_sha256`).
+   Before that commit, `uv run laf stamp results/freeze_manifest.json` writes OpenTimestamps
+   proofs beside the manifest (only its SHA-256 leaves the machine): a witness outside GitHub.
+   Commit the proofs with it; `ots upgrade` completes them once Bitcoin confirms. An OSF
+   registration of the prereg is an optional second witness (Tyler's account).
 4. Tyler tags that commit `prereg-v2` (annotated) and pushes the tag; the `freeze-tags` ruleset
    protects it.
 5. Tyler posts the tag's commit hash and `manifest_sha256` publicly.
 
 ## 2. Live start (after the tag)
 1. Create the orphan branch `live` (README, guard-only hooks, no workflows), as `live-test`.
-2. Windows `.env` (Tyler types it): `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`,
-   `LAF_CLAUDE_MONTHLY_CAP_USD=200`, `LAF_OPENAI_MONTHLY_CAP_USD=100`,
-   `LAF_CLAUDE_LIVE_RESERVE_USD=20`, `LAF_OPENAI_LIVE_RESERVE_USD=25`.
-3. The worker prompt allows API calls for the detector service only; Tyler restarts the loop.
-4. Paid end-to-end check (asked first, with its estimate): `laf prospective` on a version the
-   study does not use, published nowhere.
-5. A queue task: worktree `..\laf-live` on `live`; stop the dry run; start
-   `laf live-watch --paid --publish ..\laf-live` (Windows). L is the first sealed live record.
+   The `protect-live` ruleset (no deletion, no force-push) already covers it.
+2. The worker prompt allows API calls for the detector service only; Tyler restarts the loop.
+3. A queue task: worktree `..\laf-live` on `live`; stop the dry run; start
+   `laf live-watch --paid --publish ..\laf-live` (Windows) through the boot task of section
+   0. L is the first sealed live record.
 
 ## 3. Retrospective batches (each approved with its estimate)
+Retirement dates (checked 2026-11-02): gpt-5.1 is deprecated and shuts down 2027-04-01; Claude
+Opus 4.6 not before 2027-02-05, Sonnet 4.6 not before 2027-02-17, Opus 5.5 not before
+2027-09-22. So the Claude batches on the candidates run right after the tag, and test A keeps a
+month's margin.
 - Test A, by 2027-03-01, about one part a month (OpenAI cap $100 to February):
   `laf openai run --snapshot 20261029T2000Z --block confirmatory --chunk 1/2` then `2/2`;
   `--block confirmatory-sens --chunk 1/2`, `2/2`; `--block confirmatory-v2b --chunk 1/2`, `2/2`.
@@ -46,6 +67,8 @@ marked Windows.
 1. `laf candidates --since 2026-10-29 --until <day after L> --out config/sequences_supplementary.toml`
    (through a pull request).
 2. `laf --config config/sequences_supplementary.toml fetch`, `asof --workers 1`, `tables`, `etas`.
+   ComCat allows 500 requests per 5 minutes per IP: one fetcher on the Mac, paced at 1 per
+   second, beside the detector's poll every 10 minutes if both share the home address.
 3. The rest of B's retrospective arm, on it: `laf run --snapshot <it> --block confirmatory
    --model claude-opus-5-5 --name confirmatory/confirmatory-claude-opus-5-5-supplementary`, and
    `--block confirmatory-v2b --name confirmatory/confirmatory-v2b-claude-opus-5-5-supplementary`

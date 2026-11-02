@@ -93,3 +93,10 @@ Each entry: UTC time, change, reason, expected effect on the registered analyses
   config/live_stop.toml) and S + 90 days, besides the tag `prereg-v2` (prereg v2 section 5, ADR
   0018 decision 11, ADR 0013). Reason: no interim looks. Effect: none on registered or
   development results; the guard only refuses more.
+
+# Deviations from preregistration v2 (tag prereg-v2)
+
+Each change after the tag `prereg-v2`, with its UTC time, reason and expected effect (prereg
+v2 section 12). A change made after outcomes are unsealed is exploratory.
+
+None yet.
