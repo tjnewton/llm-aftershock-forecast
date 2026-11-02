@@ -188,4 +188,23 @@ outputs: the dry-run service on the current code, still publishing seals to live
 commit: the done line only (with the new process ids and the commit the service runs)
 notes: No API call. From now on the dry run's folders are marked "dry"; the paid detector (runbook section 2) will refuse them and use runs\live and data\interim\live. The boot task and the Windows Update setting wait for Tyler's decision.
 
+## T16 boot-task
+status: ready
+server: none (no llama-server)
+prepare: git pull. Start after T15 is done. Approved by Tyler 2026-11-02: a startup task for the detector, and Windows Update set to notify before restarting with the widest active hours. Admin PowerShell. No API call.
+run:
+  1. Write `ops\detector.ps1` (untracked; next to the repo root is fine, not in a tracked folder): it sets the location to the repo root and runs the T12 step 3 command in the foreground (uv by its full path, `(Get-Command uv).Source`), appending stdout and stderr to ..\laf-live-dryrun\runs\live-dryrun\stdout.log and stderr.log, and ends with `exit $LASTEXITCODE`.
+  2. Register the task `laf-detector`:
+     - action: `powershell.exe -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File <path to detector.ps1>`;
+     - trigger: `New-ScheduledTaskTrigger -AtStartup`;
+     - principal: this account, `-LogonType S4U` (runs whether or not anyone is logged on, no stored password);
+     - settings: `New-ScheduledTaskSettingsSet -RestartCount 999 -RestartInterval (New-TimeSpan -Minutes 5) -ExecutionTimeLimit ([TimeSpan]::Zero) -MultipleInstances IgnoreNew -StartWhenAvailable -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries`.
+  3. Hand over from the T15 process to the task: right after a poll, stop the T15 service (its uv, laf.exe and python processes), then `Start-ScheduledTask laf-detector`.
+  4. Check, before going on: after the next poll, stderr.log has no traceback, log.jsonl has the poll, and at the next scheduled version a seal reaches live-test (git push works from the task). If the push fails under S4U (no access to the stored GitHub credentials), say so, stop the task, restart the T15 command, and leave the rest to Tyler (he can re-register the task with his password, `-User ... -Password ...`).
+  5. Windows Update (HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings): `RestartNotificationsAllowed2` = 1 (notify before a restart); `SmartActiveHoursState` = 0; active hours 06:00 to 24:00 local (`ActiveHoursStart` = 6, `ActiveHoursEnd` = 0). Read the values back; if Settings shows other active hours, report what it shows.
+  6. Report: the task's State and LastTaskResult (`Get-ScheduledTaskInfo laf-detector`), the new process ids, the push check, and the Windows Update values read back.
+outputs: the task `laf-detector` running the dry-run detector; Windows Update set as above
+commit: the done line only
+notes: At live start (runbook section 2), a queue task points detector.ps1 at the paid command (`--paid --publish ..\laf-live --out runs\live --live-data data\interim\live`) and restarts the task. Never read or print .env.
+
 ## END
