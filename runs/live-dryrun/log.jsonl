@@ -631,3 +631,7 @@
 {"events": 1, "kind": "poll", "poll_ms": 1793613822867, "since_ms": 1793613220050}
 {"events": 1, "kind": "poll", "poll_ms": 1793614425652, "since_ms": 1793613822867}
 {"events": 0, "kind": "poll", "poll_ms": 1793615028462, "since_ms": 1793614425652}
+{"events": 0, "kind": "poll", "poll_ms": 1793615629194, "since_ms": 1793615028462}
+{"events": 0, "kind": "poll", "poll_ms": 1793616229909, "since_ms": 1793615629194}
+{"events": 1, "kind": "poll", "poll_ms": 1793616830569, "since_ms": 1793616229909}
+{"backlog": false, "detect_latency_s": 175.595, "event_id": "us6000u3lf", "fetch_s": 2.4931907653808594, "inclusion": "included", "index_ms": 1793616654974, "key": "us6000u3lf", "kind": "detection", "mag": 5, "matched_update_ms": 1793616647334, "net": "us", "pipeline": "prospective", "poll_ms": 1793616830569, "skipped": "not a scheduled version (ADR 0004)", "slot": null, "superseded": false, "tier": "primary", "update_ms": 1793616647334}
