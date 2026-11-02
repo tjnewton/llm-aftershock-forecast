@@ -221,7 +221,7 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     outcome-blind procedure, into a supplementary snapshot: `laf candidates --since
     2026-10-29 --until <the day after L>` lists the OAF events that are not development and
     not aftershocks (the backward half of the rule, section 4; on the candidate window this
-    procedure gives the 195 candidates plus the 3 forward-excluded ones).
+    procedure gives the 195 candidates plus the 3 forward-excluded ones; decision 19).
   - Prospective sequences have origin at L or later. A sequence belongs to exactly one part.
   - Test B is also reported for each part alone.
   - (This definition of the parts and the supplementary snapshot was decided 2026-10-31.)
@@ -482,5 +482,12 @@ Decided on 2026-11-01:
 17. gpt-6.1-sol runs at effort `high`, from its pilot (ADR 0014 decision 7).
 18. The cost plan of section 8: the OpenAI cap is $100 a month until test A's batches are
     done (February 2027), and the live reserves are $20 (Claude) and $25 (OpenAI) a month.
+
+Decided on 2026-11-02:
+19. The supplementary snapshot at L selects by the backward half of the exclusion rule only
+    (section 5), as the live arm does: the forward half needs up to 365 days after the origin,
+    and the later event can fall in the sequence's own windows. A supplementary sequence later
+    followed by a larger event stays in B, as a live one would; the paper notes it as a
+    limitation.
 
 No decision is OPEN.
