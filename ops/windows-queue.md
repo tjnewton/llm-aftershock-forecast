@@ -151,4 +151,28 @@ outputs: the service writing its log as before and pushing seal files to branch 
 commit: none (the detector itself commits and pushes the seal files in ..\laf-live-test)
 notes: For each scheduled version, the detector now pushes answers.seal.json (hashes and the seal time, no forecast) to live-test before the baselines run, then OpenTimestamps proofs from three public calendars, then baselines.seal.json; it logs GitHub's push receipt on a later poll ("kind": "receipt"). These pushes are the detector's own, sanctioned by this task: the worker never commits in ..\laf-live-test and never edits it. If a push fails, the detector records the error and keeps running; report repeated push errors in the status file. From now on, every restart of the service (T09) uses the step 3 command. The done line gives the new process ids.
 
+## T13 host-check
+status: ready
+server: none (no llama-server)
+prepare: git pull
+run: PowerShell, no admin rights; change nothing except step 2.
+  1. Report: `powercfg /query SCHEME_CURRENT SUB_SLEEP` (the AC sleep and hibernate timeouts); Windows Update active hours (`Get-ItemProperty HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings | Select ActiveHoursStart,ActiveHoursEnd`) and whether a restart is pending (`Test-Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update\RebootRequired'`); uptime (`(Get-CimInstance Win32_OperatingSystem).LastBootUpTime`); whether the T09 service would survive a logoff or reboot (it would not unless a scheduled task starts it).
+  2. `powercfg /change standby-timeout-ac 0` and `powercfg /change hibernate-timeout-ac 0` (never sleep on AC power).
+  3. Report whether this account can register a scheduled task that runs at system startup without admin rights (`Register-ScheduledTask -WhatIf` is not available; just say whether you have admin rights: `([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)`). Do not create the task: Tyler decides it.
+outputs: none
+commit: none (the report goes in ops/windows-status.md)
+notes: The live arm runs 6 months and its clock does not pause for outages, so the runbook (section 0) asks for sleep off, Windows Update restarts handled, and the detector started at boot. Never read or print .env.
+
+## T14 paid-e2e
+status: hold
+server: none (no llama-server)
+prepare: git pull (brings PR #85: `laf prospective` on a detected event). Tyler has set the Windows .env (keys, caps, live reserves) and approved this one paid run; until this task says ready, make no API call.
+run: from the repo root:
+  1. In ..\laf-live-dryrun\runs\live-dryrun\log.jsonl find the latest detection whose issue ran (it has "answers_sha256", no "skipped"); note its event id and the snapshot it fetched (the detector's data folder holds raw/snapshots/<snapshot> for it; the snapshot id is the detection time as YYYYMMDDTHHMMZ).
+  2. `uv run laf --data-dir <the detector's data folder> prospective --snapshot <snapshot> --sequence <event id> --out runs/prospective-e2e`
+  3. Report: the printed record's answers and baselines hashes; from runs\prospective-e2e\<id>\<update>\calls.jsonl, the number of answers per model (expect 6 and 6), every model_reported, the usage totals, and spend.jsonl's total USD.
+outputs: runs\prospective-e2e (local, not committed)
+commit: none
+notes: The paid end-to-end check of runbook section 0: the real clients on the live host, published nowhere, before the tag. Expected cost about $0.85, at most about $6.30. If it fails, stop and report the traceback; do not retry.
+
 ## END
