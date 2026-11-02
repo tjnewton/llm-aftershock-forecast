@@ -220,12 +220,22 @@ def main(argv: list[str] | None = None) -> None:
     cd.add_argument("--since", required=True, help="first origin day, e.g. 2026-10-29")
     cd.add_argument("--until", required=True, help="day after the last origin (L's day + 1)")
     cd.add_argument("--out", type=Path, default=Path("config/sequences_supplementary.toml"))
+    lr = sub.add_parser(
+        "live-rehearsal",
+        help="prospective pipeline on a development sequence with synthetic answers (no API)",
+    )
+    lr.add_argument("--snapshot", required=True)
+    lr.add_argument("--sequence", required=True, help="a development sequence in --config")
+    lr.add_argument("--out", type=Path, default=Path("data/interim/live-rehearsal"))  # gitignored
     cf = sub.add_parser(
         "confirmatory-dryrun",
         help="ADR 0018 tests on development D2 answers (no API; a rehearsal, not a result)",
     )
     cf.add_argument("--snapshot", required=True)
     cf.add_argument("--runs", type=Path, default=Path("runs/d2"))
+    cf.add_argument("--live", type=Path, help="a `laf live-rehearsal` folder: the live report")
+    cf.add_argument("--assume-settled", action="store_true",
+                    help="rehearsal only: score unsettled live windows")  # fmt: skip
     pw = sub.add_parser(
         "power", help="power of the confirmatory tests from development runs (ADR 0018)"
     )
@@ -798,6 +808,15 @@ def main(argv: list[str] | None = None) -> None:
         sel = select(a.data_dir, a.since, a.until)
         write_config(sel, a.out, a.since, a.until)
         print(f"{len(sel)} candidates -> {a.out}")
+    elif a.cmd == "live-rehearsal":
+        from laf.rehearsal import build
+        from laf.splits import is_development
+
+        seq = next(s for s in seqs if s.id == a.sequence)
+        if not is_development(seq.id):
+            raise SystemExit(f"{seq.id} is not development: a rehearsal uses development data")
+        d = build(a.data_dir, a.snapshot, seq, a.out, snapshot_ms(a.snapshot))
+        print(f"rehearsal issue -> {d} (synthetic answers; no API call)")
     elif a.cmd == "confirmatory-dryrun":
         import pandas as pd
 
@@ -860,6 +879,28 @@ def main(argv: list[str] | None = None) -> None:
         diagnostics(proc, runs, tested, sets).to_csv(diag, index=False, lineterminator="\n")
         print(sv.round(3).to_string(index=False))
         print(f"-> {path}, {diag} (development data)")
+        if a.live:  # the prospective inputs, from a `laf live-rehearsal` folder
+            from laf.confirmatory import informative, live_report
+            from laf.live_scores import live_items, live_samples, live_start_ms
+
+            lt = tables
+            if a.assume_settled:  # rehearsal only: every live window counts as settled
+                lt = {**tables, "sequences": tables["sequences"].assign(catalog_end_ms=2**62)}
+            start = live_start_ms(a.live)
+            if start is None:
+                raise SystemExit(f"{a.live}: no sealed record")
+            ls = live_samples(a.live, lt)
+            if a.assume_settled and len(ls):
+                # rehearsal only: a development mainshock precedes the rehearsal's seal, so L
+                # moves to the earliest live mainshock and its sequence counts as prospective
+                start = min(start, int(ls["origin_ms"].min()))
+            lv = live_report(samples, ls, tables["sequences"], elapsed, start, None,
+                             informative(tables))  # fmt: skip
+            path = Path("results") / f"confirmatory_dryrun_live_{a.snapshot}.csv"
+            lv.to_csv(path, index=False, lineterminator="\n")
+            print(lv.round(3).to_string(index=False))
+            print(live_items(a.live).to_string(index=False))
+            print(f"-> {path} (rehearsal: synthetic answers, development data)")
     elif a.cmd == "power":
         import pandas as pd
 
