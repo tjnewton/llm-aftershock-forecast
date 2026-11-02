@@ -233,6 +233,12 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
   - The 6-month clock does not pause for outages.
   - One outcome snapshot for A and B is taken at S + 90 days. That covers the last 28-day
     issue, its tolerance, a month window and 21 days of settling.
+  - Built: `laf outcome-config` (the fetch's config: the frozen configs and every live item's
+    sequence) and `laf outcome-snapshot` (`laf.outcome`). Forecast-time inputs stay as frozen
+    in each sequence's own snapshot, checked against the freeze manifest: items, issue times
+    and catalogs, official forecasts, the ETAS refit. The fresh fetch gives only outcomes: each
+    frozen issue's counts in its own circle and windows, and the catalog end that decides
+    settling. Sequences with origin at L or later come from the fresh fetch alone.
   - There is no early stopping.
 - **No interim looks** (decided 2026-10-31): no confirmatory score or test is computed before S + 90 days.
   Computing A early would reveal outcomes of October sequences that A and B share.
