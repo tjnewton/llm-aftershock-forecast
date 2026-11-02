@@ -77,18 +77,35 @@ def event_key(doc: dict, known) -> str:
     return next((i for i in ids if i in known), doc["id"])
 
 
-def inclusion(doc: dict, key: str, decided: dict, get=download) -> tuple[str | None, str]:
+STOP_FILE = Path("config/live_stop.toml")
+
+
+def admission_stop_ms(path: Path = STOP_FILE) -> int | None:
+    """S from config/live_stop.toml in the running checkout (the commit Tyler tags
+    `prereg-v2-stop`; the worker pulls it), or None before the stop."""
+    import tomllib
+
+    return int(tomllib.loads(path.read_text(encoding="utf-8"))["s_ms"]) if path.exists() else None
+
+
+def inclusion(
+    doc: dict, key: str, decided: dict, get=download, stop_ms: int | None = None
+) -> tuple[str | None, str]:  # fmt: skip
     """(tier, reason) under prereg v2 section 4, decided on the values at the sequence's first
     detection: the magnitude rule (`qualifies`), then the backward aftershock check. Those values
     are kept in `decided` before the aftershock query, so a failed query is retried at the next
-    version on them, never on revised ones; a later magnitude revision changes nothing."""
+    version on them, never on revised ones; a later magnitude revision changes nothing. After
+    the stop (prereg v2 section 5), a new sequence whose origin is at S or later is not
+    admitted; admitted sequences keep their scheduled issues."""
     if key not in decided:
         p = doc["properties"]
         lon, lat, _ = doc["geometry"]["coordinates"]
         tier = qualifies(float(p["mag"]), p.get("net") or "")
-        decided[key] = {"tier": tier, "reason": "pending" if tier else "magnitude",
-                        "mag": float(p["mag"]), "lat": lat, "lon": lon,
-                        "time_ms": int(p["time"])}  # fmt: skip
+        reason = "pending" if tier else "magnitude"
+        if tier and stop_ms is not None and int(p["time"]) >= stop_ms:
+            tier, reason = None, "after the stop"
+        decided[key] = {"tier": tier, "reason": reason, "mag": float(p["mag"]), "lat": lat,
+                        "lon": lon, "time_ms": int(p["time"])}  # fmt: skip
     d = decided[key]
     if d["reason"] == "pending":
         if is_aftershock(d["lat"], d["lon"], d["time_ms"], d["mag"], get):
@@ -206,6 +223,7 @@ def step(
         _log(out, {**rec, "error": f"{type(e).__name__}: {e}"[:300]})
         return state
     _log(out, {**rec, "events": len(ids)})
+    stop = admission_stop_ms()  # read every poll: the stop takes effect once pulled
     check_receipts(out, state, get, publish_to)
     if publish_to:
         try:  # anything an earlier failed push left behind goes first
@@ -234,7 +252,7 @@ def step(
             # tried once: a failure below is logged, never retried (prereg v2 section 5)
             seen[key] = sorted(set(seen.get(key, [])) | {v["update_ms"] for v in vs})
             p = doc["properties"]
-            tier, reason = inclusion(doc, key, decided, get)
+            tier, reason = inclusion(doc, key, decided, get, stop)
             det |= {"key": key, "mag": p.get("mag"), "net": p.get("net"), "tier": tier,
                     "inclusion": reason}  # fmt: skip
             seq_dir = publish_to / event_id if publish_to else None
