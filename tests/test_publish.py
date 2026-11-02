@@ -114,7 +114,7 @@ def test_release_checks_every_file_against_its_published_seal(worktree, tmp_path
     rec.mkdir()
     bodies = {"items.jsonl": '{"a": 1}\n', "calls.jsonl": '{"text": "forecast"}\n'}
     for name, body in bodies.items():
-        (rec / name).write_text(body)
+        (rec / name).write_bytes(body.encode())  # no newline translation (Windows)
     manifest = {n: hashlib.sha256(b.encode()).hexdigest() for n, b in bodies.items()}
     (rec / "answers.seal.json").write_text(json.dumps({"manifest": manifest}) + "\n")
     U.publish(wt, "us1/1", rec / "answers.seal.json", calendars=())

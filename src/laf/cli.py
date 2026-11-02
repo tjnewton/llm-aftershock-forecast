@@ -1295,7 +1295,8 @@ def main(argv: list[str] | None = None) -> None:
         inputs = [p for snap in a.snapshot for p in write_frozen_inputs(a.data_dir, snap)]
         m = manifest(a.data_dir, a.snapshot, inputs)
         out = a.out
-        out.write_text(json.dumps(m, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+        out.write_text(json.dumps(m, indent=1, sort_keys=True) + "\n", encoding="utf-8",
+                       newline="\n")  # fmt: skip
         print(f"{len(m['files'])} artifacts; manifest SHA-256 {m['manifest_sha256']} -> {out}")
     elif a.cmd == "prompts-hash":
         import json

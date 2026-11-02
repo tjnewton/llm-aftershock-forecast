@@ -25,6 +25,8 @@ def test_the_manifest_hashes_every_listed_artifact():
             "config/sequences_forward_excluded.toml",
             "data/processed/20261021T2300Z/sequences.parquet"} <= set(files)  # fmt: skip
     assert "src/laf/freeze.py" in m["src_files"]
+    # POSIX keys: the same manifest on Windows, the live host (ADR 0017 decision 14)
+    assert not [k for k in (*m["files"], *m["src_files"]) if "\\" in k]
     assert (
         F.manifest(Path("data"), ["20261021T2300Z"], [])["manifest_sha256"] == m["manifest_sha256"]
     )
@@ -36,7 +38,7 @@ def test_the_download_inventory_comes_from_the_data_directory(tmp_path):
     (proc / "sequences.parquet").write_bytes(b"x")
     (tmp_path / "manifest.jsonl").write_text('{"path": "raw/x"}\n')
     files = F.manifest(tmp_path, ["S"], [])["files"]
-    assert str(tmp_path / "manifest.jsonl") in files and "data/manifest.jsonl" not in files
+    assert (tmp_path / "manifest.jsonl").as_posix() in files and "data/manifest.jsonl" not in files
 
 
 def test_the_freeze_refuses_an_incomplete_etas_refit(tmp_path):
