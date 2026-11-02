@@ -246,9 +246,13 @@ def test_after_the_stop_no_new_sequence_is_admitted(tmp_path, monkeypatch):
     calls = []
     monkeypatch.setattr(W, "live_issue", lambda *a, **k: calls.append(a) or {})
     origin = int(DOC["properties"]["time"])
-    monkeypatch.setattr(W, "admission_stop_ms", lambda path=None: origin)  # S at the mainshock
+    monkeypatch.setattr(W, "admission_stop_ms", lambda path=None: origin - 1)  # S just before it
     state = W.step(tmp_path, tmp_path, {}, _get())
     assert state["inclusion"]["nc75458907"]["reason"] == "after the stop" and not calls
+    monkeypatch.setattr(W, "admission_stop_ms", lambda path=None: origin)  # S at its origin
+    (tmp_path / "s").mkdir()
+    state = W.step(tmp_path / "s", tmp_path, {}, _get())
+    assert state["inclusion"]["nc75458907"]["reason"] != "after the stop"  # [L, S] holds it
     kept = {"inclusion": {"nc75458907": {"tier": "secondary", "reason": "included"}}}
     (tmp_path / "b").mkdir()
     W.step(tmp_path / "b", tmp_path, kept, _get())
