@@ -136,3 +136,21 @@ def test_a_release_whose_push_failed_is_pushed_on_a_later_poll(worktree, tmp_pat
     hook.unlink()
     assert U.push_pending(wt) == 1 and U.push_pending(wt) == 0
     assert "us1/1/NOTICE.txt" in git("ls-tree", "-r", "--name-only", "live-test", cwd=origin)
+
+
+def test_stamp_writes_a_proof_per_answering_calendar(tmp_path):
+    f = tmp_path / "freeze_manifest.json"
+    f.write_bytes(b"{}")
+
+    def ots(data, cal):
+        if "down" in cal:
+            raise TimeoutError("calendar down")
+        return b"proof:" + data
+
+    names, status = U.stamp(f, ots=ots, calendars=("https://up.example", "https://down.example"))
+    assert names == ["freeze_manifest.json.up.example.ots"]
+    assert (tmp_path / names[0]).read_bytes() == b"proof:{}"
+    assert (
+        status["https://up.example"] == "pending"
+        and "TimeoutError" in status["https://down.example"]
+    )

@@ -86,27 +86,35 @@ def publish(
     if (dest / seal.name).exists():
         raise FileExistsError(f"{rel}/{seal.name} is already published: never overwritten")
     dest.mkdir(parents=True, exist_ok=True)
-    data = seal.read_bytes()
     for f in (seal, *extra):
         (dest / f.name).write_bytes(f.read_bytes())
     paths = [f"{rel}/{f.name}" for f in (seal, *extra)]
     commit = _commit_push(worktree, paths, f"Seal {rel}/{seal.name}")
+    names, status = stamp(dest / seal.name, ots=ots, calendars=calendars)
     rec: dict = {
-        "commit": commit, "pushed_ms": int(time.time() * 1000), "ots": {},
+        "commit": commit, "pushed_ms": int(time.time() * 1000), "ots": status,
         "repo": repo_slug(worktree), "branch": branch(worktree),
     }  # fmt: skip
-    proofs = []
-    for cal in calendars:
-        name = f"{seal.name}.{re.sub(r'^https://', '', cal)}.ots"
-        try:
-            (dest / name).write_bytes(ots(data, cal))
-            proofs.append(f"{rel}/{name}")
-            rec["ots"][cal] = "pending"
-        except Exception as e:  # an outage must not lose the record or the push
-            rec["ots"][cal] = f"{type(e).__name__}: {e}"[:200]
-    if proofs:
+    if names:
+        proofs = [f"{rel}/{n}" for n in names]
         rec["ots_commit"] = _commit_push(worktree, proofs, f"Timestamps {rel}/{seal.name}")
     return rec
+
+
+def stamp(path: Path, *, ots=ots_proof, calendars=CALENDARS) -> tuple[list[str], dict]:
+    """One OpenTimestamps proof of `path` per calendar, written beside it
+    (`<name>.<calendar>.ots`). Returns the proof file names and each calendar's status
+    ("pending" or its error): an outage is recorded, never fatal."""
+    data, names, status = path.read_bytes(), [], {}
+    for cal in calendars:
+        name = f"{path.name}.{re.sub(r'^https://', '', cal)}.ots"
+        try:
+            (path.parent / name).write_bytes(ots(data, cal))
+            names.append(name)
+            status[cal] = "pending"
+        except Exception as e:
+            status[cal] = f"{type(e).__name__}: {e}"[:200]
+    return names, status
 
 
 NOTICE = (

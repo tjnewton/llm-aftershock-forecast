@@ -115,6 +115,11 @@ def inclusion(
     return d["tier"], d["reason"]
 
 
+def live_sequence(event_id: str) -> Sequence:
+    """A detected event as a sequence (it is in no config)."""
+    return Sequence(id=event_id, name=event_id, role="test-post", catalog_min_mag=CATALOG_MIN_MAG)
+
+
 def live_issue(
     data_dir: Path, event_id: str, now_ms: int, get=download, publish_to: Path | None = None,
     clients: dict | None = None,
@@ -127,7 +132,7 @@ def live_issue(
     snap = datetime.fromtimestamp(now_ms / 1000, UTC).strftime("%Y%m%dT%H%MZ")
     t0 = time.time()
     fetch_sequence(data_dir, snap, event_id, CATALOG_MIN_MAG, now_ms=now_ms, get=get)
-    seq = Sequence(id=event_id, name=event_id, role="test-post", catalog_min_mag=CATALOG_MIN_MAG)
+    seq = live_sequence(event_id)
     fetch_s = time.time() - t0
     pub = partial(publish, publish_to) if publish_to else None
     budget = partial(live_budget, publish_to) if clients and publish_to else None
