@@ -1,0 +1,18 @@
+{
+ "items": {
+  "us6000tzna@live-matched": {
+   "first_window_ms": 1793617200000,
+   "on_time": false
+  },
+  "us6000tzna@live-strict": {
+   "first_window_ms": 1793620800000,
+   "on_time": true
+  }
+ },
+ "manifest": {
+  "calls.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "items.jsonl": "48de5a7885796d1794dd888e57f5322001bb1008223bf8cf1b793053dca71ef3"
+ },
+ "record_sha256": "885bae101182b55571846477dd26e838d0488f9734744c0517d9ce59d4b373ea",
+ "sealed_ms": 1793617455817
+}
