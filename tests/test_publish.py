@@ -135,7 +135,7 @@ def test_a_release_whose_push_failed_is_pushed_on_a_later_poll(worktree, tmp_pat
     wt, origin, git = worktree
     rec = tmp_path / "rec"
     rec.mkdir()
-    (rec / "items.jsonl").write_text("{}\n")
+    (rec / "items.jsonl").write_bytes(b"{}\n")  # no newline translation (Windows)
     sha = hashlib.sha256(b"{}\n").hexdigest()
     (rec / "answers.seal.json").write_text(json.dumps({"manifest": {"items.jsonl": sha}}) + "\n")
     U.publish(wt, "us1/1", rec / "answers.seal.json", calendars=())
