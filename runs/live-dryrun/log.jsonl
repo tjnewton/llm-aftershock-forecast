@@ -722,3 +722,7 @@
 {"events": 0, "kind": "poll", "poll_ms": 1793650534346, "since_ms": 1793649933443}
 {"events": 1, "kind": "poll", "poll_ms": 1793651135006, "since_ms": 1793650534346}
 {"backlog": false, "detect_latency_s": 46.478, "event_id": "us7000tu3j", "fetch_s": 2.490959882736206, "inclusion": "included", "index_ms": 1793651088528, "key": "us7000tu3j", "kind": "detection", "mag": 5, "matched_update_ms": 1793651080770, "net": "us", "pipeline": "prospective", "poll_ms": 1793651135006, "skipped": "not a scheduled version (ADR 0004)", "slot": null, "superseded": false, "tier": "primary", "update_ms": 1793651080770}
+{"events": 0, "kind": "poll", "poll_ms": 1793651739301, "since_ms": 1793651135006}
+{"events": 0, "kind": "poll", "poll_ms": 1793652340113, "since_ms": 1793651739301}
+{"events": 0, "kind": "poll", "poll_ms": 1793652940917, "since_ms": 1793652340113}
+{"events": 0, "kind": "poll", "poll_ms": 1793653541619, "since_ms": 1793652940917}
