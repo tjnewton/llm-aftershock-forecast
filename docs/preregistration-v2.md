@@ -464,6 +464,15 @@ The freeze needs all of the following:
     spend file and baselines, with synthetic answers from stub clients and the settling check
     overridden, `--assume-settled`: a rehearsal of the code path, not a result), and
     `laf confirmatory-size`, which reproduces the sizes quoted in section 6.
+  - Done 2026-11-02 for the outcome snapshot (`laf.outcome`): the 39 development sequences
+    fetched again (20261102T1247Z, a scratch data folder), assembled with the frozen
+    20261021T2300Z (210 items and their issue tables, official forecasts and ETAS refit kept;
+    3,780 counts recounted, 5 changed by catalog revisions, 114 more windows closed), then
+    `laf confirmatory-dryrun` on the assembled directory, every output written. `laf
+    confirmatory` itself refuses before the tag; the dry run shares its secondary, sensitivity,
+    scoring, live and listing functions, while its main table takes development cells
+    (`power.d2_cell_differences`) where `laf confirmatory` takes `confirmatory_cells`, which
+    tests cover.
 - Tyler tags `prereg-v2` on a commit that holds this document. The SHA-256 of these is posted
   publicly with the tag's commit hash:
   - this document;
