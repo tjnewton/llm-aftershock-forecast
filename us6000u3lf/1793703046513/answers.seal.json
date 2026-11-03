@@ -1,0 +1,18 @@
+{
+ "items": {
+  "us6000u3lf@live-matched": {
+   "first_window_ms": 1793703600000,
+   "on_time": true
+  },
+  "us6000u3lf@live-strict": {
+   "first_window_ms": 1793707200000,
+   "on_time": true
+  }
+ },
+ "manifest": {
+  "calls.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "items.jsonl": "d9935cb9d219760459f7a1c3948bfd21f4820beaf9f55189063247328bfe9a95"
+ },
+ "record_sha256": "85e3c4361ec0568b556bb9fc936e7583b9e2a0502c8879a2b4c74add84fa9bb3",
+ "sealed_ms": 1793703488999
+}
