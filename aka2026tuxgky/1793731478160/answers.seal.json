@@ -1,0 +1,18 @@
+{
+ "items": {
+  "aka2026tuxgky@live-matched": {
+   "first_window_ms": 1793732400000,
+   "on_time": true
+  },
+  "aka2026tuxgky@live-strict": {
+   "first_window_ms": 1793736000000,
+   "on_time": true
+  }
+ },
+ "manifest": {
+  "calls.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "items.jsonl": "5e8b125b910fdb1871263b5f8e607d4546befe79cac059f6d9b745dc084a29ac"
+ },
+ "record_sha256": "384467d4566b85c0a1326889b0479411ca0a749323e36429f1ad82be4153eb80",
+ "sealed_ms": 1793731909255
+}
