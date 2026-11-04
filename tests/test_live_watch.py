@@ -139,31 +139,104 @@ def test_a_sequence_is_tracked_through_its_associated_ids(tmp_path, monkeypatch)
     assert set(state["seen"]) == {"us7000ttnj"}
 
 
-def test_a_published_seal_gets_its_github_receipt_on_a_later_poll(tmp_path, monkeypatch):
-    newest = W.new_versions(DOC, set())[-1]["update_ms"]
-    pub = {"answers": {"repo": "o/r", "branch": "live-test", "commit": "a" * 40,
-                       "pushed_ms": 1_000_000}}  # fmt: skip
-    built = {"matched_update_ms": newest, "slot": "first", "matched_first_ms": 1_600_000,
-             "published": pub}  # fmt: skip
-    monkeypatch.setattr(W, "live_issue", lambda *a, **k: built)
-    added = []
-    monkeypatch.setattr(W, "add_record", lambda wt, rel, name, r: added.append((rel, name, r)))
-    state = W.step(tmp_path, tmp_path, {}, _get(), publish_to=tmp_path)
-    assert [r["commit"] for r in state["receipts"]] == ["a" * 40]
-    assert [(a[0], a[1], a[2]["tier"]) for a in added] == [
-        ("nc75458907", "inclusion.json", "secondary")]  # the first-detection decision  # fmt: skip
-    added.clear()
-    activity = json.dumps([{"after": "a" * 40, "timestamp": "1970-01-01T00:16:41Z"}]).encode()
+def test_receipts_come_from_the_branch_not_this_hosts_memory(worktree, tmp_path, monkeypatch):
+    from laf import publish as U
+
+    wt, origin, git = worktree
+    monkeypatch.setattr(W, "repo_slug", lambda w: "o/r")
+    out = tmp_path / "out"
+    out.mkdir()
+    seal = tmp_path / "answers.seal.json"
+    items = {"nc1@live-matched": {"first_window_ms": 1_600_000},
+             "nc1@live-strict": {"first_window_ms": 9_000_000}}  # fmt: skip
+    seal.write_text(json.dumps({"items": items}) + "\n")
+    rec = U.publish(wt, "nc1/5", seal, calendars=())
+    acts = [{"before": "0" * 40, "after": rec["commit"], "timestamp": "1970-01-01T00:16:41Z"}]
+    pages = []
+
+    def page(url):
+        pages.append(url)
+        return json.dumps(acts).encode(), None
+
+    state: dict = {}  # a restart lost what this host knew about the push
+    W.check_receipts(out, state, wt, page)
+    got = json.loads((wt / "nc1/5/receipt.json").read_text())
+    assert got["receipt_ms"] == 1_001_000 and got["commit"] == rec["commit"]
+    assert "nc1/5/receipt.json" in git("ls-tree", "-r", "--name-only", "live-test", cwd=origin)
+    assert [r["matched_receipt_margin_s"] for r in _log(out) if r["kind"] == "receipt"] == [599.0]
+    W.check_receipts(out, state, wt, page)
+    assert len(pages) == 1  # nothing pending: GitHub is not asked again
+    U.publish(wt, "nc1/6", seal, calendars=())  # GitHub never lists this push
+    monkeypatch.setattr(W, "_now_ms", lambda: 10**13)  # a day and more later
+    W.check_receipts(out, state, wt, lambda url: (b"[]", None))
+    assert state["receipts_missing"] == ["nc1/6"]
+    assert _log(out)[-1]["receipt_ms"] is None  # listed as missing, once
+    W.check_receipts(out, state, wt, lambda url: pytest.fail("asked again"))
+
+
+def test_each_poll_looks_back_an_hour_and_forty_days_of_origins(tmp_path):
+    from urllib.parse import parse_qs, urlparse
+
+    from laf.usgs import iso
+
+    urls = []
+    since = 1_793_000_000_000
 
     def get(url):
-        return activity if "api.github.com" in url else _get()(url)
+        urls.append(url)
+        return b'{"features": []}'
 
-    W.step(tmp_path, tmp_path, state, get, publish_to=tmp_path)
-    rec = [r for r in _log(tmp_path) if r["kind"] == "receipt"]
-    assert [(a[0], a[1], a[2]["receipt_ms"]) for a in added] == [
-        (f"nc75458907/{newest}", "receipt.json", 1_001_000)]  # kept beside its seal  # fmt: skip
-    assert len(rec) == 1 and rec[0]["receipt_ms"] == 1_001_000 and state["receipts"] == []
-    assert rec[0]["matched_receipt_margin_s"] == 599.0 and rec[0]["receipt_lag_s"] == 1.0
+    state = W.step(tmp_path, tmp_path, {"last_poll_ms": since}, get)
+    q = parse_qs(urlparse(urls[0]).query)
+    assert q["updatedafter"] == [iso(since - 3_600_000)]  # a late-indexed version is seen again
+    assert q["starttime"] == [iso(since - 3_600_000 - 40 * 86_400_000)]  # not ComCat's 30 days
+    assert state["last_poll_ms"] > since
+
+
+def test_sequences_older_than_the_start_are_not_admitted(tmp_path, monkeypatch):
+    calls = []
+    monkeypatch.setattr(W, "live_issue", lambda *a, **k: calls.append(a) or {})
+    monkeypatch.setattr(W, "add_record", lambda *a, **k: None)
+    origin = int(DOC["properties"]["time"])
+    wt = tmp_path / "wt"
+    wt.mkdir()
+    (wt / "start.json").write_text(json.dumps({"start_ms": origin + 1}))  # L after its origin
+    state = W.step(tmp_path, tmp_path, {}, _get(), publish_to=wt)
+    assert state["inclusion"]["nc75458907"]["reason"] == "before the start" and not calls
+    (wt / "start.json").write_text(json.dumps({"start_ms": origin}))  # L at its origin
+    (tmp_path / "s").mkdir()
+    state = W.step(tmp_path / "s", tmp_path, {}, _get(), publish_to=wt)
+    d = state["inclusion"]["nc75458907"]
+    assert d["reason"] == "included" and calls and d["detected_ms"] == state["last_poll_ms"]
+
+
+def test_a_published_decision_survives_a_lost_local_state(tmp_path, monkeypatch):
+    calls = []
+    monkeypatch.setattr(W, "live_issue", lambda *a, **k: calls.append(a) or {})
+    wt = tmp_path / "wt"
+    (wt / "nc75458907").mkdir(parents=True)
+    rec = {"key": "nc75458907", "tier": "primary", "reason": "included", "mag": 5.0, "lat": 0.0,
+           "lon": 0.0, "time_ms": 1, "detected_ms": 2}  # fmt: skip
+    (wt / "nc75458907/inclusion.json").write_text(json.dumps(rec))
+    state = W.step(tmp_path, tmp_path, {}, _get(), publish_to=wt)  # ComCat now says M4.01
+    assert state["inclusion"]["nc75458907"]["tier"] == "primary" and calls[0][-1] == "primary"
+
+
+def test_the_paid_detector_publishes_its_start_once(worktree, tmp_path, monkeypatch):
+    from laf import openai_runner, providers
+
+    wt, origin, git = worktree
+    monkeypatch.setattr(W, "branch", lambda w: "live")
+    monkeypatch.setattr(W, "live_budget", lambda w: {})
+    monkeypatch.setattr(openai_runner, "client", lambda: None)
+    monkeypatch.setattr(providers, "client", lambda: None)
+    args = (tmp_path / "out", tmp_path / "data", Path("data"))
+    W.run(*args, polls=0, publish_to=wt, paid=True)
+    start = json.loads((wt / "start.json").read_text())
+    assert W.start_ms(wt) == start["start_ms"] and len(start["commit"]) == 40
+    assert "start.json" in git("ls-tree", "--name-only", "live-test", cwd=origin)
+    W.run(*args, polls=0, publish_to=wt, paid=True)  # a restart
+    assert W.start_ms(wt) == start["start_ms"]  # L is never rewritten
 
 
 def test_late_share_bounds_and_monotonicity():

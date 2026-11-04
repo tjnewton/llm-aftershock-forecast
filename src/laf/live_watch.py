@@ -1,6 +1,7 @@
-"""Dry run of the live arm's detector (docs/adr/0017; prereg v2 sections 4-5): poll ComCat for
-new OAF versions, apply the inclusion rule, and run each scheduled issue through the prospective
-pipeline (`laf.prospective.run_issue`) without model calls. It spends nothing and scores nothing.
+"""The live arm's detector (docs/adr/0017; prereg v2 sections 4-5): poll ComCat for new OAF
+versions, apply the inclusion rule, and run each scheduled issue through the prospective
+pipeline (`laf.prospective.run_issue`). The dry run makes no model calls and spends nothing;
+`--paid` spends only the live reserve. Neither scores anything.
 
 Every poll and every detected version is appended to `<out>/log.jsonl`. A detection records the
 version's ComCat index time and update time, when the poll saw it, the inclusion decision, and,
@@ -15,7 +16,9 @@ every confirmatory sequence (docs/adr/0013).
 """
 
 import json
+import os
 import shutil
+import subprocess
 import time
 import urllib.parse
 from datetime import UTC, datetime
@@ -28,17 +31,27 @@ from laf.publish import (
     SEALS,
     add_record,
     branch,
+    introduced_by,
     publish,
     push_pending,
-    push_receipt,
+    push_times,
     release,
     released,
+    repo_slug,
+    seal_commit,
 )
 from laf.registry import Sequence
 from laf.usgs import FDSN, download, event_url, fetch_sequence, iso
 
 POLL_S = 600  # every 10 minutes
 CATALOG_MIN_MAG = 3.0
+# each poll looks an hour further back than the last one: a version ComCat indexed late, or
+# whose event document failed to load, is seen again (`seen` drops the repeats)
+OVERLAP_MS = 3_600_000
+# ComCat's starttime defaults to 30 days ago, which would hide the 28-day slot's versions; the
+# schedule's last slot closes 35 days after the origin (ADR 0004)
+LOOKBACK_MS = 40 * 86_400_000
+START_FILE = "start.json"  # L, at the root of the live branch (prereg v2 section 5)
 
 
 def poll_url(since_ms: int) -> str:
@@ -46,9 +59,26 @@ def poll_url(since_ms: int) -> str:
         "format": "geojson",
         "producttype": "oaf",
         "updatedafter": iso(since_ms),
+        "starttime": iso(since_ms - LOOKBACK_MS),
         "orderby": "time",
     }
     return f"{FDSN}/query?" + urllib.parse.urlencode(q)
+
+
+def start_ms(publish_to: Path | None) -> int | None:
+    """L: the paid detector's start, as `start.json` on the live branch records it (None
+    before the start, and always for the dry run)."""
+    path = publish_to / START_FILE if publish_to else None
+    if path is None or not path.exists():
+        return None
+    return int(json.loads(path.read_text(encoding="utf-8"))["start_ms"])
+
+
+def _save_state(path: Path, state: dict) -> None:
+    """Write `state.json` whole or not at all: a half-written file would stop every restart."""
+    tmp = path.with_name(path.name + ".tmp")
+    tmp.write_text(json.dumps(state, sort_keys=True), encoding="utf-8")
+    os.replace(tmp, path)
 
 
 def new_versions(event_doc: dict, seen: set[int]) -> list[dict]:
@@ -82,30 +112,34 @@ STOP_FILE = Path("config/live_stop.toml")
 
 def admission_stop_ms(path: Path = STOP_FILE) -> int | None:
     """S from config/live_stop.toml in the running checkout (the commit Tyler tags
-    `prereg-v2-stop`; the worker pulls it), or None before the stop."""
+    `prereg-v2-stop`, deployed to the service worktree), or None before the stop."""
     import tomllib
 
     return int(tomllib.loads(path.read_text(encoding="utf-8"))["s_ms"]) if path.exists() else None
 
 
 def inclusion(
-    doc: dict, key: str, decided: dict, get=download, stop_ms: int | None = None
+    doc: dict, key: str, decided: dict, get=download, stop_ms: int | None = None,
+    start: int | None = None, now_ms: int | None = None,
 ) -> tuple[str | None, str]:  # fmt: skip
     """(tier, reason) under prereg v2 section 4, decided on the values at the sequence's first
-    detection: the magnitude rule (`qualifies`), then the backward aftershock check. Those values
-    are kept in `decided` before the aftershock query, so a failed query is retried at the next
-    version on them, never on revised ones; a later magnitude revision changes nothing. After
-    the stop (prereg v2 section 5), a new sequence whose origin is after S is not
-    admitted; admitted sequences keep their scheduled issues."""
+    detection (`now_ms`, kept as `detected_ms`): the magnitude rule (`qualifies`), then the
+    backward aftershock check. Those values are kept in `decided` before the aftershock query,
+    so a failed query is retried at the next version on them, never on revised ones; a later
+    magnitude revision changes nothing. Prospective sequences have origin in [L, S] (prereg v2
+    section 5): a new sequence whose origin is before L (`start`) or after S is not admitted;
+    admitted sequences keep their scheduled issues."""
     if key not in decided:
         p = doc["properties"]
         lon, lat, _ = doc["geometry"]["coordinates"]
         tier = qualifies(float(p["mag"]), p.get("net") or "")
         reason = "pending" if tier else "magnitude"
+        if tier and start is not None and int(p["time"]) < start:  # retrospective (before L)
+            tier, reason = None, "before the start"
         if tier and stop_ms is not None and int(p["time"]) > stop_ms:  # [L, S] (decision 23)
             tier, reason = None, "after the stop"
         decided[key] = {"tier": tier, "reason": reason, "mag": float(p["mag"]), "lat": lat,
-                        "lon": lon, "time_ms": int(p["time"])}  # fmt: skip
+                        "lon": lon, "time_ms": int(p["time"]), "detected_ms": now_ms}  # fmt: skip
     d = decided[key]
     if d["reason"] == "pending":
         if is_aftershock(d["lat"], d["lon"], d["time_ms"], d["mag"], get):
@@ -120,22 +154,27 @@ def live_sequence(event_id: str) -> Sequence:
     return Sequence(id=event_id, name=event_id, role="test-post", catalog_min_mag=CATALOG_MIN_MAG)
 
 
+SECONDARY_KEEP = 0.5  # secondary sequences stop once half of a provider's reserve is spent
+
+
 def live_issue(
     data_dir: Path, event_id: str, now_ms: int, get=download, publish_to: Path | None = None,
-    clients: dict | None = None,
+    clients: dict | None = None, tier: str = "primary",
 ) -> dict:  # fmt: skip
     """Fetch the sequence into a snapshot stamped now and run its newest version through the
     prospective pipeline; the sealed records go under data_dir/issues and, with `publish_to`
     (a worktree of `live-test`, or of `live` when paid), their seals are pushed there. Without
     `clients` it makes no model calls; with them it spends only the live reserve, counted on
-    the published ledger."""
+    the published ledger, and a secondary sequence only the part of it above
+    `SECONDARY_KEEP`, which is kept for primary sequences."""
     snap = datetime.fromtimestamp(now_ms / 1000, UTC).strftime("%Y%m%dT%H%MZ")
     t0 = time.time()
     fetch_sequence(data_dir, snap, event_id, CATALOG_MIN_MAG, now_ms=now_ms, get=get)
     seq = live_sequence(event_id)
     fetch_s = time.time() - t0
     pub = partial(publish, publish_to) if publish_to else None
-    budget = partial(live_budget, publish_to) if clients and publish_to else None
+    keep = SECONDARY_KEEP if tier == "secondary" else 0.0
+    budget = partial(live_budget, publish_to, keep=keep) if clients and publish_to else None
 
     def seen(rel: str) -> bool:  # the branch, not this host's state, says what was issued
         return bool(publish_to) and (publish_to / rel / "answers.seal.json").exists()
@@ -157,38 +196,66 @@ def live_issue(
     }  # fmt: skip
 
 
-def check_receipts(out: Path, state: dict, get=download, publish_to: Path | None = None) -> None:
-    """Look up GitHub's push time for each published answers seal not yet confirmed and log it
-    with the matched item's margin from that receipt (the registered on-time criterion). The
-    receipt is also committed beside its seal (`receipt.json`), so the branch keeps the
-    evidence however long GitHub keeps its activity list. A receipt still missing after a day
-    is logged as missing."""
-    keep = []
-    for r in state.get("receipts", []):
+RECEIPT_GIVE_UP_MS = 86_400_000
+
+
+def check_receipts(out: Path, state: dict, publish_to: Path | None, page=None) -> None:
+    """Look up GitHub's push time (the registered on-time criterion) for every answers seal on
+    the branch without a `receipt.json`, log it with the matched item's margin, and commit it
+    beside its seal, so the branch keeps the evidence however long GitHub keeps its activity
+    list. The pending seals come from the branch, not from this host's memory: a seal whose
+    push was retried at a later poll, whose proof push failed, or whose detector stopped
+    before saving its state still gets its receipt. One still missing a day after its commit
+    is logged as missing once and not looked up again."""
+    try:
+        repo = repo_slug(publish_to) if publish_to else None
+    except Exception:  # not a clone (tests), or git failing: the next poll tries again
+        repo = None
+    if publish_to is None or repo is None:
+        return  # no GitHub origin: no receipt
+    gave_up = state.setdefault("receipts_missing", [])
+    pending: dict[str, tuple[str, int]] = {}
+    for seal in sorted(publish_to.glob(f"*/*/{SEALS[0]}")):
+        rel = seal.parent.relative_to(publish_to).as_posix()
+        if rel in gave_up or (seal.parent / "receipt.json").exists():
+            continue
+        if found := seal_commit(publish_to, rel):  # None until pushed
+            pending[found[0]] = (rel, found[1])
+    if not pending:
+        state["receipts"] = []
+        return
+    br = branch(publish_to)
+    try:
+        times = push_times(repo, br, {c: t for c, (_, t) in pending.items()},
+                           introduced=introduced_by(publish_to),
+                           **({"page": page} if page else {}))  # fmt: skip
+    except Exception as e:  # GitHub unreachable: try again next poll
+        _log(out, {"kind": "receipt", "error": f"{type(e).__name__}: {e}"[:300]})
+        return
+    pushed = {r["commit"]: r["pushed_ms"] for r in state.get("receipts", [])}  # this host's
+    for commit, (rel, committed_ms) in pending.items():
+        ms = times.get(commit)
+        if ms is None:
+            if _now_ms() - committed_ms > RECEIPT_GIVE_UP_MS:
+                _log(out, {"kind": "receipt", "rel": rel, "commit": commit, "receipt_ms": None})
+                gave_up.append(rel)
+            continue
+        seal = json.loads((publish_to / rel / SEALS[0]).read_text(encoding="utf-8"))
+        first = [v["first_window_ms"] for i, v in seal["items"].items()
+                 if i.endswith("@live-matched")]  # fmt: skip
+        rec = {"commit": commit, "receipt_ms": ms, "pushed_ms": pushed.get(commit),
+               "source": f"api.github.com/repos/{repo}/activity (push to {br})"}  # fmt: skip
+        lag_s = (ms - pushed[commit]) / 1000 if commit in pushed else None
+        margin_s = (first[0] - ms) / 1000 if first else None
+        _log(out, {"kind": "receipt", "rel": rel, **rec, "matched_receipt_margin_s": margin_s,
+                   "receipt_lag_s": lag_s})  # fmt: skip
         try:
-            ms = push_receipt(r["repo"], r["branch"], r["commit"], get)
-        except Exception:  # GitHub unreachable: try again next poll
-            ms = None
-        if ms is not None:
-            margin_s, lag_s = (r["matched_first_ms"] - ms) / 1000, (ms - r["pushed_ms"]) / 1000
-            _log(out, {"kind": "receipt", **r, "receipt_ms": ms,
-                       "matched_receipt_margin_s": margin_s, "receipt_lag_s": lag_s})  # fmt: skip
-            if publish_to and r.get("rel"):
-                rec = {"commit": r["commit"], "receipt_ms": ms, "pushed_ms": r["pushed_ms"],
-                       "source": f"api.github.com/repos/{r['repo']}/activity (push to "
-                                 f"{r['branch']})"}  # fmt: skip
-                try:
-                    add_record(publish_to, r["rel"], "receipt.json", rec)
-                except Exception as e:  # logged above; the branch copy can be added by hand
-                    _log(
-                        out,
-                        {"kind": "receipt_record", **r, "error": f"{type(e).__name__}: {e}"[:300]},
-                    )
-        elif _now_ms() - r["pushed_ms"] > 86_400_000:
-            _log(out, {"kind": "receipt", **r, "receipt_ms": None})
-        else:
-            keep.append(r)
-    state["receipts"] = keep
+            add_record(publish_to, rel, "receipt.json", rec)
+        except Exception as e:  # logged above; looked up again next poll
+            _log(out, {"kind": "receipt_record", "rel": rel,
+                       "error": f"{type(e).__name__}: {e}"[:300]})  # fmt: skip
+    open_ = {c for c, (rel, _) in pending.items() if c not in times and rel not in gave_up}
+    state["receipts"] = [r for r in state.get("receipts", []) if r["commit"] in open_]
 
 
 def release_closed(out: Path, data_dir: Path, publish_to: Path, now_ms: int) -> None:
@@ -216,27 +283,55 @@ def step(
     out: Path, data_dir: Path, state: dict, get=download, publish_to: Path | None = None,
     clients: dict | None = None,
 ) -> dict:  # fmt: skip
-    """One poll: confirm pending push receipts, detect new OAF versions since the last poll and
-    run each included sequence's newest version once."""
+    """One poll: detect new OAF versions since the last poll (and the hour before it) and run
+    each included sequence's newest version once; then confirm push receipts, push what an
+    earlier failed push left behind and release closed issues. Detection goes first, so a slow
+    GitHub never delays an issue."""
     t_poll = _now_ms()
     since = state.get("last_poll_ms", t_poll - POLL_S * 1000)
-    rec = {"kind": "poll", "poll_ms": t_poll, "since_ms": since}
-    try:
-        feed = json.loads(get(poll_url(since)))
-        ids = [f["id"] for f in feed.get("features", [])]
-    except Exception as e:  # a failed poll is a failure mode to measure, not a crash
-        _log(out, {**rec, "error": f"{type(e).__name__}: {e}"[:300]})
-        return state
-    _log(out, {**rec, "events": len(ids)})
-    stop = admission_stop_ms()  # read every poll: the stop takes effect once pulled
-    check_receipts(out, state, get, publish_to)
+    if detect(out, data_dir, state, t_poll, since, get, publish_to, clients):
+        state["last_poll_ms"] = t_poll
     if publish_to:
-        try:  # anything an earlier failed push left behind goes first
+        try:
             if n := push_pending(publish_to):
                 _log(out, {"kind": "push_pending", "commits": n})
         except Exception as e:
             _log(out, {"kind": "push_pending", "error": f"{type(e).__name__}: {e}"[:300]})
+        check_receipts(out, state, publish_to)
         release_closed(out, data_dir, publish_to, t_poll)
+    _save_state(out / "state.json", state)
+    return state
+
+
+def _decision_on_branch(publish_to: Path | None, *names: str) -> dict | None:
+    """An included sequence's first-detection decision as published (`inclusion.json`), so a
+    lost local state never decides it again on revised values."""
+    if publish_to is None:
+        return None
+    for name in names:
+        path = publish_to / name / "inclusion.json"
+        if path.exists():
+            rec = json.loads(path.read_text(encoding="utf-8"))
+            rec.pop("key", None)
+            return rec
+    return None
+
+
+def detect(
+    out: Path, data_dir: Path, state: dict, t_poll: int, since: int, get=download,
+    publish_to: Path | None = None, clients: dict | None = None,
+) -> bool:  # fmt: skip
+    """The detection half of a poll; False when the poll itself failed."""
+    rec = {"kind": "poll", "poll_ms": t_poll, "since_ms": since}
+    try:
+        feed = json.loads(get(poll_url(since - OVERLAP_MS)))
+        ids = [f["id"] for f in feed.get("features", [])]
+    except Exception as e:  # a failed poll is a failure mode to measure, not a crash
+        _log(out, {**rec, "error": f"{type(e).__name__}: {e}"[:300]})
+        return False
+    _log(out, {**rec, "events": len(ids)})
+    stop = admission_stop_ms()  # read every poll: the stop takes effect once deployed
+    start = start_ms(publish_to)
     seen, decided = state.setdefault("seen", {}), state.setdefault("inclusion", {})
 
     def version(v: dict) -> dict:
@@ -257,7 +352,9 @@ def step(
             # tried once: a failure below is logged, never retried (prereg v2 section 5)
             seen[key] = sorted(set(seen.get(key, [])) | {v["update_ms"] for v in vs})
             p = doc["properties"]
-            tier, reason = inclusion(doc, key, decided, get, stop)
+            if key not in decided and (known := _decision_on_branch(publish_to, key, event_id)):
+                decided[key] = known
+            tier, reason = inclusion(doc, key, decided, get, stop, start, t_poll)
             det |= {"key": key, "mag": p.get("mag"), "net": p.get("net"), "tier": tier,
                     "inclusion": reason}  # fmt: skip
             seq_dir = publish_to / event_id if publish_to else None
@@ -271,7 +368,8 @@ def step(
                 except Exception as e:  # logged; the decision is also in state.json
                     _log(out, {**det, "kind": "inclusion_record",
                                "error": f"{type(e).__name__}: {e}"[:300]})  # fmt: skip
-            built = live_issue(data_dir, event_id, t_poll, get, publish_to, clients) if tier else {}
+            built = (live_issue(data_dir, event_id, t_poll, get, publish_to, clients, tier)
+                     if tier else {})  # fmt: skip
             answers = (built.get("published") or {}).get("answers") or {}
             if answers.get("commit") and answers.get("repo"):
                 state.setdefault("receipts", []).append({
@@ -290,9 +388,7 @@ def step(
             err = {"error": f"{type(e).__name__}: {e}"[:300]}
             for v in vs or [None]:
                 _log(out, {**det, **(version(v) if v else {}), **err})
-    state["last_poll_ms"] = t_poll
-    (out / "state.json").write_text(json.dumps(state, sort_keys=True), encoding="utf-8")
-    return state
+    return True
 
 
 def run(
@@ -334,12 +430,19 @@ def run(
     if not ref.exists():  # generic-RJ reference tables, read by build_tables
         shutil.copytree(repo_data / REFERENCE_REL, ref)
     marker.write_text(mode + "\n", encoding="utf-8")
+    if paid and publish_to and start_ms(publish_to) is None:
+        # L (prereg v2 section 5): published once, before the first paid poll; sequences with
+        # origin before it are retrospective and never admitted
+        here = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, text=True)
+        start = {"start_ms": _now_ms(), "commit": here.stdout.strip()}
+        add_record(publish_to, ".", START_FILE, start, what="Start")
     n = 0
     while polls is None or n < polls:
+        t0 = time.time()
         state = step(out, data_dir, state, publish_to=publish_to, clients=clients)
         n += 1
-        if polls is None or n < polls:
-            time.sleep(POLL_S)
+        if polls is None or n < polls:  # every POLL_S, however long the step took
+            time.sleep(max(0.0, POLL_S - (time.time() - t0)))
 
 
 def version_slack_s(versions):

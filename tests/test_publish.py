@@ -21,35 +21,6 @@ def test_a_proof_is_the_v1_header_the_digest_and_the_calendar_stamp():
         U.ots_proof(b"seal", "https://cal.example", post=lambda u, b: b"garbage")
 
 
-@pytest.fixture
-def worktree(tmp_path, monkeypatch):
-    """A clone of a local bare repository: the live branch's worktree with its origin."""
-    import os
-
-    for var in [v for v in os.environ if v.startswith("GIT_")]:  # e.g. set by pre-commit hooks
-        monkeypatch.delenv(var)
-    origin, wt = tmp_path / "origin.git", tmp_path / "wt"
-
-    def git(*a, cwd=wt):
-        return subprocess.run(["git", "-C", str(cwd), *a], check=True, capture_output=True,
-                              text=True).stdout.strip()  # fmt: skip
-
-    subprocess.run(["git", "init", "-q", "--bare", str(origin)], check=True)
-    subprocess.run(["git", "clone", "-q", str(origin), str(wt)], check=True, capture_output=True)
-    for k, v in (
-        ("user.email", "t@example.invalid"),
-        ("user.name", "t"),
-        ("core.hooksPath", "/dev/null"),
-    ):
-        git("config", k, v)
-    git("checkout", "-q", "-b", "live-test")
-    (wt / "README.md").write_text("live-test\n")
-    git("add", "README.md")
-    git("commit", "-qm", "start")
-    git("push", "-q", "-u", "origin", "live-test")
-    return wt, origin, git
-
-
 def test_publish_pushes_the_seal_then_its_proofs(worktree, tmp_path):
     wt, origin, git = worktree
     seal = tmp_path / "answers.seal.json"
@@ -98,14 +69,54 @@ def test_the_push_time_excludes_calendar_waits(worktree, tmp_path, monkeypatch):
     assert rec["pushed_ms"] == 1_000_000 and clock[0] == 1_060.0
 
 
-def test_the_receipt_is_githubs_time_for_the_push_of_that_commit():
-    acts = [{"after": "b" * 40, "timestamp": "2026-11-01T15:00:00Z"},
-            {"after": "a" * 40, "timestamp": "2026-11-01T14:51:11Z"}]  # fmt: skip
+def test_the_receipt_is_githubs_time_of_the_push_that_first_held_the_commit():
+    a, b, c, d = ("a" * 40, "b" * 40, "c" * 40, "d" * 40)
+    page1 = [{"before": c, "after": d, "timestamp": "2026-11-01T15:00:00Z"},
+             {"before": b, "after": c, "timestamp": "2026-11-01T14:55:00Z"}]  # fmt: skip
+    page2 = [{"before": "0" * 40, "after": a, "timestamp": "2026-11-01T14:51:11Z"}]
     urls = []
-    get = lambda url: urls.append(url) or json.dumps(acts).encode()  # noqa: E731
-    assert U.push_receipt("o/r", "live", "a" * 40, get) == 1793544671000
+
+    def page(url):
+        urls.append(url)
+        return (json.dumps(page1).encode(), "next") if len(urls) == 1 else (
+            json.dumps(page2).encode(), None)  # fmt: skip
+
+    t = 1793544000000  # the commits' time, before every push
+    assert U.push_times("o/r", "live", {a: t}, page) == {a: 1793544671000}  # on page 2
     assert "ref=refs/heads/live" in urls[0] and "activity_type=push" in urls[0]
-    assert U.push_receipt("o/r", "live", "c" * 40, get) is None
+    urls.clear()
+    # pushed together with c (an earlier push failed): found through the commits c's push added
+    added = {(b, c): {"e" * 40, c}}
+    got = U.push_times("o/r", "live", {"e" * 40: t}, page,
+                       introduced=lambda x, y: added.get((x, y), {y}))  # fmt: skip
+    assert got == {"e" * 40: 1793544900000} and len(urls) == 1  # no exact match, still page 1
+    urls.clear()
+    late = 1793552100000  # made 2 h after page 1's oldest push: page 2 cannot hold it
+    assert U.push_times("o/r", "live", {"f" * 40: late}, page) == {} and len(urls) == 1
+
+
+def test_a_failed_proof_push_keeps_the_seals_record(worktree, tmp_path, monkeypatch):
+    wt, origin, git = worktree
+    seal = tmp_path / "answers.seal.json"
+    seal.write_text("{}\n")
+    real, n = U._commit_push, []
+
+    def flaky(*a, **k):
+        n.append(1)
+        if len(n) == 2:  # the proofs' push, after the seal's
+            raise subprocess.CalledProcessError(128, "git push")
+        return real(*a, **k)
+
+    monkeypatch.setattr(U, "_commit_push", flaky)
+    proof = lambda data, cal: U.OTS_HEADER + hashlib.sha256(data).digest() + STAMP  # noqa: E731
+    rec = U.publish(wt, "us1/7", seal, ots=proof, calendars=("https://up.example",))
+    assert rec["commit"] == git("rev-parse", "live-test", cwd=origin)  # the seal is out
+    assert "CalledProcessError" in rec["ots_error"] and "ots_commit" not in rec
+    assert U.seal_commit(wt, "us1/7") == (
+        rec["commit"],
+        int(git("log", "-1", "--format=%ct")) * 1000,
+    )
+    assert U.seal_commit(wt, "us1/8") is None
 
 
 def test_release_checks_every_file_against_its_published_seal(worktree, tmp_path):
