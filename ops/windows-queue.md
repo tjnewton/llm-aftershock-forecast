@@ -191,16 +191,18 @@ notes: No API call. From now on the dry run's folders are marked "dry"; the paid
 ## T16 boot-task
 status: ready
 server: none (no llama-server)
-prepare: git pull. Tyler registers the task and sets Windows Update himself (your session's permission check refused both, T16 waiting line); you do the rest. No API call.
+prepare: git pull. Tyler registers the task and sets Windows Update himself (your session's permission check refused both); you do the rest. No API call. Work moves to this machine (Tyler, 2026-11-03): the detector runs from its own service worktree from now on (runbook section 0, PR #92).
 run:
-  1. Rewrite C:\Users\tjnew\git\laf-detector.ps1 as a loop, so the detector comes back however it stops: `while ($true) { <the T12 step 3 command in the foreground, appending stdout and stderr to the same logs>; Start-Sleep -Seconds 60 }`.
-  2. Wait until `Get-ScheduledTask laf-detector` exists (Tyler registers it; re-check at each loop).
-  3. Hand over: right after a poll, stop the T15 service (uv 33968 and its laf.exe and python processes), then `Start-ScheduledTask laf-detector`.
-  4. Check: after the next poll, stderr.log has no traceback and log.jsonl has the poll; at the next scheduled version a seal reaches live-test (the push works from the task). If not, stop the task, restart the T15 command, and report.
-  5. Report `Get-ScheduledTaskInfo laf-detector` (State, LastTaskResult), the new process ids, the push check, and the Windows Update values (`Get-ItemProperty HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings | Select ActiveHoursStart,ActiveHoursEnd,SmartActiveHoursState,RestartNotificationsAllowed2`).
-outputs: the dry-run detector under the task laf-detector
-commit: the done line only
-notes: Tyler registers the task with his password (`-User` and `-Password`), not S4U, so the task can read Git Credential Manager. At live start, a queue task points laf-detector.ps1 at the paid command (`--paid --publish ..\laf-live --out runs\live --live-data data\interim\live`) and restarts the task. Never read or print .env.
+  1. The service worktree: `git worktree add --detach ..\laf-service origin/post-submission`; nobody edits, pulls or commits there.
+  2. Rewrite C:\Users\tjnew\git\laf-detector.ps1 as a loop run from that worktree: `Set-Location C:\Users\tjnew\git\laf-service; while ($true) { <uv by full path> run laf live-watch --out ..\laf-live-dryrun\runs\live-dryrun --publish ..\laf-live-test, appending stdout and stderr to ..\laf-live-dryrun\runs\live-dryrun\stdout.log and stderr.log; Start-Sleep -Seconds 60 }` (its --live-data is the service worktree's own data\interim\live-dryrun, marked "dry" on start).
+  3. Wait until `Get-ScheduledTask laf-detector` exists (Tyler registers it; re-check at each loop).
+  4. Hand over: right after a poll, stop the T15 service (uv 33968 and its laf.exe and python processes), then `Start-ScheduledTask laf-detector`.
+  5. Check: after the next poll, stderr.log has no traceback and log.jsonl has the poll; at the next scheduled version a seal reaches live-test (the push works from the task). If not, stop the task, restart the T15 command, and report.
+  6. Start ops/deploys.md: a title line, then `<UTC time> <commit of ..\laf-service> dry run moved into the service worktree under the startup task (T16)`; commit and push it.
+  7. Report `Get-ScheduledTaskInfo laf-detector` (State, LastTaskResult), the new process ids, the push check, and the Windows Update values (`Get-ItemProperty HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings | Select ActiveHoursStart,ActiveHoursEnd,SmartActiveHoursState,RestartNotificationsAllowed2`).
+outputs: the dry-run detector under the task laf-detector, in ..\laf-service
+commit: ops/deploys.md and the done line
+notes: Tyler registers the task with his password (`-User` and `-Password`), not S4U, so the task can read Git Credential Manager. Never read or print .env.
 
 ## T17 e2e-validate
 status: ready
@@ -211,5 +213,17 @@ run: from the repo root:
 outputs: none
 commit: the done line only: each answer's status (expect 12 "ok"), and for any other status the item, model and status
 notes: Checks the T14 answers' format only (the schema and quantile checks); nothing is scored, no outcome is read.
+
+## T18 manifest-parity
+status: ready
+server: none (no llama-server)
+prepare: git fetch. No API call; outcome-blind (it rebuilds the frozen items and baselines, which hold no outcome).
+run:
+  1. `git worktree add --detach ..\laf-parity 1edc91ef` (the commit the Mac hashed).
+  2. In ..\laf-parity: `uv run laf freeze-manifest --snapshot 20261029T2000Z 20261101T2202Z --out <your scratchpad>\manifest_win.json`.
+  3. `git -C ..\laf-parity status --short` must be empty (the frozen inputs were checked, not rewritten); then `git worktree remove ..\laf-parity`.
+outputs: none in the repo
+commit: the done line: the printed manifest SHA-256, and "match" or "differ" against the Mac's 9de0daa4663f180958b1b5074163909457abf35b5e2f32390501b6732e076e0e (if they differ, list the keys whose hashes differ between your manifest_win.json and the Mac's, which Tyler can paste)
+notes: Proves the freeze can run here (runbook section 0.6).
 
 ## END
