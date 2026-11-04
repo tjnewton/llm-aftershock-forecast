@@ -303,17 +303,17 @@ def step(
     return state
 
 
-def _decision_on_branch(publish_to: Path | None, *names: str) -> dict | None:
-    """An included sequence's first-detection decision as published (`inclusion.json`), so a
-    lost local state never decides it again on revised values."""
+def _decision_on_branch(publish_to: Path | None, doc: dict, event_id: str) -> dict | None:
+    """An included sequence's first-detection decision as published (`inclusion.json`), under
+    any of the event's ComCat IDs, so a lost local state never decides it again on revised
+    values, even after a change of preferred ID. The record keeps its tracking `key`."""
     if publish_to is None:
         return None
-    for name in names:
+    ids = [event_id, doc["id"], *(i for i in (doc["properties"].get("ids") or "").split(",") if i)]
+    for name in dict.fromkeys(ids):
         path = publish_to / name / "inclusion.json"
         if path.exists():
-            rec = json.loads(path.read_text(encoding="utf-8"))
-            rec.pop("key", None)
-            return rec
+            return json.loads(path.read_text(encoding="utf-8")) | {"folder": name}
     return None
 
 
@@ -346,14 +346,16 @@ def detect(
         try:
             doc = json.loads(get(event_url(event_id)))
             key = event_key(doc, seen.keys() | decided.keys())
+            if key not in decided and (known := _decision_on_branch(publish_to, doc, event_id)):
+                key = known.pop("key", None) or known["folder"]  # its original tracking key
+                known.pop("folder")
+                decided.setdefault(key, known)
             vs = new_versions(doc, set(seen.get(key, [])))
             if not vs:
                 continue
             # tried once: a failure below is logged, never retried (prereg v2 section 5)
             seen[key] = sorted(set(seen.get(key, [])) | {v["update_ms"] for v in vs})
             p = doc["properties"]
-            if key not in decided and (known := _decision_on_branch(publish_to, key, event_id)):
-                decided[key] = known
             tier, reason = inclusion(doc, key, decided, get, stop, start, t_poll)
             det |= {"key": key, "mag": p.get("mag"), "net": p.get("net"), "tier": tier,
                     "inclusion": reason}  # fmt: skip

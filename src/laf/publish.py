@@ -58,9 +58,12 @@ def ots_proof(data: bytes, calendar: str, post=_post) -> bytes:
 
 
 def _run(worktree: Path, *args: str, check: bool = True) -> subprocess.CompletedProcess:
+    # inherited GIT_* variables (a commit hook's GIT_DIR, GIT_INDEX_FILE) would point this at
+    # another repository than `worktree`
+    env = {k: v for k, v in os.environ.items() if not k.startswith("GIT_")} | GIT_ENV
     return subprocess.run(
         ["git", "-C", str(worktree), *args], check=check, capture_output=True, text=True,
-        stdin=subprocess.DEVNULL, timeout=GIT_TIMEOUT_S, env={**os.environ, **GIT_ENV},
+        stdin=subprocess.DEVNULL, timeout=GIT_TIMEOUT_S, env=env,
     )  # fmt: skip
 
 

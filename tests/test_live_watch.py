@@ -213,6 +213,7 @@ def test_sequences_older_than_the_start_are_not_admitted(tmp_path, monkeypatch):
 def test_a_published_decision_survives_a_lost_local_state(tmp_path, monkeypatch):
     calls = []
     monkeypatch.setattr(W, "live_issue", lambda *a, **k: calls.append(a) or {})
+    monkeypatch.setattr(W, "add_record", lambda *a, **k: None)  # no git outside a clone
     wt = tmp_path / "wt"
     (wt / "nc75458907").mkdir(parents=True)
     rec = {"key": "nc75458907", "tier": "primary", "reason": "included", "mag": 5.0, "lat": 0.0,
@@ -220,6 +221,15 @@ def test_a_published_decision_survives_a_lost_local_state(tmp_path, monkeypatch)
     (wt / "nc75458907/inclusion.json").write_text(json.dumps(rec))
     state = W.step(tmp_path, tmp_path, {}, _get(), publish_to=wt)  # ComCat now says M4.01
     assert state["inclusion"]["nc75458907"]["tier"] == "primary" and calls[0][-1] == "primary"
+    # published under an ID that is no longer the preferred one: found through the event's
+    # associated IDs, and tracked under its original key
+    other = tmp_path / "other"
+    (other / "us7000ttnj").mkdir(parents=True)
+    (other / "us7000ttnj/inclusion.json").write_text(json.dumps(rec | {"key": "us7000ttnj"}))
+    (tmp_path / "o").mkdir()
+    state = W.step(tmp_path / "o", tmp_path, {}, _get(), publish_to=other)
+    assert set(state["inclusion"]) == {"us7000ttnj"} and set(state["seen"]) == {"us7000ttnj"}
+    assert state["inclusion"]["us7000ttnj"]["tier"] == "primary" and calls[1][-1] == "primary"
 
 
 def test_the_paid_detector_publishes_its_start_once(worktree, tmp_path, monkeypatch):
