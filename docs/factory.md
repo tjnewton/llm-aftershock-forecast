@@ -1,9 +1,9 @@
 # Software factory
 
 How code changes reach this repository during the Seismica phase of the project. It covers
-review and implementation of engineering tickets only. Live forecasting is a separate scheduled
-workflow, and the Windows RTX 5090 machine stays a queue-driven GPU
-worker (`ops/windows-queue.md`); neither is a factory task.
+review and implementation of engineering tickets only. Live forecasting is a separate service
+on the Windows machine (ADR 0017 decision 14; docs/freeze-runbook.md), and it is not a factory
+task.
 
 Vocabulary follows the "software factory" framing of tasks, triggers, services and brakes
 (mattpocock/skills, PR 1316).

@@ -18,7 +18,8 @@ be scored freely. This ADR says which data is which.
     (`data/raw/training/outcomes/`, 2010-01-01 to 2025-07-01). Sequences that appeared in the
     E1/E1a training sets only as prompt input (no outcome seen) are not development
     (decision 3 below).
-- **Confirmatory data** (never scored against outcomes before the `prereg-v2` tag): every other
+- **Confirmatory data** (never scored against outcomes before both gates open: the
+  `prereg-v2` tag, then the `prereg-v2-stop` tag and S + 90 days, below): every other
   sequence. That covers the OAF sequences not yet scored and every sequence of the prospective
   live arm. Default deny: a sequence id the code does not know as development is confirmatory.
 - **Allowed on confirmatory data before the freeze**, because none of it uses outcomes:

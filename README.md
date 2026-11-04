@@ -117,7 +117,7 @@ money (`laf smoke`, `laf pilot`, `laf run`, `laf live`, `laf probe`) need `ANTHR
 | `runs/` | every model request and answer; `runs/e3/`, `runs/extensions/` are exploratory |
 | `results/`, `figures/`, `notebooks/` | score tables ([guide](results/README.md)), figures, analysis notebook and explorer |
 | `docs/` | [preregistration](docs/preregistration.md), [deviations](docs/deviations.md), [data card](docs/data-card.md), [model registry](docs/model-registry.md), [decisions](docs/adr/) |
-| `ops/` | the task queue the two machines shared during the overnight runs |
+| `ops/` | deploy log of the live service, task registration, and the retired task queue |
 
 </details>
 
