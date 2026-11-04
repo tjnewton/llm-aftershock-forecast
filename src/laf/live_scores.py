@@ -39,9 +39,10 @@ def released(live: Path) -> list[Path]:
 
 def live_start_ms(live: Path) -> int | None:
     """L: the paid detector's start, which it records in `start.json` at the root of the branch
-    before its first poll (prereg v2 section 5), or None before that."""
-    p = live / "start.json"
-    return int(json.loads(p.read_text(encoding="utf-8"))["start_ms"]) if p.exists() else None
+    before its first poll (prereg v2 section 5; `live_watch.run`), or None before that."""
+    from laf.live_watch import start_ms
+
+    return start_ms(live)
 
 
 def _delivered(call: dict) -> bool:
