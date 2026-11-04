@@ -184,7 +184,7 @@ def main(argv: list[str] | None = None) -> None:
         "--settings", choices=("grid", "sonnet-low"), help="pilot: a thinking and effort batch"
     )
     lw = sub.add_parser(
-        "live-watch", help="dry run of the live detector (ComCat polls; no model calls)"
+        "live-watch", help="the live detector (ComCat polls; model calls only with --paid)"
     )
     lw.add_argument("--out", type=Path, default=Path("runs/live-dryrun"))
     lw.add_argument("--live-data", type=Path, default=Path("data/interim/live-dryrun"))
@@ -194,6 +194,11 @@ def main(argv: list[str] | None = None) -> None:
         "--paid", action="store_true",
         help="SPENDS MONEY: the live models within the live reserve; --publish must be live",
     )  # fmt: skip
+    lst = sub.add_parser(
+        "live-status", help="L, S and the detector's health (no model calls, no ComCat)"
+    )
+    lst.add_argument("--live", type=Path, required=True, help="worktree of live (or live-test)")
+    lst.add_argument("--out", type=Path, required=True, help="the detector's --out folder")
     ll = sub.add_parser(
         "live-late", help="share of matched live items that would be late (ADR 0017; no network)"
     )
@@ -641,6 +646,13 @@ def main(argv: list[str] | None = None) -> None:
         from laf.live_watch import run
 
         run(a.out, a.live_data, a.data_dir, a.polls, a.publish, a.paid)
+    elif a.cmd == "live-status":
+        from laf.live_status import status
+
+        lines, attention = status(a.live, a.out)
+        print("\n".join(lines + [f"ATTENTION: {x}" for x in attention]))
+        if attention:
+            raise SystemExit(1)
     elif a.cmd == "live-late":
         import pandas as pd
 

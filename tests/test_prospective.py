@@ -167,6 +167,21 @@ def test_model_calls_use_the_study_settings(built):
     assert all(not ({"temperature", "top_p", "tools"} & set(p)) for p in seen)
 
 
+def test_an_unexpected_client_error_is_one_failed_answer_not_a_lost_issue(built):
+    _, items, _ = built
+    clients = _clients([])
+
+    def broken(**params):
+        raise ValueError("a response the SDK could not validate")
+
+    clients["openai"].responses.create = broken
+    calls = P.model_calls(clients, items, {"claude": 1e9, "openai": 1e9})
+    sol = [c for c in calls if c["model_requested"] == "gpt-6.1-sol"]
+    assert sol and all("ValueError" in c["error"] and "usage" not in c for c in sol)
+    assert all(c["usage"] for c in calls if c["model_requested"] == "claude-opus-5-5")
+    assert len(P.spend_rows(calls)) == len(calls) - len(sol)  # the paid calls stay counted
+
+
 def test_the_budget_priority_drops_strict_then_the_second_model(built):
     _, items, _ = built
     matched = next(i for i in items if i.item_id.endswith("@live-matched"))
@@ -194,6 +209,8 @@ def test_the_live_budget_is_the_reserve_minus_the_published_live_spend(tmp_path,
     assert left["openai"] == pytest.approx(10 - 2.0)  # $2 per MTok input
     assert left["claude"] == pytest.approx(20 - P._cost("claude-opus-5-5", calls[0]["usage"]))
     assert P.live_budget(tmp_path, month="2027-01") == {"claude": 20.0, "openai": 10.0}
+    # a secondary sequence spends only the half of each reserve kept above the primary share
+    assert P.live_budget(tmp_path, month="2027-01", keep=0.5) == {"claude": 10.0, "openai": 5.0}
     for bad, why in (("60", "exceeds"), ("inf", "finite"), ("-1", "finite"), ("", "not set")):
         monkeypatch.setenv("LAF_OPENAI_LIVE_RESERVE_USD", bad)  # above the $50 cap, or invalid
         if not bad:

@@ -12,6 +12,7 @@ import hashlib
 import json
 import time
 from concurrent.futures import ThreadPoolExecutor
+from datetime import UTC, datetime
 from pathlib import Path
 
 import pandas as pd
@@ -115,11 +116,17 @@ def model_calls(clients: dict, items: list[Item], left: dict[str, float], models
 
     def call(job):
         item_id, m, s, params = job
-        if provider(m) == "openai":
-            effort, rec = params["reasoning"]["effort"], O.call_openai(clients["openai"], params)
-        else:
-            effort = params["output_config"]["effort"]
-            rec = call_anthropic(clients["claude"], params, stream=True)
+        openai = provider(m) == "openai"
+        effort = params["reasoning"]["effort"] if openai else params["output_config"]["effort"]
+        try:
+            if openai:
+                rec = O.call_openai(clients["openai"], params)
+            else:
+                rec = call_anthropic(clients["claude"], params, stream=True)
+        except Exception as e:  # an error the clients do not expect: one failed answer, never
+            # an issue that loses the spend records of the calls already paid
+            rec = {"started_utc": datetime.now(UTC).isoformat(), "model_requested": m,
+                   "error": f"{type(e).__name__}: {e}"[:300]}  # fmt: skip
         return {"item_id": item_id, "paraphrase": PROMPT, "effort": effort, "sample": s, **rec}
 
     with ThreadPoolExecutor(6) as pool:
@@ -146,12 +153,11 @@ def local_budget() -> dict[str, float]:
     }
 
 
-def live_budget(ledger: Path, month: str | None = None) -> dict[str, float]:
+def live_budget(ledger: Path, month: str | None = None, keep: float = 0.0) -> dict[str, float]:
     """The live service: each provider's live reserve minus this month's live spend, summed
     from the spend files published on the live branch (`ledger` is its worktree), so every host
-    reads the same ledger. A reserve must be set."""
-    from datetime import UTC, datetime
-
+    reads the same ledger, less the share `keep` of the reserve held back (for primary
+    sequences, `live_watch.SECONDARY_KEEP`). A reserve must be set."""
     month = month or datetime.now(UTC).strftime("%Y-%m")
     spent = {"claude": 0.0, "openai": 0.0}
     for f in ledger.glob("**/spend.jsonl"):
@@ -167,7 +173,7 @@ def live_budget(ledger: Path, month: str | None = None) -> dict[str, float]:
         reserve = usd_var(reserve_var(cap_var), required=True)
         if reserve > cap:
             raise SystemExit(f"{reserve_var(cap_var)} ${reserve:.2f} exceeds {cap_var} ${cap:.2f}")
-        out[prov] = reserve - spent[prov]
+        out[prov] = reserve * (1 - keep) - spent[prov]
     return out
 
 
