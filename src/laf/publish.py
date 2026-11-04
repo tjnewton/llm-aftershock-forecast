@@ -240,12 +240,15 @@ def push_times(
         body, url = page(url)
         acts = json.loads(body)
         for a in acts:  # newest first: a later (older) push holding the commit replaces it
-            added = {a.get("after")}
-            if introduced and not added & left.keys() and a.get("before") and a.get("after"):
+            added, at = {a.get("after")}, _ms(a["timestamp"])
+            # a push can carry several wanted commits (one whose push failed rides along with
+            # the next), whatever its tip; it cannot carry one made after it (an hour of slack)
+            could = {c for c, t in left.items() if c not in added and t <= at + 3_600_000}
+            if introduced and could and a.get("before") and a.get("after"):
                 with contextlib.suppress(Exception):  # e.g. a push this clone never fetched
-                    added = introduced(a["before"], a["after"])
+                    added |= introduced(a["before"], a["after"])
             for c in added & left.keys():
-                out[c] = _ms(a["timestamp"])
+                out[c] = at
         oldest = min((_ms(a["timestamp"]) for a in acts), default=None)
         left = {c: t for c, t in left.items() if c not in out}
         if oldest is None or (left and oldest < min(left.values()) - 3_600_000):

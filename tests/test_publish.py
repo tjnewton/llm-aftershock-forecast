@@ -91,6 +91,11 @@ def test_the_receipt_is_githubs_time_of_the_push_that_first_held_the_commit():
                        introduced=lambda x, y: added.get((x, y), {y}))  # fmt: skip
     assert got == {"e" * 40: 1793544900000} and len(urls) == 1  # no exact match, still page 1
     urls.clear()
+    # both pending, and the push's tip is the newer one: the older still gets that push's time
+    got = U.push_times("o/r", "live", {"e" * 40: t, c: t}, page,
+                       introduced=lambda x, y: added.get((x, y), {y}))  # fmt: skip
+    assert got == {"e" * 40: 1793544900000, c: 1793544900000}
+    urls.clear()
     late = 1793552100000  # made 2 h after page 1's oldest push: page 2 cannot hold it
     assert U.push_times("o/r", "live", {"f" * 40: late}, page) == {} and len(urls) == 1
 
