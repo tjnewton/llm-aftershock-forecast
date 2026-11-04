@@ -205,8 +205,8 @@ def check_receipts(out: Path, state: dict, publish_to: Path | None, page=None) -
     beside its seal, so the branch keeps the evidence however long GitHub keeps its activity
     list. The pending seals come from the branch, not from this host's memory: a seal whose
     push was retried at a later poll, whose proof push failed, or whose detector stopped
-    before saving its state still gets its receipt. One still missing a day after its commit
-    is logged as missing once and not looked up again."""
+    before saving its state still gets its receipt. One still missing a day after this host
+    first saw it pushed is logged as missing once and not looked up again."""
     try:
         repo = repo_slug(publish_to) if publish_to else None
     except Exception:  # not a clone (tests), or git failing: the next poll tries again
@@ -221,6 +221,9 @@ def check_receipts(out: Path, state: dict, publish_to: Path | None, page=None) -
             continue
         if found := seal_commit(publish_to, rel):  # None until pushed
             pending[found[0]] = (rel, found[1])
+    now, old = _now_ms(), state.get("receipts_since", {})
+    # when this host first saw each seal pushed: a push that failed for a day still gets a day
+    since = state["receipts_since"] = {rel: old.get(rel, now) for rel, _ in pending.values()}
     if not pending:
         state["receipts"] = []
         return
@@ -233,10 +236,10 @@ def check_receipts(out: Path, state: dict, publish_to: Path | None, page=None) -
         _log(out, {"kind": "receipt", "error": f"{type(e).__name__}: {e}"[:300]})
         return
     pushed = {r["commit"]: r["pushed_ms"] for r in state.get("receipts", [])}  # this host's
-    for commit, (rel, committed_ms) in pending.items():
+    for commit, (rel, _) in pending.items():
         ms = times.get(commit)
         if ms is None:
-            if _now_ms() - committed_ms > RECEIPT_GIVE_UP_MS:
+            if now - since[rel] > RECEIPT_GIVE_UP_MS:
                 _log(out, {"kind": "receipt", "rel": rel, "commit": commit, "receipt_ms": None})
                 gave_up.append(rel)
             continue

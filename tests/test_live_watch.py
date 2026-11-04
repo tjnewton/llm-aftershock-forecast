@@ -167,7 +167,11 @@ def test_receipts_come_from_the_branch_not_this_hosts_memory(worktree, tmp_path,
     W.check_receipts(out, state, wt, page)
     assert len(pages) == 1  # nothing pending: GitHub is not asked again
     U.publish(wt, "nc1/6", seal, calendars=())  # GitHub never lists this push
-    monkeypatch.setattr(W, "_now_ms", lambda: 10**13)  # a day and more later
+    clock = [10**13]  # long after its commit: a push that failed for days still gets a day
+    monkeypatch.setattr(W, "_now_ms", lambda: clock[0])
+    W.check_receipts(out, state, wt, lambda url: (b"[]", None))
+    assert state["receipts_missing"] == [] and state["receipts_since"] == {"nc1/6": 10**13}
+    clock[0] += 86_400_001  # a day after it was first seen pushed
     W.check_receipts(out, state, wt, lambda url: (b"[]", None))
     assert state["receipts_missing"] == ["nc1/6"]
     assert _log(out)[-1]["receipt_ms"] is None  # listed as missing, once
