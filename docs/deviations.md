@@ -93,6 +93,13 @@ Each entry: UTC time, change, reason, expected effect on the registered analyses
   config/live_stop.toml) and S + 90 days, besides the tag `prereg-v2` (prereg v2 section 5, ADR
   0018 decision 11, ADR 0013). Reason: no interim looks. Effect: none on registered or
   development results; the guard only refuses more.
+- 2026-11-04 (Seismica phase). `laf.splits` (a frozen brake) hardens both gates: the tags
+  `prereg-v2` and `prereg-v2-stop` must be annotated (a lightweight one is refused), the stop
+  tag must descend from `prereg-v2`, and S must be epoch ms after the `prereg-v2` commit and
+  within 400 days of it. Reason: the pre-freeze review found that S typed in seconds would open
+  the second gate at once. The header comment of config/splits.toml (also frozen) now names both
+  gates; no value changes. Effect: none on registered or development results; the guard only
+  refuses more.
 
 # Deviations from preregistration v2 (tag prereg-v2)
 
