@@ -28,6 +28,8 @@ def test_findings_failing_and_pending_checks_stop_or_wait():
     finding = [{"user": CODEX, "original_commit_id": HEAD}]
     assert verdict(HEAD, PUSHED, up, [], finding, []) == "findings"
     assert verdict(HEAD, PUSHED, up, [], [], [{"bucket": "fail"}]) == "failing"
+    assert verdict(HEAD, PUSHED, up, [], [], [{"bucket": "cancel"}]) == "failing"
+    assert verdict(HEAD, PUSHED, up, [], [], [{"bucket": "something new"}]) == "waiting"
     assert verdict(HEAD, PUSHED, up, [], [], [{"bucket": "pending"}]) == "waiting"
     stale = [{"user": CODEX, "original_commit_id": "1111111111"}]  # on an earlier head
     assert verdict(HEAD, PUSHED, up, [], stale, [{"bucket": "pass"}]) == "approved"

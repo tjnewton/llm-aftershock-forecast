@@ -141,9 +141,12 @@ If the Windows machine is down for more than about 6 hours during the live arm:
 1. Make sure the Windows detector is stopped (two detectors could issue the same version twice
    before either publishes).
 2. On the Mac: `git pull`; Tyler puts the keys and caps in the Mac's `.env`; worktree
-   `../laf-live` on `live`; restore the latest backup of `data/interim` and `runs` into the
+   `../laf-live` on `live`, then `git -C ../laf-live pull --ff-only origin live` (the
+   detector reads issued seals and the spend ledger from it: a stale copy undercounts spend
+   and repeats issues); restore the latest backup of `data/interim` and `runs` into the
    checkout the detector runs from.
 3. `laf live-watch --paid --publish ../laf-live --out runs/live --live-data data/interim/live`
    (the `live` branch, not local state, decides what is already issued).
-4. Back on Windows: stop the Mac's detector first, restore its newest state, then restart the
-   task. Log both moves in `ops/deploys.md`.
+4. Back on Windows: stop the Mac's detector first, `git -C ..\laf-live pull --ff-only origin
+   live` (the Mac's records), restore its newest state, then restart the task. Log both moves
+   in `ops/deploys.md`.

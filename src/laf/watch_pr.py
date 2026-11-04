@@ -42,15 +42,16 @@ def verdict(head: str, pushed: str, reactions: list, comments: list, reviews: li
     """ "findings", "failing", "approved" or "waiting" for a head pushed at `pushed` (ISO time)."""
     if any(_is_codex(c) and c.get("original_commit_id") == head for c in reviews):
         return "findings"
-    if any(c.get("bucket") == "fail" for c in checks):
+    buckets = {c.get("bucket") for c in checks}
+    if buckets & {"fail", "cancel"}:  # a cancelled run validated nothing
         return "failing"
     up = any(_is_codex(r) and r["content"] == "+1" and r["created_at"] > pushed for r in reactions)
     receipt = any(
         _is_codex(c) and c["created_at"] > pushed and "find any major issues" in c["body"]
         and head[:10] in c["body"] for c in comments
     )  # fmt: skip
-    pending = any(c.get("bucket") == "pending" for c in checks)
-    return "approved" if (up or receipt) and not pending else "waiting"
+    settled = buckets <= {"pass", "skipping"}  # anything else (pending, unknown) waits
+    return "approved" if (up or receipt) and settled else "waiting"
 
 
 def _checks(pr: int) -> list | None:
