@@ -56,3 +56,35 @@ def test_the_freeze_refuses_an_incomplete_etas_refit(tmp_path):
     )  # the week window is missing
     with pytest.raises(SystemExit, match="lacks 1 cells"):
         F.write_frozen_inputs(tmp_path, "S")
+
+
+def test_a_rebuild_matches_the_committed_file_up_to_libm_noise(tmp_path, monkeypatch):
+    import json
+
+    import pytest
+
+    row = {"forecaster": "etas", "item_id": "s@first", "window": "1 Day", "m5": [0.0, 1.0],
+           "m4": None, "p_m6": 0.0016403508771929824}  # fmt: skip
+    committed = json.dumps(row, sort_keys=True) + "\n"
+    noisy = json.dumps(row | {"p_m6": 0.0016403508771929828}, sort_keys=True) + "\n"
+    assert F.same_jsonl(committed, noisy)  # macOS vs Windows: last bits differ
+    assert not F.same_jsonl(committed, committed.replace("0.00164", "0.00165"))
+    assert not F.same_jsonl(committed, committed.replace('"m4": null', '"m4": [1.0]'))
+    assert not F.same_jsonl(committed, committed * 2)
+
+    # a present file is checked, never rewritten, so the manifest hashes the committed bytes
+    proc = tmp_path / "processed/S"
+    proc.mkdir(parents=True)
+    (proc / "etas_forecasts.parquet").write_bytes(b"")
+    (proc / "baselines_m3.jsonl").write_text(committed, encoding="utf-8", newline="\n")
+    (proc / "items_m3.jsonl").write_text("", encoding="utf-8")
+    empty = pd.DataFrame({"issue_id": [], "window": []})
+    monkeypatch.setattr(pd, "read_parquet", lambda p: empty)
+    monkeypatch.setattr(F, "window_cells", lambda t: empty)
+    monkeypatch.setattr(F, "baseline_rows", lambda t, i: [row | {"p_m6": 0.0016403508771929828}])
+    monkeypatch.setattr("laf.pilot.load_items", lambda *a: [])
+    F.write_frozen_inputs(tmp_path, "S")
+    assert (proc / "baselines_m3.jsonl").read_text(encoding="utf-8") == committed
+    monkeypatch.setattr(F, "baseline_rows", lambda t, i: [row | {"p_m6": 0.5}])
+    with pytest.raises(SystemExit, match="differs from a fresh rebuild"):
+        F.write_frozen_inputs(tmp_path, "S")

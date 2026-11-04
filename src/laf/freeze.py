@@ -11,6 +11,7 @@ manifest for the public post.
 
 import hashlib
 import json
+import math
 from pathlib import Path
 
 import pandas as pd
@@ -55,8 +56,32 @@ def _jsonl(rows) -> str:
     return "".join(json.dumps(r, sort_keys=True) + "\n" for r in rows)
 
 
+def _close(a, b) -> bool:
+    """Equal JSON values, floats up to libm noise: macOS and Windows differ in the last bits of
+    P(M>=6) (at most 4.4e-16 absolute on the frozen snapshots)."""
+    if isinstance(a, float) or isinstance(b, float):
+        return all(isinstance(x, int | float) for x in (a, b)) and math.isclose(
+            a, b, rel_tol=1e-9, abs_tol=1e-12
+        )
+    if isinstance(a, list) and isinstance(b, list):
+        return len(a) == len(b) and all(map(_close, a, b))
+    if isinstance(a, dict) and isinstance(b, dict):
+        return a.keys() == b.keys() and all(_close(a[k], b[k]) for k in a)
+    return a == b
+
+
+def same_jsonl(old: str, new: str) -> bool:
+    """The committed file and a fresh rebuild agree line by line (floats within `_close`)."""
+    a, b = old.splitlines(), new.splitlines()
+    return len(a) == len(b) and all(
+        _close(json.loads(x), json.loads(y)) for x, y in zip(a, b, strict=True)
+    )
+
+
 def write_frozen_inputs(data_dir: Path, snapshot: str) -> list[Path]:
-    """Write (or check, when present) the items and baseline files the manifest hashes."""
+    """Write (or check, when present) the items and baseline files the manifest hashes. A
+    present file is never rewritten: the manifest hashes the committed bytes, so it is the same
+    on every machine."""
     from laf.pilot import load_items
 
     proc = data_dir / "processed" / snapshot
@@ -75,9 +100,10 @@ def write_frozen_inputs(data_dir: Path, snapshot: str) -> list[Path]:
         proc / "baselines_m3.jsonl": _jsonl(baseline_rows(tables, items)),
     }
     for path, body in bodies.items():
-        if path.exists() and path.read_text(encoding="utf-8") != body:
+        if not path.exists():
+            path.write_text(body, encoding="utf-8", newline="\n")
+        elif not same_jsonl(path.read_text(encoding="utf-8"), body):
             raise SystemExit(f"{path} differs from a fresh rebuild: inputs changed")
-        path.write_text(body, encoding="utf-8", newline="\n")
     return list(bodies)
 
 
@@ -85,7 +111,7 @@ def manifest(data_dir: Path, snapshots: list[str], inputs: list[Path]) -> dict:
     """{label: SHA-256} for every artifact of prereg v2 section 11, and their combined hash:
     the candidate snapshot and the forward-excluded one."""
     downloads = data_dir / "manifest.jsonl"  # the download inventory of this data directory
-    # keys in POSIX form, so the manifest is the same on Windows (the live host) and the Mac
+    # keys in POSIX form, so the manifest is the same on every operating system
     files = {p.as_posix(): p for p in (PREREG, PROMPT_HASHES, downloads)}
     files |= {c: Path(c) for c in CONFIGS}
     if SUPPLEMENTARY_CONFIG.exists():  # written at L, after the freeze
