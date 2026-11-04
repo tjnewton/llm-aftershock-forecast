@@ -1,0 +1,31 @@
+^CTraceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\tjnew\git\laf-service\.venv\Scripts\laf.exe\__main__.py", line 10, in <module>
+  File "C:\Users\tjnew\git\laf-service\src\laf\cli.py", line 648, in main
+    run(a.out, a.live_data, a.data_dir, a.polls, a.publish, a.paid)
+  File "C:\Users\tjnew\git\laf-service\src\laf\live_watch.py", line 447, in run
+    state = step(out, data_dir, state, publish_to=publish_to, clients=clients)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tjnew\git\laf-service\src\laf\live_watch.py", line 303, in step
+    check_receipts(out, state, publish_to)
+  File "C:\Users\tjnew\git\laf-service\src\laf\live_watch.py", line 247, in check_receipts
+    first = [v["first_window_ms"] for i, v in seal["items"].items()
+                                              ~~~~^^^^^^^^^
+KeyError: 'items'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\tjnew\git\laf-service\.venv\Scripts\laf.exe\__main__.py", line 10, in <module>
+  File "C:\Users\tjnew\git\laf-service\src\laf\cli.py", line 648, in main
+    run(a.out, a.live_data, a.data_dir, a.polls, a.publish, a.paid)
+  File "C:\Users\tjnew\git\laf-service\src\laf\live_watch.py", line 447, in run
+    state = step(out, data_dir, state, publish_to=publish_to, clients=clients)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tjnew\git\laf-service\src\laf\live_watch.py", line 303, in step
+    check_receipts(out, state, publish_to)
+  File "C:\Users\tjnew\git\laf-service\src\laf\live_watch.py", line 247, in check_receipts
+    first = [v["first_window_ms"] for i, v in seal["items"].items()
+                                              ~~~~^^^^^^^^^
+KeyError: 'items'
+^C

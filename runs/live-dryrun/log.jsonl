@@ -1008,3 +1008,59 @@
 {"events": 0, "kind": "poll", "poll_ms": 1793806774169, "since_ms": 1793806172922}
 {"events": 0, "kind": "poll", "poll_ms": 1793807375490, "since_ms": 1793806774169}
 {"events": 0, "kind": "poll", "poll_ms": 1793807976850, "since_ms": 1793807375490}
+{"events": 0, "kind": "poll", "poll_ms": 1793808578045, "since_ms": 1793807976850}
+{"events": 1, "kind": "poll", "poll_ms": 1793809179026, "since_ms": 1793808578045}
+{"events": 0, "kind": "poll", "poll_ms": 1793809780778, "since_ms": 1793809179026}
+{"events": 0, "kind": "poll", "poll_ms": 1793810382153, "since_ms": 1793809780778}
+{"events": 0, "kind": "poll", "poll_ms": 1793810983345, "since_ms": 1793810382153}
+{"events": 0, "kind": "poll", "poll_ms": 1793811584700, "since_ms": 1793810983345}
+{"events": 1, "kind": "poll", "poll_ms": 1793812185760, "since_ms": 1793811584700}
+{"events": 0, "kind": "poll", "poll_ms": 1793812788177, "since_ms": 1793812185760}
+{"events": 0, "kind": "poll", "poll_ms": 1793813389173, "since_ms": 1793812788177}
+{"events": 0, "kind": "poll", "poll_ms": 1793813990237, "since_ms": 1793813389173}
+{"events": 1, "kind": "poll", "poll_ms": 1793814002382, "since_ms": 1793813990237}
+{"events": 1, "kind": "poll", "poll_ms": 1793814068232, "since_ms": 1793813990237}
+{"events": 1, "kind": "poll", "poll_ms": 1793814134271, "since_ms": 1793813990237}
+{"commit": "2517e3e634f710dd8f53da9c6a720d7a48ff4a35", "kind": "receipt", "matched_receipt_margin_s": -259.0, "pushed_ms": null, "receipt_lag_s": null, "receipt_ms": 1793617459000, "rel": "us6000tzna/1793617340204", "source": "api.github.com/repos/tjnewton/llm-aftershock-forecast/activity (push to live-test)"}
+{"commit": "650ff7da90143efc303d4993521b9037f88daa7f", "kind": "receipt", "matched_receipt_margin_s": 1697.0, "pushed_ms": null, "receipt_lag_s": null, "receipt_ms": 1793565103000, "rel": "us7000tu3j/1793564679802", "source": "api.github.com/repos/tjnewton/llm-aftershock-forecast/activity (push to live-test)"}
+{"events": 1, "kind": "poll", "poll_ms": 1793814734284, "since_ms": 1793814134271}
+{"events": 1, "kind": "poll", "poll_ms": 1793815334296, "since_ms": 1793814734284}
+{"events": 1, "kind": "poll", "poll_ms": 1793815934311, "since_ms": 1793815334296}
+{"events": 0, "kind": "poll", "poll_ms": 1793816534322, "since_ms": 1793815934311}
+{"events": 1, "kind": "poll", "poll_ms": 1793817134334, "since_ms": 1793816534322}
+{"events": 1, "kind": "poll", "poll_ms": 1793817734346, "since_ms": 1793817134334}
+{"answers_sha256": "4881a00d9f00b490d6b0facdf3596d6d397f242ccb42811ee357bd4b0ac2af3a", "backlog": false, "baselines_s": 12.104576826095581, "baselines_sha256": "5a1b809836afb949074964a2daa52e088d45099b2687eead631039efad686ade", "build_s": 0.2031857967376709, "detect_latency_s": 275.591, "event_id": "ci41572064", "fetch_s": 3.0436887741088867, "inclusion": "included", "index_ms": 1793817458755, "key": "ci41572064", "kind": "detection", "mag": 4.8869503562808, "matched_first_ms": 1793817000000, "matched_margin_s": -739.607, "matched_update_ms": 1793817453736, "net": "ci", "pipeline": "prospective", "poll_ms": 1793817734346, "published": {"answers": {"branch": "live-test", "commit": "dad7dc3878a77896869b7c5e20fc84106f33ea9e", "ots": {"https://a.pool.eternitywall.com": "pending", "https://a.pool.opentimestamps.org": "pending", "https://b.pool.opentimestamps.org": "pending"}, "ots_commit": "f47083690f0bea94c5d4da4a7abf52e981d7ddfa", "pushed_ms": 1793817742964, "repo": "tjnewton/llm-aftershock-forecast"}, "baselines": {"branch": "live-test", "commit": "c483579b4156fd585cdd31559ae4bbccacdf8e8b", "ots": {"https://a.pool.eternitywall.com": "pending", "https://a.pool.opentimestamps.org": "pending", "https://b.pool.opentimestamps.org": "pending"}, "ots_commit": "48215fa3d480557c2ef2fcf5ca1c2be64edbc290", "pushed_ms": 1793817756235, "repo": "tjnewton/llm-aftershock-forecast"}}, "slot": "1d", "strict_margin_s": 4660.393, "superseded": false, "tier": "secondary", "update_ms": 1793817453736}
+{"commit": "dad7dc3878a77896869b7c5e20fc84106f33ea9e", "kind": "receipt", "matched_receipt_margin_s": -742.0, "pushed_ms": 1793817742964, "receipt_lag_s": -0.964, "receipt_ms": 1793817742000, "rel": "ci41572064/1793817453736", "source": "api.github.com/repos/tjnewton/llm-aftershock-forecast/activity (push to live-test)"}
+{"events": 1, "kind": "poll", "poll_ms": 1793818334358, "since_ms": 1793817734346}
+{"events": 1, "kind": "poll", "poll_ms": 1793818934370, "since_ms": 1793818334358}
+{"events": 1, "kind": "poll", "poll_ms": 1793819534383, "since_ms": 1793818934370}
+{"events": 1, "kind": "poll", "poll_ms": 1793820134396, "since_ms": 1793819534383}
+{"events": 1, "kind": "poll", "poll_ms": 1793820734408, "since_ms": 1793820134396}
+{"events": 1, "kind": "poll", "poll_ms": 1793821334420, "since_ms": 1793820734408}
+{"events": 1, "kind": "poll", "poll_ms": 1793821934433, "since_ms": 1793821334420}
+{"events": 1, "kind": "poll", "poll_ms": 1793822534444, "since_ms": 1793821934433}
+{"events": 1, "kind": "poll", "poll_ms": 1793823134456, "since_ms": 1793822534444}
+{"events": 1, "kind": "poll", "poll_ms": 1793823734469, "since_ms": 1793823134456}
+{"events": 2, "kind": "poll", "poll_ms": 1793824334481, "since_ms": 1793823734469}
+{"backlog": false, "detect_latency_s": 452.064, "event_id": "us7000tu3j", "fetch_s": 3.0453414916992188, "inclusion": "included", "index_ms": 1793823882417, "key": "us7000tu3j", "kind": "detection", "mag": 5, "matched_update_ms": 1793823877764, "net": "us", "pipeline": "prospective", "poll_ms": 1793824334481, "skipped": "not a scheduled version (ADR 0004)", "slot": null, "superseded": false, "tier": "primary", "update_ms": 1793823877764}
+{"events": 1, "kind": "poll", "poll_ms": 1793824934495, "since_ms": 1793824334481}
+{"events": 1, "kind": "poll", "poll_ms": 1793825534506, "since_ms": 1793824934495}
+{"events": 1, "kind": "poll", "poll_ms": 1793826134518, "since_ms": 1793825534506}
+{"events": 1, "kind": "poll", "poll_ms": 1793826734530, "since_ms": 1793826134518}
+{"events": 1, "kind": "poll", "poll_ms": 1793827334542, "since_ms": 1793826734530}
+{"events": 1, "kind": "poll", "poll_ms": 1793827934554, "since_ms": 1793827334542}
+{"events": 0, "kind": "poll", "poll_ms": 1793828534566, "since_ms": 1793827934554}
+{"events": 0, "kind": "poll", "poll_ms": 1793829134578, "since_ms": 1793828534566}
+{"events": 0, "kind": "poll", "poll_ms": 1793829734590, "since_ms": 1793829134578}
+{"events": 0, "kind": "poll", "poll_ms": 1793830334602, "since_ms": 1793829734590}
+{"events": 0, "kind": "poll", "poll_ms": 1793830934613, "since_ms": 1793830334602}
+{"events": 0, "kind": "poll", "poll_ms": 1793831534625, "since_ms": 1793830934613}
+{"events": 0, "kind": "poll", "poll_ms": 1793832134637, "since_ms": 1793831534625}
+{"events": 0, "kind": "poll", "poll_ms": 1793832734649, "since_ms": 1793832134637}
+{"events": 0, "kind": "poll", "poll_ms": 1793833334661, "since_ms": 1793832734649}
+{"events": 0, "kind": "poll", "poll_ms": 1793833934673, "since_ms": 1793833334661}
+{"events": 0, "kind": "poll", "poll_ms": 1793834534685, "since_ms": 1793833934673}
+{"events": 1, "kind": "poll", "poll_ms": 1793834548608, "since_ms": 1793834534685}
+{"commit": "a93a7469b45d65731b1659dafcb870f177641f98", "kind": "receipt", "matched_receipt_margin_s": null, "pushed_ms": null, "receipt_lag_s": null, "receipt_ms": 1793546407000, "rel": "check/mac-2026-11-01", "source": "api.github.com/repos/tjnewton/llm-aftershock-forecast/activity (push to live-test)"}
+{"events": 2, "kind": "poll", "poll_ms": 1793835148620, "since_ms": 1793834548608}
+{"backlog": false, "detect_latency_s": 473.448, "event_id": "us7000ttke", "fetch_s": 2.8661468029022217, "inclusion": "included", "index_ms": 1793834675172, "key": "us7000ttke", "kind": "detection", "mag": 5.4, "matched_update_ms": 1793834669384, "net": "us", "pipeline": "prospective", "poll_ms": 1793835148620, "skipped": "not a scheduled version (ADR 0004)", "slot": null, "superseded": false, "tier": "primary", "update_ms": 1793834669384}
