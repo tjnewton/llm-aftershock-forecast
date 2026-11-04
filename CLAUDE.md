@@ -26,7 +26,7 @@ Oct 21-22, 2026). Plan: docs/PLAN.md. Rules that bind the analysis: docs/preregi
 analysis's `runs/*/` glob; changes after `prereg-v1` go in `docs/deviations.md`.
 
 ## Machines
-Work happens on the Windows machine (since 2026-11-03; the Mac is a cold standby, runbook section
+Work happens on the Windows machine (since 2026-11-03; outages and restores: runbook section
 7). The live detector runs from the service worktree `..\laf-service`, a pinned commit changed
 only by a deploy logged in `ops/deploys.md`: never edit, pull or commit there. Scheduled tasks,
 the registry and Windows Update are Tyler's to change.

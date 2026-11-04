@@ -1,4 +1,8 @@
-# Windows task queue (written by the Mac only)
+# Windows task queue (retired)
+
+RETIRED: no worker reads this queue any more. The one development session on this machine does
+the work itself; deploys of the service worktree are logged in `ops/deploys.md` (runbook
+section 0.4). The tasks below are kept as a record.
 
 ## BRANCH (2026-10-22 22:30Z): work only on `post-submission`
 `main` is frozen at the submitted state until hackathon judging ends, and a GitHub rule rejects
