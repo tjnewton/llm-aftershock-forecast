@@ -22,9 +22,23 @@ def test_non_overlapping_keeps_one_window_per_issue_time():
     assert S.non_overlapping(cells).tolist() == [True, True, True, True, False, True, True]
 
 
-def test_exact_match_subset():
-    it = pd.DataFrame({"issue_id": ["a", "b"], "oaf_obs_m5": [3, 2], "comcat_m5_at_cutoff": [3, 1]})
-    assert S.exact_match({"issue_times": it}) == {"a"}
+def test_exact_match_counts_the_as_of_catalog():
+    # the revised catalog (comcat_m5_at_cutoff) would pick b; the as-of catalog picks a and c
+    it = pd.DataFrame({"issue_id": ["a", "b", "c"], "sequence_id": "s", "oaf_obs_m5": [2, 1, 0],
+                       "comcat_m5_at_cutoff": [1, 1, 1]})  # fmt: skip
+    seqs = pd.DataFrame({"sequence_id": ["s"], "origin_ms": [100]})
+    ev = [
+        ("s", 99, 6.0),
+        ("s", 120, 6.0),  # the mainshock as seen then, even after the origin
+        ("x", 90, 5.5),  # a foreshock
+        ("y", 110, 4.995),
+        ("z", 130, 5.2),
+        ("w", 140, 4.9),
+    ]  # M5 within 0.01 counts
+    cats = pd.DataFrame([{"issue_id": i, "id": e, "time_ms": t, "mag": m}
+                         for i, n in (("a", 6), ("b", 3)) for e, t, m in ev[:n]])  # fmt: skip
+    tables = {"issue_times": it, "issue_catalogs": cats, "sequences": seqs}
+    assert S.exact_match(tables) == {"a", "c"}
 
 
 def _samples():
@@ -43,9 +57,13 @@ def _samples():
 
 def test_one_table_with_every_variant():
     s = _samples()
-    tables = {"sequences": pd.DataFrame({"sequence_id": s["sequence_id"].unique()}),
-              "issue_times": pd.DataFrame({"issue_id": s["item_id"].unique(), "oaf_obs_m5": 1,
-                                           "comcat_m5_at_cutoff": 1})}  # fmt: skip
+    issues = s.drop_duplicates("item_id")
+    tables = {"sequences": pd.DataFrame({"sequence_id": s["sequence_id"].unique(), "origin_ms": 0}),
+              "issue_times": pd.DataFrame({"issue_id": issues["item_id"], "oaf_obs_m5": 1,
+                                           "sequence_id": issues["sequence_id"]}),
+              # one M5 aftershock in every as-of catalog, as the official count says
+              "issue_catalogs": pd.DataFrame({"issue_id": issues["item_id"], "id": "e",
+                                              "time_ms": 1, "mag": 5.0})}  # fmt: skip
     elapsed = {i: (0.5 if i.endswith("first") else 3.0) for i in s["item_id"]}
     sets = {"claude-opus-5-5": set(s["sequence_id"])}
     t = S.sensitivity(s, tables, elapsed, ("claude-opus-5-5",), samples_2d=s, sets=sets)
@@ -193,7 +211,8 @@ def test_forward_excluded_candidates_enter_only_their_sensitivity_row(monkeypatc
                        "window": "day", "sample": 0, "d5": float(rng.normal(0, 0.05)),
                        "worst_base_d5": 0.4} for sid in ids])  # fmt: skip
     tables = {"sequences": seqs, "issue_times": pd.DataFrame(
-        {"issue_id": s["item_id"], "oaf_obs_m5": 0, "comcat_m5_at_cutoff": 0})}  # fmt: skip
+        {"issue_id": s["item_id"], "oaf_obs_m5": 0, "sequence_id": ids}),
+        "issue_catalogs": pd.DataFrame(columns=["issue_id", "id", "time_ms", "mag"])}  # fmt: skip
     t = S.sensitivity(s, tables, {i: 0.5 for i in s["item_id"]}, ("gpt-5.1-2025-11-13",))
     n = dict(zip(t["analysis"], t["sequences"], strict=True))
     assert n["main"] == 3 and n["with the 3 forward-excluded candidates"] == 4

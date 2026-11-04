@@ -38,20 +38,44 @@ def released(live: Path) -> list[Path]:
 
 
 def live_start_ms(live: Path) -> int | None:
-    """L: the seal time of the first answers record on the branch (prereg v2 section 5)."""
-    seals = [json.loads(p.read_text(encoding="utf-8"))["sealed_ms"]
-             for p in live.glob("*/*/answers.seal.json")]  # fmt: skip
-    return min(seals) if seals else None
+    """L: the paid detector's start, which it records in `start.json` at the root of the branch
+    before its first poll (prereg v2 section 5), or None before that."""
+    p = live / "start.json"
+    return int(json.loads(p.read_text(encoding="utf-8"))["start_ms"]) if p.exists() else None
+
+
+def _delivered(call: dict) -> bool:
+    """The provider returned an answer, valid or not; a call with an error or without a reported
+    model is a pipeline or transport failure."""
+    return not call.get("error") and call.get("model_reported") is not None
+
+
+def model_changes(live: Path) -> dict[str, int]:
+    """Per live model, the answers seal time of the first issue where it answered as another
+    model (prereg v2 section 3): its accrual stops at that issue; earlier answers stand."""
+    out: dict[str, int] = {}
+    for seal_path in live.glob("*/*/answers.seal.json"):
+        sealed = json.loads(seal_path.read_text(encoding="utf-8"))["sealed_ms"]
+        for c in _jsonl(seal_path.parent / "calls.jsonl"):
+            m = c["model_requested"]
+            if _delivered(c) and c["model_reported"] != m:
+                out[m] = min(out.get(m, sealed), sealed)
+    return out
+
+
+def _after_change(call: dict, sealed_ms: int, changes: dict[str, int]) -> bool:
+    stop = changes.get(call.get("model_requested", ""))
+    return stop is not None and sealed_ms >= stop
 
 
 def _status(call: dict, window: str) -> tuple[str, list[float] | None]:
     """A live answer's status and its M>=5 quantiles for one window, as the batch answers are
-    read (`laf.d2.samples`); a reported model other than the requested one is invalid."""
-    if call.get("text") is None:
+    read (`laf.d2.samples`): a delivered answer cut off at the cap or refused, even without
+    text, is invalid and penalized; only an undelivered call is a transport error. Answers from
+    a model change on never get here (`model_changes`)."""
+    if not _delivered(call):
         return "transport_error", None  # a pipeline or transport failure: listed, left out
-    status, parsed, _ = validate("direct", call["text"], call.get("stop_reason"), TARGETS_V2)
-    if status == "ok" and call.get("model_reported") != call["model_requested"]:
-        return "model_mismatch", None
+    status, parsed, _ = validate("direct", call.get("text"), call.get("stop_reason"), TARGETS_V2)
     if status != "ok" or not parsed:
         return status, None
     return status, [parsed[window]["m5_count_quantiles"][k] for k in QKEYS]
@@ -76,6 +100,7 @@ def live_samples(live: Path, tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
     catalog_end = tables["sequences"].set_index("sequence_id")["catalog_end_ms"]
     settle_ms = PRIMARY_SETTLING_DAYS * 86_400_000
     rows = []
+    changes = model_changes(live)
     for d in released(live):
         lines = (d / "items.jsonl").read_text(encoding="utf-8").split("\n")
         items = [Item.model_validate_json(x) for x in lines if x.strip()]
@@ -88,7 +113,10 @@ def live_samples(live: Path, tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
             receipt.exists()) else None  # fmt: skip
         base = {(b["forecaster"], b["item_id"], b["window"]): b["m5"]
                 for b in _jsonl(d / "baselines.jsonl")}  # fmt: skip
-        calls = [c for c in _jsonl(d / "calls.jsonl") if not c.get("missed")]
+        # a model's answers from its first model change on are left out and listed
+        sealed = seal["sealed_ms"]
+        calls = [c for c in _jsonl(d / "calls.jsonl")
+                 if not c.get("missed") and not _after_change(c, sealed, changes)]  # fmt: skip
         inclusion = d.parent / "inclusion.json"
         inc = json.loads(inclusion.read_text(encoding="utf-8")) if inclusion.exists() else {}
         tier = inc.get("tier")
@@ -137,9 +165,11 @@ def live_samples(live: Path, tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
 
 
 def live_items(live: Path) -> pd.DataFrame:
-    """Every published live item with its on-time status and its answers: valid, invalid,
-    failed and missed (budget), as the prereg lists late, missed and failed items."""
+    """Every published live item with its on-time status and its answers: delivered (valid or
+    invalid), failed (transport), missed (budget) and, of the delivered, those left out after a
+    model change, as the prereg lists late, missed and failed items."""
     rows = []
+    changes = model_changes(live)
     for seal_path in sorted(live.glob("*/*/answers.seal.json")):
         d = seal_path.parent
         seal = json.loads(seal_path.read_text(encoding="utf-8"))
@@ -156,10 +186,51 @@ def live_items(live: Path) -> pd.DataFrame:
                 "released": (d / "NOTICE.txt").exists(),
                 "baselines": (d / "baselines.jsonl").exists() or not (d / "NOTICE.txt").exists(),
                 "missed_budget": sum(bool(c.get("missed")) for c in mine),
-                "failed": sum(c.get("text") is None and not c.get("missed") for c in mine),
-                "answers": sum(c.get("text") is not None for c in mine),
+                "failed": sum(not c.get("missed") and not _delivered(c) for c in mine),
+                "answers": sum(_delivered(c) for c in mine),
+                "after_model_change": sum(
+                    _delivered(c) and _after_change(c, seal["sealed_ms"], changes) for c in mine
+                ),
             })  # fmt: skip
     return pd.DataFrame(rows)
+
+
+def unissued(live: Path, tables: dict[str, pd.DataFrame], start_ms: int | None) -> pd.DataFrame:
+    """Missed issues (prereg v2 section 5: missed items are listed, never backfilled): for each
+    sequence included at first detection (`<sequence>/inclusion.json` with a tier) with origin
+    at L or later, the versions the ADR 0004 schedule picks among the outcome snapshot's valid
+    versions (the rule of `prospective.scheduled_slot`) that have no issue on the branch under
+    any of its IDs (a changed preferred ID adds a folder with the same inclusion key)."""
+    from laf.tables import select_issue_times
+
+    cols = ["sequence_id", "table_sequence_id", "slot", "info_cutoff_ms", "update_ms", "reason"]
+    ov = tables["oaf_versions"]
+    valid = ov[ov["valid"] & ~ov["duplicate"].fillna(False).astype(bool)]
+    origin = tables["sequences"].set_index("sequence_id")["origin_ms"]
+    groups: dict[str, tuple[list[str], dict]] = {}
+    for p in sorted(live.glob("*/inclusion.json")):
+        inc = json.loads(p.read_text(encoding="utf-8"))
+        if inc.get("tier"):
+            groups.setdefault(inc.get("key") or p.parent.name, ([], inc))[0].append(p.parent.name)
+    rows = []
+    for key, (folders, inc) in groups.items():
+        sid = next((f for f in (key, *folders) if f in origin.index), None)
+        o = int(origin[sid]) if sid else inc.get("time_ms")
+        if start_ms is None or o is None or o < start_ms:
+            continue  # not prospective
+        if sid is None:  # fetch every included sequence (`laf outcome-config`)
+            lost = {"sequence_id": key, "reason": "not in the outcome snapshot"}
+            rows.append(dict.fromkeys(cols) | lost)
+            continue
+        issued = {int(d.name) for f in folders for d in (live / f).iterdir() if d.name.isdigit()}
+        v = valid[valid["sequence_id"] == sid]
+        for pick in select_issue_times(o, [int(c) for c in v["info_cutoff_ms"]]):
+            ups = {int(u) for u in v.loc[v["info_cutoff_ms"] == pick.issue_ms, "update_ms"]}
+            if not ups & issued:  # any version with the picked cutoff fills the slot
+                rows.append({"sequence_id": key, "table_sequence_id": sid, "slot": pick.target,
+                             "info_cutoff_ms": pick.issue_ms, "update_ms": min(ups),
+                             "reason": "not issued"})  # fmt: skip
+    return pd.DataFrame(rows, columns=cols)
 
 
 def timeliness(live: Path, tables: dict[str, pd.DataFrame]) -> pd.DataFrame:

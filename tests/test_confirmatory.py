@@ -85,8 +85,16 @@ def test_hierarchical_model_recovers_the_mean():
     r = C.hierarchical(pd.DataFrame(rows))
     assert abs(r["hier_mu"] - 0.03) < 3 * r["hier_se"]
     assert r["hier_noninferior"] and r["hier_converged"]
-    assert 0.05 < r["hier_sd_sequence"] < 0.2
+    assert 0.05 < r["hier_sd_sequence"] < 0.2 and r["hier_error"] is None
     assert C.stratum(0.5) == "under 1 day" and C.stratum(7.0) == "7 days or more"
+
+
+def test_a_failed_hierarchical_fit_is_reported_not_raised():
+    # two sequences with one issue each: a singular design (the run must still write its tables)
+    cells = pd.DataFrame({"sequence_id": ["s0", "s1"], "issue_id": ["s0@first", "s1@first"],
+                          "window": "day", "stratum": "under 1 day", "d": [0.0, 0.1]})  # fmt: skip
+    r = C.hierarchical(cells)
+    assert r["hier_error"] and np.isnan(r["hier_mu"]) and not r["hier_noninferior"]
 
 
 def test_eligibility_follows_clean_periods_and_magnitude(monkeypatch):
