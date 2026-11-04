@@ -1,7 +1,9 @@
 # ADR 0018: Confirmatory analysis and power (B3, A3)
 
-Status: **living document, proposed.** Margins and thresholds are Tyler's decisions before prereg
-v2; this records the method and what the development data says.
+Status: **living document.** Margins and thresholds are Tyler's decisions before prereg v2;
+this records the method and what the development data says. Earlier designs stay below for the
+record, marked where later decisions replaced them; where this ADR and
+docs/preregistration-v2.md disagree, the prereg governs.
 
 ## Estimands
 Per cell, dS = S(model) - S(reference), with S the primary score (ADR 0015). The reference is
@@ -156,9 +158,12 @@ Clean-period sizes (3-month buffer, ADR 0014; mainshock origin in the clean peri
 | gpt-6.1-sol | 2026-08-01 | 7 | 20 |
 | Claude 5.5 | 2026-10-01 | 7 (plus about 4.3 per month live) | 10 |
 
-1. **Two co-primary tests**, non-inferiority to the official forecast at M>=5 with
-   delta = 0.10 nats per cell (decided 2026-10-31, below), with a Holm correction across the
-   two. The first Holm step tests at 0.025 (one-sided), the second at 0.05.
+1. **Two co-primary tests** (replaced by decision 15: A is the sole primary test at
+   one-sided 0.05 and B is secondary; the counts 88, 174, 22 and 75 below predate the
+   restoration of nn00914068 and are now 89, 175, 23 and 76), non-inferiority to the official
+   forecast at M>=5 with delta = 0.10 nats per cell (decided 2026-10-31, below), with a Holm
+   correction across the two. The first Holm step tests at 0.025 (one-sided), the second at
+   0.05.
    - **A: gpt-5.1, retrospective**, on its 88 clean M>=5 sequences; all 174 clean candidates
      are a preregistered sensitivity analysis. Power from its own D2 effects: 0.62 at 0.025.
      It must run before its API removal on 2027-04-01.
@@ -179,7 +184,8 @@ Clean-period sizes (3-month buffer, ADR 0014; mainshock origin in the clean peri
      dS - delta).
 2. **Secondary: Opus 4.6** on its 22 M>=5 sequences, with its power stated openly (1.00 at
    delta 0.10, 0.34 at 0.05). The M3 and M4 targets are added over its 75
-   clean-period sequences where the catalog is complete.
+   clean-period sequences where the catalog is complete (replaced by decision 18: the same
+   23 sequences).
 3. **Secondary: gpt-6.1-sol, prospective**, as the same-cutoff comparison with Claude 5.5.
 4. **Descriptive only: Sonnet 4.6.** It has 15 sequences, its adaptive thinking fails above
    low effort, and it was clearly worse in D2. It stays in the paper through D1, D2 and a
@@ -242,8 +248,8 @@ Per sequence (18 sequences):
 5. **Prospective stopping rule.** New live sequences stop entering at whichever comes
    first: 6 months after live forecasting starts, or 26 eligible prospective M>=5
    sequences. With the 7 clean retrospective ones, 26 brings test B to 33.
-   - The confirmatory test runs once, after the last windows close (about a month after the
-     stop). There is no early stopping for success or futility, so no alpha spending.
+   - The confirmatory test runs once, after the last windows close (at S + 90 days,
+     decision 11). There is no early stopping for success or futility, so no alpha spending.
    - If accrual is slow, the analysis still happens at 6 months, with the sample size and
      power reached reported.
    - Sequences between Claude 5.5's clean date (2026-10-01) and the start of live
@@ -266,10 +272,12 @@ section 13):
      (one sequence in 18 at +1 nat) make the percentile bound err 0.15 at N = 33 and 0.05 at
      N = 88. The bootstrap-t bound errs 0.15 and 0.02.
    - The registered test's size is simulated before the freeze, and a calibrated level is
-     registered where the size exceeds 0.03.
+     registered where the size exceeds 0.03 (test A only, decision 17).
    - Test B resamples its retrospective and prospective parts separately.
 9. **Family-wise level:** one-sided 0.05 with Holm. Superiority over the official forecast is a
-   separate Holm family, tested only after non-inferiority.
+   separate Holm family, tested only after non-inferiority. (Replaced by decision 15: with one
+   primary test there is no multiplicity correction; superiority follows non-inferiority as a
+   fixed sequence.)
 10. **Assay sensitivity:** generic RJ is tested for non-inferiority against the official
     forecast on each test's cells; if it passes, A and B cannot separate a model from the
     generic default.
@@ -293,12 +301,23 @@ section 13):
     - A and B are still computed together on one snapshot (decision 11), for the exposure
       reason.
 
+**Decisions (Tyler, 2026-11-04), from the pre-freeze review** (prereg v2 decisions 26-31):
+16. L, the start of the prospective part, is the paid detector's start (ADR 0017 decision 15);
+    the eligible sequences toward S are counted in order of first detection.
+17. A calibrated level applies to test A only. B, S1 and S2 are tested at nominal 0.05 and
+    reported with their simulated sizes.
+18. S1 stays on Opus 4.6's 23 clean M>=5 sequences; M3 and M4 are descriptive on the same
+    sequences, in a descriptive table with the Brier score of P(M>=6).
+19. A live model change stops that model's accrual at its first mismatched `response.model`;
+    in the batches a mismatched answer stays invalid.
+
 ## Open decisions (Tyler)
 1. ~~The margin anchor and its value~~: decided 2026-10-31 (non-inferiority, delta 0.10).
 2. ~~Target power and sequence count~~: decided 2026-10-31 (decision 5).
 3. ~~Whether the hierarchical model is confirmatory~~: decided 2026-10-31 (robustness check).
 
 ## Changelog
+- 2026-11-04: decisions 16-19 (pre-freeze review); superseded passages marked.
 - 2026-10-31: decision 15 (A sole primary; B secondary) after the size simulation.
 - 2026-10-31: decisions 8-14 (from the prereg v2 checks).
 - 2026-10-31: clean-period counts with nn00914068 restored (gpt-5.1 89/175, Opus 4.6 23/76).

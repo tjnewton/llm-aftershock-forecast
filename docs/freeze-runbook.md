@@ -11,8 +11,7 @@ Done before the freeze, because after it every code fix is a deviation.
    `LAF_CLAUDE_MONTHLY_CAP_USD=200`, `LAF_OPENAI_MONTHLY_CAP_USD=150` (decision 20),
    `LAF_CLAUDE_LIVE_RESERVE_USD=20`, `LAF_OPENAI_LIVE_RESERVE_USD=25`.
 2. The paid end-to-end check (asked first, with its estimate: about $0.85; at most about $6.30,
-   every answer at the 32k output cap), on Windows, the live host. Tyler lets the worker make
-   this one run. Take a dry-run detection whose issue ran (a scheduled version) and its
+   every answer at the 32k output cap), on Windows, the live host. Take a dry-run detection whose issue ran (a scheduled version) and its
    snapshot; `laf --data-dir <the detector's data folder> prospective --snapshot <it>
    --sequence <id> --out runs/prospective-e2e`, published nowhere (a detected event needs no
    config entry). Check: 12 answers (2 items, 2 models, k = 3) with `model_reported` and
@@ -30,7 +29,8 @@ Done before the freeze, because after it every code fix is a deviation.
    pulls or commits in it. A deploy: right after a poll, `Stop-ScheduledTask laf-detector`,
    `git -C ..\laf-service checkout --detach <commit>`, `Start-ScheduledTask laf-detector`, one
    line in `ops\deploys.md` (UTC time, commit, reason). After the tag, a deploy that changes
-   `src\laf` is also a deviation (section 12 of the prereg).
+   `src\laf` is also a deviation (section 12 of the prereg). The detector's commits run the
+   repository's git hooks, which call the repo root's `.venv`: keep it installed.
 5. Backups: every night an encrypted copy of the service worktree's `data\interim` and `runs`
    folders (the detector's state and the full live records, private until release) goes off
    the machine, with a key only Tyler holds. Without it, a lost disk turns unreleased items
@@ -48,19 +48,22 @@ Done before the freeze, because after it every code fix is a deviation.
    manifest computed at 1edc91ef on 2026-11-03, 9de0daa4...0e6e0e.
 
 ## 1. Freeze (Tyler decides)
-1. Every pull request merged; `uv run pytest` green on `post-submission`.
-2. The prereg's status line changes from DRAFT to FROZEN, first: the manifest hashes the
-   prereg, so it must see the final text.
+1. Every pull request merged; `uv run pytest` green on `post-submission`; the working tree
+   clean (`git status --porcelain` prints nothing), because the manifest hashes the files on
+   disk.
+2. The prereg's status paragraph is rewritten to its frozen form first ("FROZEN at the tag
+   `prereg-v2`", no draft wording): the manifest hashes the prereg, so it must see the final
+   text.
 3. `uv run laf freeze-manifest --snapshot 20261029T2000Z 20261101T2202Z` rebuilds and checks the
-   frozen items and baselines and writes `results/freeze_manifest.json` (31 artifacts, one
+   frozen items and baselines and writes `results/freeze_manifest.json` (33 artifacts, one
    `manifest_sha256`). Commit the prereg and the manifest together; nothing changes between
    this step and the tag (rebuilding the manifest at the tag gives the same `manifest_sha256`).
    Before that commit, `uv run laf stamp results/freeze_manifest.json` writes OpenTimestamps
    proofs beside the manifest (only its SHA-256 leaves the machine): a witness outside GitHub.
    Commit the proofs with it; `ots upgrade` completes them once Bitcoin confirms. An OSF
    registration of the prereg is an optional second witness (Tyler's account).
-4. Tyler tags that commit `prereg-v2` (annotated) and pushes the tag; the `freeze-tags` ruleset
-   protects it.
+4. Tyler tags that commit `prereg-v2` with `git tag -a` (the gate refuses a lightweight tag)
+   and pushes the tag; the `freeze-tags` ruleset protects it.
 5. Tyler posts the tag's commit hash and `manifest_sha256` publicly.
 
 ## 2. Live start (after the tag)
@@ -68,12 +71,24 @@ Done before the freeze, because after it every code fix is a deviation.
    The `protect-live` ruleset (no deletion, no force-push) already covers it.
 2. Tyler copies `.env` into `..\laf-service` (the paid detector reads its keys and caps
    there).
-3. Worktree `..\laf-live` on `live`; deploy the tagged commit to `..\laf-service`; point
+3. Worktree `..\laf-live` on `live`; deploy the tagged commit to `..\laf-service`; create the
+   folder `..\laf-service\runs\live` (the script appends the detector's output there, and
+   `cmd` refuses a redirect into a missing folder, so the detector would never start); point
    `laf-detector.ps1` at `laf live-watch --paid --publish ..\laf-live --out runs\live
    --live-data data\interim\live` and restart the task: its own state and issue folders,
-   never the dry run's (`live_watch.run` refuses them). L is the first sealed live record.
-4. Point the backup's `-Out` default in `laf-backup.ps1` at `..\laf-service\runs\live` (it
-   waits for that folder's `state.json`); the next night's line in `laf-backup.log` is ok.
+   never the dry run's (`live_watch.run` refuses them). Before its first poll the paid
+   detector commits `start.json` to `live`: L, its start time (prereg v2 section 5). It admits
+   only sequences with origin at or after L. Check that `start.json` is on GitHub and that the
+   first polls appear in `runs\live\log.jsonl`.
+4. Point the backup's `-Out` default in `laf-backup.ps1` at
+   `C:\Users\tjnew\git\laf-service\runs\live` (an absolute path: the task starts in
+   System32; the script waits for that folder's `state.json`); the next night's line in
+   `laf-backup.log` is ok.
+5. Every working session: `uv run laf live-status --live ..\laf-live --out
+   ..\laf-service\runs\live` (no model calls, no ComCat). It lists L, the eligible
+   prospective sequences in order of first detection and S, and flags a stale poll, errors,
+   unpushed commits, seals without a push receipt and this month's live spend; exit code 1
+   means something needs a look. When it reports S as passed, go to section 5.
 
 ## 3. Retrospective batches (each approved with its estimate)
 Retirement dates (checked 2026-11-02): gpt-5.1 is deprecated and shuts down 2027-04-01; Claude
@@ -91,19 +106,27 @@ finishes in January (decision 20).
 - Test B's retrospective arm on the candidates (October 1-28 at Opus 5.5's clean start):
   `laf run --snapshot 20261029T2000Z --block confirmatory --model claude-opus-5-5`, and
   `--block confirmatory-v2b` (about $4.73).
-- S1, S2, descriptive: `laf run --snapshot 20261029T2000Z --block confirmatory --model
-  claude-opus-4-6` (and `claude-sonnet-4-6`); `laf openai run --snapshot 20261029T2000Z --block
-  confirmatory --model gpt-6.1-sol`.
-- Collect each with `laf collect` / `laf openai collect`; results stay unscored (second gate).
-  A batch with transport errors (errored, expired, missing) is resent with the same command
-  plus `--retry` (asked first, with its estimate), up to 10 attempts.
+- S1 and the descriptive batches: `laf run --snapshot 20261029T2000Z --block confirmatory
+  --model claude-opus-4-6` (S1), `--model claude-sonnet-4-6`; `laf openai run --snapshot
+  20261029T2000Z --block confirmatory --model gpt-6.1-sol` (descriptive: S2 is prospective).
+- Collect each with `laf collect` / `laf openai collect` once it ends, and within 29 days:
+  Anthropic keeps batch results 29 days and OpenAI's output files expire too, so an uncollected
+  batch loses answers already paid for. Results stay unscored (second gate). A batch with
+  transport errors (errored, expired, missing, or an OpenAI batch that failed as a whole) is
+  resent with the same command plus `--retry` (asked first, with its estimate), up to 10
+  attempts.
 
-## 4. At L: the supplementary snapshot
-1. `laf candidates --since 2026-10-29 --until <day after L> --out config/sequences_supplementary.toml`
-   (through a pull request).
-2. `laf --config config/sequences_supplementary.toml fetch`, `asof --workers 1`, `tables`, `etas`.
-   ComCat allows 500 requests per 5 minutes per IP: one fetcher, paced at 1 per second,
-   beside the detector's poll every 10 minutes from the same machine.
+## 4. After L: the supplementary snapshot
+1. At least 7 days after L, so that every sequence that began shortly before L has its first
+   OAF product (the selection stays outcome-blind: products and magnitudes only): `laf
+   candidates --since 2026-10-29 --until <the day after L> --out
+   config/sequences_supplementary.toml` (through a pull request).
+2. `uv run laf --config config/sequences_supplementary.toml fetch` (each line starts with
+   the new snapshot id), then, with the same `--config` before the command each time,
+   `asof --snapshot <it> --workers 1`, `tables --snapshot <it>` and `etas --snapshot <it>`.
+   Without the `--config`, `tables` silently builds the registered sequences. ComCat allows 500
+   requests per 5 minutes per IP: one fetcher, paced at 1 per second, beside the detector's
+   poll every 10 minutes from the same machine.
 3. Before any batch on it: `laf freeze-manifest --snapshot <it> --out
    results/supplementary_manifest.json` (its items and baselines without outcomes, and their
    hashes), `laf stamp results/supplementary_manifest.json`, commit both and post the
@@ -114,10 +137,18 @@ finishes in January (decision 20).
    (distinct names: the defaults are section 3's runs on the candidates).
 
 ## 5. At S: the stop
-1. S = min(L + 182 days, the origin of the 26th eligible prospective M>=5 sequence: included
-   as primary at first detection). Prospective origins are in [L, S] (decision 23).
-2. Commit `config/live_stop.toml` with `s_ms = <S>` to `post-submission`; Tyler tags it
-   `prereg-v2-stop`.
+1. S = min(L + 182 days, the latest origin among the first 26 eligible prospective M>=5
+   sequences in order of first detection; eligible: included as primary at first detection,
+   with origin at or after L). Normally the latest origin is the 26th's own. Prospective
+   origins are in [L, S] (decisions 23 and 27). `laf live-status` (section 2.5) reports S.
+2. The stop commit is the deployed commit plus the stop file, so the stop deploys no other
+   code: `git worktree add -b live-stop ..\laf-stop <the commit of the last line in
+   ops\deploys.md>`; in it, write `config/live_stop.toml` with `s_ms = <S>` (epoch ms),
+   commit, push the branch `live-stop`, and check that `git diff <that commit> live-stop
+   --stat` lists only `config/live_stop.toml`. Tyler tags that commit `prereg-v2-stop`
+   (`git tag -a`: the gate refuses a lightweight tag) and pushes the tag; it descends from
+   `prereg-v2`, as `laf.splits` requires. Merge it into `post-submission` through a pull request
+   afterwards.
 3. Deploy that commit to `..\laf-service` (section 0.4), so the file is in the detector's
    checkout. `laf.live_watch` reads it every poll: from then on a sequence whose origin is after
    S is not admitted ("after the stop" in the log), while admitted sequences keep their
@@ -134,14 +165,15 @@ finishes in January (decision 20).
    config/sequences_forward_excluded.toml config/sequences_supplementary.toml --live <worktree
    of live> --out config/sequences_outcome.toml` (through a pull request): every frozen
    sequence and every live item's sequence.
-2. `laf --config config/sequences_outcome.toml fetch` (one fetcher, paced), then `tables
-   --snapshot <fresh>`. Both gates are open (the tag `prereg-v2`; the tag `prereg-v2-stop` and S + 90 days), so counts are
-   written.
+2. `laf --config config/sequences_outcome.toml fetch` (one fetcher, paced), then `laf
+   --config config/sequences_outcome.toml tables --snapshot <fresh>`. Both gates are open
+   (the tag `prereg-v2`; the tag `prereg-v2-stop` and S + 90 days), so counts are written.
 3. `laf outcome-snapshot --frozen 20261029T2000Z 20261101T2202Z <supplementary> --fresh <fresh>
    --live <worktree of live> --out <fresh>-outcomes`: the frozen items, issue tables, official
-   forecasts and ETAS refit, checked against `results/freeze_manifest.json`, with counts
-   recounted from the fresh catalog in each issue's own circle; sequences with origin at L or
-   later come from the fresh fetch.
+   forecasts and ETAS refit, checked against `results/freeze_manifest.json` as committed at
+   the tag and the supplementary snapshot against `results/supplementary_manifest.json`, with
+   counts recounted from the fresh catalog in each issue's own circle; sequences with origin
+   at L or later come from the fresh fetch.
 4. `laf confirmatory --snapshot <fresh>-outcomes --runs runs/confirmatory --live <worktree of
    live>`; then `--test-a-all`.
 5. Report every table whatever its result; deviations go to the v2 section of
@@ -158,7 +190,9 @@ If the service worktree or the disk is lost, restore on this machine or a replac
 1. Only one detector at a time: `Stop-ScheduledTask laf-detector` if it still runs (two
    detectors could issue the same version twice before either publishes).
 2. On a replacement, clone the repository to `C:\Users\tjnew\git\llm-aftershock-forecast` and
-   add the worktree `..\laf-live` on `live` (`..\laf-live-dryrun` on `live-dryrun` before L).
+   add the worktree `..\laf-live` on `live` (before L, `..\laf-live-dryrun` on `live-dryrun`
+   and `..\laf-live-test` on `live-test`; the dry run's log and state are in
+   `..\laf-live-dryrun`, whose log is on GitHub up to its last commit).
    Then `git worktree add --detach ..\laf-service <commit>` at the commit of the last line in
    `ops\deploys.md`, and `uv sync --locked` there; after the live start Tyler copies `.env`
    in.

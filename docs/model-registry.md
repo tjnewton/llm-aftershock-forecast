@@ -3,6 +3,9 @@
 Sources: Claude models overview and pricing pages; bundled `claude-api` skill (cached 2026-10-06); local models in
 docs/research/models-and-tooling.md. Smoke-test results are appended below once run.
 
+This registry covers the hackathon (prereg v1) runs. The Seismica study's models, settings and
+32,000-token output cap are pinned in docs/preregistration-v2.md section 3 and ADR 0014.
+
 | Model (exact id) | Access | Documented cutoff | Effort / thinking | Max tokens | Price $/MTok (in / out / cache read) | Role |
 |---|---|---|---|---|---|---|
 | `claude-opus-5-5` | `anthropic` SDK 1.15.0, Messages + Batches | reliable knowledge and training data: Jun 2026 | effort `high` (default would be `medium`); adaptive thinking, cannot be disabled | 16,000 | 4 / 20 / 0.20 (batch 2 / 10) | primary |

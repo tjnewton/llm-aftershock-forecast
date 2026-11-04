@@ -1,7 +1,9 @@
 # CLAUDE.md
 
 Benchmark scoring LLM aftershock forecasts against USGS operational forecasts (OSI Hackathon,
-Oct 21-22, 2026). Plan: docs/PLAN.md. Rules that bind the analysis: docs/preregistration.md.
+Oct 21-22, 2026). Plan: docs/PLAN.md. Rules that bind the analysis: docs/preregistration.md
+(the hackathon analysis, tag `prereg-v1`) and docs/preregistration-v2.md (the Seismica study;
+freeze and live arm in docs/freeze-runbook.md).
 
 ## Commands
 - `uv run pytest` / `uv run ruff format src tests` / `uv run ruff check src tests` / `uv run pyright`
@@ -10,7 +12,7 @@ Oct 21-22, 2026). Plan: docs/PLAN.md. Rules that bind the analysis: docs/preregi
   approves the head)
 - Confirmatory (no API): `laf confirmatory-dryrun` (development), `laf confirmatory-size`,
   `laf power`, `laf confirmatory` (refuses before the `prereg-v2` tag)
-- Live (no API): `laf live-late`, `laf prospective --dry-run`
+- Live (no API): `laf live-late`, `laf prospective --dry-run`, `laf live-status`
 - Scoring (no API): `laf figures`, `laf e1 --model M`, `laf e3`, `laf combined`, `laf replicates`,
   `laf literature`, `laf live-score`; local models: `python -m laf.llamacpp` (docstring)
 - Spends money, ask first every time: `laf smoke`, `laf pilot`, `laf run`, `laf live`, `laf probe`,
@@ -23,7 +25,8 @@ Oct 21-22, 2026). Plan: docs/PLAN.md. Rules that bind the analysis: docs/preregi
 `src/laf/` package; `config/sequences.toml` roles; `data/raw` immutable + `data/manifest.jsonl`;
 `data/processed/<snapshot>/`; `prompts/` templates and schemas; `docs/adr/` decisions;
 `results/` score tables; exploratory runs in `runs/e3/` and `runs/extensions/`, outside the frozen
-analysis's `runs/*/` glob; changes after `prereg-v1` go in `docs/deviations.md`.
+analysis's `runs/*/` glob; changes after `prereg-v1` (and, in its v2 section, after `prereg-v2`)
+go in `docs/deviations.md`.
 
 ## Machines
 Work happens on the Windows machine (since 2026-11-03; outages and restores: runbook section

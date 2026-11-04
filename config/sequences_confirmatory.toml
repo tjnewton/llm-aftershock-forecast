@@ -4,8 +4,10 @@
 # larger event. Development means the two sequence configs and the E1 outcome pool. The
 # fore/aftershock rule is ADR 0006's; its context is these OAF events and ComCat M>=6 from
 # 2023-11-01 (data/raw/confirmatory/m6_2023-11-01_2026-10-29.csv). M>=5.0 mainshocks are the
-# primary set; US-network M4.0-4.9 mainshocks are secondary (selected at analysis time). Role
-# test-post is a placeholder so the registered code applies. Never scored before prereg-v2.
+# primary set; M4.0-4.9 mainshocks from US regional networks (not the global `us` network) are
+# secondary (selected at analysis time). Role test-post is a placeholder so the registered code
+# applies. Outcomes stay sealed until both gates open: the tag prereg-v2, then the tag
+# prereg-v2-stop and S + 90 days (laf.splits).
 
 [[sequence]]
 id = "nn00887532"

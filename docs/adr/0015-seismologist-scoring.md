@@ -104,7 +104,7 @@ uses only its nine quantiles, through the latent-PCHIP method.
    - D2 found the spread between variants no larger than the spread between samples (SD 0.013
      to 0.033 against 0.018 to 0.031).
    - M3 targets are secondary. They are scored only where the completeness rule above holds;
-     in practice these are the California sequences (35 of the 194 candidates).
+     in practice these are the California sequences (35 of the 194 candidates counted before nn00914068 was restored).
 
 ## Changelog
 - 2026-10-31: decision 4 (v2A primary, v2B robustness, M3 secondary where complete).

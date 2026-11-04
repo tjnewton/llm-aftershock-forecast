@@ -1,7 +1,9 @@
 # ADR 0017: Live (prospective) forecasting pipeline (C1)
 
-Status: **living document, proposed.** Not built yet. It goes live only after the prereg v2
-freeze, which is Tyler's call.
+Status: **living document.** Built: the dry run has run on Windows since 2026-10-30, and the
+paid path, publishing and release are in place. It goes live right after the prereg v2 freeze,
+which is Tyler's call. Where this ADR and docs/preregistration-v2.md disagree, the prereg
+governs.
 
 ## Purpose
 Prospective forecasts cannot be contaminated by training data or by hindsight. Each forecast is
@@ -9,22 +11,23 @@ committed, with a public hash, before its windows open. The live arm complements
 retrospective arms (ADR 0013).
 
 ## Design
-- **Host:** a scheduled GitHub Actions workflow. Scheduled workflows run only from the default
-  branch, so the workflow starts after hackathon judging ends. Until then the Windows machine can
-  host a dry run. Commits go to a `live` branch. Tyler adds the API key as a repository secret.
+- **Host:** the Windows machine, for the whole live arm (decision 14; the first design, a
+  scheduled GitHub Actions workflow, was dropped). Commits go to a `live` branch; the API keys
+  are in the service worktree's `.env`.
 - **Detector:**
-  - Poll ComCat every ~10 minutes at off-peak minutes (for example :03, :13, ...), with one
-    request per poll for events with an OAF product updated since the last poll.
+  - Poll ComCat every 10 minutes, with one request per poll for events with an OAF product
+    updated since the last poll (and the hour before it, so a late-indexed version is seen
+    again), with origins from the last 40 days: ComCat's default start, 30 days ago, would
+    hide the 28-day slot (decision 15).
   - A new sequence qualifies under the inclusion rules of prereg v2 (ADR 0013).
   - Each new OAF version defines an issue time, with the information cutoff of ADR 0004.
 - **Per issue:**
   - Build the as-of catalog at the cutoff. Live, "as-of" is simply the catalog fetched at the
     poll, which is recorded.
-  - Render the frozen prompts. Call Claude (frozen models and settings), the other-vendor model,
-    and the baselines (ETAS refit, RJ-MLE, the rule of thumb).
-  - The Windows 5090 runs the open models on a best-effort basis.
-  - Write `calls.jsonl` and hash it (SHA-256). Commit the hash and an OpenTimestamps proof
-    before the first window opens.
+  - Render the frozen prompts. Call the live models (decision 9; frozen settings), then the
+    baselines (ETAS refit, RJ-MLE, generic RJ, the rule of thumb). Open models do not run live.
+  - Write `calls.jsonl` and hash it (SHA-256). Push the hash before the first window opens
+    (on time: GitHub's push receipt, decision 7); OpenTimestamps proofs follow as a witness.
 - **Disclosure:** hashes are public in real time. Full forecasts are published only after their
   windows close, with a note that they are not official forecasts (public-safety concern).
 - **Latency and failures:**
@@ -33,8 +36,7 @@ retrospective arms (ADR 0013).
     missed and failed items are excluded, listed publicly with reasons, and never backfilled.
 - **Rate limits:** one fetcher per IP (ComCat allows 500 requests per 5 minutes). The live host
   (decision 14) also runs development fetches, so a fetch is paced beside the detector's polls.
-- **Budget:** the monthly guard (issue #4) gates every live call. The workflow's estimate per
-  issue is stated before the freeze.
+- **Budget:** live calls spend only the live reserve (the paid path, below).
 - **Failure tickets** (later): a failed run opens a GitHub issue with no secrets and no outcome
   data (docs/factory.md, ticket sources).
 
@@ -90,8 +92,9 @@ These replace decisions 1-2 above where they conflict (docs/preregistration-v2.m
 6. **Issue schedule:** prospectively, only the versions that ADR 0004's schedule selects get
    items: the first valid version, plus for each target in {1, 3, 7, 14, 28} days the
    earliest valid version in its window. Applied in real time.
-7. **On time** means the answer record's hash reached the GitHub push receipt (or an
-   OpenTimestamps calendar) before the item's first window opened.
+7. **On time** means the answer record's hash reached the GitHub push receipt before the
+   item's first window opened (the OpenTimestamps alternative was dropped: prereg v2
+   decision 22).
    - Answers are sealed before the baselines, in two records.
    - On-time and late versions are compared on outcome-blind covariates.
 8. **Inclusion:** a new event inside the circle of a larger event from the previous 365 days is
@@ -108,7 +111,7 @@ These replace decisions 1-2 above where they conflict (docs/preregistration-v2.m
     on windows of a day or more.
 12. **Live start:** right after the `prereg-v2` tag, once one paid end-to-end check has passed
     (on a version the study does not use, published nowhere). L is the time of the first
-    sealed live record.
+    sealed live record (replaced by decision 15: the paid detector's start).
 
 13. **Host (Tyler, 2026-11-01):** the Windows machine runs the paid live arm from L until
     hackathon judging ends, then the scheduled GitHub Actions workflow takes over. Same command
@@ -125,6 +128,19 @@ These replace decisions 1-2 above where they conflict (docs/preregistration-v2.m
     unreliable, the fallback is GitHub Actions with a second, private repository holding the
     records until release.
 
+## Decisions (Tyler, 2026-11-04), from the pre-freeze review
+15. **L is the paid detector's start:** before its first poll it commits `start.json`
+    (`start_ms`, the deployed commit) to `live`, and it admits only sequences with origin at or
+    after L ("before the start" otherwise); inclusion records keep the detection time. The
+    first sealed record's own sequence began before that record, so defining L by it would
+    have left that sequence out of the prospective part (prereg v2 decision 26).
+16. **Secondary sequences** (M4.0-4.9) get model calls only within the first half of each
+    provider's monthly live reserve (prereg v2 decision 31).
+17. **S and health:** `laf live-status` counts eligible prospective sequences in order of first
+    detection, reports S (prereg v2 decision 27) and flags a stale poll, errors, unpushed
+    commits and seals without a push receipt. Receipts are worked out from the branch each
+    poll, so a failed push or a restart no longer loses one.
+
 ## The paid path (2026-11-01)
 - **Live reserve:** each provider's monthly cap is split. Batch and one-off runs may spend the
   cap minus `LAF_<PROVIDER>_LIVE_RESERVE_USD`; the live service may spend only the reserve.
@@ -140,10 +156,12 @@ These replace decisions 1-2 above where they conflict (docs/preregistration-v2.m
 ## Open decisions (Tyler)
 1. ~~Prospective duration~~: decided 2026-10-31 (ADR 0018 decision 5): 6 months or 26
    eligible prospective M>=5 sequences, whichever comes first; one analysis at the stop.
-2. Which models run live (ADR 0014).
+2. ~~Which models run live~~: decided 2026-10-31 (decision 9).
 3. ~~The strict window rounding~~: decided 2026-11-01 (decision 11).
 
 ## Changelog
+- 2026-11-04: decisions 15-17 (pre-freeze review); host, detector and on-time text brought in
+  line with decisions 7, 9 and 14.
 - 2026-11-01: decision 14 (Windows hosts the whole live arm; GitHub Actions cannot hold the
   records privately until release).
 - 2026-11-01: decision 13 (host); the paid path (live reserve, ledger, priority, guards).

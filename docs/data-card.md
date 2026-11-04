@@ -4,6 +4,10 @@ This card describes the registered scoring snapshot `20261021T1027Z`, taken on 2
 frozen with the preregistration, and, at the end, the data added after the freeze for the
 exploratory extensions (docs/deviations.md).
 
+The Seismica study's confirmatory snapshots (candidates `20261029T2000Z`, forward-excluded
+`20261101T2202Z`; outcomes sealed) are described in docs/preregistration-v2.md section 4 and
+pinned by `results/freeze_manifest.json` at the tag `prereg-v2`.
+
 ## Sources and license
 | Source | Access | License |
 |---|---|---|

@@ -1,7 +1,7 @@
 # ADR 0014: Models for the Seismica phase
 
-Status: **living document, proposed.** Facts were checked on 2026-10-29. The model list is open
-(see "Open decisions") and is pinned in preregistration v2.
+Status: **living document.** Facts were checked on 2026-10-29. The model list and settings
+are pinned in preregistration v2 section 3.
 
 ## Context
 A forecast is clean only when the mainshock comes after the model's training data. Claude 5.5
@@ -73,7 +73,8 @@ Qwen and DeepSeek distills document no cutoff, so they are excluded.
 
 ## Decisions (Tyler, 2026-10-30)
 1. **Older-cutoff Claude models:** `claude-opus-4-6`, and `claude-sonnet-4-6` as a second model
-   size, both at effort `high`.
+   size, both at effort `high` (settings replaced by decision 5: Opus 4.6 adaptive thinking
+   at effort `medium`, Sonnet 4.6 at `low`).
 2. **Other vendor (OpenAI), with spend tracked separately from Claude:**
    - `gpt-6.1-sol`: cutoff 2026-04-30; $2 / $10 per million tokens, half that in batch; effort
      `low` through `max`; structured outputs; no retirement date listed. Used in the
