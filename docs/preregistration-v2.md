@@ -600,14 +600,14 @@ Decided on 2026-11-04, after a pre-freeze review of the code and this document:
     before its first poll; the detector admits only sequences with origin at or after L; the
     supplementary snapshot is taken at least 7 days after L (section 5).
 27. Eligible prospective sequences are counted in order of first detection, and S is the
-    latest origin among the first 26 (or L + 182 days, if earlier); `laf live-status` reports
-    them (section 5).
+    latest origin among the first 26 (or L + 182 days, if earlier), replacing decision 23's S
+    rule; `laf live-status` reports them (section 5).
 28. A model change stops that model's live accrual at its first mismatched `response.model`;
     in the batches a mismatched answer stays invalid (section 3).
 29. A calibrated level applies to test A only; B, S1 and S2 are tested at nominal 0.05 and
     reported with their simulated sizes (section 6).
 30. S1 stays on Opus 4.6's 23 clean M>=5 sequences, with M3 and M4 targets descriptive on the
-    same sequences; the descriptive table and the Brier score of P(M>=6) are built (section 6).
+    same sequences; the descriptive table and the Brier score of P(M>=6) are reported (section 6).
 31. Secondary live sequences use only the first half of each provider's monthly live reserve
     (section 5).
 
