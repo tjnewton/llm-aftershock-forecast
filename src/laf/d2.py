@@ -41,6 +41,9 @@ def samples(run_dirs: list[Path]) -> list[dict]:
                 rec = {**m, "window": w, "status": status, "warnings": ",".join(warn)}
                 for t in targets:
                     rec[t] = [parsed[w][t][k] for k in QKEYS] if parsed and status == "ok" else None
+                rec["p_m6"] = (
+                    float(parsed[w]["p_m6_at_least_one"]) if parsed and status == "ok" else None
+                )
                 out.append(rec)
     # a transport error that a later attempt answered (`runner.retry_plan`) drops out; the
     # rest are the persistent failures, listed and left out (prereg v2 section 7)
@@ -90,6 +93,13 @@ def _ls(quantiles, y: int) -> float:
     from laf.countdist import from_quantiles, log_score
 
     return log_score(from_quantiles(quantiles).cdf, y)[0] if quantiles else float("nan")
+
+
+def _brier(p: float | None, event: bool | None) -> float:
+    """The Brier score of P(M>=6) (`scoring.brier`); NaN without a forecast or an outcome."""
+    from laf.scoring import brier
+
+    return brier(p, event) if p is not None and event is not None else float("nan")
 
 
 def _official_m3(fractiles, sequence_id: str, cutoff_ms: int, window: str) -> list[float] | None:
@@ -228,6 +238,12 @@ def analyze(
             info[k][f"base_d5_{b}"] = (
                 ls(fc.m5, y5, fc, b) - info[k]["off5"] if fc and fc.m5 else np.nan
             )
+        # the Brier score of P(M>=6) per baseline (prereg v2 section 4; `laf.descriptive`)
+        y6 = c.get("y6", np.nan)
+        info[k]["m6_event"] = None if pd.isna(y6) else bool(y6 > 0)
+        for b in ("official", *BASELINES):
+            fc = base.get((b, *k))
+            info[k][f"brier_m6_{b}"] = _brier(fc.p_m6 if fc else None, info[k]["m6_event"])
     rows = []
     for r in samples(run_dirs):
         k = (r["item_id"], key_window[r["window"]])
@@ -240,6 +256,8 @@ def analyze(
             "sequence_id": ci["sequence_id"], "status": r["status"], "warnings": r["warnings"],
             "m3_ok": ci["m3_ok"], "worst_base_d5": ci["worst_base_d5"],
             **{f"base_d5_{b}": ci[f"base_d5_{b}"] for b in BASELINES},
+            **{f"brier_m6_{b}": ci[f"brier_m6_{b}"] for b in ("official", *BASELINES)},
+            "brier_m6": _brier(r["p_m6"], ci["m6_event"]),
         }  # fmt: skip
         if r["status"] == "ok":
             for m, t in (

@@ -12,6 +12,7 @@ records are released after their windows close. The study publishes to `live`; t
 import contextlib
 import hashlib
 import json
+import os
 import re
 import subprocess
 import time
@@ -19,7 +20,7 @@ import urllib.request
 from datetime import datetime
 from pathlib import Path
 
-from laf.usgs import USER_AGENT, download
+from laf.usgs import USER_AGENT
 
 # the official client's default aggregators (opentimestamps-client)
 CALENDARS = (
@@ -32,6 +33,9 @@ CALENDARS = (
 OTS_HEADER = b"\x00OpenTimestamps\x00\x00Proof\x00\xbf\x89\xe2\xe8\x84\xe8\x92\x94\x01\x08"
 OTS_PENDING = bytes.fromhex("83dfe30d2ef90c8e")  # pending-attestation tag
 PUSH_ATTEMPTS = 3
+GIT_TIMEOUT_S = 300
+# the detector runs unattended: git must fail, never wait for a credential prompt
+GIT_ENV = {"GIT_TERMINAL_PROMPT": "0", "GCM_INTERACTIVE": "never"}
 
 
 def _post(url: str, body: bytes) -> bytes:
@@ -53,10 +57,18 @@ def ots_proof(data: bytes, calendar: str, post=_post) -> bytes:
     return OTS_HEADER + digest + stamp
 
 
-def _git(worktree: Path, *args: str) -> str:
+def _run(worktree: Path, *args: str, check: bool = True) -> subprocess.CompletedProcess:
+    # inherited GIT_* variables (a commit hook's GIT_DIR, GIT_INDEX_FILE) would point this at
+    # another repository than `worktree`
+    env = {k: v for k, v in os.environ.items() if not k.startswith("GIT_")} | GIT_ENV
     return subprocess.run(
-        ["git", "-C", str(worktree), *args], check=True, capture_output=True, text=True
-    ).stdout.strip()
+        ["git", "-C", str(worktree), *args], check=check, capture_output=True, text=True,
+        stdin=subprocess.DEVNULL, timeout=GIT_TIMEOUT_S, env=env,
+    )  # fmt: skip
+
+
+def _git(worktree: Path, *args: str) -> str:
+    return _run(worktree, *args).stdout.strip()
 
 
 def _commit_push(worktree: Path, paths: list[str], message: str) -> str:
@@ -97,7 +109,10 @@ def publish(
     names, rec["ots"] = stamp(dest / seal.name, ots=ots, calendars=calendars)
     if names:
         proofs = [f"{rel}/{n}" for n in names]
-        rec["ots_commit"] = _commit_push(worktree, proofs, f"Timestamps {rel}/{seal.name}")
+        try:  # the seal is on the remote already: a failed proof push must not hide that
+            rec["ots_commit"] = _commit_push(worktree, proofs, f"Timestamps {rel}/{seal.name}")
+        except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as e:
+            rec["ots_error"] = f"{type(e).__name__}: {e}"[:300]  # `push_pending` pushes it
     return rec
 
 
@@ -153,9 +168,7 @@ def release(worktree: Path, rel: str, record_dir: Path) -> str | None:
 
 
 def _committed(worktree: Path, path: str) -> bool:
-    shown = subprocess.run(["git", "-C", str(worktree), "cat-file", "-e", f"HEAD:{path}"],
-                           capture_output=True)  # fmt: skip
-    return shown.returncode == 0
+    return _run(worktree, "cat-file", "-e", f"HEAD:{path}", check=False).returncode == 0
 
 
 def released(worktree: Path, rel: str) -> bool:
@@ -172,9 +185,9 @@ def push_pending(worktree: Path) -> int:
     return ahead
 
 
-def add_record(worktree: Path, rel: str, name: str, rec: dict) -> str:
+def add_record(worktree: Path, rel: str, name: str, rec: dict, what: str = "Receipt") -> str:
     """Commit and push one small JSON record (such as an issue's push receipt) beside its
-    seal; returns the commit. Never overwrites."""
+    seal (`rel` "." for the branch root); returns the commit. Never overwrites."""
     path = worktree / rel / name
     if path.exists():
         raise FileExistsError(f"{rel}/{name} is already published: never overwritten")
@@ -182,7 +195,8 @@ def add_record(worktree: Path, rel: str, name: str, rec: dict) -> str:
     path.write_text(
         json.dumps(rec, indent=1, sort_keys=True) + "\n", encoding="utf-8", newline="\n"
     )
-    return _commit_push(worktree, [f"{rel}/{name}"], f"Receipt {rel}/{name}")
+    rel_path = name if rel == "." else f"{rel}/{name}"
+    return _commit_push(worktree, [rel_path], f"{what} {rel_path}")
 
 
 def branch(worktree: Path) -> str:
@@ -196,14 +210,66 @@ def repo_slug(worktree: Path) -> str | None:
     return m.group(1) if m else None
 
 
-def push_receipt(repo: str, branch: str, commit: str, get=download) -> int | None:
-    """GitHub's time (epoch ms) of the push that moved `branch` to `commit`, or None while the
-    activity list does not show it yet."""
-    url = (f"https://api.github.com/repos/{repo}/activity?ref=refs/heads/{branch}"
-           "&activity_type=push&per_page=100")  # fmt: skip
-    for a in json.loads(get(url)):
-        if a.get("after") == commit:
-            return int(
-                datetime.fromisoformat(a["timestamp"].replace("Z", "+00:00")).timestamp() * 1000
-            )
-    return None
+def _github_page(url: str) -> tuple[bytes, str | None]:
+    """One page of a GitHub list and the URL of the next one (its Link header), if any."""
+    req = urllib.request.Request(
+        url, headers={"Accept": "application/vnd.github+json", "User-Agent": USER_AGENT}
+    )
+    with urllib.request.urlopen(req, timeout=60) as resp:
+        link, body = resp.headers.get("Link") or "", resp.read()
+    m = re.search(r'<([^>]+)>;\s*rel="next"', link)
+    return body, (m.group(1) if m else None)
+
+
+def _ms(timestamp: str) -> int:
+    return int(datetime.fromisoformat(timestamp.replace("Z", "+00:00")).timestamp() * 1000)
+
+
+def push_times(
+    repo: str, branch: str, wanted: dict[str, int], page=_github_page, introduced=None,
+    pages: int = 10,
+) -> dict[str, int]:  # fmt: skip
+    """GitHub's time (epoch ms) of the push that first put each wanted commit on `branch`, from
+    the repository activity list (newest first). `wanted` maps each commit to its commit time:
+    the list is read only as far back as the oldest of them (unauthenticated calls are limited
+    to 60 an hour). A commit pushed together with later ones (an earlier push failed) is found
+    through `introduced(before, after)`: the commits that push added."""
+    url: str | None = (f"https://api.github.com/repos/{repo}/activity?ref=refs/heads/{branch}"
+                       "&activity_type=push&per_page=100")  # fmt: skip
+    left, out = dict(wanted), {}
+    for _ in range(pages):
+        if not left or url is None:
+            break
+        body, url = page(url)
+        acts = json.loads(body)
+        for a in acts:  # newest first: a later (older) push holding the commit replaces it
+            added, at = {a.get("after")}, _ms(a["timestamp"])
+            # a push can carry several wanted commits (one whose push failed rides along with
+            # the next), whatever its tip; it cannot carry one made after it (an hour of slack)
+            could = {c for c, t in left.items() if c not in added and t <= at + 3_600_000}
+            if introduced and could and a.get("before") and a.get("after"):
+                with contextlib.suppress(Exception):  # e.g. a push this clone never fetched
+                    added |= introduced(a["before"], a["after"])
+            for c in added & left.keys():
+                out[c] = at
+        oldest = min((_ms(a["timestamp"]) for a in acts), default=None)
+        left = {c: t for c, t in left.items() if c not in out}
+        if oldest is None or (left and oldest < min(left.values()) - 3_600_000):
+            break  # the list is past every commit still wanted (an hour of clock slack)
+    return out
+
+
+def introduced_by(worktree: Path):
+    """`introduced` for `push_times`: the commits between two pushed heads, in this clone."""
+    return lambda before, after: set(_git(worktree, "rev-list", f"{before}..{after}").split())
+
+
+def seal_commit(worktree: Path, rel: str) -> tuple[str, int] | None:
+    """(commit, commit time in ms) that added `<rel>/answers.seal.json` on the remote branch,
+    or None while it is not pushed yet."""
+    out = _git(worktree, "log", "-1", "--diff-filter=A", "--format=%H %ct",
+               f"origin/{branch(worktree)}", "--", f"{rel}/{SEALS[0]}")  # fmt: skip
+    if not out:
+        return None
+    commit, ct = out.split()
+    return commit, int(ct) * 1000

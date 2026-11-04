@@ -157,6 +157,32 @@ def test_collect_waits_for_a_terminal_batch(tmp_path, monkeypatch):
         O.collect(c, "x")
 
 
+def test_a_failed_batch_costs_nothing_and_is_resent(items, tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    (tmp_path / "data/processed/S").mkdir(parents=True)
+    (tmp_path / "data/processed/S/items_m3.jsonl").write_text("x")
+    (tmp_path / "prompts/v2").mkdir(parents=True)
+    monkeypatch.setattr(O, "PROMPT_DIR", tmp_path / "prompts")
+    (tmp_path / "prompts/v2/HASHES.json").write_text("{}")
+    monkeypatch.setattr(O, "RUNS", tmp_path / "runs")
+    monkeypatch.setattr(runner, "RUNS", tmp_path / "runs")
+    monkeypatch.setattr(O, "scoring_frozen", lambda: True)
+    monkeypatch.setenv("LAF_OPENAI_MONTHLY_CAP_USD", "5")
+    reqs = O.expand(O.pilot_items(items, 2), "gpt-5.1-2025-11-13", "medium", k=1)
+    c = FakeClient({})
+    O.submit(c, "x", reqs, "S", estimate=0.1)
+    errors = {"data": [{"code": "token_limit_exceeded"}]}
+    c.batches.retrieve = lambda bid: SimpleNamespace(  # refused at validation: no output files
+        status="failed", output_file_id=None, error_file_id=None,
+        errors=SimpleNamespace(model_dump=lambda: errors))  # fmt: skip
+    assert O.collect(c, "x") == 2
+    rows = [json.loads(x) for x in (tmp_path / "runs/x/results.jsonl").read_text().splitlines()]
+    assert all(r["result"] == "errored" and r["error"] == errors for r in rows)
+    assert sum(usd for _, usd in O.spend_records(tmp_path / "runs")) == 0  # the estimate is gone
+    name, resend = runner.retry_plan("x", reqs)
+    assert name == "x-retry2" and len(resend) == 2
+
+
 def test_a_refused_batch_leaves_nothing_behind(items, tmp_path, monkeypatch):
     monkeypatch.chdir(tmp_path)
     (tmp_path / "data/processed/S").mkdir(parents=True)

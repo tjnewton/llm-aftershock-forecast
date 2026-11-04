@@ -368,15 +368,57 @@ def test_confirmatory_batches_send_each_models_own_set_in_parts(monkeypatch):
         got("claude-opus-5-5", "confirmatory-unbuffered")
 
 
-def test_the_openai_run_name_option_is_kept(monkeypatch, capsys):
+def _snapshot(tmp_path, monkeypatch):
+    """A synthetic snapshot with no items: the run commands never touch a real one."""
+    from laf import openai_runner, pilot, runner
+
+    (tmp_path / "processed/S").mkdir(parents=True)
+    pd.DataFrame({"sequence_id": ["s"], "origin_ms": [0], "mag": [5.0]}).to_parquet(
+        tmp_path / "processed/S/sequences.parquet"
+    )
+    monkeypatch.setattr(pilot, "load_items", lambda *a: [])
+    monkeypatch.setattr(runner, "RUNS", tmp_path / "runs")
+
+    def refuse(*a, **k):
+        raise AssertionError("submitted")
+
+    monkeypatch.setattr(openai_runner, "submit", refuse)
+    monkeypatch.setattr(runner, "submit", refuse)
+    return ["--data-dir", str(tmp_path)]
+
+
+def test_the_openai_run_name_option_is_kept(tmp_path, monkeypatch, capsys):
     from laf import cli
 
     seen = {}
     monkeypatch.setattr(cli, "_batch_name", lambda a: seen.setdefault("default", "x") and "x")
-    args = ["openai", "run", "--block", "confirmatory", "--snapshot", "20261029T2000Z",
-            "--name", "confirmatory/custom-test", "--dry-run"]  # fmt: skip
+    args = [*_snapshot(tmp_path, monkeypatch), "openai", "run", "--block", "confirmatory",
+            "--snapshot", "S", "--name", "confirmatory/custom-test", "--dry-run"]  # fmt: skip
     cli.main(args)
     assert "confirmatory/custom-test:" in capsys.readouterr().out and "default" not in seen
+    assert (tmp_path / "processed/S/items_m3.jsonl").read_text() == ""  # written once, if absent
+
+
+def test_confirmatory_batches_are_paid_only_after_the_tag(tmp_path, monkeypatch):
+    from laf import cli, splits
+
+    monkeypatch.setattr(splits, "_tagged", lambda tag: False)
+    data = _snapshot(tmp_path, monkeypatch)
+    for cmd in (["openai", "run"], ["run", "--model", "claude-opus-4-6"]):
+        with pytest.raises(SystemExit, match="only after the tag prereg-v2"):
+            cli.main([*data, *cmd, "--block", "confirmatory", "--snapshot", "S"])
+        cli.main([*data, *cmd, "--block", "confirmatory", "--snapshot", "S", "--dry-run"])
+
+
+def test_the_runners_never_rewrite_the_frozen_items(tmp_path, monkeypatch):
+    from laf import cli
+
+    data = _snapshot(tmp_path, monkeypatch)
+    (tmp_path / "processed/S/items_m3.jsonl").write_text('{"item_id": "a"}\n')
+    with pytest.raises(SystemExit, match="differs from a fresh rebuild"):
+        cli.main([*data, "openai", "run", "--block", "confirmatory", "--snapshot", "S",
+                  "--dry-run"])  # fmt: skip
+    assert (tmp_path / "processed/S/items_m3.jsonl").read_text() == '{"item_id": "a"}\n'
 
 
 def test_leave_one_sequence_out_influence():

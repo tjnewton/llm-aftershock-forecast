@@ -115,7 +115,7 @@ def test_outcomes_open_only_after_the_tag_and_s_plus_90_days(monkeypatch):
     assert splits.unsealed(now_ms=1090 * day)
 
 
-def test_the_stop_time_is_read_from_the_tagged_commit(tmp_path, monkeypatch):
+def _scratch_repo(tmp_path, monkeypatch):
     import os
     import subprocess
 
@@ -130,14 +130,52 @@ def test_the_stop_time_is_read_from_the_tagged_commit(tmp_path, monkeypatch):
     git("config", "user.name", "t")
     (tmp_path / "config").mkdir()
     monkeypatch.chdir(tmp_path)
-    assert splits.stop_ms() is None
-    (tmp_path / splits.STOP_FILE).write_text("s_ms = 1793000000000\n")
+    (tmp_path / "prereg.md").write_text("frozen\n")
+    git("add", ".")
+    git("commit", "-qm", "freeze")
+    return git
+
+
+def _stop(git, tmp_path, s_ms, tag=("-a", "-m", "stop")) -> None:
+    (tmp_path / splits.STOP_FILE).write_text(f"s_ms = {s_ms}\n")
     git("add", ".")
     git("commit", "-qm", "S")
-    git("tag", splits.STOP_TAG)
+    git("tag", "-f", *tag, splits.STOP_TAG)
+
+
+def test_the_stop_time_is_read_from_the_tagged_commit(tmp_path, monkeypatch):
+    import time
+
+    git = _scratch_repo(tmp_path, monkeypatch)
+    git("tag", "-a", "-m", "freeze", splits.UNSEAL_TAG)
+    assert splits.stop_ms() is None
+    s = int(time.time() * 1000) + 10 * 86_400_000
+    _stop(git, tmp_path, s)
     (tmp_path / splits.STOP_FILE).write_text("s_ms = 1\n")  # a later edit
     git("commit", "-qam", "edit")
-    assert splits.stop_ms() == 1793000000000
+    assert splits.stop_ms() == s
+
+
+def test_a_malformed_stop_never_opens_the_gate(tmp_path, monkeypatch):
+    import time
+
+    git = _scratch_repo(tmp_path, monkeypatch)
+    now = int(time.time() * 1000)
+    git("tag", splits.UNSEAL_TAG)  # lightweight: no freeze
+    with pytest.raises(SystemExit, match="lightweight"):
+        splits.unsealed()
+    git("tag", "-f", "-a", "-m", "freeze", splits.UNSEAL_TAG)
+    for bad in (now // 1000, now - 86_400_000, now + 401 * 86_400_000, "1.8e12"):
+        _stop(git, tmp_path, bad if not isinstance(bad, str) else f'"{bad}"')
+        with pytest.raises(SystemExit, match="not epoch ms"):  # seconds, before or long after
+            splits.unsealed(now_ms=10**15)
+    _stop(git, tmp_path, now + 86_400_000, tag=())  # lightweight stop tag
+    with pytest.raises(SystemExit, match="lightweight"):
+        splits.stop_ms()
+    git("checkout", "-q", "--orphan", "elsewhere")  # a stop that does not follow the freeze
+    _stop(git, tmp_path, now + 86_400_000)
+    with pytest.raises(SystemExit, match="does not descend"):
+        splits.stop_ms()
 
 
 def test_build_tables_never_counts_a_sealed_window(locked, monkeypatch):

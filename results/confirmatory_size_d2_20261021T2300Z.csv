@@ -15,3 +15,7 @@ claude-opus-5-5 high v2A,89,0.025,student,0.025,1000
 claude-opus-5-5 high v2A,89,0.025,percentile,0.057,1000
 claude-opus-5-5 high v2A,89,0.05,student,0.029,1000
 claude-opus-5-5 high v2A,89,0.05,percentile,0.094,1000
+claude-opus-4-6 medium v2A,23,0.025,student,0.05,1000
+claude-opus-4-6 medium v2A,23,0.025,percentile,0.055,1000
+claude-opus-4-6 medium v2A,23,0.05,student,0.084,1000
+claude-opus-4-6 medium v2A,23,0.05,percentile,0.087,1000

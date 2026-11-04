@@ -324,7 +324,8 @@ def collect(c, name: str) -> int:
     """Write runs/<name>/results.jsonl in the Claude runner's format (result, model, text,
     stop_reason, usage), only once `scoring-v1` exists and the batch has ended (completed,
     expired or cancelled: an ended batch keeps its finished, billed responses; the rest are
-    errors or missing)."""
+    errors or missing). A failed batch (refused at validation) ran nothing: every request is an
+    error, so it costs $0 and `--retry` resends it."""
     if not scoring_frozen():
         raise SystemExit("refusing to collect: tag scoring-v1 does not exist (prereg section 12)")
     out = RUNS / name
@@ -332,10 +333,13 @@ def collect(c, name: str) -> int:
         raise SystemExit(f"{out}/results.jsonl exists")
     rec = json.loads((out / "batch.json").read_text(encoding="utf-8"))
     b = c.batches.retrieve(rec["batch_id"])
-    if b.status not in ("completed", "expired", "cancelled"):  # terminal; partial results kept
+    if b.status not in ("completed", "expired", "cancelled", "failed"):  # terminal
         raise SystemExit(f"batch status {b.status}: not collecting yet")
     model = {r["custom_id"]: r["model"] for r in _jsonl(out / "requests.jsonl")}
     lines = []
+    if b.status == "failed":  # no output files: each request gets the batch's errors
+        err = b.errors.model_dump() if b.errors else "batch failed"
+        lines = [{"custom_id": cid, "error": err} for cid in model]
     for fid in (b.output_file_id, b.error_file_id):
         if fid:
             lines += [json.loads(x) for x in c.files.content(fid).text.split("\n") if x.strip()]
