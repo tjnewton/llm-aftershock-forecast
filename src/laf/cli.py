@@ -70,6 +70,9 @@ def main(argv: list[str] | None = None) -> None:
         "stamp", help="OpenTimestamps proofs beside each file (the freeze manifest)"
     )
     sp.add_argument("files", type=Path, nargs="+")
+    wp = sub.add_parser("watch-pr", help="merge pull requests once Codex approves their head")
+    wp.add_argument("prs", type=int, nargs="+")
+    wp.add_argument("--minutes", type=int, default=45)
     sub.add_parser("spend", help="recorded API spend per UTC month and in total (runs/**)")
     bs = sub.add_parser(
         "batch-status", help="processing status and counts of a batch id (no results)"
@@ -1265,6 +1268,10 @@ def main(argv: list[str] | None = None) -> None:
             "".join(i.model_dump_json() + "\n" for i in items), encoding="utf-8", newline="\n"
         )
         print(f"{len(items)} items -> {out}")
+    elif a.cmd == "watch-pr":
+        from laf.watch_pr import watch
+
+        watch(a.prs, a.minutes)
     elif a.cmd == "stamp":
         from laf.publish import stamp
 

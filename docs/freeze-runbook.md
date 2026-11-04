@@ -1,13 +1,14 @@
 # Freeze and live-start runbook (prereg v2)
 
 Steps from the freeze to the final analysis, in order. Tyler alone decides the freeze and
-approves every paid batch with its estimate. Commands run from the repo root on the Mac unless
-marked Windows.
+approves every paid batch with its estimate. Since 2026-11-03 every step runs on the Windows
+machine: development in the repo root and `.claude\worktrees`, the detector in its service
+worktree `..\laf-service` (section 0). The Mac is a cold standby (section 7).
 
 ## 0. Before the tag
 Done before the freeze, because after it every code fix is a deviation.
-1. Windows `.env` (Tyler types it): `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`,
-   `LAF_CLAUDE_MONTHLY_CAP_USD=200`, `LAF_OPENAI_MONTHLY_CAP_USD=100`,
+1. Windows `.env` (Tyler types it; done 2026-11-02): `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`,
+   `LAF_CLAUDE_MONTHLY_CAP_USD=200`, `LAF_OPENAI_MONTHLY_CAP_USD=150` (decision 20),
    `LAF_CLAUDE_LIVE_RESERVE_USD=20`, `LAF_OPENAI_LIVE_RESERVE_USD=25`.
 2. The paid end-to-end check (asked first, with its estimate: about $0.85; at most about $6.30,
    every answer at the 32k output cap), on Windows, the live host. Tyler lets the worker make
@@ -16,9 +17,26 @@ Done before the freeze, because after it every code fix is a deviation.
    --sequence <id> --out runs/prospective-e2e`, published nowhere (a detected event needs no
    config entry). Check: 12 answers (2 items, 2 models, k = 3) with `model_reported` and
    `usage`, `spend.jsonl`, both seals, the baselines. A failure is fixed before the tag.
+   Done 2026-11-02 (T14, T17): us6000tzna, 12 answers on the first attempt, all valid, the
+   reported models as requested, $0.37.
 3. The Windows host for 6 months (the clock does not pause for outages): sleep off; Windows
-   Update restarts outside active hours, or paused, with Tyler watching for forced ones; the
-   detector started at boot by a scheduled task that restarts it on failure.
+   Update notifies before a restart, active hours 06:00 to 24:00; the startup task
+   `laf-detector` (Tyler registers it with his password, so it can read Git Credential
+   Manager) runs `C:\Users\tjnew\git\laf-detector.ps1`, a loop that restarts the detector
+   whenever it stops.
+4. The service worktree: `git worktree add --detach ..\laf-service <commit>`; the script runs
+   the detector there, so development in the repo root never changes the running code (many
+   `laf` functions import modules when called) or its `config\live_stop.toml`. Nobody edits,
+   pulls or commits in it. A deploy: right after a poll, `Stop-ScheduledTask laf-detector`,
+   `git -C ..\laf-service checkout --detach <commit>`, `Start-ScheduledTask laf-detector`, one
+   line in `ops\deploys.md` (UTC time, commit, reason). After the tag, a deploy that changes
+   `src\laf` is also a deviation (section 12 of the prereg).
+5. Backups: every night an encrypted copy of the service worktree's `data\interim` and `runs`
+   folders (the detector's state and the full live records, private until release) goes off
+   the machine, with a key only Tyler holds. Without it, a lost disk turns unreleased items
+   into failures.
+6. Parity: `laf freeze-manifest ... --out <a scratch file>` gives the same `manifest_sha256` on
+   both machines (Mac 2026-11-03 at 1edc91ef: 9de0daa4...0e6e0e).
 
 ## 1. Freeze (Tyler decides)
 1. Every pull request merged; `uv run pytest` green on `post-submission`.
@@ -39,11 +57,12 @@ Done before the freeze, because after it every code fix is a deviation.
 ## 2. Live start (after the tag)
 1. Create the orphan branch `live` (README, guard-only hooks, no workflows), as `live-test`.
    The `protect-live` ruleset (no deletion, no force-push) already covers it.
-2. The worker prompt allows API calls for the detector service only; Tyler restarts the loop.
-3. A queue task: worktree `..\laf-live` on `live`; stop the dry run; start
-   `laf live-watch --paid --publish ..\laf-live --out runs\live --live-data data\interim\live`
-   (Windows) through the boot task of section 0: its own state and issue folders, never the dry
-   run's (`live_watch.run` refuses them). L is the first sealed live record.
+2. Tyler copies `.env` into `..\laf-service` (the paid detector reads its keys and caps
+   there).
+3. Worktree `..\laf-live` on `live`; deploy the tagged commit to `..\laf-service`; point
+   `laf-detector.ps1` at `laf live-watch --paid --publish ..\laf-live --out runs\live
+   --live-data data\interim\live` and restart the task: its own state and issue folders,
+   never the dry run's (`live_watch.run` refuses them). L is the first sealed live record.
 
 ## 3. Retrospective batches (each approved with its estimate)
 Retirement dates (checked 2026-11-02): gpt-5.1 is deprecated and shuts down 2027-04-01; Claude
@@ -88,16 +107,16 @@ finishes in January (decision 20).
    as primary at first detection). Prospective origins are in [L, S] (decision 23).
 2. Commit `config/live_stop.toml` with `s_ms = <S>` to `post-submission`; Tyler tags it
    `prereg-v2-stop`.
-3. Windows pulls `post-submission` (its queue loop does), so the file is in the detector's
+3. Deploy that commit to `..\laf-service` (section 0.4), so the file is in the detector's
    checkout. `laf.live_watch` reads it every poll: from then on a sequence whose origin is after
    S is not admitted ("after the stop" in the log), while admitted sequences keep their
-   scheduled issues to the 28-day slot and releases continue. No restart.
+   scheduled issues to the 28-day slot and releases continue.
 4. Check: `git log -1 -- config/live_stop.toml` in the detector's checkout shows the stop
    commit; any qualifying sequence after S has `"inclusion": "after the stop"` in `log.jsonl`;
    no new sequence folder appears on `live` after S.
-5. The stop takes effect once the file is merged into the detector's checkout: merge it
-   promptly. A sequence admitted between S and that pull is outside the analysis, which keeps
-   origins in [L, S); its records stay on `live` and are reported as such.
+5. The stop takes effect once the file is in the detector's checkout: deploy it promptly. A
+   sequence admitted with origin after S before that deploy is outside the analysis, which
+   keeps origins in [L, S]; its records stay on `live` and are reported as such.
 
 ## 6. At S + 90 days: the analysis
 1. `laf outcome-config --configs config/sequences_confirmatory.toml
@@ -116,3 +135,18 @@ finishes in January (decision 20).
    live>`; then `--test-a-all`.
 5. Report every table whatever its result; deviations go to the v2 section of
    `docs/deviations.md`.
+
+## 7. Failover to the Mac
+If the Windows machine is down for more than about 6 hours during the live arm:
+1. Make sure the Windows detector is stopped (two detectors could issue the same version twice
+   before either publishes).
+2. On the Mac: `git pull`; Tyler puts the keys and caps in the Mac's `.env`; worktree
+   `../laf-live` on `live`, then `git -C ../laf-live pull --ff-only origin live` (the
+   detector reads issued seals and the spend ledger from it: a stale copy undercounts spend
+   and repeats issues); restore the latest backup of `data/interim` and `runs` into the
+   checkout the detector runs from.
+3. `laf live-watch --paid --publish ../laf-live --out runs/live --live-data data/interim/live`
+   (the `live` branch, not local state, decides what is already issued).
+4. Back on Windows: stop the Mac's detector first, `git -C ..\laf-live pull --ff-only origin
+   live` (the Mac's records), restore its newest state, then restart the task. Log both moves
+   in `ops/deploys.md`.

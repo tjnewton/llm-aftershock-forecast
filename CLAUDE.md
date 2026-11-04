@@ -6,7 +6,8 @@ Oct 21-22, 2026). Plan: docs/PLAN.md. Rules that bind the analysis: docs/preregi
 ## Commands
 - `uv run pytest` / `uv run ruff format src tests` / `uv run ruff check src tests` / `uv run pyright`
 - Data: `uv run laf fetch|asof|tables|items --snapshot ID` (`--config config/sequences_e3.toml`
-  for E3), `laf verify`, `laf prompts-hash`, `laf spend`
+  for E3), `laf verify`, `laf prompts-hash`, `laf spend`, `laf watch-pr N` (merges once Codex
+  approves the head)
 - Confirmatory (no API): `laf confirmatory-dryrun` (development), `laf confirmatory-size`,
   `laf power`, `laf confirmatory` (refuses before the `prereg-v2` tag)
 - Live (no API): `laf live-late`, `laf prospective --dry-run`
@@ -24,6 +25,12 @@ Oct 21-22, 2026). Plan: docs/PLAN.md. Rules that bind the analysis: docs/preregi
 `results/` score tables; exploratory runs in `runs/e3/` and `runs/extensions/`, outside the frozen
 analysis's `runs/*/` glob; changes after `prereg-v1` go in `docs/deviations.md`.
 
+## Machines
+Work happens on the Windows machine (since 2026-11-03; the Mac is a cold standby, runbook section
+7). The live detector runs from the service worktree `..\laf-service`, a pinned commit changed
+only by a deploy logged in `ops/deploys.md`: never edit, pull or commit there. Scheduled tasks,
+the registry and Windows Update are Tyler's to change.
+
 ## Guardrails
 - Never post to Slack or any chat.
 - Commits use the email 54011699+tjnewton@users.noreply.github.com, never another address.
@@ -32,10 +39,11 @@ analysis's `runs/*/` glob; changes after `prereg-v1` go in `docs/deviations.md`.
   means no paid run); use only `ANTHROPIC_API_KEY` from env/.env. OpenAI spend has its own cap,
   `LAF_OPENAI_MONTHLY_CAP_USD`, and key, `OPENAI_API_KEY`. Never read or print `.env`.
 - Data splits (docs/adr/0013-data-splits.md): development data may be scored freely; confirmatory
-  data is never scored against outcomes before the `prereg-v2` tag (`laf.splits` enforces it).
+  data is never scored against outcomes before both gates open: the `prereg-v2` tag, then the
+  `prereg-v2-stop` tag and S + 90 days (`laf.splits` enforces it).
 - Scored Claude calls: no `temperature`/`top_p`/`top_k`, no tools, no prefill, no `fallbacks`,
   explicit `output_config.effort` and JSON schema. Log `response.model` and `usage`.
-- The client pins `https://api.anthropic.com`; this machine exports `ANTHROPIC_BASE_URL` for a
+- The client pins `https://api.anthropic.com`; a machine may export `ANTHROPIC_BASE_URL` for a
   local proxy, which must never carry benchmark traffic.
 - As-of discipline: forecasters see only events before min(creationTime, window start).
 - Prompts change only on dev items before the `prereg-v1` tag; after it, log deviations.
