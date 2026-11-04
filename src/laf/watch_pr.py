@@ -12,7 +12,9 @@ import time
 
 
 def _gh(*args: str) -> str:
-    return subprocess.run(["gh", *args], check=True, capture_output=True, text=True).stdout
+    return subprocess.run(
+        ["gh", *args], check=True, capture_output=True, text=True, encoding="utf-8"
+    ).stdout  # gh writes UTF-8; Windows would decode it as cp1252
 
 
 def _api(path: str, repo: str = ":owner/:repo"):
@@ -59,7 +61,7 @@ def _checks(pr: int) -> list | None:
     nothing is approved on an unknown CI status (`gh pr checks` also exits non-zero while
     checks fail or wait, with their JSON on stdout)."""
     r = subprocess.run(["gh", "pr", "checks", str(pr), "--json", "bucket"],
-                       capture_output=True, text=True)  # fmt: skip
+                       capture_output=True, text=True, encoding="utf-8")  # fmt: skip
     if r.stdout.strip().startswith("["):
         return json.loads(r.stdout)
     return [] if "no checks reported" in r.stderr else None
