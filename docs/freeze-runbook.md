@@ -175,7 +175,9 @@ finishes in January (decision 20).
    counts recounted from the fresh catalog in each issue's own circle; sequences with origin
    at L or later come from the fresh fetch.
 4. `laf confirmatory --snapshot <fresh>-outcomes --runs runs/confirmatory --live <worktree of
-   live>`; then `--test-a-all`.
+   live>`; then `--test-a-all`. With `--live`, it and `laf outcome-snapshot` refuse a `live`
+   worktree without `start.json` (L); it also writes `results/live_missed_<snapshot>.csv`,
+   the scheduled versions that were never issued.
 5. Report every table whatever its result; deviations go to the v2 section of
    `docs/deviations.md`.
 

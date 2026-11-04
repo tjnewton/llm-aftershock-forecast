@@ -219,8 +219,12 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
 - **On time:** a matched item enters test B only if its answer record's hash reached the
   GitHub push receipt before the item's first window opened (decision 22). The OpenTimestamps
   proofs witness that the record existed, not when to within the 30-minute margin.
-  - Late, missed and failed items are listed with reasons and never backfilled.
-  - "Failed" means a pipeline or transport failure. A delivered invalid answer is scored under
+  - Late, missed and failed items are listed with reasons and never backfilled. Missed
+    includes every scheduled version of an included prospective sequence that was never
+    issued (an outage, a ComCat delay): `live_scores.unissued`, from the outcome snapshot's
+    versions, written as `live_missed_*.csv`.
+  - "Failed" means a pipeline or transport failure: no answer was delivered (an error, or no
+    reported model). A delivered invalid answer, even one without text, is scored under
     section 7, never excluded.
   - On-time and late versions are compared on outcome-blind covariates: magnitude, network or
     region, time since the mainshock, official model type. Built: `live_scores.timeliness`
@@ -282,7 +286,8 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
   `high` (ADR 0014 decision 7).
 - **Live start** (decided 2026-11-01): the live arm starts right after the `prereg-v2` tag,
   once one paid end-to-end check has passed (on a version the study does not use, published
-  nowhere). L is then the time of the first sealed live record; no calendar date is set.
+  nowhere). L is then the paid detector's start (decision 26, replacing the first sealed live
+  record); no calendar date is set.
 
 ## 6. Analysis (ADR 0018; `laf.confirmatory`)
 - **Primary:** a sequence block bootstrap (B = 10,000, fixed seed) over the per-sequence mean
@@ -319,8 +324,8 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     effect and the mean and bound without it; B with its two parts).
   - The hierarchical model dS_ijk = mu + u_i + v_ij + e_ijk, with window and stratum as fixed
     effects in sum coding. It is a robustness check that estimates an unweighted mean over
-    windows and strata, not the mean of sequence means. If it fails to converge, that is
-    reported.
+    windows and strata, not the mean of sequence means. If it fails to converge or cannot be
+    fitted (too few sequences), that is reported in its row and the analysis goes on.
 - **Sensitivity analyses**, all reported in one table whatever their result; anything not
   listed is exploratory:
   - test A on all clean candidates;
@@ -337,7 +342,10 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     batch, `confirmatory-unbuffered`, decision 21);
   - a release-date clean rule (for gpt-5.1 a subset of the buffered set);
   - the 2-day settling rule;
-  - the subset where the as-of catalog matches the official observation counts exactly;
+  - the subset where the as-of catalog matches the official observation counts exactly
+    (the issue's M>=5 count in its as-of catalog, counted as the V0 check counts: the
+    mainshock excluded, magnitudes within 0.01 of the threshold, equals the official
+    product's own count);
   - region radius x0.5 and x1.5;
   - results by stratum;
   - CSEP-style N-test, PIT and information gain per earthquake (ADR 0015);
