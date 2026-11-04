@@ -1,0 +1,7 @@
+@page { size: letter; margin: 0.45in 0.65in; }
+body { font-family: "Times New Roman", Times, serif; font-size: 9.5pt; line-height: 1.22; max-width: none; margin: 0; padding: 0; color: #000; }
+h1 { font-size: 13pt; margin: 0 0 4pt; } h2 { font-size: 10.5pt; margin: 5pt 0 1pt; }
+p { margin: 0 0 4pt; text-align: left; } img { width: 80%; margin: 0 10%; }
+ol { margin: 0; padding-left: 16pt; font-size: 8pt; } li { margin: 0; }
+code { font-size: 9pt; } a { color: #000; } header#title-block-header { display: none; }
+figure { margin: 0; } figcaption { display: none; }
