@@ -47,7 +47,9 @@ def live(tmp_path_factory):
             calls.append({"item_id": it.item_id, "model_requested": m, "model_reported": m,
                           "sample": 0, "effort": "high", "paraphrase": "v2A",
                           "text": _answer(0), "stop_reason": "end_turn"})  # fmt: skip
-        calls.append({**calls[-1], "sample": 1, "model_reported": "gpt-other"})  # invalid
+        calls.append({**calls[-1], "sample": 1, "model_reported": "gpt-other"})  # model change
+        # delivered but cut off at the cap while thinking: no text, invalid, never dropped
+        calls.append({**calls[-3], "sample": 1, "text": None, "stop_reason": "max_tokens"})
         calls.append({"item_id": it.item_id, "model_requested": "gpt-6.1-sol", "sample": 2,
                       "missed": "budget"})  # fmt: skip
     calls[0]["text"] = calls[0]["text"].replace("Synthetic.", "Line\u2028separator.")
@@ -60,6 +62,7 @@ def live(tmp_path_factory):
     (d / "baselines.jsonl").write_text("".join(json.dumps(b) + "\n" for b in base))
     (d / "NOTICE.txt").write_text("not official forecasts\n")
     (root / PANAMA.id / "inclusion.json").write_text(json.dumps({"tier": "primary"}))
+    (root / "start.json").write_text(json.dumps({"start_ms": 1, "commit": "abc"}))  # L
     return root, items
 
 
@@ -82,7 +85,9 @@ def test_live_answers_are_scored_like_batch_answers(live):
         inc.write_text(json.dumps({"tier": "primary"}))
     assert set(aliased["sequence_id"]) == {"us7000alias"} and len(aliased) == len(s)
     assert set(s["kind"]) == {"matched", "strict"} and set(s["window"]) == set(WINDOWS)
-    assert (s.loc[s["model"] == "gpt-6.1-sol", "status"] == "model_mismatch").any()
+    # gpt-6.1-sol answered as another model in this issue: its accrual stops here (prereg v2 s3)
+    assert set(s["model"]) == {"claude-opus-5-5"}
+    assert set(s.loc[s["sample"] == 1, "status"]) == {"max_tokens"}  # penalized, not dropped
     assert not s["sample"].eq(2).any()  # a budget miss is listed, never scored
     ok = s[s["status"] == "ok"]
     assert ok["d5"].notna().all() and bool(ok["on_time"].all())
@@ -121,7 +126,80 @@ def test_every_live_item_is_listed_with_its_status(live):
     root, _ = live
     rows = {r["item_id"]: r for r in L.live_items(root).to_dict("records")}
     m = next(r for i, r in rows.items() if i.endswith("@live-matched"))
-    assert m["on_time"] and m["released"] and m["missed_budget"] == 1 and m["answers"] == 3
+    assert m["on_time"] and m["released"] and m["missed_budget"] == 1 and m["answers"] == 4
+    assert m["failed"] == 0 and m["after_model_change"] == 2  # gpt-6.1-sol's two answers
+
+
+def test_only_undelivered_calls_are_transport_errors():
+    from laf.openai_runner import _record
+
+    ok = {"model_requested": "m", "model_reported": "m", "error": None}
+    claude_cap = ok | {"text": None, "stop_reason": "max_tokens"}  # cap hit while thinking
+    claude_refusal = ok | {"text": None, "stop_reason": "refusal"}
+
+    def openai(body: dict) -> dict:
+        return ok | _record({"model": "m", "status": body.get("status", "completed"), **body})
+
+    openai_cap = openai({"status": "incomplete", "output": [{"type": "reasoning"}],
+                         "incomplete_details": {"reason": "max_output_tokens"}})  # fmt: skip
+    openai_refusal = openai({"output": [{"type": "message", "content": [
+        {"type": "refusal", "refusal": "no"}]}]})  # fmt: skip
+    assert openai_cap["text"] is None and openai_refusal["text"] is None
+    for call, want in ((claude_cap, "max_tokens"), (claude_refusal, "refusal"),
+                       (openai_cap, "max_tokens"), (openai_refusal, "refusal")):  # fmt: skip
+        assert L._status(call, "day") == (want, None)
+    failed = {"model_requested": "m", "error": "APIConnectionError: down"}  # no model reported
+    assert L._status(failed, "day") == ("transport_error", None)
+    assert L._status(ok | {"error": "x", "text": None}, "day")[0] == "transport_error"
+
+
+def test_a_model_change_stops_accrual_from_its_issue_on(tmp_path):
+    def issue(rel: str, sealed: int, reported: str) -> None:
+        d = tmp_path / rel
+        d.mkdir(parents=True)
+        (d / "answers.seal.json").write_text(json.dumps({"sealed_ms": sealed, "items": {}}))
+        calls = [{"model_requested": "m", "model_reported": reported, "error": None},
+                 {"model_requested": "o", "model_reported": "o", "error": None},
+                 {"model_requested": "m", "missed": "budget"}]  # fmt: skip
+        (d / "calls.jsonl").write_text("".join(json.dumps(c) + "\n" for c in calls))
+
+    issue("a/1", 10, "m")
+    issue("b/2", 30, "m-new")
+    issue("a/3", 20, "m-new")  # the first change, by seal time
+    changes = L.model_changes(tmp_path)
+    assert changes == {"m": 20}
+    assert not L._after_change({"model_requested": "m"}, 10, changes)  # earlier answers stand
+    assert L._after_change({"model_requested": "m"}, 30, changes)
+    assert not L._after_change({"model_requested": "o"}, 30, changes)
+    assert L.live_start_ms(tmp_path) is None  # no start.json before the paid detector starts
+
+
+def test_scheduled_versions_never_issued_are_listed(tmp_path):
+    day = 86_400_000
+    origin = 10 * day
+    sid = "us7000new"
+    cut = [origin + day // 2, origin + day + 3_600_000, origin + 3 * day + 1, origin + 5 * day]
+    ov = pd.DataFrame({"sequence_id": sid, "update_ms": [c + 60_000 for c in cut],
+                       "info_cutoff_ms": cut, "valid": True, "duplicate": False})  # fmt: skip
+    seqs = pd.DataFrame({"sequence_id": [sid, "us7000old"], "origin_ms": [origin, 0]})
+    tables = {"oaf_versions": ov, "sequences": seqs}
+    for f, inc in ((sid, {"key": sid, "tier": "primary"}),
+                   ("us7000alias", {"key": sid, "tier": "primary"}),  # a new preferred ID
+                   ("us7000old", {"key": "us7000old", "tier": "primary"}),  # origin before L
+                   ("us6000m4", {"key": "us6000m4", "tier": None}),  # not included
+                   ("us7000gone", {"key": "us7000gone", "tier": "primary",
+                                   "time_ms": origin})):  # not fetched  # fmt: skip
+        (tmp_path / f).mkdir()
+        (tmp_path / f / "inclusion.json").write_text(json.dumps(inc))
+    (tmp_path / sid / str(cut[0] + 60_000)).mkdir()  # "first" issued
+    (tmp_path / "us7000alias" / str(cut[2] + 60_000)).mkdir()  # 3d issued under the new ID
+    t = L.unissued(tmp_path, tables, origin - day)
+    assert t[t["sequence_id"] == sid]["slot"].tolist() == ["1d"]  # day 5 is no scheduled slot
+    assert t.loc[t["sequence_id"] == "us7000gone", "reason"].tolist() == [
+        "not in the outcome snapshot"
+    ]
+    assert set(t["sequence_id"]) == {sid, "us7000gone"}
+    assert L.unissued(tmp_path, tables, None).empty  # no L yet: nothing is prospective
 
 
 def _rows(model, sid, kind="matched", on_time=True, origin=10, d=-0.1, mag=5.5):

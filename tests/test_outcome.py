@@ -188,10 +188,13 @@ def test_config_adds_live_sequences(tmp_path):
     issue.mkdir(parents=True)
     items = [{"sequence_id": "s9"}, {"sequence_id": "s1"}, {"sequence_id": "s9b"}]
     (issue / "items.jsonl").write_text("".join(json.dumps(i) + "\n" for i in items))
+    for sid, tier in (("s7", "primary"), ("s8", None)):  # included but never issued; not included
+        (tmp_path / "live" / sid).mkdir()
+        (tmp_path / "live" / sid / "inclusion.json").write_text(json.dumps({"tier": tier}))
     out = tmp_path / "out.toml"
-    assert outcome.config([c], tmp_path / "live", out) == 3
+    assert outcome.config([c], tmp_path / "live", out) == 4
     seqs = tomllib.loads(out.read_text())["sequence"]
-    assert [s["id"] for s in seqs] == ["s1", "s9", "s9b"]
+    assert [s["id"] for s in seqs] == ["s1", "s9", "s9b", "s7"]
     assert seqs[0]["name"] == 'one "A"' and seqs[1]["catalog_min_mag"] == 3.0
 
 

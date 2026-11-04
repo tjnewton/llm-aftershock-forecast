@@ -30,9 +30,17 @@ def non_overlapping(cells: pd.DataFrame) -> pd.Series:
 
 
 def exact_match(tables: dict[str, pd.DataFrame]) -> set[str]:
-    """Issue times whose as-of catalog reproduces the official product's own M>=5 count."""
-    it = tables["issue_times"]
-    return set(it.loc[it["oaf_obs_m5"] == it["comcat_m5_at_cutoff"], "issue_id"])
+    """Issue times whose as-of catalog (`issue_catalogs`, what the forecasters saw) reproduces the
+    official product's own M>=5 observation count, counted as the V0 check counts
+    (`asof.check_observations`): events other than the mainshock, after its origin, in the
+    circle before the cutoff, at M >= 5 - 0.01. (`comcat_m5_at_cutoff` counts the revised
+    catalog instead.)"""
+    it, cats = tables["issue_times"], tables["issue_catalogs"]
+    seq = cats["issue_id"].map(dict(zip(it["issue_id"], it["sequence_id"], strict=True)))
+    origin = seq.map(tables["sequences"].set_index("sequence_id")["origin_ms"])
+    after = cats[(cats["id"] != seq) & (cats["time_ms"] > origin) & (cats["mag"] >= 5.0 - 0.01)]
+    asof = it["issue_id"].map(after.groupby("issue_id").size()).fillna(0)
+    return set(it.loc[it["oaf_obs_m5"] == asof, "issue_id"])
 
 
 def _row(analysis: str, cells: pd.DataFrame, models: tuple[str, ...]) -> list[dict]:

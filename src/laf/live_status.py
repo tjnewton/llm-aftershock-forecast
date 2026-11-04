@@ -10,6 +10,7 @@ latest keeps all 26 inside [L, S].
 """
 
 import json
+import os
 import subprocess
 import time
 from datetime import UTC, datetime
@@ -89,9 +90,12 @@ def status(live: Path, out: Path, now_ms: int | None = None) -> tuple[list[str],
     if errors:
         attention.append(f"{errors} error records in the last 24 h (log.jsonl)")
 
+    # inherited GIT_* variables (a commit hook's GIT_DIR) would point git at another repository
+    env = {k: v for k, v in os.environ.items() if not k.startswith("GIT_")}
+
     def git(*args: str) -> str:
         return subprocess.run(["git", "-C", str(live), *args], capture_output=True,
-                              text=True).stdout.strip()  # fmt: skip
+                              text=True, env=env).stdout.strip()  # fmt: skip
 
     branch = git("branch", "--show-current")
     ahead = git("rev-list", "--count", f"origin/{branch}..HEAD")

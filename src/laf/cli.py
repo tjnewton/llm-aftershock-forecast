@@ -811,12 +811,18 @@ def main(argv: list[str] | None = None) -> None:
         live_inputs: tuple = ()
         if a.live:
             from laf.confirmatory import b_parts, live_report
-            from laf.live_scores import live_items, live_samples, live_start_ms, timeliness
+            from laf.live_scores import (
+                live_items,
+                live_samples,
+                live_start_ms,
+                timeliness,
+                unissued,
+            )
             from laf.splits import stop_ms
 
             start = live_start_ms(a.live)
             if start is None:
-                raise SystemExit(f"{a.live}: no sealed live record")
+                raise SystemExit(f"{a.live}: no start.json (L, written by the paid detector)")
             from laf.confirmatory import informative
 
             ls = live_samples(a.live, tables)
@@ -837,7 +843,10 @@ def main(argv: list[str] | None = None) -> None:
             print(lv.round(3).to_string(index=False))
             listing = Path("results") / f"live_items_{a.snapshot}.csv"
             live_items(a.live).to_csv(listing, index=False, lineterminator="\n")
-            print(f"-> {path}, {listing} (every live item: on time, failed, missed)")
+            missed = Path("results") / f"live_missed_{a.snapshot}.csv"
+            unissued(a.live, tables, start).to_csv(missed, index=False, lineterminator="\n")
+            print(f"-> {path}, {listing} (every live item: on time, failed, missed), {missed} "
+                  "(scheduled versions never issued)")  # fmt: skip
         from laf.sensitivity import extras
 
         for k, df in extras(samples, cells, *live_inputs).items():
@@ -956,25 +965,22 @@ def main(argv: list[str] | None = None) -> None:
         dry_live: tuple = ()
         if a.live:  # the prospective inputs, from a `laf live-rehearsal` folder
             from laf.confirmatory import informative, live_report
-            from laf.live_scores import live_items, live_samples, live_start_ms
+            from laf.live_scores import live_items, live_samples, live_start_ms, unissued
 
             lt = tables
             if a.assume_settled:  # rehearsal only: every live window counts as settled
                 lt = {**tables, "sequences": tables["sequences"].assign(catalog_end_ms=2**62)}
-            start = live_start_ms(a.live)
+            start = live_start_ms(a.live)  # the rehearsal's start.json: its mainshock's origin
             if start is None:
-                raise SystemExit(f"{a.live}: no sealed record")
+                raise SystemExit(f"{a.live}: no start.json (L)")
             ls = live_samples(a.live, lt)
-            if a.assume_settled and len(ls):
-                # rehearsal only: a development mainshock precedes the rehearsal's seal, so L
-                # moves to the earliest live mainshock and its sequence counts as prospective
-                start = min(start, int(ls["origin_ms"].min()))
             lv = live_report(samples, ls, tables["sequences"], elapsed, start, None,
                              informative(tables))  # fmt: skip
             path = Path("results") / f"confirmatory_dryrun_live_{a.snapshot}.csv"
             lv.to_csv(path, index=False, lineterminator="\n")
             print(lv.round(3).to_string(index=False))
             print(live_items(a.live).to_string(index=False))
+            print(unissued(a.live, tables, start).to_string(index=False))  # never issued
             print(f"-> {path} (rehearsal: synthetic answers, development data)")
             from laf.confirmatory import b_parts
             from laf.live_scores import timeliness
@@ -1337,7 +1343,7 @@ def main(argv: list[str] | None = None) -> None:
         check_committed()
         start = live_start_ms(a.live) if a.live else None
         if a.live and start is None:
-            raise SystemExit(f"{a.live}: no sealed live record")
+            raise SystemExit(f"{a.live}: no start.json (L, written by the paid detector)")
         tables, lines, notes = assemble(a.data_dir, a.frozen, a.fresh, start)
         print("\n".join(notes))
         print(f"-> {write(a.data_dir, a.out, tables, lines)}")
