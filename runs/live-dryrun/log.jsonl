@@ -992,3 +992,13 @@
 {"events": 0, "kind": "poll", "poll_ms": 1793797148592, "since_ms": 1793796547321}
 {"events": 0, "kind": "poll", "poll_ms": 1793797749848, "since_ms": 1793797148592}
 {"events": 0, "kind": "poll", "poll_ms": 1793798350895, "since_ms": 1793797749848}
+{"events": 1, "kind": "poll", "poll_ms": 1793798951926, "since_ms": 1793798350895}
+{"events": 0, "kind": "poll", "poll_ms": 1793799554933, "since_ms": 1793798951926}
+{"events": 0, "kind": "poll", "poll_ms": 1793800155982, "since_ms": 1793799554933}
+{"events": 0, "kind": "poll", "poll_ms": 1793800757022, "since_ms": 1793800155982}
+{"events": 0, "kind": "poll", "poll_ms": 1793801358195, "since_ms": 1793800757022}
+{"events": 0, "kind": "poll", "poll_ms": 1793801959236, "since_ms": 1793801358195}
+{"events": 0, "kind": "poll", "poll_ms": 1793802560421, "since_ms": 1793801959236}
+{"events": 0, "kind": "poll", "poll_ms": 1793803161603, "since_ms": 1793802560421}
+{"events": 0, "kind": "poll", "poll_ms": 1793803762885, "since_ms": 1793803161603}
+{"events": 0, "kind": "poll", "poll_ms": 1793804364057, "since_ms": 1793803762885}
