@@ -5,7 +5,8 @@ confirmatory` has run end to end on a development snapshot, including the prospe
 budget plan, model calls, the two seals, the spend file, the baselines) on a development
 sequence, with stub clients in place of the APIs: every answer is the same synthetic forecast,
 labelled as such, so nothing is spent and nothing is a model's work. It then adds what the live
-service and the release would add (a receipt, the inclusion record, the release notice), so
+service and the release would add (a receipt, the inclusion record, the release notice, L in
+`start.json`), so
 `laf confirmatory-dryrun --live <dir>` can read it like the `live` branch. The receipt and the
 settling override are synthetic: a rehearsal of the code path, never a result.
 """
@@ -86,4 +87,11 @@ def build(data_dir: Path, snapshot: str, seq, out: Path, now_ms: int) -> Path:
         json.dumps({"key": seq.id, "tier": "primary", "synthetic": True})
     )
     (d / "NOTICE.txt").write_text("Rehearsal: synthetic answers on development data.\n")
+    # L, as the paid detector records it before its first poll; here the development mainshock's
+    # origin, so the rehearsal's sequence counts as prospective (origin >= L)
+    origin = json.loads((d / "items.jsonl").read_text().split("\n")[0])["mainshock"]["origin_ms"]
+    start = out / "start.json"
+    if start.exists():
+        origin = min(origin, json.loads(start.read_text())["start_ms"])
+    start.write_text(json.dumps({"start_ms": origin, "synthetic": True}))
     return d

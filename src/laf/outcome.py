@@ -29,18 +29,25 @@ VERSION_TABLES = ("oaf_versions", "forecast_bins", "forecast_fractiles")
 
 def config(configs: list[Path], live: Path | None, out: Path) -> int:
     """Write one config: the sequences of `configs`, then each live item's sequence ID not among
-    them (a changed preferred ID adds the new one); returns the number of sequences."""
+    them (a changed preferred ID adds the new one) and each included sequence's folder, issued
+    or not (its scheduled versions are listed when missed: `live_scores.unissued`); returns the
+    number of sequences."""
     from laf.live_watch import CATALOG_MIN_MAG
 
     seqs = [s for c in configs for s in tomllib.loads(c.read_text(encoding="utf-8"))["sequence"]]
     ids = {s["id"] for s in seqs}
+    found = []
     for p in sorted(live.glob("*/*/items.jsonl")) if live else []:
-        for x in p.read_text(encoding="utf-8").split("\n"):
-            sid = json.loads(x)["sequence_id"] if x.strip() else None
-            if sid and sid not in ids:
-                ids.add(sid)
-                seqs.append({"id": sid, "name": f"live {sid}", "role": "test-post",
-                             "catalog_min_mag": CATALOG_MIN_MAG})  # fmt: skip
+        found += [json.loads(x)["sequence_id"] for x in p.read_text(encoding="utf-8").split("\n")
+                  if x.strip()]  # fmt: skip
+    for p in sorted(live.glob("*/inclusion.json")) if live else []:
+        if json.loads(p.read_text(encoding="utf-8")).get("tier"):
+            found.append(p.parent.name)
+    for sid in found:
+        if sid not in ids:
+            ids.add(sid)
+            seqs.append({"id": sid, "name": f"live {sid}", "role": "test-post",
+                         "catalog_min_mag": CATALOG_MIN_MAG})  # fmt: skip
     lines = [
         "# The outcome snapshot's fetch (prereg v2 section 5), written by `laf outcome-config`."
     ]
