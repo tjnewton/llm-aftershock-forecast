@@ -97,7 +97,8 @@ Each entry: UTC time, change, reason, expected effect on the registered analyses
   `prereg-v2` and `prereg-v2-stop` must be annotated (a lightweight one is refused), the stop
   tag must descend from `prereg-v2`, and S must be epoch ms after the `prereg-v2` commit and
   within 400 days of it. Reason: the pre-freeze review found that S typed in seconds would open
-  the second gate at once. Effect: none on registered or development results; the guard only
+  the second gate at once. The header comment of config/splits.toml (also frozen) now names both
+  gates; no value changes. Effect: none on registered or development results; the guard only
   refuses more.
 
 # Deviations from preregistration v2 (tag prereg-v2)
