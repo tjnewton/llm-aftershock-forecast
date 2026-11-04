@@ -178,6 +178,33 @@ def test_receipts_come_from_the_branch_not_this_hosts_memory(worktree, tmp_path,
     W.check_receipts(out, state, wt, lambda url: pytest.fail("asked again"))
 
 
+def test_a_hand_made_seal_or_a_failing_housekeeping_step_never_stops_the_detector(
+    worktree, tmp_path, monkeypatch
+):
+    from laf import publish as U
+
+    wt, _, _ = worktree
+    monkeypatch.setattr(W, "repo_slug", lambda w: "o/r")
+    out = tmp_path / "out"
+    out.mkdir()
+    seal = tmp_path / "answers.seal.json"
+    seal.write_text('{"record_sha256": "abc"}\n')  # a publishing check: no items, no seal time
+    rec = U.publish(wt, "check/1", seal, calendars=())
+    acts = [{"before": "0" * 40, "after": rec["commit"], "timestamp": "1970-01-01T00:16:41Z"}]
+    W.check_receipts(out, {}, wt, lambda url: (json.dumps(acts).encode(), None))
+    assert json.loads((wt / "check/1/receipt.json").read_text())["receipt_ms"] == 1_001_000
+
+    def boom(*a, **k):
+        raise KeyError("items")
+
+    monkeypatch.setattr(W, "check_receipts", boom)
+    monkeypatch.setattr(W, "release_closed", boom)
+    state = W.step(out, tmp_path, {}, lambda url: b'{"features": []}', publish_to=wt)
+    assert "last_poll_ms" in json.loads((out / "state.json").read_text())  # still saved
+    errors = [r for r in _log(out) if r.get("error")]
+    assert [r["kind"] for r in errors] == ["receipt", "release"] and state["last_poll_ms"]
+
+
 def test_each_poll_looks_back_an_hour_and_forty_days_of_origins(tmp_path):
     from urllib.parse import parse_qs, urlparse
 

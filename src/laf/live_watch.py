@@ -244,12 +244,12 @@ def check_receipts(out: Path, state: dict, publish_to: Path | None, page=None) -
                 gave_up.append(rel)
             continue
         seal = json.loads((publish_to / rel / SEALS[0]).read_text(encoding="utf-8"))
-        first = [v["first_window_ms"] for i, v in seal["items"].items()
-                 if i.endswith("@live-matched")]  # fmt: skip
+        first = [v.get("first_window_ms") for i, v in (seal.get("items") or {}).items()
+                 if i.endswith("@live-matched")]  # fmt: skip  # a hand-made test seal has none
         rec = {"commit": commit, "receipt_ms": ms, "pushed_ms": pushed.get(commit),
                "source": f"api.github.com/repos/{repo}/activity (push to {br})"}  # fmt: skip
         lag_s = (ms - pushed[commit]) / 1000 if commit in pushed else None
-        margin_s = (first[0] - ms) / 1000 if first else None
+        margin_s = (first[0] - ms) / 1000 if first and first[0] is not None else None
         _log(out, {"kind": "receipt", "rel": rel, **rec, "matched_receipt_margin_s": margin_s,
                    "receipt_lag_s": lag_s})  # fmt: skip
         try:
@@ -300,8 +300,15 @@ def step(
                 _log(out, {"kind": "push_pending", "commits": n})
         except Exception as e:
             _log(out, {"kind": "push_pending", "error": f"{type(e).__name__}: {e}"[:300]})
-        check_receipts(out, state, publish_to)
-        release_closed(out, data_dir, publish_to, t_poll)
+        # housekeeping never stops the detector: a failure is logged and retried next poll
+        for kind, task in (
+            ("receipt", lambda: check_receipts(out, state, publish_to)),
+            ("release", lambda: release_closed(out, data_dir, publish_to, t_poll)),
+        ):
+            try:
+                task()
+            except Exception as e:
+                _log(out, {"kind": kind, "error": f"{type(e).__name__}: {e}"[:300]})
     _save_state(out / "state.json", state)
     return state
 
