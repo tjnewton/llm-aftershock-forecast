@@ -3,7 +3,7 @@
 Steps from the freeze to the final analysis, in order. Tyler alone decides the freeze and
 approves every paid batch with its estimate. Since 2026-11-03 every step runs on the Windows
 machine: development in the repo root and `.claude\worktrees`, the detector in its service
-worktree `..\laf-service` (section 0). The Mac is a cold standby (section 7).
+worktree `..\laf-service` (section 0). Outages and restores: section 7.
 
 ## 0. Before the tag
 Done before the freeze, because after it every code fix is a deviation.
@@ -34,7 +34,14 @@ Done before the freeze, because after it every code fix is a deviation.
 5. Backups: every night an encrypted copy of the service worktree's `data\interim` and `runs`
    folders (the detector's state and the full live records, private until release) goes off
    the machine, with a key only Tyler holds. Without it, a lost disk turns unreleased items
-   into failures.
+   into failures. The daily task `laf-backup` (Tyler registers it, at 23:30) runs
+   `C:\Users\tjnew\git\laf-backup.ps1`: it waits for the end of a poll (`state.json` is written
+   last), packs both folders and the two task scripts with `tar`, encrypts the archive with
+   Git's `gpg` to Tyler's public key `C:\Users\tjnew\git\laf-backup.pub.asc` (he keeps the
+   private key off this machine) and writes `OneDrive\laf-backup\laf-backup-<weekday>.tar.gz.gpg`:
+   seven nights, older copies in OneDrive's version history. Each night adds one line (ok with
+   the size, or FAILED with the error) to `C:\Users\tjnew\git\laf-backup.log`. Restore:
+   section 7.
 6. Parity: `laf freeze-manifest` checks the committed items and baselines against a fresh
    rebuild, floats up to last-bit libm noise (macOS and Windows differ in P(M>=6) by at most
    4.4e-16), and hashes the committed bytes. Done 2026-11-04 (T18): Windows reproduces the
@@ -65,6 +72,8 @@ Done before the freeze, because after it every code fix is a deviation.
    `laf-detector.ps1` at `laf live-watch --paid --publish ..\laf-live --out runs\live
    --live-data data\interim\live` and restart the task: its own state and issue folders,
    never the dry run's (`live_watch.run` refuses them). L is the first sealed live record.
+4. Point the backup's `-Out` default in `laf-backup.ps1` at `..\laf-service\runs\live` (it
+   waits for that folder's `state.json`); the next night's line in `laf-backup.log` is ok.
 
 ## 3. Retrospective batches (each approved with its estimate)
 Retirement dates (checked 2026-11-02): gpt-5.1 is deprecated and shuts down 2027-04-01; Claude
@@ -93,8 +102,8 @@ finishes in January (decision 20).
 1. `laf candidates --since 2026-10-29 --until <day after L> --out config/sequences_supplementary.toml`
    (through a pull request).
 2. `laf --config config/sequences_supplementary.toml fetch`, `asof --workers 1`, `tables`, `etas`.
-   ComCat allows 500 requests per 5 minutes per IP: one fetcher on the Mac, paced at 1 per
-   second, beside the detector's poll every 10 minutes if both share the home address.
+   ComCat allows 500 requests per 5 minutes per IP: one fetcher, paced at 1 per second,
+   beside the detector's poll every 10 minutes from the same machine.
 3. Before any batch on it: `laf freeze-manifest --snapshot <it> --out
    results/supplementary_manifest.json` (its items and baselines without outcomes, and their
    hashes), `laf stamp results/supplementary_manifest.json`, commit both and post the
@@ -138,17 +147,29 @@ finishes in January (decision 20).
 5. Report every table whatever its result; deviations go to the v2 section of
    `docs/deviations.md`.
 
-## 7. Failover to the Mac
-If the Windows machine is down for more than about 6 hours during the live arm:
-1. Make sure the Windows detector is stopped (two detectors could issue the same version twice
-   before either publishes).
-2. On the Mac: `git pull`; Tyler puts the keys and caps in the Mac's `.env`; worktree
-   `../laf-live` on `live`, then `git -C ../laf-live pull --ff-only origin live` (the
-   detector reads issued seals and the spend ledger from it: a stale copy undercounts spend
-   and repeats issues); restore the latest backup of `data/interim` and `runs` into the
-   checkout the detector runs from.
-3. `laf live-watch --paid --publish ../laf-live --out runs/live --live-data data/interim/live`
-   (the `live` branch, not local state, decides what is already issued).
-4. Back on Windows: stop the Mac's detector first, `git -C ..\laf-live pull --ff-only origin
-   live` (the Mac's records), restore its newest state, then restart the task. Log both moves
-   in `ops/deploys.md`.
+## 7. Outages and restore
+The live arm has one host (ADR 0017 decision 14). An outage (power, network, a restart) is not
+bridged: the startup task restarts the detector at boot, issues missed meanwhile are listed as
+missed and never backfilled, and the 6-month clock does not pause. If the machine proves
+unreliable, decision 14's fallback applies (GitHub Actions with a private repository holding the
+records until release), as a deviation.
+
+If the service worktree or the disk is lost, restore on this machine or a replacement:
+1. Only one detector at a time: `Stop-ScheduledTask laf-detector` if it still runs (two
+   detectors could issue the same version twice before either publishes).
+2. On a replacement, clone the repository to `C:\Users\tjnew\git\llm-aftershock-forecast` and
+   add the worktree `..\laf-live` on `live` (`..\laf-live-dryrun` on `live-dryrun` before L).
+   Then `git worktree add --detach ..\laf-service <commit>` at the commit of the last line in
+   `ops\deploys.md`, and `uv sync --locked` there; after the live start Tyler copies `.env`
+   in.
+3. Tyler decrypts the newest backup with his private key (`gpg --output <a temporary
+   folder>\laf-backup.tar.gz --decrypt laf-backup-<weekday>.tar.gz.gpg`; not `>`, which
+   corrupts binary output in Windows PowerShell) and unpacks it with `tar -xzf <that file> -C
+   C:\Users\tjnew\git`: the service worktree's `data\interim`
+   and `runs`, and `laf-detector.ps1` and `laf-backup.ps1`. On a replacement he registers both
+   tasks again (sections 0.3 and 0.5) and puts his public key back (`gpg --armor --export`).
+4. `git -C ..\laf-live pull --ff-only origin live`: the detector reads issued seals and the
+   spend ledger from it (a stale copy undercounts spend and repeats issues), and the `live`
+   branch, not local state, decides what is already issued.
+5. `Start-ScheduledTask laf-detector`; one line in `ops\deploys.md` (the restore and the
+   backup it used).

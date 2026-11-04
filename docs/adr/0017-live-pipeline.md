@@ -31,8 +31,8 @@ retrospective arms (ADR 0013).
   - Log detection latency (OAF version time to poll) and forecast latency (poll to hash).
   - An item whose hash is not committed before its first window opens is **late**. Late,
     missed and failed items are excluded, listed publicly with reasons, and never backfilled.
-- **Rate limits:** one fetcher per IP (ComCat allows 500 requests per 5 minutes). The GitHub
-  runner's IP is separate from the Mac's.
+- **Rate limits:** one fetcher per IP (ComCat allows 500 requests per 5 minutes). The live host
+  (decision 14) also runs development fetches, so a fetch is paced beside the detector's polls.
 - **Budget:** the monthly guard (issue #4) gates every live call. The workflow's estimate per
   issue is stated before the freeze.
 - **Failure tickets** (later): a failed run opens a GitHub issue with no secrets and no outcome
