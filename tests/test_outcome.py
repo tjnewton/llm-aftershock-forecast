@@ -123,6 +123,44 @@ def test_counts_stay_sealed_before_the_gate(tmp_path, monkeypatch):
     assert t["observed_counts"]["count"].isna().all()
     assert t["observed_counts"]["sequence_id"].unique().tolist() == ["s1"]
     assert {"s1@1", "s2@1", "s3@9"} == set(t["issue_times"]["issue_id"])  # no L: s2 frozen
+    with pytest.raises(SystemExit, match="sealed"):  # written once: never with null counts
+        outcome.write(tmp_path, "OUT", t, [])
+    assert not (tmp_path / "processed/OUT").exists()
+
+
+def test_the_manifests_are_the_committed_ones(tmp_path, monkeypatch):
+    import os
+    import subprocess
+
+    for var in [v for v in os.environ if v.startswith("GIT_")]:  # e.g. set by pre-commit hooks
+        monkeypatch.delenv(var)
+
+    def git(*a):
+        subprocess.run(["git", "-C", str(tmp_path), *a], check=True, capture_output=True)
+
+    git("init", "-q")
+    git("config", "user.email", "t@example.invalid")
+    git("config", "user.name", "t")
+    git("config", "core.autocrlf", "false")  # as in the repository: committed bytes as on disk
+    monkeypatch.chdir(tmp_path)
+    (tmp_path / "results").mkdir()
+    (tmp_path / outcome.MANIFEST).write_text('{"manifest_sha256": "a"}\n')
+    git("add", ".")
+    git("commit", "-qm", "freeze")
+    with pytest.raises(SystemExit, match="committed at prereg-v2"):  # no tag yet
+        outcome.check_committed()
+    git("tag", "-a", "prereg-v2", "-m", "freeze")
+    outcome.check_committed()
+    (tmp_path / outcome.SUPPLEMENTARY_MANIFEST).write_text("{}\n")  # taken at L, not committed
+    with pytest.raises(SystemExit, match="committed at HEAD"):
+        outcome.check_committed()
+    git("add", ".")
+    git("commit", "-qm", "supplementary")
+    outcome.check_committed()
+    (tmp_path / outcome.MANIFEST).write_text('{"manifest_sha256": "b"}\n')  # rewritten later
+    git("commit", "-qam", "rewrite")
+    with pytest.raises(SystemExit, match="committed at prereg-v2"):
+        outcome.check_committed()
 
 
 def test_refusals(tmp_path):

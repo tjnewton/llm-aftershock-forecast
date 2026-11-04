@@ -50,6 +50,23 @@ def config(configs: list[Path], live: Path | None, out: Path) -> int:
     return len(seqs)
 
 
+def check_committed(
+    manifests: tuple[Path, ...] = (MANIFEST, SUPPLEMENTARY_MANIFEST),
+    revs: tuple[str, ...] = ("prereg-v2", "HEAD"),
+) -> None:
+    """Each manifest present is the one committed at its revision: the freeze manifest at the
+    tag prereg-v2, the supplementary one at HEAD (committed when taken, at L). A working copy
+    that differs, or is not committed there, is refused: the posted hashes govern."""
+    import subprocess
+
+    for path, rev in zip(manifests, revs, strict=True):
+        if not path.exists():
+            continue  # the freeze manifest's absence is refused by `_check_frozen`
+        shown = subprocess.run(["git", "show", f"{rev}:{path.as_posix()}"], capture_output=True)
+        if shown.returncode != 0 or shown.stdout != path.read_bytes():
+            raise SystemExit(f"{path}: differs from the copy committed at {rev}")
+
+
 def _check_frozen(proc: Path, snapshot: str, manifests: tuple[Path, ...]) -> Path | None:
     """The manifest that lists `snapshot`, once every file it lists for it still has its hash;
     None when none does. The first (the freeze manifest) must exist."""
@@ -166,6 +183,9 @@ def write(data_dir: Path, name: str, tables: dict[str, pd.DataFrame], lines: lis
     d = data_dir / "processed" / name
     if d.exists():
         raise SystemExit(f"{d} exists: the outcome snapshot is written once")
+    if tables["observed_counts"]["count"].isna().any():  # written once, so never sealed
+        raise SystemExit("outcomes are sealed (laf.splits): the outcome snapshot is written "
+                         "only once both gates are open")  # fmt: skip
     write_tables(tables, d)
     (d / "items.jsonl").write_text("".join(x + "\n" for x in lines), encoding="utf-8", newline="\n")
     return d

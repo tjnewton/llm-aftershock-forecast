@@ -24,6 +24,15 @@ def _batch_name(a) -> str:
     return f"confirmatory/{a.block}-{a.model}{chunk}{fwd}"
 
 
+def _after_the_freeze(block: str) -> None:
+    """Confirmatory batches are paid only after the tag prereg-v2 (prereg v2 section 11);
+    estimates and --dry-run work before it."""
+    from laf.splits import UNSEAL_TAG, _tagged
+
+    if block.startswith("confirmatory") and not _tagged(UNSEAL_TAG):
+        raise SystemExit(f"{block}: confirmatory batches run only after the tag {UNSEAL_TAG}")
+
+
 def main(argv: list[str] | None = None) -> None:
     p = argparse.ArgumentParser(prog="laf")
     p.add_argument("--data-dir", type=Path, default=Path("data"))
@@ -668,13 +677,14 @@ def main(argv: list[str] | None = None) -> None:
             return
         if not a.snapshot or not (a.effort or a.block.startswith("confirmatory")):
             raise SystemExit("run needs --snapshot and --effort (confirmatory: the study effort)")
+        from laf.freeze import keep_frozen
         from laf.pilot import load_items
 
         items = load_items(a.data_dir, a.snapshot, 3.0)
-        # the v2 items, written next to the registered ones and hashed into batch.json
-        (a.data_dir / "processed" / a.snapshot / "items_m3.jsonl").write_text(
-            "".join(i.model_dump_json() + "\n" for i in items), encoding="utf-8", newline="\n"
-        )
+        # the v2 items, next to the registered ones and hashed into batch.json: written once,
+        # then only checked (the freeze manifest hashes them)
+        keep_frozen(a.data_dir / "processed" / a.snapshot / "items_m3.jsonl",
+                    "".join(i.model_dump_json() + "\n" for i in items))  # fmt: skip
         if a.block == "pilot":  # one request per item and effort; output capped at 16k
             sel = O.pilot_items(items)
             reqs = [r for e in a.effort for r in O.expand(
@@ -707,6 +717,7 @@ def main(argv: list[str] | None = None) -> None:
             est = O.estimate_usd(reqs, Path(f"runs/openai/pilot-{a.model}"))
             print(f"{name}: {len(reqs)} requests, estimate ${est:.2f} (batch)")
         if not a.dry_run:
+            _after_the_freeze(a.block)
             print("batch", O.submit(O.client(), name, reqs, a.snapshot, estimate=est))
     elif a.cmd == "prospective":
         import json
@@ -1286,8 +1297,12 @@ def main(argv: list[str] | None = None) -> None:
         print(f"{config(a.configs, a.live, a.out)} sequences -> {a.out}")
     elif a.cmd == "outcome-snapshot":
         from laf.live_scores import live_start_ms
-        from laf.outcome import assemble, write
+        from laf.outcome import assemble, check_committed, write
+        from laf.splits import unsealed
 
+        if not unsealed():  # written once: an early run would freeze null counts
+            raise SystemExit("outcomes are sealed until both gates open (laf.splits)")
+        check_committed()
         start = live_start_ms(a.live) if a.live else None
         if a.live and start is None:
             raise SystemExit(f"{a.live}: no sealed live record")
@@ -1301,9 +1316,10 @@ def main(argv: list[str] | None = None) -> None:
 
         inputs = [p for snap in a.snapshot for p in write_frozen_inputs(a.data_dir, snap)]
         m = manifest(a.data_dir, a.snapshot, inputs)
-        out = a.out
-        out.write_text(json.dumps(m, indent=1, sort_keys=True) + "\n", encoding="utf-8",
-                       newline="\n")  # fmt: skip
+        out, body = a.out, json.dumps(m, indent=1, sort_keys=True) + "\n"
+        if out.exists() and out.read_text(encoding="utf-8") != body:  # posted with the tag
+            raise SystemExit(f"{out} exists with other hashes: never overwritten (move it first)")
+        out.write_text(body, encoding="utf-8", newline="\n")
         print(f"{len(m['files'])} artifacts; manifest SHA-256 {m['manifest_sha256']} -> {out}")
     elif a.cmd == "prompts-hash":
         import json
@@ -1343,6 +1359,7 @@ def main(argv: list[str] | None = None) -> None:
         elif a.cmd == "collect":
             print(f"{runner.collect(client(), a.name)} results -> runs/{a.name}/results.jsonl")
         else:
+            from laf.freeze import keep_frozen
             from laf.pilot import load_items
 
             floor = runner.BLOCKS[a.block].get("floor", 4.0)
@@ -1350,12 +1367,10 @@ def main(argv: list[str] | None = None) -> None:
             items_file, prompt_set = (
                 ("items.jsonl", "") if floor == 4.0 else ("items_m3.jsonl", "v2")
             )
-            if floor != 4.0:  # the v2 items, written next to the registered ones and hashed
-                (a.data_dir / "processed" / a.snapshot / items_file).write_text(
-                    "".join(i.model_dump_json() + "\n" for i in items),
-                    encoding="utf-8",
-                    newline="\n",
-                )
+            if floor != 4.0:  # the v2 items, next to the registered ones and hashed: written
+                # once, then only checked (the freeze manifest hashes them)
+                keep_frozen(a.data_dir / "processed" / a.snapshot / items_file,
+                            "".join(i.model_dump_json() + "\n" for i in items))  # fmt: skip
             send = items
             if a.block.startswith("confirmatory"):  # the model's own clean set only
                 import pandas as pd
@@ -1372,6 +1387,7 @@ def main(argv: list[str] | None = None) -> None:
             print(f"{name}: {len(reqs)} requests, estimate ${est:.2f} (batch), "
                   f"spent so far ${runner.spent_usd():.2f}")  # fmt: skip
             if not a.dry_run:
+                _after_the_freeze(a.block)
                 batch = runner.submit(
                     client(), name, reqs, a.snapshot, estimate=est,
                     items_file=items_file, prompt_set=prompt_set,

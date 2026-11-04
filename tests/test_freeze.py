@@ -38,7 +38,36 @@ def test_the_download_inventory_comes_from_the_data_directory(tmp_path):
     (proc / "sequences.parquet").write_bytes(b"x")
     (tmp_path / "manifest.jsonl").write_text('{"path": "raw/x"}\n')
     files = F.manifest(tmp_path, ["S"], [])["files"]
-    assert (tmp_path / "manifest.jsonl").as_posix() in files and "data/manifest.jsonl" not in files
+    assert files["data/manifest.jsonl"] == F.sha256(tmp_path / "manifest.jsonl")
+    # keys never carry the spelling of --data-dir (here absolute): the posted hash is portable
+    assert files["data/processed/S/sequences.parquet"] == F.sha256(proc / "sequences.parquet")
+    assert not [k for k in files if ":" in k or k.startswith("/")]
+
+
+def test_only_tracked_sources_and_the_pinned_files_enter(tmp_path, monkeypatch):
+    import os
+    import subprocess
+
+    m = F.manifest(Path("data"), ["20261021T2300Z"], [])
+    assert {"prompts/HASHES.json", "uv.lock"} <= set(m["files"])  # every v2 prompt renders v1
+    assert set(m["src_files"]) == set(F.tracked(F.SRC)) and "src/laf/freeze.py" in m["src_files"]
+    for var in [v for v in os.environ if v.startswith("GIT_")]:  # e.g. set by pre-commit hooks
+        monkeypatch.delenv(var)
+    (tmp_path / "src/laf/sub").mkdir(parents=True)
+    (tmp_path / "src/laf/a.py").write_text("x = 1\n")
+    (tmp_path / "src/laf/sub/b.py").write_text("y = 1\n")
+    subprocess.run(["git", "-C", str(tmp_path), "init", "-q"], check=True)
+    subprocess.run(["git", "-C", str(tmp_path), "add", "src/laf/a.py"], check=True)
+    (tmp_path / "src/laf/stray.py").write_text("z = 1\n")  # untracked: never hashed
+    monkeypatch.chdir(tmp_path)
+    assert F.tracked(F.SRC) == ["src/laf/a.py"]
+
+
+def test_nan_matches_nan_and_nothing_else():
+    nan = '{"p_m6": NaN}\n'
+    assert F.same_jsonl(nan, nan)
+    assert not F.same_jsonl(nan, '{"p_m6": 0.1}\n')
+    assert not F.same_jsonl('{"p_m6": Infinity}\n', '{"p_m6": -Infinity}\n')
 
 
 def test_the_freeze_refuses_an_incomplete_etas_refit(tmp_path):

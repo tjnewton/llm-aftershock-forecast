@@ -12,12 +12,15 @@ manifest for the public post.
 import hashlib
 import json
 import math
+import subprocess
 from pathlib import Path
 
 import pandas as pd
 
 PREREG = Path("docs/preregistration-v2.md")
-PROMPT_HASHES = Path("prompts/v2/HASHES.json")
+# the v2 templates, the registered ones every v2 prompt also renders (user_context.txt,
+# catalog_section.txt, catalog_none.txt), and the lock file that pins the library versions
+PINNED = (Path("prompts/v2/HASHES.json"), Path("prompts/HASHES.json"), Path("uv.lock"))
 CONFIGS = ("config/splits.toml", "config/sequences.toml", "config/sequences_e3.toml",
            "config/sequences_confirmatory.toml",
            "config/sequences_forward_excluded.toml")  # fmt: skip
@@ -27,6 +30,14 @@ SRC = Path("src/laf")
 
 def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def tracked(root: Path) -> list[str]:
+    """The files git tracks under `root` (POSIX paths, sorted): an untracked file never enters
+    the manifest, which must be rebuilt from the tagged commit alone."""
+    ls = subprocess.run(["git", "ls-files", "-z", "--", root.as_posix()], check=True,
+                        capture_output=True, text=True).stdout  # fmt: skip
+    return sorted(x for x in ls.split("\0") if x)
 
 
 def window_cells(tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
@@ -60,8 +71,8 @@ def _close(a, b) -> bool:
     """Equal JSON values, floats up to libm noise: macOS and Windows differ in the last bits of
     P(M>=6) (at most 4.4e-16 absolute on the frozen snapshots)."""
     if isinstance(a, float) or isinstance(b, float):
-        return all(isinstance(x, int | float) for x in (a, b)) and math.isclose(
-            a, b, rel_tol=1e-9, abs_tol=1e-12
+        return all(isinstance(x, int | float) for x in (a, b)) and (
+            (math.isnan(a) and math.isnan(b)) or math.isclose(a, b, rel_tol=1e-9, abs_tol=1e-12)
         )
     if isinstance(a, list) and isinstance(b, list):
         return len(a) == len(b) and all(map(_close, a, b))
@@ -76,6 +87,15 @@ def same_jsonl(old: str, new: str) -> bool:
     return len(a) == len(b) and all(
         _close(json.loads(x), json.loads(y)) for x, y in zip(a, b, strict=True)
     )
+
+
+def keep_frozen(path: Path, body: str) -> None:
+    """Write `body` if `path` is absent. A present file is never rewritten, only checked against
+    `body` (a fresh rebuild), so the manifest and the batch records hash the committed bytes."""
+    if not path.exists():
+        path.write_text(body, encoding="utf-8", newline="\n")
+    elif not same_jsonl(path.read_text(encoding="utf-8"), body):
+        raise SystemExit(f"{path} differs from a fresh rebuild: inputs changed")
 
 
 def write_frozen_inputs(data_dir: Path, snapshot: str) -> list[Path]:
@@ -100,28 +120,29 @@ def write_frozen_inputs(data_dir: Path, snapshot: str) -> list[Path]:
         proc / "baselines_m3.jsonl": _jsonl(baseline_rows(tables, items)),
     }
     for path, body in bodies.items():
-        if not path.exists():
-            path.write_text(body, encoding="utf-8", newline="\n")
-        elif not same_jsonl(path.read_text(encoding="utf-8"), body):
-            raise SystemExit(f"{path} differs from a fresh rebuild: inputs changed")
+        keep_frozen(path, body)
     return list(bodies)
 
 
 def manifest(data_dir: Path, snapshots: list[str], inputs: list[Path]) -> dict:
     """{label: SHA-256} for every artifact of prereg v2 section 11, and their combined hash:
     the candidate snapshot and the forward-excluded one."""
-    downloads = data_dir / "manifest.jsonl"  # the download inventory of this data directory
+
+    def data(p: Path) -> str:  # "data/...", however --data-dir is spelled (absolute or not)
+        return "data/" + p.relative_to(data_dir).as_posix()
+
     # keys in POSIX form, so the manifest is the same on every operating system
-    files = {p.as_posix(): p for p in (PREREG, PROMPT_HASHES, downloads)}
+    files = {p.as_posix(): p for p in (PREREG, *PINNED)}
+    files["data/manifest.jsonl"] = data_dir / "manifest.jsonl"  # this directory's inventory
     files |= {c: Path(c) for c in CONFIGS}
     if SUPPLEMENTARY_CONFIG.exists():  # written at L, after the freeze
         files[SUPPLEMENTARY_CONFIG.as_posix()] = SUPPLEMENTARY_CONFIG
     for snapshot in snapshots:
         proc = data_dir / "processed" / snapshot
-        files |= {p.as_posix(): p for p in sorted(proc.glob("*.parquet"))}
-    files |= {p.as_posix(): p for p in inputs}
+        files |= {data(p): p for p in sorted(proc.glob("*.parquet"))}
+    files |= {data(p): p for p in inputs}
     out = {k: sha256(p) for k, p in sorted(files.items())}
-    tree = {p.as_posix(): sha256(p) for p in sorted(SRC.rglob("*.py"))}
+    tree = {k: sha256(Path(k)) for k in tracked(SRC)}
     out["src/laf (SHA-256 of its sorted file hashes)"] = hashlib.sha256(
         json.dumps(tree, sort_keys=True).encode("utf-8")
     ).hexdigest()
