@@ -167,7 +167,8 @@ If the service worktree or the disk is lost, restore on this machine or a replac
    corrupts binary output in Windows PowerShell) and unpacks it with `tar -xzf <that file> -C
    C:\Users\tjnew\git`: the service worktree's `data\interim`
    and `runs`, and `laf-detector.ps1` and `laf-backup.ps1`. On a replacement he registers both
-   tasks again (sections 0.3 and 0.5) and puts his public key back (`gpg --armor --export`).
+   tasks and the Windows Update setting again with `ops\register-tasks.ps1` (admin PowerShell;
+   sections 0.3 and 0.5) and puts his public key back (`gpg --armor --export`).
 4. `git -C ..\laf-live pull --ff-only origin live`: the detector reads issued seals and the
    spend ledger from it (a stale copy undercounts spend and repeats issues), and the `live`
    branch, not local state, decides what is already issued.
