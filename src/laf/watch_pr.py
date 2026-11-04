@@ -15,8 +15,19 @@ def _gh(*args: str) -> str:
     return subprocess.run(["gh", *args], check=True, capture_output=True, text=True).stdout
 
 
-def _api(path: str):
-    return json.loads(_gh("api", f"repos/:owner/:repo/{path}"))
+def _api(path: str, repo: str = ":owner/:repo"):
+    return json.loads(_gh("api", f"repos/{repo}/{path}"))
+
+
+def _all(path: str) -> list:
+    """Every page of a list endpoint, 100 at a time, so no finding or receipt is missed."""
+    out, page = [], 1
+    while True:
+        got = _api(f"{path}?per_page=100&page={page}")
+        out += got
+        if len(got) < 100:
+            return out
+        page += 1
 
 
 CODEX_ID = 199175422  # chatgpt-codex-connector[bot]: the only trusted reviewer
@@ -42,16 +53,21 @@ def verdict(head: str, pushed: str, reactions: list, comments: list, reviews: li
     return "approved" if (up or receipt) and not pending else "waiting"
 
 
-def _checks(pr: int) -> list:
-    # `gh pr checks` exits non-zero while checks fail or wait, and with no checks at all
+def _checks(pr: int) -> list | None:
+    """The checks' buckets; [] when the pull request has none; None when the lookup failed, so
+    nothing is approved on an unknown CI status (`gh pr checks` also exits non-zero while
+    checks fail or wait, with their JSON on stdout)."""
     r = subprocess.run(["gh", "pr", "checks", str(pr), "--json", "bucket"],
                        capture_output=True, text=True)  # fmt: skip
-    return json.loads(r.stdout) if r.stdout.strip().startswith("[") else []
+    if r.stdout.strip().startswith("["):
+        return json.loads(r.stdout)
+    return [] if "no checks reported" in r.stderr else None
 
 
-def _pushed(branch: str, head: str) -> str | None:
-    """When `head` became the tip of `branch` (its push or the branch's creation), or None."""
-    acts = _api(f"activity?ref={branch}&per_page=100")
+def _pushed(repo: str, branch: str, head: str) -> str | None:
+    """When `head` became the tip of `branch` in `repo`, the head's own repository (a fork's
+    pushes are recorded there): its push or the branch's creation, or None."""
+    acts = _api(f"activity?ref={branch}&per_page=100", repo)
     times = [a["timestamp"] for a in acts if a.get("after") == head]
     return max(times) if times else None
 
@@ -62,12 +78,15 @@ def step(pr: int) -> str | None:
     if p["state"] != "open":
         return f"PR {pr}: {'MERGED' if p.get('merged') else p['state']}"
     head = p["head"]["sha"]
-    pushed = _pushed(p["head"]["ref"], head)
+    repo = (p["head"].get("repo") or {}).get("full_name")
+    pushed = _pushed(repo, p["head"]["ref"], head) if repo else None
     if pushed is None:  # no record of the push yet: approval cannot be dated
         return None
-    v = verdict(head, pushed, _api(f"issues/{pr}/reactions?per_page=100"),
-                _api(f"issues/{pr}/comments?per_page=100"),
-                _api(f"pulls/{pr}/comments?per_page=100"), _checks(pr))  # fmt: skip
+    checks = _checks(pr)
+    if checks is None:  # the CI status is unknown: never approve on it
+        return None
+    v = verdict(head, pushed, _all(f"issues/{pr}/reactions"), _all(f"issues/{pr}/comments"),
+                _all(f"pulls/{pr}/comments"), checks)  # fmt: skip
     if v == "findings":
         return f"PR {pr}: Codex findings on {head[:10]}"
     if v == "failing":
