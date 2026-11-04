@@ -35,8 +35,10 @@ Done before the freeze, because after it every code fix is a deviation.
    folders (the detector's state and the full live records, private until release) goes off
    the machine, with a key only Tyler holds. Without it, a lost disk turns unreleased items
    into failures.
-6. Parity: `laf freeze-manifest ... --out <a scratch file>` gives the same `manifest_sha256` on
-   both machines (Mac 2026-11-03 at 1edc91ef: 9de0daa4...0e6e0e).
+6. Parity: `laf freeze-manifest` checks the committed items and baselines against a fresh
+   rebuild, floats up to last-bit libm noise (macOS and Windows differ in P(M>=6) by at most
+   4.4e-16), and hashes the committed bytes. Done 2026-11-04 (T18): Windows reproduces the
+   manifest computed at 1edc91ef on 2026-11-03, 9de0daa4...0e6e0e.
 
 ## 1. Freeze (Tyler decides)
 1. Every pull request merged; `uv run pytest` green on `post-submission`.
