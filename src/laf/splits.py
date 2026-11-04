@@ -45,18 +45,39 @@ def is_development(sequence_id: str) -> bool:
     return sequence_id in development_ids()
 
 
+def _git(*args: str) -> subprocess.CompletedProcess:
+    return subprocess.run(["git", *args], capture_output=True, text=True)
+
+
 def _tagged(tag: str) -> bool:
-    tags = subprocess.run(["git", "tag", "--list", tag], capture_output=True, text=True)
-    return bool(tags.stdout.strip())
+    """The gate tag exists. It must be annotated (a lightweight tag is refused, never taken
+    for a freeze): the freeze-tags ruleset protects it and its tagger time is on record."""
+    kind = _git("cat-file", "-t", f"refs/tags/{tag}")
+    if kind.returncode != 0:
+        return False
+    if kind.stdout.strip() != "tag":
+        raise SystemExit(f"tag {tag} is lightweight: the gates need an annotated tag (git tag -a)")
+    return True
 
 
 def stop_ms() -> int | None:
     """S (epoch ms) as recorded at the tag `prereg-v2-stop`, or None before that tag. Read from
-    the tagged commit, so a later edit of the file changes nothing."""
-    shown = subprocess.run(
-        ["git", "show", f"refs/tags/{STOP_TAG}:{STOP_FILE}"], capture_output=True, text=True
-    )
-    return int(tomllib.loads(shown.stdout)["s_ms"]) if shown.returncode == 0 else None
+    the tagged commit, so a later edit of the file changes nothing. Refused unless that tag
+    descends from `prereg-v2` and S is epoch ms after the freeze commit, within 400 days of it
+    (S <= L + 182 days): a value in seconds would otherwise open the second gate at once."""
+    shown = _git("show", f"refs/tags/{STOP_TAG}:{STOP_FILE}")
+    if shown.returncode != 0:
+        return None
+    if not (_tagged(STOP_TAG) and _tagged(UNSEAL_TAG)):
+        raise SystemExit(f"tag {STOP_TAG} without tag {UNSEAL_TAG}")
+    if _git("merge-base", "--is-ancestor", UNSEAL_TAG, STOP_TAG).returncode != 0:
+        raise SystemExit(f"tag {STOP_TAG} does not descend from tag {UNSEAL_TAG}")
+    s = tomllib.loads(shown.stdout)["s_ms"]
+    frozen_ms = int(_git("log", "-1", "--format=%ct", f"{UNSEAL_TAG}^{{commit}}").stdout) * 1000
+    if type(s) is not int or not frozen_ms < s < frozen_ms + 400 * 86_400_000:
+        raise SystemExit(f"{STOP_FILE} at tag {STOP_TAG}: s_ms = {s!r} is not epoch ms within "
+                         f"400 days after the {UNSEAL_TAG} commit")  # fmt: skip
+    return s
 
 
 def unsealed(now_ms: float | None = None) -> bool:
