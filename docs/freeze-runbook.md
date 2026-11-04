@@ -162,9 +162,10 @@ If the service worktree or the disk is lost, restore on this machine or a replac
    Then `git worktree add --detach ..\laf-service <commit>` at the commit of the last line in
    `ops\deploys.md`, and `uv sync --locked` there; after the live start Tyler copies `.env`
    in.
-3. Tyler decrypts the newest backup with his private key (`gpg --decrypt
-   laf-backup-<weekday>.tar.gz.gpg > <a temporary folder>\laf-backup.tar.gz`) and unpacks it
-   with `tar -xzf <that file> -C C:\Users\tjnew\git`: the service worktree's `data\interim`
+3. Tyler decrypts the newest backup with his private key (`gpg --output <a temporary
+   folder>\laf-backup.tar.gz --decrypt laf-backup-<weekday>.tar.gz.gpg`; not `>`, which
+   corrupts binary output in Windows PowerShell) and unpacks it with `tar -xzf <that file> -C
+   C:\Users\tjnew\git`: the service worktree's `data\interim`
    and `runs`, and `laf-detector.ps1` and `laf-backup.ps1`. On a replacement he registers both
    tasks again (sections 0.3 and 0.5) and puts his public key back (`gpg --armor --export`).
 4. `git -C ..\laf-live pull --ff-only origin live`: the detector reads issued seals and the
