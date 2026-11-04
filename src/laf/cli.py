@@ -832,6 +832,13 @@ def main(argv: list[str] | None = None) -> None:
             path = Path("results") / f"confirmatory_{k}_{a.snapshot}{tag}.csv"
             df.to_csv(path, index=False, lineterminator="\n")
             print(f"-> {path}")
+        from laf.descriptive import descriptive  # M4, M3 and P(M>=6): no test (prereg v2 s2)
+
+        path = Path("results") / f"confirmatory_descriptive_{a.snapshot}{tag}.csv"
+        descriptive(samples, tables["sequences"], elapsed, widen).to_csv(
+            path, index=False, lineterminator="\n"
+        )
+        print(f"-> {path}")
     elif a.cmd == "confirmatory-size":
         import pandas as pd
 
@@ -841,9 +848,13 @@ def main(argv: list[str] | None = None) -> None:
         runs = sorted(d for d in a.runs.iterdir() if (d / "results.jsonl").exists())
         cells = d2_cell_differences(a.data_dir / "processed" / a.snapshot, runs)
         rows = []
-        for label in ("gpt-5.1-2025-11-13 medium v2A", "claude-opus-5-5 high v2A"):
+        # A (89) and B (33) as registered, and S1 (Opus 4.6: its 23 clean M>=5 sequences)
+        sizes = (("gpt-5.1-2025-11-13 medium v2A", (33, 89)),
+                 ("claude-opus-5-5 high v2A", (33, 89)),
+                 ("claude-opus-4-6 medium v2A", (23,)))  # fmt: skip
+        for label, ns in sizes:
             e = sequence_effects(cells[cells["model"] == label]).to_numpy()
-            for n in (33, 89):
+            for n in ns:
                 for alpha in (0.025, 0.05):
                     for method in ("student", "percentile"):
                         rate = size(e, n, alpha=alpha, sims=a.sims, method=method)
@@ -964,6 +975,15 @@ def main(argv: list[str] | None = None) -> None:
             path = Path("results") / f"confirmatory_dryrun_{k}_d2_{a.snapshot}.csv"
             df.to_csv(path, index=False, lineterminator="\n")
             print(f"-> {path} (development data)")
+        from laf.confirmatory import CLEAN_FROM
+        from laf.descriptive import descriptive
+
+        every = {m: set(samples["sequence_id"]) for m in set(samples["model"]) & set(CLEAN_FROM)}
+        path = Path("results") / f"confirmatory_dryrun_descriptive_d2_{a.snapshot}.csv"
+        descriptive(samples, tables["sequences"], elapsed, sets=every).to_csv(
+            path, index=False, lineterminator="\n"
+        )
+        print(f"-> {path} (development data)")
     elif a.cmd == "power":
         import pandas as pd
 
