@@ -22,7 +22,7 @@ The hit count is what the index reported. "Nearest" lists the closest relevant r
 | A8 | arXiv API | LLM AND (proper scoring \| interval score \| Brier) AND forecast* | 21 | How proper scoring rules shape LLM forecasting 2608.28482; FinBench 2607.16229; 2607.17765 |
 | A9 | arXiv API | LLM AND elicit* AND prior(s) AND (statistical \| Bayesian) | 27 | AutoElicit 2411.17284; LLM-Prior 2508.03766; eliciting LLM priors 2406.01860; quantitative knowledge retrieval from LLMs 2402.07770 |
 | A10 | arXiv API | LLM AND "probabilistic forecast*" AND calibrat* | 0 | phrase+wildcard problem (see A19) |
-| A11 | arXiv API | aftershock AND forecast* AND (deep learning \| neural \| ML) | 10 | QuakeGen 2607.24109; 2608.18791; EarthquakeNPP 2410.08226; 2603.03079; Dascher-Cousineau NPP 2301.09948 |
+| A11 | arXiv API | aftershock AND forecast* AND (deep learning \| neural \| ML) | 10 | QuakeGen 2607.24109; 2608.18791; EarthquakeNPP 2410.08226; 2603.03079; Stockman NPP 2301.09948 (10.1029/2023EF003777) |
 | A12 | arXiv API | "aftershock forecast*" | 3 | QuakeGen 2607.24109 |
 | A13 | arXiv API | all:aftershock AND (LLM \| language model \| ChatGPT \| GPT) | 1 | SeisLM 2410.15765 (waveforms; not forecasting) |
 | A14 | arXiv API | all:earthquake AND all:forecasting AND (LLM \| ChatGPT) | 2 | QuakeGPT; LLM fatality estimation 2312.03755 |
