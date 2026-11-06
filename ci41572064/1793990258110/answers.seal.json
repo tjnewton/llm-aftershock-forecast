@@ -1,0 +1,18 @@
+{
+ "items": {
+  "ci41572064@live-matched": {
+   "first_window_ms": 1793991600000,
+   "on_time": true
+  },
+  "ci41572064@live-strict": {
+   "first_window_ms": 1793995200000,
+   "on_time": true
+  }
+ },
+ "manifest": {
+  "calls.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "items.jsonl": "8a9add9d03ca877fc9244be66069919e53a074f60a397751b9d4a137c5405858"
+ },
+ "record_sha256": "fc666b660c821465d337b794f0a69f6c796e98785684992305f03696dccaf389",
+ "sealed_ms": 1793990557078
+}
