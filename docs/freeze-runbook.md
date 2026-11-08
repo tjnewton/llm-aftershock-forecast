@@ -31,17 +31,20 @@ Done before the freeze, because after it every code fix is a deviation.
    line in `ops\deploys.md` (UTC time, commit, reason). After the tag, a deploy that changes
    `src\laf` is also a deviation (section 12 of the prereg). The detector's commits run the
    repository's git hooks, which call the repo root's `.venv`: keep it installed.
-5. Backups: every night an encrypted copy of the service worktree's `data\interim` and `runs`
-   folders (the detector's state and the full live records, private until release) goes off
-   the machine, with a key only Tyler holds. Without it, a lost disk turns unreleased items
-   into failures. The daily task `laf-backup` (Tyler registers it, at 23:30) runs
+5. Backups: every night an encrypted copy of the service worktree's `data\interim` and the
+   detector's `--out` folder (its state and the full live records, private until release)
+   goes off the machine, with a key only Tyler holds. Without it, a lost disk turns
+   unreleased items into failures. The rest of the service worktree's `runs` is tracked in
+   git and is not packed. The daily task `laf-backup` (Tyler registers it, at 23:30) runs
    `C:\Users\tjnew\git\laf-backup.ps1`: it waits for the end of a poll (`state.json` is written
    last), packs both folders and the two task scripts with `tar`, encrypts the archive with
    Git's `gpg` to Tyler's public key `C:\Users\tjnew\git\laf-backup.pub.asc` (he keeps the
    private key off this machine) and writes `OneDrive\laf-backup\laf-backup-<weekday>.tar.gz.gpg`:
-   seven nights, older copies in OneDrive's version history. Each night adds one line (ok with
-   the size, or FAILED with the error) to `C:\Users\tjnew\git\laf-backup.log`. Restore:
-   section 7.
+   seven nights, older copies in OneDrive's version history. Each night adds one line to
+   `C:\Users\tjnew\git\laf-backup.log`: ok with the size and OneDrive's use (current files
+   only, of the 5 GB free plan), or FAILED with the error. A WARN line follows when OneDrive
+   is over 80% full. Keep OneDrive's backup of the Desktop, Documents and Pictures folders
+   off: it filled the quota once (2026-11-04). Restore: section 7.
 6. Parity: `laf freeze-manifest` checks the committed items and baselines against a fresh
    rebuild, floats up to last-bit libm noise (macOS and Windows differ in P(M>=6) by at most
    4.4e-16), and hashes the committed bytes. Done 2026-11-04 (T18): Windows reproduces the
@@ -201,8 +204,9 @@ If the service worktree or the disk is lost, restore on this machine or a replac
 3. Tyler decrypts the newest backup with his private key (`gpg --output <a temporary
    folder>\laf-backup.tar.gz --decrypt laf-backup-<weekday>.tar.gz.gpg`; not `>`, which
    corrupts binary output in Windows PowerShell) and unpacks it with `tar -xzf <that file> -C
-   C:\Users\tjnew\git`: the service worktree's `data\interim`
-   and `runs`, and `laf-detector.ps1` and `laf-backup.ps1`. On a replacement he registers both
+   C:\Users\tjnew\git`: the service worktree's `data\interim`, the detector's `--out` folder
+   (`laf-service\runs\live`; before L, `laf-live-dryrun\runs\live-dryrun`), and
+   `laf-detector.ps1` and `laf-backup.ps1`. On a replacement he registers both
    tasks and the Windows Update setting again with `ops\register-tasks.ps1` (admin PowerShell;
    sections 0.3 and 0.5) and puts his public key back (`gpg --armor --export`).
 4. `git -C ..\laf-live pull --ff-only origin live`: the detector reads issued seals and the
