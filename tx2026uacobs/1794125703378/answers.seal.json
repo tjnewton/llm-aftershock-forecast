@@ -1,0 +1,18 @@
+{
+ "items": {
+  "tx2026uacobs@live-matched": {
+   "first_window_ms": 1794128400000,
+   "on_time": true
+  },
+  "tx2026uacobs@live-strict": {
+   "first_window_ms": 1794128400000,
+   "on_time": true
+  }
+ },
+ "manifest": {
+  "calls.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "items.jsonl": "07df5502aad09afe89d0829dea217a7086c622a8333d415451d6dcf679a41804"
+ },
+ "record_sha256": "28e0487915eb0e8342de0aba15b6d1f4ff0b8299db0e0cae997795498c9de53f",
+ "sealed_ms": 1794126160069
+}
