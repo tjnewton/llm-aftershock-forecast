@@ -1,0 +1,18 @@
+{
+ "items": {
+  "uw714136981@live-matched": {
+   "first_window_ms": 1794297600000,
+   "on_time": false
+  },
+  "uw714136981@live-strict": {
+   "first_window_ms": 1794301200000,
+   "on_time": true
+  }
+ },
+ "manifest": {
+  "calls.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "items.jsonl": "cf0a59b9d55681ccd293b56357731eeb6b6bb39da82676971377ecc3e6552129"
+ },
+ "record_sha256": "352f80059f1c1882d9a3e56042402bd9a6e51b3eacbf2b205bbdbbb887415383",
+ "sealed_ms": 1794298226229
+}
