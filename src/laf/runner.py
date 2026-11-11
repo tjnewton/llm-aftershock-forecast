@@ -101,6 +101,18 @@ BLOCKS: dict[str, dict] = {
         "effort": "study",
         "floor": 3.0,
     },
+    # The development rerun with prompt v3 (docs/proposals/prereg-v2-revision.md section 3):
+    # each model at its study settings on the development sequences clean for it
+    # (`d2.rerun_items`), whatever their hackathon role
+    "d3": {
+        "roles": ("test-post", "test-pre"),
+        "arms": ("direct",),
+        "infos": ("I1",),
+        "paras": ("v3A",),
+        "k": 3,
+        "effort": "study",
+        "floor": 3.0,
+    },
     # confirmatory runs after the prereg-v2 tag (prereg v2 sections 3 and 8): each model at its
     # study settings on its own clean set (`confirmatory.batch_items`); v2B for the A and B
     # models only

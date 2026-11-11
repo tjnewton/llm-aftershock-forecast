@@ -17,6 +17,8 @@ def snapshot_ms(snapshot: str) -> int:
 
 def _batch_name(a) -> str:
     """runs/<name> of a batch: confirmatory/<block>-<model>[-K-of-N][-forward]."""
+    if a.block == "d3":  # runs/d3/, beside runs/d2 and outside the registered runs/*/ glob
+        return f"d3/d3-{a.model}"
     if not a.block.startswith("confirmatory"):
         return f"{a.block}-{a.model}"
     chunk = f"-{a.chunk.replace('/', '-of-')}" if getattr(a, "chunk", None) else ""
@@ -102,6 +104,7 @@ def main(argv: list[str] | None = None) -> None:
             "d2",
             "d2-medium",
             "d2-46",
+            "d3",
             "confirmatory",
             "confirmatory-sens",
             "confirmatory-v2b",
@@ -212,7 +215,7 @@ def main(argv: list[str] | None = None) -> None:
     oa.add_argument("--snapshot")
     oa.add_argument(
         "--block", default="d2",
-        choices=("pilot", "d2", "confirmatory", "confirmatory-sens", "confirmatory-v2b",
+        choices=("pilot", "d2", "d3", "confirmatory", "confirmatory-sens", "confirmatory-v2b",
                  "confirmatory-unbuffered"),
     )  # fmt: skip
     oa.add_argument("--name", dest="run_name", help="run name under runs/ (confirmatory blocks)")
@@ -687,8 +690,9 @@ def main(argv: list[str] | None = None) -> None:
             else:
                 print(f"{O.collect(c, a.name)} results -> runs/{a.name}/results.jsonl")
             return
-        if not a.snapshot or not (a.effort or a.block.startswith("confirmatory")):
-            raise SystemExit("run needs --snapshot and --effort (confirmatory: the study effort)")
+        study = a.block == "d3" or a.block.startswith("confirmatory")
+        if not a.snapshot or not (a.effort or study):
+            raise SystemExit("run needs --snapshot and --effort (d3, confirmatory: study effort)")
         from laf.freeze import keep_frozen
         from laf.pilot import load_items
 
@@ -721,6 +725,20 @@ def main(argv: list[str] | None = None) -> None:
                 name, reqs = retry_plan(name, reqs)
             est = O.estimate_usd(reqs, Path(f"runs/openai/pilot-{a.model}"))
             print(f"{name}: {len(reqs)} requests, estimate ${est:.2f} (batch)")
+        elif a.block == "d3":  # the development rerun with prompt v3, at the study effort
+            import pandas as pd
+
+            from laf.confirmatory import study_effort
+            from laf.d2 import rerun_items
+
+            seqs = pd.read_parquet(a.data_dir / "processed" / a.snapshot / "sequences.parquet")
+            reqs = O.expand(
+                rerun_items(items, seqs, a.model), a.model, study_effort(a.model),
+                paraphrase="v3A", roles=("test-post", "test-pre"), block="d3",
+            )  # fmt: skip
+            name = _batch_name(a)
+            est = O.estimate_usd(reqs, Path(f"runs/openai/pilot-{a.model}"))
+            print(f"{name}: {len(reqs)} requests, estimate ${est:.2f} (batch)")
         else:
             if len(a.effort) != 1:
                 raise SystemExit("the d2 block takes one --effort")
@@ -730,7 +748,11 @@ def main(argv: list[str] | None = None) -> None:
             print(f"{name}: {len(reqs)} requests, estimate ${est:.2f} (batch)")
         if not a.dry_run:
             _after_the_freeze(a.block)
-            print("batch", O.submit(O.client(), name, reqs, a.snapshot, estimate=est))
+            prompt_set = "v3" if a.block == "d3" else "v2"
+            batch = O.submit(
+                O.client(), name, reqs, a.snapshot, estimate=est, prompt_set=prompt_set
+            )
+            print("batch", batch)
     elif a.cmd == "prospective":
         import json
 
@@ -1402,8 +1424,10 @@ def main(argv: list[str] | None = None) -> None:
 
             floor = runner.BLOCKS[a.block].get("floor", 4.0)
             items = load_items(a.data_dir, a.snapshot, floor)
-            items_file, prompt_set = (
-                ("items.jsonl", "") if floor == 4.0 else ("items_m3.jsonl", "v2")
+            items_file, prompt_set = (  # the prompt set is the folder of the block's prompts
+                ("items.jsonl", "")
+                if floor == 4.0
+                else ("items_m3.jsonl", runner.BLOCKS[a.block]["paras"][0][:2])
             )
             if floor != 4.0:  # the v2 items, next to the registered ones and hashed: written
                 # once, then only checked (the freeze manifest hashes them)
@@ -1417,6 +1441,13 @@ def main(argv: list[str] | None = None) -> None:
 
                 seqs = pd.read_parquet(a.data_dir / "processed" / a.snapshot / "sequences.parquet")
                 send = batch_items(items, seqs, a.model, a.block, a.forward_excluded, a.chunk)
+            elif a.block == "d3":  # the development sequences clean for the model
+                import pandas as pd
+
+                from laf.d2 import rerun_items
+
+                seqs = pd.read_parquet(a.data_dir / "processed" / a.snapshot / "sequences.parquet")
+                send = rerun_items(items, seqs, a.model)
             reqs = runner.expand(send, a.block, a.model)
             name = a.name or _batch_name(a)
             if a.retry:  # the latest attempt's transport errors, resent unchanged
