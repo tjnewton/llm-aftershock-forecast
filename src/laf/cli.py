@@ -107,7 +107,7 @@ def main(argv: list[str] | None = None) -> None:
             "d3",
             "confirmatory",
             "confirmatory-sens",
-            "confirmatory-v2b",
+            "confirmatory-v3b",
         ),
     )
     rn.add_argument("--model", required=True)
@@ -219,7 +219,7 @@ def main(argv: list[str] | None = None) -> None:
     oa.add_argument("--snapshot")
     oa.add_argument(
         "--block", default="d2",
-        choices=("pilot", "d2", "d3", "confirmatory", "confirmatory-sens", "confirmatory-v2b",
+        choices=("pilot", "d2", "d3", "confirmatory", "confirmatory-sens", "confirmatory-v3b",
                  "confirmatory-unbuffered"),
     )  # fmt: skip
     oa.add_argument("--name", dest="run_name", help="run name under runs/ (confirmatory blocks)")
@@ -283,7 +283,7 @@ def main(argv: list[str] | None = None) -> None:
         help="ADR 0018 tests on development D2 answers (no API; a rehearsal, not a result)",
     )
     cf.add_argument("--snapshot", required=True)
-    cf.add_argument("--runs", type=Path, default=Path("runs/d2"))
+    cf.add_argument("--runs", type=Path, default=Path("runs/d3"))
     cf.add_argument("--live", type=Path, help="a `laf live-rehearsal` folder: the live report")
     cf.add_argument("--assume-settled", action="store_true",
                     help="rehearsal only: score unsettled live windows")  # fmt: skip
@@ -727,7 +727,7 @@ def main(argv: list[str] | None = None) -> None:
 
             seqs = pd.read_parquet(a.data_dir / "processed" / a.snapshot / "sequences.parquet")
             send = batch_items(items, seqs, a.model, a.block, a.forward_excluded, a.chunk)
-            variant = "v2B" if a.block == "confirmatory-v2b" else "v2A"
+            variant = "v3B" if a.block == "confirmatory-v3b" else "v3A"
             effort = study_effort(a.model)
             reqs = O.expand(send, a.model, effort, paraphrase=variant, block=a.block)
             name = a.run_name or _batch_name(a)
@@ -760,7 +760,7 @@ def main(argv: list[str] | None = None) -> None:
             print(f"{name}: {len(reqs)} requests, estimate ${est:.2f} (batch)")
         if not a.dry_run:
             _after_the_freeze(a.block)
-            prompt_set = "v3" if a.block == "d3" else "v2"
+            prompt_set = "v2" if a.block in ("pilot", "d2") else "v3"
             batch = O.submit(
                 O.client(), name, reqs, a.snapshot, estimate=est, prompt_set=prompt_set
             )
@@ -803,13 +803,18 @@ def main(argv: list[str] | None = None) -> None:
         tables = load_tables(proc)
         require_outcome_table(tables["observed_counts"])  # first: refuses while sealed
         runs = sorted(d for d in a.runs.iterdir() if (d / "results.jsonl").exists())
-        samples, _ = analyze(proc, runs)
+        from laf.confirmatory import PRIMARY_SCORE, informative
+
+        samples, _ = analyze(proc, runs, score=PRIMARY_SCORE)
         # the frozen items (`laf outcome-snapshot`), not ones rebuilt from the tables
-        elapsed = {k: i.elapsed_days for k, i in A.load_items(proc).items()}
+        frozen = A.load_items(proc)
+        elapsed = {k: i.elapsed_days for k, i in frozen.items()}
+        keep = informative(tables, frozen)
         widen = {PRIMARY[0]: 0.0} if a.test_a_all else None
         cells = confirmatory_cells(samples, tables["sequences"], elapsed, widen)
         descriptive = tuple(set(cells["model"]) - set(PRIMARY) - set(SECONDARY))
-        t = report(cells, PRIMARY, descriptive=descriptive)
+        # B and S1 are estimates with intervals, without a verdict (prereg v2 section 2)
+        t = report(cells, PRIMARY, descriptive=descriptive, unlabeled=SECONDARY)
         hier = {m: hierarchical(g) for m, g in cells.groupby("model")}
         t = t.join(pd.DataFrame.from_dict(hier, orient="index"), on="model")
         tag = "_test_a_all" if a.test_a_all else ""
@@ -820,14 +825,14 @@ def main(argv: list[str] | None = None) -> None:
         from laf.confirmatory import secondary
 
         tested = PRIMARY + SECONDARY
-        sec = secondary(samples, tables, elapsed, cells, tested, min_mag=widen)
+        sec = secondary(samples, tables, elapsed, cells, tested, min_mag=widen, keep=keep)
         path = Path("results") / f"confirmatory_secondary_{a.snapshot}{tag}.csv"
         sec.to_csv(path, index=False, lineterminator="\n")
         print(sec.round(3).to_string(index=False))
         print(f"-> {path}")
         from laf.sensitivity import sensitivity
 
-        s2d, _ = analyze(proc, runs, settle="settled_2d")
+        s2d, _ = analyze(proc, runs, settle="settled_2d", score=PRIMARY_SCORE)
         sens = sensitivity(samples, tables, elapsed, tested, samples_2d=s2d)
         path = Path("results") / f"confirmatory_sensitivity_{a.snapshot}.csv"
         sens.to_csv(path, index=False, lineterminator="\n")
@@ -857,11 +862,8 @@ def main(argv: list[str] | None = None) -> None:
             start = live_start_ms(a.live)
             if start is None:
                 raise SystemExit(f"{a.live}: no start.json (L, written by the paid detector)")
-            from laf.confirmatory import informative
-
             ls = live_samples(a.live, tables)
-            lv = live_report(samples, ls, tables["sequences"], elapsed, start, stop_ms(),
-                             informative(tables))  # fmt: skip
+            lv = live_report(samples, ls, tables["sequences"], elapsed, start, stop_ms(), keep)
             bp = b_parts(samples, ls, tables["sequences"], elapsed, start, stop_ms())
             live_inputs = (ls, bp, timeliness(a.live, tables))
             path = Path("results") / f"confirmatory_live_{a.snapshot}.csv"
@@ -961,68 +963,68 @@ def main(argv: list[str] | None = None) -> None:
     elif a.cmd == "confirmatory-dryrun":
         import pandas as pd
 
-        from laf.confirmatory import report
-        from laf.power import d2_cell_differences
-
-        runs = sorted(d for d in a.runs.iterdir() if (d / "results.jsonl").exists())
-        cells = d2_cell_differences(a.data_dir / "processed" / a.snapshot, runs)
-        cells = cells[cells["model"].str.endswith("v2A")]
-        # stand-in for the primary test A (gpt-5.1), ADR 0018 decision 15
-        primary = ("gpt-5.1-2025-11-13 medium v2A",)
-        t = report(cells, primary)
-        from laf.confirmatory import hierarchical, stratum
+        from laf.analysis import load_tables
+        from laf.confirmatory import (
+            PRIMARY,
+            PRIMARY_SCORE,
+            SECONDARY,
+            confirmatory_cells,
+            hierarchical,
+            informative,
+            report,
+            secondary,
+        )
+        from laf.d2 import analyze
         from laf.pilot import load_items
 
-        elapsed = {i.item_id: i.elapsed_days for i in load_items(a.data_dir, a.snapshot, 3.0)}
-        cells = cells.assign(
-            issue_id=[c[0] for c in cells["cell"]],
-            window=[c[1] for c in cells["cell"]],
-            stratum=[stratum(elapsed[c[0]]) for c in cells["cell"]],
-        )
-        hier = {m: hierarchical(g) for m, g in cells.groupby("model")}
+        # every development sequence a model answered stands in for its clean set
+        runs = sorted(d for d in a.runs.iterdir() if (d / "results.jsonl").exists())
+        proc, tag = a.data_dir / "processed" / a.snapshot, a.runs.name
+        roles = ("test-post", "test-pre")
+        samples, _ = analyze(proc, runs, score=PRIMARY_SCORE, roles=roles)
+        items = {i.item_id: i for i in load_items(a.data_dir, a.snapshot, 3.0)}
+        elapsed = {k: i.elapsed_days for k, i in items.items()}
+        tables = load_tables(proc)
+        sets = {str(m): set(g["sequence_id"]) for m, g in samples.groupby("model")}
+        tested = tuple(m for m in PRIMARY + SECONDARY if m in sets)
+        dev = confirmatory_cells(samples, tables["sequences"], elapsed, sets=sets)
+        others = tuple(set(dev["model"]) - set(tested))
+        t = report(dev, PRIMARY, descriptive=others, unlabeled=SECONDARY)
+        hier = {m: hierarchical(g) for m, g in dev.groupby("model")}
         t = t.join(pd.DataFrame.from_dict(hier, orient="index"), on="model")
-        path = Path("results") / f"confirmatory_dryrun_d2_{a.snapshot}.csv"
+        path = Path("results") / f"confirmatory_dryrun_{tag}_{a.snapshot}.csv"
         t.to_csv(path, index=False, lineterminator="\n")
-        cols = ["model", "sequences", "mean", "upper", "noninferior", "holm_noninferior",
-                "trimmed_mean", "median", "hier_mu", "hier_upper", "hier_noninferior"]  # fmt: skip
+        cols = ["model", "sequences", "mean", "lower", "upper", "status", "trimmed_mean",
+                "median", "hier_mu", "hier_upper"]  # fmt: skip
         print(t[cols].round(3).to_string(index=False))
         print(f"-> {path} (development data: a rehearsal of the frozen analysis, not a result)")
-        # the secondary table on the same development answers, every D2 sequence in each set
-        from laf.analysis import load_tables
-        from laf.confirmatory import PRIMARY, SECONDARY, confirmatory_cells, secondary
-        from laf.d2 import analyze
-
-        proc = a.data_dir / "processed" / a.snapshot
-        samples, _ = analyze(proc, runs)
-        tested = tuple(m for m in PRIMARY + SECONDARY if m in set(samples["model"]))
-        sets = {m: set(samples["sequence_id"]) for m in tested}
-        tables = load_tables(proc)
-        dev = confirmatory_cells(samples, tables["sequences"], elapsed, sets=sets)
-        sec = secondary(samples, tables, elapsed, dev, tested, sets)
-        path = Path("results") / f"confirmatory_dryrun_secondary_d2_{a.snapshot}.csv"
+        keep = informative(tables, items)
+        sec = secondary(samples, tables, elapsed, dev, tested, sets, keep=keep)
+        path = Path("results") / f"confirmatory_dryrun_secondary_{tag}_{a.snapshot}.csv"
         sec.to_csv(path, index=False, lineterminator="\n")
         print(sec.round(3).to_string(index=False))
         print(f"-> {path} (development data)")
         from laf.sensitivity import sensitivity
 
-        s2d, _ = analyze(proc, runs, settle="settled_2d")
+        s2d, _ = analyze(proc, runs, settle="settled_2d", score=PRIMARY_SCORE, roles=roles)
         sens = sensitivity(samples, tables, elapsed, tested, samples_2d=s2d, sets=sets)
-        path = Path("results") / f"confirmatory_dryrun_sensitivity_d2_{a.snapshot}.csv"
+        path = Path("results") / f"confirmatory_dryrun_sensitivity_{tag}_{a.snapshot}.csv"
         sens.to_csv(path, index=False, lineterminator="\n")
         print(sens.round(3).to_string(index=False))
         print(f"-> {path} (development data)")
         from laf.sensitivity import diagnostics, scoring_variants
 
-        sv = scoring_variants(proc, runs, tables, elapsed, tested, sets)  # minutes: the NB fits
-        path = Path("results") / f"confirmatory_dryrun_scoring_d2_{a.snapshot}.csv"
+        # minutes: the NB fits
+        sv = scoring_variants(proc, runs, tables, elapsed, tested, sets, roles=roles)
+        path = Path("results") / f"confirmatory_dryrun_scoring_{tag}_{a.snapshot}.csv"
         sv.to_csv(path, index=False, lineterminator="\n")
-        diag = Path("results") / f"confirmatory_dryrun_diagnostics_d2_{a.snapshot}.csv"
-        diagnostics(proc, runs, tested, sets).to_csv(diag, index=False, lineterminator="\n")
+        diag = Path("results") / f"confirmatory_dryrun_diagnostics_{tag}_{a.snapshot}.csv"
+        diagnostics(proc, runs, tested, sets, roles).to_csv(diag, index=False, lineterminator="\n")
         print(sv.round(3).to_string(index=False))
         print(f"-> {path}, {diag} (development data)")
         dry_live: tuple = ()
         if a.live:  # the prospective inputs, from a `laf live-rehearsal` folder
-            from laf.confirmatory import informative, live_report
+            from laf.confirmatory import live_report
             from laf.live_scores import live_items, live_samples, live_start_ms, unissued
 
             lt = tables
@@ -1032,8 +1034,7 @@ def main(argv: list[str] | None = None) -> None:
             if start is None:
                 raise SystemExit(f"{a.live}: no start.json (L)")
             ls = live_samples(a.live, lt)
-            lv = live_report(samples, ls, tables["sequences"], elapsed, start, None,
-                             informative(tables))  # fmt: skip
+            lv = live_report(samples, ls, tables["sequences"], elapsed, start, None, keep)
             path = Path("results") / f"confirmatory_dryrun_live_{a.snapshot}.csv"
             lv.to_csv(path, index=False, lineterminator="\n")
             print(lv.round(3).to_string(index=False))
@@ -1048,14 +1049,14 @@ def main(argv: list[str] | None = None) -> None:
         from laf.sensitivity import extras
 
         for k, df in extras(samples, dev, *dry_live).items():
-            path = Path("results") / f"confirmatory_dryrun_{k}_d2_{a.snapshot}.csv"
+            path = Path("results") / f"confirmatory_dryrun_{k}_{tag}_{a.snapshot}.csv"
             df.to_csv(path, index=False, lineterminator="\n")
             print(f"-> {path} (development data)")
         from laf.confirmatory import CLEAN_FROM
         from laf.descriptive import descriptive
 
         every = {m: set(samples["sequence_id"]) for m in set(samples["model"]) & set(CLEAN_FROM)}
-        path = Path("results") / f"confirmatory_dryrun_descriptive_d2_{a.snapshot}.csv"
+        path = Path("results") / f"confirmatory_dryrun_descriptive_{tag}_{a.snapshot}.csv"
         descriptive(samples, tables["sequences"], elapsed, sets=every).to_csv(
             path, index=False, lineterminator="\n"
         )

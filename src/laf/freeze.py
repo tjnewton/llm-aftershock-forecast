@@ -50,15 +50,18 @@ def window_cells(tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
 
 
 def baseline_rows(tables: dict[str, pd.DataFrame], items: list) -> list[dict]:
-    """The pipeline's baselines on every cell: M>=5 and M>=4 quantiles and P(M>=6). The ETAS
-    refit comes from the snapshot's `etas_forecasts` (`laf etas`, seeded per issue)."""
+    """The pipeline's baselines on every cell: M>=5 and M>=4 quantiles, P(M>=6) and the
+    probability of at least one M>=5 earthquake (the primary score's input, from the baseline's
+    own count distribution). The ETAS refit comes from the snapshot's `etas_forecasts`
+    (`laf etas`, seeded per issue)."""
     from laf import analysis as A
 
     base = A.baselines(tables, {i.item_id: i for i in items}, window_cells(tables))
     keep = ("generic_rj", "rj_mle", "naive", "etas")
     return [
         {"forecaster": name, "item_id": iid, "window": win, "m5": list(fc.m5),
-         "m4": list(fc.m4) if fc.m4 else None, "p_m6": fc.p_m6}
+         "m4": list(fc.m4) if fc.m4 else None, "p_m6": fc.p_m6,
+         "p_m5": None if fc.cdf_m5 is None else float(1.0 - fc.cdf_m5[0])}
         for (name, iid, win), fc in sorted(base.items()) if name in keep
     ]  # fmt: skip
 

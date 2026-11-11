@@ -45,7 +45,7 @@ def live(tmp_path_factory):
     for it in items:
         for m in ("claude-opus-5-5", "gpt-6.1-sol"):
             calls.append({"item_id": it.item_id, "model_requested": m, "model_reported": m,
-                          "sample": 0, "effort": "high", "paraphrase": "v2A",
+                          "sample": 0, "effort": "high", "paraphrase": "v3A",
                           "text": _answer(0), "stop_reason": "end_turn"})  # fmt: skip
         calls.append({**calls[-1], "sample": 1, "model_reported": "gpt-other"})  # model change
         # delivered but cut off at the cap while thinking: no text, invalid, never dropped
@@ -203,7 +203,7 @@ def test_scheduled_versions_never_issued_are_listed(tmp_path):
 
 
 def _rows(model, sid, kind="matched", on_time=True, origin=10, d=-0.1, mag=5.5):
-    return {"model": model, "effort": "high", "variant": "v2A", "status": "ok", "sample": 0,
+    return {"model": model, "effort": "high", "variant": "v3A", "status": "ok", "sample": 0,
             "sequence_id": sid, "item_id": f"{sid}@{kind}", "window": "day", "kind": kind,
             "on_time": on_time, "origin_ms": origin, "mag": mag, "elapsed_days": 2.0, "d5": d,
             "tier": "primary" if mag >= 5 else "secondary", "table_sequence_id": sid,

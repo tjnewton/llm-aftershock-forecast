@@ -4,7 +4,7 @@ import tomllib
 import pandas as pd
 import pytest
 
-from laf import confirmatory, outcome, splits
+from laf import outcome, splits
 from laf.freeze import sha256
 
 DAY = 86_400_000
@@ -92,10 +92,6 @@ def test_frozen_forecast_inputs_with_fresh_outcomes(tmp_path, monkeypatch):
     # frozen issues for s1; the prospective sequences' issues (first-issue metadata) are fresh
     assert t["issue_times"]["issue_id"].tolist() == ["s1@1", "s2@9", "s3@9"]
     assert t["observed_counts"]["issue_id"].unique().tolist() == ["s1@1"]  # no cells for them
-    month = {"magnitude": 5.0, "window": "1 Month", "p": [0.0, 1.0], "count": [1.0, 1.0]}
-    first = t | {"forecast_fractiles": pd.DataFrame({"sequence_id": "s3", "info_cutoff_ms": 9,
-                                                     **month})}  # fmt: skip
-    assert confirmatory.informative(first) == {"s3"}  # a prospective sequence can qualify
     assert t["issue_times"]["query_covers_x1_5"].tolist()[0]  # 75 km within 200 km
     assert list(t["issue_catalogs"]["issue_id"]) == ["s1@1"]
     assert list(t["etas_forecasts"]["q500"]) == [1]

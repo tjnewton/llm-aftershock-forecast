@@ -2,6 +2,10 @@
 
 Status: **living document; decided** (decisions 1-4 below, Tyler, 2026-10-30 and 2026-10-31;
 workstreams B2 and A2). The quantile score of ADR 0001 stays as a robustness score.
+Revised 2026-11-11 (prereg v2 decision 32): the count score through nine quantiles described
+here is now the secondary analysis; the primary score is the log score of the stated
+probability of at least one M>=5 earthquake, because in 71% of test A's official cells all
+nine M>=5 quantiles are zero (docs/reviews/mock-review-design.md, finding 2).
 
 ## Context
 Referees from statistical seismology expect forecasts as count distributions, scored with

@@ -46,7 +46,7 @@ def _samples():
     rows = []
     for i in range(8):
         for target, win in (("first", "day"), ("1d", "week")):
-            for st, v in (("ok", "v2A"), ("ok", "v2A"), ("max_tokens", "v2A"), ("ok", "v2B")):
+            for st, v in (("ok", "v3A"), ("ok", "v3A"), ("max_tokens", "v3A"), ("ok", "v3B")):
                 rows.append({"model": "claude-opus-5-5", "effort": "high", "variant": v,
                              "status": st, "sequence_id": f"s{i}", "item_id": f"s{i}@{target}",
                              "window": win, "sample": len(rows),
@@ -68,21 +68,31 @@ def test_one_table_with_every_variant():
     sets = {"claude-opus-5-5": set(s["sequence_id"])}
     t = S.sensitivity(s, tables, elapsed, ("claude-opus-5-5",), samples_2d=s, sets=sets)
     got = dict(zip(t["analysis"], t["mean"], strict=True))
-    assert {"main", "non-overlapping subset", "v2B", "valid answers only", "2-day settling rule",
+    assert {"main", "non-overlapping subset", "v3B", "valid answers only", "2-day settling rule",
             "as-of catalog matches the official count", "stratum: under 1 day",
             "stratum: 1 to 7 days"} <= set(got)  # fmt: skip
     assert got["valid answers only"] < got["main"]  # the penalty raised the main mean
+    # the registered sensitivity margins repeat the main estimate, read at another margin
+    assert got["margin 0.02"] == got["main"] == got["margin 0.1"]
+    assert t["noninferior"].isna().all()  # a secondary model: estimate and bound, no verdict
     rates = S.invalid_rates(s).set_index("variant")
-    assert rates.loc["v2A", "invalid_rate"] == pytest.approx(1 / 3)
+    assert rates.loc["v3A", "invalid_rate"] == pytest.approx(1 / 3)
     live = s.assign(status="ok", effort=None)  # the live arm: every answer valid
     both = S.invalid_rates(s, live).set_index(["arm", "variant"])
-    assert both.loc[("retrospective", "v2A"), "invalid_rate"] == pytest.approx(1 / 3)
-    assert both.loc[("prospective", "v2A"), "invalid_rate"] == 0.0  # kept despite no effort
+    assert both.loc[("retrospective", "v3A"), "invalid_rate"] == pytest.approx(1 / 3)
+    assert both.loc[("prospective", "v3A"), "invalid_rate"] == 0.0  # kept despite no effort
     lost = s.assign(status="transport_error")
     f = S.failures(pd.concat([lost, lost]))  # one row per answer, whatever its windows
     assert len(f) == len(lost.drop_duplicates(["model", "effort", "variant", "item_id", "sample"]))
-    ex = S.extras(s, C.confirmatory_cells(s, tables["sequences"], elapsed, sets=sets))
-    assert set(ex) == {"failures", "invalid", "influence"}
+    cells = C.confirmatory_cells(s, tables["sequences"], elapsed, sets=sets)
+    ex = S.extras(s, cells)
+    assert set(ex) == {"failures", "invalid", "invalid_cells", "influence"}
+    assert ex["invalid_cells"].empty  # these samples carry no outcome flag
+    # by stratum and by whether an M>=5 earthquake occurred: one answer in three is invalid
+    by_cell = S.invalid_by_cell(s.assign(m5_event=s["item_id"].str.endswith("first")), cells)
+    assert set(by_cell["stratum"]) == {"under 1 day", "1 to 7 days"}
+    assert by_cell["invalid_rate"].tolist() == pytest.approx([1 / 3] * len(by_cell))
+    assert by_cell["answers"].sum() == (s["variant"] == "v3A").sum()  # the scored prompt only
 
 
 def test_the_release_rule_skips_models_without_a_release_date(monkeypatch):
@@ -130,7 +140,7 @@ def test_scoring_variants_change_only_what_they_name():
 def test_diagnostics_per_forecaster_on_development_answers():
     from pathlib import Path
 
-    run, proc = [Path("runs/d2/d2-claude-opus-5-5")], Path("data/processed/20261021T2300Z")
+    run, proc = [Path("runs/d3/d3-claude-opus-5-5")], Path("data/processed/20261021T2300Z")
     dev = set(pd.read_parquet(proc / "sequences.parquet")["sequence_id"])
     t = S.diagnostics(proc, run, ("claude-opus-5-5",), {"claude-opus-5-5": dev})
     rows = {r["forecaster"]: r for r in t.to_dict("records")}
@@ -206,7 +216,7 @@ def test_forward_excluded_candidates_enter_only_their_sensitivity_row(monkeypatc
     assert C.eligible(seqs, "gpt-5.1-2025-11-13") == {"s0", "s1", "s2"}
     assert "us7000s2bn" in C.eligible(seqs, "gpt-5.1-2025-11-13", include_forward=True)
     rng = np.random.default_rng(0)
-    s = pd.DataFrame([{"model": "gpt-5.1-2025-11-13", "effort": "medium", "variant": "v2A",
+    s = pd.DataFrame([{"model": "gpt-5.1-2025-11-13", "effort": "medium", "variant": "v3A",
                        "status": "ok", "sequence_id": sid, "item_id": f"{sid}@first",
                        "window": "day", "sample": 0, "d5": float(rng.normal(0, 0.05)),
                        "worst_base_d5": 0.4} for sid in ids])  # fmt: skip

@@ -123,26 +123,34 @@ def test_confirmatory_cells_keep_eligible_primary_prompt_samples(monkeypatch):
         {"sequence_id": ["a", "b", "dev"], "origin_ms": origins, "mag": [5.5, 5.5, 6.0]}
     )
     rows = [  # model, effort, variant, status, sequence, d5
-        ("claude-opus-5-5", "high", "v2A", "ok", "a", 0.1),
-        ("claude-opus-5-5", "high", "v2A", "ok", "a", 0.3),
-        ("claude-opus-5-5", "high", "v2A", "max_tokens", "a", None),  # gets the cell's worst
-        ("claude-opus-5-5", "high", "v2A", "transport_error", "a", None),  # left out
-        ("claude-opus-5-5", "high", "v2B", "ok", "a", 9.0),  # robustness prompt: not here
-        ("claude-opus-5-5", "medium", "v2A", "ok", "a", 7.0),  # other effort: not here
-        ("gpt-5.1-2025-11-13", "medium", "v2A", "ok", "b", 0.2),
-        ("gpt-5.1-2025-11-13", "medium", "v2A", "ok", "dev", 0.4),  # development: never
+        ("claude-opus-5-5", "high", "v3A", "ok", "a", 0.1),
+        ("claude-opus-5-5", "high", "v3A", "ok", "a", 0.3),
+        ("claude-opus-5-5", "high", "v3A", "max_tokens", "a", None),  # counts log 2
+        ("claude-opus-5-5", "high", "v3A", "transport_error", "a", None),  # left out
+        ("claude-opus-5-5", "high", "v3B", "ok", "a", 9.0),  # robustness prompt: not here
+        ("claude-opus-5-5", "medium", "v3A", "ok", "a", 7.0),  # other effort: not here
+        ("gpt-5.1-2025-11-13", "medium", "v3A", "ok", "b", 0.2),
+        ("gpt-5.1-2025-11-13", "medium", "v3A", "ok", "dev", 0.4),  # development: never
     ]
     names = ("model", "effort", "variant", "status", "sequence_id", "d5")
     samples = pd.DataFrame([dict(zip(names, r, strict=True)) for r in rows])
     samples = samples.assign(item_id=samples["sequence_id"] + "@1", window="day", worst_base_d5=0.5)
-    cells = C.confirmatory_cells(samples, seqs, {"a@1": 0.5, "b@1": 3.0, "dev@1": 0.2})
-    got = {
-        (r.model, r.sequence_id): (round(float(r.d), 3), r.stratum)  # type: ignore[arg-type]
-        for r in cells.itertuples()
-    }
-    # cell a: the invalid sample takes the worst baseline (0.5), not the v2B answer's 9.0
-    assert got == {("claude-opus-5-5", "a"): (round((0.1 + 0.3 + 0.5) / 3, 3), "under 1 day"),
-                   ("gpt-5.1-2025-11-13", "b"): (0.2, "1 to 7 days")}  # fmt: skip
+    elapsed = {"a@1": 0.5, "b@1": 3.0, "dev@1": 0.2}
+
+    def got(**kw):
+        cells = C.confirmatory_cells(samples, seqs, elapsed, **kw)
+        return {
+            (r.model, r.sequence_id): (round(float(r.d), 3), r.stratum)  # type: ignore[arg-type]
+            for r in cells.itertuples()
+        }
+
+    # cell a: the invalid sample counts log 2, and the v3B answer's 9.0 is not here
+    log2 = float(np.log(2))
+    assert got() == {("claude-opus-5-5", "a"): (round((0.1 + 0.3 + log2) / 3, 3), "under 1 day"),
+                     ("gpt-5.1-2025-11-13", "b"): (0.2, "1 to 7 days")}  # fmt: skip
+    # the count score's rule: the worst baseline in the cell (0.5)
+    worst = got(invalid="worst_baseline")
+    assert worst[("claude-opus-5-5", "a")] == (round((0.1 + 0.3 + 0.5) / 3, 3), "under 1 day")
     assert C.study_effort("gpt-5.1-2025-11-13") == "medium"
     assert C.study_effort("claude-opus-4-6") == "medium"
     assert C.study_effort("gpt-6.1-sol") == "high"
@@ -170,7 +178,7 @@ def test_sensitivity_threshold_widens_only_the_named_model(monkeypatch):
     rows = [(m, e, sid) for m, e in (("gpt-5.1-2025-11-13", "medium"), ("claude-opus-5-5", "high"))
             for sid in ("big", "small")]  # fmt: skip
     samples = pd.DataFrame(rows, columns=["model", "effort", "sequence_id"])
-    samples = samples.assign(variant="v2A", status="ok", d5=0.0, worst_base_d5=0.0, window="day",
+    samples = samples.assign(variant="v3A", status="ok", d5=0.0, worst_base_d5=0.0, window="day",
                              item_id=samples["sequence_id"] + "@1")  # fmt: skip
     elapsed = {"big@1": 1.0, "small@1": 1.0}
     cells = C.confirmatory_cells(samples, seqs, elapsed, {"gpt-5.1-2025-11-13": 0.0})
@@ -251,7 +259,7 @@ def _contrast_samples(n_seq: int = 12, d5: float = -0.3, naive: float = 0.2, rj:
     for i in range(n_seq):
         jitter = float(rng.normal(0, 0.05))
         for st in ("ok", "ok", "max_tokens"):
-            rows.append({"model": "gpt-5.1-2025-11-13", "effort": "medium", "variant": "v2A",
+            rows.append({"model": "gpt-5.1-2025-11-13", "effort": "medium", "variant": "v3A",
                          "status": st, "sequence_id": f"s{i}", "item_id": f"s{i}@1",
                          "window": "day", "d5": d5 + jitter if st == "ok" else None,
                          "worst_base_d5": 1.0, "base_d5_naive": naive, "base_d5_generic_rj": rj,
@@ -265,9 +273,9 @@ def test_contrasts_take_ds_against_each_baseline_and_test_superiority():
     elapsed = {i: 2.0 for i in s["item_id"]}
     sets = {"gpt-5.1-2025-11-13": set(seqs["sequence_id"])}
     cells = C.confirmatory_cells(s, seqs, elapsed, reference="naive", sets=sets)
-    # per cell: valid answers d5 - naive, the invalid one worst - naive (ADR 0018 decision 12)
+    # per cell: valid answers d5 - naive, the invalid one log 2 - naive (prereg v2 section 7)
     first = s[s["sequence_id"] == "s0"]
-    want = (first["d5"].iloc[0] * 2 + 1.0) / 3 - 0.2
+    want = (first["d5"].iloc[0] * 2 + np.log(2)) / 3 - 0.2
     assert float(cells.loc[cells["sequence_id"] == "s0", "d"].iloc[0]) == pytest.approx(want)
     t = C.contrasts(s, seqs, elapsed, ("gpt-5.1-2025-11-13",), sets).set_index("reference")
     assert bool(t.loc["generic_rj", "superior"])  # well below generic RJ
@@ -290,22 +298,23 @@ def test_assay_flags_a_test_that_cannot_separate_from_generic_rj():
     assert C.assay(s, one).iloc[0]["generic_rj_status"] == "inconclusive"
 
 
-def test_informative_sequences_use_the_official_mean_at_the_first_issue():
-    p = np.linspace(0.0, 1.0, 101)
-    rows = []
-    for sid, cutoff, scale in (("big", 1, 1.0), ("big", 2, 0.0), ("small", 1, 0.1)):
-        rows += [{"sequence_id": sid, "info_cutoff_ms": cutoff, "window": "1 Month",
-                  "magnitude": 5.0, "p": q, "count": scale * q} for q in p]  # fmt: skip
-    rows += [{"sequence_id": "small", "info_cutoff_ms": 1, "window": "1 Month", "magnitude": 4.0,
-              "p": q, "count": 50.0} for q in p]  # M>=4 never counts  # fmt: skip
-    tables = {
-        "forecast_fractiles": pd.DataFrame(rows),
-        "issue_times": pd.DataFrame(
-            {"sequence_id": ["big", "big", "small"], "issue_ms": [2, 1, 1]}
-        ),
-    }
-    # big: first issue (cutoff 1) has mean 0.5 (the integral of q on [0, 1]); small: 0.05
-    assert C.informative(tables) == {"big"}
+def test_informative_sequences_use_generic_rj_at_the_first_issue_with_a_month_window(monkeypatch):
+    from pathlib import Path
+
+    from laf import analysis as A
+
+    proc = Path("data/processed/20261021T2300Z")  # development data
+    tables, items = A.load_tables(proc), A.load_items(proc)
+    keep = C.informative(tables, items)
+    mag = tables["sequences"].set_index("sequence_id")["mag"]
+    assert keep and keep < set(mag.index)  # some sequences qualify, not all
+    # a larger mainshock means more expected aftershocks: every M>=6 sequence qualifies
+    assert set(mag.index[mag >= 6.0]) <= keep and mag[sorted(keep)].mean() > mag.mean()
+    # the rule reads forecasts only: the same set with every count hidden
+    blind = tables | {"observed_counts": tables["observed_counts"].assign(count=-1)}
+    assert C.informative(blind, items) == keep
+    monkeypatch.setattr(C, "INFORMATIVE_P", 0.0)
+    assert C.informative(tables, items) == set(mag.index)  # every sequence has a month window
 
 
 def test_contrasts_follow_test_as_widened_eligibility(monkeypatch):
@@ -361,8 +370,8 @@ def test_confirmatory_batches_send_each_models_own_set_in_parts(monkeypatch):
     parts = [got(gpt, "confirmatory", chunk=f"{k}/2") for k in (1, 2)]
     assert parts[0] | parts[1] == got(gpt, "confirmatory") and not parts[0] & parts[1]
     assert got(gpt, "confirmatory", include_forward=True) == {"us7000s2bn"}
-    with pytest.raises(SystemExit, match="v2B"):
-        got("claude-opus-4-6", "confirmatory-v2b")
+    with pytest.raises(SystemExit, match="v3B"):
+        got("claude-opus-4-6", "confirmatory-v3b")
     with pytest.raises(SystemExit, match="test A"):
         got("claude-opus-4-6", "confirmatory-sens")
     # the unbuffered rule's extras: clean only without the buffer, M>=5

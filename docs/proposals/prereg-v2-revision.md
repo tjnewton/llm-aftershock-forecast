@@ -1,11 +1,18 @@
 # Proposal: revising preregistration v2 before the freeze
 
-Status: **proposed; nothing here is decided.** Tyler chose to revise before freezing after the
+Status: **decided on 2026-11-11; superseded by docs/preregistration-v2.md** (decisions 32 to
+41 there). Tyler accepted the recommendations of section 5, approved the prompt wording and
+the rerun's spend, and after the rerun (`runs/d3`) set three points differently from this
+text: the margin is 0.05, not near 0.02 (at 0.02 test A would pass in 4% to 12% of simulated
+studies); Sonnet 4.6 is not a negative control (its development result changed with prompt
+v3); and the informative-sequence threshold is 0.10. The rerun cost $31.79 (Claude) and
+$31.80 (OpenAI); the runners' estimates were $42.15 and $46.86, above the figures in section
+3. What follows is the proposal as it was put to him.
+
+Tyler chose to revise before freezing after the
 mock review of the design (docs/reviews/mock-review-design.md). This document gives the
-concrete wording, cost and power figures for the decisions that are still his. It changes no
-prompt file, no code and no line of docs/preregistration-v2.md. After his decisions the changes
-go through pull requests (`prompts/` needs `frozen-override`), and the paid rerun needs his
-approval with the runner's own estimate.
+concrete wording, cost and power figures for the decisions that were his. It changes no
+prompt file, no code and no line of docs/preregistration-v2.md.
 
 Every number below comes from development data, from forecasts and sequence tables of the
 candidate snapshot (no catalog, no outcome), or from the records of past runs. No confirmatory

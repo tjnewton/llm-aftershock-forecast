@@ -101,14 +101,14 @@ finishes in January (decision 20).
 - Test A, two half-parts a month from November to January (OpenAI cap $150; Tyler sets $100 on
   2027-02-01 and $50 in March):
   `laf openai run --snapshot 20261029T2000Z --block confirmatory --chunk 1/2` then `2/2`;
-  `--block confirmatory-sens --chunk 1/2`, `2/2`; `--block confirmatory-v2b --chunk 1/2`, `2/2`;
+  `--block confirmatory-sens --chunk 1/2`, `2/2`; `--block confirmatory-v3b --chunk 1/2`, `2/2`;
   then `--block confirmatory-unbuffered` (about $13, decision 21).
 - Forward-excluded: `laf openai run --snapshot 20261101T2202Z --block confirmatory
   --forward-excluded` and `laf run --snapshot 20261101T2202Z --block confirmatory --model
   claude-opus-4-6 --forward-excluded` (about $1.76).
 - Test B's retrospective arm on the candidates (October 1-28 at Opus 5.5's clean start):
   `laf run --snapshot 20261029T2000Z --block confirmatory --model claude-opus-5-5`, and
-  `--block confirmatory-v2b` (about $4.73).
+  `--block confirmatory-v3b` (about $4.73).
 - S1 and the descriptive batches: `laf run --snapshot 20261029T2000Z --block confirmatory
   --model claude-opus-4-6` (S1), `--model claude-sonnet-4-6`; `laf openai run --snapshot
   20261029T2000Z --block confirmatory --model gpt-6.1-sol` (descriptive: S2 is prospective).
@@ -136,7 +136,7 @@ finishes in January (decision 20).
    manifest's hash; the outcome snapshot refuses a frozen snapshot in no manifest.
 4. The rest of B's retrospective arm, on it: `laf run --snapshot <it> --block confirmatory
    --model claude-opus-5-5 --name confirmatory/confirmatory-claude-opus-5-5-supplementary`, and
-   `--block confirmatory-v2b --name confirmatory/confirmatory-v2b-claude-opus-5-5-supplementary`
+   `--block confirmatory-v3b --name confirmatory/confirmatory-v3b-claude-opus-5-5-supplementary`
    (distinct names: the defaults are section 3's runs on the candidates).
 
 ## 5. At S: the stop
