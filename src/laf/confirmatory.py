@@ -180,8 +180,15 @@ def decide(
     return t | {"lower": lower, "status": _status(t["noninferior"], lower, delta)}
 
 
+WORSE_INSIDE = "supported, worse inside the margin"
+
+
 def _status(supported: bool, lower: float, delta: float) -> str:
-    return "supported" if supported else "inferior" if lower > delta else "inconclusive"
+    """Section 2's labels. A supported row whose lower bound is above 0 says so: the model is
+    non-inferior at this margin and measurably worse than the official forecast."""
+    if supported:
+        return WORSE_INSIDE if lower > 0 else "supported"
+    return "inferior" if lower > delta else "inconclusive"
 
 
 TEST_COLUMNS = ("upper", "lower", "status", "p", "p_sup", "noninferior", "superior")
@@ -189,9 +196,10 @@ TEST_COLUMNS = ("upper", "lower", "status", "p", "p_sup", "noninferior", "superi
 
 def report(
     cells: pd.DataFrame, primary: tuple[str, ...], delta: float = DELTA,
-    descriptive: tuple[str, ...] = (),
+    descriptive: tuple[str, ...] = (), unlabeled: tuple[str, ...] = (),
 ) -> pd.DataFrame:  # fmt: skip
-    """One row per model: the non-inferiority test and the robust summaries.
+    """One row per model: the non-inferiority test and the robust summaries. `unlabeled` models
+    keep their estimate and bounds and get no verdict (status, noninferior, superior).
 
     The co-primary models (`primary`) are Holm-corrected, and their bound (`upper`) is reported
     at the level Holm tests them at (0.025 or 0.05). Superiority over the official forecast is a
@@ -214,8 +222,10 @@ def report(
     for m in rows:
         if m not in primary:
             rows[m]["superior"] = bool(rows[m]["noninferior"] and rows[m]["superior"])
-        if m in descriptive:  # no test for descriptive models (Sonnet 4.6, prereg v2 section 2)
+        if m in descriptive:  # no test for descriptive models (prereg v2 section 2)
             rows[m] |= dict.fromkeys(TEST_COLUMNS)
+        elif m in unlabeled:  # an estimate with its interval: the test's size is not controlled
+            rows[m] |= dict.fromkeys(("status", "noninferior", "superior"))
     out = pd.DataFrame.from_dict(rows, orient="index")
     out["co_primary"] = out.index.isin(primary)
     out["holm_noninferior"] = [rej.get(m) for m in out.index]
@@ -457,14 +467,16 @@ def contrasts(
 
 def assay(
     samples: pd.DataFrame, cells: pd.DataFrame, delta: float = DELTA,
-    parts: dict[str, str] | None = None,
+    parts: dict[str, str] | None = None, baseline: str = "generic_rj",
 ) -> pd.DataFrame:  # fmt: skip
     """Assay sensitivity (prereg v2 section 2): the non-inferiority test for generic RJ against
     the official forecast on each model's own test cells, read with the prereg's decision rule:
     `noninferior` (upper bound below delta: that model's test cannot separate it from the
     generic default), `inferior` (lower bound above delta: the cells do separate) or
-    `inconclusive`."""
-    rj = samples.groupby(["item_id", "window"])["base_d5_generic_rj"].first()
+    `inconclusive`. With `baseline` "naive" it is the negative control: the rule of thumb
+    tested as if it were a model, which the test should not pass. Columns carry the baseline's
+    name."""
+    rj = samples.groupby(["item_id", "window"])[f"base_d5_{baseline}"].first()
     rows = []
     for m, g in cells.groupby("model"):
         d = rj.reindex(pd.MultiIndex.from_frame(g[["issue_id", "window"]])).to_numpy()
@@ -476,8 +488,8 @@ def assay(
         lower = -noninferiority(-e, -delta, strata=st)["upper"]
         status = "noninferior" if t["noninferior"] else "inferior" if lower > delta else (
             "inconclusive")  # fmt: skip
-        rows.append({"model": m, "generic_rj_mean": t["mean"], "generic_rj_lower": lower,
-                     "generic_rj_upper": t["upper"], "generic_rj_status": status})  # fmt: skip
+        rows.append({"model": m, f"{baseline}_mean": t["mean"], f"{baseline}_lower": lower,
+                     f"{baseline}_upper": t["upper"], f"{baseline}_status": status})  # fmt: skip
     return pd.DataFrame(rows)
 
 
@@ -518,7 +530,9 @@ def secondary(
     ]
     return pd.concat(
         [contrasts(samples, tables["sequences"], elapsed, models, sets, min_mag),
-         assay(samples, tested).assign(hypothesis="assay"), pd.DataFrame(rows)],
+         assay(samples, tested).assign(hypothesis="assay"),
+         assay(samples, tested, baseline="naive").assign(hypothesis="control"),
+         pd.DataFrame(rows)],
         ignore_index=True,
     )  # fmt: skip
 

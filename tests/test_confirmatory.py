@@ -431,3 +431,32 @@ def test_leave_one_sequence_out_influence():
     )
     parts = pd.Series(["r"] * 10 + ["p"] * 10, index=[f"s{i}" for i in range(20)])
     assert len(C.influence(cells, parts)) == 20  # test B: its strata kept
+
+
+def test_a_supported_row_that_is_measurably_worse_says_so_and_estimates_get_no_verdict():
+    rng = np.random.default_rng(1)
+    cells = pd.DataFrame({
+        "model": ["A"] * 400 + ["B"] * 400 + ["C"] * 400,
+        "sequence_id": [f"s{i % 80}" for i in range(1200)],
+        "d": np.r_[
+            rng.normal(0, 0.05, 400), rng.normal(0.02, 0.05, 400), rng.normal(0.3, 0.05, 400)
+        ],
+    })  # fmt: skip
+    t = C.report(cells, ("A",), unlabeled=("C",)).set_index("model").to_dict("index")
+    assert t["A"]["status"] == "supported"
+    # B: upper bound below the margin, lower bound above 0
+    assert t["B"]["status"] == C.WORSE_INSIDE and 0 < t["B"]["lower"] < t["B"]["upper"]
+    assert t["B"]["noninferior"]
+    # C keeps its estimate and bounds, without a label
+    assert pd.isna(t["C"]["status"]) and pd.isna(t["C"]["noninferior"])
+    assert t["C"]["lower"] > C.DELTA and abs(t["C"]["mean"] - 0.3) < 0.02
+
+
+def test_the_rule_of_thumb_control_is_tested_like_generic_rj():
+    s = _contrast_samples()
+    ids = {"sequence_id": s["sequence_id"].unique(), "issue_id": s["item_id"].unique()}
+    cells = pd.DataFrame({"model": "m", **ids, "window": "day", "d": 0.0})
+    bad = s.assign(base_d5_naive=0.4 + np.random.default_rng(2).normal(0, 0.02, len(s)))
+    control = C.assay(bad, cells, baseline="naive").iloc[0]
+    assert control["naive_status"] == "inferior" and abs(control["naive_mean"] - 0.4) < 0.02
+    assert "generic_rj_status" not in control.index  # columns carry the baseline's name
