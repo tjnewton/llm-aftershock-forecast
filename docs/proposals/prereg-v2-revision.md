@@ -122,11 +122,24 @@ Two ways to state it; the rest of the design is the same under both.
 ### P6. Invalid answers
 The worst-of-five-baselines penalty costs exactly zero where the baselines agree (47% of test
 A's cells), and on development data a forecaster that never answers scores a mean of +0.0975.
-Proposed: an invalid answer counts as dS = +log 2 (0.69 nats, the loss of a coin flip against a
-certain outcome) in its cell, whatever happened and whatever the other forecasters said. It can
-never help a model, and an invalid rate of 3% alone uses up a margin of 0.02. (Scoring it as
-the probability 0.5 instead would reward an invalid answer in the cells where the event
-occurs.) Valid answers only stays as a sensitivity analysis.
+No fixed penalty can both be mild and never help a model. With probabilities clipped to
+[0.001, 0.999], a valid answer can lose up to 6.9 nats against the outcome, so any smaller
+penalty is better than a valid answer that was badly wrong, and invalid answers that cluster in
+hard cells would then hide the rare-event losses the test is about. The choices:
+
+| Rule for an invalid answer | Can it help the model? | Invalid rate that alone uses up a 0.02 margin |
+|---|---|---|
+| Worst case: scored as the clipped probability on the wrong side (6.9 nats) | never | 0.3% (one answer in 300; gpt-5.1 had 1 invalid in 297 in the earlier study) |
+| Fixed dS = +log 2 (0.69 nats, a coin flip against a certain outcome) | yes, where its valid answer would have lost more than 0.69 to the official forecast | 3% |
+| Worst of the five baselines (registered now) | yes, and it costs exactly zero in 47% of cells | none: a forecaster that never answers scores +0.0975 |
+
+Proposed: the fixed +log 2 in the primary analysis, with two registered safeguards. First, the
+worst-case rule is a registered sensitivity analysis, and if the verdict differs between the
+two the paper reports the result as depending on how invalid answers are handled. Second,
+invalid rates are reported by issue stratum and by whether the event occurred in the cell, so
+a concentration in hard cells is visible. The stricter alternative is the worst-case rule as
+primary: nothing invalid can then help, at the price that one invalid answer in 300 decides
+the test. Valid answers only stays as a sensitivity analysis.
 
 ### P7. Smaller changes
 - **Informative sequences:** select on generic RJ's probability of at least one M>=5
@@ -219,7 +232,8 @@ with the models' own effects.
 4. P4: (a) non-inferiority to the official forecast with the claim scoped, or (b) superiority
    over the rule of thumb.
 5. P5: the two negative controls.
-6. P6: the invalid-answer rule (a fixed +0.69 nats per invalid answer).
+6. P6: the invalid-answer rule: a fixed +0.69 nats with the worst case as a sensitivity
+   analysis (recommended), or the worst case as primary.
 7. P7: the four smaller changes, each yes or no.
 8. Section 3: minimal or recommended set, and whether gpt-6.1-sol is included.
 
