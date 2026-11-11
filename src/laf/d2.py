@@ -1,6 +1,7 @@
 """D2 prompt-robustness results (docs/proposals/d2-prompt-robustness.md), development data
 only. Unlike `analysis.llm_samples`, which serves the registered requests, this loader
-validates v2 answers with their M3 quantiles (`schemas.TARGETS_V2`)."""
+validates v2 answers with their M3 quantiles and v3 answers with their four probabilities
+(`schemas.fields`)."""
 
 import json
 from pathlib import Path
@@ -8,8 +9,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from laf.prompts import V2
-from laf.schemas import QKEYS, TARGETS, TARGETS_V2, WINDOWS, validate
+from laf.schemas import QKEYS, WINDOWS, fields, validate
 
 
 def _jsonl(path: Path) -> list[dict]:
@@ -28,22 +28,21 @@ def samples(run_dirs: list[Path]) -> list[dict]:
         results += [{"custom_id": c, "result": "missing"} for c in meta if c not in seen]
         for res in results:
             m = meta[res["custom_id"]]
-            targets = TARGETS_V2 if m["paraphrase"] in V2 else TARGETS
+            targets, probs = fields(m["paraphrase"])
             if res["result"] != "succeeded":
                 status, parsed, warn = "transport_error", None, []
             elif res.get("model_reported") != m["model"]:  # invalid (prereg v2 section 3)
                 status, parsed, warn = "model_mismatch", None, []
             else:
                 status, parsed, warn = validate(
-                    m["arm"], res.get("text"), res.get("stop_reason"), targets
+                    m["arm"], res.get("text"), res.get("stop_reason"), targets, probs
                 )
             for w in WINDOWS:
                 rec = {**m, "window": w, "status": status, "warnings": ",".join(warn)}
                 for t in targets:
                     rec[t] = [parsed[w][t][k] for k in QKEYS] if parsed and status == "ok" else None
-                rec["p_m6"] = (
-                    float(parsed[w]["p_m6_at_least_one"]) if parsed and status == "ok" else None
-                )
+                for p in probs:  # p_m6, and for v3 answers p_m5, p_m4 and p_m3
+                    rec[p[:4]] = float(parsed[w][p]) if parsed and status == "ok" else None
                 out.append(rec)
     # a transport error that a later attempt answered (`runner.retry_plan`) drops out; the
     # rest are the persistent failures, listed and left out (prereg v2 section 7)

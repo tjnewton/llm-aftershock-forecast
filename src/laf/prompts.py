@@ -11,10 +11,15 @@ from laf.items import N_LARGEST, Item, utc
 PROMPT_DIR = Path(__file__).resolve().parents[2] / "prompts"
 Arm = Literal["direct", "params"]
 Info = Literal["I0", "I1"]
-Paraphrase = Literal["p1", "p2", "v2A", "v2B", "v2C"]
+Paraphrase = Literal["p1", "p2", "v2A", "v2B", "v2C", "v3A", "v3B"]
 # v2 (D2, docs/proposals/d2-prompt-robustness.md): direct arm only, M3 quantiles, catalog from
 # M3.0; A and B reuse the p1 and p2 wording, C is A with the catalog given as a summary
-V2 = {"v2A": ("A", "list"), "v2B": ("B", "list"), "v2C": ("A", "summary")}
+# v3 (docs/proposals/prereg-v2-revision.md, P1): v2 A and B that also ask for the probability
+# of at least one earthquake at M>=3, 4 and 5. The key's first two characters name the folder.
+V2 = {
+    "v2A": ("A", "list"), "v2B": ("B", "list"), "v2C": ("A", "summary"),
+    "v3A": ("A", "list"), "v3B": ("B", "list"),
+}  # fmt: skip
 V2_FLOOR = 3.0
 DAY_MS = 86_400_000
 
@@ -114,8 +119,9 @@ def render(item: Item, arm: Arm, info: Info, paraphrase: Paraphrase) -> tuple[st
         catalog_section=catalog.strip(),
     )
     if v2:
-        task = (PROMPT_DIR / "v2" / f"task_{arm}_{v2[0]}.txt").read_text(encoding="utf-8")
-        system = (PROMPT_DIR / "v2" / f"system_{v2[0]}.txt").read_text(encoding="utf-8").strip()
+        sub = PROMPT_DIR / paraphrase[:2]
+        task = (sub / f"task_{arm}_{v2[0]}.txt").read_text(encoding="utf-8")
+        system = (sub / f"system_{v2[0]}.txt").read_text(encoding="utf-8").strip()
     else:
         task = (PROMPT_DIR / f"task_{arm}_{paraphrase}.txt").read_text(encoding="utf-8")
         system = (PROMPT_DIR / f"system_{paraphrase}.txt").read_text(encoding="utf-8").strip()
@@ -123,9 +129,11 @@ def render(item: Item, arm: Arm, info: Info, paraphrase: Paraphrase) -> tuple[st
 
 
 def schema_for(arm: Arm, paraphrase: Paraphrase) -> dict:
-    """The response schema of a request: v2 direct answers carry M3 quantiles too."""
+    """The response schema of a request: v2 direct answers carry M3 quantiles too, v3 ones
+    also the probabilities at M>=3, 4 and 5."""
     if paraphrase in V2:
-        return json.loads((PROMPT_DIR / "v2" / "schema_direct.json").read_text(encoding="utf-8"))
+        path = PROMPT_DIR / paraphrase[:2] / "schema_direct.json"
+        return json.loads(path.read_text(encoding="utf-8"))
     return schema(arm)
 
 

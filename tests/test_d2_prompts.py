@@ -4,8 +4,8 @@ from pathlib import Path
 from laf import runner
 from laf.analysis import load_tables
 from laf.items import build_items
-from laf.prompts import render, schema_for
-from laf.schemas import QKEYS, TARGETS_V2, validate
+from laf.prompts import PROMPT_DIR, Paraphrase, render, schema_for, template_hashes
+from laf.schemas import PROBS, PROBS_V3, QKEYS, TARGETS, TARGETS_V2, fields, validate
 
 E3 = Path("data/processed/20261021T2300Z")
 
@@ -182,3 +182,79 @@ def test_a_retried_error_drops_out_and_a_wrong_model_is_invalid(tmp_path):
     # i1 answered on retry; i2 and i4 persistent failures (listed, left out); i3 the wrong model
     assert st == [("i1", "ok"), ("i2", "transport_error"), ("i3", "model_mismatch"),
                   ("i4", "transport_error")]  # fmt: skip
+
+
+def test_v3_prompts_ask_for_four_probabilities_and_leave_the_other_sets_unchanged():
+    item = next(i for i in _items(3.0).values() if i.role == "test-post")
+    pairs: tuple[tuple[Paraphrase, Paraphrase], ...] = (("v3A", "v2A"), ("v3B", "v2B"))
+    for para, v2 in pairs:
+        system, user = render(item, "direct", "I1", para)
+        flat = " ".join(user.split())
+        for m in ("3.0", "4.0", "5.0", "6.0"):
+            a = f"at least one earthquake with magnitude {m} or larger"
+            assert a in flat or f"at least one M>={m}" in flat
+        assert "probabilities" in system
+        win = schema_for("direct", para)["$defs"]["window"]
+        assert set(win["properties"]) == set(win["required"]) == set(TARGETS_V2) | set(PROBS_V3)
+        # the context and catalog are the v2 ones: only the task and the scoring line differ
+        context = user.rsplit("\n## ", 1)[0]
+        assert "## Earthquakes recorded so far" in context
+        assert context == render(item, "direct", "I1", v2)[1].rsplit("\n## ", 1)[0]
+    assert "p_m5_at_least_one" not in json.dumps(schema_for("direct", "v2A"))
+    for sub in ("", "v2", "v3"):  # every recorded hash is the file's
+        recorded = json.loads((PROMPT_DIR / sub / "HASHES.json").read_text(encoding="utf-8"))
+        assert recorded == template_hashes(sub)
+    assert fields("v3B") == (TARGETS_V2, PROBS_V3) and fields("v2C") == (TARGETS_V2, PROBS)
+    assert fields("p1") == fields(None) == (TARGETS, PROBS)
+
+
+def _v3_answer(**over):
+    q = lambda v: dict(zip(QKEYS, v, strict=True))  # noqa: E731
+    # quantiles that leave P(N>=1) at most 0.025 (M5), 0.10 to 0.25 (M4), at least 0.975 (M3)
+    w = {
+        "m5_count_quantiles": q([0] * 9),
+        "m4_count_quantiles": q([0, 0, 0, 0, 0, 0, 1, 1, 2]),
+        "m3_count_quantiles": q([1, 1, 2, 3, 5, 8, 12, 15, 20]),
+        "p_m3_at_least_one": 0.99,
+        "p_m4_at_least_one": 0.2,
+        "p_m5_at_least_one": 0.01,
+        "p_m6_at_least_one": 0.001,
+    } | over
+    w = {k: v for k, v in w.items() if v is not None}
+    return json.dumps({"day": w, "week": w, "month": w, "notes": "x"})
+
+
+def test_v3_answers_need_every_probability_and_flag_contradictions():
+    v3 = lambda text: validate("direct", text, "end_turn", TARGETS_V2, PROBS_V3)  # noqa: E731
+    assert v3(_v3_answer())[::2] == ("ok", [])
+    assert v3(_v3_answer(p_m5_at_least_one=0.025))[::2] == ("ok", [])  # the bound itself
+    assert v3(_v3_answer(p_m5_at_least_one=None))[0] == "schema_invalid"
+    # the same answer is valid for a v2 request, which never asked for it
+    assert validate("direct", _v3_answer(p_m5_at_least_one=None), "end_turn", TARGETS_V2)[0] == "ok"
+    assert v3(_v3_answer(p_m4_at_least_one=1.2))[0] == "out_of_range"
+    # warnings, never invalid: each target is scored on its own numbers
+    status, _, warn = v3(_v3_answer(p_m5_at_least_one=0.3))  # above P(M>=4), and nine zeros
+    assert status == "ok"
+    assert {"incoherent_probabilities", "probability_outside_quantiles"} <= set(warn)
+    status, _, warn = v3(_v3_answer(p_m3_at_least_one=0.5))  # a 10% quantile of 1, P below 0.9
+    assert status == "ok" and warn == ["probability_outside_quantiles"]
+    status, _, warn = v3(_v3_answer(p_m4_at_least_one=0.05))  # a 90% quantile of 1, P below 0.1
+    assert status == "ok" and warn == ["probability_outside_quantiles"]
+
+
+def test_d2_loader_reads_v3_probabilities(tmp_path):
+    from laf.d2 import samples
+
+    meta = {"arm": "direct", "info": "I1", "item_id": "x", "model": "m", "block": "d3",
+            "effort": "high", "sample": 0, "paraphrase": "v3A"}  # fmt: skip
+    answers = (_v3_answer(), _v3_answer(p_m5_at_least_one=None))
+    reqs = [{"custom_id": str(i), **meta} for i in range(2)]
+    res = [{"custom_id": str(i), "result": "succeeded", "model_reported": "m",
+            "stop_reason": "end_turn", "text": a} for i, a in enumerate(answers)]  # fmt: skip
+    (tmp_path / "requests.jsonl").write_text("".join(json.dumps(r) + "\n" for r in reqs))
+    (tmp_path / "results.jsonl").write_text("".join(json.dumps(r) + "\n" for r in res))
+    recs = {(r["custom_id"], r["window"]): r for r in samples([tmp_path])}
+    good, bad = recs[("0", "day")], recs[("1", "day")]
+    assert good["status"] == "ok"
+    assert (good["p_m5"], good["p_m3"], good["p_m6"]) == (0.01, 0.99, 0.001)
+    assert bad["status"] == "schema_invalid" and bad["p_m5"] is None
