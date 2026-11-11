@@ -72,13 +72,14 @@ def cell_differences(
     return df.groupby(["model", "sequence_id", "cell"])["d"].mean().reset_index()
 
 
-def d2_cell_differences(proc: Path, run_dirs: list[Path]) -> pd.DataFrame:
+def d2_cell_differences(proc: Path, run_dirs: list[Path], **kw) -> pd.DataFrame:
     """dLS5 per (model, sequence, cell) from D2-style runs (`laf.d2.analyze`: v2 prompts, M3
     targets), with the model labelled by effort and prompt variant. Valid answers only, as
-    `--valid-only` (D2 had almost no invalid answers)."""
+    `--valid-only` (D2 had almost no invalid answers). `kw` goes to `analyze` (the probability
+    score and every role for the v3 rerun)."""
     from laf.d2 import analyze
 
-    df, _ = analyze(proc, run_dirs)
+    df, _ = analyze(proc, run_dirs, **kw)
     ok = df[df["status"] == "ok"]
     ok = ok.assign(
         model=ok["model"] + " " + ok["effort"] + " " + ok["variant"],

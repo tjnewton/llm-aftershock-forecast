@@ -179,9 +179,19 @@ def recount_m5(tables: dict, cells, scale: float) -> dict[tuple, int | None]:
 
 def analyze(
     proc: Path, run_dirs: list[Path], settle: str = "primary", score: str = "registered",
-    floor: float | None = None, radius: float = 1.0,
+    floor: float | None = None, radius: float = 1.0, roles: tuple[str, ...] = ("test-post",),
+    clip: float | None = None,
 ):  # fmt: skip
     """Per-sample scores and a summary per model, effort and variant (development data only).
+
+    `score` "probability" (docs/proposals/prereg-v2-revision.md, P2) puts the log score of the
+    probability of at least one M>=5 earthquake in the M>=5 columns (`d5`, `base_d5_*`,
+    `worst_base_d5`): the model's own `p_m5` (v3 answers; NaN for v2 ones), the official
+    product's published probability, and each baseline's from its own distribution, all clipped
+    to [`clip`, 1 - `clip`] (0.001, `scoring.P_CLIP`). Cells without a published probability
+    drop out. `worst_case_d5` is then the dS of the clipped probability on the wrong side, the
+    strictest rule for an invalid answer. `roles` are the hackathon roles kept (the v3 rerun
+    covers every development sequence).
 
     Scores are the representation-matched log score (ADR 0015) minus the official forecast's,
     at M>=5, M>=4 and M>=3. M>=3 counts only where the catalog is complete at M3 for the whole
@@ -190,14 +200,26 @@ def analyze(
     (`MagComp`) reaches 3.0 before the window starts."""
     from laf import analysis as A
     from laf.generic_rj import MagComp
+    from laf.scoring import P_CLIP, log_score_binary
 
     # `score` and `floor`: the sensitivity variants (prereg v2 section 6), at M>=5 only
-    ls = scorer(score, floor)
+    prob, eps = score == "probability", P_CLIP if clip is None else clip
+    ls = scorer("registered" if prob else score, floor)
+
+    def s5(fc, name: str, y5: int, p_off) -> float:
+        """The M>=5 score of a forecast record: its counts, or its probability of any."""
+        if not prob:
+            return ls(fc.m5 if fc else None, y5, fc, name)
+        if name == "official":
+            return log_score_binary(float(p_off), y5 >= 1, eps)
+        if fc is None or fc.cdf_m5 is None:
+            return float("nan")
+        return log_score_binary(float(1.0 - fc.cdf_m5[0]), y5 >= 1, eps)
 
     tables, items = A.load_tables(proc), A.load_items(proc)
     cells = A.cells(tables)  # refuses confirmatory sequences (docs/adr/0013)
     # `settle`: "primary" (21 days) or "settled_2d" (the 2-day sensitivity rule)
-    cells = cells[cells[settle] & cells["oaf_cell"] & (cells["role"] == "test-post")]
+    cells = cells[cells[settle] & cells["oaf_cell"] & cells["role"].isin(roles)]
     base = A.baselines(tables, items, cells)
     oc = tables["observed_counts"]
     y3 = oc[oc["magnitude"] == 3.0].set_index(["issue_id", "window"])["count"]
@@ -217,6 +239,11 @@ def analyze(
         )
         .set_index("issue_id")["mc"]
     )
+    # the official product's published probability of at least one M>=5 earthquake
+    fb = tables["forecast_bins"]
+    p_official = fb[fb["magnitude"] == 5.0].set_index(["sequence_id", "info_cutoff_ms", "window"])[
+        "probability"
+    ]
     info = {}
     # `radius`: outcomes recounted in the scaled region (a sensitivity analysis, M>=5 only)
     y5_of = recount_m5(tables, cells, radius) if radius != 1.0 else None
@@ -233,6 +260,9 @@ def analyze(
         t1 = (c["time_start_ms"] - items[c["issue_id"]].mainshock.origin_ms) / 86_400_000
         m3_ok = m3_complete(official_mc.get(c["issue_id"]), mc, mag_main, t1)
         off = base.get(("official", *k))
+        p_off = p_official.get((c["sequence_id"], int(c["issue_ms"]), c["window"]))
+        if prob and (p_off is None or pd.isna(p_off)):
+            continue  # no published probability to score against
         q3 = _official_m3(
             tables["forecast_fractiles"], c["sequence_id"], int(c["issue_ms"]), c["window"]
         )
@@ -240,19 +270,21 @@ def analyze(
             "sequence_id": c["sequence_id"],
             "y5": y5, "y4": int(c["y4"]), "y3": int(y3.get(k, -1)),
             "m3_ok": bool(m3_ok and q3 is not None and k in y3.index),
-            "off5": ls(off.m5 if off else None, y5, off, "official"),
+            "off5": s5(off, "official", y5, p_off),
             "off4": _ls(off.m4 if off else None, int(c["y4"])),  # variants change M>=5 only
             "off3": _ls(q3, int(y3[k])) if k in y3.index else np.nan,
         }  # fmt: skip
         # the worst valid baseline at M5, as dLS (prereg v1 section 7 rule for invalid answers)
-        info[k]["worst_base_d5"] = max(
-            ls(fc.m5, y5, fc, name) - info[k]["off5"] for name, fc in by_cell.get(k, []) if fc.m5
+        info[k]["worst_base_d5"] = np.nanmax(
+            [s5(fc, n, y5, p_off) - info[k]["off5"] for n, fc in by_cell.get(k, []) if fc.m5]
         )
+        # the clipped probability on the wrong side: nothing valid can score worse
+        info[k]["worst_case_d5"] = -np.log(eps) - info[k]["off5"] if prob else np.nan
         # each baseline's dLS at M5, for the contrasts S3-S5 and the assay-sensitivity test
         for b in BASELINES:
             fc = base.get((b, *k))
             info[k][f"base_d5_{b}"] = (
-                ls(fc.m5, y5, fc, b) - info[k]["off5"] if fc and fc.m5 else np.nan
+                s5(fc, b, y5, p_off) - info[k]["off5"] if fc and fc.m5 else np.nan
             )
         # the Brier score of P(M>=6) per baseline (prereg v2 section 4; `laf.descriptive`)
         y6 = c.get("y6", np.nan)
@@ -271,6 +303,7 @@ def analyze(
             "item_id": r["item_id"], "window": r["window"], "sample": r["sample"],
             "sequence_id": ci["sequence_id"], "status": r["status"], "warnings": r["warnings"],
             "m3_ok": ci["m3_ok"], "worst_base_d5": ci["worst_base_d5"],
+            "worst_case_d5": ci["worst_case_d5"],
             **{f"base_d5_{b}": ci[f"base_d5_{b}"] for b in BASELINES},
             **{f"brier_m6_{b}": ci[f"brier_m6_{b}"] for b in ("official", *BASELINES)},
             "brier_m6": _brier(r["p_m6"], ci["m6_event"]),
@@ -281,7 +314,11 @@ def analyze(
                 (4, "m4_count_quantiles"),
                 (3, "m3_count_quantiles"),
             ):
-                sc = (ls if m == 5 else _ls)(r[t], ci[f"y{m}"])
+                if m == 5 and prob:  # the answer's own probability, not its quantiles
+                    p5 = r.get("p_m5")
+                    sc = np.nan if p5 is None else log_score_binary(p5, ci["y5"] >= 1, eps)
+                else:
+                    sc = (ls if m == 5 else _ls)(r[t], ci[f"y{m}"])
                 row[f"d{m}"] = sc - ci[f"off{m}"] if (m != 3 or ci["m3_ok"]) else np.nan
             row["m3_over_m4_median"] = (r["m3_count_quantiles"][4] + 1) / (
                 r["m4_count_quantiles"][4] + 1

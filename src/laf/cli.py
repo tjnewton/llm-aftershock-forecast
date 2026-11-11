@@ -176,6 +176,10 @@ def main(argv: list[str] | None = None) -> None:
     d2p = sub.add_parser("d2", help="D2 prompt-robustness tables from runs/d2 (development data)")
     d2p.add_argument("--snapshot", required=True)
     d2p.add_argument("--runs", type=Path, default=Path("runs/d2"))
+    d2p.add_argument(
+        "--v3", action="store_true",
+        help="the v3 rerun (runs/d3): the probability score at M>=5, every development sequence",
+    )  # fmt: skip
     d1p = sub.add_parser(
         "d1", help="D1 behavioral probes: build items (free); pilot and run SPEND MONEY"
     )
@@ -256,6 +260,11 @@ def main(argv: list[str] | None = None) -> None:
     cz.add_argument("--snapshot", required=True)
     cz.add_argument("--runs", type=Path, default=Path("runs/d2"))
     cz.add_argument("--sims", type=int, default=1000)
+    cz.add_argument(
+        "--v3", action="store_true",
+        help="the v3 rerun (--runs runs/d3): probability score, an invalid answer counts log 2",
+    )  # fmt: skip
+    cz.add_argument("--delta", type=float, help="the margin (default: the registered 0.10)")
     cd = sub.add_parser(
         "candidates", help="supplementary candidates at L (prereg v2 section 5; ComCat lists)"
     )
@@ -637,11 +646,13 @@ def main(argv: list[str] | None = None) -> None:
         runs = sorted(d for d in a.runs.iterdir() if (d / "results.jsonl").exists())
         if not runs:
             raise SystemExit(f"no collected D2 runs (results.jsonl) under {a.runs}")
-        df, summary = analyze(a.data_dir / "processed" / a.snapshot, runs)
+        kw = {"score": "probability", "roles": ("test-post", "test-pre")} if a.v3 else {}
+        df, summary = analyze(a.data_dir / "processed" / a.snapshot, runs, **kw)
         rob = robustness(df)
+        tag = "d3" if a.v3 else "d2"
         for name, t in (("samples", df), ("summary", summary), ("robustness", rob)):
             t.to_csv(
-                Path("results") / f"d2_{name}_{a.snapshot}.csv", index=False, lineterminator="\n"
+                Path("results") / f"{tag}_{name}_{a.snapshot}.csv", index=False, lineterminator="\n"
             )
         print(summary.round(3).to_string(index=False))
         print(rob.round(3).to_string(index=False))
@@ -885,26 +896,43 @@ def main(argv: list[str] | None = None) -> None:
     elif a.cmd == "confirmatory-size":
         import pandas as pd
 
-        from laf.confirmatory import sequence_effects, size
+        from laf.confirmatory import DELTA, sequence_effects, size
         from laf.power import d2_cell_differences
 
         runs = sorted(d for d in a.runs.iterdir() if (d / "results.jsonl").exists())
-        cells = d2_cell_differences(a.data_dir / "processed" / a.snapshot, runs)
-        rows = []
+        proc = a.data_dir / "processed" / a.snapshot
+        delta = DELTA if a.delta is None else a.delta
         # A (89) and B (33) as registered, and S1 (Opus 4.6: its 23 clean M>=5 sequences)
         sizes = (("gpt-5.1-2025-11-13 medium v2A", (33, 89)),
                  ("claude-opus-5-5 high v2A", (33, 89)),
                  ("claude-opus-4-6 medium v2A", (23,)))  # fmt: skip
+        if a.v3:  # the rerun's own effects: every development sequence each model answered
+            from laf.confirmatory import confirmatory_cells
+            from laf.d2 import analyze
+            from laf.pilot import load_items
+
+            samples, _ = analyze(proc, runs, score="probability", roles=("test-post", "test-pre"))
+            elapsed = {i.item_id: i.elapsed_days for i in load_items(a.data_dir, a.snapshot, 3.0)}
+            sets = {str(m): set(g["sequence_id"]) for m, g in samples.groupby("model")}
+            seqs_t = pd.read_parquet(proc / "sequences.parquet")
+            cells = confirmatory_cells(
+                samples, seqs_t, elapsed, sets=sets, variant="v3A", invalid="log2"
+            )
+            sizes = tuple((label.split()[0], ns) for label, ns in sizes)
+        else:
+            cells = d2_cell_differences(proc, runs)
+        rows = []
         for label, ns in sizes:
             e = sequence_effects(cells[cells["model"] == label]).to_numpy()
             for n in ns:
                 for alpha in (0.025, 0.05):
                     for method in ("student", "percentile"):
-                        rate = size(e, n, alpha=alpha, sims=a.sims, method=method)
+                        rate = size(e, n, delta, alpha=alpha, sims=a.sims, method=method)
                         rows.append(dict(effects=label, n=n, alpha=alpha, method=method,
                                          size=rate, sims=a.sims))  # fmt: skip
                         print(f"{label:<32} n={n:<3} alpha={alpha:<5} {method:<10} {rate:.3f}")
-        path = Path("results") / f"confirmatory_size_d2_{a.snapshot}.csv"
+        tag = "d3" if a.v3 else "d2"
+        path = Path("results") / f"confirmatory_size_{tag}_{a.snapshot}.csv"
         pd.DataFrame(rows).to_csv(path, index=False, lineterminator="\n")
         print(f"-> {path}")
     elif a.cmd == "candidates":
