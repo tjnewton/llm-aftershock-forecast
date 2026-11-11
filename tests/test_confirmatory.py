@@ -204,6 +204,12 @@ def test_bootstrap_t_controls_size_better_on_heavy_tails():
     assert stu < pct and stu < 0.05
 
 
+def test_size_at_another_truth_is_power():
+    e = np.random.default_rng(5).normal(0, 0.05, 30)
+    assert C.size(e, 60, alpha=0.05, sims=100, b=300) < 0.15  # the truth at delta: the size
+    assert C.size(e, 60, alpha=0.05, sims=100, b=300, truth=0.0) > 0.9  # far inside the margin
+
+
 def test_descriptive_models_get_no_test():
     rng = np.random.default_rng(2)
     cells = pd.DataFrame({

@@ -297,7 +297,8 @@ section 13):
       samples miss the rare large-deficit sequence, 1 in 18 in D2.
     - At N = 60 and 75 the size is still 0.043 and 0.044.
     - B's planned size is therefore not controllable within the 6-month window, which stays.
-    - Power with the bootstrap-t at 0.05: A 0.45 on 89 sequences; B 0.64 on 33.
+    - Power with the bootstrap-t at 0.05: A 0.45 on 89 sequences; B 0.64 on 33. (Rerun with
+      `laf confirmatory-size`, which now writes a `power` column: A 0.42, B 0.64.)
     - A and B are still computed together on one snapshot (decision 11), for the exposure
       reason.
 
