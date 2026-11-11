@@ -1,24 +1,24 @@
-model,stratum,m5_event,answers,invalid,invalid_rate
-claude-opus-4-6,1 to 7 days,False,528,0,0.0
-claude-opus-4-6,1 to 7 days,True,24,0,0.0
-claude-opus-4-6,7 days or more,False,753,0,0.0
-claude-opus-4-6,7 days or more,True,24,0,0.0
-claude-opus-4-6,under 1 day,False,261,0,0.0
-claude-opus-4-6,under 1 day,True,18,0,0.0
-claude-opus-5-5,1 to 7 days,False,228,0,0.0
-claude-opus-5-5,7 days or more,False,255,0,0.0
-claude-opus-5-5,under 1 day,False,117,0,0.0
-claude-opus-5-5,under 1 day,True,9,0,0.0
-claude-sonnet-4-6,1 to 7 days,False,282,0,0.0
-claude-sonnet-4-6,7 days or more,False,336,0,0.0
-claude-sonnet-4-6,under 1 day,False,144,0,0.0
-claude-sonnet-4-6,under 1 day,True,9,0,0.0
-gpt-5.1-2025-11-13,1 to 7 days,False,528,3,0.005681818181818182
-gpt-5.1-2025-11-13,1 to 7 days,True,24,0,0.0
-gpt-5.1-2025-11-13,7 days or more,False,753,3,0.00398406374501992
-gpt-5.1-2025-11-13,7 days or more,True,24,0,0.0
-gpt-5.1-2025-11-13,under 1 day,False,261,1,0.0038314176245210726
-gpt-5.1-2025-11-13,under 1 day,True,18,2,0.1111111111111111
-gpt-6.1-sol,1 to 7 days,False,120,0,0.0
-gpt-6.1-sol,7 days or more,False,93,0,0.0
-gpt-6.1-sol,under 1 day,False,63,0,0.0
+model,stratum,m5_event,answers,invalid,invalid_rate,invalid_whole_answer
+claude-opus-4-6,1 to 7 days,False,528,0,0.0,0
+claude-opus-4-6,1 to 7 days,True,24,0,0.0,0
+claude-opus-4-6,7 days or more,False,753,0,0.0,0
+claude-opus-4-6,7 days or more,True,24,0,0.0,0
+claude-opus-4-6,under 1 day,False,261,0,0.0,0
+claude-opus-4-6,under 1 day,True,18,0,0.0,0
+claude-opus-5-5,1 to 7 days,False,228,0,0.0,0
+claude-opus-5-5,7 days or more,False,255,0,0.0,0
+claude-opus-5-5,under 1 day,False,117,0,0.0,0
+claude-opus-5-5,under 1 day,True,9,0,0.0,0
+claude-sonnet-4-6,1 to 7 days,False,282,0,0.0,0
+claude-sonnet-4-6,7 days or more,False,336,0,0.0,0
+claude-sonnet-4-6,under 1 day,False,144,0,0.0,0
+claude-sonnet-4-6,under 1 day,True,9,0,0.0,0
+gpt-5.1-2025-11-13,1 to 7 days,False,528,0,0.0,3
+gpt-5.1-2025-11-13,1 to 7 days,True,24,0,0.0,0
+gpt-5.1-2025-11-13,7 days or more,False,753,0,0.0,3
+gpt-5.1-2025-11-13,7 days or more,True,24,0,0.0,0
+gpt-5.1-2025-11-13,under 1 day,False,261,0,0.0,1
+gpt-5.1-2025-11-13,under 1 day,True,18,0,0.0,2
+gpt-6.1-sol,1 to 7 days,False,120,0,0.0,0
+gpt-6.1-sol,7 days or more,False,93,0,0.0,0
+gpt-6.1-sol,under 1 day,False,63,0,0.0,0

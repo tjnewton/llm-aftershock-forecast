@@ -86,7 +86,10 @@ def sensitivity(
     rows += _row("non-overlapping subset", main[non_overlapping(main)], models)
     rows += _row(C.ROBUSTNESS_PROMPT, cells(variant=C.ROBUSTNESS_PROMPT),
                  tuple(m for m in models if m in AB_MODELS))  # fmt: skip
-    rows += _row("valid answers only", cells(s=samples[samples["status"] == "ok"]), models)
+    ok = samples["valid5"].astype(bool) if "valid5" in samples else samples["status"] == "ok"
+    rows += _row("valid answers only", cells(s=samples[ok]), models)
+    if "valid5" in samples:  # the stricter rule: the whole answer valid, not only its M>=5 part
+        rows += _row("invalid by the whole answer", cells(whole_answer=True), models)
     if "worst_case_d5" in samples and samples["worst_case_d5"].notna().any():
         rows += _row("invalid answers at the worst case", cells(invalid="worst_case"), models)
     exact = exact_match(tables)
@@ -124,9 +127,11 @@ def invalid_by_cell(samples: pd.DataFrame, cells: pd.DataFrame) -> pd.DataFrame:
     stratum = dict(zip(cells["issue_id"], cells["stratum"], strict=True))
     s = samples[samples["status"].ne("transport_error") & samples["item_id"].isin(stratum)]
     s = s[s["model"].isin(set(cells["model"])) & (s["variant"] == C.PRIMARY_PROMPT)]
-    s = s.assign(stratum=s["item_id"].map(stratum), invalid=s["status"].ne("ok"))
-    g = s.groupby(["model", "stratum", "m5_event"])["invalid"]
-    return g.agg(answers="size", invalid="sum", invalid_rate="mean").reset_index()
+    bad = ~s["valid5"].astype(bool) if "valid5" in s else s["status"].ne("ok")
+    s = s.assign(stratum=s["item_id"].map(stratum), invalid=bad, whole=s["status"].ne("ok"))
+    g = s.groupby(["model", "stratum", "m5_event"])
+    out = g["invalid"].agg(answers="size", invalid="sum", invalid_rate="mean")
+    return out.join(g["whole"].sum().rename("invalid_whole_answer")).reset_index()
 
 
 def failures(samples: pd.DataFrame) -> pd.DataFrame:

@@ -1,36 +1,36 @@
 effects,n,alpha,method,delta,size,power,power_at_zero,sims
 gpt-5.1-2025-11-13,33,0.025,student,0.02,0.165,0.165,0.165,1000
-gpt-5.1-2025-11-13,33,0.025,percentile,0.02,0.165,0.165,0.259,1000
-gpt-5.1-2025-11-13,33,0.05,student,0.02,0.165,0.165,0.167,1000
-gpt-5.1-2025-11-13,33,0.05,percentile,0.02,0.168,0.168,0.324,1000
-gpt-5.1-2025-11-13,89,0.025,student,0.02,0.032,0.032,0.074,1000
-gpt-5.1-2025-11-13,89,0.025,percentile,0.02,0.088,0.096,0.303,1000
-gpt-5.1-2025-11-13,89,0.05,student,0.02,0.035,0.036,0.121,1000
-gpt-5.1-2025-11-13,89,0.05,percentile,0.02,0.12,0.13,0.399,1000
-gpt-5.1-2025-11-13,33,0.025,student,0.03,0.165,0.165,0.169,1000
-gpt-5.1-2025-11-13,33,0.025,percentile,0.03,0.165,0.173,0.334,1000
-gpt-5.1-2025-11-13,33,0.05,student,0.03,0.165,0.165,0.174,1000
-gpt-5.1-2025-11-13,33,0.05,percentile,0.03,0.168,0.218,0.349,1000
-gpt-5.1-2025-11-13,89,0.025,student,0.03,0.032,0.047,0.103,1000
-gpt-5.1-2025-11-13,89,0.025,percentile,0.03,0.088,0.186,0.468,1000
-gpt-5.1-2025-11-13,89,0.05,student,0.03,0.035,0.07,0.205,1000
-gpt-5.1-2025-11-13,89,0.05,percentile,0.03,0.12,0.258,0.583,1000
-gpt-5.1-2025-11-13,33,0.025,student,0.05,0.165,0.169,0.208,1000
-gpt-5.1-2025-11-13,33,0.025,percentile,0.05,0.165,0.335,0.496,1000
-gpt-5.1-2025-11-13,33,0.05,student,0.05,0.165,0.179,0.223,1000
-gpt-5.1-2025-11-13,33,0.05,percentile,0.05,0.168,0.353,0.583,1000
-gpt-5.1-2025-11-13,89,0.025,student,0.05,0.032,0.108,0.242,1000
-gpt-5.1-2025-11-13,89,0.025,percentile,0.05,0.088,0.485,0.749,1000
-gpt-5.1-2025-11-13,89,0.05,student,0.05,0.035,0.215,0.562,1000
-gpt-5.1-2025-11-13,89,0.05,percentile,0.05,0.12,0.596,0.828,1000
-gpt-5.1-2025-11-13,33,0.025,student,0.1,0.165,0.275,0.307,1000
-gpt-5.1-2025-11-13,33,0.025,percentile,0.1,0.165,0.709,0.821,1000
-gpt-5.1-2025-11-13,33,0.05,student,0.1,0.165,0.299,0.351,1000
-gpt-5.1-2025-11-13,33,0.05,percentile,0.1,0.168,0.783,0.87,1000
-gpt-5.1-2025-11-13,89,0.025,student,0.1,0.032,0.737,0.911,1000
-gpt-5.1-2025-11-13,89,0.025,percentile,0.1,0.088,0.966,0.994,1000
-gpt-5.1-2025-11-13,89,0.05,student,0.1,0.035,0.94,0.992,1000
-gpt-5.1-2025-11-13,89,0.05,percentile,0.1,0.12,0.985,0.997,1000
+gpt-5.1-2025-11-13,33,0.025,percentile,0.02,0.165,0.165,0.256,1000
+gpt-5.1-2025-11-13,33,0.05,student,0.02,0.165,0.165,0.166,1000
+gpt-5.1-2025-11-13,33,0.05,percentile,0.02,0.167,0.171,0.317,1000
+gpt-5.1-2025-11-13,89,0.025,student,0.02,0.031,0.034,0.071,1000
+gpt-5.1-2025-11-13,89,0.025,percentile,0.02,0.09,0.11,0.302,1000
+gpt-5.1-2025-11-13,89,0.05,student,0.02,0.034,0.038,0.112,1000
+gpt-5.1-2025-11-13,89,0.05,percentile,0.02,0.122,0.16,0.397,1000
+gpt-5.1-2025-11-13,33,0.025,student,0.03,0.165,0.165,0.168,1000
+gpt-5.1-2025-11-13,33,0.025,percentile,0.03,0.165,0.178,0.338,1000
+gpt-5.1-2025-11-13,33,0.05,student,0.03,0.165,0.165,0.171,1000
+gpt-5.1-2025-11-13,33,0.05,percentile,0.03,0.167,0.244,0.351,1000
+gpt-5.1-2025-11-13,89,0.025,student,0.03,0.031,0.054,0.101,1000
+gpt-5.1-2025-11-13,89,0.025,percentile,0.03,0.09,0.21,0.471,1000
+gpt-5.1-2025-11-13,89,0.05,student,0.03,0.034,0.083,0.196,1000
+gpt-5.1-2025-11-13,89,0.05,percentile,0.03,0.122,0.291,0.579,1000
+gpt-5.1-2025-11-13,33,0.025,student,0.05,0.165,0.17,0.206,1000
+gpt-5.1-2025-11-13,33,0.025,percentile,0.05,0.165,0.342,0.494,1000
+gpt-5.1-2025-11-13,33,0.05,student,0.05,0.165,0.181,0.217,1000
+gpt-5.1-2025-11-13,33,0.05,percentile,0.05,0.167,0.366,0.584,1000
+gpt-5.1-2025-11-13,89,0.025,student,0.05,0.031,0.111,0.238,1000
+gpt-5.1-2025-11-13,89,0.025,percentile,0.05,0.09,0.528,0.748,1000
+gpt-5.1-2025-11-13,89,0.05,student,0.05,0.034,0.227,0.545,1000
+gpt-5.1-2025-11-13,89,0.05,percentile,0.05,0.122,0.634,0.827,1000
+gpt-5.1-2025-11-13,33,0.025,student,0.1,0.165,0.273,0.304,1000
+gpt-5.1-2025-11-13,33,0.025,percentile,0.1,0.165,0.724,0.818,1000
+gpt-5.1-2025-11-13,33,0.05,student,0.1,0.165,0.299,0.339,1000
+gpt-5.1-2025-11-13,33,0.05,percentile,0.1,0.167,0.802,0.872,1000
+gpt-5.1-2025-11-13,89,0.025,student,0.1,0.031,0.762,0.897,1000
+gpt-5.1-2025-11-13,89,0.025,percentile,0.1,0.09,0.971,0.994,1000
+gpt-5.1-2025-11-13,89,0.05,student,0.1,0.034,0.947,0.99,1000
+gpt-5.1-2025-11-13,89,0.05,percentile,0.1,0.122,0.985,0.997,1000
 claude-opus-5-5,33,0.025,student,0.02,0.142,0.193,0.216,1000
 claude-opus-5-5,33,0.025,percentile,0.02,0.144,0.265,0.318,1000
 claude-opus-5-5,33,0.05,student,0.02,0.144,0.237,0.261,1000
@@ -79,31 +79,47 @@ claude-opus-4-6,23,0.025,student,0.1,0.093,0.887,0.872,1000
 claude-opus-4-6,23,0.025,percentile,0.1,0.085,1.0,0.998,1000
 claude-opus-4-6,23,0.05,student,0.1,0.142,0.945,0.934,1000
 claude-opus-4-6,23,0.05,percentile,0.1,0.12,1.0,1.0,1000
-rule of thumb (control C),89,0.025,student,0.02,0.01,0.0,0.03,1000
-rule of thumb (control C),89,0.025,percentile,0.02,0.091,0.001,0.158,1000
-rule of thumb (control C),89,0.05,student,0.02,0.048,0.0,0.095,1000
-rule of thumb (control C),89,0.05,percentile,0.02,0.136,0.004,0.211,1000
-rule of thumb (control C),89,0.025,student,0.03,0.01,0.0,0.048,1000
-rule of thumb (control C),89,0.025,percentile,0.03,0.091,0.005,0.199,1000
-rule of thumb (control C),89,0.05,student,0.03,0.048,0.0,0.107,1000
-rule of thumb (control C),89,0.05,percentile,0.03,0.136,0.007,0.257,1000
-rule of thumb (control C),89,0.025,student,0.05,0.01,0.0,0.097,1000
-rule of thumb (control C),89,0.025,percentile,0.05,0.091,0.013,0.291,1000
-rule of thumb (control C),89,0.05,student,0.05,0.048,0.003,0.126,1000
-rule of thumb (control C),89,0.05,percentile,0.05,0.136,0.022,0.381,1000
-rule of thumb (control C),89,0.025,student,0.1,0.01,0.014,0.176,1000
-rule of thumb (control C),89,0.025,percentile,0.1,0.091,0.105,0.591,1000
-rule of thumb (control C),89,0.05,student,0.1,0.048,0.063,0.351,1000
-rule of thumb (control C),89,0.05,percentile,0.1,0.136,0.153,0.706,1000
-gpt-5.1-2025-11-13 minus the rule of thumb (S3),23,0.025,student,0.0,0.005,0.35,0.005,1000
-gpt-5.1-2025-11-13 minus the rule of thumb (S3),23,0.025,percentile,0.0,0.002,0.295,0.002,1000
-gpt-5.1-2025-11-13 minus the rule of thumb (S3),23,0.05,student,0.0,0.019,0.568,0.019,1000
-gpt-5.1-2025-11-13 minus the rule of thumb (S3),23,0.05,percentile,0.0,0.011,0.445,0.011,1000
-gpt-5.1-2025-11-13 minus the rule of thumb (S3),33,0.025,student,0.0,0.006,0.576,0.006,1000
-gpt-5.1-2025-11-13 minus the rule of thumb (S3),33,0.025,percentile,0.0,0.004,0.477,0.004,1000
-gpt-5.1-2025-11-13 minus the rule of thumb (S3),33,0.05,student,0.0,0.029,0.745,0.029,1000
-gpt-5.1-2025-11-13 minus the rule of thumb (S3),33,0.05,percentile,0.0,0.014,0.621,0.014,1000
-gpt-5.1-2025-11-13 minus the rule of thumb (S3),89,0.025,student,0.0,0.013,0.98,0.013,1000
-gpt-5.1-2025-11-13 minus the rule of thumb (S3),89,0.025,percentile,0.0,0.009,0.953,0.009,1000
-gpt-5.1-2025-11-13 minus the rule of thumb (S3),89,0.05,student,0.0,0.034,0.993,0.034,1000
-gpt-5.1-2025-11-13 minus the rule of thumb (S3),89,0.05,percentile,0.0,0.025,0.983,0.025,1000
+rule of thumb (control C1),89,0.025,student,0.02,0.01,0.0,0.03,1000
+rule of thumb (control C1),89,0.025,percentile,0.02,0.091,0.001,0.158,1000
+rule of thumb (control C1),89,0.05,student,0.02,0.048,0.0,0.095,1000
+rule of thumb (control C1),89,0.05,percentile,0.02,0.136,0.004,0.211,1000
+rule of thumb (control C1),89,0.025,student,0.03,0.01,0.0,0.048,1000
+rule of thumb (control C1),89,0.025,percentile,0.03,0.091,0.005,0.199,1000
+rule of thumb (control C1),89,0.05,student,0.03,0.048,0.0,0.107,1000
+rule of thumb (control C1),89,0.05,percentile,0.03,0.136,0.007,0.257,1000
+rule of thumb (control C1),89,0.025,student,0.05,0.01,0.0,0.097,1000
+rule of thumb (control C1),89,0.025,percentile,0.05,0.091,0.013,0.291,1000
+rule of thumb (control C1),89,0.05,student,0.05,0.048,0.003,0.126,1000
+rule of thumb (control C1),89,0.05,percentile,0.05,0.136,0.022,0.381,1000
+rule of thumb (control C1),89,0.025,student,0.1,0.01,0.014,0.176,1000
+rule of thumb (control C1),89,0.025,percentile,0.1,0.091,0.105,0.591,1000
+rule of thumb (control C1),89,0.05,student,0.1,0.048,0.063,0.351,1000
+rule of thumb (control C1),89,0.05,percentile,0.1,0.136,0.153,0.706,1000
+constant probability (control C2),89,0.025,student,0.02,0.062,0.059,0.175,1000
+constant probability (control C2),89,0.025,percentile,0.02,0.056,0.052,0.183,1000
+constant probability (control C2),89,0.05,student,0.02,0.083,0.079,0.235,1000
+constant probability (control C2),89,0.05,percentile,0.02,0.078,0.075,0.272,1000
+constant probability (control C2),89,0.025,student,0.03,0.062,0.104,0.275,1000
+constant probability (control C2),89,0.025,percentile,0.03,0.056,0.101,0.301,1000
+constant probability (control C2),89,0.05,student,0.03,0.083,0.145,0.346,1000
+constant probability (control C2),89,0.05,percentile,0.03,0.078,0.145,0.406,1000
+constant probability (control C2),89,0.025,student,0.05,0.062,0.262,0.465,1000
+constant probability (control C2),89,0.025,percentile,0.05,0.056,0.291,0.546,1000
+constant probability (control C2),89,0.05,student,0.05,0.083,0.334,0.534,1000
+constant probability (control C2),89,0.05,percentile,0.05,0.078,0.385,0.662,1000
+constant probability (control C2),89,0.025,student,0.1,0.062,0.718,0.87,1000
+constant probability (control C2),89,0.025,percentile,0.1,0.056,0.85,0.96,1000
+constant probability (control C2),89,0.05,student,0.1,0.083,0.832,0.95,1000
+constant probability (control C2),89,0.05,percentile,0.1,0.078,0.913,0.978,1000
+gpt-5.1-2025-11-13 minus the rule of thumb (S3),23,0.025,student,0.0,0.005,0.403,0.005,1000
+gpt-5.1-2025-11-13 minus the rule of thumb (S3),23,0.025,percentile,0.0,0.002,0.352,0.002,1000
+gpt-5.1-2025-11-13 minus the rule of thumb (S3),23,0.05,student,0.0,0.022,0.635,0.022,1000
+gpt-5.1-2025-11-13 minus the rule of thumb (S3),23,0.05,percentile,0.0,0.01,0.518,0.01,1000
+gpt-5.1-2025-11-13 minus the rule of thumb (S3),33,0.025,student,0.0,0.005,0.637,0.005,1000
+gpt-5.1-2025-11-13 minus the rule of thumb (S3),33,0.025,percentile,0.0,0.004,0.558,0.004,1000
+gpt-5.1-2025-11-13 minus the rule of thumb (S3),33,0.05,student,0.0,0.031,0.796,0.031,1000
+gpt-5.1-2025-11-13 minus the rule of thumb (S3),33,0.05,percentile,0.0,0.015,0.708,0.015,1000
+gpt-5.1-2025-11-13 minus the rule of thumb (S3),89,0.025,student,0.0,0.012,0.991,0.012,1000
+gpt-5.1-2025-11-13 minus the rule of thumb (S3),89,0.025,percentile,0.0,0.01,0.978,0.01,1000
+gpt-5.1-2025-11-13 minus the rule of thumb (S3),89,0.05,student,0.0,0.032,0.996,0.032,1000
+gpt-5.1-2025-11-13 minus the rule of thumb (S3),89,0.05,percentile,0.0,0.026,0.992,0.026,1000

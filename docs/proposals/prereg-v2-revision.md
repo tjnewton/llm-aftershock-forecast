@@ -1,11 +1,13 @@
 # Proposal: revising preregistration v2 before the freeze
 
 Status: **decided on 2026-11-11; superseded by docs/preregistration-v2.md** (decisions 32 to
-41 there). Tyler accepted the recommendations of section 5, approved the prompt wording and
-the rerun's spend, and after the rerun (`runs/d3`) set three points differently from this
-text: the margin is 0.05, not near 0.02 (at 0.02 test A would pass in 4% to 12% of simulated
-studies); Sonnet 4.6 is not a negative control (its development result changed with prompt
-v3); and the informative-sequence threshold is 0.10. The rerun cost $31.79 (Claude) and
+44 there). Tyler accepted the recommendations of section 5, approved the prompt wording and
+the rerun's spend. After the rerun (`runs/d3`) and a second mock review
+(docs/reviews/mock-review-revision.md) the registration differs from this text in four
+points: the margin is 0.02 (as proposed here; 0.05 was set and withdrawn the same day);
+Sonnet 4.6 is not a negative control (its development result changed with prompt v3) and a
+constant probability is one; an answer is invalid for the primary score only without a
+usable M>=5 probability; and the informative-sequence threshold is 0.10. The rerun cost $31.79 (Claude) and
 $31.80 (OpenAI); the runners' estimates were $42.15 and $46.86, above the figures in section
 3. What follows is the proposal as it was put to him.
 

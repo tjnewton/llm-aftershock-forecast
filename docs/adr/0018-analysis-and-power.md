@@ -4,11 +4,11 @@ Status: **living document.** Margins and thresholds are Tyler's decisions before
 this records the method and what the development data says. Earlier designs stay below for the
 record, marked where later decisions replaced them; where this ADR and
 docs/preregistration-v2.md disagree, the prereg governs.
-Revised 2026-11-11 (prereg v2 decisions 32 to 40, after the mock review of the design and the
-development rerun with prompt v3): the margin is 0.05 on the probability score, not 0.10 on
-the count score; an invalid answer counts log 2, not the worst baseline (decision 12 here
-now applies to the count score only); B, S1 and S2 are estimates without a verdict; the rule
-of thumb is the negative control. The sizes and powers below are those of the earlier
+Revised 2026-11-11 (prereg v2 decisions 32 to 44, after two mock reviews and the development
+rerun with prompt v3): the margin is 0.02 on the probability score, not 0.10 on the count
+score; an answer without a usable M>=5 probability counts log 2, not the worst baseline
+(decision 12 here now applies to the count score only); B, S1 and S2 are estimates without a
+verdict; the rule of thumb and a constant probability are the negative controls. The sizes and powers below are those of the earlier
 design; the current ones are in the prereg, sections 2 and 6
 (`results/confirmatory_size_d3_20261021T2300Z.csv`).
 

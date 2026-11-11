@@ -73,7 +73,8 @@ def test_one_table_with_every_variant():
             "stratum: 1 to 7 days"} <= set(got)  # fmt: skip
     assert got["valid answers only"] < got["main"]  # the penalty raised the main mean
     # the registered sensitivity margins repeat the main estimate, read at another margin
-    assert got["margin 0.02"] == got["main"] == got["margin 0.1"]
+    assert {f"margin {m:g}" for m in C.SENSITIVITY_MARGINS} == {"margin 0.05", "margin 0.1"}
+    assert got["margin 0.05"] == got["main"] == got["margin 0.1"]
     assert t["noninferior"].isna().all()  # a secondary model: estimate and bound, no verdict
     rates = S.invalid_rates(s).set_index("variant")
     assert rates.loc["v3A", "invalid_rate"] == pytest.approx(1 / 3)

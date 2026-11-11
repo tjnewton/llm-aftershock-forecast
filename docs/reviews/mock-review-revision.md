@@ -21,8 +21,12 @@ development sequences (the review: 36).
 
 What followed. Findings 3, 4, 8, 9 and 11 and the code parts of 5 and 6 were fixed in the
 commit that adds this file. Findings 1 and 2 (the margin, a second control) and the design part
-of 5 (when an answer is invalid) are Tyler's decisions and were put to him the same day; section
-13 of docs/preregistration-v2.md records what he decides.
+of 5 (when an answer is invalid) are Tyler's decisions and were put to him the same day. He
+decided them as decisions 42 to 44 of docs/preregistration-v2.md, section 13: the margin back
+to 0.02 (finding 1's option a), a constant-probability forecaster as a second control, and an
+answer invalid for the primary score only without a usable M>=5 probability. The text and
+tables of the commit after this file's follow those decisions, so the line numbers and some
+figures quoted below (the 0.05 margin, the dry-run rows) describe commit cd352c1e.
 -->
 
 # Mock review of the revised preregistration v2 (revision of 2026-11-11)

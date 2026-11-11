@@ -78,8 +78,9 @@ Per cell (issue time x window), dS = S(model) - S(official).
 ## 2. Hypotheses and decision rules
 | Id | Hypothesis | Set | Test |
 |---|---|---|---|
-| **A** (primary) | gpt-5.1 is non-inferior to the official forecast | retrospective: gpt-5.1's clean M>=5 sequences (89 among the current candidates) | one-sided, delta = 0.05 nats per cell |
-| C (negative control) | the rule of thumb, tested as if it were a model, is non-inferior to the official forecast; predicted result: not supported | test A's cells | as A |
+| **A** (primary) | gpt-5.1 is non-inferior to the official forecast | retrospective: gpt-5.1's clean M>=5 sequences (89 among the current candidates) | one-sided, delta = 0.02 nats per cell |
+| C1 (negative control) | the rule of thumb, tested as if it were a model, is non-inferior to the official forecast; predicted result: not supported | test A's cells | as A |
+| C2 (negative control) | one constant probability for every cell (0.041), tested the same way; predicted result: not supported | test A's cells | as A |
 | B (secondary) | Claude Opus 5.5 against the official forecast | its clean retrospective M>=5 sequences plus prospective sequences (section 5) | estimate with its 90% interval and simulated size; no verdict |
 | S1 (secondary) | Opus 4.6 against the official forecast | its clean M>=5 sequences (23); M3/M4 targets on the same sequences, descriptive | as B |
 | S2 (secondary) | gpt-6.1-sol against the official forecast | prospective (ADR 0018 decision 3) | as B |
@@ -88,7 +89,7 @@ Per cell (issue time x window), dS = S(model) - S(official).
 | S5 (secondary) | Opus 5.5 (and gpt-6.1-sol) against the pipeline's baselines on strict prospective items | prospective strict items | as S3 and S4 |
 | D (descriptive) | Sonnet 4.6; retrospective gpt-6.1-sol; M3 and M4 targets; D1 behavioral probes; hindsight effect (ADR 0016) | as stated | no test |
 
-- **Decision rule** for A and for the control C, at one-sided 0.05:
+- **Decision rule** for A and for the controls C1 and C2, at one-sided 0.05:
   - **supported** if the upper bound of mean dS is below delta;
   - **supported, worse inside the margin** if, in addition, the lower bound is above 0: the
     model is non-inferior at this margin and measurably worse than the official forecast;
@@ -109,11 +110,11 @@ Per cell (issue time x window), dS = S(model) - S(official).
     sequence.
   - **What each outcome licenses**, written before any confirmatory outcome is seen:
 
-    | A | Generic RJ (assay) | Control C | The paper may say |
+    | A | Generic RJ (assay) | Controls C1 and C2 | The paper may say |
     |---|---|---|---|
-    | supported | inferior or inconclusive | not supported | gpt-5.1 is non-inferior to the official forecast at the margin, on moderate sequences. |
-    | supported | non-inferior | not supported | gpt-5.1 is within the margin of the official forecast, and so is the generic model: a forecaster as good as a calibrated generic model, with no claim of skill specific to a sequence. The abstract carries that clause whenever it carries the first. |
-    | supported | any | supported | The test did not tell forecasters apart. No claim. |
+    | supported | inferior or inconclusive | neither supported | gpt-5.1 is non-inferior to the official forecast at the margin, on moderate sequences. |
+    | supported | non-inferior | neither supported | gpt-5.1 is within the margin of the official forecast, and so is the generic model: a forecaster as good as a calibrated generic model, with no claim of skill specific to a sequence. The abstract carries that clause whenever it carries the first. |
+    | supported | any | either supported | The test did not tell forecasters apart. No claim. |
     | inconclusive (either label) | any | any | Nothing in either direction. The estimate and its interval are reported, and the abstract says the comparison with the official forecast was inconclusive. |
     | inferior | any | any | gpt-5.1 is worse than the official forecast by more than the margin. |
 
@@ -130,40 +131,60 @@ Per cell (issue time x window), dS = S(model) - S(official).
     B, S1 and S2 carry no test against the official forecast (decision 39).
   - A and B are still computed together on the final outcome snapshot (section 5), because
     computing A early would reveal outcomes of October sequences that A and B share.
-- **Margin delta = 0.05 nats per cell** (decided 2026-11-11, after the development rerun with
-  prompt v3, `runs/d3`; it replaces 0.10 on the count score).
-  - **Meaning:** half of the official forecast's advantage over the rule of thumb. On the 39
-    development sequences the rule of thumb scores 0.095 nats per cell worse than the official
-    forecast, so a model within 0.05 keeps at least half of that advantage. This is the usual
-    construction of a non-inferiority margin: a fraction of the reference's effect over a
-    naive comparator.
-  - **The anchor is uncertain:** the 90% interval of that 0.095 is 0.010 to 0.366, and the
-    three development sequences with M>=5 aftershocks carry it.
-  - **For scale:** on test A's cells a forecaster wrong by a factor of two in the official
-    probability loses 0.006 to 0.013 nats per cell in expectation (0.02 to 0.05 in first-day
-    cells). The margin is about four to eight times that.
-  - **Sensitivity margins, named in advance:** 0.02 and 0.10. The same estimate and bound are
+- **Margin delta = 0.02 nats per cell** (decided 2026-11-11; it replaces 0.10 on the count
+  score).
+  - **Meaning, from forecasts alone.** If the official probability were the truth, the
+    expected loss on test A's 1,415 cells (mean of sequence means) would be:
+    - 0.006 for a forecaster at half the official probability in every cell, 0.012 at double;
+    - 0.014 at one third, 0.025 at one fifth, 0.042 at one tenth, 0.052 at three times;
+    - at least 0.031 for any one constant probability used in every cell, sequence and window
+      (the best constant is 2.9%).
+    - So 0.02 lets a factor-of-two error through and keeps out a forecaster that knows
+      nothing about the sequence. It is about two thirds of the official forecast's expected
+      advantage over that constant.
+  - **How the margin was reached**, in order, all on 2026-11-11 and all on development data
+    and forecast tables (no confirmatory outcome was seen):
+    - 0.02 was proposed before any model had answered prompt v3
+      (docs/proposals/prereg-v2-revision.md, P3), as somewhat more than the cost of doubling
+      every probability.
+    - After the development rerun, 0.05 was set for a few hours as "half the official
+      forecast's advantage over the rule of thumb" (decision 34). An independent review
+      (docs/reviews/mock-review-revision.md) showed that anchor to be made by the clip (the
+      rule of thumb's deficit is +0.038, +0.095 or +0.163 at clips of 0.01, 0.001 and 0.0001)
+      and that 0.05 would admit the tenfold under-forecast and the constant above.
+    - 0.02 was restored (decision 42). gpt-5.1's development result (+0.017) was known when
+      it was restored; of the margins considered it is the one test A is least likely to pass.
+  - **Sensitivity margins, named in advance:** 0.05 and 0.10. The same estimate and bound are
     read at both and reported beside the primary result. Neither changes it.
-  - **Why not 0.02 or 0.10:** simulated from gpt-5.1's development effects on 89 sequences
-    (below), test A is supported in 4% to 12% of studies at 0.02, which no result could
-    pass; at 0.10 a forecaster like the rule of thumb is declared non-inferior in 6% of
-    studies, against 0.3% at 0.05.
+  - **The primary test is expected to be inconclusive.** Simulated from gpt-5.1's development
+    effects on 89 sequences (below), test A is supported in 4% to 11% of studies. The paper's
+    finding is then the estimate with its 90% interval, read against the scale above, and not
+    a verdict.
   - **Assay sensitivity** (decided 2026-10-31): the same non-inferiority test is run for generic RJ
-    against the official forecast on each test's cells. If generic RJ is also non-inferior, A
-    and B are reported as unable to separate the model from the generic default, and no claim
-    of sequence-specific skill rests on them. On development data generic RJ minus official is
-    -0.009 (90% interval -0.155 to +0.014), so the clause will probably apply.
-  - **Negative control C** (decided 2026-11-11): the rule of thumb is tested against the
-    official forecast on test A's cells exactly as a model would be. Predicted: not supported.
-    If it is supported, the paper says that the test could not tell forecasters apart, and
-    no claim rests on A (the table above). In simulated studies of 89 sequences the control
-    is labelled inferior in 34% and inconclusive in 66%, so "not supported" is a weak
-    prediction: it can fail only if the test passes a forecaster that says "no aftershock"
-    in 95.8% of cells. Simulated, a forecaster like the rule of thumb is supported in
-    0.3% of studies of 89 sequences.
-    - Sonnet 4.6 was first chosen as a second control ("inferior", from its development
-      result with prompt v2A). It is not one: with prompt v3A its development result is no
-      worse than the official forecast (section 3). It stays descriptive.
+    against the official forecast on test A's cells. If generic RJ is also non-inferior, A is
+    reported as unable to separate the model from the generic default, and no claim of
+    sequence-specific skill rests on it. On development data generic RJ minus official is
+    -0.009 (90% interval -0.155 to +0.014), and generic RJ is supported in every simulated
+    study of 89 sequences, so the clause will apply. On B's and S1's cells the same contrast
+    is an estimate with its interval, without a label.
+  - **Negative controls** (decided 2026-11-11): two forecasters that should not pass, each
+    tested against the official forecast on test A's cells exactly as a model would be, each
+    predicted "not supported".
+    - **C1, the rule of thumb.** It states exactly 0 in 95.8% of test A's cells, so its score
+      is set by the clip. Simulated: supported in 0.3% of studies of 89 sequences at the
+      margin of 0.05 and in none at 0.02; labelled inferior in about 63% and inconclusive in
+      about 37%. Its prediction can hardly fail, which makes it a weak control.
+    - **C2, one constant probability for every cell:** 0.041, the share of scored development
+      cells with an M>=5 earthquake (22 of 536), fixed now (`d2.CONTROL_P`). It is the
+      forecaster the margin is set to keep out. On development data it is +0.021 (90%
+      interval -0.030 to +0.099). Simulated: supported in 8% of studies at 0.02 (33% at 0.05,
+      83% at 0.10). So this prediction can fail, about one time in twelve, and the bound's
+      simulated size for effects like these is 0.08, above its nominal 0.05.
+    - If either control is supported, the paper says that the test could not tell forecasters
+      apart, and no claim rests on A (the table above).
+    - Sonnet 4.6 was first chosen as a control ("inferior", from its development result with
+      prompt v2A). It is not one: with prompt v3A its development result is no worse than the
+      official forecast (section 3). It stays descriptive.
   - **Informative-sequence secondary estimand** (revised 2026-11-11): the primary estimand on
     the sequences where generic RJ's probability of at least one M>=5 earthquake is at least
     0.10 in the month window of the sequence's first issue that has a month window (one first
@@ -178,28 +199,34 @@ Per cell (issue time x window), dS = S(model) - S(official).
     prompt v3 (39 sequences for gpt-5.1, 1,000 simulations):
     `laf confirmatory-size --snapshot 20261021T2300Z --v3 --delta 0.02 0.03 0.05 0.10`,
     `results/confirmatory_size_d3_20261021T2300Z.csv`.
-  - A, 89 sequences, one-sided 0.05, margin 0.05: supported in 22% of studies if gpt-5.1's
-    true mean is its development mean (+0.019), and in 56% if it is 0. The power is modest,
-    and the registration says so: no margin with a stated meaning gives more.
+  - A, 89 sequences, one-sided 0.05, margin 0.02: supported in 4% of studies if gpt-5.1's
+    true mean is its development mean (+0.017), and in 11% if it is 0. The share of simulated
+    studies in which each forecaster is supported:
 
-    | Margin | Supported if the true mean is +0.019 | Supported if it is 0 | A forecaster like the rule of thumb is supported |
-    |---|---|---|---|
-    | 0.02 | 4% | 12% | 0% |
-    | 0.03 | 7% | 21% | 0% |
-    | **0.05** | 22% | 56% | 0.3% |
-    | 0.10 | 94% | 99% | 6% |
+    | Margin | gpt-5.1, true mean +0.017 | gpt-5.1, true mean 0 | C1, like the rule of thumb | C2, like the constant |
+    |---|---|---|---|---|
+    | **0.02** | 4% | 11% | 0% | 8% |
+    | 0.03 | 8% | 20% | 0% | 15% |
+    | 0.05 | 23% | 55% | 0.3% | 33% |
+    | 0.10 | 95% | 99% | 6% | 83% |
 
+  - The power depends on the tail of the model's effects, which development data cannot
+    settle. With effects shaped like Opus 5.5's the same test at 0.02 is supported in 39% to
+    45% of studies of 89 sequences; with gpt-5.1's, in 4% to 11%.
   - The result will turn on the few sequences with M>=5 aftershocks. The official forecast
     itself expects about 11 of test A's 89 sequences to have one in the first month. In
-    development, two sequences of 39 carry gpt-5.1's mean of +0.019: their effects are +0.83
-    and +0.54. Without the first the mean is -0.002, without both -0.017. gpt-5.1 is better than the official forecast on the typical sequence
-    (median -0.011) and much worse where M>=5 aftershocks occurred.
-  - Superiority over the rule of thumb (S3) has simulated power 0.99 for gpt-5.1 at 89
-    sequences (development mean -0.076, 90% interval -0.383 to -0.019; size 0.034). At the
-    secondary models' numbers of sequences, with gpt-5.1's effects: power 0.57 and size 0.019
-    at 23, power 0.75 and size 0.029 at 33.
-  - The control's column in the table above and these S3 figures are the rows `rule of thumb
-    (control C)` and `... minus the rule of thumb (S3)` of the same file.
+    development, two sequences of 39 carry gpt-5.1's mean of +0.017: their effects are +0.83
+    and +0.54. Without the first the mean is -0.005, without both -0.020. gpt-5.1 is better
+    than the official forecast on the typical sequence (median -0.013) and much worse where
+    M>=5 aftershocks occurred: its stated probability is at or below the official one in 88%
+    of answers and a fifth of it at the median.
+  - Superiority over the rule of thumb (S3) has simulated power 0.996 for gpt-5.1 at 89
+    sequences (development mean -0.079, size 0.032). At the secondary models' numbers of
+    sequences, with gpt-5.1's effects: power 0.64 and size 0.022 at 23, power 0.80 and size
+    0.031 at 33. Its meaning is limited: the rule of thumb states 0 almost everywhere.
+  - The controls' columns in the table above and these S3 figures are the rows `rule of thumb
+    (control C1)`, `constant probability (control C2)` and `... minus the rule of thumb (S3)`
+    of the same file.
   - Under the earlier draft (count score, margin 0.10, prompt v2A) the power from the D2
     effects was 0.42 for A and 0.64 for B (`results/confirmatory_size_d2_20261021T2300Z.csv`;
     a first quoted 0.45 for A came from a run that no command recorded). The normal
@@ -456,9 +483,10 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
   - **Simulated size** of the bootstrap-t, from the development rerun's effects (prompt v3,
     probability score) shifted to delta (`laf confirmatory-size --v3`,
     `results/confirmatory_size_d3_20261021T2300Z.csv`):
-    - At the registered level, 0.05, and N = 89: 0.035 (gpt-5.1-like effects) and 0.047
+    - At the registered level, 0.05, and N = 89: 0.034 (gpt-5.1-like effects) and 0.047
       (Opus-5.5-like effects). Both are below the nominal level, so no calibration is needed
-      for A. (At nominal 0.025: 0.032 and 0.030.)
+      for A. (At nominal 0.025: 0.031 and 0.030.) For effects like the constant control's it
+      is 0.083 (section 2).
     - The percentile bound drafted first would err 0.12 and 0.09 of the time at 0.05.
     - At N = 33: 0.165 and 0.144 at 0.05. S1 (Opus 4.6-like effects, N = 23): 0.142 at 0.05
       (0.093 at 0.025). These are why B and S1 carry no verdict (section 2). B is simulated
@@ -478,14 +506,15 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     fitted (too few sequences), that is reported in its row and the analysis goes on.
 - **Sensitivity analyses**, all reported in one table whatever their result; anything not
   listed is exploratory:
-  - the margins 0.02 and 0.10 (section 2);
+  - the margins 0.05 and 0.10 (section 2);
   - test A on all clean candidates;
   - with the 3 forward-excluded candidates;
   - the non-overlapping subset (`sensitivity.NON_OVERLAP`: every day window, the week
     windows of the first, 7-day, 14-day and 28-day issues, and the month window of the first
     issue; the first issue keeps its three nested windows);
   - v3B;
-  - valid answers only, and invalid answers at the worst case (section 7);
+  - valid answers only, invalid answers at the worst case, and invalid by the whole answer
+    (section 7);
   - the probability clipped at 0.0001 and at 0.01 instead of 0.001;
   - the Brier score of the probability (estimate and bound only: delta is defined for the log
     score);
@@ -523,8 +552,9 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     outside the primary and secondary lists (Sonnet 4.6 among them) get no test row.
   - Built: the secondary table (`laf.confirmatory.secondary`, written beside the tests): the
     contrasts S3 and S4 (dS against each pipeline baseline on the model's own test cells), the
-    assay-sensitivity test, the negative control C (`control` rows: the rule of thumb's own
-    test against the official forecast on the model's cells), and the informative-sequence
+    assay-sensitivity test, the negative controls C1 and C2 (`control` rows: the rule of
+    thumb's and the constant probability's own tests against the official forecast on the
+    model's cells), and the informative-sequence
     estimand (`confirmatory.informative`: generic RJ's month-window probability, computed
     from the frozen forecast-time tables with no count read).
   - Built: the descriptive table (`laf.descriptive`, `confirmatory_descriptive_*.csv`;
@@ -555,9 +585,9 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     its on-time, failed and missed answers.
   - Built (`laf.sensitivity`): region radius x0.5 and x1.5 (outcomes recounted from each
     sequence's own catalog, x1.5 only where the catalog query covered it); in one table, the
-    margins 0.02 and 0.10, test A on all clean candidates, the unbuffered and release-date
+    margins 0.05 and 0.10, test A on all clean candidates, the unbuffered and release-date
     clean rules, the non-overlapping subset, v3B, valid answers only, invalid answers at the
-    worst case, the exact-match subset, the 2-day settling rule and the strata, with invalid
+    worst case, invalid by the whole answer, the exact-match subset, the 2-day settling rule and the strata, with invalid
     rates by arm written beside it (`confirmatory_invalid_*.csv`) and, by stratum and by
     whether an M>=5 earthquake occurred in the cell, in `confirmatory_invalid_cells_*.csv`;
     the scoring variants (the probability clipped at 0.0001 and 0.01; its Brier score; the
@@ -585,11 +615,24 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
 
 ## 7. Invalid outputs
 - An invalid answer counts a fixed dS of log 2 (0.69 nats, a coin flip against a certain
-  outcome; decided 2026-11-11). Invalid means a schema violation (a missing probability
-  among them), an answer cut off at the output cap, a refusal, non-monotone quantiles, a value
-  out of range, or, in the batches, a mismatched `response.model` (section 3). A delivered
-  answer without text (cut off while reasoning, or a refusal with no text) is invalid too,
-  batch or live; only a failure to deliver an answer is a transport error.
+  outcome; decided 2026-11-11).
+  - **For the primary score an answer is invalid when it gives no usable M>=5 probability**
+    for the window (`schemas.stated_p5`): a refusal, an answer cut off at the output cap,
+    text that does not parse, a probability that is missing or outside [0, 1], or, in the
+    batches, a mismatched `response.model` (section 3). A delivered answer without text (cut
+    off while reasoning, or a refusal with no text) is invalid too, batch or live; only a
+    failure to deliver an answer is a transport error. A defect elsewhere in the answer
+    (non-monotone quantiles, another value out of range) does not make the M>=5 probability
+    invalid.
+  - **This rule changed after the development rerun, and the change is disclosed.** The draft
+    judged the whole answer. All three invalid answers of the rerun (gpt-5.1) state a usable
+    M>=5 probability; one fails only on its M>=3 quantiles for the month. Under the whole-answer
+    rule they counted log 2 for a number the primary score never reads, and gpt-5.1's
+    development mean was +0.019; under this rule it is +0.017. The whole-answer rule is
+    a registered sensitivity analysis ("invalid by the whole answer").
+  - For every other target (the count score, the descriptive M>=4 and M>=3 results) the whole
+    answer must be valid: a schema violation, an answer cut off at the output cap, a refusal,
+    non-monotone quantiles, a value out of range, or a mismatched `response.model`.
   - The penalty does not depend on k, on the cell or on which other runs exist.
     `laf.confirmatory` applies it.
   - No fixed penalty can be both mild and unable to help a model. With probabilities clipped
@@ -600,9 +643,11 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
       rules the paper reports the result as depending on how invalid answers are handled;
     - invalid rates are reported by stratum and by whether an M>=5 earthquake occurred in the
       cell (section 6).
-  - For scale: an invalid rate of 3% alone uses up a margin of 0.02, and of about 7% the
-    margin of 0.05. In the development rerun gpt-5.1 had 3 invalid answers in 630 (0.5%) and
-    the other four models none.
+  - For scale: an invalid rate of 3% alone uses up the margin of 0.02. In the development
+    rerun no answer of any model is invalid for the primary score; by the whole answer
+    gpt-5.1 has 3 invalid answers in 630 (0.5%) and the other four models none. Two of the
+    nine answer-windows those three cover lie in first-day cells where an M>=5 earthquake
+    occurred, the concentration the second safeguard is there to show.
   - The earlier draft's rule, the worst score in the cell among the five baselines (official,
     generic RJ, RJ-MLE, the rule of thumb, the legacy-ETAS refit), costs exactly zero where
     the baselines agree (47% of test A's cells): a forecaster that never answers scored +0.0975
@@ -844,7 +889,8 @@ Decided on 2026-11-11, after an independent mock review of the design
     plus the probability of at least one earthquake at M>=3, M>=4 and M>=5 (section 3).
 34. The margin is 0.05 nats per cell, half of the official forecast's advantage over the rule
     of thumb on development data, replacing 0.10. The registration states that this anchor
-    is uncertain and names 0.02 and 0.10 as sensitivity margins (section 2).
+    is uncertain and names 0.02 and 0.10 as sensitivity margins (section 2). Replaced the
+    same day by decision 42.
 35. A stays a non-inferiority test against the official forecast, with the claim scoped to
     moderate sequences where that forecast is close to the generic model (section 2).
 36. The rule of thumb is the registered negative control C. Sonnet 4.6 is not a control: its
@@ -861,5 +907,17 @@ Decided on 2026-11-11, after an independent mock review of the design
 41. No outside protocol review is invited before the freeze (Tyler, 2026-11-11). Two mock
     reviews by fresh agents of this project are in the repository (docs/reviews/); they are
     not an independent outside review, and the paper says so.
+
+Decided on 2026-11-11, later the same day, after an independent review of the revised text
+(docs/reviews/mock-review-revision.md) showed that decision 34's anchor does not hold:
+42. The margin is 0.02 nats per cell, the value proposed before any model had answered
+    prompt v3, replacing decision 34. 0.05 and 0.10 are the sensitivity margins. The
+    registration says that the primary test is expected to be inconclusive and that the
+    paper's finding is the estimate with its interval (section 2).
+43. For the primary score an answer is invalid only when it gives no usable M>=5 probability;
+    the whole-answer rule is a sensitivity analysis, and the text discloses that the rule
+    changed after the rerun and by how much (section 7; it amends decision 37).
+44. A second negative control: one constant probability for every cell, predicted not
+    supported (section 2; it adds to decision 36).
 
 No decision is open.

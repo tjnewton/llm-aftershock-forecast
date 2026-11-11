@@ -928,12 +928,16 @@ def main(argv: list[str] | None = None) -> None:
             # the negative control C and the contrast S3, on the primary model's cells
             a_model = sizes[0][0]
             own = samples[samples["model"] == a_model]
-            control = own.groupby(["sequence_id", "item_id", "window"])["base_d5_naive"].first()
+            per_cell = own.groupby(["sequence_id", "item_id", "window"])
             s3 = confirmatory_cells(samples, seqs_t, elapsed, sets=sets, reference="naive")
+            controls = (("rule of thumb (control C1)", "base_d5_naive"),
+                        ("constant probability (control C2)", "base_d5_constant"))  # fmt: skip
             extra = [
-                # `power`: how often a forecaster like the rule of thumb is declared non-inferior
-                ("rule of thumb (control C)", control.groupby("sequence_id").mean().to_numpy(),
-                 (89,), deltas),
+                # `power`: how often a forecaster like the control is declared non-inferior
+                (label, per_cell[col].first().groupby("sequence_id").mean().to_numpy(), (89,),
+                 deltas)
+                for label, col in controls
+            ] + [
                 # superiority over the rule of thumb: the bound against 0
                 (f"{a_model} minus the rule of thumb (S3)",
                  sequence_effects(s3[s3["model"] == a_model]).to_numpy(), (23, 33, 89), [0.0]),

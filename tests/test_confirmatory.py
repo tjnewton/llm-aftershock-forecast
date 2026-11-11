@@ -52,11 +52,11 @@ def test_report_corrects_only_the_co_primary_models():
             rng.normal(0, 0.05, 400), rng.normal(0.02, 0.05, 400), rng.normal(0.3, 0.05, 400)
         ],
     })  # fmt: skip
-    t = C.report(cells, ("A", "B")).set_index("model")
+    t = C.report(cells, ("A", "B"), delta=0.10).set_index("model")
     assert t.loc["A", "holm_noninferior"] and t.loc["B", "holm_noninferior"]
     assert t.loc["C", "holm_noninferior"] is None and not t.loc["C", "noninferior"]
     assert t.loc["A", "status"] == "supported" and t.loc["C", "status"] == "inferior"
-    d = C.report(cells, ("A",), descriptive=("C",)).set_index("model")
+    d = C.report(cells, ("A",), delta=0.10, descriptive=("C",)).set_index("model")
     assert pd.isna(d.loc["C", "status"]) and pd.isna(d.loc["C", "lower"])  # no test row
 
 
@@ -82,7 +82,7 @@ def test_hierarchical_model_recovers_the_mean():
                 rows.append({"sequence_id": f"s{i}", "issue_id": f"s{i}@{j}", "window": w,
                              "stratum": C.stratum([0.1, 2.0, 10.0, 30.0][j]),
                              "d": 0.03 + u + v + rng.normal(0, 0.1)})  # fmt: skip
-    r = C.hierarchical(pd.DataFrame(rows))
+    r = C.hierarchical(pd.DataFrame(rows), delta=0.10)
     assert abs(r["hier_mu"] - 0.03) < 3 * r["hier_se"]
     assert r["hier_noninferior"] and r["hier_converged"]
     assert 0.05 < r["hier_sd_sequence"] < 0.2 and r["hier_error"] is None
@@ -289,11 +289,11 @@ def test_assay_flags_a_test_that_cannot_separate_from_generic_rj():
     ids = {"sequence_id": s["sequence_id"].unique(), "issue_id": s["item_id"].unique()}
     cells = pd.DataFrame({"model": C.PRIMARY[0], **ids, "window": "day", "d": 0.0})
     noisy = s.assign(base_d5_generic_rj=np.random.default_rng(1).normal(0, 0.02, len(s)))
-    assert C.assay(noisy, cells).iloc[0]["generic_rj_status"] == "noninferior"
+    assert C.assay(noisy, cells, 0.10).iloc[0]["generic_rj_status"] == "noninferior"
     worse = s.assign(base_d5_generic_rj=0.5 + np.random.default_rng(2).normal(0, 0.02, len(s)))
-    assert C.assay(worse, cells).iloc[0]["generic_rj_status"] == "inferior"
+    assert C.assay(worse, cells, 0.10).iloc[0]["generic_rj_status"] == "inferior"
     near = s.assign(base_d5_generic_rj=0.1 + np.random.default_rng(4).normal(0, 0.3, len(s)))
-    assert C.assay(near, cells).iloc[0]["generic_rj_status"] == "inconclusive"  # no claim
+    assert C.assay(near, cells, 0.10).iloc[0]["generic_rj_status"] == "inconclusive"  # no claim
     one = cells.head(1)  # one sequence: no spread, so no claim either way
     assert C.assay(s, one).iloc[0]["generic_rj_status"] == "inconclusive"
     # on a secondary model's cells: the estimate and bounds, no label
@@ -460,14 +460,14 @@ def test_a_supported_row_that_is_measurably_worse_says_so_and_estimates_get_no_v
             rng.normal(0, 0.05, 400), rng.normal(0.02, 0.05, 400), rng.normal(0.3, 0.05, 400)
         ],
     })  # fmt: skip
-    t = C.report(cells, ("A",), unlabeled=("C",)).set_index("model").to_dict("index")
+    t = C.report(cells, ("A",), delta=0.05, unlabeled=("C",)).set_index("model").to_dict("index")
     assert t["A"]["status"] == "supported"
     # B: upper bound below the margin, lower bound above 0
     assert t["B"]["status"] == C.WORSE_INSIDE and 0 < t["B"]["lower"] < t["B"]["upper"]
     assert t["B"]["noninferior"]
     # C keeps its estimate and bounds, without a label
     assert pd.isna(t["C"]["status"]) and pd.isna(t["C"]["noninferior"])
-    assert t["C"]["lower"] > C.DELTA and abs(t["C"]["mean"] - 0.3) < 0.02
+    assert t["C"]["lower"] > 0.05 and abs(t["C"]["mean"] - 0.3) < 0.02
 
 
 def test_the_rule_of_thumb_control_is_labelled_as_test_a_is():
@@ -479,7 +479,11 @@ def test_the_rule_of_thumb_control_is_labelled_as_test_a_is():
     assert control["naive_status"] == "inferior" and abs(control["naive_mean"] - 0.4) < 0.02
     assert "generic_rj_status" not in control.index  # columns carry the baseline's name
     slightly = s.assign(base_d5_naive=0.02 + np.random.default_rng(3).normal(0, 0.005, len(s)))
-    assert C.assay(slightly, cells, baseline="naive").iloc[0]["naive_status"] == C.WORSE_INSIDE
+    inside = C.assay(slightly, cells, 0.05, baseline="naive").iloc[0]
+    assert inside["naive_status"] == C.WORSE_INSIDE
+    # the constant-probability control goes the same way
+    flat = bad.rename(columns={"base_d5_naive": "base_d5_constant"})
+    assert C.assay(flat, cells, baseline="constant").iloc[0]["constant_status"] == "inferior"
 
 
 def test_identical_effects_never_support_and_a_constant_deficit_is_inferior():
@@ -496,7 +500,7 @@ def test_a_measurably_worse_row_says_so_on_either_side_of_the_margin():
     rng = np.random.default_rng(5)
     z = rng.normal(0, 1, 100)
     z = (z - z.mean()) / z.std(ddof=1)  # mean exactly 0, SD exactly 1
-    wide = C.decide(0.045 + 0.06 * z)  # lower bound above 0, upper bound above delta
-    assert 0 < wide["lower"] < C.DELTA < wide["upper"] and wide["status"] == C.WORSE_UNBOUNDED
-    tight = C.decide(0.02 + rng.normal(0, 0.02, 200))  # the deficit is bounded inside the margin
-    assert 0 < tight["lower"] < tight["upper"] < C.DELTA and tight["status"] == C.WORSE_INSIDE
+    wide = C.decide(0.045 + 0.06 * z, 0.05)  # lower bound above 0, upper bound above delta
+    assert 0 < wide["lower"] < 0.05 < wide["upper"] and wide["status"] == C.WORSE_UNBOUNDED
+    tight = C.decide(0.02 + rng.normal(0, 0.02, 200), 0.05)  # the deficit is inside the margin
+    assert 0 < tight["lower"] < tight["upper"] < 0.05 and tight["status"] == C.WORSE_INSIDE

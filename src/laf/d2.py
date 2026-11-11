@@ -9,7 +9,11 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from laf.schemas import QKEYS, WINDOWS, fields, validate
+from laf.schemas import QKEYS, WINDOWS, fields, stated_p5, validate
+
+# The second negative control (prereg v2 section 2): one probability for every cell, the share
+# of scored development cells with an M>=5 earthquake (22 of 536), fixed before the freeze
+CONTROL_P = 0.041
 
 
 def _jsonl(path: Path) -> list[dict]:
@@ -37,8 +41,15 @@ def samples(run_dirs: list[Path]) -> list[dict]:
                 status, parsed, warn = validate(
                     m["arm"], res.get("text"), res.get("stop_reason"), targets, probs
                 )
+            # the M>=5 probability the answer states, usable even when the answer is invalid
+            # elsewhere; never from another model's answer or an undelivered one
+            mine = (
+                status not in ("transport_error", "model_mismatch") and "p_m5_at_least_one" in probs
+            )
+            p5 = stated_p5(res.get("text"), res.get("stop_reason")) if mine else {}
             for w in WINDOWS:
-                rec = {**m, "window": w, "status": status, "warnings": ",".join(warn)}
+                rec = {**m, "window": w, "status": status, "warnings": ",".join(warn),
+                       "p5": p5.get(w)}  # fmt: skip
                 for t in targets:
                     rec[t] = [parsed[w][t][k] for k in QKEYS] if parsed and status == "ok" else None
                 for p in probs:  # p_m6, and for v3 answers p_m5, p_m4 and p_m3
@@ -294,6 +305,8 @@ def analyze(
             info[k][f"base_d5_{b}"] = (
                 s5(fc, b, y5, p_off) - info[k]["off5"] if fc and fc.m5 else np.nan
             )
+        # the constant-probability control, under the probability scores only
+        info[k]["base_d5_constant"] = sp(CONTROL_P, y5 >= 1) - info[k]["off5"] if prob else np.nan
         # the Brier score of P(M>=6) per baseline (prereg v2 section 4; `laf.descriptive`)
         y6 = c.get("y6", np.nan)
         info[k]["m6_event"] = None if pd.isna(y6) else bool(y6 > 0)
@@ -312,21 +325,25 @@ def analyze(
             "sequence_id": ci["sequence_id"], "status": r["status"], "warnings": r["warnings"],
             "m3_ok": ci["m3_ok"], "worst_base_d5": ci["worst_base_d5"],
             "worst_case_d5": ci["worst_case_d5"], "m5_event": bool(ci["y5"] >= 1),
+            "base_d5_constant": ci["base_d5_constant"],
+            # valid for the M>=5 score: the stated probability is usable (the probability
+            # scores), or the whole answer is valid (the count scores)
+            "valid5": r.get("p5") is not None if prob else r["status"] == "ok",
             **{f"base_d5_{b}": ci[f"base_d5_{b}"] for b in BASELINES},
             **{f"brier_m6_{b}": ci[f"brier_m6_{b}"] for b in ("official", *BASELINES)},
             "brier_m6": _brier(r["p_m6"], ci["m6_event"]),
         }  # fmt: skip
+        if prob and r.get("p5") is not None:  # the answer's own probability, whatever else
+            row["d5"] = sp(r["p5"], ci["y5"] >= 1) - ci["off5"]  # is wrong with the answer
         if r["status"] == "ok":
             for m, t in (
                 (5, "m5_count_quantiles"),
                 (4, "m4_count_quantiles"),
                 (3, "m3_count_quantiles"),
             ):
-                if m == 5 and prob:  # the answer's own probability, not its quantiles
-                    p5 = r.get("p_m5")
-                    sc = np.nan if p5 is None else sp(p5, ci["y5"] >= 1)
-                else:
-                    sc = (ls if m == 5 else _ls)(r[t], ci[f"y{m}"])
+                if m == 5 and prob:
+                    continue
+                sc = (ls if m == 5 else _ls)(r[t], ci[f"y{m}"])
                 row[f"d{m}"] = sc - ci[f"off{m}"] if (m != 3 or ci["m3_ok"]) else np.nan
             row["m3_over_m4_median"] = (r["m3_count_quantiles"][4] + 1) / (
                 r["m4_count_quantiles"][4] + 1

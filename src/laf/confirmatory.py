@@ -10,11 +10,12 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-# The margin, in nats per cell of the probability score (Tyler, 2026-11-11): half of the official
-# forecast's advantage over the rule of thumb on development data (0.095; 90% interval 0.010 to
-# 0.366 on 39 sequences). 0.02 and 0.10 are the registered sensitivity margins.
-DELTA = 0.05
-SENSITIVITY_MARGINS = (0.02, 0.10)
+# The margin, in nats per cell of the probability score (Tyler, 2026-11-11). If the official
+# probability were the truth, a forecaster at half or double it would lose 0.006 to 0.012 on
+# test A's cells and one constant probability for every cell at least 0.031: 0.02 lets the
+# first through and keeps the second out. 0.05 and 0.10 are the registered sensitivity margins.
+DELTA = 0.02
+SENSITIVITY_MARGINS = (0.05, 0.10)
 B = 10_000
 SEED = 20261031
 
@@ -396,6 +397,7 @@ def confirmatory_cells(
     rule: str = "buffered",
     include_forward: bool = False,
     invalid: str = INVALID,
+    whole_answer: bool = False,
 ) -> pd.DataFrame:
     """Per (model, cell) mean dS over the model's primary-prompt samples at its study effort,
     kept only on its eligible sequences, with the issue, window and stratum the hierarchical
@@ -405,6 +407,9 @@ def confirmatory_cells(
 
     An invalid answer counts a fixed dS of log 2 (`invalid`, below), so the penalty does not
     depend on k, on the cell or on which other runs are loaded; transport errors are left out.
+    An answer is invalid for this score when it gives no usable M>=5 probability (`valid5`,
+    from `d2.analyze`); `whole_answer` applies the stricter rule, the whole answer valid, a
+    sensitivity analysis. Samples without `valid5` (the count scores) use the whole answer.
 
     `reference` is the forecast dS is taken against: the official one, or a pipeline baseline
     (`laf.d2.BASELINES`) for the contrasts S3-S5; cells without that baseline drop out. `sets`
@@ -426,7 +431,10 @@ def confirmatory_cells(
         penalty = worst.reindex(pd.MultiIndex.from_frame(s[key])).to_numpy()
     else:
         raise ValueError(f"unknown rule for invalid answers {invalid!r}")
-    d = np.where(s["status"] == "ok", s["d5"], penalty)
+    valid = s["status"] == "ok"
+    if "valid5" in s and not whole_answer:
+        valid = s["valid5"].astype(bool)
+    d = np.where(valid, s["d5"], penalty)
     if reference != "official":  # LS(model) - LS(baseline) = dS - (LS(baseline) - LS(official))
         d = d - s[f"base_d5_{reference}"].to_numpy()
     s = s.assign(d=d)
@@ -514,7 +522,7 @@ def assay(
         lower = -noninferiority(-e, -delta, strata=st)["upper"]
         if m not in PRIMARY:  # on a secondary model's cells: the estimate and bounds only
             status = None
-        elif baseline == "naive":  # the control C is labelled as A is (section 2)
+        elif baseline in CONTROLS:  # the controls are labelled as A is (section 2)
             status = _status(t["noninferior"], lower, delta)
         else:
             status = "noninferior" if t["noninferior"] else "inferior" if lower > delta else (
@@ -525,6 +533,9 @@ def assay(
 
 
 INFORMATIVE_P = 0.10  # generic RJ's probability of at least one M>=5 in a month window
+# The negative controls, tested as if they were models (prereg v2 section 2): the rule of thumb
+# and one constant probability for every cell (`d2.CONTROL_P`). Predicted: not supported.
+CONTROLS = ("naive", "constant")
 
 
 def informative(tables: dict[str, pd.DataFrame], items: dict) -> set[str]:
@@ -567,7 +578,8 @@ def secondary(
     return pd.concat(
         [contrasts(samples, tables["sequences"], elapsed, models, sets, min_mag),
          assay(samples, tested).assign(hypothesis="assay"),
-         assay(samples, tested, baseline="naive").assign(hypothesis="control"),
+         *(assay(samples, tested, baseline=b).assign(hypothesis="control")
+           for b in CONTROLS if f"base_d5_{b}" in samples),
          pd.DataFrame(rows)],
         ignore_index=True,
     )  # fmt: skip
