@@ -264,7 +264,7 @@ def main(argv: list[str] | None = None) -> None:
         "--v3", action="store_true",
         help="the v3 rerun (--runs runs/d3): probability score, an invalid answer counts log 2",
     )  # fmt: skip
-    cz.add_argument("--delta", type=float, help="the margin (default: the registered 0.10)")
+    cz.add_argument("--delta", type=float, nargs="+", help="margins (default: the registered)")
     cd = sub.add_parser(
         "candidates", help="supplementary candidates at L (prereg v2 section 5; ComCat lists)"
     )
@@ -903,7 +903,7 @@ def main(argv: list[str] | None = None) -> None:
         a.runs = a.runs or Path("runs/d3" if a.v3 else "runs/d2")
         runs = sorted(d for d in a.runs.iterdir() if (d / "results.jsonl").exists())
         proc = a.data_dir / "processed" / a.snapshot
-        delta = DELTA if a.delta is None else a.delta
+        deltas = a.delta or [DELTA]
         # A (89) and B (33) as registered, and S1 (Opus 4.6: its 23 clean M>=5 sequences)
         sizes = (("gpt-5.1-2025-11-13 medium v2A", (33, 89)),
                  ("claude-opus-5-5 high v2A", (33, 89)),
@@ -924,22 +924,21 @@ def main(argv: list[str] | None = None) -> None:
         else:
             cells = d2_cell_differences(proc, runs)
         rows = []
-        for label, ns in sizes:
+        from itertools import product
+
+        for (label, ns), delta in product(sizes, deltas):
             e = sequence_effects(cells[cells["model"] == label]).to_numpy()
-            for n in ns:
-                for alpha in (0.025, 0.05):
-                    for method in ("student", "percentile"):
-                        # size at the margin; power with the development mean as the truth,
-                        # and with a true difference of 0
-                        rate, power, power0 = (
-                            size(e, n, delta, alpha=alpha, sims=a.sims, method=method, truth=t)
-                            for t in (None, float(e.mean()), 0.0)
-                        )
-                        rows.append(dict(effects=label, n=n, alpha=alpha, method=method,
-                                         delta=delta, size=rate, power=power,
-                                         power_at_zero=power0, sims=a.sims))  # fmt: skip
-                        print(f"{label:<32} n={n:<3} alpha={alpha:<5} {method:<10} "
-                              f"size {rate:.3f} power {power:.3f} at 0 {power0:.3f}")  # fmt: skip
+            for n, alpha, method in product(ns, (0.025, 0.05), ("student", "percentile")):
+                # size at the margin; power with the development mean as the truth, and with
+                # a true difference of 0
+                rate, power, power0 = (
+                    size(e, n, delta, alpha=alpha, sims=a.sims, method=method, truth=t)
+                    for t in (None, float(e.mean()), 0.0)
+                )
+                row = dict(effects=label, n=n, alpha=alpha, method=method, delta=delta)
+                rows.append(row | dict(size=rate, power=power, power_at_zero=power0, sims=a.sims))
+                print(f"{label:<32} delta={delta} n={n:<3} alpha={alpha:<5} {method:<10} "
+                      f"size {rate:.3f} power {power:.3f} at 0 {power0:.3f}")  # fmt: skip
         tag = "d3" if a.v3 else "d2"
         path = Path("results") / f"confirmatory_size_{tag}_{a.snapshot}.csv"
         pd.DataFrame(rows).to_csv(path, index=False, lineterminator="\n")
