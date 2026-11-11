@@ -2,8 +2,8 @@
 
 Status: **DRAFT, not frozen.** Tyler alone decides the freeze (tag `prereg-v2`). His decisions
 are listed in section 13; none is open. The live path on prompt v3 is built and rehearsed;
-two steps remain before the freeze (section 11): its detector deploy, which is Tyler's, and a
-repeat of the outcome-snapshot rehearsal. Sources: ADRs 0004, 0006,
+one step remains before the freeze (section 11): its detector deploy, which is Tyler's.
+Sources: ADRs 0004, 0006,
 0011 and 0013-0018 (decisions of 2026-10-30 and 2026-10-31), the D1 and D2 results, the settings
 pilots, three checks of this draft (2026-10-31: the author's, an independent fact check,
 an independent methodology review), and the revision of 2026-11-11: an independent mock review
@@ -796,9 +796,14 @@ The freeze needs all of the following:
     same day: `laf live-rehearsal` on us7000ti1p (the real prospective pipeline with
     synthetic answers to prompt v3A; the sealed baselines carry their probabilities), then
     `laf confirmatory-dryrun --live` on it with `--assume-settled`, every output written.
-  - OPEN before the tag: the detector deploy of that code (Tyler's; runbook section 0.4),
-    after which the dry run continues on prompt v3; and the outcome-snapshot rehearsal of
-    2026-11-02 again, which was made with the count score.
+  - Done 2026-11-11 for the outcome snapshot, again, with the probability score: the 39
+    development sequences fetched afresh (20261111T2239Z, a scratch data folder), assembled
+    with the frozen 20261021T2300Z by `laf.outcome.assemble` (210 items and their forecast
+    tables kept; 3,780 counts recounted, 17 changed by catalog revisions, 144 more windows
+    closed), then `laf confirmatory-dryrun` on the assembled directory, every output written
+    (gpt-5.1 +0.018 there, against +0.017 on the frozen snapshot's outcomes).
+  - OPEN before the tag: the detector deploy of the live path (Tyler's; runbook section 0.4),
+    after which the dry run continues on prompt v3.
 - Tyler tags `prereg-v2` (an annotated tag) on a commit that holds this document and the
   manifest below. The SHA-256 of these is posted publicly with the tag's commit hash:
   - this document;
