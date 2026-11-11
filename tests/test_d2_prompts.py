@@ -281,3 +281,68 @@ def test_d3_block_sends_each_models_clean_development_items_with_prompt_v3():
     assert len(reqs) == 117 * 3 and {r["meta"]["paraphrase"] for r in reqs} == {"v3A"}
     assert {r["meta"]["effort"] for r in reqs} == {"low"}  # the study setting
     assert "p_m5_at_least_one" in json.dumps(reqs[0]["params"])
+
+
+def test_probability_score_and_the_rules_for_invalid_answers_on_a_v3_run(tmp_path):
+    import math
+
+    import numpy as np
+    import pytest
+
+    from laf.confirmatory import confirmatory_cells
+    from laf.d2 import analyze
+    from laf.scoring import log_score_binary
+
+    items = list(_items(3.0).values())
+    pick = [i for r in ("test-post", "test-pre") for i in [x for x in items if x.role == r][:6]]
+    meta = {"arm": "direct", "info": "I1", "model": "claude-opus-4-6", "block": "d3",
+            "effort": "medium", "paraphrase": "v3A"}  # fmt: skip
+    answers = (_v3_answer(p_m5_at_least_one=0.02), _v3_answer(p_m5_at_least_one=None))
+    reqs, res = [], []
+    for it in pick:  # per item one valid answer and one without the M>=5 probability
+        for s, text in enumerate(answers):
+            cid = f"{it.item_id}-{s}"
+            reqs.append({"custom_id": cid, "item_id": it.item_id, "sample": s, **meta})
+            res.append({"custom_id": cid, "result": "succeeded", "model_reported": meta["model"],
+                        "stop_reason": "end_turn", "text": text})  # fmt: skip
+    (tmp_path / "requests.jsonl").write_text("".join(json.dumps(r) + "\n" for r in reqs))
+    (tmp_path / "results.jsonl").write_text("".join(json.dumps(r) + "\n" for r in res))
+
+    df, _ = analyze(E3, [tmp_path], score="probability", roles=("test-post", "test-pre"))
+    assert set(df["status"]) == {"ok", "schema_invalid"}
+    by_id = {i.item_id: i for i in items}
+    assert {by_id[i].role for i in df["item_id"]} == {"test-post", "test-pre"}
+    post_only, _ = analyze(E3, [tmp_path], score="probability")
+    assert {by_id[i].role for i in post_only["item_id"]} == {"test-post"}
+
+    # d5 is the log score of the answer's own probability minus the published one's
+    t = load_tables(E3)
+    oc, fb = t["observed_counts"], t["forecast_bins"]
+    y5 = oc[oc["magnitude"] == 5.0].set_index(["issue_id", "window"])["count"]
+    fb = fb[fb["magnitude"] == 5.0]
+    keys = zip(fb["sequence_id"], fb["info_cutoff_ms"], fb["window"], strict=True)
+    p_off = dict(zip(keys, fb["probability"].astype(float), strict=True))
+    label = {"day": "1 Day", "week": "1 Week", "month": "1 Month"}
+    ok = df[df["status"] == "ok"]
+    for r in ok.to_dict("records"):
+        it, w = by_id[r["item_id"]], label[r["window"]]
+        event = bool(y5[(r["item_id"], w)] >= 1)
+        official = p_off[(it.sequence_id, it.issue_ms, w)]
+        want = log_score_binary(0.02, event) - log_score_binary(official, event)
+        assert math.isclose(r["d5"], want, abs_tol=1e-12)
+        assert r["worst_case_d5"] >= r["d5"] - 1e-12  # nothing valid scores worse
+    assert df[df["status"] != "ok"]["d5"].isna().all()
+
+    # a cell's value is the mean of its valid answer and the penalty for the invalid one
+    elapsed = {i.item_id: i.elapsed_days for i in items}
+    kw = {"sets": {meta["model"]: set(df["sequence_id"])}, "variant": "v3A"}
+    valid = ok.set_index(["item_id", "window"]).sort_index()
+    for rule, penalty in (("log2", math.log(2)), ("worst_case", valid["worst_case_d5"])):
+        cells = confirmatory_cells(df, t["sequences"], elapsed, invalid=rule, **kw)
+        got = cells.set_index(["issue_id", "window"])["d"].sort_index()
+        assert np.allclose(got.to_numpy(), ((valid["d5"] + penalty) / 2).to_numpy())
+    with pytest.raises(ValueError):
+        confirmatory_cells(df, t["sequences"], elapsed, invalid="other", **kw)
+    # the count score is untouched by the new option: no probability enters it
+    counts, _ = analyze(E3, [tmp_path], roles=("test-post", "test-pre"))
+    assert counts["worst_case_d5"].isna().all() and counts["d5"].notna().sum() == len(ok)

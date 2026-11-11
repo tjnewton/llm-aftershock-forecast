@@ -359,6 +359,7 @@ def confirmatory_cells(
     variant: str = PRIMARY_PROMPT,
     rule: str = "buffered",
     include_forward: bool = False,
+    invalid: str = "worst_baseline",
 ) -> pd.DataFrame:
     """Per (model, cell) mean dS over the model's primary-prompt samples at its study effort,
     kept only on its eligible sequences, with the issue, window and stratum the hierarchical
@@ -373,13 +374,23 @@ def confirmatory_cells(
     `reference` is the forecast dS is taken against: the official one, or a pipeline baseline
     (`laf.d2.BASELINES`) for the contrasts S3-S5; cells without that baseline drop out. `sets`
     replaces the clean eligible sets (the development dry run uses every sequence). `variant`
-    and `rule` select the prompt and the clean rule for the sensitivity analyses."""
+    and `rule` select the prompt and the clean rule for the sensitivity analyses.
+
+    `invalid` is the rule for an invalid answer (docs/proposals/prereg-v2-revision.md, P6):
+    `worst_baseline` as above; `log2`, a fixed dS of log 2; `worst_case`, the clipped
+    probability on the wrong side (`worst_case_d5`, with the probability score only)."""
     s = samples[samples["status"] != "transport_error"]
     key = ["item_id", "window"]
-    worst = s.groupby(key)["worst_base_d5"].max()  # the five baselines only (ADR 0018 decision 12)
-    d = np.where(
-        s["status"] == "ok", s["d5"], worst.reindex(pd.MultiIndex.from_frame(s[key])).to_numpy()
-    )
+    if invalid == "log2":
+        penalty = np.full(len(s), np.log(2.0))
+    elif invalid == "worst_case":
+        penalty = s["worst_case_d5"].to_numpy()
+    elif invalid == "worst_baseline":  # the five baselines only (ADR 0018 decision 12)
+        worst = s.groupby(key)["worst_base_d5"].max()
+        penalty = worst.reindex(pd.MultiIndex.from_frame(s[key])).to_numpy()
+    else:
+        raise ValueError(f"unknown rule for invalid answers {invalid!r}")
+    d = np.where(s["status"] == "ok", s["d5"], penalty)
     if reference != "official":  # LS(model) - LS(baseline) = dS - (LS(baseline) - LS(official))
         d = d - s[f"base_d5_{reference}"].to_numpy()
     s = s.assign(d=d)
