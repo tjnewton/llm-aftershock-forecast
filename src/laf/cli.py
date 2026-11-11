@@ -255,7 +255,7 @@ def main(argv: list[str] | None = None) -> None:
     )
     cz = sub.add_parser(
         "confirmatory-size",
-        help="simulated size of the registered test from development D2 effects (no API)",
+        help="simulated size and power of the registered test from development D2 effects (no API)",
     )
     cz.add_argument("--snapshot", required=True)
     cz.add_argument("--runs", type=Path, help="default: runs/d2, or runs/d3 with --v3")
@@ -929,10 +929,17 @@ def main(argv: list[str] | None = None) -> None:
             for n in ns:
                 for alpha in (0.025, 0.05):
                     for method in ("student", "percentile"):
-                        rate = size(e, n, delta, alpha=alpha, sims=a.sims, method=method)
+                        # size at the margin; power with the development mean as the truth,
+                        # and with a true difference of 0
+                        rate, power, power0 = (
+                            size(e, n, delta, alpha=alpha, sims=a.sims, method=method, truth=t)
+                            for t in (None, float(e.mean()), 0.0)
+                        )
                         rows.append(dict(effects=label, n=n, alpha=alpha, method=method,
-                                         size=rate, sims=a.sims))  # fmt: skip
-                        print(f"{label:<32} n={n:<3} alpha={alpha:<5} {method:<10} {rate:.3f}")
+                                         delta=delta, size=rate, power=power,
+                                         power_at_zero=power0, sims=a.sims))  # fmt: skip
+                        print(f"{label:<32} n={n:<3} alpha={alpha:<5} {method:<10} "
+                              f"size {rate:.3f} power {power:.3f} at 0 {power0:.3f}")  # fmt: skip
         tag = "d3" if a.v3 else "d2"
         path = Path("results") / f"confirmatory_size_{tag}_{a.snapshot}.csv"
         pd.DataFrame(rows).to_csv(path, index=False, lineterminator="\n")

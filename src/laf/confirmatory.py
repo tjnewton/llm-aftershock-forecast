@@ -112,14 +112,17 @@ def _stratified(x, labels, levels, delta, alpha, b, seed) -> dict:
 
 def size(
     effects: np.ndarray, n: int, delta: float = DELTA, alpha: float = 0.025, sims: int = 2000,
-    b: int = 2000, seed: int = SEED, method: str = "student",
+    b: int = 2000, seed: int = SEED, method: str = "student", truth: float | None = None,
 ) -> float:  # fmt: skip
     """Simulated size of the test: draw `n` sequence effects with replacement from `effects`
     shifted so their mean is exactly delta (H0 true at its boundary), apply the test, and
     return the share of false non-inferiority claims. Before the freeze, a level is calibrated
-    wherever this exceeds 0.03 (ADR 0018 decision 8)."""
+    wherever this exceeds 0.03 (ADR 0018 decision 8).
+
+    `truth` shifts the mean there instead: at the effects' own mean the share of claims is the
+    power at the development estimate (prereg v2 section 2)."""
     x = np.asarray(effects, dtype=float)
-    x = x - x.mean() + delta
+    x = x - x.mean() + (delta if truth is None else truth)
     rng = np.random.default_rng(seed)
     hits = 0
     for i in range(sims):
@@ -204,7 +207,10 @@ def report(
     The co-primary models (`primary`) are Holm-corrected, and their bound (`upper`) is reported
     at the level Holm tests them at (0.025 or 0.05). Superiority over the official forecast is a
     separate Holm family across the co-primary models, each tested only after its
-    non-inferiority is supported. Other models are tested at 0.05 alone."""
+    non-inferiority is supported. Other models are tested at 0.05 alone.
+
+    The registered design has one primary model (prereg v2 section 2), for which Holm's level
+    is the nominal 0.05: nothing is corrected."""
     effects = {m: sequence_effects(g).to_numpy() for m, g in cells.groupby("model")}
     rows = {m: decide(e, delta) | robust(e) for m, e in effects.items()}
     missing = [m for m in primary if m not in rows]

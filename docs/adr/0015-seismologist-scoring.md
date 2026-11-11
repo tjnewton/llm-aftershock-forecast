@@ -1,7 +1,7 @@
 # ADR 0015: Scores a seismologist expects, and lower magnitude targets
 
-Status: **living document, proposed** (workstreams B2 and A2). The quantile score of ADR 0001
-stays as a robustness score.
+Status: **living document; decided** (decisions 1-4 below, Tyler, 2026-10-30 and 2026-10-31;
+workstreams B2 and A2). The quantile score of ADR 0001 stays as a robustness score.
 
 ## Context
 Referees from statistical seismology expect forecasts as count distributions, scored with

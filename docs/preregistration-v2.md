@@ -12,7 +12,8 @@ this document governs, and every reference resolves to the tagged commit. Prereg
 ## 1. Study and estimand
 We compare probabilistic aftershock forecasts from general-purpose LLMs with the USGS
 operational aftershock forecast (OAF) and with statistical baselines.
-- **Information parity:** every forecaster sees what the OAF had at each issue time.
+- **Information parity:** every forecaster is given the catalog the OAF had at each issue
+  time, as closely as it can be rebuilt; the known gaps are listed at the end of this item.
   - Retrospectively, the catalog is rebuilt as it stood then from ComCat's product histories
     (ADR 0011). On 194 of the 195 candidates (computed before nn00914068 was restored), the
     rebuilt catalog reproduces the official products'
@@ -20,6 +21,15 @@ operational aftershock forecast (OAF) and with statistical baselines.
     96.85%.
   - The prompt lists at most 800 events, with daily counts beyond that.
   - Prospectively, the catalog is the one fetched at detection.
+  - Known gaps, stated and not corrected:
+    - events since deleted from ComCat are not rebuilt (ADR 0011);
+    - the prompt's mainshock location, depth, magnitude type and place name are those of the
+      snapshot's ComCat event; only its magnitude is the official version's (`laf.items`);
+    - an official version is matched to its event by today's mainshock magnitude and location
+      (ADR 0013; about 1% of issue times);
+    - analyst settings inside an official product are not available to any other forecaster;
+    - prospectively, the catalog fetched at detection can hold events and revisions indexed
+      after the official forecast was computed.
 - **Contamination:** each model is scored only on sequences whose mainshock falls after its
   training cutoff plus a 3-month buffer (section 3). In the prospective arm, contamination is
   impossible.
@@ -76,10 +86,12 @@ Per cell (issue time x window x target), dS = S(model) - S(official).
     window. This is outcome-blind.
 - **Power, with the registered bootstrap-t:**
   - It is computed from each model's development (D2) sequence effects, with its D2 mean as
-    the true difference (1,000 simulations).
-  - A: 0.45 on 89 sequences at 0.05. (The 0.84 quoted earlier for all clean candidates came
-    from the normal approximation at 0.025 on the 174 then available, ADR 0018; it overstates,
-    because the extra sequences are resampled from M>=5 effects.)
+    the true difference (1,000 simulations): `laf confirmatory-size`, the `power` column of
+    `results/confirmatory_size_d2_20261021T2300Z.csv`.
+  - A: 0.42 on 89 sequences at 0.05 (0.45 in an earlier run that no command recorded). (The
+    0.84 quoted earlier for all clean candidates came from the normal approximation at 0.025
+    on the 174 then available, ADR 0018; it overstates, because the extra sequences are
+    resampled from M>=5 effects.)
   - B: 0.64 on 33 at 0.05.
   - The normal approximation used earlier (`laf.power`) gave higher numbers: A 0.62, B 0.96. It
     ignores the heavy tail.
@@ -142,7 +154,8 @@ Per cell (issue time x window x target), dS = S(model) - S(official).
     - Tests A, B and S1 are also reported with the 3 included, as a sensitivity analysis.
 - **Primary set:** M>=5 mainshocks in each model's clean period.
   - Mainshock magnitudes are those of the frozen snapshot (retrospective) or at first
-    detection (prospective).
+    detection (prospective). Test B therefore uses both definitions, one in each of its
+    parts.
   - The counts quoted (89, 23, 7) are expected sizes. A sequence with no valid official version
     or no primary cell drops out, and that attrition is reported.
   - Secondary set: M4.0-4.9 mainshocks from US regional networks (`laf.prospective.US_REGIONAL`:
@@ -302,7 +315,8 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     - At N = 33 no bootstrap can recover a rare event the sample misses.
     - Before the freeze, the registered test's size is simulated from the development
       effects shifted to delta. For test A, a size above 0.03 would have meant registering a
-      calibrated nominal level as a number; it is not needed (below). B, S1 and S2 are tested
+      calibrated nominal level as a number (decision 8 set that threshold when the level was
+      0.025); it is not needed (below). B, S1 and S2 are tested
       at nominal 0.05 and reported with their simulated sizes: no level can repair a size
       that comes from samples that miss a rare event (decision 29).
     - Test B at about 33 sequences cannot rule out a rare-event deficit, and the paper says
@@ -314,10 +328,13 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     (`laf confirmatory-size`):
     - 0.007 (gpt-5.1-like effects) and 0.025 (Opus-5.5-like effects) at N = 89;
     - 0.14 for both at N = 33.
-    - The size at 0.05 and N = 89 is 0.018 and 0.029, within the 0.03 threshold, so no
-      calibration is needed for A.
+    - The size at the registered level, 0.05, and N = 89 is 0.018 and 0.029: below the
+      nominal level, and below the 0.03 threshold that was set for 0.025, so no calibration
+      is needed for A.
     - S1 (Opus 4.6-like effects, N = 23): 0.084 at 0.05 (0.050 at 0.025). B at N = 33: 0.14
-      at 0.05. S2 has no development effects to simulate from (gpt-6.1-sol has no D2 run).
+      at 0.05, simulated as one sample of 33 sequences that all contribute cells, not as the
+      two parts the test resamples separately. S2 has no development effects to simulate
+      from (gpt-6.1-sol has no D2 run).
 - **Beside the mean:**
   - The 10% trimmed mean and the median of the sequence effects, with bootstrap intervals.
   - Leave-one-sequence-out influence on A and B (`confirmatory.influence`: each sequence's
