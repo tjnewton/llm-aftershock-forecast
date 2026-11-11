@@ -1364,7 +1364,7 @@ def main(argv: list[str] | None = None) -> None:
 
         from laf.prompts import PROMPT_DIR, template_hashes
 
-        for sub_dir in ("", "v2"):  # registered prompts, and the v2 (D2) prompts
+        for sub_dir in ("", "v2", "v3"):  # registered prompts, the v2 (D2) and the v3 prompts
             path = PROMPT_DIR / sub_dir / "HASHES.json"
             path.write_text(
                 json.dumps(template_hashes(sub_dir), indent=1) + "\n",

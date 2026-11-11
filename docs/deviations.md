@@ -100,6 +100,22 @@ Each entry: UTC time, change, reason, expected effect on the registered analyses
   the second gate at once. The header comment of config/splits.toml (also frozen) now names both
   gates; no value changes. Effect: none on registered or development results; the guard only
   refuses more.
+- 2026-11-11 (Seismica phase, before the tag `prereg-v2`). A new prompt set, prompts/v3/ with
+  its own HASHES.json (docs/proposals/prereg-v2-revision.md, P1; decided after the mock review
+  of the design, docs/reviews/mock-review-design.md):
+  - v3A and v3B are v2A and v2B that also ask, per window, for the probability of at least one
+    earthquake at M>=3, M>=4 and M>=5, beside the one at M>=6; the line on scoring names
+    probabilities as well as quantiles. The context, the catalog and the nine quantiles are
+    unchanged. There is no v3C.
+  - A v3 answer without one of the four probabilities, or with one outside [0, 1], is invalid.
+    Two warnings, never invalid: `incoherent_probabilities` (a probability at a larger magnitude
+    above the one at a smaller magnitude) and `probability_outside_quantiles` (a probability
+    outside the range its own answer's nine quantiles leave for it).
+
+  Reason: in 71% of test A's official cells all nine M>=5 quantiles are zero, so the count score
+  cannot tell forecasters apart there. The registered prompts, prompts/v2/, both existing
+  HASHES.json files and every items file are unchanged (tested). Effect: none on registered,
+  E3 or D2 results; nothing is sent with v3 until a run is approved.
 
 # Deviations from preregistration v2 (tag prereg-v2)
 
