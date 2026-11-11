@@ -189,3 +189,26 @@ Software for the baselines (verified via the GitHub API): `opensha/opensha-oaf` 
   - optionally QuantSightBench (2604.15859) for LLM prediction intervals
 
 The full list runs to about 30. Trim to 20 by dropping Reasenberg & Jones 1994, Hainzl 2016, Wells & Coppersmith 1994, Brier 1950, Schorlemmer et al. 2007, Michael et al. 2020, Gao et al. and QuantSightBench, if the venue limits references.
+
+---
+
+## E. Scoring rare events and comparing forecasters (read for the design review)
+
+Read for question 2 of the mock review of the design (docs/reviews/mock-review-design.md,
+findings 2 and 20): is a proper score of the probability of at least one event a defensible
+primary score when that probability is a few percent? Quotes are from the arXiv versions,
+which may differ from the journal text. "Not read" means exactly that.
+
+| Work | Read | What it says that bears on the design |
+|---|---|---|
+| Serafini, Naylor, Lindgren, Werner & Main 2022, GJI, doi 10.1093/gji/ggac124 (arXiv 2105.12065v2) | Sections 1-2.3, 4.5, 4.6, 5, 6 and Appendix A; 3-4.4 only in summary | Binary events in a low-probability setting (their example: p about 0.001 per bin). "The Brier and log scores are both proper, and require no new information"; the parimutuel gambling score is not proper in general. The log score "heavily penalizes overconfidence" and is "based on the relative difference"; the Brier score "considers the absolute difference" and in their example prefers a forecast a thousand times too low to one four times too high. They compare forecasts by a confidence interval on the mean score difference, with "no preference" as a possible outcome; the Gaussian interval "can be used with the log ... score but not with the Brier score", with coverage "between 0.88 and 0.96". The interval assumes independent bins: "This assumption is false ... due to clustering of earthquakes"; they point to a Diebold-Mariano test for dependence. An expected log score of minus infinity for a forecast of exactly 0 or 1; no clipping rule is given. No rule of thumb for the amount of data needed. |
+| Brehmer, Gneiting, Herrmann, Marzocchi, Schlather & Strokorb 2023, Ann. Inst. Stat. Math., doi 10.1007/s10463-023-00875-5 (arXiv 2103.11884v2) | Sections 1-3.2, 6 and supplement S1; the case study (5.2-5.3) only in summary | Comparative evaluation through consistent scoring functions and score differences: "To estimate the uncertainty inherent in the score differences it is common to use the Diebold-Mariano test"; with dependence, "dependencies need to be accounted for in estimation and testing". "Neither the forecasting models, nor the data, need to follow any Poisson or independence assumption." The void probability of a region is elicitable (Example S1), so the probability of at least one event is too (my inference: it is one minus the void probability). No guidance on forecasts given only as quantiles. |
+| Nandan, Ouillon, Sornette & Wiemer 2019, SRL, doi 10.1785/0220180374 (arXiv 1903.07079) | Abstract only | Forecasting the full distribution of earthquake numbers is "inherently superior to forecasting their mean"; a Poisson assumption is "a poor representation of the heavy-tailed distribution of earthquake numbers". A referee may ask why counts are not scored if only the probability is. |
+| van der Elst, Hardebeck, Michael, McBride & Vanacore 2022, SRL, doi 10.1785/0220210222 | Not read (publisher and USGS pages refused the fetch) | USGS's own evaluation of its public forecast: the closest precedent for how the official forecast is scored. To read before the primary score is fixed. |
+
+Reading for the design (mine): a log score of the probability of at least one M>=5 aftershock,
+compared between forecasters by a paired sequence-level interval, is in line with this
+literature. What it does not settle: a floor for probabilities near zero has to be registered;
+dependence between nested windows is handled in this study by resampling sequences, which
+these papers do not discuss; and the count information the probability discards should still
+be reported.
