@@ -1,8 +1,9 @@
 # Preregistration v2: LLM aftershock forecasts against USGS operational forecasts, retrospective and prospective
 
 Status: **DRAFT, not frozen.** Tyler alone decides the freeze (tag `prereg-v2`). His decisions
-are listed in section 13; none is open. One item remains to build before the freeze: the live
-path on prompt v3 (section 11). Sources: ADRs 0004, 0006,
+are listed in section 13; none is open. The live path on prompt v3 is built and rehearsed;
+two steps remain before the freeze (section 11): its detector deploy, which is Tyler's, and a
+repeat of the outcome-snapshot rehearsal. Sources: ADRs 0004, 0006,
 0011 and 0013-0018 (decisions of 2026-10-30 and 2026-10-31), the D1 and D2 results, the settings
 pilots, three checks of this draft (2026-10-31: the author's, an independent fact check,
 an independent methodology review), and the revision of 2026-11-11: an independent mock review
@@ -191,6 +192,9 @@ Per cell (issue time x window), dS = S(model) - S(official).
     issue among test A's published day and week windows only).
     - It is outcome-blind and blind to both contestants; the earlier rule selected on the
       official forecast's mean count and kept 5 of 89.
+    - For a prospective sequence the same probability is read from the sealed baselines
+      record of its first released issue that has a month window, on its matched item
+      (`live_scores.live_informative`).
     - 49 of test A's 89 sequences qualify. Seven lie between 0.101 and 0.103, so the set is
       sensitive to the threshold's value; it is fixed by the frozen forecasts
       (`confirmatory.informative`).
@@ -363,8 +367,8 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     late.
   - Revised 2026-11-11: the live models answer prompt `v3A` (section 3), and the second record
     seals each baseline's probability of at least one M>=5 earthquake beside its quantiles,
-    so the probability score (section 1) needs nothing computed after the outcome. TO BUILD
-    before the tag, with a detector deploy (section 11).
+    so the probability score (section 1) needs nothing computed after the outcome. Built
+    (`laf.prospective`); the detector runs it once that code is deployed (section 11).
   - Each record gets an OpenTimestamps proof and is committed to the `live` branch in real
     time. Full forecasts are published after their windows close, with a note that they are
     not official forecasts.
@@ -567,13 +571,14 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     M>=6 probability) and the pipeline baselines on the same cells, each beside its difference
     from the official one. No test. It covers the retrospective batches; the live items are
     scored at M>=5 only.
-  - Built for the earlier draft, and TO BUILD again on prompt v3 and the probability score
-    (section 11; until then the code below scores live answers to prompt v2A at M>=5 through
-    their quantiles): the prospective inputs (`laf confirmatory --live <worktree of live>`;
-    `laf.live_scores`). Every released issue is scored on the outcome snapshot: counts in the
-    item's own circle and windows, from its own sequence's catalog, once settled 21 days;
-    matched items against the official version, strict items against the pipeline's
-    baselines only. Test B joins its retrospective part (origin before L) and its prospective
+  - Built: the prospective inputs (`laf confirmatory --live <worktree of live>`;
+    `laf.live_scores`). Every released issue is scored on the outcome snapshot: whether an
+    M>=5 earthquake occurred in the item's own circle and windows, from its own sequence's
+    catalog, once settled 21 days. On matched items the answer's stated probability is scored
+    against the matched official version's published probability. Strict items have no
+    official forecast: the stated probability's score stands by itself there, beside the
+    scores of the pipeline's baselines' sealed probabilities. Answers to prompt v2A (the dry
+    run before the deploy of section 11) state no M>=5 probability and are never scored. Test B joins its retrospective part (origin before L) and its prospective
     part (sequences included as primary at first detection, `<sequence>/inclusion.json`;
     origin in [L, S]; on-time matched items) in the two-part bootstrap
     (`noninferiority(..., strata=...)`: each part resampled at its own size, with the
@@ -658,6 +663,9 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
   section 3.
 - The Brier variant of section 6 scores an invalid answer at its worst case (a Brier score of
   1): log 2 is a quantity in nats and has no meaning there.
+- On strict live items there is no official forecast, so scores are not differences: an
+  invalid answer there scores log 2 itself, the score of a probability of one half
+  (`live_scores.live_samples`).
 - "The five baselines" can be four: RJ-MLE falls back to generic RJ where the as-of catalog
   holds fewer than 10 events of M>=4.95, and it equals generic RJ in every development cell.
 - Magnitudes that disagree across targets (an M3 count below an M4 count) are a warning, not
@@ -782,11 +790,15 @@ The freeze needs all of the following:
     development rerun (`runs/d3`, prompt v3, the probability score; its main table now takes
     `confirmatory_cells` too) and `laf confirmatory-size --v3`, which reproduces the sizes
     and powers quoted in sections 2 and 6.
-  - TO BUILD before the tag: the live path on prompt v3 and the probability score
+  - Built 2026-11-11: the live path on prompt v3 and the probability score
     (`laf.prospective` sends v3A and seals each baseline's probability; `laf.live_scores`
-    scores the stated probability against the matched official version's), a detector deploy
-    of that code (Tyler's), then the dry run with `--live` on a new `laf live-rehearsal`
-    issue and the outcome-snapshot rehearsal again.
+    scores the stated probability against the matched official version's). Rehearsed the
+    same day: `laf live-rehearsal` on us7000ti1p (the real prospective pipeline with
+    synthetic answers to prompt v3A; the sealed baselines carry their probabilities), then
+    `laf confirmatory-dryrun --live` on it with `--assume-settled`, every output written.
+  - OPEN before the tag: the detector deploy of that code (Tyler's; runbook section 0.4),
+    after which the dry run continues on prompt v3; and the outcome-snapshot rehearsal of
+    2026-11-02 again, which was made with the count score.
 - Tyler tags `prereg-v2` (an annotated tag) on a commit that holds this document and the
   manifest below. The SHA-256 of these is posted publicly with the tag's commit hash:
   - this document;

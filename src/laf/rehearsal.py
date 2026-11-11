@@ -23,6 +23,7 @@ SYNTHETIC_NOTE = "Synthetic rehearsal answer."
 def synthetic_answer() -> str:
     q = {k: int(i >= 4) + int(i >= 7) for i, k in enumerate(QKEYS)}  # non-decreasing counts
     win = {"m5_count_quantiles": q, "m4_count_quantiles": q, "m3_count_quantiles": q,
+           "p_m3_at_least_one": 0.6, "p_m4_at_least_one": 0.5, "p_m5_at_least_one": 0.5,
            "p_m6_at_least_one": 0.02}  # fmt: skip
     return json.dumps({**{w: win for w in WINDOWS}, "notes": SYNTHETIC_NOTE})
 

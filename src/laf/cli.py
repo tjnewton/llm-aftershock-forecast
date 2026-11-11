@@ -864,8 +864,13 @@ def main(argv: list[str] | None = None) -> None:
             start = live_start_ms(a.live)
             if start is None:
                 raise SystemExit(f"{a.live}: no start.json (L, written by the paid detector)")
+            from laf.confirmatory import INFORMATIVE_P
+            from laf.live_scores import live_informative
+
             ls = live_samples(a.live, tables)
-            lv = live_report(samples, ls, tables["sequences"], elapsed, start, stop_ms(), keep)
+            # the informative rule on prospective sequences reads their sealed baselines
+            keep_all = keep | live_informative(a.live, INFORMATIVE_P)
+            lv = live_report(samples, ls, tables["sequences"], elapsed, start, stop_ms(), keep_all)
             bp = b_parts(samples, ls, tables["sequences"], elapsed, start, stop_ms())
             live_inputs = (ls, bp, timeliness(a.live, tables))
             path = Path("results") / f"confirmatory_live_{a.snapshot}.csv"
@@ -1056,8 +1061,12 @@ def main(argv: list[str] | None = None) -> None:
             start = live_start_ms(a.live)  # the rehearsal's start.json: its mainshock's origin
             if start is None:
                 raise SystemExit(f"{a.live}: no start.json (L)")
+            from laf.confirmatory import INFORMATIVE_P
+            from laf.live_scores import live_informative
+
             ls = live_samples(a.live, lt)
-            lv = live_report(samples, ls, tables["sequences"], elapsed, start, None, keep)
+            keep_all = keep | live_informative(a.live, INFORMATIVE_P)
+            lv = live_report(samples, ls, tables["sequences"], elapsed, start, None, keep_all)
             path = Path("results") / f"confirmatory_dryrun_live_{a.snapshot}.csv"
             lv.to_csv(path, index=False, lineterminator="\n")
             print(lv.round(3).to_string(index=False))

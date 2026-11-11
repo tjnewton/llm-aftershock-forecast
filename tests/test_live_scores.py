@@ -22,6 +22,7 @@ NOW = snapshot_ms(SNAP) - 3_600_000
 def _answer(m5: int) -> str:
     q = {k: m5 + (i >= 6) for i, k in enumerate(QKEYS)}  # non-decreasing integer quantiles
     win = {"m5_count_quantiles": q, "m4_count_quantiles": q, "m3_count_quantiles": q,
+           "p_m3_at_least_one": 0.9, "p_m4_at_least_one": 0.5, "p_m5_at_least_one": 0.3,
            "p_m6_at_least_one": 0.01}  # fmt: skip
     return json.dumps({**{w: win for w in WINDOWS}, "notes": "Synthetic."})
 
@@ -57,7 +58,7 @@ def live(tmp_path_factory):
     calls_body = "".join(json.dumps(c, ensure_ascii=False) + "\n" for c in calls)
     (d / "calls.jsonl").write_text(calls_body, encoding="utf-8")
     base = [{"forecaster": b, "item_id": it.item_id, "window": w.label,
-             "m5": [0, 0, 0, 0, 0, 1, 1, 2, 2]}
+             "m5": [0, 0, 0, 0, 0, 1, 1, 2, 2], "p_m5": 0.25}
             for b in BASELINES for it in items for w in it.windows]  # fmt: skip
     (d / "baselines.jsonl").write_text("".join(json.dumps(b) + "\n" for b in base))
     (d / "NOTICE.txt").write_text("not official forecasts\n")
@@ -91,9 +92,18 @@ def test_live_answers_are_scored_like_batch_answers(live):
     assert not s["sample"].eq(2).any()  # a budget miss is listed, never scored
     ok = s[s["status"] == "ok"]
     assert ok["d5"].notna().all() and bool(ok["on_time"].all())
+    # the score is the stated probability's (0.3 here), and a cut-off answer states none
+    assert ok["valid5"].all() and not s.loc[s["sample"] == 1, "valid5"].any()
+    assert s.loc[s["sample"] == 1, "d5"].isna().all()
+    one = ok[ok["kind"] == "strict"].iloc[0]  # strict: relative to 0, so the score itself
+    assert one["d5"] == pytest.approx(-np.log(0.3 if one["m5_event"] else 0.7))
+    assert one["base_d5_naive"] == pytest.approx(-np.log(0.25 if one["m5_event"] else 0.75))
     strict = ok[ok["kind"] == "strict"]  # no official forecast: scores relative to 0
     assert (strict["worst_base_d5"] >= strict["base_d5_naive"]).all()
     assert L.live_start_ms(root) == 1
+    # the informative rule on a prospective sequence: generic RJ's sealed month probability
+    # (0.25 here) at its first released issue, with no outcome read
+    assert L.live_informative(root, 0.10) == {PANAMA.id} and not L.live_informative(root, 0.3)
     assert all("#" in i for i in s["item_id"])  # one scoring ID per issue
     issue = next(root.glob("*/*/baselines.jsonl"))
     kept = issue.read_text()
