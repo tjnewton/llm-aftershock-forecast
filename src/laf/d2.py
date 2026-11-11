@@ -54,6 +54,23 @@ def _attempt_key(r: dict) -> tuple:
     return tuple(r[k] for k in ("model", "item_id", "effort", "paraphrase", "sample", "window"))
 
 
+def rerun_items(items: list, sequences: pd.DataFrame, model: str) -> list:
+    """The items a model's development rerun sends (block `d3`): every development sequence in
+    the model's clean period; for a model with none under the 3-month buffer (Opus 5.5), those
+    after its training cutoff. Never a confirmatory sequence."""
+    from laf.confirmatory import clean_from
+    from laf.splits import development_ids
+
+    dev = sequences[sequences["sequence_id"].isin(development_ids())]
+    ids: set[str] = set()
+    for rule in ("buffered", "unbuffered"):
+        start_ms = clean_from(model, rule).value // 1_000_000
+        ids = set(dev.loc[dev["origin_ms"] >= start_ms, "sequence_id"])
+        if ids:
+            break
+    return [i for i in items if i.sequence_id in ids]
+
+
 SCORES = ("registered", "nb_tail", "full", "log_qs")
 
 

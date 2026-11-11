@@ -258,3 +258,26 @@ def test_d2_loader_reads_v3_probabilities(tmp_path):
     assert good["status"] == "ok"
     assert (good["p_m5"], good["p_m3"], good["p_m6"]) == (0.01, 0.99, 0.001)
     assert bad["status"] == "schema_invalid" and bad["p_m5"] is None
+
+
+def test_d3_block_sends_each_models_clean_development_items_with_prompt_v3():
+    import pandas as pd
+
+    from laf.d2 import rerun_items
+
+    items = list(_items(3.0).values())
+    seqs = pd.read_parquet(E3 / "sequences.parquet")
+    n = {
+        m: len(rerun_items(items, seqs, m))
+        for m in ("gpt-5.1-2025-11-13", "claude-opus-4-6", "claude-sonnet-4-6", "gpt-6.1-sol")
+    }
+    assert n == {"gpt-5.1-2025-11-13": 210, "claude-opus-4-6": 210, "claude-sonnet-4-6": 117,
+                 "gpt-6.1-sol": 62}  # fmt: skip
+    # no development sequence is clean for Opus 5.5 under the buffer: those after its cutoff
+    assert len(rerun_items(items, seqs, "claude-opus-5-5")) == 99
+    # a sequence outside the development set is never sent
+    assert rerun_items(items, seqs.assign(sequence_id="x"), "gpt-5.1-2025-11-13") == []
+    reqs = runner.expand(rerun_items(items, seqs, "claude-sonnet-4-6"), "d3", "claude-sonnet-4-6")
+    assert len(reqs) == 117 * 3 and {r["meta"]["paraphrase"] for r in reqs} == {"v3A"}
+    assert {r["meta"]["effort"] for r in reqs} == {"low"}  # the study setting
+    assert "p_m5_at_least_one" in json.dumps(reqs[0]["params"])
