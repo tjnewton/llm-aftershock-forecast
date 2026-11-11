@@ -175,7 +175,7 @@ def main(argv: list[str] | None = None) -> None:
     sub.add_parser("replicates", help="adapted-model replicate summary -> results/replicates.csv")
     d2p = sub.add_parser("d2", help="D2 prompt-robustness tables from runs/d2 (development data)")
     d2p.add_argument("--snapshot", required=True)
-    d2p.add_argument("--runs", type=Path, default=Path("runs/d2"))
+    d2p.add_argument("--runs", type=Path, help="default: runs/d2, or runs/d3 with --v3")
     d2p.add_argument(
         "--v3", action="store_true",
         help="the v3 rerun (runs/d3): the probability score at M>=5, every development sequence",
@@ -258,7 +258,7 @@ def main(argv: list[str] | None = None) -> None:
         help="simulated size of the registered test from development D2 effects (no API)",
     )
     cz.add_argument("--snapshot", required=True)
-    cz.add_argument("--runs", type=Path, default=Path("runs/d2"))
+    cz.add_argument("--runs", type=Path, help="default: runs/d2, or runs/d3 with --v3")
     cz.add_argument("--sims", type=int, default=1000)
     cz.add_argument(
         "--v3", action="store_true",
@@ -643,6 +643,7 @@ def main(argv: list[str] | None = None) -> None:
     elif a.cmd == "d2":
         from laf.d2 import analyze, robustness
 
+        a.runs = a.runs or Path("runs/d3" if a.v3 else "runs/d2")
         runs = sorted(d for d in a.runs.iterdir() if (d / "results.jsonl").exists())
         if not runs:
             raise SystemExit(f"no collected D2 runs (results.jsonl) under {a.runs}")
@@ -899,6 +900,7 @@ def main(argv: list[str] | None = None) -> None:
         from laf.confirmatory import DELTA, sequence_effects, size
         from laf.power import d2_cell_differences
 
+        a.runs = a.runs or Path("runs/d3" if a.v3 else "runs/d2")
         runs = sorted(d for d in a.runs.iterdir() if (d / "results.jsonl").exists())
         proc = a.data_dir / "processed" / a.snapshot
         delta = DELTA if a.delta is None else a.delta
