@@ -815,7 +815,9 @@ def main(argv: list[str] | None = None) -> None:
         descriptive = tuple(set(cells["model"]) - set(PRIMARY) - set(SECONDARY))
         # B and S1 are estimates with intervals, without a verdict (prereg v2 section 2)
         t = report(cells, PRIMARY, descriptive=descriptive, unlabeled=SECONDARY)
-        hier = {m: hierarchical(g) for m, g in cells.groupby("model")}
+        # the robustness model's verdict belongs to A alone
+        hier = {m: hierarchical(g) | ({} if m in PRIMARY else {"hier_noninferior": None})
+                for m, g in cells.groupby("model")}  # fmt: skip
         t = t.join(pd.DataFrame.from_dict(hier, orient="index"), on="model")
         tag = "_test_a_all" if a.test_a_all else ""
         path = Path("results") / f"confirmatory_{a.snapshot}{tag}.csv"
@@ -923,14 +925,30 @@ def main(argv: list[str] | None = None) -> None:
                 samples, seqs_t, elapsed, sets=sets, variant="v3A", invalid="log2"
             )
             sizes = tuple((label.split()[0], ns) for label, ns in sizes)
+            # the negative control C and the contrast S3, on the primary model's cells
+            a_model = sizes[0][0]
+            own = samples[samples["model"] == a_model]
+            control = own.groupby(["sequence_id", "item_id", "window"])["base_d5_naive"].first()
+            s3 = confirmatory_cells(samples, seqs_t, elapsed, sets=sets, reference="naive")
+            extra = [
+                # `power`: how often a forecaster like the rule of thumb is declared non-inferior
+                ("rule of thumb (control C)", control.groupby("sequence_id").mean().to_numpy(),
+                 (89,), deltas),
+                # superiority over the rule of thumb: the bound against 0
+                (f"{a_model} minus the rule of thumb (S3)",
+                 sequence_effects(s3[s3["model"] == a_model]).to_numpy(), (23, 33, 89), [0.0]),
+            ]  # fmt: skip
         else:
-            cells = d2_cell_differences(proc, runs)
-        rows = []
+            cells, extra = d2_cell_differences(proc, runs), []
         from itertools import product
 
-        for (label, ns), delta in product(sizes, deltas):
-            e = sequence_effects(cells[cells["model"] == label]).to_numpy()
-            for n, alpha, method in product(ns, (0.025, 0.05), ("student", "percentile")):
+        plan = [(label, sequence_effects(cells[cells["model"] == label]).to_numpy(), ns, deltas)
+                for label, ns in sizes]  # fmt: skip
+        plan += extra
+        rows = []
+        for label, e, ns, margins in plan:
+            grid = product(margins, ns, (0.025, 0.05), ("student", "percentile"))
+            for delta, n, alpha, method in grid:
                 # size at the margin; power with the development mean as the truth, and with
                 # a true difference of 0
                 rate, power, power0 = (
@@ -990,7 +1008,8 @@ def main(argv: list[str] | None = None) -> None:
         dev = confirmatory_cells(samples, tables["sequences"], elapsed, sets=sets)
         others = tuple(set(dev["model"]) - set(tested))
         t = report(dev, PRIMARY, descriptive=others, unlabeled=SECONDARY)
-        hier = {m: hierarchical(g) for m, g in dev.groupby("model")}
+        hier = {m: hierarchical(g) | ({} if m in PRIMARY else {"hier_noninferior": None})
+                for m, g in dev.groupby("model")}  # fmt: skip
         t = t.join(pd.DataFrame.from_dict(hier, orient="index"), on="model")
         path = Path("results") / f"confirmatory_dryrun_{tag}_{a.snapshot}.csv"
         t.to_csv(path, index=False, lineterminator="\n")

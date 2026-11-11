@@ -287,7 +287,7 @@ def test_contrasts_take_ds_against_each_baseline_and_test_superiority():
 def test_assay_flags_a_test_that_cannot_separate_from_generic_rj():
     s = _contrast_samples(rj=0.0)  # generic RJ as good as the official forecast
     ids = {"sequence_id": s["sequence_id"].unique(), "issue_id": s["item_id"].unique()}
-    cells = pd.DataFrame({"model": "m", **ids, "window": "day", "d": 0.0})
+    cells = pd.DataFrame({"model": C.PRIMARY[0], **ids, "window": "day", "d": 0.0})
     noisy = s.assign(base_d5_generic_rj=np.random.default_rng(1).normal(0, 0.02, len(s)))
     assert C.assay(noisy, cells).iloc[0]["generic_rj_status"] == "noninferior"
     worse = s.assign(base_d5_generic_rj=0.5 + np.random.default_rng(2).normal(0, 0.02, len(s)))
@@ -296,6 +296,9 @@ def test_assay_flags_a_test_that_cannot_separate_from_generic_rj():
     assert C.assay(near, cells).iloc[0]["generic_rj_status"] == "inconclusive"  # no claim
     one = cells.head(1)  # one sequence: no spread, so no claim either way
     assert C.assay(s, one).iloc[0]["generic_rj_status"] == "inconclusive"
+    # on a secondary model's cells: the estimate and bounds, no label
+    other = C.assay(worse, cells.assign(model="claude-opus-5-5")).iloc[0]
+    assert other["generic_rj_status"] is None and other["generic_rj_lower"] > C.DELTA
 
 
 def test_informative_sequences_use_generic_rj_at_the_first_issue_with_a_month_window(monkeypatch):
@@ -467,11 +470,33 @@ def test_a_supported_row_that_is_measurably_worse_says_so_and_estimates_get_no_v
     assert t["C"]["lower"] > C.DELTA and abs(t["C"]["mean"] - 0.3) < 0.02
 
 
-def test_the_rule_of_thumb_control_is_tested_like_generic_rj():
+def test_the_rule_of_thumb_control_is_labelled_as_test_a_is():
     s = _contrast_samples()
     ids = {"sequence_id": s["sequence_id"].unique(), "issue_id": s["item_id"].unique()}
-    cells = pd.DataFrame({"model": "m", **ids, "window": "day", "d": 0.0})
+    cells = pd.DataFrame({"model": C.PRIMARY[0], **ids, "window": "day", "d": 0.0})
     bad = s.assign(base_d5_naive=0.4 + np.random.default_rng(2).normal(0, 0.02, len(s)))
     control = C.assay(bad, cells, baseline="naive").iloc[0]
     assert control["naive_status"] == "inferior" and abs(control["naive_mean"] - 0.4) < 0.02
     assert "generic_rj_status" not in control.index  # columns carry the baseline's name
+    slightly = s.assign(base_d5_naive=0.02 + np.random.default_rng(3).normal(0, 0.005, len(s)))
+    assert C.assay(slightly, cells, baseline="naive").iloc[0]["naive_status"] == C.WORSE_INSIDE
+
+
+def test_identical_effects_never_support_and_a_constant_deficit_is_inferior():
+    ties = C.decide(np.zeros(30))
+    assert ties["status"] == "inconclusive" and not ties["noninferior"]  # ties prove nothing
+    never_answers = C.decide(np.full(89, np.log(2)))  # every answer invalid
+    assert never_answers["status"] == "inferior" and never_answers["lower"] > C.DELTA
+    cells = pd.DataFrame({"model": "A", "sequence_id": [f"s{i}" for i in range(89)],
+                          "d": np.log(2)})  # fmt: skip
+    assert C.report(cells, ("A",)).iloc[0]["status"] == "inferior"
+
+
+def test_a_measurably_worse_row_says_so_on_either_side_of_the_margin():
+    rng = np.random.default_rng(5)
+    z = rng.normal(0, 1, 100)
+    z = (z - z.mean()) / z.std(ddof=1)  # mean exactly 0, SD exactly 1
+    wide = C.decide(0.045 + 0.06 * z)  # lower bound above 0, upper bound above delta
+    assert 0 < wide["lower"] < C.DELTA < wide["upper"] and wide["status"] == C.WORSE_UNBOUNDED
+    tight = C.decide(0.02 + rng.normal(0, 0.02, 200))  # the deficit is bounded inside the margin
+    assert 0 < tight["lower"] < tight["upper"] < C.DELTA and tight["status"] == C.WORSE_INSIDE

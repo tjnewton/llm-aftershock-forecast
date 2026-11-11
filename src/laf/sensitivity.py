@@ -44,12 +44,13 @@ def exact_match(tables: dict[str, pd.DataFrame]) -> set[str]:
 
 
 def _row(
-    analysis: str, cells: pd.DataFrame, models: tuple[str, ...], delta: float = C.DELTA
-) -> list[dict]:
+    analysis: str, cells: pd.DataFrame, models: tuple[str, ...], delta: float = C.DELTA,
+    verdict: bool = True,
+) -> list[dict]:  # fmt: skip
     rows = []
     for m, g in cells[cells["model"].isin(models)].groupby("model"):
         t = C.noninferiority(C.sequence_effects(g).to_numpy(), delta)
-        if m not in C.PRIMARY:  # secondary models: an estimate and bound, no verdict
+        if m not in C.PRIMARY or not verdict:  # an estimate and bound, no verdict
             t["noninferior"] = None
         rows.append({"analysis": analysis, "model": m}
                     | {k: t[k] for k in ("sequences", "mean", "upper", "noninferior")})  # fmt: skip
@@ -93,8 +94,8 @@ def sensitivity(
                  models)  # fmt: skip
     if samples_2d is not None:
         rows += _row("2-day settling rule", cells(s=samples_2d), models)
-    for _, name in C.STRATA:
-        rows += _row(f"stratum: {name}", main[main["stratum"] == name], models)
+    for _, name in C.STRATA:  # the margin is defined over all strata: estimates only
+        rows += _row(f"stratum: {name}", main[main["stratum"] == name], models, verdict=False)
     return pd.DataFrame(rows)
 
 
@@ -196,11 +197,10 @@ def scoring_variants(
             rows += [{"analysis": label, "model": m, "sequences": 0} for m in models]
             continue
         cells = C.confirmatory_cells(s, tables["sequences"], elapsed, sets=sets, invalid=invalid)
-        r = _row(label, cells, models)
-        if kw.get("score") != C.PRIMARY_SCORE:
-            for x in r:
-                x["noninferior"] = None
-        rows += r
+        # the margin belongs to the registered score and clip: other scores and clips give
+        # the estimate and bound only
+        same = kw.get("score") == C.PRIMARY_SCORE and "clip" not in kw
+        rows += _row(label, cells, models, verdict=same)
     return pd.DataFrame(rows)
 
 

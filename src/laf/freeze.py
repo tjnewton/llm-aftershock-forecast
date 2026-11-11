@@ -20,7 +20,7 @@ import pandas as pd
 PREREG = Path("docs/preregistration-v2.md")
 # the v2 templates, the registered ones every v2 prompt also renders (user_context.txt,
 # catalog_section.txt, catalog_none.txt), and the lock file that pins the library versions
-PINNED = (Path("prompts/v2/HASHES.json"), Path("prompts/HASHES.json"), Path("uv.lock"))
+PINNED = (Path("prompts/v3/HASHES.json"), Path("prompts/HASHES.json"), Path("uv.lock"))
 CONFIGS = ("config/splits.toml", "config/sequences.toml", "config/sequences_e3.toml",
            "config/sequences_confirmatory.toml",
            "config/sequences_forward_excluded.toml")  # fmt: skip

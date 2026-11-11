@@ -267,7 +267,10 @@ def test_test_b_joins_its_two_parts_and_s2_s5_use_the_live_items(monkeypatch):
     assert {r["hypothesis"]: r for r in at_s}["B"]["sequences"] == 12
     before = C.live_report(retro, live, seqs, elapsed, start, start + 10**6 - 1).to_dict("records")
     assert {r["hypothesis"]: r for r in before}["B"]["sequences"] == 6
-    assert t["S2"]["status"] == "supported" and "lower" in t["B"]
+    # B, its parts and S2 keep the estimate and bounds and carry no verdict
+    for h in ("B", "B retrospective part", "B prospective part", "S2"):
+        assert np.isfinite(t[h]["lower"]) and t[h]["lower"] < t[h]["mean"] < t[h]["upper"]
+        assert all(pd.isna(t[h][c]) for c in C.VERDICT_COLUMNS)
     failed = live.assign(status="transport_error")  # every live call failed
     recs = C.live_report(retro, failed, seqs, elapsed, start, None).to_dict("records")
     t = {r["hypothesis"]: r for r in recs}

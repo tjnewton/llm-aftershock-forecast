@@ -20,7 +20,8 @@ def test_window_cells_never_read_the_counts():
 def test_the_manifest_hashes_every_listed_artifact():
     m = F.manifest(Path("data"), ["20261021T2300Z"], [])
     files = m["files"]
-    assert {"docs/preregistration-v2.md", "prompts/v2/HASHES.json", "data/manifest.jsonl",
+    assert "prompts/v2/HASHES.json" not in files  # the scored prompts are v3
+    assert {"docs/preregistration-v2.md", "prompts/v3/HASHES.json", "data/manifest.jsonl",
             "config/splits.toml", "config/sequences_confirmatory.toml",
             "config/sequences_forward_excluded.toml",
             "data/processed/20261021T2300Z/sequences.parquet"} <= set(files)  # fmt: skip
@@ -49,7 +50,7 @@ def test_only_tracked_sources_and_the_pinned_files_enter(tmp_path, monkeypatch):
     import subprocess
 
     m = F.manifest(Path("data"), ["20261021T2300Z"], [])
-    assert {"prompts/HASHES.json", "uv.lock"} <= set(m["files"])  # every v2 prompt renders v1
+    assert {"prompts/HASHES.json", "uv.lock"} <= set(m["files"])  # every v3 prompt renders v1
     assert set(m["src_files"]) == set(F.tracked(F.SRC)) and "src/laf/freeze.py" in m["src_files"]
     for var in [v for v in os.environ if v.startswith("GIT_")]:  # e.g. set by pre-commit hooks
         monkeypatch.delenv(var)

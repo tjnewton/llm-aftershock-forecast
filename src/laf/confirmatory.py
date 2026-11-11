@@ -184,21 +184,32 @@ def decide(
     x = np.asarray(effects, dtype=float)
     t = noninferiority(x, delta, alpha=alpha, strata=strata)
     lower = -noninferiority(-x, -delta, alpha=alpha, strata=strata)["upper"]
+    if len(x) >= 2 and np.ptp(x) == 0:
+        # identical effects give no spread, so no bound: they never support non-inferiority
+        # (ties), but a constant deficit above the margin, as when every answer is invalid, is
+        # inferior
+        lower = float(x[0]) if x[0] > delta else lower
     return t | {"lower": lower, "status": _status(t["noninferior"], lower, delta)}
 
 
 WORSE_INSIDE = "supported, worse inside the margin"
+WORSE_UNBOUNDED = "inconclusive, worse than the official forecast"
 
 
 def _status(supported: bool, lower: float, delta: float) -> str:
-    """Section 2's labels. A supported row whose lower bound is above 0 says so: the model is
-    non-inferior at this margin and measurably worse than the official forecast."""
+    """Section 2's labels. A row whose lower bound is above 0 says so on either side of the
+    margin: the model is measurably worse than the official forecast, and the study either
+    bounds that deficit inside the margin or cannot."""
     if supported:
         return WORSE_INSIDE if lower > 0 else "supported"
-    return "inferior" if lower > delta else "inconclusive"
+    if lower > delta:
+        return "inferior"
+    return WORSE_UNBOUNDED if lower > 0 else "inconclusive"
 
 
 TEST_COLUMNS = ("upper", "lower", "status", "p", "p_sup", "noninferior", "superior")
+# what a row without a verdict leaves empty: it keeps its estimate and its bounds
+VERDICT_COLUMNS = ("status", "p", "p_sup", "noninferior", "superior")
 
 
 def report(
@@ -235,7 +246,7 @@ def report(
         if m in descriptive:  # no test for descriptive models (prereg v2 section 2)
             rows[m] |= dict.fromkeys(TEST_COLUMNS)
         elif m in unlabeled:  # an estimate with its interval: the test's size is not controlled
-            rows[m] |= dict.fromkeys(("status", "noninferior", "superior"))
+            rows[m] |= dict.fromkeys(VERDICT_COLUMNS)
     out = pd.DataFrame.from_dict(rows, orient="index")
     out["co_primary"] = out.index.isin(primary)
     out["holm_noninferior"] = [rej.get(m) for m in out.index]
@@ -501,8 +512,13 @@ def assay(
         e = se.to_numpy()
         t = noninferiority(e, delta, strata=st)
         lower = -noninferiority(-e, -delta, strata=st)["upper"]
-        status = "noninferior" if t["noninferior"] else "inferior" if lower > delta else (
-            "inconclusive")  # fmt: skip
+        if m not in PRIMARY:  # on a secondary model's cells: the estimate and bounds only
+            status = None
+        elif baseline == "naive":  # the control C is labelled as A is (section 2)
+            status = _status(t["noninferior"], lower, delta)
+        else:
+            status = "noninferior" if t["noninferior"] else "inferior" if lower > delta else (
+                "inconclusive")  # fmt: skip
         rows.append({"model": m, f"{baseline}_mean": t["mean"], f"{baseline}_lower": lower,
                      f"{baseline}_upper": t["upper"], f"{baseline}_status": status})  # fmt: skip
     return pd.DataFrame(rows)
@@ -543,7 +559,8 @@ def secondary(
     keep = keep or set()
     rows = [
         {"hypothesis": "informative", "model": m}
-        | {k: t[k] for k in ("sequences", "mean", "upper", "noninferior")}
+        | {k: t[k] for k in ("sequences", "mean", "upper")}
+        | {"noninferior": t["noninferior"] if m in PRIMARY else None}  # no verdict for B, S1
         for m, g in tested[tested["sequence_id"].isin(keep)].groupby("model")
         for t in [noninferiority(sequence_effects(g).to_numpy())]
     ]
@@ -631,10 +648,12 @@ def live_report(
     live_elapsed, sets, both, parts = bp["live_elapsed"], bp["sets"], bp["both"], bp["parts"]
 
     def test(label: str, cells: pd.DataFrame, strata: np.ndarray | None = None) -> dict:
+        """B, its parts, S2 and their informative rows: the estimate and its bounds, without a
+        verdict (prereg v2 section 2)."""
         e = sequence_effects(cells)
         t = decide(e.to_numpy(), strata=strata)
-        return {"hypothesis": label} | {k: t[k] for k in TEST_COLUMNS} | {
-            "sequences": t["sequences"], "mean": t["mean"]}  # fmt: skip
+        row = {"hypothesis": label, "sequences": t["sequences"], "mean": t["mean"]}
+        return row | {k: t[k] for k in TEST_COLUMNS} | dict.fromkeys(VERDICT_COLUMNS)
 
     b_retro, b_pro = retro, pro[pro["model"] == B_MODEL]
     rows = [

@@ -48,12 +48,22 @@ Per cell (issue time x window), dS = S(model) - S(official).
     resolution;
   - each baseline: the probability from its own count distribution.
   - Nothing is reconstructed by the scorer.
+- **The clip decides part of the score**, stated and not corrected:
+  - the official probability is at or below 0.001 in 15.3% of test A's cells;
+  - the rule of thumb states exactly 0 in 95.8% of them (it counts the M>=5 earthquakes so
+    far), so its score is the clip: 0.001 nats without an event, 6.9 with one;
+  - in the development rerun the stated probability is at or below 0.001 in 49% of gpt-5.1's
+    answers (gpt-6.1-sol 29%, Opus 5.5 17%, Opus 4.6 and Sonnet 4.6 15%).
+  - In those cells the scorer uses 0.001 in place of the stated value. Clips of 0.0001 and
+    0.01 are sensitivity analyses (section 6), reported without a verdict because the margin
+    is set at 0.001: gpt-5.1's development mean is +0.011, +0.019 and +0.024 at clips of 0.01,
+    0.001 and 0.0001.
 - **Why a probability and not a count** (decided 2026-11-11, after the mock review of the
   design, docs/reviews/mock-review-design.md):
   - In 71% of test A's official cells all nine M>=5 quantiles are zero. The score through nine
     quantiles then gives every forecaster the same distribution, whatever it believed.
-  - The official probability of at least one M>=5 earthquake is below 2.5% in 71% of those
-    cells (median 0.8%), which nine quantiles cannot express.
+  - Nine zero quantiles mean a probability of at most 2.5%. The official probability in
+    test A's cells has a median of 0.8%, a range that nine quantiles cannot express.
   - The probability of at least one earthquake is the official product's own headline number.
     Precedent for scoring it: Serafini et al. (2022) and Brehmer et al. (2023)
     (docs/research/novelty-and-literature.md, section E).
@@ -83,7 +93,8 @@ Per cell (issue time x window), dS = S(model) - S(official).
   - **supported, worse inside the margin** if, in addition, the lower bound is above 0: the
     model is non-inferior at this margin and measurably worse than the official forecast;
   - **inferior** if the lower bound is above delta;
-  - **inconclusive** otherwise.
+  - **inconclusive** otherwise; **inconclusive, worse than the official forecast** if the
+    lower bound is above 0 while the upper bound is above delta.
   - **Superiority** over the official forecast is tested for A at 0.05 only after its
     non-inferiority is supported (a fixed sequence on one hypothesis, so no extra alpha).
   - **B, S1 and S2 get no verdict** (decided 2026-11-11): each is reported as its estimate
@@ -95,12 +106,28 @@ Per cell (issue time x window), dS = S(model) - S(official).
     which the official forecast is close to the generic model: it is the generic RJ product
     at the first issue of 76 of the 89. "Supported" therefore means that the model matches
     the operational forecast on moderate sequences, not that it has skill specific to a
-    sequence. The assay-sensitivity clause below says when no such claim is made at all.
+    sequence.
+  - **What each outcome licenses**, written before any confirmatory outcome is seen:
+
+    | A | Generic RJ (assay) | Control C | The paper may say |
+    |---|---|---|---|
+    | supported | inferior or inconclusive | not supported | gpt-5.1 is non-inferior to the official forecast at the margin, on moderate sequences. |
+    | supported | non-inferior | not supported | gpt-5.1 is within the margin of the official forecast, and so is the generic model: a forecaster as good as a calibrated generic model, with no claim of skill specific to a sequence. The abstract carries that clause whenever it carries the first. |
+    | supported | any | supported | The test did not tell forecasters apart. No claim. |
+    | inconclusive (either label) | any | any | Nothing in either direction. The estimate and its interval are reported, and the abstract says the comparison with the official forecast was inconclusive. |
+    | inferior | any | any | gpt-5.1 is worse than the official forecast by more than the margin. |
+
+  - **The most likely joint outcome**, by simulation from development effects: A
+    inconclusive, the control not supported, generic RJ non-inferior. The paper then reports
+    the estimate with its interval, the contrast S3 (the one analysis with power; its meaning
+    is limited, because the rule of thumb states a probability of 0 almost everywhere) and
+    the descriptive results. It does not present an inconclusive A as support.
   - No secondary target, secondary set or sensitivity analysis overturns a primary result.
 - **One primary hypothesis** (Tyler, 2026-10-31): A, at one-sided 0.05.
   - B was co-primary with a Holm correction. It became secondary when the size simulation
     showed that no test controls its error at about 33 sequences (section 6).
-  - Secondary tests are at 0.05 each and labelled secondary.
+  - The secondary superiority tests (S3, S4, S5) are at 0.05 each and labelled secondary.
+    B, S1 and S2 carry no test against the official forecast (decision 39).
   - A and B are still computed together on the final outcome snapshot (section 5), because
     computing A early would reveal outcomes of October sequences that A and B share.
 - **Margin delta = 0.05 nats per cell** (decided 2026-11-11, after the development rerun with
@@ -128,8 +155,11 @@ Per cell (issue time x window), dS = S(model) - S(official).
     -0.009 (90% interval -0.155 to +0.014), so the clause will probably apply.
   - **Negative control C** (decided 2026-11-11): the rule of thumb is tested against the
     official forecast on test A's cells exactly as a model would be. Predicted: not supported.
-    If it is supported, the paper says that the test could not tell forecasters apart, and A's
-    result is read accordingly. Simulated, a forecaster like the rule of thumb is supported in
+    If it is supported, the paper says that the test could not tell forecasters apart, and
+    no claim rests on A (the table above). In simulated studies of 89 sequences the control
+    is labelled inferior in 34% and inconclusive in 66%, so "not supported" is a weak
+    prediction: it can fail only if the test passes a forecaster that says "no aftershock"
+    in 95.8% of cells. Simulated, a forecaster like the rule of thumb is supported in
     0.3% of studies of 89 sequences.
     - Sonnet 4.6 was first chosen as a second control ("inferior", from its development
       result with prompt v2A). It is not one: with prompt v3A its development result is no
@@ -161,11 +191,15 @@ Per cell (issue time x window), dS = S(model) - S(official).
 
   - The result will turn on the few sequences with M>=5 aftershocks. The official forecast
     itself expects about 11 of test A's 89 sequences to have one in the first month. In
-    development, one sequence of 39 contributes +0.83 to gpt-5.1's mean of +0.019; without it
-    the mean is -0.002. gpt-5.1 is better than the official forecast on the typical sequence
+    development, two sequences of 39 carry gpt-5.1's mean of +0.019: their effects are +0.83
+    and +0.54. Without the first the mean is -0.002, without both -0.017. gpt-5.1 is better than the official forecast on the typical sequence
     (median -0.011) and much worse where M>=5 aftershocks occurred.
-  - Superiority over the rule of thumb (S3) has simulated power 0.99 for gpt-5.1 (development
-    mean -0.076, 90% interval -0.383 to -0.019; size 0.034).
+  - Superiority over the rule of thumb (S3) has simulated power 0.99 for gpt-5.1 at 89
+    sequences (development mean -0.076, 90% interval -0.383 to -0.019; size 0.034). At the
+    secondary models' numbers of sequences, with gpt-5.1's effects: power 0.57 and size 0.019
+    at 23, power 0.75 and size 0.029 at 33.
+  - The control's column in the table above and these S3 figures are the rows `rule of thumb
+    (control C)` and `... minus the rule of thumb (S3)` of the same file.
   - Under the earlier draft (count score, margin 0.10, prompt v2A) the power from the D2
     effects was 0.42 for A and 0.64 for B (`results/confirmatory_size_d2_20261021T2300Z.csv`;
     a first quoted 0.45 for A came from a run that no command recorded). The normal
@@ -193,7 +227,11 @@ Per cell (issue time x window), dS = S(model) - S(official).
   - It asks, per window, for nine quantiles of N(M>=5), N(M>=4) and N(M>=3) and for the
     probability of at least one earthquake at M>=3, M>=4, M>=5 and M>=6, and shows the catalog
     from M3.0. It is prompt `v2A` of the earlier draft plus the three probabilities below M6;
-    the context, the catalog and the quantile lines are unchanged.
+    the context, the catalog and the quantile lines are unchanged. One line of the system
+    prompt changed with it: the models are told that their "probabilities and quantiles are
+    scored with proper scoring rules". For the quantiles that promise refers to the log-scale
+    quantile score (ADR 0001), a sensitivity analysis here; the count score through nine
+    quantiles is not proper for the reported quantiles alone (section 1).
   - `v3B`, the same change to the paraphrase `v2B`, is a preregistered robustness check (ADR
     0015 decision 4), run by the A and B models only.
   - Development rerun with `v3A` (`runs/d3`, 2,094 answers, 3 invalid): on the same 18
@@ -201,6 +239,12 @@ Per cell (issue time x window), dS = S(model) - S(official).
     (differences -0.002, -0.005, -0.001 nats per cell), and Sonnet 4.6 scores 0.14 better
     (+0.144 with `v2A`, -0.0004 with `v3A`; 95% interval of the difference -0.21 to -0.10).
     So the wording can matter for one model, which is what `v3B` is run to show for A and B.
+  - One answer now holds two forecasts of the same quantity, and they can disagree. In the
+    rerun the stated probability lies outside the range the same answer's nine quantiles
+    leave for it, at some magnitude, in 85% of Opus 4.6's and Sonnet 4.6's answers, 48% of
+    Opus 5.5's, 17% of gpt-5.1's and none of gpt-6.1-sol's. At M>=5 alone it is below that
+    range in 21% of Opus 4.6's and Sonnet 4.6's answer-windows and in 0.1% of gpt-5.1's. The
+    primary score reads the probability and the secondary score the quantiles (section 7).
 - **Samples:** k = 3 per item (decided 2026-10-31), as in D2.
 - **Output cap:** 32,000 tokens for every scored call, batch or live (live Claude calls stream; OpenAI calls do not).
 - **Model changes** (decided 2026-10-31):
@@ -401,9 +445,9 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     - Before the freeze, the registered test's size is simulated from the development
       effects shifted to delta. For test A, a size above 0.03 would have meant registering a
       calibrated nominal level as a number (decision 8 set that threshold when the level was
-      0.025); it is not needed (below). B, S1 and S2 are tested
-      at nominal 0.05 and reported with their simulated sizes: no level can repair a size
-      that comes from samples that miss a rare event (decision 29).
+      0.025); it is not needed (below). B, S1 and S2 are reported as estimates with
+      intervals and their simulated sizes, without a verdict (decision 39): no level can
+      repair a size that comes from samples that miss a rare event.
     - Test B at about 33 sequences cannot rule out a rare-event deficit, and the paper says
       so.
   - **The level** (decided 2026-10-31): one-sided 0.05 for the single primary test, A. It
@@ -437,7 +481,9 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
   - the margins 0.02 and 0.10 (section 2);
   - test A on all clean candidates;
   - with the 3 forward-excluded candidates;
-  - the non-overlapping subset (one window per issue);
+  - the non-overlapping subset (`sensitivity.NON_OVERLAP`: every day window, the week
+    windows of the first, 7-day, 14-day and 28-day issues, and the month window of the first
+    issue; the first issue keeps its three nested windows);
   - v3B;
   - valid answers only, and invalid answers at the worst case (section 7);
   - the probability clipped at 0.0001 and at 0.01 instead of 0.001;
@@ -491,7 +537,9 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     M>=6 probability) and the pipeline baselines on the same cells, each beside its difference
     from the official one. No test. It covers the retrospective batches; the live items are
     scored at M>=5 only.
-  - Built: the prospective inputs (`laf confirmatory --live <worktree of live>`;
+  - Built for the earlier draft, and TO BUILD again on prompt v3 and the probability score
+    (section 11; until then the code below scores live answers to prompt v2A at M>=5 through
+    their quantiles): the prospective inputs (`laf confirmatory --live <worktree of live>`;
     `laf.live_scores`). Every released issue is scored on the outcome snapshot: counts in the
     item's own circle and windows, from its own sequence's catalog, once settled 21 days;
     matched items against the official version, strict items against the pipeline's
@@ -561,7 +609,12 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     on development data. It is kept for the count score, the secondary analysis.
 - A probability at a larger magnitude above the one at a smaller magnitude, and a probability
   outside the range the same answer's nine quantiles leave for it, are warnings with reported
-  rates, not invalid: each target is scored on its own numbers.
+  rates, not invalid: each target is scored on its own numbers. The development rates are in
+  section 3.
+- The Brier variant of section 6 scores an invalid answer at its worst case (a Brier score of
+  1): log 2 is a quantity in nats and has no meaning there.
+- "The five baselines" can be four: RJ-MLE falls back to generic RJ where the as-of catalog
+  holds fewer than 10 events of M>=4.95, and it equals generic RJ in every development cell.
 - Magnitudes that disagree across targets (an M3 count below an M4 count) are a warning, not
   invalid at M5.
 - Retrospective transport errors are retried, up to 10 attempts. Persistent failures are listed
@@ -609,8 +662,9 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     for the robustness prompt, about $258 against the plan's $164 (about $13 more for the
     unbuffered extras). Each goes in two parts of about $43.
   - **Prompt v3** (2026-11-11): the estimates above were computed with prompt v2. Prompt v3
-    adds three lines to the input and, in the development rerun, about 11% to gpt-5.1's output
-    (8,383 tokens per answer against 7,543). The rerun's actual cost was below the runners'
+    adds three lines to the input. In the development rerun gpt-5.1 used 8,383 output tokens
+    per answer on 39 sequences, against 7,543 with prompt v2 on 18 of them (different item
+    sets, so the difference is not the prompt's alone). The rerun's actual cost was below the runners'
     estimates: $26.92 against $38.71 for gpt-5.1 and $31.79 against $42.15 for the three
     Claude models. So the runners' estimates above still bound the plan; each batch's own
     estimate is recomputed and approved before it is sent.
@@ -631,6 +685,14 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     candidate in test B's retrospective part. That version is not in the frozen snapshot, and
     only the answers' format and validity were checked.
   - Only aggregate counts of the fore/aftershock exclusions were viewed.
+  - The revision of 2026-11-11 used outcome-blind counts on the candidate snapshot's forecast
+    and sequence tables (no catalog, no observed count, no score): the share of test A's
+    cells with nine zero quantiles (71%), the official probability's distribution (median
+    0.8%; at or below 0.001 in 15.3% of cells), how often the baselines' quantiles equal the
+    official ones, the rule of thumb's probability (exactly 0 in 95.8% of cells), generic
+    RJ's month-window probability per sequence (49 of 89 at or above 0.10), and the expected
+    loss of simple forecasters if the official probability were the truth (section 2). The
+    two mock reviews that made or prompted these counts are in docs/reviews/.
 
 ## 10. Changes from prereg v1
 - **Data:** 195 confirmatory candidates instead of the registered sequences; prospective
@@ -745,7 +807,7 @@ Decided on 2026-11-02:
     $50 after (replacing decision 18's $100 to February): test A's batches cost about $258 by
     the runners' estimates, and gpt-5.1 shuts down on 2027-04-01.
 21. The unbuffered clean-rule sensitivity analysis gets its own batch: gpt-5.1 on the 13 M>=5
-    sequences that only the unbuffered rule admits (v2A, k = 3, about $13); without it, that
+    sequences that only the unbuffered rule admits (v2A then, now v3A; k = 3, about $13); without it, that
     row would repeat the main analysis.
 22. On time means GitHub's push receipt before the first window; the OpenTimestamps clause is
     dropped, since a proof does not time a record to within the 30-minute margin.
@@ -796,7 +858,8 @@ Decided on 2026-11-11, after an independent mock review of the design
     replacing the nominal tests of decisions 14 and 29 (sections 2 and 6).
 40. Results by stratum are named in advance, and a supported row whose lower bound is above 0
     is labelled as worse inside the margin (sections 2 and 6).
-41. No outside protocol review is invited before the freeze (Tyler, 2026-11-11). The mock
-    review of the design stands in its place and is in the repository.
+41. No outside protocol review is invited before the freeze (Tyler, 2026-11-11). Two mock
+    reviews by fresh agents of this project are in the repository (docs/reviews/); they are
+    not an independent outside review, and the paper says so.
 
 No decision is open.
