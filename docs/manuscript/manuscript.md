@@ -38,7 +38,10 @@ Nandan_2019 have been read and are cited.
 
 ## Abstract
 
-[TBD: at most 200 words, no references; written after the registered analysis.]
+[TBD: at most 200 words, no references; written after the registered analysis. The protocol
+fixes two clauses in advance: if the primary test is supported and the generic model is also
+non-inferior, the abstract says so in the same sentence; if the primary test is
+inconclusive, the abstract says the comparison with the official forecast was inconclusive.]
 
 ## Non-technical summary
 
@@ -102,7 +105,8 @@ This study is built around those four problems. I froze the protocol, the prompt
 and the list of candidate sequences before scoring any forecast in the confirmatory data
 (Section 2.1). Each model is scored only on sequences whose mainshock came at least three
 months after the end of its training data, and a prospective arm forecasts new sequences in
-real time, with every forecast sealed and time-stamped before its window opens (Section 2.9).
+real time, with every forecast sealed and its seal time-stamped, so that a forecast made
+after its window opened is identified and left out (Section 2.9).
 Every forecaster sees the catalog as it stood when the official forecast was issued, rebuilt
 from the catalog's own version history (Section 2.4). The unit of analysis is the sequence,
 and the primary test is a single one-sided test with a stated margin (Section 2.8).
@@ -110,8 +114,8 @@ and the primary test is a single one-sided test with a stated margin (Section 2.
 The primary hypothesis is that the forecasts of one LLM, queried once with a fixed prompt and
 no tools, are non-inferior to the USGS operational forecast: that the mean logarithmic score
 of the probability the model states for at least one M≥5 aftershock is worse than that of the
-official probability by less than 0.02 nats per forecast, on the sequences that follow the
-model's training cutoff. Non-inferiority within a margin is a weaker claim than equivalence in
+official probability by less than 0.02 nats per forecast, on the sequences whose mainshock
+came at least three months after the model's training cutoff. Non-inferiority within a margin is a weaker claim than equivalence in
 skill, and the design says so in three ways. The same test is run for the generic RJ forecast,
 which uses nothing about a sequence but its mainshock; if that forecast also passes, the test
 cannot tell a forecaster with sequence-specific skill from a generic default, and I claim
@@ -131,8 +135,9 @@ prospective arm are not official forecasts.
 The study has two stages. A first analysis of 11 sequences was registered and reported in
 October 2026 [TBD: cite the archived write-up]. Those sequences, 39 more that I scored while
 developing the methods, and the sequences whose outcomes were used in adaptation experiments
-are *development* data: I scored them freely, and every design choice below was made on them.
-Every other sequence is *confirmatory*. Outcome exposure, not input exposure, makes a sequence
+are *development* data: I scored them freely, and every design choice below that needed an
+outcome was made on them. [TBD: reconcile the 50 sequences scored in development with the 49
+excluded from the candidates in Section 2.2.] Every other sequence is *confirmatory*. Outcome exposure, not input exposure, makes a sequence
 development data: a sequence whose catalog had appeared in a prompt but whose outcomes I had
 not seen stayed confirmatory.
 
@@ -140,9 +145,24 @@ The protocol for the confirmatory stage was frozen as a pre-registration at the 
 `prereg-v2` [TBD: commit hash, date and the public record of its SHA-256]. The frozen material
 is the protocol, the prompt templates, the package versions, the analysis code, the candidate
 sequences with their forecast items, the data manifest, and the baseline forecasts, which were
-computed before any outcome was unsealed. Before the freeze, the work on confirmatory
-sequences was limited to steps that use no outcome: fetching data, rebuilding catalogs,
-building prompts and computing baseline forecasts. The code enforces the split. Outcome counts
+computed before any outcome was unsealed. Before the freeze, no confirmatory forecast was
+scored. The work on confirmatory sequences was fetching data, rebuilding catalogs, building
+prompts and computing baseline forecasts, with five exceptions that the protocol lists as
+prior exposure. (1) The catalog check of
+Section 2.4 compared official observation counts across product versions, and a later
+version's count holds part of the outcome of an earlier window. (2) A dry run of the
+prospective detector tracked new official versions of some October 2026 candidates; only
+its timing logs were read. (3) A paid end-to-end check of the prospective pipeline
+produced 12 answers from the two live models for a dry-run version of one candidate of test
+B's retrospective part; the answers were checked for form and never scored [TBD: add the
+second check, planned before the freeze, once it has run]. (4) Only aggregate counts of the
+foreshock and aftershock exclusions were viewed. (5) The revision of the protocol in
+November 2026 used counts on the candidates' forecast and sequence tables that involve no
+catalog, observed count or score: the distribution of the official probabilities and
+quantiles, the baselines' probabilities, the official model type, the circle radii and the
+dates of the mainshocks. These counts set the choice of the primary score, the meaning of the
+margin and the informative-sequence threshold, and are quoted where they are used. The code
+enforces the split. Outcome counts
 of confirmatory sequences are written as nulls until two conditions hold: the freeze tag
 exists, and a second tag records the end of the prospective arm and 90 days have passed since
 then (Section 2.9). No confirmatory score or test was computed before that date, so no interim
@@ -161,6 +181,13 @@ later, larger earthquake can fall inside the event's own forecast windows; three
 excluded for that reason alone. The candidate list was kept as built, the three are added back
 in a sensitivity analysis, and prospective sequences are subject only to the backward-looking
 (aftershock) half of the rule.
+
+The candidate list ends before the prospective arm starts. Sequences with a mainshock between
+29 October 2026 and the start of the prospective arm (*L*, Section 2.9) were fetched once, at
+least 7 days after *L*, into a supplementary snapshot built by the same outcome-blind
+procedure with the backward-looking half of the rule; its items and baselines were hashed and
+time-stamped before any model saw them. They belong to the retrospective part of test B
+(Section 2.8).
 
 The primary set for each model is the candidates with a mainshock of M≥5 in that model's clean
 period (Section 2.5). A secondary set holds M4.0–4.9 mainshocks located by United States
@@ -181,23 +208,33 @@ the first valid version and, for each target time *t* of 1, 3, 7, 14 and 28 days
 mainshock, the earliest valid version whose information cutoff falls in
 [*t*, *t* + max(1 day, *t*/4)). The information cutoff of a version is the earlier of its
 creation time and the start of its windows, because in many versions the windows start before
-the forecast was created. An *issue* is one such version, and a *cell* is one issue, one
-window and one magnitude target. Every forecaster's forecast for a cell refers to the same
+the forecast was created. An *issue* is one such version, and a *cell* is one issue and one
+window; each magnitude target is scored on those cells separately. Every forecaster's forecast for a cell refers to the same
 circle and the same half-open window [start, end) as the official one.
 
 ### 2.4 Information available to the forecasters
 
-Every forecaster is given what the official forecast had: the mainshock and the catalog of
-events in the forecast circle with origin time before the information cutoff. In the
+Every forecaster is given what the official forecast had, as closely as it can be rebuilt:
+the mainshock and the catalog of events in the forecast circle with origin time before the
+information cutoff. In the
 retrospective arm that catalog is rebuilt as it stood at the cutoff. ComCat keeps every
 version of every origin with the time at which it was indexed; for each event I kept the
 versions indexed by the cutoff and took the preferred origin among them. As a check, each
 official ETAS and RJ product records how many events above several magnitudes it had fetched.
 On 194 of the 195 candidates the rebuilt catalog reproduces those counts exactly in 99.05%
-of 23,264 checks, against 96.85% for the catalog as it stands today. The check compares
-catalogs and uses no forecast-window outcome. Events that existed at the time and were later
-deleted cannot be rebuilt. In the prospective arm the catalog is simply the one fetched when
-the official version is detected.
+of 23,264 checks, against 96.85% for the catalog as it stands today. The observation counts
+of a later version hold part of the outcome of an earlier version's windows, so this check
+is listed among the prior exposures (Section 2.1). In the prospective arm the catalog is the
+one fetched when the official version is detected.
+
+Five gaps remain and are not corrected. Events that existed at the time and were later
+deleted cannot be rebuilt. The mainshock's location, depth, magnitude type and place name in
+the prompt are those of the catalog snapshot; only its magnitude is the official version's.
+An official version is matched to its event by today's mainshock magnitude and location,
+which matters at about 1% of issue times. Settings that an analyst chose inside an official
+product are not available to any other forecaster. And in the prospective arm the catalog
+fetched at detection can hold events and revisions indexed after the official forecast was
+computed.
 
 ### 2.5 Language models, prompt and answers
 
@@ -210,7 +247,8 @@ training-data cutoff. The primary model, `gpt-5.1-2025-11-13` (OpenAI; cutoff 30
 2024, clean from 1 January 2025), is clean on almost the whole OAF archive. `claude-opus-5-5`
 (Anthropic; cutoff June 2026, clean from 1 October 2026) is the model of the prospective arm,
 with `gpt-6.1-sol` (OpenAI; cutoff 30 April 2026). `claude-opus-4-6` and `claude-sonnet-4-6`
-(Anthropic) have intermediate cutoffs. Reasoning settings were fixed on development items before the freeze
+(Anthropic) have intermediate cutoffs. `claude-sonnet-4-6`, and `gpt-6.1-sol` on the
+retrospective sequences, are descriptive: their results are reported without a test. Reasoning settings were fixed on development items before the freeze
 (Table 1) by pilots; for `gpt-5.1` and `claude-sonnet-4-6` a higher setting used up the
 pilot's output limit before giving an answer.
 
@@ -288,13 +326,15 @@ now a secondary one. An LLM gives nine quantiles of the count, not a distributio
 distribution has to be built from them: I interpolate the cumulative distribution of a
 continuous latent count monotonically [@Fritsch_1980] through the quantiles on a logarithmic
 scale, with a power-law upper tail, and every forecaster, the official forecast included, is
-reduced to the same nine quantiles and rebuilt the same way. An independent review of the
-design before the freeze showed what this costs on moderate sequences: in 71% of the primary
-test's cells all nine M≥5 quantiles of the official forecast are zero, and the reconstruction
-then gives every forecaster the same distribution, whatever it believed. The official
-probability in those cells has a median of 0.8%, which nine quantiles cannot express. The
-count score is still reported, because counts carry information that the probability of at
-least one event discards [@Nandan_2019].
+reduced to the same nine quantiles and rebuilt the same way. The reconstruction is the
+scorer's, so this is not a proper score of the reported quantiles alone. A review of the
+design before the freeze, by an LLM agent instructed to act as a hostile referee (Section
+4.1), showed what it costs on moderate sequences: in 71% of the primary test's cells all
+nine M≥5 quantiles of the official forecast are zero, and the reconstruction then gives
+every forecaster the same distribution, whatever it believed. Nine zero quantiles can say no
+more than that the probability is at most 2.5%, and the official probability in the primary
+test's cells has a median of 0.8%. The count score is still reported, because counts carry
+information that the probability of at least one event discards [@Nandan_2019].
 
 For a model and a cell, $dS = S_\mathrm{model} - S_\mathrm{official}$, so negative values
 favor the model. The M≥4 and M≥3 targets are descriptive, the latter only where the catalog
@@ -327,12 +367,13 @@ comes from the forecasts alone. If the official probability were the truth, a fo
 stating half of it in every cell would lose 0.006 nats per cell on the primary test's cells,
 one stating double 0.012, one stating a tenth 0.042, and one stating a single constant
 probability in every cell, sequence and window at least 0.031. A margin of 0.02 therefore
-lets a factor-of-two error through and keeps out a forecaster that knows nothing about the
-sequence. I report how the margin was reached, because part of it happened after development
+lets through a forecaster that is wrong by a factor of two everywhere, and one stating a
+third of the official probability (0.014), and keeps out a forecaster that knows nothing
+about the sequence. I report how the margin was reached, because part of it happened after development
 results were known: 0.02 was proposed before any model had answered the final prompt; after
 a development run a margin of 0.05 was adopted for a few hours, anchored on the deficit of
-the rule of thumb; an independent review showed that anchor to be an artifact of the clip
-and that 0.05 would admit the constant forecaster; and 0.02 was restored. Margins of 0.05
+the rule of thumb; a second review of the same kind showed that anchor to be an artifact of
+the clip and that 0.05 would admit the constant forecaster; and 0.02 was restored. Margins of 0.05
 and 0.10 are registered sensitivity analyses.
 
 **Controls.** Three registered analyses say what a result on (A) can mean. The
@@ -359,13 +400,18 @@ neither direction, and that the finding is then the estimate with its 90% interv
 against the scale of the previous paragraph.
 
 **Secondary analyses.** (B) `claude-opus-5-5` against the official forecast on its clean
-retrospective M≥5 sequences together with the prospective ones, the two parts resampled
-separately. (S1, S2) The same for `claude-opus-4-6` on its clean sequences and for
-`gpt-6.1-sol` on the prospective items. These three are reported as estimates with 90%
-intervals and no verdict: at 23 to 33 sequences the simulated size of the bound is about
-0.14 at a nominal 0.05, because a sample that small can miss the rare event altogether.
-(S3, S4) Superiority of each model over the rule of thumb and over generic RJ, and its
-difference from the ETAS refit with a 95% interval. (S5) The prospective models against the
+retrospective M≥5 sequences (mainshocks from 1 October 2026 to *L*, from the candidate list
+and the supplementary snapshot of Section 2.2) together with the prospective ones, the two
+parts resampled separately; B is also reported for each part alone. (S1, S2) The same for
+`claude-opus-4-6` on its clean sequences and for `gpt-6.1-sol` on the prospective items.
+These three are reported as estimates with 90% intervals and no verdict. For B and S1, at
+about 33 and 23 sequences, the simulated size of the bound is about 0.14 at a nominal 0.05,
+because a sample that small can miss the rare event altogether; for S2 it was not simulated,
+because that model's development sequences held no M≥5 aftershock. (S3, S4) Superiority of
+each model over the rule of thumb and over generic RJ, and its difference from the ETAS
+refit with a 95% interval. The contrast with the rule of thumb is the one analysis with
+power, and its meaning is limited, because the rule of thumb states a probability of zero in
+almost every cell. (S5) The prospective models against the
 baselines on the strict items of Section 2.9.
 
 Beside the mean I report the 10% trimmed mean and the median of the sequence effects, the
@@ -391,8 +437,17 @@ GitHub was saved beside it, and an OpenTimestamps proof was requested for each r
 that recorded push preceded the opening of the item's first window. Late, failed and missed
 items (a scheduled version that was never forecast, for instance during an outage) are listed
 with their reasons and were never forecast after the fact. On-time and late versions are
-compared on covariates that use no outcome. The full forecasts were published after their
-windows closed, with a notice that they are not official forecasts.
+compared on covariates that use no outcome. The OpenTimestamps proofs show that a record
+existed, not when to within the 30-minute margin; the push time is the evidence of
+timeliness. The full forecasts were published after their windows closed, with a notice that
+they are not official forecasts.
+
+The live models spent only a fixed monthly reserve per vendor. A group of three answers ran
+only if its worst-case cost fit what was left of that vendor's reserve, in a registered
+order: `claude-opus-5-5` on the matched item, then on the strict item, then `gpt-6.1-sol`.
+Answers not made for that reason are listed as missed for budget. Secondary sequences
+(M4.0–4.9) could use only the first half of each reserve, so that many small events could
+not exhaust a month's reserve before an M≥5 sequence arrived.
 
 Sequences stopped entering at a time *S* [TBD]: the latest origin among the first 26 eligible
 M≥5 sequences, or *L* + 182 days if earlier. The rule was fixed in advance and there was no
@@ -401,8 +456,8 @@ covers the last 28-day issue, a month window and the settling time, and all conf
 scores were computed once, on that snapshot.
 
 Two constraints on the calendar came from the models. `gpt-5.1` is withdrawn by its vendor on
-1 April 2027, so all forecasts of the primary test were generated before then
-[TBD: dates of the batches]. If a live model had been withdrawn or changed, its accrual would
+1 April 2027, and the protocol required all forecasts of the primary test to be generated by
+1 March 2027 [TBD: dates of the batches]. If a live model had been withdrawn or changed, its accrual would
 have stopped at the first answer reporting a different model [TBD: whether this occurred].
 
 ### 2.10 Sensitivity and descriptive analyses
@@ -434,8 +489,8 @@ code.] The software for this study (data retrieval, catalog reconstruction, base
 and analysis) was written with an LLM coding assistant ([TBD: tool and versions]) under my
 direction, and changes to it were checked by automated tests and [TBD: the review process the
 author wants to state]. The same assistant helped draft this manuscript. I am responsible for
-all of its content. Two of the five models evaluated here come from the vendor of that
-assistant; the frozen protocol, the fixed prompts and the sealed forecasts are what keep the
+all of its content. [TBD: N; three if the assistant is Anthropic's, two if OpenAI's] of the
+five models evaluated here come from the vendor of that assistant; the frozen protocol, the fixed prompts and the sealed forecasts are what keep the
 evaluation independent of the tool used to build it.
 
 ## 3 Results
@@ -462,8 +517,9 @@ These hold whatever the results are.
   the margin. The registered finding is then the estimate with its interval.
 - **What non-inferiority means.** A supported primary hypothesis says that the model's stated
   probabilities cost less than 0.02 nats per forecast against the official ones on this
-  population: about the cost of being wrong by a factor of two everywhere, and less than the
-  cost of using one constant probability. On these sequences the generic model is expected to
+  population: more than the cost of stating double the official probability everywhere
+  (0.012) or a third of it (0.014), and less than the cost of using one constant probability
+  (0.031). On these sequences the generic model is expected to
   pass the same test, so support would show a forecaster as good as a calibrated generic
   model, not skill specific to a sequence.
 - **The margin's history.** The margin was fixed before the freeze and before any
@@ -530,8 +586,9 @@ These hold whatever the results are.
   probability lay outside the range its own quantiles allow, at some magnitude, in 17% of the
   primary model's answers and in 85% of two other models'. The primary score reads the
   probability and the secondary score the quantiles.
-- **Wording.** Adding the probabilities to the prompt changed one of five models' count
-  forecasts in development by 0.14 nats per cell and left the others unchanged. The
+- **Wording.** Adding the probabilities to the prompt changed the count forecasts of one of
+  the four models run with both prompts in development by 0.14 nats per cell and left the
+  other three unchanged. The
   paraphrase check runs for two models only.
 - **Review of the protocol.** No outside review of the protocol took place before the freeze.
   Two reviews by LLM agents instructed to act as hostile referees were made and are in the
@@ -543,9 +600,9 @@ These hold whatever the results are.
   time. For sequences added after the candidate list was built, only the backward-looking half
   of the rule applies, so a sequence later followed by a larger event nearby stays in.
 - **Reproducibility of the models.** The primary model is withdrawn by its vendor in April
-  2027. Its answers are archived, but they cannot be regenerated. Two models are served under
-  undated identifiers: the model name logged with each answer shows a redirect to another
-  model, not a silent update. Reasoning settings differ between models.
+  2027. Its answers are archived, but they cannot be regenerated. Only the primary model's
+  identifier carries a date. For the others the model name returned with each answer was
+  logged: it shows a redirect to another model, not a silent update under the same name. Reasoning settings differ between models.
 - **One host.** The prospective arm ran on a single machine. Forecasts missed during outages
   are listed and were not backfilled, and when a monthly budget reserve was exhausted the
   second live model was dropped first, so its missing forecasts cluster in busy months [TBD: the count and the comparison of missed with issued
