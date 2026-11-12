@@ -54,7 +54,8 @@ Per cell (issue time x window), dS = S(model) - S(official).
   - the rule of thumb states exactly 0 in 95.8% of them (it counts the M>=5 earthquakes so
     far), so its score is the clip: 0.001 nats without an event, 6.9 with one;
   - in the development rerun the stated probability is at or below 0.001 in 49% of gpt-5.1's
-    answers (gpt-6.1-sol 29%, Opus 5.5 17%, Opus 4.6 and Sonnet 4.6 15%).
+    answers (gpt-6.1-sol 29%, Opus 5.5 17%, Opus 4.6 and Sonnet 4.6 15%; shares of every
+    answered window, scored or not).
   - In those cells the scorer uses 0.001 in place of the stated value. Clips of 0.0001 and
     0.01 are sensitivity analyses (section 6), reported without a verdict because the margin
     is set at 0.001: gpt-5.1's development mean is +0.009, +0.017 and +0.022 at clips of 0.01,
@@ -151,7 +152,7 @@ Per cell (issue time x window), dS = S(model) - S(official).
     - After the development rerun, 0.05 was set for a few hours as "half the official
       forecast's advantage over the rule of thumb" (decision 34). An independent review
       (docs/reviews/mock-review-revision.md) showed that anchor to be made by the clip (the
-      rule of thumb's deficit is +0.038, +0.095 or +0.163 at clips of 0.01, 0.001 and 0.0001)
+      rule of thumb's deficit is +0.038, +0.095 or +0.162 at clips of 0.01, 0.001 and 0.0001)
       and that 0.05 would admit the tenfold under-forecast and the constant above.
     - 0.02 was restored (decision 42). gpt-5.1's development result (+0.017) was known when
       it was restored; of the margins considered it is the one test A is least likely to pass.
@@ -165,9 +166,11 @@ Per cell (issue time x window), dS = S(model) - S(official).
     against the official forecast on test A's cells. If generic RJ is also non-inferior, A is
     reported as unable to separate the model from the generic default, and no claim of
     sequence-specific skill rests on it. On development data generic RJ minus official is
-    -0.009 (90% interval -0.155 to +0.014), and generic RJ is supported in every simulated
-    study of 89 sequences, so the clause will apply. On B's and S1's cells the same contrast
-    is an estimate with its interval, without a label.
+    -0.009 (90% interval -0.155 to +0.014). Simulated at 89 sequences, generic RJ is
+    supported in 99% of studies if its true difference is that development mean and in 70%
+    if it is 0 (in every study at margins of 0.03 and above with the development mean), so
+    the clause is expected to apply. On B's and S1's cells the same contrast is an estimate
+    with its interval, without a label.
   - **Negative controls** (decided 2026-11-11): two forecasters that should not pass, each
     tested against the official forecast on test A's cells exactly as a model would be, each
     predicted "not supported".
@@ -223,14 +226,15 @@ Per cell (issue time x window), dS = S(model) - S(official).
     and +0.54. Without the first the mean is -0.005, without both -0.020. gpt-5.1 is better
     than the official forecast on the typical sequence (median -0.013) and much worse where
     M>=5 aftershocks occurred: its stated probability is at or below the official one in 88%
-    of answers and a fifth of it at the median.
+    of answers and a fifth of it at the median (both before the clip).
   - Superiority over the rule of thumb (S3) has simulated power 0.996 for gpt-5.1 at 89
     sequences (development mean -0.079, size 0.032). At the secondary models' numbers of
     sequences, with gpt-5.1's effects: power 0.64 and size 0.022 at 23, power 0.80 and size
     0.031 at 33. Its meaning is limited: the rule of thumb states 0 almost everywhere.
   - The controls' columns in the table above and these S3 figures are the rows `rule of thumb
     (control C1)`, `constant probability (control C2)` and `... minus the rule of thumb (S3)`
-    of the same file.
+    of the same file; generic RJ's share under "Assay sensitivity" is its row `generic RJ
+    (assay sensitivity)`.
   - Under the earlier draft (count score, margin 0.10, prompt v2A) the power from the D2
     effects was 0.42 for A and 0.64 for B (`results/confirmatory_size_d2_20261021T2300Z.csv`;
     a first quoted 0.45 for A came from a run that no command recorded). The normal
@@ -265,7 +269,8 @@ Per cell (issue time x window), dS = S(model) - S(official).
     quantiles is not proper for the reported quantiles alone (section 1).
   - `v3B`, the same change to the paraphrase `v2B`, is a preregistered robustness check (ADR
     0015 decision 4), run by the A and B models only.
-  - Development rerun with `v3A` (`runs/d3`, 2,094 answers, 3 invalid): on the same 18
+  - Development rerun with `v3A` (`runs/d3`, 2,094 answers; 3 invalid by the whole answer,
+    none for the primary score, section 7): on the same 18
     sequences and the same count score, gpt-5.1, Opus 4.6 and Opus 5.5 score as with `v2A`
     (differences -0.002, -0.005, -0.001 nats per cell), and Sonnet 4.6 scores 0.14 better
     (+0.144 with `v2A`, -0.0004 with `v3A`; 95% interval of the difference -0.21 to -0.10).
@@ -745,7 +750,10 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     official ones, the rule of thumb's probability (exactly 0 in 95.8% of cells), generic
     RJ's month-window probability per sequence (49 of 89 at or above 0.10), and the expected
     loss of simple forecasters if the official probability were the truth (section 2). The
-    two mock reviews that made or prompted these counts are in docs/reviews/.
+    two mock reviews that made or prompted these counts are in docs/reviews/. The first of
+    them also counted, on the same tables, the official model type by issue time
+    (Reasenberg-Jones at 463 of 472), the median radius of the forecast circle (10 km) and
+    how many of test A's sequences precede gpt-5.1's release (62 of 89).
 
 ## 10. Changes from prereg v1
 - **Data:** 195 confirmatory candidates instead of the registered sequences; prospective

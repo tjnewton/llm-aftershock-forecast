@@ -111,6 +111,22 @@ constant probability (control C2),89,0.025,student,0.1,0.062,0.718,0.87,1000
 constant probability (control C2),89,0.025,percentile,0.1,0.056,0.85,0.96,1000
 constant probability (control C2),89,0.05,student,0.1,0.083,0.832,0.95,1000
 constant probability (control C2),89,0.05,percentile,0.1,0.078,0.913,0.978,1000
+generic RJ (assay sensitivity),89,0.025,student,0.02,0.015,0.976,0.569,1000
+generic RJ (assay sensitivity),89,0.025,percentile,0.02,0.008,0.968,0.438,1000
+generic RJ (assay sensitivity),89,0.05,student,0.02,0.043,0.992,0.702,1000
+generic RJ (assay sensitivity),89,0.05,percentile,0.02,0.023,0.985,0.574,1000
+generic RJ (assay sensitivity),89,0.025,student,0.03,0.015,1.0,0.992,1000
+generic RJ (assay sensitivity),89,0.025,percentile,0.03,0.008,1.0,0.982,1000
+generic RJ (assay sensitivity),89,0.05,student,0.03,0.043,1.0,0.995,1000
+generic RJ (assay sensitivity),89,0.05,percentile,0.03,0.023,1.0,0.995,1000
+generic RJ (assay sensitivity),89,0.025,student,0.05,0.015,1.0,1.0,1000
+generic RJ (assay sensitivity),89,0.025,percentile,0.05,0.008,1.0,1.0,1000
+generic RJ (assay sensitivity),89,0.05,student,0.05,0.043,1.0,1.0,1000
+generic RJ (assay sensitivity),89,0.05,percentile,0.05,0.023,1.0,1.0,1000
+generic RJ (assay sensitivity),89,0.025,student,0.1,0.015,1.0,1.0,1000
+generic RJ (assay sensitivity),89,0.025,percentile,0.1,0.008,1.0,1.0,1000
+generic RJ (assay sensitivity),89,0.05,student,0.1,0.043,1.0,1.0,1000
+generic RJ (assay sensitivity),89,0.05,percentile,0.1,0.023,1.0,1.0,1000
 gpt-5.1-2025-11-13 minus the rule of thumb (S3),23,0.025,student,0.0,0.005,0.403,0.005,1000
 gpt-5.1-2025-11-13 minus the rule of thumb (S3),23,0.025,percentile,0.0,0.002,0.352,0.002,1000
 gpt-5.1-2025-11-13 minus the rule of thumb (S3),23,0.05,student,0.0,0.022,0.635,0.022,1000
