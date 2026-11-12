@@ -58,7 +58,13 @@ def _samples():
 def test_one_table_with_every_variant():
     s = _samples()
     issues = s.drop_duplicates("item_id")
-    tables = {"sequences": pd.DataFrame({"sequence_id": s["sequence_id"].unique(), "origin_ms": 0}),
+    ids = s["sequence_id"].unique()
+    # s0 and s1 are neighbors in space and time; s6 and s7 are deep; places name three regions
+    seqs = pd.DataFrame({
+        "sequence_id": ids, "origin_ms": 0, "lat": [10.0, 10.1, 20, 30, 40, 50, 60, 70],
+        "lon": 0.0, "depth_km": [10.0] * 6 + [120.0, 200.0],
+        "place": ["Alaska"] * 3 + ["Guam region"] * 3 + ["Oregon", "Chile"]})  # fmt: skip
+    tables = {"sequences": seqs,
               "issue_times": pd.DataFrame({"issue_id": issues["item_id"], "oaf_obs_m5": 1,
                                            "sequence_id": issues["sequence_id"]}),
               # one M5 aftershock in every as-of catalog, as the official count says
@@ -76,6 +82,14 @@ def test_one_table_with_every_variant():
     assert {f"margin {m:g}" for m in C.SENSITIVITY_MARGINS} == {"margin 0.05", "margin 0.1"}
     assert got["margin 0.05"] == got["main"] == got["margin 0.1"]
     assert t["noninferior"].isna().all()  # a secondary model: estimate and bound, no verdict
+    # the rows added on 2026-11-12: the stricter level, cluster blocks, depth and region strata
+    n = dict(zip(t["analysis"], t["sequences"], strict=True))
+    upper = dict(zip(t["analysis"], t["upper"], strict=True))
+    assert got["one-sided 0.025"] == got["main"] and upper["one-sided 0.025"] > upper["main"]
+    assert got["cluster-block bootstrap"] == pytest.approx(got["main"])  # the same estimand
+    assert t.set_index("analysis").loc["cluster-block bootstrap", "clusters"] == 7  # s0 with s1
+    assert (n["stratum: depth under 70 km"], n["stratum: depth 70 km or more"]) == (6, 2)
+    assert [n[f"stratum: {r}"] for r in ("Alaska", "Marianas region", "other regions")] == [3, 3, 2]
     rates = S.invalid_rates(s).set_index("variant")
     assert rates.loc["v3A", "invalid_rate"] == pytest.approx(1 / 3)
     live = s.assign(status="ok", effort=None)  # the live arm: every answer valid
@@ -213,7 +227,9 @@ def test_forward_excluded_candidates_enter_only_their_sensitivity_row(monkeypatc
     assert C.forward_excluded() == {"nc75094976", "us7000q8wx", "us7000s2bn"}
     ids = ["s0", "s1", "s2", "us7000s2bn"]
     origin = pd.Timestamp("2026-03-05", tz="UTC").value // 1_000_000
-    seqs = pd.DataFrame({"sequence_id": ids, "origin_ms": origin, "mag": 5.5})
+    seqs = pd.DataFrame({
+        "sequence_id": ids, "origin_ms": origin, "mag": 5.5, "lat": 0.0,
+        "lon": [0.0, 30.0, 60.0, 90.0], "depth_km": 10.0, "place": "Alaska"})  # fmt: skip
     assert C.eligible(seqs, "gpt-5.1-2025-11-13") == {"s0", "s1", "s2"}
     assert "us7000s2bn" in C.eligible(seqs, "gpt-5.1-2025-11-13", include_forward=True)
     rng = np.random.default_rng(0)
@@ -227,3 +243,65 @@ def test_forward_excluded_candidates_enter_only_their_sensitivity_row(monkeypatc
     t = S.sensitivity(s, tables, {i: 0.5 for i in s["item_id"]}, ("gpt-5.1-2025-11-13",))
     n = dict(zip(t["analysis"], t["sequences"], strict=True))
     assert n["main"] == 3 and n["with the 3 forward-excluded candidates"] == 4
+
+
+def test_sequence_clusters_join_neighbors_in_space_and_time():
+    day = 86_400_000
+    seqs = pd.DataFrame({
+        "sequence_id": ["a", "b", "c", "d", "e"],
+        "lat": [0.0, 0.5, 1.0, 0.0, 40.0], "lon": 0.0,  # a-b and b-c are 56 km apart, a-c 111 km
+        "origin_ms": [0, 10 * day, 20 * day, 200 * day, 0]})  # fmt: skip
+    cl = C.sequence_clusters(seqs)
+    assert cl["a"] == cl["b"] == cl["c"]  # a chain: c joins a through b
+    assert len({cl["a"], cl["d"], cl["e"]}) == 3  # d is near a but 200 days later; e is far
+
+
+def test_cluster_bootstrap_keeps_the_estimate_and_widens_the_bound():
+    rng = np.random.default_rng(1)
+    half = rng.normal(0.0, 0.1, 20)
+    x = np.repeat(half, 2)  # 40 sequences in 20 clusters of two identical effects
+    plain = C.noninferiority(x, 0.02)
+    blocks = C.noninferiority(x, 0.02, clusters=np.repeat(np.arange(20), 2))
+    assert blocks["mean"] == pytest.approx(plain["mean"]) and blocks["clusters"] == 20
+    assert blocks["upper"] > plain["upper"]  # 20 independent units, not 40
+    # with one sequence per cluster it is the 20-sequence analysis itself
+    alone = C.noninferiority(half, 0.02, clusters=np.arange(20))
+    assert alone == C.noninferiority(half, 0.02)
+    # unequal clusters: the mean stays the mean over sequences
+    y = rng.normal(0.01, 0.1, 12)
+    uneven = C.noninferiority(y, 0.02, clusters=np.array([0] * 5 + [1] * 3 + [2, 3, 4, 5]))
+    assert uneven["mean"] == pytest.approx(float(y.mean())) and np.isfinite(uneven["upper"])
+    one = C.noninferiority(y, 0.02, clusters=np.zeros(12))
+    assert one["upper"] == float("inf") and not one["noninferior"]  # one cluster: no claim
+
+
+def test_release_contrast_is_before_minus_after():
+    model = "gpt-5.1-2025-11-13"
+    release = pd.Timestamp(C.RELEASED[model], tz="UTC").value // 1_000_000
+    ids = [f"s{i}" for i in range(10)]
+    seqs = pd.DataFrame({"sequence_id": ids, "origin_ms": [release - 1] * 6 + [release + 1] * 4})
+    d = [0.1, 0.2, 0.0, 0.1, 0.3, 0.2, -0.1, 0.0, -0.2, -0.1]
+    cells = pd.DataFrame({"model": model, "sequence_id": ids, "d": d})
+    r = S.release_contrast(cells, seqs, model)
+    assert r is not None
+    assert r["mean"] == pytest.approx(np.mean(d[:6]) - np.mean(d[6:])) and r["sequences"] == 10
+    assert r["lower"] < r["mean"] < r["upper"] and r["lower"] > 0  # clearly apart
+    assert S.release_contrast(cells, seqs, "claude-haiku-5-5") is None  # no release date
+    assert S.release_contrast(cells.iloc[:7], seqs, model) is None  # one sequence after it
+
+
+def test_the_constant_control_says_whether_the_official_forecast_beats_it():
+    model, n = C.PRIMARY[0], 30
+    rng = np.random.default_rng(2)
+    ids = [f"s{i}" for i in range(n)]
+    cells = pd.DataFrame({"model": model, "sequence_id": ids, "window": "day",
+                          "issue_id": [f"{i}@first" for i in ids]})  # fmt: skip
+
+    def control(mean):
+        s = cells.rename(columns={"issue_id": "item_id"}).assign(
+            base_d5_constant=rng.normal(mean, 0.01, n)
+        )
+        return C.assay(s, cells, baseline="constant").iloc[0]
+
+    assert control(0.05)["official_beats_constant"]  # the constant is clearly worse
+    assert not control(0.0)["official_beats_constant"]  # no demonstrated advantage
