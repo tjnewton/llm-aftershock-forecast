@@ -1,10 +1,10 @@
 """Sensitivity analyses of prereg v2 section 6, reported in one table whatever their result.
 
 Each row repeats a tested model's non-inferiority test against the official forecast on a
-variant of its cells: the clean rule, the prompt, the invalid-answer rule, the settling rule, a
-subset of cells, or one elapsed-time stratum. Scoring variants (the log-scale quantile score,
-full distributions, the negative-binomial tail, other log floors) and the outcome variants
-(region radius, the forward-excluded candidates) come in their own modules.
+variant of its cells: the margin, the clean rule, the prompt, the invalid-answer rule, the
+settling rule, a subset of cells, or one elapsed-time stratum. Scoring variants (other clips of
+the probability, its Brier score, the count score through nine quantiles and its own variants)
+and the outcome variants (region radius, the forward-excluded candidates) follow.
 """
 
 from typing import Any
@@ -14,7 +14,7 @@ import pandas as pd
 from laf import confirmatory as C
 
 NON_OVERLAP = {"day": None, "week": ("first", "7d", "14d", "28d"), "month": ("first",)}
-AB_MODELS = ("gpt-5.1-2025-11-13", "claude-opus-5-5")  # v2B runs for the A and B models only
+AB_MODELS = ("gpt-5.1-2025-11-13", "claude-opus-5-5")  # v3B runs for the A and B models only
 
 
 def non_overlapping(cells: pd.DataFrame) -> pd.Series:
@@ -43,10 +43,15 @@ def exact_match(tables: dict[str, pd.DataFrame]) -> set[str]:
     return set(it.loc[it["oaf_obs_m5"] == asof, "issue_id"])
 
 
-def _row(analysis: str, cells: pd.DataFrame, models: tuple[str, ...]) -> list[dict]:
+def _row(
+    analysis: str, cells: pd.DataFrame, models: tuple[str, ...], delta: float = C.DELTA,
+    verdict: bool = True,
+) -> list[dict]:  # fmt: skip
     rows = []
     for m, g in cells[cells["model"].isin(models)].groupby("model"):
-        t = C.noninferiority(C.sequence_effects(g).to_numpy())
+        t = C.noninferiority(C.sequence_effects(g).to_numpy(), delta)
+        if m not in C.PRIMARY or not verdict:  # an estimate and bound, no verdict
+            t["noninferior"] = None
         rows.append({"analysis": analysis, "model": m}
                     | {k: t[k] for k in ("sequences", "mean", "upper", "noninferior")})  # fmt: skip
     return rows
@@ -67,6 +72,8 @@ def sensitivity(
 
     main = cells()
     rows = _row("main", main, models)
+    for delta in C.SENSITIVITY_MARGINS:  # the same estimate and bound, read at another margin
+        rows += _row(f"margin {delta:g}", main, models, delta)
     if sets is None:
         wide = {C.PRIMARY[0]: 0.0}
         rows += _row("test A on all clean candidates",
@@ -77,15 +84,21 @@ def sensitivity(
         abs1 = tuple(m for m in models if m in (*C.PRIMARY, "claude-opus-5-5", "claude-opus-4-6"))
         rows += _row("with the 3 forward-excluded candidates", cells(include_forward=True), abs1)
     rows += _row("non-overlapping subset", main[non_overlapping(main)], models)
-    rows += _row("v2B", cells(variant="v2B"), tuple(m for m in models if m in AB_MODELS))
-    rows += _row("valid answers only", cells(s=samples[samples["status"] == "ok"]), models)
+    rows += _row(C.ROBUSTNESS_PROMPT, cells(variant=C.ROBUSTNESS_PROMPT),
+                 tuple(m for m in models if m in AB_MODELS))  # fmt: skip
+    ok = samples["valid5"].astype(bool) if "valid5" in samples else samples["status"] == "ok"
+    rows += _row("valid answers only", cells(s=samples[ok]), models)
+    if "valid5" in samples:  # the stricter rule: the whole answer valid, not only its M>=5 part
+        rows += _row("invalid by the whole answer", cells(whole_answer=True), models)
+    if "worst_case_d5" in samples and samples["worst_case_d5"].notna().any():
+        rows += _row("invalid answers at the worst case", cells(invalid="worst_case"), models)
     exact = exact_match(tables)
     rows += _row("as-of catalog matches the official count", main[main["issue_id"].isin(exact)],
                  models)  # fmt: skip
     if samples_2d is not None:
         rows += _row("2-day settling rule", cells(s=samples_2d), models)
-    for _, name in C.STRATA:
-        rows += _row(f"stratum: {name}", main[main["stratum"] == name], models)
+    for _, name in C.STRATA:  # the margin is defined over all strata: estimates only
+        rows += _row(f"stratum: {name}", main[main["stratum"] == name], models, verdict=False)
     return pd.DataFrame(rows)
 
 
@@ -104,6 +117,23 @@ def invalid_rates(samples: pd.DataFrame, live: pd.DataFrame | None = None) -> pd
     return out.reset_index()
 
 
+def invalid_by_cell(samples: pd.DataFrame, cells: pd.DataFrame) -> pd.DataFrame:
+    """Invalid answers of the retrospective batches by elapsed-time stratum and by whether an
+    M>=5 earthquake occurred in the cell (prereg v2 section 7): a fixed penalty is mild where
+    a valid answer would have lost more, so a concentration in hard cells must be visible.
+    One row per model, stratum and event, counted over the tests' cells (`cells`)."""
+    if "m5_event" not in samples or not len(cells):
+        return pd.DataFrame()
+    stratum = dict(zip(cells["issue_id"], cells["stratum"], strict=True))
+    s = samples[samples["status"].ne("transport_error") & samples["item_id"].isin(stratum)]
+    s = s[s["model"].isin(set(cells["model"])) & (s["variant"] == C.PRIMARY_PROMPT)]
+    bad = ~s["valid5"].astype(bool) if "valid5" in s else s["status"].ne("ok")
+    s = s.assign(stratum=s["item_id"].map(stratum), invalid=bad, whole=s["status"].ne("ok"))
+    g = s.groupby(["model", "stratum", "m5_event"])
+    out = g["invalid"].agg(answers="size", invalid="sum", invalid_rate="mean")
+    return out.join(g["whole"].sum().rename("invalid_whole_answer")).reset_index()
+
+
 def failures(samples: pd.DataFrame) -> pd.DataFrame:
     """The persistent transport failures, one row per answer: left out and listed (prereg v2
     section 7). Failures a retry answered are already gone (`d2.samples`)."""
@@ -116,9 +146,9 @@ def extras(
     samples: pd.DataFrame, cells: pd.DataFrame, live: pd.DataFrame | None = None,
     b_parts: dict | None = None, timeliness: pd.DataFrame | None = None,
 ) -> dict[str, pd.DataFrame]:  # fmt: skip
-    """The registered outputs beside the tests: persistent failures, invalid rates by arm, and
-    the leave-one-sequence-out influence on A and on B (both parts given `b_parts`, else its
-    retrospective part), and on-time against late items when given."""
+    """The registered outputs beside the tests: persistent failures, invalid rates by arm and
+    by stratum and event, and the leave-one-sequence-out influence on A and on B (both parts
+    given `b_parts`, else its retrospective part), and on-time against late items when given."""
     inf = []
     for label, model in (("A", C.PRIMARY[0]), ("B retrospective part", C.B_MODEL)):
         g = cells[cells["model"] == model]
@@ -128,6 +158,7 @@ def extras(
         b = C.influence(b_parts["both"], b_parts["parts"])
         inf.append(b.assign(hypothesis="B", model=C.B_MODEL))
     out = {"failures": failures(samples), "invalid": invalid_rates(samples, live),
+           "invalid_cells": invalid_by_cell(samples, cells),
            "influence": pd.concat(inf, ignore_index=True) if inf else pd.DataFrame()}  # fmt: skip
     if timeliness is not None:
         out["timeliness"] = timeliness
@@ -135,36 +166,46 @@ def extras(
 
 
 # scoring and outcome variants (prereg v2 section 6): (label, `laf.d2.analyze` arguments)
+# The count score keeps its own rule for an invalid answer (the worst of the five baselines)
+_COUNT: dict[str, Any] = {"invalid": "worst_baseline"}
 SCORE_VARIANTS: tuple[tuple[str, dict[str, Any]], ...] = (
-    ("log floor 1e-4", {"floor": 1e-4}),
-    ("log floor 1e-8", {"floor": 1e-8}),
-    ("negative-binomial tail", {"score": "nb_tail"}),
-    ("full distributions (official, ETAS)", {"score": "full"}),
-    ("log-scale quantile score", {"score": "log_qs"}),
-    ("region radius x0.5", {"radius": 0.5}),
-    ("region radius x1.5", {"radius": 1.5}),
+    ("probability clipped at 0.0001", {"score": "probability", "clip": 1e-4}),
+    ("probability clipped at 0.01", {"score": "probability", "clip": 1e-2}),
+    ("Brier score of the probability", {"score": "brier", "invalid": "worst_case"}),
+    ("count score (nine quantiles)", {"score": "registered", **_COUNT}),
+    ("count score, log floor 1e-4", {"floor": 1e-4, **_COUNT}),
+    ("count score, log floor 1e-8", {"floor": 1e-8, **_COUNT}),
+    ("count score, negative-binomial tail", {"score": "nb_tail", **_COUNT}),
+    ("count score, full distributions (official, ETAS)", {"score": "full", **_COUNT}),
+    ("log-scale quantile score", {"score": "log_qs", **_COUNT}),
+    ("region radius x0.5", {"score": "probability", "radius": 0.5}),
+    ("region radius x1.5", {"score": "probability", "radius": 1.5}),
 )
 
 
 def scoring_variants(
     proc, run_dirs, tables: dict[str, pd.DataFrame], elapsed: dict[str, float],
     models: tuple[str, ...], sets: dict[str, set[str]] | None = None,
+    roles: tuple[str, ...] = ("test-post",),
 ) -> pd.DataFrame:  # fmt: skip
-    """The non-inferiority rows again under each scoring variant. The quantile score has
-    another unit, so delta does not apply to it: its row gives the estimate and bound only."""
+    """The non-inferiority rows again under each scoring variant. The margin is defined for the
+    probability's log score, so only its variants (clips, region radius) carry a verdict: the
+    Brier score, the count score and the quantile score give the estimate and bound only."""
     from laf.d2 import analyze
 
     rows = []
-    for label, kw in SCORE_VARIANTS:
-        s, _ = analyze(proc, run_dirs, **kw)
+    for label, variant in SCORE_VARIANTS:
+        kw = dict(variant)
+        invalid = kw.pop("invalid", C.INVALID)
+        s, _ = analyze(proc, run_dirs, roles=roles, **kw)
         if s.empty:  # no cell can be scored under this variant: reported as such
             rows += [{"analysis": label, "model": m, "sequences": 0} for m in models]
             continue
-        r = _row(label, C.confirmatory_cells(s, tables["sequences"], elapsed, sets=sets), models)
-        if kw.get("score") == "log_qs":
-            for x in r:
-                x["noninferior"] = None
-        rows += r
+        cells = C.confirmatory_cells(s, tables["sequences"], elapsed, sets=sets, invalid=invalid)
+        # the margin belongs to the registered score and clip: other scores and clips give
+        # the estimate and bound only
+        same = kw.get("score") == C.PRIMARY_SCORE and "clip" not in kw
+        rows += _row(label, cells, models, verdict=same)
     return pd.DataFrame(rows)
 
 
@@ -172,11 +213,13 @@ FLOORS = (1e-6, 1e-4, 1e-8)
 
 
 def diagnostics(
-    proc, run_dirs, models: tuple[str, ...], sets: dict[str, set[str]] | None = None
+    proc, run_dirs, models: tuple[str, ...], sets: dict[str, set[str]] | None = None,
+    roles: tuple[str, ...] = ("test-post",),
 ) -> pd.DataFrame:  # fmt: skip
-    """Per forecaster at M>=5 on the scored cells (prereg v2 section 6, ADR 0015): how often
-    each log floor binds, the cells above its 97.5% quantile, CSEP N-test failures (either
-    quantile below 0.025), the KS distance of its randomized PIT from uniform, and the
+    """Per forecaster's count quantiles at M>=5 on the scored cells (prereg v2 section 6, ADR
+    0015): how often each log floor binds, the cells above its 97.5% quantile, CSEP N-test
+    failures (either quantile below 0.025), the KS distance of its randomized PIT from
+    uniform, and the
     information gain per earthquake against the official forecast (official log score minus
     its own, summed over cells, over the earthquakes counted). Each model counts on its own
     eligible sequences (its test set), the baselines on those of any tested model; `sets`
@@ -190,7 +233,7 @@ def diagnostics(
 
     tables, items = A.load_tables(proc), A.load_items(proc)
     cells = A.cells(tables)  # refuses sealed outcomes
-    cells = cells[cells["primary"] & cells["oaf_cell"] & (cells["role"] == "test-post")]
+    cells = cells[cells["primary"] & cells["oaf_cell"] & cells["role"].isin(roles)]
     base = A.baselines(tables, items, cells)
     sets = sets or {m: C.eligible(tables["sequences"], m) for m in models}
     union = set().union(*sets.values())

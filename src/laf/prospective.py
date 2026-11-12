@@ -28,7 +28,7 @@ from laf.runner import CAP_VAR, remaining_usd, reserve_var, usd_var
 LIVE_MODELS = ("claude-opus-5-5", "gpt-6.1-sol")  # in budget priority (prereg v2 section 5)
 K = 3
 FLOOR = 3.0
-PROMPT = "v2A"  # ADR 0015 decision 4
+PROMPT = "v3A"  # prereg v2 decision 33 (`confirmatory.PRIMARY_PROMPT`)
 MAX_TOKENS = 32_000  # as the retrospective batches (prereg v2 section 3)
 STRICT_LEAD_MS = 30 * 60_000
 MIN_MAG = 5.0  # primary: M>=5 mainshocks (ADR 0013); US M4.0-4.9 are secondary
@@ -179,7 +179,9 @@ def live_budget(ledger: Path, month: str | None = None, keep: float = 0.0) -> di
 
 def baseline_forecasts(tables: dict, items: list[Item], data_dir: Path) -> list[dict]:
     """The pipeline's baselines on the live items: generic RJ, RJ-MLE, the rule of thumb and
-    the legacy-ETAS refit (ADR 0010 defaults), as M5 and M4 quantiles and P(M>=6)."""
+    the legacy-ETAS refit (ADR 0010 defaults), as M5 and M4 quantiles, P(M>=6) and the
+    probability of at least one M>=5 earthquake (the primary score's input, sealed with the
+    rest so that nothing is computed after the outcome)."""
     from laf import analysis as A
     from laf.etas import forecast_item, issue_seed
     from laf.generic_rj import REFERENCE_REL
@@ -198,7 +200,8 @@ def baseline_forecasts(tables: dict, items: list[Item], data_dir: Path) -> list[
                        {i.item_id: i for i in items}, cells)  # fmt: skip
     return [
         {"forecaster": name, "item_id": iid, "window": win, "m5": list(fc.m5),
-         "m4": list(fc.m4) if fc.m4 else None, "p_m6": fc.p_m6}
+         "m4": list(fc.m4) if fc.m4 else None, "p_m6": fc.p_m6,
+         "p_m5": None if fc.cdf_m5 is None else float(1.0 - fc.cdf_m5[0])}
         for (name, iid, win), fc in sorted(base.items())
         if name not in ("etas_hindsight", "etas_analyst")
     ]  # fmt: skip

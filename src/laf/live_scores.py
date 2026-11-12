@@ -18,11 +18,11 @@ import numpy as np
 import pandas as pd
 
 from laf.catalog import count_in_window
-from laf.d2 import BASELINES, _ls
-from laf.forecast import official_forecast
+from laf.d2 import BASELINES, CONTROL_P
 from laf.items import Item
 from laf.oaf import Circle
-from laf.schemas import QKEYS, TARGETS_V2, validate
+from laf.schemas import fields, stated_p5, validate
+from laf.scoring import P_CLIP, log_score_binary
 from laf.splits import require_outcomes
 
 
@@ -69,23 +69,36 @@ def _after_change(call: dict, sealed_ms: int, changes: dict[str, int]) -> bool:
     return stop is not None and sealed_ms >= stop
 
 
-def _status(call: dict, window: str) -> tuple[str, list[float] | None]:
-    """A live answer's status and its M>=5 quantiles for one window, as the batch answers are
-    read (`laf.d2.samples`): a delivered answer cut off at the cap or refused, even without
-    text, is invalid and penalized; only an undelivered call is a transport error. Answers from
-    a model change on never get here (`model_changes`)."""
+def _status(call: dict, window: str) -> tuple[str, float | None]:
+    """A live answer's status and its stated probability of at least one M>=5 earthquake for
+    one window, as the batch answers are read (`laf.d2.samples`). The probability is usable
+    whatever else is wrong with the answer (prereg v2 section 7); a delivered answer cut off
+    at the cap or refused, even without text, has none and is penalized; only an undelivered
+    call is a transport error. Answers from a model change on never get here
+    (`model_changes`)."""
     if not _delivered(call):
         return "transport_error", None  # a pipeline or transport failure: listed, left out
-    status, parsed, _ = validate("direct", call.get("text"), call.get("stop_reason"), TARGETS_V2)
-    if status != "ok" or not parsed:
-        return status, None
-    return status, [parsed[window]["m5_count_quantiles"][k] for k in QKEYS]
+    text, stop = call.get("text"), call.get("stop_reason")
+    status, _, _ = validate("direct", text, stop, *fields(call.get("paraphrase")))
+    return status, stated_p5(text, stop)[window]
+
+
+def _sp(p: float | None, event: bool) -> float:
+    """The primary score of a probability (clipped log score); NaN without one."""
+    return float("nan") if p is None or p != p else log_score_binary(float(p), event)
+
+
+def _p_official(bins: pd.DataFrame, sequence_id: str, cutoff_ms: int, window: str):
+    """The matched official version's published probability of at least one M>=5 earthquake."""
+    b = bins[(bins["sequence_id"] == sequence_id) & (bins["info_cutoff_ms"] == cutoff_ms)
+             & (bins["window"] == window) & (bins["magnitude"] == 5.0)]  # fmt: skip
+    return float(b["probability"].iloc[0]) if len(b) else None
 
 
 COLUMNS = ("item_id", "window", "sequence_id", "table_sequence_id", "kind", "on_time", "part",
-           "origin_ms", "mag", "tier", "elapsed_days", "worst_base_d5",
-           *(f"base_d5_{b}" for b in BASELINES), "model", "effort", "variant", "sample", "status",
-           "d5")  # fmt: skip
+           "origin_ms", "mag", "tier", "elapsed_days", "worst_base_d5", "worst_case_d5",
+           "m5_event", *(f"base_d5_{b}" for b in (*BASELINES, "constant")), "model", "effort",
+           "variant", "sample", "status", "valid5", "d5")  # fmt: skip
 
 
 def live_samples(live: Path, tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
@@ -97,7 +110,7 @@ def live_samples(live: Path, tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
     catalog end in the snapshot, the batch rule (`analysis.PRIMARY_SETTLING_DAYS`)."""
     from laf.analysis import PRIMARY_SETTLING_DAYS
 
-    cat, fr, bins = tables["catalog"], tables["forecast_fractiles"], tables["forecast_bins"]
+    cat, bins = tables["catalog"], tables["forecast_bins"]
     catalog_end = tables["sequences"].set_index("sequence_id")["catalog_end_ms"]
     settle_ms = PRIMARY_SETTLING_DAYS * 86_400_000
     rows = []
@@ -112,7 +125,8 @@ def live_samples(live: Path, tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
         receipt = d / "receipt.json"
         receipt_ms = json.loads(receipt.read_text(encoding="utf-8"))["receipt_ms"] if (
             receipt.exists()) else None  # fmt: skip
-        base = {(b["forecaster"], b["item_id"], b["window"]): b["m5"]
+        # each baseline's sealed probability (records sealed before prompt v3 have none)
+        base = {(b["forecaster"], b["item_id"], b["window"]): b.get("p_m5")
                 for b in _jsonl(d / "baselines.jsonl")}  # fmt: skip
         # a model's answers from its first model change on are left out and listed
         sealed = seal["sealed_ms"]
@@ -132,13 +146,15 @@ def live_samples(live: Path, tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
             for w in it.windows:
                 if w.end_ms + settle_ms > catalog_end[it.sequence_id]:
                     continue  # not settled in this snapshot
-                y = count_in_window(own, circle, w.start_ms, w.end_ms, 5.0)
-                ls = {b: _ls(base.get((b, it.item_id, w.label)), y) for b in BASELINES}
+                event = count_in_window(own, circle, w.start_ms, w.end_ms, 5.0) >= 1
+                ls = {b: _sp(base.get((b, it.item_id, w.label)), event) for b in BASELINES}
                 if kind == "matched":
-                    fc = official_forecast(fr, bins, it.sequence_id, it.issue_ms, w.label)
-                    ls["official"] = off = _ls(list(fc.m5), y)
-                else:  # strict windows: no official forecast, scores relative to 0
-                    off = 0.0
+                    p_off = _p_official(bins, it.sequence_id, it.issue_ms, w.label)
+                    if p_off is None:
+                        continue  # no published probability to score against
+                    ls["official"] = off = _sp(p_off, event)
+                else:  # strict windows: no official forecast, scores relative to 0, so an
+                    off = 0.0  # invalid answer scores log 2 itself, a probability of one half
                 scored = [v for v in ls.values() if not np.isnan(v)]
                 if not scored:  # strict, and its baselines record is missing: nothing to score
                     continue
@@ -151,18 +167,41 @@ def live_samples(live: Path, tables: dict[str, pd.DataFrame]) -> pd.DataFrame:
                     "kind": kind, "on_time": on_time, "part": "prospective",
                     "origin_ms": it.mainshock.origin_ms, "mag": it.mainshock.mag, "tier": tier,
                     "elapsed_days": it.elapsed_days, "worst_base_d5": worst - off,
+                    "worst_case_d5": -np.log(P_CLIP) - off, "m5_event": event,
                     **{f"base_d5_{b}": ls[b] - off for b in BASELINES},
+                    "base_d5_constant": _sp(CONTROL_P, event) - off,
                 }  # fmt: skip
                 for c in calls:
                     if c["item_id"] != it.item_id:
                         continue
-                    status, q = _status(c, w.key)
+                    status, p5 = _status(c, w.key)
                     rows.append({
                         **cell, "model": c["model_requested"], "effort": c.get("effort"),
                         "variant": c.get("paraphrase"), "sample": c["sample"], "status": status,
-                        "d5": _ls(q, y) - off if q else np.nan,
+                        "valid5": p5 is not None, "d5": _sp(p5, event) - off,
                     })  # fmt: skip
     return pd.DataFrame(rows, columns=list(COLUMNS))
+
+
+def live_informative(live: Path, threshold: float) -> set[str]:
+    """The prospective sequences of the informative-sequence estimand (prereg v2 section 2):
+    generic RJ's sealed probability of at least one M>=5 earthquake is at least `threshold`
+    in the month window of the sequence's first released issue that has one (its matched
+    item). Read from the sealed baselines records alone: no outcome is read. Sequences are
+    named as `live_samples` names them (the frozen inclusion key, else the item's ID)."""
+    first: dict[str, tuple[int, float]] = {}
+    for d in released(live):
+        if not (d / "baselines.jsonl").exists():
+            continue
+        inclusion = d.parent / "inclusion.json"
+        inc = json.loads(inclusion.read_text(encoding="utf-8")) if inclusion.exists() else {}
+        for b in _jsonl(d / "baselines.jsonl"):
+            month = b["forecaster"] == "generic_rj" and b["window"] == "1 Month"
+            if month and b["item_id"].endswith("@live-matched") and b.get("p_m5") is not None:
+                key, at = inc.get("key") or b["item_id"].split("@")[0], int(d.name)
+                if key not in first or at < first[key][0]:
+                    first[key] = (at, float(b["p_m5"]))
+    return {k for k, (_, p) in first.items() if p >= threshold}
 
 
 def live_items(live: Path) -> pd.DataFrame:

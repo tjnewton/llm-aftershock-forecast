@@ -27,6 +27,9 @@ def descriptive(
     # forecast's P(M>=6)
     both = ok["brier_m6"].notna() & ok["brier_m6_official"].notna()
     cols = {("dS_m4", "model"): ok["d4"], ("dS_m3", "model"): ok["d3"]}
+    for m in (4, 3):  # v3 answers: the log score of P(at least one) minus the official one's
+        if f"dp{m}" in ok:
+            cols[(f"dP_m{m}", "model")] = ok[f"dp{m}"]
     for f in ("model", "official", *BASELINES):
         b = ok["brier_m6"] if f == "model" else ok[f"brier_m6_{f}"]
         cols[("brier_m6", f)] = b.where(both)

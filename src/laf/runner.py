@@ -114,13 +114,13 @@ BLOCKS: dict[str, dict] = {
         "floor": 3.0,
     },
     # confirmatory runs after the prereg-v2 tag (prereg v2 sections 3 and 8): each model at its
-    # study settings on its own clean set (`confirmatory.batch_items`); v2B for the A and B
-    # models only
+    # study settings on its own clean set (`confirmatory.batch_items`), prompt v3A; v3B for the
+    # A and B models only
     "confirmatory": {
         "roles": ("test-post",),
         "arms": ("direct",),
         "infos": ("I1",),
-        "paras": ("v2A",),
+        "paras": ("v3A",),
         "k": 3,
         "effort": "study",
         "floor": 3.0,
@@ -129,16 +129,16 @@ BLOCKS: dict[str, dict] = {
         "roles": ("test-post",),
         "arms": ("direct",),
         "infos": ("I1",),
-        "paras": ("v2A",),
+        "paras": ("v3A",),
         "k": 3,
         "effort": "study",
         "floor": 3.0,
     },
-    "confirmatory-v2b": {
+    "confirmatory-v3b": {
         "roles": ("test-post",),
         "arms": ("direct",),
         "infos": ("I1",),
-        "paras": ("v2B",),
+        "paras": ("v3B",),
         "k": 3,
         "effort": "study",
         "floor": 3.0,

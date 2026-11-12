@@ -86,6 +86,28 @@ def _direct(
     return "ok", warn
 
 
+def stated_p5(text: str | None, stop_reason: str | None) -> dict[str, float | None]:
+    """The answer's own probability of at least one M>=5 earthquake per window, wherever the
+    answer was delivered whole, parses, and states a number in [0, 1], whatever else is wrong
+    with it (prereg v2 section 7): the primary score reads nothing else. None for a refusal, a
+    cut-off answer, unparseable text, or a missing or out-of-range probability."""
+    none: dict[str, float | None] = dict.fromkeys(WINDOWS)
+    if stop_reason in ("refusal", "max_tokens"):
+        return none
+    try:
+        d = json.loads(text or "")
+    except ValueError:
+        return none
+    if not isinstance(d, dict):
+        return none
+    out = dict(none)
+    for w in WINDOWS:
+        p = d[w].get("p_m5_at_least_one") if isinstance(d.get(w), dict) else None
+        if isinstance(p, int | float) and not isinstance(p, bool) and 0.0 <= p <= 1.0:
+            out[w] = float(p)
+    return out
+
+
 def _params(d: dict) -> tuple[Status, list[str]]:
     keys = ("b", "p", "c_days", "a_p05", "a_p50", "a_p95")
     if any(not isinstance(d.get(k), int | float) for k in keys):

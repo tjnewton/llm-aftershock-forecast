@@ -346,3 +346,61 @@ def test_probability_score_and_the_rules_for_invalid_answers_on_a_v3_run(tmp_pat
     # the count score is untouched by the new option: no probability enters it
     counts, _ = analyze(E3, [tmp_path], roles=("test-post", "test-pre"))
     assert counts["worst_case_d5"].isna().all() and counts["d5"].notna().sum() == len(ok)
+
+
+def test_an_answer_is_invalid_for_the_primary_score_only_without_a_usable_m5_probability(tmp_path):
+    import math
+
+    import numpy as np
+
+    from laf.confirmatory import confirmatory_cells
+    from laf.d2 import CONTROL_P, analyze
+    from laf.schemas import stated_p5
+    from laf.scoring import log_score_binary
+
+    # the stated probability survives a defect elsewhere, and nothing else does
+    broken = _v3_answer(
+        m3_count_quantiles=dict(zip(QKEYS, [3, 2, 1, 0, 0, 0, 0, 0, 0], strict=True))
+    )
+    assert validate("direct", broken, "end_turn", TARGETS_V2, PROBS_V3)[0] == "non_monotone"
+    assert stated_p5(broken, "end_turn") == {"day": 0.01, "week": 0.01, "month": 0.01}
+    none = {"day": None, "week": None, "month": None}
+    assert stated_p5(broken, "max_tokens") == none and stated_p5(None, "refusal") == none
+    assert stated_p5("{not json", "end_turn") == none
+    assert stated_p5(_v3_answer(p_m5_at_least_one=1.2), "end_turn") == none
+    assert stated_p5(_v3_answer(p_m5_at_least_one=True), "end_turn") == none
+
+    items = list(_items(3.0).values())
+    pick = [i for i in items if i.role == "test-post"][:6]
+    meta = {"arm": "direct", "info": "I1", "model": "claude-opus-4-6", "block": "d3",
+            "effort": "medium", "paraphrase": "v3A"}  # fmt: skip
+    reqs, res = [], []
+    for it in pick:  # per item one valid answer and one with non-monotone M3 quantiles
+        for s, text in enumerate((_v3_answer(), broken)):
+            cid = f"{it.item_id}-{s}"
+            reqs.append({"custom_id": cid, "item_id": it.item_id, "sample": s, **meta})
+            res.append({"custom_id": cid, "result": "succeeded", "model_reported": meta["model"],
+                        "stop_reason": "end_turn", "text": text})  # fmt: skip
+    (tmp_path / "requests.jsonl").write_text("".join(json.dumps(r) + "\n" for r in reqs))
+    (tmp_path / "results.jsonl").write_text("".join(json.dumps(r) + "\n" for r in res))
+    df, _ = analyze(E3, [tmp_path], score="probability")
+    assert set(df["status"]) == {"ok", "non_monotone"} and df["valid5"].all()
+    per_cell = df.groupby(["item_id", "window"])["d5"]
+    assert per_cell.nunique().eq(1).all()  # both answers state 0.01 and score the same
+    t = load_tables(E3)
+    elapsed = {i.item_id: i.elapsed_days for i in items}
+    sets = {meta["model"]: set(df["sequence_id"])}
+    main = confirmatory_cells(df, t["sequences"], elapsed, sets=sets)
+    main = main.set_index(["issue_id", "window"])
+    assert np.allclose(main["d"].sort_index(), per_cell.first().sort_index())  # no penalty
+    whole = confirmatory_cells(df, t["sequences"], elapsed, sets=sets, whole_answer=True)
+    strict = whole.set_index(["issue_id", "window"])["d"].sort_index()
+    assert np.allclose(strict, (per_cell.first().sort_index() + math.log(2)) / 2)
+    # the count score still needs the whole answer
+    counts, _ = analyze(E3, [tmp_path])
+    assert counts.loc[counts["status"] != "ok", "valid5"].eq(False).all()
+    # the constant control: one probability for every cell against the official forecast
+    row = df.iloc[0]
+    event = bool(row["m5_event"])
+    official = row["d5"] - log_score_binary(0.01, event)  # minus the official score
+    assert math.isclose(row["base_d5_constant"], log_score_binary(CONTROL_P, event) + official)

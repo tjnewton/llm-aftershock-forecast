@@ -52,11 +52,11 @@ def test_report_corrects_only_the_co_primary_models():
             rng.normal(0, 0.05, 400), rng.normal(0.02, 0.05, 400), rng.normal(0.3, 0.05, 400)
         ],
     })  # fmt: skip
-    t = C.report(cells, ("A", "B")).set_index("model")
+    t = C.report(cells, ("A", "B"), delta=0.10).set_index("model")
     assert t.loc["A", "holm_noninferior"] and t.loc["B", "holm_noninferior"]
     assert t.loc["C", "holm_noninferior"] is None and not t.loc["C", "noninferior"]
     assert t.loc["A", "status"] == "supported" and t.loc["C", "status"] == "inferior"
-    d = C.report(cells, ("A",), descriptive=("C",)).set_index("model")
+    d = C.report(cells, ("A",), delta=0.10, descriptive=("C",)).set_index("model")
     assert pd.isna(d.loc["C", "status"]) and pd.isna(d.loc["C", "lower"])  # no test row
 
 
@@ -82,7 +82,7 @@ def test_hierarchical_model_recovers_the_mean():
                 rows.append({"sequence_id": f"s{i}", "issue_id": f"s{i}@{j}", "window": w,
                              "stratum": C.stratum([0.1, 2.0, 10.0, 30.0][j]),
                              "d": 0.03 + u + v + rng.normal(0, 0.1)})  # fmt: skip
-    r = C.hierarchical(pd.DataFrame(rows))
+    r = C.hierarchical(pd.DataFrame(rows), delta=0.10)
     assert abs(r["hier_mu"] - 0.03) < 3 * r["hier_se"]
     assert r["hier_noninferior"] and r["hier_converged"]
     assert 0.05 < r["hier_sd_sequence"] < 0.2 and r["hier_error"] is None
@@ -123,26 +123,34 @@ def test_confirmatory_cells_keep_eligible_primary_prompt_samples(monkeypatch):
         {"sequence_id": ["a", "b", "dev"], "origin_ms": origins, "mag": [5.5, 5.5, 6.0]}
     )
     rows = [  # model, effort, variant, status, sequence, d5
-        ("claude-opus-5-5", "high", "v2A", "ok", "a", 0.1),
-        ("claude-opus-5-5", "high", "v2A", "ok", "a", 0.3),
-        ("claude-opus-5-5", "high", "v2A", "max_tokens", "a", None),  # gets the cell's worst
-        ("claude-opus-5-5", "high", "v2A", "transport_error", "a", None),  # left out
-        ("claude-opus-5-5", "high", "v2B", "ok", "a", 9.0),  # robustness prompt: not here
-        ("claude-opus-5-5", "medium", "v2A", "ok", "a", 7.0),  # other effort: not here
-        ("gpt-5.1-2025-11-13", "medium", "v2A", "ok", "b", 0.2),
-        ("gpt-5.1-2025-11-13", "medium", "v2A", "ok", "dev", 0.4),  # development: never
+        ("claude-opus-5-5", "high", "v3A", "ok", "a", 0.1),
+        ("claude-opus-5-5", "high", "v3A", "ok", "a", 0.3),
+        ("claude-opus-5-5", "high", "v3A", "max_tokens", "a", None),  # counts log 2
+        ("claude-opus-5-5", "high", "v3A", "transport_error", "a", None),  # left out
+        ("claude-opus-5-5", "high", "v3B", "ok", "a", 9.0),  # robustness prompt: not here
+        ("claude-opus-5-5", "medium", "v3A", "ok", "a", 7.0),  # other effort: not here
+        ("gpt-5.1-2025-11-13", "medium", "v3A", "ok", "b", 0.2),
+        ("gpt-5.1-2025-11-13", "medium", "v3A", "ok", "dev", 0.4),  # development: never
     ]
     names = ("model", "effort", "variant", "status", "sequence_id", "d5")
     samples = pd.DataFrame([dict(zip(names, r, strict=True)) for r in rows])
     samples = samples.assign(item_id=samples["sequence_id"] + "@1", window="day", worst_base_d5=0.5)
-    cells = C.confirmatory_cells(samples, seqs, {"a@1": 0.5, "b@1": 3.0, "dev@1": 0.2})
-    got = {
-        (r.model, r.sequence_id): (round(float(r.d), 3), r.stratum)  # type: ignore[arg-type]
-        for r in cells.itertuples()
-    }
-    # cell a: the invalid sample takes the worst baseline (0.5), not the v2B answer's 9.0
-    assert got == {("claude-opus-5-5", "a"): (round((0.1 + 0.3 + 0.5) / 3, 3), "under 1 day"),
-                   ("gpt-5.1-2025-11-13", "b"): (0.2, "1 to 7 days")}  # fmt: skip
+    elapsed = {"a@1": 0.5, "b@1": 3.0, "dev@1": 0.2}
+
+    def got(**kw):
+        cells = C.confirmatory_cells(samples, seqs, elapsed, **kw)
+        return {
+            (r.model, r.sequence_id): (round(float(r.d), 3), r.stratum)  # type: ignore[arg-type]
+            for r in cells.itertuples()
+        }
+
+    # cell a: the invalid sample counts log 2, and the v3B answer's 9.0 is not here
+    log2 = float(np.log(2))
+    assert got() == {("claude-opus-5-5", "a"): (round((0.1 + 0.3 + log2) / 3, 3), "under 1 day"),
+                     ("gpt-5.1-2025-11-13", "b"): (0.2, "1 to 7 days")}  # fmt: skip
+    # the count score's rule: the worst baseline in the cell (0.5)
+    worst = got(invalid="worst_baseline")
+    assert worst[("claude-opus-5-5", "a")] == (round((0.1 + 0.3 + 0.5) / 3, 3), "under 1 day")
     assert C.study_effort("gpt-5.1-2025-11-13") == "medium"
     assert C.study_effort("claude-opus-4-6") == "medium"
     assert C.study_effort("gpt-6.1-sol") == "high"
@@ -170,7 +178,7 @@ def test_sensitivity_threshold_widens_only_the_named_model(monkeypatch):
     rows = [(m, e, sid) for m, e in (("gpt-5.1-2025-11-13", "medium"), ("claude-opus-5-5", "high"))
             for sid in ("big", "small")]  # fmt: skip
     samples = pd.DataFrame(rows, columns=["model", "effort", "sequence_id"])
-    samples = samples.assign(variant="v2A", status="ok", d5=0.0, worst_base_d5=0.0, window="day",
+    samples = samples.assign(variant="v3A", status="ok", d5=0.0, worst_base_d5=0.0, window="day",
                              item_id=samples["sequence_id"] + "@1")  # fmt: skip
     elapsed = {"big@1": 1.0, "small@1": 1.0}
     cells = C.confirmatory_cells(samples, seqs, elapsed, {"gpt-5.1-2025-11-13": 0.0})
@@ -202,6 +210,12 @@ def test_bootstrap_t_controls_size_better_on_heavy_tails():
     pct = C.size(e, 89, alpha=0.025, sims=300, b=500, method="percentile")
     stu = C.size(e, 89, alpha=0.025, sims=300, b=500, method="student")
     assert stu < pct and stu < 0.05
+
+
+def test_size_at_another_truth_is_power():
+    e = np.random.default_rng(5).normal(0, 0.05, 30)
+    assert C.size(e, 60, alpha=0.05, sims=100, b=300) < 0.15  # the truth at delta: the size
+    assert C.size(e, 60, alpha=0.05, sims=100, b=300, truth=0.0) > 0.9  # far inside the margin
 
 
 def test_descriptive_models_get_no_test():
@@ -245,7 +259,7 @@ def _contrast_samples(n_seq: int = 12, d5: float = -0.3, naive: float = 0.2, rj:
     for i in range(n_seq):
         jitter = float(rng.normal(0, 0.05))
         for st in ("ok", "ok", "max_tokens"):
-            rows.append({"model": "gpt-5.1-2025-11-13", "effort": "medium", "variant": "v2A",
+            rows.append({"model": "gpt-5.1-2025-11-13", "effort": "medium", "variant": "v3A",
                          "status": st, "sequence_id": f"s{i}", "item_id": f"s{i}@1",
                          "window": "day", "d5": d5 + jitter if st == "ok" else None,
                          "worst_base_d5": 1.0, "base_d5_naive": naive, "base_d5_generic_rj": rj,
@@ -259,9 +273,9 @@ def test_contrasts_take_ds_against_each_baseline_and_test_superiority():
     elapsed = {i: 2.0 for i in s["item_id"]}
     sets = {"gpt-5.1-2025-11-13": set(seqs["sequence_id"])}
     cells = C.confirmatory_cells(s, seqs, elapsed, reference="naive", sets=sets)
-    # per cell: valid answers d5 - naive, the invalid one worst - naive (ADR 0018 decision 12)
+    # per cell: valid answers d5 - naive, the invalid one log 2 - naive (prereg v2 section 7)
     first = s[s["sequence_id"] == "s0"]
-    want = (first["d5"].iloc[0] * 2 + 1.0) / 3 - 0.2
+    want = (first["d5"].iloc[0] * 2 + np.log(2)) / 3 - 0.2
     assert float(cells.loc[cells["sequence_id"] == "s0", "d"].iloc[0]) == pytest.approx(want)
     t = C.contrasts(s, seqs, elapsed, ("gpt-5.1-2025-11-13",), sets).set_index("reference")
     assert bool(t.loc["generic_rj", "superior"])  # well below generic RJ
@@ -273,33 +287,37 @@ def test_contrasts_take_ds_against_each_baseline_and_test_superiority():
 def test_assay_flags_a_test_that_cannot_separate_from_generic_rj():
     s = _contrast_samples(rj=0.0)  # generic RJ as good as the official forecast
     ids = {"sequence_id": s["sequence_id"].unique(), "issue_id": s["item_id"].unique()}
-    cells = pd.DataFrame({"model": "m", **ids, "window": "day", "d": 0.0})
+    cells = pd.DataFrame({"model": C.PRIMARY[0], **ids, "window": "day", "d": 0.0})
     noisy = s.assign(base_d5_generic_rj=np.random.default_rng(1).normal(0, 0.02, len(s)))
-    assert C.assay(noisy, cells).iloc[0]["generic_rj_status"] == "noninferior"
+    assert C.assay(noisy, cells, 0.10).iloc[0]["generic_rj_status"] == "noninferior"
     worse = s.assign(base_d5_generic_rj=0.5 + np.random.default_rng(2).normal(0, 0.02, len(s)))
-    assert C.assay(worse, cells).iloc[0]["generic_rj_status"] == "inferior"
+    assert C.assay(worse, cells, 0.10).iloc[0]["generic_rj_status"] == "inferior"
     near = s.assign(base_d5_generic_rj=0.1 + np.random.default_rng(4).normal(0, 0.3, len(s)))
-    assert C.assay(near, cells).iloc[0]["generic_rj_status"] == "inconclusive"  # no claim
+    assert C.assay(near, cells, 0.10).iloc[0]["generic_rj_status"] == "inconclusive"  # no claim
     one = cells.head(1)  # one sequence: no spread, so no claim either way
     assert C.assay(s, one).iloc[0]["generic_rj_status"] == "inconclusive"
+    # on a secondary model's cells: the estimate and bounds, no label
+    other = C.assay(worse, cells.assign(model="claude-opus-5-5")).iloc[0]
+    assert other["generic_rj_status"] is None and other["generic_rj_lower"] > C.DELTA
 
 
-def test_informative_sequences_use_the_official_mean_at_the_first_issue():
-    p = np.linspace(0.0, 1.0, 101)
-    rows = []
-    for sid, cutoff, scale in (("big", 1, 1.0), ("big", 2, 0.0), ("small", 1, 0.1)):
-        rows += [{"sequence_id": sid, "info_cutoff_ms": cutoff, "window": "1 Month",
-                  "magnitude": 5.0, "p": q, "count": scale * q} for q in p]  # fmt: skip
-    rows += [{"sequence_id": "small", "info_cutoff_ms": 1, "window": "1 Month", "magnitude": 4.0,
-              "p": q, "count": 50.0} for q in p]  # M>=4 never counts  # fmt: skip
-    tables = {
-        "forecast_fractiles": pd.DataFrame(rows),
-        "issue_times": pd.DataFrame(
-            {"sequence_id": ["big", "big", "small"], "issue_ms": [2, 1, 1]}
-        ),
-    }
-    # big: first issue (cutoff 1) has mean 0.5 (the integral of q on [0, 1]); small: 0.05
-    assert C.informative(tables) == {"big"}
+def test_informative_sequences_use_generic_rj_at_the_first_issue_with_a_month_window(monkeypatch):
+    from pathlib import Path
+
+    from laf import analysis as A
+
+    proc = Path("data/processed/20261021T2300Z")  # development data
+    tables, items = A.load_tables(proc), A.load_items(proc)
+    keep = C.informative(tables, items)
+    mag = tables["sequences"].set_index("sequence_id")["mag"]
+    assert keep and keep < set(mag.index)  # some sequences qualify, not all
+    # a larger mainshock means more expected aftershocks: every M>=6 sequence qualifies
+    assert set(mag.index[mag >= 6.0]) <= keep and mag[sorted(keep)].mean() > mag.mean()
+    # the rule reads forecasts only: the same set with every count hidden
+    blind = tables | {"observed_counts": tables["observed_counts"].assign(count=-1)}
+    assert C.informative(blind, items) == keep
+    monkeypatch.setattr(C, "INFORMATIVE_P", 0.0)
+    assert C.informative(tables, items) == set(mag.index)  # every sequence has a month window
 
 
 def test_contrasts_follow_test_as_widened_eligibility(monkeypatch):
@@ -355,8 +373,8 @@ def test_confirmatory_batches_send_each_models_own_set_in_parts(monkeypatch):
     parts = [got(gpt, "confirmatory", chunk=f"{k}/2") for k in (1, 2)]
     assert parts[0] | parts[1] == got(gpt, "confirmatory") and not parts[0] & parts[1]
     assert got(gpt, "confirmatory", include_forward=True) == {"us7000s2bn"}
-    with pytest.raises(SystemExit, match="v2B"):
-        got("claude-opus-4-6", "confirmatory-v2b")
+    with pytest.raises(SystemExit, match="v3B"):
+        got("claude-opus-4-6", "confirmatory-v3b")
     with pytest.raises(SystemExit, match="test A"):
         got("claude-opus-4-6", "confirmatory-sens")
     # the unbuffered rule's extras: clean only without the buffer, M>=5
@@ -431,3 +449,58 @@ def test_leave_one_sequence_out_influence():
     )
     parts = pd.Series(["r"] * 10 + ["p"] * 10, index=[f"s{i}" for i in range(20)])
     assert len(C.influence(cells, parts)) == 20  # test B: its strata kept
+
+
+def test_a_supported_row_that_is_measurably_worse_says_so_and_estimates_get_no_verdict():
+    rng = np.random.default_rng(1)
+    cells = pd.DataFrame({
+        "model": ["A"] * 400 + ["B"] * 400 + ["C"] * 400,
+        "sequence_id": [f"s{i % 80}" for i in range(1200)],
+        "d": np.r_[
+            rng.normal(0, 0.05, 400), rng.normal(0.02, 0.05, 400), rng.normal(0.3, 0.05, 400)
+        ],
+    })  # fmt: skip
+    t = C.report(cells, ("A",), delta=0.05, unlabeled=("C",)).set_index("model").to_dict("index")
+    assert t["A"]["status"] == "supported"
+    # B: upper bound below the margin, lower bound above 0
+    assert t["B"]["status"] == C.WORSE_INSIDE and 0 < t["B"]["lower"] < t["B"]["upper"]
+    assert t["B"]["noninferior"]
+    # C keeps its estimate and bounds, without a label
+    assert pd.isna(t["C"]["status"]) and pd.isna(t["C"]["noninferior"])
+    assert t["C"]["lower"] > 0.05 and abs(t["C"]["mean"] - 0.3) < 0.02
+
+
+def test_the_rule_of_thumb_control_is_labelled_as_test_a_is():
+    s = _contrast_samples()
+    ids = {"sequence_id": s["sequence_id"].unique(), "issue_id": s["item_id"].unique()}
+    cells = pd.DataFrame({"model": C.PRIMARY[0], **ids, "window": "day", "d": 0.0})
+    bad = s.assign(base_d5_naive=0.4 + np.random.default_rng(2).normal(0, 0.02, len(s)))
+    control = C.assay(bad, cells, baseline="naive").iloc[0]
+    assert control["naive_status"] == "inferior" and abs(control["naive_mean"] - 0.4) < 0.02
+    assert "generic_rj_status" not in control.index  # columns carry the baseline's name
+    slightly = s.assign(base_d5_naive=0.02 + np.random.default_rng(3).normal(0, 0.005, len(s)))
+    inside = C.assay(slightly, cells, 0.05, baseline="naive").iloc[0]
+    assert inside["naive_status"] == C.WORSE_INSIDE
+    # the constant-probability control goes the same way
+    flat = bad.rename(columns={"base_d5_naive": "base_d5_constant"})
+    assert C.assay(flat, cells, baseline="constant").iloc[0]["constant_status"] == "inferior"
+
+
+def test_identical_effects_never_support_and_a_constant_deficit_is_inferior():
+    ties = C.decide(np.zeros(30))
+    assert ties["status"] == "inconclusive" and not ties["noninferior"]  # ties prove nothing
+    never_answers = C.decide(np.full(89, np.log(2)))  # every answer invalid
+    assert never_answers["status"] == "inferior" and never_answers["lower"] > C.DELTA
+    cells = pd.DataFrame({"model": "A", "sequence_id": [f"s{i}" for i in range(89)],
+                          "d": np.log(2)})  # fmt: skip
+    assert C.report(cells, ("A",)).iloc[0]["status"] == "inferior"
+
+
+def test_a_measurably_worse_row_says_so_on_either_side_of_the_margin():
+    rng = np.random.default_rng(5)
+    z = rng.normal(0, 1, 100)
+    z = (z - z.mean()) / z.std(ddof=1)  # mean exactly 0, SD exactly 1
+    wide = C.decide(0.045 + 0.06 * z, 0.05)  # lower bound above 0, upper bound above delta
+    assert 0 < wide["lower"] < 0.05 < wide["upper"] and wide["status"] == C.WORSE_UNBOUNDED
+    tight = C.decide(0.02 + rng.normal(0, 0.02, 200), 0.05)  # the deficit is inside the margin
+    assert 0 < tight["lower"] < tight["upper"] < 0.05 and tight["status"] == C.WORSE_INSIDE

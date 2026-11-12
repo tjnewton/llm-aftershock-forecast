@@ -10,7 +10,12 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-DELTA = 0.10  # nats per cell (Tyler, 2026-10-31)
+# The margin, in nats per cell of the probability score (Tyler, 2026-11-11). If the official
+# probability were the truth, a forecaster at half or double it would lose 0.006 to 0.012 on
+# test A's cells and one constant probability for every cell at least 0.031: 0.02 lets the
+# first through and keeps the second out. 0.05 and 0.10 are the registered sensitivity margins.
+DELTA = 0.02
+SENSITIVITY_MARGINS = (0.05, 0.10)
 B = 10_000
 SEED = 20261031
 
@@ -112,14 +117,17 @@ def _stratified(x, labels, levels, delta, alpha, b, seed) -> dict:
 
 def size(
     effects: np.ndarray, n: int, delta: float = DELTA, alpha: float = 0.025, sims: int = 2000,
-    b: int = 2000, seed: int = SEED, method: str = "student",
+    b: int = 2000, seed: int = SEED, method: str = "student", truth: float | None = None,
 ) -> float:  # fmt: skip
     """Simulated size of the test: draw `n` sequence effects with replacement from `effects`
     shifted so their mean is exactly delta (H0 true at its boundary), apply the test, and
     return the share of false non-inferiority claims. Before the freeze, a level is calibrated
-    wherever this exceeds 0.03 (ADR 0018 decision 8)."""
+    wherever this exceeds 0.03 (ADR 0018 decision 8).
+
+    `truth` shifts the mean there instead: at the effects' own mean the share of claims is the
+    power at the development estimate (prereg v2 section 2)."""
     x = np.asarray(effects, dtype=float)
-    x = x - x.mean() + delta
+    x = x - x.mean() + (delta if truth is None else truth)
     rng = np.random.default_rng(seed)
     hits = 0
     for i in range(sims):
@@ -177,26 +185,48 @@ def decide(
     x = np.asarray(effects, dtype=float)
     t = noninferiority(x, delta, alpha=alpha, strata=strata)
     lower = -noninferiority(-x, -delta, alpha=alpha, strata=strata)["upper"]
+    if len(x) >= 2 and np.ptp(x) == 0:
+        # identical effects give no spread, so no bound: they never support non-inferiority
+        # (ties), but a constant deficit above the margin, as when every answer is invalid, is
+        # inferior
+        lower = float(x[0]) if x[0] > delta else lower
     return t | {"lower": lower, "status": _status(t["noninferior"], lower, delta)}
 
 
+WORSE_INSIDE = "supported, worse inside the margin"
+WORSE_UNBOUNDED = "inconclusive, worse than the official forecast"
+
+
 def _status(supported: bool, lower: float, delta: float) -> str:
-    return "supported" if supported else "inferior" if lower > delta else "inconclusive"
+    """Section 2's labels. A row whose lower bound is above 0 says so on either side of the
+    margin: the model is measurably worse than the official forecast, and the study either
+    bounds that deficit inside the margin or cannot."""
+    if supported:
+        return WORSE_INSIDE if lower > 0 else "supported"
+    if lower > delta:
+        return "inferior"
+    return WORSE_UNBOUNDED if lower > 0 else "inconclusive"
 
 
 TEST_COLUMNS = ("upper", "lower", "status", "p", "p_sup", "noninferior", "superior")
+# what a row without a verdict leaves empty: it keeps its estimate and its bounds
+VERDICT_COLUMNS = ("status", "p", "p_sup", "noninferior", "superior")
 
 
 def report(
     cells: pd.DataFrame, primary: tuple[str, ...], delta: float = DELTA,
-    descriptive: tuple[str, ...] = (),
+    descriptive: tuple[str, ...] = (), unlabeled: tuple[str, ...] = (),
 ) -> pd.DataFrame:  # fmt: skip
-    """One row per model: the non-inferiority test and the robust summaries.
+    """One row per model: the non-inferiority test and the robust summaries. `unlabeled` models
+    keep their estimate and bounds and get no verdict (status, noninferior, superior).
 
     The co-primary models (`primary`) are Holm-corrected, and their bound (`upper`) is reported
     at the level Holm tests them at (0.025 or 0.05). Superiority over the official forecast is a
     separate Holm family across the co-primary models, each tested only after its
-    non-inferiority is supported. Other models are tested at 0.05 alone."""
+    non-inferiority is supported. Other models are tested at 0.05 alone.
+
+    The registered design has one primary model (prereg v2 section 2), for which Holm's level
+    is the nominal 0.05: nothing is corrected."""
     effects = {m: sequence_effects(g).to_numpy() for m, g in cells.groupby("model")}
     rows = {m: decide(e, delta) | robust(e) for m, e in effects.items()}
     missing = [m for m in primary if m not in rows]
@@ -214,8 +244,10 @@ def report(
     for m in rows:
         if m not in primary:
             rows[m]["superior"] = bool(rows[m]["noninferior"] and rows[m]["superior"])
-        if m in descriptive:  # no test for descriptive models (Sonnet 4.6, prereg v2 section 2)
+        if m in descriptive:  # no test for descriptive models (prereg v2 section 2)
             rows[m] |= dict.fromkeys(TEST_COLUMNS)
+        elif m in unlabeled:  # an estimate with its interval: the test's size is not controlled
+            rows[m] |= dict.fromkeys(VERDICT_COLUMNS)
     out = pd.DataFrame.from_dict(rows, orient="index")
     out["co_primary"] = out.index.isin(primary)
     out["holm_noninferior"] = [rej.get(m) for m in out.index]
@@ -296,7 +328,12 @@ PRIMARY = ("gpt-5.1-2025-11-13",)
 # B and S1 on retrospective sets; S2 (gpt-6.1-sol) is prospective only (`live_report`), so its
 # retrospective run is descriptive (decision 24), as are the other models
 SECONDARY = ("claude-opus-5-5", "claude-opus-4-6")
-PRIMARY_PROMPT = "v2A"  # ADR 0015 decision 4
+# Prompt v3 (Tyler, 2026-11-11): v3A is scored, v3B is the robustness prompt of the A and B models
+PRIMARY_PROMPT, ROBUSTNESS_PROMPT = "v3A", "v3B"
+# The primary score: the log score of the probability of at least one M>=5 earthquake
+# (`d2.analyze`); the count score through nine quantiles ("registered") is secondary
+PRIMARY_SCORE = "probability"
+INVALID = "log2"  # an invalid answer counts a fixed dS of log 2; the worst case is a sensitivity
 # ADR 0014 decisions 6 and 7
 OPENAI_EFFORT = {"gpt-5.1-2025-11-13": "medium", "gpt-6.1-sol": "high"}
 
@@ -359,7 +396,8 @@ def confirmatory_cells(
     variant: str = PRIMARY_PROMPT,
     rule: str = "buffered",
     include_forward: bool = False,
-    invalid: str = "worst_baseline",
+    invalid: str = INVALID,
+    whole_answer: bool = False,
 ) -> pd.DataFrame:
     """Per (model, cell) mean dS over the model's primary-prompt samples at its study effort,
     kept only on its eligible sequences, with the issue, window and stratum the hierarchical
@@ -367,18 +405,21 @@ def confirmatory_cells(
     `min_mag` lowers the M>=5 threshold for named models only (test A's sensitivity run widens
     gpt-5.1 alone; test B stays on M>=5).
 
-    Invalid answers get the worst score in the cell among the five baselines (official, generic
-    RJ, RJ-MLE, the rule of thumb, the ETAS refit; ADR 0018 decision 12), so the penalty does not
-    depend on k or on which other runs are loaded; transport errors are left out.
+    An invalid answer counts a fixed dS of log 2 (`invalid`, below), so the penalty does not
+    depend on k, on the cell or on which other runs are loaded; transport errors are left out.
+    An answer is invalid for this score when it gives no usable M>=5 probability (`valid5`,
+    from `d2.analyze`); `whole_answer` applies the stricter rule, the whole answer valid, a
+    sensitivity analysis. Samples without `valid5` (the count scores) use the whole answer.
 
     `reference` is the forecast dS is taken against: the official one, or a pipeline baseline
     (`laf.d2.BASELINES`) for the contrasts S3-S5; cells without that baseline drop out. `sets`
     replaces the clean eligible sets (the development dry run uses every sequence). `variant`
     and `rule` select the prompt and the clean rule for the sensitivity analyses.
 
-    `invalid` is the rule for an invalid answer (docs/proposals/prereg-v2-revision.md, P6):
-    `worst_baseline` as above; `log2`, a fixed dS of log 2; `worst_case`, the clipped
-    probability on the wrong side (`worst_case_d5`, with the probability score only)."""
+    `invalid` is the rule for an invalid answer (prereg v2 section 7): `log2`, the registered
+    one; `worst_case`, the clipped probability on the wrong side (`worst_case_d5`, with the
+    probability score only), a sensitivity analysis; `worst_baseline`, the worst score in the
+    cell among the five baselines (ADR 0018 decision 12), used with the count score."""
     s = samples[samples["status"] != "transport_error"]
     key = ["item_id", "window"]
     if invalid == "log2":
@@ -390,7 +431,10 @@ def confirmatory_cells(
         penalty = worst.reindex(pd.MultiIndex.from_frame(s[key])).to_numpy()
     else:
         raise ValueError(f"unknown rule for invalid answers {invalid!r}")
-    d = np.where(s["status"] == "ok", s["d5"], penalty)
+    valid = s["status"] == "ok"
+    if "valid5" in s and not whole_answer:
+        valid = s["valid5"].astype(bool)
+    d = np.where(valid, s["d5"], penalty)
     if reference != "official":  # LS(model) - LS(baseline) = dS - (LS(baseline) - LS(official))
         d = d - s[f"base_d5_{reference}"].to_numpy()
     s = s.assign(d=d)
@@ -457,14 +501,16 @@ def contrasts(
 
 def assay(
     samples: pd.DataFrame, cells: pd.DataFrame, delta: float = DELTA,
-    parts: dict[str, str] | None = None,
+    parts: dict[str, str] | None = None, baseline: str = "generic_rj",
 ) -> pd.DataFrame:  # fmt: skip
     """Assay sensitivity (prereg v2 section 2): the non-inferiority test for generic RJ against
     the official forecast on each model's own test cells, read with the prereg's decision rule:
     `noninferior` (upper bound below delta: that model's test cannot separate it from the
     generic default), `inferior` (lower bound above delta: the cells do separate) or
-    `inconclusive`."""
-    rj = samples.groupby(["item_id", "window"])["base_d5_generic_rj"].first()
+    `inconclusive`. With `baseline` "naive" it is the negative control: the rule of thumb
+    tested as if it were a model, which the test should not pass. Columns carry the baseline's
+    name."""
+    rj = samples.groupby(["item_id", "window"])[f"base_d5_{baseline}"].first()
     rows = []
     for m, g in cells.groupby("model"):
         d = rj.reindex(pd.MultiIndex.from_frame(g[["issue_id", "window"]])).to_numpy()
@@ -474,51 +520,67 @@ def assay(
         e = se.to_numpy()
         t = noninferiority(e, delta, strata=st)
         lower = -noninferiority(-e, -delta, strata=st)["upper"]
-        status = "noninferior" if t["noninferior"] else "inferior" if lower > delta else (
-            "inconclusive")  # fmt: skip
-        rows.append({"model": m, "generic_rj_mean": t["mean"], "generic_rj_lower": lower,
-                     "generic_rj_upper": t["upper"], "generic_rj_status": status})  # fmt: skip
+        if m not in PRIMARY:  # on a secondary model's cells: the estimate and bounds only
+            status = None
+        elif baseline in CONTROLS:  # the controls are labelled as A is (section 2)
+            status = _status(t["noninferior"], lower, delta)
+        else:
+            status = "noninferior" if t["noninferior"] else "inferior" if lower > delta else (
+                "inconclusive")  # fmt: skip
+        rows.append({"model": m, f"{baseline}_mean": t["mean"], f"{baseline}_lower": lower,
+                     f"{baseline}_upper": t["upper"], f"{baseline}_status": status})  # fmt: skip
     return pd.DataFrame(rows)
 
 
-INFORMATIVE_MEAN = 0.5  # official mean N(M>=5) in the month window of the first issue
+INFORMATIVE_P = 0.10  # generic RJ's probability of at least one M>=5 in a month window
+# The negative controls, tested as if they were models (prereg v2 section 2): the rule of thumb
+# and one constant probability for every cell (`d2.CONTROL_P`). Predicted: not supported.
+CONTROLS = ("naive", "constant")
 
 
-def informative(tables: dict[str, pd.DataFrame]) -> set[str]:
-    """Sequences for the informative-sequence estimand (prereg v2 section 2), outcome-blind:
-    the official forecast at the sequence's first issue has a mean N(M>=5) of at least 0.5 in
-    the month window. The mean integrates the official quantile function over its published
-    fractile grid (trapezoid in p)."""
-    it = tables["issue_times"].sort_values("issue_ms").drop_duplicates("sequence_id")
-    f = tables["forecast_fractiles"]
-    f = f[(f["magnitude"] == 5.0) & (f["window"] == "1 Month")].sort_values("p")
-    mean = {
-        k: np.trapezoid(g["count"].to_numpy(float), g["p"].to_numpy(float))
-        for k, g in f.groupby(["sequence_id", "info_cutoff_ms"])
-    }
-    first = zip(it["sequence_id"], it["issue_ms"], strict=True)
-    return {sid for sid, cutoff in first if mean.get((sid, cutoff), 0.0) >= INFORMATIVE_MEAN}
+def informative(tables: dict[str, pd.DataFrame], items: dict) -> set[str]:
+    """Sequences for the informative-sequence estimand (prereg v2 section 2), outcome-blind and
+    blind to both contestants: generic RJ's probability of at least one M>=5 earthquake is at
+    least 0.10 in the month window of the sequence's first issue that has one (a first issue
+    can publish the day and week windows only). `items` maps item ids to the frozen items."""
+    from laf import analysis as A
+    from laf.freeze import window_cells
+
+    c = window_cells(tables)  # the windows alone: no count is read
+    c = c[c["window"] == "1 Month"].sort_values("issue_ms").drop_duplicates("sequence_id")
+    base = A.baselines(tables, items, c)
+    out = set()
+    for sid, iid in zip(c["sequence_id"], c["issue_id"], strict=True):
+        fc = base.get(("generic_rj", iid, "1 Month"))
+        if fc is not None and fc.cdf_m5 is not None and 1.0 - fc.cdf_m5[0] >= INFORMATIVE_P:
+            out.add(sid)
+    return out
 
 
 def secondary(
     samples: pd.DataFrame, tables: dict[str, pd.DataFrame], elapsed: dict[str, float],
     cells: pd.DataFrame, models: tuple[str, ...], sets: dict[str, set[str]] | None = None,
-    min_mag: dict[str, float] | None = None,
+    min_mag: dict[str, float] | None = None, keep: set[str] | None = None,
 ) -> pd.DataFrame:  # fmt: skip
     """The secondary table beside the tests against the official forecast: the contrasts S3
-    and S4, the assay-sensitivity test, and the informative-sequence estimand (non-inferiority
-    on each model's informative sequences), for the tested `models` on their `cells`."""
+    and S4, the assay-sensitivity test, the negative control (the rule of thumb tested as a
+    model) and the informative-sequence estimand (non-inferiority on each model's informative
+    sequences, `keep`: `informative(tables, items)`), for the tested `models` on their `cells`."""
     tested = cells[cells["model"].isin(models)]
-    keep = informative(tables)
+    keep = keep or set()
     rows = [
         {"hypothesis": "informative", "model": m}
-        | {k: t[k] for k in ("sequences", "mean", "upper", "noninferior")}
+        | {k: t[k] for k in ("sequences", "mean", "upper")}
+        | {"noninferior": t["noninferior"] if m in PRIMARY else None}  # no verdict for B, S1
         for m, g in tested[tested["sequence_id"].isin(keep)].groupby("model")
         for t in [noninferiority(sequence_effects(g).to_numpy())]
     ]
     return pd.concat(
         [contrasts(samples, tables["sequences"], elapsed, models, sets, min_mag),
-         assay(samples, tested).assign(hypothesis="assay"), pd.DataFrame(rows)],
+         assay(samples, tested).assign(hypothesis="assay"),
+         *(assay(samples, tested, baseline=b).assign(hypothesis="control")
+           for b in CONTROLS if f"base_d5_{b}" in samples),
+         pd.DataFrame(rows)],
         ignore_index=True,
     )  # fmt: skip
 
@@ -598,10 +660,12 @@ def live_report(
     live_elapsed, sets, both, parts = bp["live_elapsed"], bp["sets"], bp["both"], bp["parts"]
 
     def test(label: str, cells: pd.DataFrame, strata: np.ndarray | None = None) -> dict:
+        """B, its parts, S2 and their informative rows: the estimate and its bounds, without a
+        verdict (prereg v2 section 2)."""
         e = sequence_effects(cells)
         t = decide(e.to_numpy(), strata=strata)
-        return {"hypothesis": label} | {k: t[k] for k in TEST_COLUMNS} | {
-            "sequences": t["sequences"], "mean": t["mean"]}  # fmt: skip
+        row = {"hypothesis": label, "sequences": t["sequences"], "mean": t["mean"]}
+        return row | {k: t[k] for k in TEST_COLUMNS} | dict.fromkeys(VERDICT_COLUMNS)
 
     b_retro, b_pro = retro, pro[pro["model"] == B_MODEL]
     rows = [
@@ -653,7 +717,7 @@ def live_report(
     return pd.concat([pd.DataFrame(rows), s5.assign(hypothesis="S5")], ignore_index=True)
 
 
-V2B_MODELS = (*PRIMARY, "claude-opus-5-5")  # v2B robustness: the A and B models only
+V3B_MODELS = (*PRIMARY, "claude-opus-5-5")  # v3B robustness: the A and B models only
 
 
 def batch_items(
@@ -661,15 +725,15 @@ def batch_items(
     include_forward: bool = False, chunk: str | None = None,
 ) -> list:  # fmt: skip
     """The items a confirmatory batch sends (prereg v2 sections 3 and 8), by the rule the
-    analysis applies (`eligible`): `confirmatory` and `confirmatory-v2b` the model's clean M>=5
+    analysis applies (`eligible`): `confirmatory` and `confirmatory-v3b` the model's clean M>=5
     set, `confirmatory-sens` gpt-5.1's clean candidates below M5 (test A's sensitivity set),
     `confirmatory-unbuffered` gpt-5.1's M>=5 sequences that only the unbuffered clean rule
     admits (its sensitivity row, decision 21).
     `include_forward` takes the forward-excluded candidates (their own snapshot). `chunk` "K/N"
     sends the K-th of N round-robin parts of the sequences, ordered by origin, so a batch fits
     the monthly room (prereg v2 section 8: test A in parts)."""
-    if block == "confirmatory-v2b" and model not in V2B_MODELS:
-        raise SystemExit(f"v2B runs for {', '.join(V2B_MODELS)} only (prereg v2 section 3)")
+    if block == "confirmatory-v3b" and model not in V3B_MODELS:
+        raise SystemExit(f"v3B runs for {', '.join(V3B_MODELS)} only (prereg v2 section 3)")
     if block in ("confirmatory-sens", "confirmatory-unbuffered") and model not in PRIMARY:
         raise SystemExit(f"{block} is test A's (gpt-5.1) only")
     m5 = eligible(sequences, model, 5.0, include_forward=include_forward)

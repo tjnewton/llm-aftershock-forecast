@@ -4,6 +4,13 @@ Status: **living document.** Margins and thresholds are Tyler's decisions before
 this records the method and what the development data says. Earlier designs stay below for the
 record, marked where later decisions replaced them; where this ADR and
 docs/preregistration-v2.md disagree, the prereg governs.
+Revised 2026-11-11 (prereg v2 decisions 32 to 44, after two mock reviews and the development
+rerun with prompt v3): the margin is 0.02 on the probability score, not 0.10 on the count
+score; an answer without a usable M>=5 probability counts log 2, not the worst baseline
+(decision 12 here now applies to the count score only); B, S1 and S2 are estimates without a
+verdict; the rule of thumb and a constant probability are the negative controls. The sizes and powers below are those of the earlier
+design; the current ones are in the prereg, sections 2 and 6
+(`results/confirmatory_size_d3_20261021T2300Z.csv`).
 
 ## Estimands
 Per cell, dS = S(model) - S(reference), with S the primary score (ADR 0015). The reference is
@@ -297,7 +304,8 @@ section 13):
       samples miss the rare large-deficit sequence, 1 in 18 in D2.
     - At N = 60 and 75 the size is still 0.043 and 0.044.
     - B's planned size is therefore not controllable within the 6-month window, which stays.
-    - Power with the bootstrap-t at 0.05: A 0.45 on 89 sequences; B 0.64 on 33.
+    - Power with the bootstrap-t at 0.05: A 0.45 on 89 sequences; B 0.64 on 33. (Rerun with
+      `laf confirmatory-size`, which now writes a `power` column: A 0.42, B 0.64.)
     - A and B are still computed together on one snapshot (decision 11), for the exposure
       reason.
 

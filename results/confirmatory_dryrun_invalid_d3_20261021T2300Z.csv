@@ -1,0 +1,8 @@
+arm,model,effort,variant,non_monotone,ok,invalid_rate
+prospective,claude-opus-5-5,high,v3A,0,6,0.0
+prospective,gpt-6.1-sol,high,v3A,0,6,0.0
+retrospective,claude-opus-4-6,medium,v3A,0,585,0.0
+retrospective,claude-opus-5-5,high,v3A,0,252,0.0
+retrospective,claude-sonnet-4-6,low,v3A,0,306,0.0
+retrospective,gpt-5.1-2025-11-13,medium,v3A,3,582,0.00512820512820511
+retrospective,gpt-6.1-sol,high,v3A,0,141,0.0

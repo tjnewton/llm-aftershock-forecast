@@ -9,7 +9,11 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from laf.schemas import QKEYS, WINDOWS, fields, validate
+from laf.schemas import QKEYS, WINDOWS, fields, stated_p5, validate
+
+# The second negative control (prereg v2 section 2): one probability for every cell, the share
+# of scored development cells with an M>=5 earthquake (22 of 536), fixed before the freeze
+CONTROL_P = 0.041
 
 
 def _jsonl(path: Path) -> list[dict]:
@@ -37,8 +41,15 @@ def samples(run_dirs: list[Path]) -> list[dict]:
                 status, parsed, warn = validate(
                     m["arm"], res.get("text"), res.get("stop_reason"), targets, probs
                 )
+            # the M>=5 probability the answer states, usable even when the answer is invalid
+            # elsewhere; never from another model's answer or an undelivered one
+            mine = (
+                status not in ("transport_error", "model_mismatch") and "p_m5_at_least_one" in probs
+            )
+            p5 = stated_p5(res.get("text"), res.get("stop_reason")) if mine else {}
             for w in WINDOWS:
-                rec = {**m, "window": w, "status": status, "warnings": ",".join(warn)}
+                rec = {**m, "window": w, "status": status, "warnings": ",".join(warn),
+                       "p5": p5.get(w)}  # fmt: skip
                 for t in targets:
                     rec[t] = [parsed[w][t][k] for k in QKEYS] if parsed and status == "ok" else None
                 for p in probs:  # p_m6, and for v3 answers p_m5, p_m4 and p_m3
@@ -200,21 +211,25 @@ def analyze(
     (`MagComp`) reaches 3.0 before the window starts."""
     from laf import analysis as A
     from laf.generic_rj import MagComp
-    from laf.scoring import P_CLIP, log_score_binary
+    from laf.scoring import P_CLIP, brier, log_score_binary
 
     # `score` and `floor`: the sensitivity variants (prereg v2 section 6), at M>=5 only
-    prob, eps = score == "probability", P_CLIP if clip is None else clip
+    prob, eps = score in ("probability", "brier"), P_CLIP if clip is None else clip
     ls = scorer("registered" if prob else score, floor)
+
+    def sp(p: float, event: bool) -> float:
+        """The score of a probability: its clipped log score, or its Brier score."""
+        return brier(p, event) if score == "brier" else log_score_binary(p, event, eps)
 
     def s5(fc, name: str, y5: int, p_off) -> float:
         """The M>=5 score of a forecast record: its counts, or its probability of any."""
         if not prob:
             return ls(fc.m5 if fc else None, y5, fc, name)
         if name == "official":
-            return log_score_binary(float(p_off), y5 >= 1, eps)
+            return sp(float(p_off), y5 >= 1)
         if fc is None or fc.cdf_m5 is None:
             return float("nan")
-        return log_score_binary(float(1.0 - fc.cdf_m5[0]), y5 >= 1, eps)
+        return sp(float(1.0 - fc.cdf_m5[0]), y5 >= 1)
 
     tables, items = A.load_tables(proc), A.load_items(proc)
     cells = A.cells(tables)  # refuses confirmatory sequences (docs/adr/0013)
@@ -239,11 +254,10 @@ def analyze(
         )
         .set_index("issue_id")["mc"]
     )
-    # the official product's published probability of at least one M>=5 earthquake
-    fb = tables["forecast_bins"]
-    p_official = fb[fb["magnitude"] == 5.0].set_index(["sequence_id", "info_cutoff_ms", "window"])[
-        "probability"
-    ]
+    # the official product's published probability of at least one earthquake, per magnitude
+    fb = tables["forecast_bins"].set_index(["sequence_id", "info_cutoff_ms", "window"])
+    p_official = fb.loc[fb["magnitude"] == 5.0, "probability"]
+    p_off_low = {m: fb.loc[fb["magnitude"] == float(m), "probability"] for m in (4, 3)}
     info = {}
     # `radius`: outcomes recounted in the scaled region (a sensitivity analysis, M>=5 only)
     y5_of = recount_m5(tables, cells, radius) if radius != 1.0 else None
@@ -274,18 +288,25 @@ def analyze(
             "off4": _ls(off.m4 if off else None, int(c["y4"])),  # variants change M>=5 only
             "off3": _ls(q3, int(y3[k])) if k in y3.index else np.nan,
         }  # fmt: skip
+        # descriptive: the published probabilities at M>=4 and M>=3 (None where not published)
+        for m in (4, 3):
+            p_low = p_off_low[m].get((c["sequence_id"], int(c["issue_ms"]), c["window"]))
+            info[k][f"poff{m}"] = None if p_low is None or pd.isna(p_low) else float(p_low)
         # the worst valid baseline at M5, as dLS (prereg v1 section 7 rule for invalid answers)
         info[k]["worst_base_d5"] = np.nanmax(
             [s5(fc, n, y5, p_off) - info[k]["off5"] for n, fc in by_cell.get(k, []) if fc.m5]
         )
         # the clipped probability on the wrong side: nothing valid can score worse
-        info[k]["worst_case_d5"] = -np.log(eps) - info[k]["off5"] if prob else np.nan
+        worst = 1.0 if score == "brier" else -np.log(eps)
+        info[k]["worst_case_d5"] = worst - info[k]["off5"] if prob else np.nan
         # each baseline's dLS at M5, for the contrasts S3-S5 and the assay-sensitivity test
         for b in BASELINES:
             fc = base.get((b, *k))
             info[k][f"base_d5_{b}"] = (
                 s5(fc, b, y5, p_off) - info[k]["off5"] if fc and fc.m5 else np.nan
             )
+        # the constant-probability control, under the probability scores only
+        info[k]["base_d5_constant"] = sp(CONTROL_P, y5 >= 1) - info[k]["off5"] if prob else np.nan
         # the Brier score of P(M>=6) per baseline (prereg v2 section 4; `laf.descriptive`)
         y6 = c.get("y6", np.nan)
         info[k]["m6_event"] = None if pd.isna(y6) else bool(y6 > 0)
@@ -303,26 +324,36 @@ def analyze(
             "item_id": r["item_id"], "window": r["window"], "sample": r["sample"],
             "sequence_id": ci["sequence_id"], "status": r["status"], "warnings": r["warnings"],
             "m3_ok": ci["m3_ok"], "worst_base_d5": ci["worst_base_d5"],
-            "worst_case_d5": ci["worst_case_d5"],
+            "worst_case_d5": ci["worst_case_d5"], "m5_event": bool(ci["y5"] >= 1),
+            "base_d5_constant": ci["base_d5_constant"],
+            # valid for the M>=5 score: the stated probability is usable (the probability
+            # scores), or the whole answer is valid (the count scores)
+            "valid5": r.get("p5") is not None if prob else r["status"] == "ok",
             **{f"base_d5_{b}": ci[f"base_d5_{b}"] for b in BASELINES},
             **{f"brier_m6_{b}": ci[f"brier_m6_{b}"] for b in ("official", *BASELINES)},
             "brier_m6": _brier(r["p_m6"], ci["m6_event"]),
         }  # fmt: skip
+        if prob and r.get("p5") is not None:  # the answer's own probability, whatever else
+            row["d5"] = sp(r["p5"], ci["y5"] >= 1) - ci["off5"]  # is wrong with the answer
         if r["status"] == "ok":
             for m, t in (
                 (5, "m5_count_quantiles"),
                 (4, "m4_count_quantiles"),
                 (3, "m3_count_quantiles"),
             ):
-                if m == 5 and prob:  # the answer's own probability, not its quantiles
-                    p5 = r.get("p_m5")
-                    sc = np.nan if p5 is None else log_score_binary(p5, ci["y5"] >= 1, eps)
-                else:
-                    sc = (ls if m == 5 else _ls)(r[t], ci[f"y{m}"])
+                if m == 5 and prob:
+                    continue
+                sc = (ls if m == 5 else _ls)(r[t], ci[f"y{m}"])
                 row[f"d{m}"] = sc - ci[f"off{m}"] if (m != 3 or ci["m3_ok"]) else np.nan
             row["m3_over_m4_median"] = (r["m3_count_quantiles"][4] + 1) / (
                 r["m4_count_quantiles"][4] + 1
             )
+            # v3 answers: the probability's score at M>=4 and M>=3 minus the official one's
+            for m in (4, 3):
+                p, p_low, event = r.get(f"p_m{m}"), ci[f"poff{m}"], ci[f"y{m}"] >= 1
+                row[f"dp{m}"] = np.nan
+                if p is not None and p_low is not None and (m != 3 or ci["m3_ok"]):
+                    row[f"dp{m}"] = sp(p, event) - sp(p_low, event)
         rows.append(row)
     if not rows:  # e.g. the x1.5 radius variant where no catalog query covers 1.5 times
         return pd.DataFrame(), pd.DataFrame()
