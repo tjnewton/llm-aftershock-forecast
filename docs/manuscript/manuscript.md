@@ -108,14 +108,17 @@ from the catalog's own version history (Section 2.4). The unit of analysis is th
 and the primary test is a single one-sided test with a stated margin (Section 2.8).
 
 The primary hypothesis is that the forecasts of one LLM, queried once with a fixed prompt and
-no tools, are non-inferior to the USGS operational forecast: that their mean logarithmic
-score for the number of M≥5 aftershocks is worse by less than 0.10 nats per forecast, on the
-sequences that follow the model's training cutoff. Non-inferiority within a margin is a weaker
-claim than equivalence in skill, and the design says so in two ways. The same test is run for
-the generic RJ forecast, which uses nothing about a sequence but its mainshock; if that
-forecast also passes, the test cannot tell a forecaster with sequence-specific skill from a
-generic default, and I claim none. And the comparisons with simple baselines (a rule of thumb,
-generic RJ, an ETAS refit) are reported beside it.
+no tools, are non-inferior to the USGS operational forecast: that the mean logarithmic score
+of the probability the model states for at least one M≥5 aftershock is worse than that of the
+official probability by less than 0.02 nats per forecast, on the sequences that follow the
+model's training cutoff. Non-inferiority within a margin is a weaker claim than equivalence in
+skill, and the design says so in three ways. The same test is run for the generic RJ forecast,
+which uses nothing about a sequence but its mainshock; if that forecast also passes, the test
+cannot tell a forecaster with sequence-specific skill from a generic default, and I claim
+none. Two forecasters with no skill, a rule of thumb and one constant probability, are run
+through the test as negative controls and are predicted to fail it. And the test is expected
+to be inconclusive at this sample size, in which case the finding is the estimate with its
+interval (Section 2.8).
 
 These are probabilistic forecasts of aftershock counts in a stated region and time window.
 Nothing in this paper predicts individual earthquakes, and the forecasts published by the
@@ -234,8 +237,10 @@ text that cannot be parsed, or a probability that is missing or outside [0, 1]. 
 answer is not dropped. It counts as a score difference of $\log 2$ (0.69 nats), the loss of
 a coin flip against a certain outcome. No fixed penalty is both mild and unable to help a
 model, so two registered analyses bracket it: the worst possible score in place of $\log 2$,
-and a stricter rule under which a defect anywhere in the answer makes it invalid. For every
-other target the whole answer must be valid. Invalid rates are reported per model and arm,
+and a stricter rule under which a defect anywhere in the answer makes it invalid. That
+stricter rule was the registered one until the development run with this prompt; the change
+and its effect are stated in Section 4.1. For every other target the whole answer must be
+valid. Invalid rates are reported per model and arm,
 by time since the mainshock and by whether an M≥5 earthquake occurred in the cell. Only a
 failure to deliver any answer counts as a transport error; those were retried up to ten
 times and then listed.
@@ -467,6 +472,13 @@ These hold whatever the results are.
   showed that 0.05 would admit a forecaster with no information. The primary model's
   development estimate (+0.017) was known when 0.02 was restored. Results at 0.05 and 0.10
   are in the sensitivity table.
+- **The invalid-answer rule's history.** The rule that an answer is invalid for the primary
+  score only when it gives no usable probability of an M≥5 earthquake was also chosen after
+  the development run. Under the earlier rule, a defect anywhere in an answer made it invalid.
+  In development that rule touched three answers of the primary model, each with quantiles
+  out of order and a usable probability, and the model's mean was +0.019 nats per cell; under
+  the adopted rule all three are scored and the mean is +0.017. The earlier rule is a
+  registered sensitivity analysis.
 - **A few sequences decide.** The result turns on the sequences with M≥5 aftershocks. In
   development two of 39 sequences carried the primary model's mean, and without them it was
   negative.
