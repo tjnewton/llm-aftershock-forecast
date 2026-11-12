@@ -57,7 +57,7 @@ Per cell (issue time x window), dS = S(model) - S(official).
     answers (gpt-6.1-sol 29%, Opus 5.5 17%, Opus 4.6 and Sonnet 4.6 15%).
   - In those cells the scorer uses 0.001 in place of the stated value. Clips of 0.0001 and
     0.01 are sensitivity analyses (section 6), reported without a verdict because the margin
-    is set at 0.001: gpt-5.1's development mean is +0.011, +0.019 and +0.024 at clips of 0.01,
+    is set at 0.001: gpt-5.1's development mean is +0.009, +0.017 and +0.022 at clips of 0.01,
     0.001 and 0.0001.
 - **Why a probability and not a count** (decided 2026-11-11, after the mock review of the
   design, docs/reviews/mock-review-design.md):
