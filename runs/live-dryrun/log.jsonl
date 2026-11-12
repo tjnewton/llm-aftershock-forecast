@@ -2091,3 +2091,105 @@
 {"events": 2, "kind": "poll", "poll_ms": 1794429889107, "since_ms": 1794429289107}
 {"events": 2, "kind": "poll", "poll_ms": 1794430489119, "since_ms": 1794429889107}
 {"events": 2, "kind": "poll", "poll_ms": 1794431089121, "since_ms": 1794430489119}
+{"events": 2, "kind": "poll", "poll_ms": 1794431689123, "since_ms": 1794431089121}
+{"events": 2, "kind": "poll", "poll_ms": 1794432289124, "since_ms": 1794431689123}
+{"events": 1, "kind": "poll", "poll_ms": 1794432889282, "since_ms": 1794432289124}
+{"events": 1, "kind": "poll", "poll_ms": 1794433489428, "since_ms": 1794432889282}
+{"events": 1, "kind": "poll", "poll_ms": 1794434089541, "since_ms": 1794433489428}
+{"events": 1, "kind": "poll", "poll_ms": 1794434689636, "since_ms": 1794434089541}
+{"events": 1, "kind": "poll", "poll_ms": 1794435289717, "since_ms": 1794434689636}
+{"events": 1, "kind": "poll", "poll_ms": 1794435889778, "since_ms": 1794435289717}
+{"events": 1, "kind": "poll", "poll_ms": 1794436489834, "since_ms": 1794435889778}
+{"events": 1, "kind": "poll", "poll_ms": 1794437089877, "since_ms": 1794436489834}
+{"events": 0, "kind": "poll", "poll_ms": 1794437689913, "since_ms": 1794437089877}
+{"events": 0, "kind": "poll", "poll_ms": 1794438289944, "since_ms": 1794437689913}
+{"events": 0, "kind": "poll", "poll_ms": 1794438889967, "since_ms": 1794438289944}
+{"events": 0, "kind": "poll", "poll_ms": 1794439489989, "since_ms": 1794438889967}
+{"events": 0, "kind": "poll", "poll_ms": 1794440090005, "since_ms": 1794439489989}
+{"events": 0, "kind": "poll", "poll_ms": 1794440690062, "since_ms": 1794440090005}
+{"events": 0, "kind": "poll", "poll_ms": 1794441290073, "since_ms": 1794440690062}
+{"events": 0, "kind": "poll", "poll_ms": 1794441890083, "since_ms": 1794441290073}
+{"events": 0, "kind": "poll", "poll_ms": 1794442490091, "since_ms": 1794441890083}
+{"events": 0, "kind": "poll", "poll_ms": 1794443090097, "since_ms": 1794442490091}
+{"events": 0, "kind": "poll", "poll_ms": 1794443690103, "since_ms": 1794443090097}
+{"events": 0, "kind": "poll", "poll_ms": 1794444290107, "since_ms": 1794443690103}
+{"events": 0, "kind": "poll", "poll_ms": 1794444890111, "since_ms": 1794444290107}
+{"events": 0, "kind": "poll", "poll_ms": 1794445490115, "since_ms": 1794444890111}
+{"events": 0, "kind": "poll", "poll_ms": 1794446090118, "since_ms": 1794445490115}
+{"events": 0, "kind": "poll", "poll_ms": 1794446690120, "since_ms": 1794446090118}
+{"events": 0, "kind": "poll", "poll_ms": 1794447290148, "since_ms": 1794446690120}
+{"events": 0, "kind": "poll", "poll_ms": 1794447890149, "since_ms": 1794447290148}
+{"events": 0, "kind": "poll", "poll_ms": 1794448490151, "since_ms": 1794447890149}
+{"events": 0, "kind": "poll", "poll_ms": 1794449090153, "since_ms": 1794448490151}
+{"events": 0, "kind": "poll", "poll_ms": 1794449690154, "since_ms": 1794449090153}
+{"events": 0, "kind": "poll", "poll_ms": 1794450290154, "since_ms": 1794449690154}
+{"events": 0, "kind": "poll", "poll_ms": 1794450890155, "since_ms": 1794450290154}
+{"events": 0, "kind": "poll", "poll_ms": 1794451490156, "since_ms": 1794450890155}
+{"events": 0, "kind": "poll", "poll_ms": 1794452090157, "since_ms": 1794451490156}
+{"events": 0, "kind": "poll", "poll_ms": 1794452690158, "since_ms": 1794452090157}
+{"events": 0, "kind": "poll", "poll_ms": 1794453290158, "since_ms": 1794452690158}
+{"events": 0, "kind": "poll", "poll_ms": 1794453890161, "since_ms": 1794453290158}
+{"events": 0, "kind": "poll", "poll_ms": 1794454490161, "since_ms": 1794453890161}
+{"events": 0, "kind": "poll", "poll_ms": 1794455090161, "since_ms": 1794454490161}
+{"events": 0, "kind": "poll", "poll_ms": 1794455690162, "since_ms": 1794455090161}
+{"events": 0, "kind": "poll", "poll_ms": 1794456290164, "since_ms": 1794455690162}
+{"events": 0, "kind": "poll", "poll_ms": 1794456890164, "since_ms": 1794456290164}
+{"events": 0, "kind": "poll", "poll_ms": 1794457490165, "since_ms": 1794456890164}
+{"events": 0, "kind": "poll", "poll_ms": 1794458090165, "since_ms": 1794457490165}
+{"events": 0, "kind": "poll", "poll_ms": 1794458690169, "since_ms": 1794458090165}
+{"events": 1, "kind": "poll", "poll_ms": 1794459290169, "since_ms": 1794458690169}
+{"events": 1, "kind": "poll", "poll_ms": 1794459890170, "since_ms": 1794459290169}
+{"events": 2, "kind": "poll", "poll_ms": 1794460490170, "since_ms": 1794459890170}
+{"answers_sha256": "f733b70c98d55153a62a6a7de675ce2ca8020d31456818ddd67a50fe11197bd0", "backlog": false, "baselines_s": 26.090559005737305, "baselines_sha256": "b955be22a1c09f7ef3b52e67793da1f8e2b49a237d03a4347891a6c3193cf21e", "build_s": 0.30792999267578125, "detect_latency_s": 515.413, "event_id": "nc75462637", "fetch_s": 3.1049132347106934, "inclusion": "included", "index_ms": 1794459974757, "key": "nc75462637", "kind": "detection", "mag": 4.96, "matched_first_ms": 1794459600000, "matched_margin_s": -896.525, "matched_update_ms": 1794459970258, "net": "nc", "pipeline": "prospective", "poll_ms": 1794460490170, "published": {"answers": {"branch": "live-test", "commit": "47a412572f22060f2831102b4ba53ec358e0838b", "ots": {"https://a.pool.eternitywall.com": "pending", "https://a.pool.opentimestamps.org": "pending", "https://b.pool.opentimestamps.org": "pending"}, "ots_commit": "dbf6cd03f52f8a72d7a809dbaebd1782684c7700", "pushed_ms": 1794460501417, "repo": "tjnewton/llm-aftershock-forecast"}, "baselines": {"branch": "live-test", "commit": "ab289e4786c414722caf8e03f25c0a44e503cfe2", "ots": {"https://a.pool.eternitywall.com": "pending", "https://a.pool.opentimestamps.org": "pending", "https://b.pool.opentimestamps.org": "pending"}, "ots_commit": "286c0ac61e6beb0178ae8cb3125154a9f289d169", "pushed_ms": 1794460528421, "repo": "tjnewton/llm-aftershock-forecast"}}, "slot": "7d", "strict_margin_s": 2703.475, "superseded": false, "tier": "secondary", "update_ms": 1794459970258}
+{"commit": "47a412572f22060f2831102b4ba53ec358e0838b", "kind": "receipt", "matched_receipt_margin_s": -901.0, "pushed_ms": 1794460501417, "receipt_lag_s": -0.417, "receipt_ms": 1794460501000, "rel": "nc75462637/1794459970258", "source": "api.github.com/repos/tjnewton/llm-aftershock-forecast/activity (push to live-test)"}
+{"events": 2, "kind": "poll", "poll_ms": 1794461090172, "since_ms": 1794460490170}
+{"events": 2, "kind": "poll", "poll_ms": 1794461690173, "since_ms": 1794461090172}
+{"events": 2, "kind": "poll", "poll_ms": 1794462290173, "since_ms": 1794461690173}
+{"events": 2, "kind": "poll", "poll_ms": 1794462890174, "since_ms": 1794462290173}
+{"events": 1, "kind": "poll", "poll_ms": 1794463490174, "since_ms": 1794462890174}
+{"events": 1, "kind": "poll", "poll_ms": 1794464090185, "since_ms": 1794463490174}
+{"events": 0, "kind": "poll", "poll_ms": 1794464690308, "since_ms": 1794464090185}
+{"events": 0, "kind": "poll", "poll_ms": 1794465290419, "since_ms": 1794464690308}
+{"events": 1, "kind": "poll", "poll_ms": 1794465890509, "since_ms": 1794465290419}
+{"events": 1, "kind": "poll", "poll_ms": 1794466490583, "since_ms": 1794465890509}
+{"events": 1, "kind": "poll", "poll_ms": 1794467090649, "since_ms": 1794466490583}
+{"events": 2, "kind": "poll", "poll_ms": 1794467690703, "since_ms": 1794467090649}
+{"events": 2, "kind": "poll", "poll_ms": 1794468290750, "since_ms": 1794467690703}
+{"events": 2, "kind": "poll", "poll_ms": 1794468890787, "since_ms": 1794468290750}
+{"events": 2, "kind": "poll", "poll_ms": 1794469490819, "since_ms": 1794468890787}
+{"events": 2, "kind": "poll", "poll_ms": 1794470090848, "since_ms": 1794469490819}
+{"backlog": false, "detect_latency_s": 101.801, "event_id": "uw714136981", "fetch_s": 3.4503355026245117, "inclusion": "included", "index_ms": 1794469989047, "key": "uw714136981", "kind": "detection", "mag": 4.3, "matched_update_ms": 1794469984698, "net": "uw", "pipeline": "prospective", "poll_ms": 1794470090848, "skipped": "not a scheduled version (ADR 0004)", "slot": null, "superseded": false, "tier": "secondary", "update_ms": 1794469984698}
+{"events": 2, "kind": "poll", "poll_ms": 1794470690870, "since_ms": 1794470090848}
+{"events": 2, "kind": "poll", "poll_ms": 1794471290892, "since_ms": 1794470690870}
+{"error": "HTTPError: HTTP Error 504: Gateway Time-out", "kind": "poll", "poll_ms": 1794471890910, "since_ms": 1794471290892}
+{"events": 2, "kind": "poll", "poll_ms": 1794472490926, "since_ms": 1794471290892}
+{"events": 2, "kind": "poll", "poll_ms": 1794473090940, "since_ms": 1794472490926}
+{"backlog": false, "detect_latency_s": 427.549, "event_id": "us7000txrk", "inclusion": "magnitude", "index_ms": 1794472663391, "key": "us7000txrk", "kind": "detection", "mag": 4.5, "net": "us", "pipeline": "prospective", "poll_ms": 1794473090940, "superseded": false, "tier": null, "update_ms": 1794472658564}
+{"events": 2, "kind": "poll", "poll_ms": 1794473690953, "since_ms": 1794473090940}
+{"events": 1, "kind": "poll", "poll_ms": 1794474290966, "since_ms": 1794473690953}
+{"backlog": false, "detect_latency_s": 434.033, "event_id": "us7000txrk", "inclusion": "magnitude", "index_ms": 1794473856933, "key": "us7000txrk", "kind": "detection", "mag": 4.5, "net": "us", "pipeline": "prospective", "poll_ms": 1794474290966, "superseded": false, "tier": null, "update_ms": 1794473852100}
+{"events": 1, "kind": "poll", "poll_ms": 1794474890977, "since_ms": 1794474290966}
+{"events": 1, "kind": "poll", "poll_ms": 1794475490987, "since_ms": 1794474890977}
+{"backlog": false, "detect_latency_s": 426.883, "event_id": "us7000txrk", "inclusion": "magnitude", "index_ms": 1794475064104, "key": "us7000txrk", "kind": "detection", "mag": 4.5, "net": "us", "pipeline": "prospective", "poll_ms": 1794475490987, "superseded": false, "tier": null, "update_ms": 1794475059223}
+{"events": 1, "kind": "poll", "poll_ms": 1794476090997, "since_ms": 1794475490987}
+{"events": 1, "kind": "poll", "poll_ms": 1794476691006, "since_ms": 1794476090997}
+{"events": 1, "kind": "poll", "poll_ms": 1794477291015, "since_ms": 1794476691006}
+{"events": 1, "kind": "poll", "poll_ms": 1794477891024, "since_ms": 1794477291015}
+{"events": 1, "kind": "poll", "poll_ms": 1794478491032, "since_ms": 1794477891024}
+{"events": 1, "kind": "poll", "poll_ms": 1794479091040, "since_ms": 1794478491032}
+{"events": 1, "kind": "poll", "poll_ms": 1794479691049, "since_ms": 1794479091040}
+{"backlog": false, "detect_latency_s": 429.316, "event_id": "us7000txrk", "inclusion": "magnitude", "index_ms": 1794479261733, "key": "us7000txrk", "kind": "detection", "mag": 4.5, "net": "us", "pipeline": "prospective", "poll_ms": 1794479691049, "superseded": false, "tier": null, "update_ms": 1794479256900}
+{"events": 1, "kind": "poll", "poll_ms": 1794480291057, "since_ms": 1794479691049}
+{"events": 1, "kind": "poll", "poll_ms": 1794480304289, "since_ms": 1794480291057}
+{"events": 1, "kind": "poll", "poll_ms": 1794480904309, "since_ms": 1794480304289}
+{"events": 1, "kind": "poll", "poll_ms": 1794481504310, "since_ms": 1794480904309}
+{"events": 1, "kind": "poll", "poll_ms": 1794482104317, "since_ms": 1794481504310}
+{"events": 2, "kind": "poll", "poll_ms": 1794482704324, "since_ms": 1794482104317}
+{"answers_sha256": "8f52b109690b72de806565def49338cfe9edc78cb6d80baf140a59f585602f45", "backlog": false, "baselines_s": 123.52042293548584, "baselines_sha256": "8921f507d03444fb945b8590da68aa9ab17eace628845979266d01cd2d107e44", "build_s": 0.7995343208312988, "detect_latency_s": 466.207, "event_id": "aka2026ukynnb", "fetch_s": 2.8310630321502686, "inclusion": "included", "index_ms": 1794482238117, "key": "aka2026ukynnb", "kind": "detection", "mag": 5.6, "matched_first_ms": 1794484800000, "matched_margin_s": 2089.435, "matched_update_ms": 1794482233407, "net": "ak", "pipeline": "prospective", "poll_ms": 1794482704324, "published": {"answers": {"branch": "live-test", "commit": "01e98f5ea61bf593a632e70df7ce95d133ec6a08", "ots": {"https://a.pool.eternitywall.com": "pending", "https://a.pool.opentimestamps.org": "pending", "https://b.pool.opentimestamps.org": "pending"}, "ots_commit": "c0a75705967339e3490b1a1c29151a50981f1e8b", "pushed_ms": 1794482714998, "repo": "tjnewton/llm-aftershock-forecast"}, "baselines": {"branch": "live-test", "commit": "cc03fb15c9552dad1ea11e2f143005094b46f879", "ots": {"https://a.pool.eternitywall.com": "pending", "https://a.pool.opentimestamps.org": "pending", "https://b.pool.opentimestamps.org": "pending"}, "ots_commit": "96fb51689ce956a8a7a6c1934f3fccf179f56f17", "pushed_ms": 1794482838532, "repo": "tjnewton/llm-aftershock-forecast"}}, "slot": "28d", "strict_margin_s": 2089.435, "superseded": false, "tier": "primary", "update_ms": 1794482233407}
+{"commit": "01e98f5ea61bf593a632e70df7ce95d133ec6a08", "kind": "receipt", "matched_receipt_margin_s": 2086.0, "pushed_ms": 1794482714998, "receipt_lag_s": -0.998, "receipt_ms": 1794482714000, "rel": "aka2026ukynnb/1794482233407", "source": "api.github.com/repos/tjnewton/llm-aftershock-forecast/activity (push to live-test)"}
+{"events": 2, "kind": "poll", "poll_ms": 1794483304330, "since_ms": 1794482704324}
+{"events": 1, "kind": "poll", "poll_ms": 1794483904337, "since_ms": 1794483304330}
+{"events": 1, "kind": "poll", "poll_ms": 1794484504344, "since_ms": 1794483904337}
+{"events": 1, "kind": "poll", "poll_ms": 1794485104368, "since_ms": 1794484504344}
+{"events": 1, "kind": "poll", "poll_ms": 1794485704375, "since_ms": 1794485104368}
+{"events": 1, "kind": "poll", "poll_ms": 1794486304382, "since_ms": 1794485704375}
