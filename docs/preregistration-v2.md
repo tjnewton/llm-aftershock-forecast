@@ -742,6 +742,11 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     answers from Opus 5.5 and gpt-6.1-sol for a dry-run version of us6000tzna (2026-10-05), a
     candidate in test B's retrospective part. That version is not in the frozen snapshot, and
     only the answers' format and validity were checked.
+  - On 2026-11-12 the check was repeated on prompt v3 and the deployed live path (one issue,
+    published nowhere): 12 answers from Opus 5.5 and gpt-6.1-sol for the dry run's 28-day
+    version of aka2026ukynnb (2026-10-15), a candidate in test A's set and in test B's
+    retrospective part. That version is not in the frozen snapshot. Only the answers' format
+    and validity were checked; the items' catalog was not viewed and nothing was scored.
   - Only aggregate counts of the fore/aftershock exclusions were viewed.
   - The revision of 2026-11-11 used outcome-blind counts on the candidate snapshot's forecast
     and sequence tables (no catalog, no observed count, no score): the share of test A's

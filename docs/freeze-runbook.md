@@ -17,7 +17,10 @@ Done before the freeze, because after it every code fix is a deviation.
    config entry). Check: 12 answers (2 items, 2 models, k = 3) with `model_reported` and
    `usage`, `spend.jsonl`, both seals, the baselines. A failure is fixed before the tag.
    Done 2026-11-02 (T14, T17): us6000tzna, 12 answers on the first attempt, all valid, the
-   reported models as requested, $0.37.
+   reported models as requested, $0.37. Repeated 2026-11-12 on prompt v3, after the deploy of
+   fe904a0b, from a copy of the detector's data folder: aka2026ukynnb (its 28-day version), 12
+   answers on the first attempt, all valid with a usable M>=5 probability, the reported
+   models as requested, $0.49.
 3. The Windows host for 6 months (the clock does not pause for outages): sleep off; Windows
    Update notifies before a restart, active hours 06:00 to 24:00; the startup task
    `laf-detector` (Tyler registers it with his password, so it can read Git Credential
