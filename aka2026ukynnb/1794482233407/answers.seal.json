@@ -1,0 +1,18 @@
+{
+ "items": {
+  "aka2026ukynnb@live-matched": {
+   "first_window_ms": 1794484800000,
+   "on_time": true
+  },
+  "aka2026ukynnb@live-strict": {
+   "first_window_ms": 1794484800000,
+   "on_time": true
+  }
+ },
+ "manifest": {
+  "calls.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "items.jsonl": "c24740367632418f245e9ffdec552e3cc90d2587d1b7b364fba039f935f76cf4"
+ },
+ "record_sha256": "8f52b109690b72de806565def49338cfe9edc78cb6d80baf140a59f585602f45",
+ "sealed_ms": 1794482710565
+}
