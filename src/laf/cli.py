@@ -936,7 +936,8 @@ def main(argv: list[str] | None = None) -> None:
             per_cell = own.groupby(["sequence_id", "item_id", "window"])
             s3 = confirmatory_cells(samples, seqs_t, elapsed, sets=sets, reference="naive")
             controls = (("rule of thumb (control C1)", "base_d5_naive"),
-                        ("constant probability (control C2)", "base_d5_constant"))  # fmt: skip
+                        ("constant probability (control C2)", "base_d5_constant"),
+                        ("generic RJ (assay sensitivity)", "base_d5_generic_rj"))  # fmt: skip
             extra = [
                 # `power`: how often a forecaster like the control is declared non-inferior
                 (label, per_cell[col].first().groupby("sequence_id").mean().to_numpy(), (89,),
