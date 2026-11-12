@@ -9,7 +9,7 @@ only, which docs/adr/0013-data-splits.md allows before the freeze.
 Checked afterwards by the project lead, by recomputation on development data and on the same
 forecast tables: the rule of thumb's probability of exactly 0 in 95.8% of test A's cells; its
 deficit against the official forecast at clips of 0.01, 0.001 and 0.0001 (+0.038, +0.095,
-+0.163); the expected loss of forecasters at a fraction of the official probability and of a
++0.163; a recomputation on 2026-11-12 gives +0.16247 for the last, so +0.162); the expected loss of forecasters at a fraction of the official probability and of a
 constant (0.014 at one third, 0.042 at one tenth, 0.031 at a constant 2.9%); the official
 probability at or below 0.001 in 15.3% of cells; gpt-5.1's stated probability at or below 0.001
 in 49% of its answers; the control's labels in simulated studies (inferior 34%, inconclusive
