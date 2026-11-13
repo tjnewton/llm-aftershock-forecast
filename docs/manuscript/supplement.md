@@ -27,8 +27,9 @@ with the six exceptions below, which the protocol lists as prior exposure.
    sequence tables that involve no catalog, observed count or score: the distribution of the
    official probabilities and quantiles, the baselines' probabilities, the expected loss of
    simple forecasters if the official probability were the truth, the official model type by
-   issue time, the median circle radius and how many mainshocks precede the primary model's
-   release. These counts set the choice of the primary score, the meaning of the margin and the
+   issue time, the median circle radius, how many mainshocks precede the primary model's
+   release, and the mainshock magnitudes (61 of the primary test's 89 are M5.0 to 5.4, none
+   M6.5 or larger). These counts set the choice of the primary score, the meaning of the margin and the
    informative-sequence threshold, and are quoted where they are used.
 6. On 12 November 2026 a review of a draft of this paper, and my check of it, counted on the
    same tables the primary test's sequences by region, depth, network, magnitude type and

@@ -62,8 +62,8 @@ than the official forecast by more than the margin. If A is supported but the of
 forecast is not shown to beat the constant control on the same cells (the lower bound of
 that control's difference is not above 0): no claim rests on "supported", and the abstract
 says so in the same sentence. The protocol has no pre-written sentence for superiority over
-the official forecast or for a stratum or secondary interval below 0, and no headline claim
-is made from either.]
+the official forecast or for a stratum or secondary interval below 0, and no claim is made
+from either in the title, abstract or conclusions.]
 
 ## Non-technical summary
 
@@ -583,7 +583,7 @@ events; a clean period without the three-month buffer; a clean period that start
 model's release date; and the mean $dS$ on a model's sequences before its release minus that
 on the sequences after it, with a 90% interval (for the primary model, 62 sequences before
 and 27 after). No recall probe was run on confirmatory mainshocks. Strata, from none of
-which a headline claim is made: time since the mainshock (under 1 day, 1–7 days, later; the
+which a claim is made in the title, abstract or conclusions: time since the mainshock (under 1 day, 1–7 days, later; the
 official probability has a median of 8.4% in the first day and 0.3% after day 7); and, as
 estimates without a verdict, mainshock depth (under 70 km; 70 km or more) and region (Alaska;
 the Marianas region; elsewhere). Dependence: the cluster-block bootstrap of Section 2.8.
