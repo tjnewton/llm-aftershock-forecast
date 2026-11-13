@@ -832,8 +832,10 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     loss of simple forecasters if the official probability were the truth (section 2). The
     two mock reviews that made or prompted these counts are in docs/reviews/. The first of
     them also counted, on the same tables, the official model type by issue time
-    (Reasenberg-Jones at 463 of 472), the median radius of the forecast circle (10 km) and
-    how many of test A's sequences precede gpt-5.1's release (62 of 89).
+    (Reasenberg-Jones at 463 of 472), the median radius of the forecast circle (10 km),
+    how many of test A's sequences precede gpt-5.1's release (62 of 89), and the mainshock
+    magnitudes of test A's sequences (61 of 89 are M5.0 to 5.4, none is M6.5 or larger),
+    which section 2 quotes under "Scope of the claim" (added 2026-11-13).
 
 ## 10. Changes from prereg v1
 - **Data:** 195 confirmatory candidates instead of the registered sequences; prospective
