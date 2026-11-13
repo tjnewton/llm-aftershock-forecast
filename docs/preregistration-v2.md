@@ -135,7 +135,8 @@ Per cell (issue time x window), dS = S(model) - S(official).
       above 0 (`official_beats_constant` in the `control` row), whatever A's result, and the
       last row of the table applies when it is not.
     - The paper has no pre-written sentence for superiority over the official forecast or for
-      a stratum or secondary interval below 0, and makes no headline claim from either: a
+      a stratum or secondary interval below 0, and makes no headline claim from either in its
+      title, abstract or conclusions: a
       stratum is an estimate without a verdict (section 6), and superiority is reported as
       tested (above) with the generic model's and the constant's results beside it.
 
@@ -832,8 +833,10 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     loss of simple forecasters if the official probability were the truth (section 2). The
     two mock reviews that made or prompted these counts are in docs/reviews/. The first of
     them also counted, on the same tables, the official model type by issue time
-    (Reasenberg-Jones at 463 of 472), the median radius of the forecast circle (10 km) and
-    how many of test A's sequences precede gpt-5.1's release (62 of 89).
+    (Reasenberg-Jones at 463 of 472), the median radius of the forecast circle (10 km),
+    how many of test A's sequences precede gpt-5.1's release (62 of 89), and the mainshock
+    magnitudes of test A's sequences (61 of 89 are M5.0 to 5.4, none is M6.5 or larger),
+    which section 2 quotes under "Scope of the claim" (added 2026-11-13).
 
 ## 10. Changes from prereg v1
 - **Data:** 195 confirmatory candidates instead of the registered sequences; prospective
