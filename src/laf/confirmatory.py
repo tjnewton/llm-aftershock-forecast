@@ -28,6 +28,7 @@ def sequence_effects(cells: pd.DataFrame) -> pd.Series:
 def noninferiority(
     effects: np.ndarray, delta: float = DELTA, alpha: float = 0.05, b: int = B, seed: int = SEED,
     method: str = "student", strata: np.ndarray | None = None,
+    clusters: np.ndarray | None = None,
 ) -> dict:  # fmt: skip
     """H0: mean dS >= delta against H1: mean dS < delta (the model is not worse by delta or
     more), with resampled sequences.
@@ -41,9 +42,17 @@ def noninferiority(
     `strata` (one label per sequence; test B's retrospective and prospective parts) resamples
     each stratum separately at its own size, with the stratified standard error
     sqrt(sum_h (n_h/n)^2 s_h^2 / n_h). Strata with fewer than two sequences cannot give a
-    spread, so then all sequences are resampled together."""
+    spread, so then all sequences are resampled together.
+
+    `clusters` (one label per sequence; `sequence_clusters`) resamples whole clusters of
+    neighboring sequences instead of single sequences, a sensitivity analysis for dependence
+    between sequences (prereg v2 section 6). The estimand is unchanged."""
     x = np.asarray(effects, dtype=float)
     n = len(x)
+    if clusters is not None and len(np.unique(clusters)) < n:
+        if method != "student" or strata is not None:
+            raise ValueError("clusters take the registered bootstrap-t, without strata")
+        return _clustered(x, np.asarray(clusters), delta, alpha, b, seed)
     if strata is not None:
         labels = np.asarray(strata)
         levels = np.unique(labels)
@@ -83,6 +92,73 @@ def noninferiority(
         "sequences": n, "mean": mean, "upper": upper, "p": p, "p_sup": p_sup,
         "noninferior": upper < delta, "superior": upper < 0,
     }  # fmt: skip
+
+
+def _clustered(x, labels, delta, alpha, b, seed) -> dict:
+    """The bootstrap-t of `noninferiority` with whole clusters resampled. The mean over
+    sequences is a ratio of cluster totals, sum(s_g) / sum(m_g), and its standard error is the
+    linearized one, sqrt(G / (G - 1) * sum((s_g - mean * m_g)^2)) / sum(m_g), in the sample
+    and in every resample."""
+    _, inverse = np.unique(labels, return_inverse=True)
+    s = np.bincount(inverse, weights=x)  # cluster totals
+    m = np.bincount(inverse).astype(float)  # cluster sizes
+    g, n = len(s), len(x)
+    mean = float(x.mean())
+    if g < 2:  # one cluster: no spread between clusters, no claim
+        return {"sequences": n, "mean": mean, "upper": float("inf"), "p": 1.0, "p_sup": 1.0,
+                "noninferior": False, "superior": False, "clusters": g}  # fmt: skip
+
+    def se_of(tot, size, centre):
+        r = tot - centre * size
+        return np.sqrt(g / (g - 1) * np.sum(r * r, axis=-1)) / np.sum(size, axis=-1)
+
+    se = float(se_of(s, m, mean))
+    idx = np.random.default_rng(seed).integers(0, g, size=(b, g))
+    sb, mb = s[idx], m[idx]
+    boot = sb.sum(axis=1) / mb.sum(axis=1)
+    se_b = se_of(sb, mb, boot[:, None])
+    diff = boot - mean
+    degenerate = np.where(diff > 0, np.inf, np.where(diff < 0, -np.inf, 0.0))
+    t = np.where(se_b > 0, diff / np.where(se_b > 0, se_b, 1.0), degenerate)
+    if not np.isfinite(se) or se == 0:
+        upper, p, p_sup = float("inf"), 1.0, 1.0
+    else:
+        upper = float(mean - np.quantile(t, alpha, method="inverted_cdf") * se)
+        p = (1 + int(np.sum(t <= (mean - delta) / se))) / (b + 1)
+        p_sup = (1 + int(np.sum(t <= mean / se))) / (b + 1)
+    return {
+        "sequences": n, "mean": mean, "upper": upper, "p": p, "p_sup": p_sup,
+        "noninferior": upper < delta, "superior": upper < 0, "clusters": g,
+    }  # fmt: skip
+
+
+CLUSTER_KM, CLUSTER_DAYS = 100.0, 30.0
+
+
+def sequence_clusters(
+    sequences: pd.DataFrame, km: float = CLUSTER_KM, days: float = CLUSTER_DAYS
+) -> dict[str, int]:
+    """Sequence ID -> cluster label: mainshocks within `km` and `days` of each other are
+    joined, and so are their neighbors' neighbors (single linkage). The rule uses mainshock
+    locations and times only, no outcome (prereg v2 section 6)."""
+    from laf.catalog import haversine_km
+
+    s = sequences.reset_index(drop=True)
+    parent = list(range(len(s)))
+
+    def find(i: int) -> int:
+        while parent[i] != i:
+            parent[i] = parent[parent[i]]
+            i = parent[i]
+        return i
+
+    lat, lon, t = s["lat"].to_numpy(), s["lon"].to_numpy(), s["origin_ms"].to_numpy()
+    for i in range(len(s)):
+        near = (haversine_km(lat[i], lon[i], lat[i + 1:], lon[i + 1:]) <= km) & (
+            np.abs(t[i + 1:] - t[i]) <= days * 86_400_000)  # fmt: skip
+        for j in np.flatnonzero(near) + i + 1:
+            parent[find(int(j))] = find(i)
+    return {sid: find(i) for i, sid in enumerate(s["sequence_id"])}
 
 
 def _stratified(x, labels, levels, delta, alpha, b, seed) -> dict:
@@ -527,8 +603,14 @@ def assay(
         else:
             status = "noninferior" if t["noninferior"] else "inferior" if lower > delta else (
                 "inconclusive")  # fmt: skip
-        rows.append({"model": m, f"{baseline}_mean": t["mean"], f"{baseline}_lower": lower,
-                     f"{baseline}_upper": t["upper"], f"{baseline}_status": status})  # fmt: skip
+        row = {"model": m, f"{baseline}_mean": t["mean"], f"{baseline}_lower": lower,
+               f"{baseline}_upper": t["upper"], f"{baseline}_status": status}  # fmt: skip
+        if baseline == "constant" and m in PRIMARY:
+            # the reference's own effect on these cells (prereg v2 section 2): the official
+            # forecast is shown to beat one constant probability when the lower bound of
+            # constant minus official is above 0
+            row["official_beats_constant"] = bool(lower > 0)
+        rows.append(row)
     return pd.DataFrame(rows)
 
 

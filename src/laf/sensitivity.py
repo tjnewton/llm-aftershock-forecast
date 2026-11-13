@@ -9,6 +9,7 @@ and the outcome variants (region radius, the forward-excluded candidates) follow
 
 from typing import Any
 
+import numpy as np
 import pandas as pd
 
 from laf import confirmatory as C
@@ -43,17 +44,68 @@ def exact_match(tables: dict[str, pd.DataFrame]) -> set[str]:
     return set(it.loc[it["oaf_obs_m5"] == asof, "issue_id"])
 
 
+DEPTH_KM = 70.0  # shallow against intermediate-depth and deep mainshocks
+REGIONS = (("Alaska", "Alaska"), ("Marianas region", "Guam|Mariana|Micronesia"))
+
+
+def depth_class(depth_km: float) -> str:
+    return "depth 70 km or more" if depth_km >= DEPTH_KM else "depth under 70 km"
+
+
+def region(place: str) -> str:
+    """The mainshock's region from its ComCat place name (no outcome): the two regions that
+    hold most of the primary set, or "other regions"."""
+    import re
+
+    for name, pattern in REGIONS:
+        if re.search(pattern, place or "", flags=re.IGNORECASE):
+            return name
+    return "other regions"
+
+
+def release_contrast(cells: pd.DataFrame, sequences: pd.DataFrame, model: str) -> dict | None:
+    """Mean dS on the model's sequences before its release minus that on the sequences after
+    it, with a 90% bootstrap-t interval (the two groups resampled separately): a check on
+    contamination, since only the earlier group can have been in training data published
+    before the release. None without two sequences on each side."""
+    if model not in C.RELEASED:
+        return None
+    e = C.sequence_effects(cells[cells["model"] == model])
+    origin = sequences.set_index("sequence_id")["origin_ms"].reindex(e.index)
+    before = (origin < pd.Timestamp(C.RELEASED[model], tz="UTC").value // 1_000_000).to_numpy()
+    x, y = e.to_numpy()[before], e.to_numpy()[~before]
+    if min(len(x), len(y)) < 2:
+        return None
+    # mean(x) - mean(y) is the stratified mean of n * (x / n_x, -y / n_y) over both groups
+    n = len(x) + len(y)
+    z = np.concatenate([x * n / len(x), -y * n / len(y)])
+    lo, up = C._two_sided(z, alpha=0.10, strata=np.r_[np.zeros(len(x)), np.ones(len(y))])
+    return {"analysis": "before minus after the model's release", "model": model,
+            "sequences": n, "mean": float(x.mean() - y.mean()), "lower": lo, "upper": up,
+            "noninferior": None}  # fmt: skip
+
+
 def _row(
     analysis: str, cells: pd.DataFrame, models: tuple[str, ...], delta: float = C.DELTA,
-    verdict: bool = True,
+    verdict: bool = True, alpha: float = 0.05, cluster_in: pd.DataFrame | None = None,
 ) -> list[dict]:  # fmt: skip
+    """`cluster_in` (the sequences table) resamples clusters of neighboring mainshocks, formed
+    among the model's own sequences, instead of single sequences."""
     rows = []
     for m, g in cells[cells["model"].isin(models)].groupby("model"):
-        t = C.noninferiority(C.sequence_effects(g).to_numpy(), delta)
+        e = C.sequence_effects(g)
+        cl = None
+        if cluster_in is not None:
+            own = cluster_in[cluster_in["sequence_id"].isin(e.index)]
+            cl = e.index.map(C.sequence_clusters(own)).to_numpy()
+        t = C.noninferiority(e.to_numpy(), delta, alpha=alpha, clusters=cl)
         if m not in C.PRIMARY or not verdict:  # an estimate and bound, no verdict
             t["noninferior"] = None
-        rows.append({"analysis": analysis, "model": m}
-                    | {k: t[k] for k in ("sequences", "mean", "upper", "noninferior")})  # fmt: skip
+        row = {"analysis": analysis, "model": m}
+        row |= {k: t[k] for k in ("sequences", "mean", "upper", "noninferior")}
+        if cl is not None:  # one cluster per sequence when no two are neighbors
+            row["clusters"] = t.get("clusters", t["sequences"])
+        rows.append(row)
     return rows
 
 
@@ -99,6 +151,25 @@ def sensitivity(
         rows += _row("2-day settling rule", cells(s=samples_2d), models)
     for _, name in C.STRATA:  # the margin is defined over all strata: estimates only
         rows += _row(f"stratum: {name}", main[main["stratum"] == name], models, verdict=False)
+    # the usual one-sided level for non-inferiority, beside the registered 0.05
+    rows += _row("one-sided 0.025", main, models, alpha=0.025)
+    # dependence between sequences: neighboring mainshocks resampled as one block
+    rows += _row("cluster-block bootstrap", main, models, cluster_in=seqs)
+    # who the sequences are (mainshock depth and region, no outcome): estimates only
+    by_seq = seqs.set_index("sequence_id")
+    labels = {
+        "depth": by_seq["depth_km"].map(depth_class),
+        "region": by_seq["place"].map(region),
+    }
+    for kind, names in (("depth", ("depth under 70 km", "depth 70 km or more")),
+                        ("region", (*(n for n, _ in REGIONS), "other regions"))):  # fmt: skip
+        of = main["sequence_id"].map(labels[kind])
+        for name in names:
+            rows += _row(f"stratum: {name}", main[of == name], models, verdict=False)
+    for m in models:
+        contrast = release_contrast(main, seqs, m)
+        if contrast:
+            rows.append(contrast)
     return pd.DataFrame(rows)
 
 

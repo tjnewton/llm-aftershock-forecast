@@ -1,8 +1,8 @@
 # Preregistration v2: LLM aftershock forecasts against USGS operational forecasts, retrospective and prospective
 
 Status: **DRAFT, not frozen.** Tyler alone decides the freeze (tag `prereg-v2`). His decisions
-are listed in section 13; none is open. The live path on prompt v3 is built and rehearsed;
-one step remains before the freeze (section 11): its detector deploy, which is Tyler's.
+are listed in section 13; none is open. The live path on prompt v3 is built, rehearsed and
+deployed (2026-11-12, section 11).
 Sources: ADRs 0004, 0006,
 0011 and 0013-0018 (decisions of 2026-10-30 and 2026-10-31), the D1 and D2 results, the settings
 pilots, three checks of this draft (2026-10-31: the author's, an independent fact check,
@@ -33,7 +33,12 @@ operational aftershock forecast (OAF) and with statistical baselines.
       (ADR 0013; about 1% of issue times);
     - analyst settings inside an official product are not available to any other forecaster;
     - prospectively, the catalog fetched at detection can hold events and revisions indexed
-      after the official forecast was computed.
+      after the official forecast was computed;
+    - the prompt lists the catalog from M3.0 and does not say where it is complete. The
+      regional completeness magnitude of the official model is 3.5 for 47 of test A's 89
+      sequences, 4.6 for 39 and 3.0 for 3, so for 86 of them the absence of small events in
+      the list is not evidence of quiet, and the model is not told (decided 2026-11-12:
+      stated, the prompt unchanged).
 - **Contamination:** each model is scored only on sequences whose mainshock falls after its
   training cutoff plus a 3-month buffer (section 3). In the prospective arm, contamination is
   impossible.
@@ -112,13 +117,28 @@ Per cell (issue time x window), dS = S(model) - S(official).
     sequence.
   - **What each outcome licenses**, written before any confirmatory outcome is seen:
 
-    | A | Generic RJ (assay) | Controls C1 and C2 | The paper may say |
+    | A | Generic RJ (generic-model check) | Controls C1 and C2 | The paper may say |
     |---|---|---|---|
     | supported | inferior or inconclusive | neither supported | gpt-5.1 is non-inferior to the official forecast at the margin, on moderate sequences. |
     | supported | non-inferior | neither supported | gpt-5.1 is within the margin of the official forecast, and so is the generic model: a forecaster as good as a calibrated generic model, with no claim of skill specific to a sequence. The abstract carries that clause whenever it carries the first. |
     | supported | any | either supported | The test did not tell forecasters apart. No claim. |
     | inconclusive (either label) | any | any | Nothing in either direction. The estimate and its interval are reported, and the abstract says the comparison with the official forecast was inconclusive. |
     | inferior | any | any | gpt-5.1 is worse than the official forecast by more than the margin. |
+    | supported | any | C2's lower bound not above 0 | The official forecast is not shown to beat one constant probability on these cells, so being within the margin of it shows nothing about skill. No claim rests on "supported"; the paper says so in the same sentence. |
+
+    - **The reference's own effect** (decided 2026-11-12, after the mock review of the
+      manuscript, docs/reviews/mock-review-manuscript.md). A non-inferiority result means
+      something only if the reference is itself better than a forecaster that knows nothing.
+      On development data that is not shown: the constant control is +0.021 against the
+      official forecast with a 90% interval from -0.030 to +0.099. The paper therefore
+      reports, beside test A, whether the lower bound of the constant control's difference is
+      above 0 (`official_beats_constant` in the `control` row), whatever A's result, and the
+      last row of the table applies when it is not.
+    - The paper has no pre-written sentence for superiority over the official forecast or for
+      a stratum or secondary interval below 0, and makes no headline claim from either in its
+      title, abstract or conclusions: a
+      stratum is an estimate without a verdict (section 6), and superiority is reported as
+      tested (above) with the generic model's and the constant's results beside it.
 
   - **The most likely joint outcome**, by simulation from development effects: A
     inconclusive, the control not supported, generic RJ non-inferior. The paper then reports
@@ -162,7 +182,10 @@ Per cell (issue time x window), dS = S(model) - S(official).
     effects on 89 sequences (below), test A is supported in 4% to 11% of studies. The paper's
     finding is then the estimate with its 90% interval, read against the scale above, and not
     a verdict.
-  - **Assay sensitivity** (decided 2026-10-31): the same non-inferiority test is run for generic RJ
+  - **Generic-model check** (decided 2026-10-31; called "assay sensitivity" in earlier
+    drafts and still in the code's row names. Renamed 2026-11-12: in the trial literature
+    (ICH E10) that term means a trial's ability to tell an effective treatment from an
+    ineffective one, which this check does not show): the same non-inferiority test is run for generic RJ
     against the official forecast on test A's cells. If generic RJ is also non-inferior, A is
     reported as unable to separate the model from the generic default, and no claim of
     sequence-specific skill rests on it. On development data generic RJ minus official is
@@ -241,7 +264,7 @@ Per cell (issue time x window), dS = S(model) - S(official).
     approximation used before that (`laf.power`) ignored the heavy tail.
 
 ## 3. Models and settings
-| Model | Training cutoff | Clean from | Settings | Role |
+| Model | Cutoff (see the note below the table) | Clean from | Settings | Role |
 |---|---|---|---|---|
 | `gpt-5.1-2025-11-13` | 2024-09-30 | 2025-01-01 | reasoning effort `medium` (ADR 0014 decision 6) | A |
 | `claude-opus-5-5` | Jun 2026 | 2026-10-01 | registered request: no `thinking` field (adaptive by default), effort `high` | B |
@@ -249,6 +272,9 @@ Per cell (issue time x window), dS = S(model) - S(official).
 | `gpt-6.1-sol` | 2026-04-30 | 2026-08-01 | reasoning effort `high` (ADR 0014 decision 7); no dated snapshot, so each response's reported model is logged | S2 |
 | `claude-sonnet-4-6` | Jan 2026 | 2026-05-01 | `thinking: {"type": "adaptive"}`, effort `low` | D |
 
+- **The cutoff column** holds each vendor's documented date under the vendor's own name
+  for it: "training data cutoff" for the Anthropic models, "knowledge cutoff" for the OpenAI
+  models (ADR 0014). The paper uses the vendor's term for each (decided 2026-11-12).
 - **Requests (all models):**
   - No sampling parameters, no tools, no prefill, no server-side fallbacks.
   - The JSON schema `prompts/v3/schema_direct.json`, strict where the API supports it, and an
@@ -308,7 +334,11 @@ Per cell (issue time x window), dS = S(model) - S(official).
   - **The foreshock half of the exclusion rule uses future information** (decided 2026-10-31). 3 of the 10
     excluded events were excluded only because a larger event followed within a year. That
     event can fall inside their own forecast windows, so the exclusion selects on outcomes. The
-    3 were counted without looking at their identities.
+    3 were counted on 2026-10-31 without looking at their identities. They were identified
+    on 2026-11-01, with Tyler's approval, to build the sensitivity analysis that adds them
+    back (section 6 names them): from then on it is known that a larger event followed each
+    of the three within a year, inside its circle. Nothing else about their outcomes was
+    viewed (corrected 2026-11-12: this bullet and section 9 said that only counts were seen).
     - The candidate list stays as built, since the primary set must not change after this
       partial exposure.
     - Prospective sequences get only the backward-looking (aftershock) half.
@@ -397,6 +427,19 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
 - **On time:** a matched item enters test B only if its answer record's hash reached the
   GitHub push receipt before the item's first window opened (decision 22). The OpenTimestamps
   proofs witness that the record existed, not when to within the 30-minute margin.
+  - **What the rule selects** (stated 2026-11-12, the detector unchanged). At 10-minute
+    polling many first versions are detected after their first window has opened. In the dry
+    run from 2026-11-01 to 2026-11-12 (24 issued versions on 14 sequences, 13 of the versions
+    on secondary sequences) 11 were on time: none of 3 first versions, none of 3 at one day,
+    2 of 3 at three days, 3 of 5 at seven, 3 of 4 at fourteen and 3 of 6 at twenty-eight
+    (the log at ae0d8cb7 on `live-dryrun`: `detection` records with a slot, on time when the
+    `receipt` record's `matched_receipt_margin_s` is above 0). Test B's prospective part will
+    therefore hold few first-day cells, where the official probability is largest, and the
+    paper says so and reports the on-time share by slot.
+  - **What the evidence is.** The push time is read from GitHub's activity record by this
+    machine and committed beside the seal; GitHub's own record may lapse. After that the
+    30-minute claim rests on a file the author archived, bounded from outside only by the
+    OpenTimestamps proof (hours). No third-party time stamp with finer resolution is taken.
   - Late, missed and failed items are listed with reasons and never backfilled. Missed
     includes every scheduled version of an included prospective sequence that was never
     issued (an outage, a ComCat delay): `live_scores.unissued`, from the outcome snapshot's
@@ -488,7 +531,9 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
       so.
   - **The level** (decided 2026-10-31): one-sided 0.05 for the single primary test, A. It
     matches the 90% interval of equivalence testing but is looser than the usual one-sided
-    0.025 for non-inferiority; the power available justifies it.
+    0.025 for non-inferiority; the power available justifies it. The bound at one-sided
+    0.025 is reported beside it (the row `one-sided 0.025` of the sensitivity table, decided
+    2026-11-12); it changes no verdict.
   - **Simulated size** of the bootstrap-t, from the development rerun's effects (prompt v3,
     probability score) shifted to delta (`laf confirmatory-size --v3`,
     `results/confirmatory_size_d3_20261021T2300Z.csv`):
@@ -546,6 +591,27 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
   - results by stratum, named in advance: under 1 day, 1 to 7 days, 7 days or more after the
     mainshock. The first day is where the official probability is largest (median 8.4%,
     against 0.3% after day 7);
+  - results by who the sequences are (decided 2026-11-12), as estimates without a verdict:
+    mainshock depth under 70 km and 70 km or more, and region (Alaska; the Marianas region,
+    which is place names with Guam, Mariana or Micronesia; other). Of test A's 89 sequences
+    36 are in Alaska, 35 in the Marianas region and 18 elsewhere (6 of them in or off
+    Oregon); 20 are at 70 km or deeper (35 at 35 km or deeper, the deepest at 247 km); 72
+    were located by the global network `us`; 19 have a body-wave magnitude (mb). For the 61
+    mainshocks below M5.5, "at least one M>=5" is an event about as large as the mainshock:
+    a doublet or foreshock probability more than an aftershock one;
+  - dependence between sequences (decided 2026-11-12): the primary analysis resamples
+    sequences as independent. The row `cluster-block bootstrap` resamples clusters instead:
+    mainshocks of a model's set within 100 km and 30 days of each other are joined, and
+    their neighbors' neighbors with them (`confirmatory.sequence_clusters`; locations and
+    times only). The estimand and the bootstrap-t are unchanged, with the linearized
+    standard error of a ratio of cluster totals. It is a sensitivity analysis, so it does
+    not overturn the primary result (section 2); if its verdict differs, the paper reports
+    the primary result as depending on the independence of neighboring sequences;
+  - contamination (decided 2026-11-12): the mean dS on a model's sequences before its
+    release minus that on the sequences after it, with a 90% interval (`before minus after
+    the model's release`; for gpt-5.1, 62 sequences before and 27 after). Only the earlier
+    group can have been in material published before the model existed. No recall probe
+    is run on confirmatory mainshocks;
   - CSEP-style N-test, PIT and information gain per earthquake (ADR 0015);
   - invalid rates by arm, and by stratum and by whether an M>=5 earthquake occurred in the
     cell, so that invalid answers concentrated in hard cells are visible (section 7).
@@ -747,7 +813,17 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     version of aka2026ukynnb (2026-10-15), a candidate in test A's set and in test B's
     retrospective part. That version is not in the frozen snapshot. Only the answers' format
     and validity were checked; the items' catalog was not viewed and nothing was scored.
-  - Only aggregate counts of the fore/aftershock exclusions were viewed.
+  - Of the fore/aftershock exclusions, aggregate counts were viewed, and on 2026-11-01 the
+    identities of the 3 forward-excluded events (section 4): a larger event is known to have
+    followed each within a year, inside its circle.
+  - On 2026-11-12 the mock review of the manuscript and the lead's check of it counted, on
+    the candidate snapshot's `sequences`, `issue_times` and `forecast_bins` tables (mainshock
+    metadata and forecasts; no catalog, no observed count, no score): test A's sequences by
+    region, depth, network, magnitude type and completeness magnitude (section 6), the
+    spread of the circle radii and of the first version's delay, and how many of test A's
+    mainshocks have another within 20 to 100 km and 30 days (23 of 89, the reviewer's count).
+    The reviewer's script loaded `issue_times`, which carries the official product's own
+    observation counts; it reports that those columns were neither printed nor used.
   - The revision of 2026-11-11 used outcome-blind counts on the candidate snapshot's forecast
     and sequence tables (no catalog, no observed count, no score): the share of test A's
     cells with nine zero quantiles (71%), the official probability's distribution (median
@@ -757,8 +833,10 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     loss of simple forecasters if the official probability were the truth (section 2). The
     two mock reviews that made or prompted these counts are in docs/reviews/. The first of
     them also counted, on the same tables, the official model type by issue time
-    (Reasenberg-Jones at 463 of 472), the median radius of the forecast circle (10 km) and
-    how many of test A's sequences precede gpt-5.1's release (62 of 89).
+    (Reasenberg-Jones at 463 of 472), the median radius of the forecast circle (10 km),
+    how many of test A's sequences precede gpt-5.1's release (62 of 89), and the mainshock
+    magnitudes of test A's sequences (61 of 89 are M5.0 to 5.4, none is M6.5 or larger),
+    which section 2 quotes under "Scope of the claim" (added 2026-11-13).
 
 ## 10. Changes from prereg v1
 - **Data:** 195 confirmatory candidates instead of the registered sequences; prospective
@@ -815,8 +893,11 @@ The freeze needs all of the following:
     tables kept; 3,780 counts recounted, 17 changed by catalog revisions, 144 more windows
     closed), then `laf confirmatory-dryrun` on the assembled directory, every output written
     (gpt-5.1 +0.018 there, against +0.017 on the frozen snapshot's outcomes).
-  - OPEN before the tag: the detector deploy of the live path (Tyler's; runbook section 0.4),
-    after which the dry run continues on prompt v3.
+  - Done 2026-11-12: the detector deploy of the live path (Tyler's; runbook section 0.4,
+    commit fe904a0b, logged in ops/deploys.md). The dry run continues on prompt v3: its first
+    scheduled version on this code was sealed the same day with the baselines' M>=5
+    probability in every row, and the paid end-to-end check was repeated on it (section 9).
+    Nothing is listed as open before the tag.
 - Tyler tags `prereg-v2` (an annotated tag) on a commit that holds this document and the
   manifest below. The SHA-256 of these is posted publicly with the tag's commit hash:
   - this document;
@@ -949,5 +1030,28 @@ Decided on 2026-11-11, later the same day, after an independent review of the re
     changed after the rerun and by how much (section 7; it amends decision 37).
 44. A second negative control: one constant probability for every cell, predicted not
     supported (section 2; it adds to decision 36).
+
+Decided on 2026-11-12, after the mock review of the manuscript draft
+(docs/reviews/mock-review-manuscript.md), whose verdict on the design was "major revision".
+The primary analysis, the margin, the prompt and the detector do not change:
+45. The primary test stays as registered. The paper reports whether the official forecast
+    is shown to beat the constant control on test A's cells and claims nothing from
+    "supported" when it is not; the bound is also reported at one-sided 0.025; "assay
+    sensitivity" is renamed the generic-model check (section 2). The reviewer's alternatives
+    (the estimate alone as primary, or a three-arm retention-of-effect design) are not taken:
+    a third change of the primary analysis after development results is not made.
+46. Results by mainshock depth and by region are registered as estimates without a
+    verdict; the catalog's completeness is stated as a sixth gap in information parity, the
+    prompt unchanged; the population counts are in section 6 and in the prior-exposure list.
+47. A cluster-block bootstrap is a registered sensitivity analysis for dependence between
+    neighboring sequences (section 6); the primary resampling unit stays the sequence.
+48. The detector is unchanged. The text states that the on-time rule leaves few first-day
+    cells in test B's prospective part, with the dry run's on-time share by slot, and what
+    the evidence of timeliness is; no third-party time stamp is built (section 5).
+49. No recall probe on confirmatory mainshocks. The contrast between sequences before and
+    after a model's release is registered with its interval, and the paper uses each
+    vendor's own term for its cutoff (sections 3 and 6).
+50. The prior-exposure list is corrected: the 3 forward-excluded events were identified on
+    2026-11-01 (sections 4 and 9).
 
 No decision is open.
