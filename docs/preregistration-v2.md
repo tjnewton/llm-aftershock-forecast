@@ -135,7 +135,8 @@ Per cell (issue time x window), dS = S(model) - S(official).
       above 0 (`official_beats_constant` in the `control` row), whatever A's result, and the
       last row of the table applies when it is not.
     - The paper has no pre-written sentence for superiority over the official forecast or for
-      a stratum or secondary interval below 0, and makes no headline claim from either: a
+      a stratum or secondary interval below 0, and makes no headline claim from either in its
+      title, abstract or conclusions: a
       stratum is an estimate without a verdict (section 6), and superiority is reported as
       tested (above) with the generic model's and the constant's results beside it.
 
