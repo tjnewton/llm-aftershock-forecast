@@ -3142,3 +3142,27 @@
 {"events": 2, "kind": "poll", "poll_ms": 1795023485725, "since_ms": 1795022885712}
 {"events": 2, "kind": "poll", "poll_ms": 1795024085742, "since_ms": 1795023485725}
 {"events": 2, "kind": "poll", "poll_ms": 1795024685757, "since_ms": 1795024085742}
+{"events": 2, "kind": "poll", "poll_ms": 1795025285825, "since_ms": 1795024685757}
+{"events": 2, "kind": "poll", "poll_ms": 1795025885838, "since_ms": 1795025285825}
+{"backlog": false, "detect_latency_s": 56.469, "event_id": "us7000tz1a", "inclusion": "aftershock", "index_ms": 1795025829369, "key": "us7000tz1a", "kind": "detection", "mag": 5.3, "net": "us", "pipeline": "prospective", "poll_ms": 1795025885838, "superseded": false, "tier": null, "update_ms": 1795025823821}
+{"events": 2, "kind": "poll", "poll_ms": 1795026485851, "since_ms": 1795025885838}
+{"events": 2, "kind": "poll", "poll_ms": 1795027085864, "since_ms": 1795026485851}
+{"backlog": false, "detect_latency_s": 204.829, "event_id": "us7000tz1c", "inclusion": "magnitude", "index_ms": 1795026881035, "key": "us7000tz1c", "kind": "detection", "mag": 4.2, "net": "us", "pipeline": "prospective", "poll_ms": 1795027085864, "superseded": false, "tier": null, "update_ms": 1795026876007}
+{"events": 2, "kind": "poll", "poll_ms": 1795027685877, "since_ms": 1795027085864}
+{"events": 2, "kind": "poll", "poll_ms": 1795028285899, "since_ms": 1795027685877}
+{"events": 2, "kind": "poll", "poll_ms": 1795028885912, "since_ms": 1795028285899}
+{"events": 2, "kind": "poll", "poll_ms": 1795029485924, "since_ms": 1795028885912}
+{"events": 1, "kind": "poll", "poll_ms": 1795030085937, "since_ms": 1795029485924}
+{"events": 2, "kind": "poll", "poll_ms": 1795030685950, "since_ms": 1795030085937}
+{"backlog": false, "detect_latency_s": 441.871, "event_id": "us7000twyw", "inclusion": "magnitude", "index_ms": 1795030244079, "key": "us7000twyw", "kind": "detection", "mag": 4.4, "net": "us", "pipeline": "prospective", "poll_ms": 1795030685950, "superseded": false, "tier": null, "update_ms": 1795030237983}
+{"events": 1, "kind": "poll", "poll_ms": 1795031285967, "since_ms": 1795030685950}
+{"events": 1, "kind": "poll", "poll_ms": 1795031885980, "since_ms": 1795031285967}
+{"events": 1, "kind": "poll", "poll_ms": 1795032485992, "since_ms": 1795031885980}
+{"events": 2, "kind": "poll", "poll_ms": 1795033086006, "since_ms": 1795032485992}
+{"backlog": false, "detect_latency_s": 65.899, "event_id": "us7000tz1a", "inclusion": "aftershock", "index_ms": 1795033020107, "key": "us7000tz1a", "kind": "detection", "mag": 5.3, "net": "us", "pipeline": "prospective", "poll_ms": 1795033086006, "superseded": false, "tier": null, "update_ms": 1795033015135}
+{"events": 2, "kind": "poll", "poll_ms": 1795033686019, "since_ms": 1795033086006}
+{"events": 4, "kind": "poll", "poll_ms": 1795034286032, "since_ms": 1795033686019}
+{"backlog": false, "detect_latency_s": 209.945, "event_id": "us7000tz1c", "inclusion": "magnitude", "index_ms": 1795034076087, "key": "us7000tz1c", "kind": "detection", "mag": 4.2, "net": "us", "pipeline": "prospective", "poll_ms": 1795034286032, "superseded": false, "tier": null, "update_ms": 1795034071713}
+{"backlog": false, "detect_latency_s": 302.941, "event_id": "us7000tywi", "fetch_s": 2.9406070709228516, "inclusion": "included", "index_ms": 1795033983091, "key": "us7000tywi", "kind": "detection", "mag": 5.8, "matched_update_ms": 1795033978491, "net": "us", "pipeline": "prospective", "poll_ms": 1795034286032, "skipped": "not a scheduled version (ADR 0004)", "slot": null, "superseded": false, "tier": "primary", "update_ms": 1795033978491}
+{"events": 3, "kind": "poll", "poll_ms": 1795034886045, "since_ms": 1795034286032}
+{"events": 3, "kind": "poll", "poll_ms": 1795035486058, "since_ms": 1795034886045}
