@@ -1,0 +1,18 @@
+{
+ "items": {
+  "us7000tywi@live-matched": {
+   "first_window_ms": 1794969600000,
+   "on_time": false
+  },
+  "us7000tywi@live-strict": {
+   "first_window_ms": 1794974400000,
+   "on_time": true
+  }
+ },
+ "manifest": {
+  "calls.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "items.jsonl": "9d9d4d62b09da766130db27abe434ec858ab934c95e697c6240002bdfe35821d"
+ },
+ "record_sha256": "621d9eec606e8a75f26fca437f4bdb20f926116dadd13c6fd1ad6b9fb3aca6e5",
+ "sealed_ms": 1794970095643
+}
