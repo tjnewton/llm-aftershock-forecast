@@ -95,6 +95,9 @@ def live_tables(data_dir: Path, snapshot: str, seq: Sequence, now_ms: int, stric
         "catalog": t["catalog"],
         "oaf_versions": t["oaf_versions"],
         **{k: pd.DataFrame(v) for k, v in rows.items()},
+        # columns even when the circle holds no event before either cutoff (us6000ubw3 on
+        # 2026-11-19: the reviewed mainshock lay 12 km outside the forecast's 10 km circle)
+        "issue_catalogs": pd.DataFrame(rows["issue_catalogs"], columns=["issue_id", *cat.columns]),
     }
     return tables, int(newest["update_ms"])
 

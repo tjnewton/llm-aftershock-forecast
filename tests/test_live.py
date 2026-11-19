@@ -1,5 +1,6 @@
 from pathlib import Path
 
+import laf.live as L
 from laf.live import HOUR_MS, live_items, next_full_hour
 from laf.registry import load_sequences
 
@@ -24,3 +25,13 @@ def test_live_items_see_only_events_before_their_cutoff():
         elapsed = (i.issue_ms - i.mainshock.origin_ms) / 86_400_000
         assert all(r.t_days < elapsed for r in i.catalog)
         assert [w.key for w in i.windows] == ["day", "week", "month"]
+
+
+def test_live_items_build_when_the_circle_holds_no_event(monkeypatch):
+    # us6000ubw3 (2026-11-19): no event in the forecast's circle before either cutoff
+    real = L.build_tables
+    monkeypatch.setattr(
+        L, "build_tables", lambda *a: (t := real(*a)) | {"catalog": t["catalog"].iloc[:0]}
+    )
+    items, _ = live_items(Path("data"), "20261021T1027Z", PANAMA, NOW, next_full_hour(NOW))
+    assert [len(i.catalog) for i in items] == [0, 0]
