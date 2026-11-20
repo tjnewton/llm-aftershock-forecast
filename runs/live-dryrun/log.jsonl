@@ -3282,3 +3282,64 @@
 {"events": 0, "kind": "poll", "poll_ms": 1795100036312, "since_ms": 1795099436304}
 {"events": 0, "kind": "poll", "poll_ms": 1795100636320, "since_ms": 1795100036312}
 {"events": 0, "kind": "poll", "poll_ms": 1795101236327, "since_ms": 1795100636320}
+{"events": 0, "kind": "poll", "poll_ms": 1795101836334, "since_ms": 1795101236327}
+{"events": 0, "kind": "poll", "poll_ms": 1795102436341, "since_ms": 1795101836334}
+{"events": 1, "kind": "poll", "poll_ms": 1795103036347, "since_ms": 1795102436341}
+{"backlog": false, "detect_latency_s": 297.958, "event_id": "us6000ubw3", "fetch_s": 3.030377149581909, "inclusion": "included", "index_ms": 1795102738389, "key": "us6000ubw3", "kind": "detection", "mag": 5.2, "matched_update_ms": 1795102732006, "net": "us", "pipeline": "prospective", "poll_ms": 1795103036347, "skipped": "not a scheduled version (ADR 0004)", "slot": null, "superseded": false, "tier": "primary", "update_ms": 1795102732006}
+{"events": 1, "kind": "poll", "poll_ms": 1795103636354, "since_ms": 1795103036347}
+{"events": 1, "kind": "poll", "poll_ms": 1795104236361, "since_ms": 1795103636354}
+{"events": 1, "kind": "poll", "poll_ms": 1795104836368, "since_ms": 1795104236361}
+{"events": 2, "kind": "poll", "poll_ms": 1795105436375, "since_ms": 1795104836368}
+{"backlog": false, "detect_latency_s": 416.633, "event_id": "us7000tz1a", "inclusion": "aftershock", "index_ms": 1795105019742, "key": "us7000tz1a", "kind": "detection", "mag": 5.3, "net": "us", "pipeline": "prospective", "poll_ms": 1795105436375, "superseded": false, "tier": null, "update_ms": 1795105014564}
+{"events": 2, "kind": "poll", "poll_ms": 1795106036382, "since_ms": 1795105436375}
+{"events": 3, "kind": "poll", "poll_ms": 1795106636388, "since_ms": 1795106036382}
+{"backlog": false, "detect_latency_s": 548.745, "event_id": "us7000tz1c", "inclusion": "magnitude", "index_ms": 1795106087643, "key": "us7000tz1c", "kind": "detection", "mag": 4.2, "net": "us", "pipeline": "prospective", "poll_ms": 1795106636388, "superseded": false, "tier": null, "update_ms": 1795106081867}
+{"events": 2, "kind": "poll", "poll_ms": 1795107236395, "since_ms": 1795106636388}
+{"events": 2, "kind": "poll", "poll_ms": 1795107836402, "since_ms": 1795107236395}
+{"events": 2, "kind": "poll", "poll_ms": 1795108436409, "since_ms": 1795107836402}
+{"events": 2, "kind": "poll", "poll_ms": 1795109036416, "since_ms": 1795108436409}
+{"events": 1, "kind": "poll", "poll_ms": 1795109636423, "since_ms": 1795109036416}
+{"events": 1, "kind": "poll", "poll_ms": 1795110236430, "since_ms": 1795109636423}
+{"events": 0, "kind": "poll", "poll_ms": 1795110836436, "since_ms": 1795110236430}
+{"events": 0, "kind": "poll", "poll_ms": 1795111436447, "since_ms": 1795110836436}
+{"events": 0, "kind": "poll", "poll_ms": 1795112036454, "since_ms": 1795111436447}
+{"events": 0, "kind": "poll", "poll_ms": 1795112636461, "since_ms": 1795112036454}
+{"events": 0, "kind": "poll", "poll_ms": 1795113236468, "since_ms": 1795112636461}
+{"events": 1, "kind": "poll", "poll_ms": 1795113836475, "since_ms": 1795113236468}
+{"backlog": false, "detect_latency_s": 375.81, "event_id": "ci41572064", "fetch_s": 2.9817955493927, "inclusion": "included", "index_ms": 1795113460665, "key": "ci41572064", "kind": "detection", "mag": 4.8869503562808, "matched_update_ms": 1795113455686, "net": "ci", "pipeline": "prospective", "poll_ms": 1795113836475, "skipped": "not a scheduled version (ADR 0004)", "slot": null, "superseded": false, "tier": "secondary", "update_ms": 1795113455686}
+{"events": 1, "kind": "poll", "poll_ms": 1795114436482, "since_ms": 1795113836475}
+{"events": 1, "kind": "poll", "poll_ms": 1795115036534, "since_ms": 1795114436482}
+{"events": 1, "kind": "poll", "poll_ms": 1795115636611, "since_ms": 1795115036534}
+{"events": 1, "kind": "poll", "poll_ms": 1795116236663, "since_ms": 1795115636611}
+{"events": 2, "kind": "poll", "poll_ms": 1795116836712, "since_ms": 1795116236663}
+{"backlog": false, "detect_latency_s": 190.116, "event_id": "us7000twyw", "inclusion": "magnitude", "index_ms": 1795116646596, "key": "us7000twyw", "kind": "detection", "mag": 4.4, "net": "us", "pipeline": "prospective", "poll_ms": 1795116836712, "superseded": false, "tier": null, "update_ms": 1795116640707}
+{"events": 2, "kind": "poll", "poll_ms": 1795117436753, "since_ms": 1795116836712}
+{"events": 1, "kind": "poll", "poll_ms": 1795118036789, "since_ms": 1795117436753}
+{"events": 1, "kind": "poll", "poll_ms": 1795118636821, "since_ms": 1795118036789}
+{"events": 1, "kind": "poll", "poll_ms": 1795119236861, "since_ms": 1795118636821}
+{"events": 1, "kind": "poll", "poll_ms": 1795119836886, "since_ms": 1795119236861}
+{"events": 1, "kind": "poll", "poll_ms": 1795120436907, "since_ms": 1795119836886}
+{"events": 0, "kind": "poll", "poll_ms": 1795121036926, "since_ms": 1795120436907}
+{"events": 0, "kind": "poll", "poll_ms": 1795121636961, "since_ms": 1795121036926}
+{"events": 0, "kind": "poll", "poll_ms": 1795122236977, "since_ms": 1795121636961}
+{"events": 0, "kind": "poll", "poll_ms": 1795122836993, "since_ms": 1795122236977}
+{"events": 0, "kind": "poll", "poll_ms": 1795123437007, "since_ms": 1795122836993}
+{"events": 0, "kind": "poll", "poll_ms": 1795124037020, "since_ms": 1795123437007}
+{"events": 1, "kind": "poll", "poll_ms": 1795124637034, "since_ms": 1795124037020}
+{"answers_sha256": "1633fbb9b2ae83ecfb9ff8e7141232caa023067535b5047b2167d8f0cf82dd3d", "backlog": false, "baselines_s": 26.3250629901886, "baselines_sha256": "7d9eb2f189162113b02426d7c4bff7fac90780be6878e0ff79983385c59a5025", "build_s": 0.27417755126953125, "detect_latency_s": 296.701, "event_id": "us6000ubw3", "fetch_s": 2.661583185195923, "inclusion": "included", "index_ms": 1795124340333, "key": "us6000ubw3", "kind": "detection", "mag": 5.2, "matched_first_ms": 1795123800000, "matched_margin_s": -841.181, "matched_update_ms": 1795124334855, "net": "us", "pipeline": "prospective", "poll_ms": 1795124637034, "published": {"answers": {"branch": "live-test", "commit": "273a14a7c33e0c856e4481e6d58d1fc555000c60", "ots": {"https://a.pool.eternitywall.com": "pending", "https://a.pool.opentimestamps.org": "pending", "https://b.pool.opentimestamps.org": "pending"}, "ots_commit": "ad98fd7ca247edf0786255c72011c6be7fce1a7e", "pushed_ms": 1795124646296, "repo": "tjnewton/llm-aftershock-forecast"}, "baselines": {"branch": "live-test", "commit": "21c2247234e61c230104fcafdbbe0c36c07ffd38", "ots": {"https://a.pool.eternitywall.com": "pending", "https://a.pool.opentimestamps.org": "pending", "https://b.pool.opentimestamps.org": "pending"}, "ots_commit": "aff61479998a3f9aa6193f77fc2a31c6e0d1caaf", "pushed_ms": 1795124674562, "repo": "tjnewton/llm-aftershock-forecast"}}, "slot": "1d", "strict_margin_s": 4558.819, "superseded": false, "tier": "primary", "update_ms": 1795124334855}
+{"commit": "273a14a7c33e0c856e4481e6d58d1fc555000c60", "kind": "receipt", "matched_receipt_margin_s": -846.0, "pushed_ms": 1795124646296, "receipt_lag_s": -0.296, "receipt_ms": 1795124646000, "rel": "us6000ubw3/1795124334855", "source": "api.github.com/repos/tjnewton/llm-aftershock-forecast/activity (push to live-test)"}
+{"events": 1, "kind": "poll", "poll_ms": 1795125237045, "since_ms": 1795124637034}
+{"events": 1, "kind": "poll", "poll_ms": 1795125837057, "since_ms": 1795125237045}
+{"events": 1, "kind": "poll", "poll_ms": 1795126437069, "since_ms": 1795125837057}
+{"events": 1, "kind": "poll", "poll_ms": 1795127037083, "since_ms": 1795126437069}
+{"events": 1, "kind": "poll", "poll_ms": 1795127637093, "since_ms": 1795127037083}
+{"events": 1, "kind": "poll", "poll_ms": 1795128237105, "since_ms": 1795127637093}
+{"events": 1, "kind": "poll", "poll_ms": 1795128837116, "since_ms": 1795128237105}
+{"events": 1, "kind": "poll", "poll_ms": 1795129437126, "since_ms": 1795128837116}
+{"events": 1, "kind": "poll", "poll_ms": 1795130037137, "since_ms": 1795129437126}
+{"events": 1, "kind": "poll", "poll_ms": 1795130637147, "since_ms": 1795130037137}
+{"events": 1, "kind": "poll", "poll_ms": 1795131237158, "since_ms": 1795130637147}
+{"events": 1, "kind": "poll", "poll_ms": 1795131837168, "since_ms": 1795131237158}
+{"events": 1, "kind": "poll", "poll_ms": 1795132437178, "since_ms": 1795131837168}
+{"events": 0, "kind": "poll", "poll_ms": 1795133053656, "since_ms": 1795132437178}
+{"events": 0, "kind": "poll", "poll_ms": 1795133653667, "since_ms": 1795133053656}
