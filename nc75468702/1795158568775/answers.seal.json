@@ -1,0 +1,18 @@
+{
+ "items": {
+  "nc75468702@live-matched": {
+   "first_window_ms": 1795158000000,
+   "on_time": false
+  },
+  "nc75468702@live-strict": {
+   "first_window_ms": 1795161600000,
+   "on_time": true
+  }
+ },
+ "manifest": {
+  "calls.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "items.jsonl": "a2c52c8d01221d2bddcd2104755ebc761595dc91f76679108b30d98d23e58918"
+ },
+ "record_sha256": "e03e0e511281e0a58b445ec8f0c69eae42fdd369c4953a5415abcfdf4a6dfb3e",
+ "sealed_ms": 1795158866239
+}
