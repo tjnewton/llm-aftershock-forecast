@@ -1,11 +1,12 @@
 # Preregistration v2: LLM aftershock forecasts against USGS operational forecasts, retrospective and prospective
 
-Status: **DRAFT, not frozen.** Tyler alone decides the freeze (tag `prereg-v2`). His decisions
-are listed in section 13; none is open. The live path on prompt v3 is built, rehearsed and
-deployed (2026-11-12, section 11).
+Status: **v2, frozen at the tag `prereg-v2`.** Freezing procedure: section 11. Tyler alone
+decided the freeze. His decisions are listed in section 13; none is open. The live path on
+prompt v3 is built, rehearsed and deployed (2026-11-12, with one fix deployed 2026-11-20;
+section 11).
 Sources: ADRs 0004, 0006,
 0011 and 0013-0018 (decisions of 2026-10-30 and 2026-10-31), the D1 and D2 results, the settings
-pilots, three checks of this draft (2026-10-31: the author's, an independent fact check,
+pilots, three checks of the draft (2026-10-31: the author's, an independent fact check,
 an independent methodology review), and the revision of 2026-11-11: an independent mock review
 of the design (docs/reviews/mock-review-design.md), the proposal that answered it
 (docs/proposals/prereg-v2-revision.md) and the development rerun with prompt v3 (`runs/d3`).
@@ -700,8 +701,8 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     failure to deliver an answer is a transport error. A defect elsewhere in the answer
     (non-monotone quantiles, another value out of range) does not make the M>=5 probability
     invalid.
-  - **This rule changed after the development rerun, and the change is disclosed.** The draft
-    judged the whole answer. All three invalid answers of the rerun (gpt-5.1) state a usable
+  - **This rule changed after the development rerun, and the change is disclosed.** The earlier
+    draft judged the whole answer. All three invalid answers of the rerun (gpt-5.1) state a usable
     M>=5 probability; one fails only on its M>=3 quantiles for the month. Under the whole-answer
     rule they counted log 2 for a number the primary score never reads, and gpt-5.1's
     development mean was +0.019; under this rule it is +0.017. The whole-answer rule is
@@ -897,6 +898,11 @@ The freeze needs all of the following:
     commit fe904a0b, logged in ops/deploys.md). The dry run continues on prompt v3: its first
     scheduled version on this code was sealed the same day with the baselines' M>=5
     probability in every row, and the paid end-to-end check was repeated on it (section 9).
+  - Done 2026-11-20: one fix deployed to the detector (Tyler's; commit f1cb6232, pull request
+    123, logged in ops/deploys.md). An issue whose forecast circle held no event before its
+    cutoff could not build its items: the empty issue catalog had no columns. The dry run met
+    it once (us6000ubw3, 2026-11-19), on no version the study uses; the fix changes nothing
+    else on the live path.
     Nothing is listed as open before the tag.
 - Tyler tags `prereg-v2` (an annotated tag) on a commit that holds this document and the
   manifest below. The SHA-256 of these is posted publicly with the tag's commit hash:
