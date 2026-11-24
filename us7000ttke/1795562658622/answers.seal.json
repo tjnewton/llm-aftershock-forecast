@@ -1,0 +1,18 @@
+{
+ "items": {
+  "us7000ttke@live-matched": {
+   "first_window_ms": 1795564800000,
+   "on_time": true
+  },
+  "us7000ttke@live-strict": {
+   "first_window_ms": 1795564800000,
+   "on_time": true
+  }
+ },
+ "manifest": {
+  "calls.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "items.jsonl": "e8ab60d7e030071d39553ff6422dbeb067f24f8a8f3edd84de34586d732bfed9"
+ },
+ "record_sha256": "54fd4c57b0a51bc3d03c3bb0079e7749338f578fc65a0c5de39bdd02f0154f50",
+ "sealed_ms": 1795562672972
+}
