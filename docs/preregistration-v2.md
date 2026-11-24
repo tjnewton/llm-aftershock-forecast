@@ -701,8 +701,8 @@ items against the official forecast. ADR 0017 records this (2026-10-31).
     failure to deliver an answer is a transport error. A defect elsewhere in the answer
     (non-monotone quantiles, another value out of range) does not make the M>=5 probability
     invalid.
-  - **This rule changed after the development rerun, and the change is disclosed.** The draft
-    judged the whole answer. All three invalid answers of the rerun (gpt-5.1) state a usable
+  - **This rule changed after the development rerun, and the change is disclosed.** The earlier
+    draft judged the whole answer. All three invalid answers of the rerun (gpt-5.1) state a usable
     M>=5 probability; one fails only on its M>=3 quantiles for the month. Under the whole-answer
     rule they counted log 2 for a number the primary score never reads, and gpt-5.1's
     development mean was +0.019; under this rule it is +0.017. The whole-answer rule is
