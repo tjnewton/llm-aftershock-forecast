@@ -4246,3 +4246,12 @@
 {"events": 1, "kind": "poll", "poll_ms": 1795617867896, "since_ms": 1795617267882}
 {"events": 1, "kind": "poll", "poll_ms": 1795618467909, "since_ms": 1795617867896}
 {"events": 1, "kind": "poll", "poll_ms": 1795619067921, "since_ms": 1795618467909}
+{"events": 1, "kind": "poll", "poll_ms": 1795619667935, "since_ms": 1795619067921}
+{"events": 1, "kind": "poll", "poll_ms": 1795620267948, "since_ms": 1795619667935}
+{"events": 1, "kind": "poll", "poll_ms": 1795620867961, "since_ms": 1795620267948}
+{"events": 1, "kind": "poll", "poll_ms": 1795621467974, "since_ms": 1795620867961}
+{"events": 1, "kind": "poll", "poll_ms": 1795622067986, "since_ms": 1795621467974}
+{"events": 1, "kind": "poll", "poll_ms": 1795622667999, "since_ms": 1795622067986}
+{"events": 1, "kind": "poll", "poll_ms": 1795623219528, "since_ms": 1795622667999}
+{"events": 2, "kind": "poll", "poll_ms": 1795623819529, "since_ms": 1795623219528}
+{"backlog": false, "detect_latency_s": 398.991, "event_id": "us7000tz1a", "inclusion": "aftershock", "index_ms": 1795623420538, "key": "us7000tz1a", "kind": "detection", "mag": 5.3, "net": "us", "pipeline": "prospective", "poll_ms": 1795623819529, "superseded": false, "tier": null, "update_ms": 1795623414209}
